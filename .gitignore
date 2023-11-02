@@ -1,0 +1,12 @@
+.vscode
+# I file con questi estensioni non vengono caricati su github. Sono creati ogni volta che si compila il file .tex
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.synctex.gz
+*.toc
+*.out
+*.lof
+*.lot.DS_Store
+*.pdf
