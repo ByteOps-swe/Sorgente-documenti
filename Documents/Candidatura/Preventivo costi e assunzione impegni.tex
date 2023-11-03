@@ -1,0 +1,131 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[default]{raleway}
+\usepackage{titlesec, amsmath, array, eurosym, setspace, url, geometry, graphicx, xcolor, relsize, fancyhdr, booktabs, hyperref}
+%\geometry{a4paper, left=2cm, right=2cm, top=2cm, bottom=2.5cm}
+\renewcommand{\headrulewidth}{0pt}
+
+% ----------------------------- Definizione tabella ---------------------------
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+% ------------------------------Metadati indice --------------------------------
+\title{\textbf{\fontsize{30}{6}\selectfont Indice}}
+\author{\fontsize{14}{6}\selectfont ByteOps}
+\date{\today}
+
+% -----------------------------Creazione footer --------------------------------
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{
+    \parbox[c]{2cm}{\includegraphics[width=2cm]{../Images/logo.png}}
+    \textcolor[RGB]{120, 120, 120}{$\cdot$ Preventivo costi e assunzione impegni}
+}
+\rfoot{\thepage}
+
+% --------------------------Modifica formato hyperlinks ------------------------
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,    
+    urlcolor=blue,
+    pdftitle={Preventivo costi e assunzione impegni}, % nome visualizzato in alto a sx nel programma 
+    pdfpagemode=FullScreen,
+}
+
+\begin{document}
+\pagestyle{fancy}
+\begin{center}
+\includegraphics[width = 0.7\textwidth]{../Images/logo.png} \\
+\vspace{0.2cm}
+\textcolor[RGB]{60, 60, 60}{\textit{ByteOps.swe@gmail.com}} \\
+\vspace{1cm}
+\fontsize{16}{6}\selectfont Preventivo costi e assunzione impegni \\
+\vspace{0.5cm}
+\end{center}
+
+\section*{Informazioni documento}
+\def\arraystretch{1.2}
+\begin{tabular}{>{\raggedleft\arraybackslash}p{0.2\textwidth}|>{\raggedright\arraybackslash}p{0.6\textwidth}c}
+\hline
+\addlinespace
+    \textbf{Data} & 25/10/2023 \vspace{10pt} \\
+    \textbf{Redattori} & A. Barutta \\ & R. Smanio \\ & N. Preto \vspace{10pt} \\
+    \textbf{Verificatori} & E. Hysa \\ & L. Skenderi \\ & D. Diotto \vspace{10pt} \\
+    \textbf{Amministratore} & F. Pozza \vspace{10pt} \\
+    \textbf{Destinatari} & T. Vardanega \\ & R. Cardin \vspace{10pt} \\
+\end{tabular}
+\pagebreak 
+
+% ------------------------------- inizio documento ------------------------------
+
+\begin{itemize}
+    \item[] \textbf{\fontsize{12}{6}\selectfont Impegni orari}
+    
+    Con la scrittura del seguente documento ciascuno dei componenti del gruppo \textit{ByteOps} si impegna a lavorare sul progetto a noi affidato per un monte ore totale di 93 ore produttive ciascuno. \\
+    Durante lo svolgimento del progetto tutti i ruoli tipici di un team di creazione e sviluppo software, saranno affidati almeno una volta a ciascuno dei componenti del gruppo e  l’assegnazione di questi è vincolata nel tempo a ruotare in maniera che ogni membro provi ogni ruolo per lo stesso ammontare di ore così che la divisione del carico sia equa e il contributo dei singoli bilanciato. \\
+    I ruoli che ruoteranno sono:
+    \begin{itemize}
+        \item \textbf{Programmatori:} Sono i responsabili della scrittura del codice del software. Seguono le specifiche del progetto.
+        
+        \item \textbf{Analisti:} Si occupano di analizzare i requisiti del software da sviluppare. Raccolgono le informazioni dai clienti o dagli utenti finali e le traducono in specifiche dettagliate che gli sviluppatori possono comprendere e implementare.
+        
+        \item \textbf{Verificatori:} Svolgono un ruolo di controllo qualità nel processo di sviluppo del software. Si assicurano che il codice scritto e la documentazione rispettino gli standard di programmazione, che soddisfino i requisiti specificati e che non contengano errori.
+        
+        \item \textbf{Progettisti:} Si occupano della progettazione dettagliata del software. Si basano sulle specifiche determinate dagli analisti e definiscono l'architettura complessiva del sistema, identificando i moduli, le componenti e le interazioni tra di loro.
+
+        \item \textbf{Amministratore:} Responsabile di gestire i processi, le risorse e le attività coinvolte nel ciclo di vita del software. Questo ruolo comprende la gestione delle configurazioni, la pianificazione e il monitoraggio dei progetti, la gestione dei cambiamenti e la risoluzione dei problemi. L'amministratore collabora con il team di sviluppo e altre figure chiave per assicurare che il processo di sviluppo software avvenga in modo efficiente e che i prodotti finali soddisfino i requisiti e le aspettative degli utenti.
+        
+        \item \textbf{Responsabile:} Il responsabile è il punto di riferimento per tutto il team che lavora allo sviluppo del software. Si occupa di pianificare le attività, di gestire le risorse a disposizione, di coordinare il lavoro del team e di assicurarsi che il progetto venga completato nel rispetto dei tempi e dei budget stabiliti.
+    \end{itemize}
+    \pagebreak
+    Nella tabella sottostante riportiamo costi orari per ruolo, insieme alle ore previste da ricoprire su ogni ruolo e di conseguenza la suddivisione oraria per membro:
+    \vspace{0.5cm}
+    \begin{center}
+        
+    \begin{tabular}{|C{3cm}|C{2cm}|C{2cm}|C{2cm}|C{2cm}|C{2cm}|}
+        \hline
+
+        \textbf{Ruoli} & \textbf{Costo orario} \linebreak \textit{(\euro\ / h)} & \textbf{Ore previste per ruolo} & \textbf{Ore previste per membro} & \textbf{Costo per ruolo} \linebreak \textit{(\euro\ )} \\
+        \hline\hline
+        
+        Responsabile & 30 & 49 & 7 & 1470 \\
+        \hline
+        
+        Amministratore & 20 & 49 & 7 & 980 \\
+        \hline
+        
+        Analista & 25 & 63 & 9 & 1575 \\
+        \hline 
+        
+        Progettista & 25 & 210 & 30 & 5250 \\ 
+        \hline
+        
+        Programmatore & 15 & 105 & 15 & 1575 \\
+        \hline
+        
+        Verificatore & 15 & 175 & 25 & 2625 \\
+        \hline\hline
+        
+        \textbf{TOTALE} & - & 651 & 93 & 13475 \\
+        \hline
+    \end{tabular}
+    \end{center}
+
+    
+    \vspace{0.5cm}
+
+    \item[] \textbf{\fontsize{12}{6}\selectfont Preventivo dei costi} 
+
+    Il costo totale stimato per il progetto è di 13’475.00\euro\ . \\ 
+    È stato calcolato in conformità alla pianificazione fornita e considerato anche la fase preliminare di analisi, come indicato nelle tabelle di riferimento qui presentate. \\
+    Questa previsione finanziaria tiene conto di ogni fase del progetto e riflette l’impegno per garantire un’implementazione potenzialmente accurata e di qualità del software, rispettando allo stesso tempo i vincoli finanziari stabiliti. La suddivisione dei costi è stata organizzata per assicurare un utilizzo efficiente delle risorse finanziarie.
+
+    \vspace{0.5cm}
+
+    \item[] \textbf{\fontsize{12}{6}\selectfont Scadenza consegna} 
+
+    Il gruppo stima di consegnare il prodotto finito relativo al capitolato C6 \textit{“SyncCity”} proposto dall’azienda \textit{Sync Lab} entro il 29/03/2024.
+\end{itemize}
+
+\end{document}
