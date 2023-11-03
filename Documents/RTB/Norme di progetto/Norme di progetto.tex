@@ -166,19 +166,19 @@ Questo approccio porta diversi vantaggi, tra cui una maggiore coerenza, una migl
 \subsubsection{Redazione documenti}
 \textbf{Procedimento in sintesi}\\
     Per rispettare i principi  di "Documentation as Code" l'approccio attualmente adottato richiede la competenza e l'utilizzo di LaTeX per la stesura dei documenti e una repository ad accesso limitato Git chiamata "Sorgente documenti" dove versionarli. I redattori, seguendo la struttura dettagliata nei prossimi paragrafi, redigeranno il contenuto dei documenti utilizzando il linguaggio \LaTeX\ su un ramo dedicato nella repository "Sorgente documenti". \\
-    Al termine del loro lavoro, segnaleranno il completamento posizionando l'Issue relativa al compito di redazione nella colonna "Documentazione da validare" della \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione} di GitHub relativa alla repository pubblica "\href{https://github.com/ByteOps-swe/Documents}{Documents}" e generando una pull request . Questa colonna conterrà i compiti relativi ai documenti completati dai redattori, che necessitano ora della validazione da parte dei verificatori. \\
+    Al termine del loro lavoro, segnaleranno il completamento posizionando l'Issue relativa al compito di redazione nella colonna "Documentazione da validare" della \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione} di GitHub (unica e condivisa sia dalla repository pubblica "\href{https://github.com/ByteOps-swe/Documents}{Documents}" che dalla repository "Sorgente documenti") e generando una pull request . Questa colonna conterrà i compiti relativi ai documenti completati dai redattori, che necessitano ora della validazione da parte dei verificatori. \\
    
     I file sorgenti LaTeX saranno quindi gestiti e versionati nella repository con accesso limitato denominata "Sorgente documenti", strutturata in modo identico alla repository pubblica chiamata "\href{https://github.com/ByteOps-swe/Documents}{Documents}" ma con file \LaTeX\ al posto dei PDF. \\
-    I verificatori quindi troveranno il documento da validare in questa repository.\\
+    I verificatori quindi troveranno il documento da validare in questa repository quando riceveranno una notifica mail generata dalla pull request.\\
    Quando i verificatori avranno convalidato il contenuto, dovranno seguire le istruzioni al paragrafo ~\ref{sec:verificatori} per formalizzare la verifica.
-    \subsubsection{Strumenti}
+    
+    \subsubsection{Procedura di redazione}
+\paragraph{Strumenti}
     Gli strumenti utilizzati dalle attività di redazione dei documenti vogliono soddisfare il principio adottato di "Documentation as Code".
     \begin{itemize}
         \item \textbf{GitHub}: Versionamento,Collaborazione,Integrazione continua, automazione e distribuzione.
         \item \textbf{Latex}: Scrittura in formato testuale.
     \end{itemize}
-    \subsubsection{Ruoli: procedure nel dettaglio}
-
     \paragraph{I redattori: compiti e casi di sviluppo}
 
     Il redattore incaricato della stesura di un documento o di una parte di esso è tenuto ad adottare un approccio simile a quello richiesto per apportare modifiche al codice sorgente di un software utilizzando il modello di branching di Git noto come "feature branch".\\
@@ -215,9 +215,9 @@ Dalla repository  "Sorgente documenti" contenente i sorgenti \LaTeX,il redattore
     \vspace{0.3cm}
     \textbf{Convezione nomeclatura branch documentazione}
     \begin{itemize}
-        \item \textbf{Verbali interni}: \verb|branch_VerbaleIn_yyyy_mm_dd|
-        \item \textbf{Verbali esterni}: \verb|branch_VerbaleEx_yyyy_mm_dd|
-        \item \textbf{Norme di progetto}: \verb|branch_NormeDiProgetto|
+        \item \textbf{Verbali interni}: \verb|branch_VerbaleIn_GG_MM_AAAA|
+        \item \textbf{Verbali esterni}: \verb|branch_VerbaleEx_GG_MM_AAAA|
+        \item \textbf{Norme di progetto}: \verb|Norme-di-progetto|
     \end{itemize}
 
     \textbf{Caso modifica documento in fase di redazione}\\
@@ -234,6 +234,7 @@ Dalla repository  "Sorgente documenti" contenente i sorgenti \LaTeX,il redattore
     git checkout branch_identificativoDocumento
         \end{lstlisting}
     \end{enumerate}
+     \textbf{Salvataggio e condivisone progressi di task non completate}\\
     Alla fine di una sessione di modifiche di un file, nel caso si desideri rendere accessibile ai membri il lavoro non ancora completato e, pertanto, non pronto alla verifica, è necessario:
     \begin{enumerate}
         \item Pushare le modifiche fatte nel branch 
@@ -250,6 +251,7 @@ Dalla repository  "Sorgente documenti" contenente i sorgenti \LaTeX,il redattore
         \item Risolvi i conflitti e ripeti punto 1.
     \end{enumerate}
 \vspace{0.3cm}
+     \textbf{Completamento compito di redazione}\\
     Al termine del loro lavoro,i redattori segnaleranno il completamento della attiva a loro assegnata (essa sia la stesura completa di un documento o di una sua parte) posizionando l'issue relativa nella colonna "Documentazione da validare" della  \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione}.\\
     Inoltre dovranno attuare una \textbf{pull request} nella repository "Sorgente documenti".\\
     Si tratta di una richiesta di unire le modifiche fatte nel branch di redazione a un altro branch, in questo caso il main.
@@ -266,7 +268,79 @@ Dalla repository  "Sorgente documenti" contenente i sorgenti \LaTeX,il redattore
     
    Se i verificatori non convalidano il documento, riceveranno feedback allegati alla pull request relativi ai problemi identificati.
 
-    \paragraph{I verificatori: compiti e casi di sviluppo}\label{sec:verificatori}
+    \subsubsection{Regole tipografiche}
+    \begin{itemize}
+        \item I titoli delle sezioni iniziano con la lettera maiuscola;
+        \item I nomi dei ruoli, di applicazioni e aziende si scrivono con l’iniziale maiuscola
+e in italico (ad es. Responsabile);
+        \item I nomi dei documenti e delle revisioni si scrivono per esteso, in italico.
+        \item I nomi dei documenti e delle revisioni che si ripetono spesso possono essere abbreviati seguendo la tabella presentata nella sezione Nomi dei documenti abbreviati,
+mantenendo sempre la regola del carattere italico e grassetto.
+        \item I nomi propri dei componenti del gruppo vanno scritti per esteso, con il nome che
+precede il cognome e in italico.
+        \item I nomi propri dei componenti del gruppo nelle intestazioni e nel changelogG
+vengono scritti per esteso ma non in italico.
+        \item I nomi dei file vanno scritti in carattere mono spaziato con nome del file ed
+estensione (ad es. ./Common/Intestazione.tex).
+        \item  Le date vengono scritte nel formato GG/MM/AAAA.
+        \item  I numeri razionali si scrivono utilizzando la virgola come separatore tra parte
+intera e parte decimale.
+    \end{itemize}
+\subsubsection{Struttura del documento}
+I documenti ufficiali seguono un rigoroso e uniforme schema strutturale, il quale richiede un'osservanza scrupolosa.
+\paragraph{Prima pagina}
+Nella prima pagina di ogni documento deve essere presente:
+\begin{itemize}
+    \item Nome e mail del gruppo
+    \item Nome del documento 
+    \item Data del documento
+    \item Redattori
+    \item Verificatori
+    \item Amministratore
+    \item Destinatari
+\end{itemize}
+
+\paragraph{Registro delle modifiche}
+Tutti i documenti generici (a eccezione di verbali e
+lettere) devono essere provvisti di un registro delle modifiche che contiene un riassunto
+delle modifiche apportate al documento in formato tabellare.
+La tabella  deve essere inserita nella
+sezione registro delle modifiche subito prima l’indice del documento.
+La tabella deve registrare le seguenti informazioni:
+\begin{itemize}
+\item \textbf{Versione del file}.
+\item \textbf{Data di rilascio}.
+\item \textbf{Autore}.
+\item \textbf{Verificatore}.
+\item \textbf{Descrizione}: un riassunto delle modifiche apportate.
+\end{itemize}
+
+\paragraph{Verbali: struttura generale}
+Questo documento assume l'importante ruolo di costituire un registro ufficiale, atto a riportare in maniera accurata gli argomenti trattati, le decisioni adottate, le azioni da intraprendere e le figure coinvolte.\\
+In particolare, è possibile distinguere tra verbali interni, destinati all'uso all'interno di un gruppo o di un'organizzazione, e verbali esterni, che trovano applicazione quando vi sono terze parti coinvolte nelle discussioni o nelle decisioni documentate.\\ 
+Nella prima pagina oltre alle informazioni comuni a ogni documento vengono specificate:
+\begin{itemize}
+    \item Tipologia della riunione.
+    \item Luogo: canale di comunicazione adottato.
+    \item Ora di inizio e fine dell'incontro.
+    \item Partecipanti della riunione (interni ed esterni).
+\end{itemize}
+In questo tipo do documento non è presente il versionamento del file in quanto non necessario. 
+\paragraph{Verbali interni}\label{sec:verbali interni}
+Un verbale interno è un documento redatto all'interno del nostro gruppo con lo scopo di registrare e documentare in maniera dettagliata i particolari di una riunione che coinvolge esclusivamente i membri del nostro team.\\
+La sua funzione primaria consiste nel registrare in modo preciso le conversazioni tenutesi durante l'incontro, le decisioni prese e i piani futuri concordati.\\
+L'audience principale di un verbale interno è costituita dai membri dell'organizzazione o del team.
+
+\paragraph{Verbali esterni}\label{sec:verbali esterni}
+
+Un verbale esterno è un documento scritto utilizzato per registrare e documentare in modo accurato i dettagli di una riunione o un incontro che coinvolge non solo i membri interni al nostro gruppo, ma anche terze parti esterne ad esso.\\
+Il pubblico principale di un verbale esterno può includere individui o entità al di fuori del team, come clienti o l'azienda proponente.\\
+La principale distinzione rispetto ai verbali interni risiede nel fatto che entrambe le parti coinvolte nell'incontro convalidino il verbale e concordino sul suo contenuto. Pertanto, è essenziale stabilire un metodo di validazione del documento che garantisca la correttezza e l'accuratezza delle informazioni registrate.\\
+Nel nostro caso, [specificare qui il metodo di validazione, ad esempio, la firma delle parti coinvolte, l'approvazione via e-mail, o qualsiasi altra procedura stabilita contrattualmente] serve a confermare e legittimare il contenuto del verbale, contribuendo a evitare fraintendimenti e dispute future.
+
+\subsection{Verifica}
+\subsubsection{Verifica dei documenti}
+\paragraph{I verificatori: compiti e casi di sviluppo}\label{sec:verificatori}
 
     Il ruolo del verificatore nei documenti è cruciale per garantire la qualità e l'accuratezza del contenuto.
 
@@ -300,35 +374,7 @@ Dopo l'attuazione dei controlli sopra citati e verificato il loro rispetto, i pa
     \end{itemize}
      
 \end{enumerate}
-
-\subsubsection{Verbali: struttura generale}
-Questo documento assume l'importante ruolo di costituire un registro ufficiale, atto a riportare in maniera accurata gli argomenti trattati, le decisioni adottate, le azioni da intraprendere e le figure coinvolte.\\
-In particolare, è possibile distinguere tra verbali interni, destinati all'uso all'interno di un gruppo o di un'organizzazione, e verbali esterni, che trovano applicazione quando vi sono terze parti coinvolte nelle discussioni o nelle decisioni documentate.\\ 
-Nella prima pagina vengono specificate:
-\begin{itemize}
-    \item Nome e mail del gruppo
-    \item Data del documento
-    \item Tipologia della riunione
-    \item Luogo: canale di comunicazione adottato
-    \item Ora di inizio e fine dell'incontro
-    \item Ruoli
-    \item Destinatari
-    \item Partecipanti della riunione
-    
-\end{itemize}
-In questo tipo do documento non è presente il versionamento del file in quanto non necessario. 
-\paragraph{Verbali interni}\label{sec:verbali interni}
-Un verbale interno è un documento redatto all'interno del nostro gruppo con lo scopo di registrare e documentare in maniera dettagliata i particolari di una riunione che coinvolge esclusivamente i membri del nostro team.\\
-La sua funzione primaria consiste nel registrare in modo preciso le conversazioni tenutesi durante l'incontro, le decisioni prese e i piani futuri concordati.\\
-L'audience principale di un verbale interno è costituita dai membri dell'organizzazione o del team.
-
-\paragraph{Verbali esterni}\label{sec:verbali esterni}
-
-Un verbale esterno è un documento scritto utilizzato per registrare e documentare in modo accurato i dettagli di una riunione o un incontro che coinvolge non solo i membri interni al nostro gruppo, ma anche terze parti esterne ad esso.\\
-Il pubblico principale di un verbale esterno può includere individui o entità al di fuori del team, come clienti o l'azienda proponente.\\
-La principale distinzione rispetto ai verbali interni risiede nel fatto che entrambe le parti coinvolte nell'incontro convalidino il verbale e concordino sul suo contenuto. Pertanto, è essenziale stabilire un metodo di validazione del documento che garantisca la correttezza e l'accuratezza delle informazioni registrate.\\
-Nel nostro caso, [specificare qui il metodo di validazione, ad esempio, la firma delle parti coinvolte, l'approvazione via e-mail, o qualsiasi altra procedura stabilita contrattualmente] serve a confermare e legittimare il contenuto del verbale, contribuendo a evitare fraintendimenti e dispute future.
-
+\section{Processi organizzativi}
 \subsection{Canali di comunicazione}
 \subsubsection{Discord}
 paragrafo relativo a ds
