@@ -129,7 +129,7 @@ L'obiettivo fondamentale del seguente documento è quello di stabilire delle lin
 Più in generale, le norme, dovrebbero offrirci un percorso affidabile e strutturato per la realizzazione del prodotto sofware nonostante le difficoltà incontrabili durante l'avanzamento.
 
 \subsection{Glossario}
-Questo documento, insieme ad altri redatti durante l'implementazione del progetto, è accompagnato da un \textbf{\textit{Glossario}}, incluso nella documentazione, in cui sono spiegate tutte le terminologie specifiche o eventualmente ambigue del progetto. Se un termine è nel \textbf{\textit{Glossario}}, viene segnalato con una \textit{G} a pedice accanto ad esso.
+Incluso nella documentazione è presente il \textbf{\textit{Glossario}} in cui sono definiti tutti i termini specifici o eventualmente ambigui presenti nei vari documenti del progetto. Se un termine è nel \textbf{\textit{Glossario}}, viene segnalato con una \textit{G} a pedice accanto ad esso.
 \subsubsection{Raccolta termini del glossario}
 Il \textbf{\textit{Glossario}} verrà compilato attraverso un documento condiviso su \LaTeX \textsubscript{\textit{G}}, accessibile a tutti i membri del gruppo. Qui, verranno elencati i termini di particolare rilevanza nel contesto del progetto, seguendo una checklist. Successivamente, l'\textit{Amministratore} del progetto si occuperà di dettagliare ulteriormente questi termini nella creazione del \textbf{\textit{Glossario}} ufficiale.
 
@@ -165,7 +165,7 @@ La documentazione viene gestita attraverso un sistema di controllo versione (com
 La documentazione viene scritta utilizzando formati testuali leggibili da macchine (come Latex o Markdown), che sono facilmente gestibili attraverso un sistema di controllo versione.
 
 \item \textbf{Automazione:}
-L'automazione è utilizzata per generare la documentazione in diversi formati (ad esempio, HTML, PDF) a partire dai sorgenti testuali. Gli strumenti come Sphinx, Jekyll o MkDocs sono comunemente utilizzati per questo scopo.
+L'automazione è utilizzata per generare la documentazione in diversi formati (ad esempio, HTML, PDF) a partire dai sorgenti testuali. 
 
 \item \textbf{Collaborazione:}
 La documentazione è soggetta a revisione del codice e coinvolgimento collaborativo, proprio come il codice sorgente. Questo promuove la qualità e l'accuratezza della documentazione.
@@ -187,19 +187,19 @@ Questo approccio porta diversi vantaggi, tra cui una maggiore coerenza, una migl
     I verificatori quindi troveranno il documento da validare in questa repository quando riceveranno una notifica mail generata dalla pull request.\\
    Quando i verificatori avranno convalidato il contenuto, dovranno seguire le istruzioni al paragrafo ~\ref{sec:verificatori} per formalizzare la verifica.
     
-    \subsubsection{Procedura di redazione}
 \paragraph{Strumenti}
     Gli strumenti utilizzati dalle attività di redazione dei documenti vogliono soddisfare il principio adottato di "Documentation as Code".
     \begin{itemize}
         \item \textbf{GitHub}: Versionamento,Collaborazione,Integrazione continua, automazione e distribuzione.
         \item \textbf{Latex}: Scrittura in formato testuale.
+        \item \textbf{Overleaf}: Per la redazione dei documenti in Latex\textsubscript{\textit{G}} collaborativa.
     \end{itemize}
     \paragraph{I redattori: compiti e casi di sviluppo}
 
-    Il redattore incaricato della stesura di un documento o di una parte di esso è tenuto ad adottare un approccio simile a quello richiesto per apportare modifiche al codice sorgente di un software utilizzando il modello di branching di Git noto come "feature branch".\\
+    Il redattore incaricato della stesura di un documento o di una parte di esso è tenuto ad adottare l'approccio richiesto per apportare modifiche al codice sorgente di un software che utilizza il modello di branching di Git noto come "feature branch".\\
     \vspace{0.1cm}
     \textbf{Caso redazione nuovo documento}\\
-Dalla repository  "Sorgente documenti" contenente i sorgenti \LaTeX,il redattore dovrà creare un nuovo branch Git in locale e passare ad esso mediante l'utilizzo del comando:
+Dalla repository  "Sorgente documenti" contenente i sorgenti \LaTeX, il redattore dovrà creare un nuovo branch Git in locale e passare ad esso mediante l'utilizzo del comando:
 
     \begin{lstlisting}[style=code]
     git checkout -b branch_identificativoDocumento 
@@ -213,22 +213,20 @@ Dalla repository  "Sorgente documenti" contenente i sorgenti \LaTeX,il redattore
     git checkout branch_identificativoDocumento 
         \end{lstlisting}
 
-        \item Aggiungi e committa le tue modifiche:
+        \item Aggiungi ed esegui il commit\textsubscript{\textit{G}} delle tue modifiche:
         \begin{lstlisting}[style=code]
     git add .
     git commit -m "Descrizione del commit"
         \end{lstlisting}
         
-        \item Pusha il tuo branch:
+        \item Effettua il push\textsubscript{\textit{G}} del tuo branch:
         \begin{lstlisting}[style=code]
     git push origin branch_identificativoDocumento
         \end{lstlisting}
     \end{enumerate}
 
-    La denominazione del branch utilizzato per la stesura del documento deve consentire un'identificazione rapida e chiara del documento stesso. Pertanto, adotteremo la seguente convenzione nella nomenclatura dei branch per la redazione dei documenti.
+    La denominazione del branch utilizzato per la stesura del documento deve consentire un'identificazione rapida e chiara del documento stesso. Pertanto, adotteremo la seguente \textbf{convenzione per la nomenclatura dei branch} per la redazione dei documenti:
 
-    \vspace{0.3cm}
-    \textbf{Convezione nomeclatura branch documentazione}
     \begin{itemize}
         \item \textbf{Verbali interni}: \verb|branch_VerbaleIn_GG_MM_AAAA|
         \item \textbf{Verbali esterni}: \verb|branch_VerbaleEx_GG_MM_AAAA|
@@ -236,7 +234,7 @@ Dalla repository  "Sorgente documenti" contenente i sorgenti \LaTeX,il redattore
     \end{itemize}
 
     \textbf{Caso modifica documento in fase di redazione}\\
-   Qualora il redattore desideri proseguire la modifica di un documento precedentemente avviato ovvero intendesse continuare la stesura di un documento iniziato da un altro redattore oppure riceva l'assegnazione della scrittura di una sezione, è necessario:
+   Qualora il redattore intenda continuare la stesura di un documento iniziato da un altro redattore oppure riceva l'assegnazione della scrittura di una sezione, è necessario:
     
     \begin{enumerate}
         \item Aggiornare la propria directory locale con i nuovi branch attivi:
@@ -252,7 +250,7 @@ Dalla repository  "Sorgente documenti" contenente i sorgenti \LaTeX,il redattore
      \textbf{Salvataggio e condivisone progressi di task non completate}\\
     Alla fine di una sessione di modifiche di un file, nel caso si desideri rendere accessibile ai membri il lavoro non ancora completato e, pertanto, non pronto alla verifica, è necessario:
     \begin{enumerate}
-        \item Pushare le modifiche fatte nel branch 
+        \item Eseguire il push\textsubscript{\textit{G}}  delle modifiche fatte nel branch 
         \begin{lstlisting}[style=code]
     git add .
     git commit -m "Descrizione del commit"
@@ -261,20 +259,20 @@ Dalla repository  "Sorgente documenti" contenente i sorgenti \LaTeX,il redattore
 
         \item Nel caso di problemi con il punto 1:
         \begin{lstlisting}[style=code]
-   git pull origin nome_del_branch
+   git pull origin branch_identificativoDocumento
         \end{lstlisting}
         \item Risolvi i conflitti e ripeti punto 1.
     \end{enumerate}
 \vspace{0.3cm}
      \textbf{Completamento compito di redazione}\\
-    Al termine del loro lavoro,i redattori segnaleranno il completamento della attiva a loro assegnata (essa sia la stesura completa di un documento o di una sua parte) posizionando l'issue relativa nella colonna "Documentazione da validare" della  \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione}.\\
+    Al termine del loro lavoro, i redattori segnaleranno il completamento dell'attività a loro assegnata (essa sia la stesura completa di un documento o di una sua parte) posizionando l'issue relativa nella colonna "Documentazione da validare" della  \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione}.\\
     Inoltre dovranno attuare una \textbf{pull request} nella repository "Sorgente documenti".\\
     Si tratta di una richiesta di unire le modifiche fatte nel branch di redazione a un altro branch, in questo caso il main.
     \begin{enumerate}
         \item Vai sul repository su GitHub
         \item Apri la sezione "pull request"
         \item Clicca "New pull request"
-        \item Selziona come branch di destinazione "main" e come branch sorgente il ramo utilizzato per la redazione del documento da validare
+        \item Seleziona come branch di destinazione "main" e come branch sorgente il ramo utilizzato per la redazione del documento da validare
         \item Clicca "Create pull request"
         \item Dai un titolo e una breve descrizione alla pull request
         \item Seleziona i verificatori su "Reviewers"
@@ -282,6 +280,18 @@ Dalla repository  "Sorgente documenti" contenente i sorgenti \LaTeX,il redattore
     \end{enumerate}
     
    Se i verificatori non convalidano il documento, riceveranno feedback allegati alla pull request relativi ai problemi identificati.
+   \paragraph{I verificatori}
+   I compiti e le procedure dei verificatori sono dettagliate al paragrafo ~\ref{sec:verificatori}. 
+    \paragraph{Il responsabile}
+    Nel processo di redazione dei documenti, il compito del responsabile consiste nel: 
+        \begin{itemize}
+        \item \textbf{Identificare i documenti o le sezioni da redigere. }
+        \item \textbf{Stabilire le scadenze entro cui devono essere completati.}
+        \item \textbf{Assegnare i redattori ai task.}
+    \end{itemize}
+    Al termine delle attività svolte dai redattori e dai verificatori, il responsabile si riserva il diritto di approvare il lavoro o di richiedere eventuali ulteriori modifiche.
+    \paragraph{L'amministratore}
+    L'amministratore inserirà nel ITS le attività specificate dal responsabile, includendo le informazioni quali redattori, verificatori e scadenze.
 
     \subsubsection{Regole tipografiche}
     \begin{itemize}
@@ -301,6 +311,15 @@ estensione (ad es. ./Common/Intestazione.tex).
         \item  I numeri razionali si scrivono utilizzando la virgola come separatore tra parte
 intera e parte decimale.
     \end{itemize}
+    \subsubsection{Abbreviazioni}
+    \begin{tabular}{|c|c|}
+  \hline
+  \textbf{Abbreviazione} & \textbf{Scrittura Estesa} \\
+  \hline
+  ITS & Issue Tracking System \\
+  \hline
+\end{tabular}
+
 \subsubsection{Struttura del documento}
 I documenti ufficiali seguono un rigoroso e uniforme schema strutturale, il quale richiede un'osservanza scrupolosa.
 \paragraph{Prima pagina}
@@ -314,13 +333,19 @@ Nella prima pagina di ogni documento deve essere presente:
     \item Amministratore
     \item Destinatari
 \end{itemize}
-
+\paragraph{Pié di pagina}
+In ogni pié di pagina deve essere presente:
+\begin{itemize}
+    \item Nome del gruppo
+    \item Nome del documento 
+    \item Numero di pagina
+\end{itemize}
 \paragraph{Registro delle modifiche}
-Tutti i documenti generici (a eccezione di verbali e
-lettere) devono essere provvisti di un registro delle modifiche che contiene un riassunto
-delle modifiche apportate al documento in formato tabellare.
+Tutti i documenti (a eccezione di verbali e
+lettere) devono essere provvisti di un registro delle modifiche in formato tabellare che contiene un riassunto
+delle modifiche apportate al documento nel corso del tempo.
 La tabella  deve essere inserita nella
-sezione registro delle modifiche subito prima l’indice del documento.
+sezione registro delle modifiche subito prima dell’indice del documento.
 La tabella deve registrare le seguenti informazioni:
 \begin{itemize}
 \item \textbf{Versione del file}.
@@ -332,30 +357,36 @@ La tabella deve registrare le seguenti informazioni:
 
 \paragraph{Verbali: struttura generale}
 Questo documento assume l'importante ruolo di costituire un registro ufficiale, atto a riportare in maniera accurata gli argomenti trattati, le decisioni adottate, le azioni da intraprendere e le figure coinvolte.\\
-In particolare, è possibile distinguere tra verbali interni, destinati all'uso all'interno di un gruppo o di un'organizzazione, e verbali esterni, che trovano applicazione quando vi sono terze parti coinvolte nelle discussioni o nelle decisioni documentate.\\ 
+In particolare, è possibile distinguere tra verbali interni, destinati all'uso interno dell'organizzazione, e verbali esterni, che trovano applicazione quando vi sono terze parti coinvolte nelle discussioni o nelle decisioni documentate.\\ 
 Nella prima pagina oltre alle informazioni comuni a ogni documento vengono specificate:
 \begin{itemize}
-    \item Tipologia della riunione.
+    \item Tipologia della riunione (Interna,Esterna).
     \item Luogo: canale di comunicazione adottato.
     \item Ora di inizio e fine dell'incontro.
     \item Partecipanti della riunione (interni ed esterni).
 \end{itemize}
-In questo tipo do documento non è presente il versionamento del file in quanto non necessario. 
+Il registro delle modifiche non è incluso nei verbali in quanto non è necessario; una volta redatti, i verbali non subiscono ulteriori modifiche.
 \paragraph{Verbali interni}\label{sec:verbali interni}
-Un verbale interno è un documento redatto all'interno del nostro gruppo con lo scopo di registrare e documentare in maniera dettagliata i particolari di una riunione che coinvolge esclusivamente i membri del nostro team.\\
-La sua funzione primaria consiste nel registrare in modo preciso le conversazioni tenutesi durante l'incontro, le decisioni prese e i piani futuri concordati.\\
-L'audience principale di un verbale interno è costituita dai membri dell'organizzazione o del team.
+Un verbale interno è un documento che ha lo scopo di registrare e documentare in maniera dettagliata i particolari di una riunione che coinvolge esclusivamente i membri del nostro team.\\
+La sua funzione primaria consiste nel tenere traccia di:
+\begin{itemize}
+    \item Discussioni tenutesi durante l'incontro
+    \item Decisioni prese
+    \item Piani futuri concordati 
+\end{itemize}
+Ogni decisione presa, quando possibile, viene formalmente documentata facendo riferimento alla relativa attività nel ITS, utilizzando l'identificativo della specifica issue (ex. \#IdIssue).\\
+L'audience principale di un verbale interno è costituita dai membri del team.
 
 \paragraph{Verbali esterni}\label{sec:verbali esterni}
 
 Un verbale esterno è un documento scritto utilizzato per registrare e documentare in modo accurato i dettagli di una riunione o un incontro che coinvolge non solo i membri interni al nostro gruppo, ma anche terze parti esterne ad esso.\\
 Il pubblico principale di un verbale esterno può includere individui o entità al di fuori del team, come clienti o l'azienda proponente.\\
 La principale distinzione rispetto ai verbali interni risiede nel fatto che entrambe le parti coinvolte nell'incontro convalidino il verbale e concordino sul suo contenuto. Pertanto, è essenziale stabilire un metodo di validazione del documento che garantisca la correttezza e l'accuratezza delle informazioni registrate.\\
-Nel nostro caso, [specificare qui il metodo di validazione, ad esempio, la firma delle parti coinvolte, l'approvazione via e-mail, o qualsiasi altra procedura stabilita contrattualmente] serve a confermare e legittimare il contenuto del verbale, contribuendo a evitare fraintendimenti e dispute future.
+Nel nostro caso, [\textcolor{red}{specificare qui il metodo di validazione, ad esempio, la firma delle parti coinvolte, l'approvazione via e-mail, o qualsiasi altra procedura stabilita contrattualmente}] serve a confermare e legittimare il contenuto del verbale, contribuendo a evitare fraintendimenti e dispute future.
 
 \subsection{Verifica}
 \subsubsection{Verifica dei documenti}
-\paragraph{I verificatori: compiti e casi di sviluppo}\label{sec:verificatori}
+\paragraph{I verificatori}\label{sec:verificatori}
 
     Il ruolo del verificatore nei documenti è cruciale per garantire la qualità e l'accuratezza del contenuto.
 
@@ -383,7 +414,7 @@ Dopo l'attuazione dei controlli sopra citati e verificato il loro rispetto, i pa
      \item \textbf{Genera il PDF:} Compila il file Latex e genera il PDF 
      \item \textbf{Carica PDF:} Inserisci il PDF generato dal passaggio precedente nella repository \href{https://github.com/ByteOps-swe/Documents}{Documents} nella corretta posizione.
      \item \begin{itemize} \item \textbf{Caso documento ad unica versione}:
-      (Questo passo viene attuato solo per documenti che non sono in evoluzione nell'arco del ciclo di vita del progetto (ex. Verbali)).\\Nella repository "Sorgente documenti" apri la sezione "branches" ed elimina il branch relativo alla redazione del documento appena validato.
+      (Questo passo viene attuato solo per documenti che non sono in evoluzione nell'arco del ciclo di vita del progetto (ex. Verbali).\\Nella repository "Sorgente documenti" apri la sezione "branches" ed elimina il branch relativo alla redazione del documento appena validato.
     
       \item \textbf{Caso documento a progresso continuo}: Per documenti come "Norme di progetto" che evolvono per tutto l'arco di ciclo di vita del progetto il branch di redazione resta attivo. 
     \end{itemize}
