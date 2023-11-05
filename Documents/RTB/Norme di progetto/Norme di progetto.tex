@@ -269,6 +269,7 @@ Dalla repository  "Sorgente documenti" contenente i sorgenti \LaTeX, il redattor
     Inoltre dovranno attuare una \textbf{pull request} nella repository "Sorgente documenti".\\
     Si tratta di una richiesta di unire le modifiche fatte nel branch di redazione a un altro branch, in questo caso il main.
     \begin{enumerate}
+        \item Eseguire i passaggi dettagliati nel caso "\textit{\textbf{Salvataggio e condivisone progressi di task non completate}}"
         \item Vai sul repository su GitHub
         \item Apri la sezione "pull request"
         \item Clicca "New pull request"
@@ -294,22 +295,31 @@ Dalla repository  "Sorgente documenti" contenente i sorgenti \LaTeX, il redattor
     L'amministratore inserirà nel ITS le attività specificate dal responsabile, includendo le informazioni quali redattori, verificatori e scadenze.
 
     \subsubsection{Regole tipografiche}
+    \paragraph{Nome dei File}
+    Il nome dei documenti generati deve essere omogeneo, con la prima lettera maiuscola ed il resto minuscolo.\\
+    Nello specifico devono seguire la seguente convenzione:
     \begin{itemize}
-        \item I titoli delle sezioni iniziano con la lettera maiuscola;
-        \item I nomi dei ruoli, di applicazioni e aziende si scrivono con l’iniziale maiuscola
-e in italico (ad es. Responsabile);
+        \item \textbf{Verbali interni:}Verbale interno DD\_MM\_AAAA.tex
+        \item \textbf{Verbali interni:}Verbale esterno DD\_MM\_AAAA.tex
+        \item \textbf{Norme di Progetto:} Norme di progetto.tex
+        \item \textbf{Glossario:} Glossario.tex
+    \end{itemize}
+    
+    \paragraph{Regole sintattiche e stile del testo:}
+    \begin{itemize}
+        \item I titoli delle sezioni iniziano con la lettera maiuscola.
+        \item I nomi delle aziende si scrivono con l’iniziale maiuscola.
+e in italico.
+         \item Gli elementi degli elenchi iniziano tutti con la lettera maiuscola e terminano
+        con un ‘.’.
         \item I nomi dei documenti e delle revisioni si scrivono per esteso, in italico.
-        \item I nomi dei documenti e delle revisioni che si ripetono spesso possono essere abbreviati seguendo la tabella presentata nella sezione Nomi dei documenti abbreviati,
-mantenendo sempre la regola del carattere italico e grassetto.
         \item I nomi propri dei componenti del gruppo vanno scritti per esteso, con il nome che
-precede il cognome e in italico.
-        \item I nomi propri dei componenti del gruppo nelle intestazioni e nel changelogG
-vengono scritti per esteso ma non in italico.
-        \item I nomi dei file vanno scritti in carattere mono spaziato con nome del file ed
-estensione (ad es. ./Common/Intestazione.tex).
+precede il cognome e in italico tranne nelle prime pagine dei documenti.
         \item  Le date vengono scritte nel formato GG/MM/AAAA.
         \item  I numeri razionali si scrivono utilizzando la virgola come separatore tra parte
 intera e parte decimale.
+\item Grassetto: Titoli delle sezioni, parole o frasi importanti. 
+\item Italico: Riferimento a paragrafi o sezioni, nomi delle aziende e nomi propri dei membri del team.
     \end{itemize}
     \subsubsection{Abbreviazioni}
     \begin{tabular}{|c|c|}
@@ -354,6 +364,15 @@ La tabella deve registrare le seguenti informazioni:
 \item \textbf{Verificatore}.
 \item \textbf{Descrizione}: un riassunto delle modifiche apportate.
 \end{itemize}
+\textbf{Numeri di versionamento}
+ La convenzione per identificare la versione di un documento è: X.Y
+con :
+\begin{itemize}
+ \item \textbf{X:} incrementa con l'approvazione del responsabile.
+ \item \textbf{Y:}incrementa con la verifica.
+\end{itemize}
+
+Con l'approvazione da parte del responsabile e quindi l'incremento del valore X, Y torna a zero.
 
 \paragraph{Verbali: struttura generale}
 Questo documento assume l'importante ruolo di costituire un registro ufficiale, atto a riportare in maniera accurata gli argomenti trattati, le decisioni adottate, le azioni da intraprendere e le figure coinvolte.\\
