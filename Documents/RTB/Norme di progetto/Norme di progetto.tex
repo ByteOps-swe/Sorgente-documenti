@@ -101,7 +101,11 @@
     \hline
     \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Dettaglio} \\
     \hline \hline
-    1.0.0 & 31/10/2023 & Nome autore & Nome verificatore & descrizione \\
+    1.1 & 06/11/2023 & Andrea Barutta,
+    Nicola Preto & Riccardo Smanio & Sezione Comunicazione,Gestione incontri \\
+\hline
+    1.0 & 05/11/2023 & Davide Diotto
+    Nicola Preto & Riccardo Smanio & Sezione Documentazione,Introduzione \\
     \hline
 
 \end{tabular}
@@ -269,6 +273,7 @@ Dalla repository  "Sorgente documenti" contenente i sorgenti \LaTeX, il redattor
     Inoltre dovranno attuare una \textbf{pull request} nella repository "Sorgente documenti".\\
     Si tratta di una richiesta di unire le modifiche fatte nel branch di redazione a un altro branch, in questo caso il main.
     \begin{enumerate}
+     \item Aggiornare il registro delle modifiche inserendo i dati richiesti in  una nuova riga e incrementando la versione (Il verificatore è definito all'assegnazione della task, presente nella descrizione della Issue del'ITS).
         \item Eseguire i passaggi dettagliati nel caso "\textit{\textbf{Salvataggio e condivisone progressi di task non completate}}"
         \item Vai sul repository su GitHub
         \item Apri la sezione "pull request"
@@ -289,20 +294,20 @@ Dalla repository  "Sorgente documenti" contenente i sorgenti \LaTeX, il redattor
         \item \textbf{Identificare i documenti o le sezioni da redigere. }
         \item \textbf{Stabilire le scadenze entro cui devono essere completati.}
         \item \textbf{Assegnare i redattori e i verificatori ai task.}
-        \item \textbf{Approvazione:}Una volta che l'intero documento è stato completato e verificato, il responsabile si riserva il diritto di approvare il lavoro o richiedere eventuali ulteriori modifiche.
+        \item \textbf{Approvazione:} Prima della conclusione del suo mandato, il responsabile si riserva il diritto di approvare il lavoro o richiedere eventuali ulteriori modifiche su tutti i documenti redatti e verificati nel periodo in cui ha esercitato la propria carica.
     \end{itemize}
   
     \paragraph{L'amministratore}
     L'amministratore inserirà nel ITS le attività specificate dal responsabile, includendo le informazioni quali redattori, verificatori e scadenze.
-
+   Nel processo di assegnazione dei task all'interno del sistema di tracciamento degli issue (ITS), l'amministratore attribuirà i redattori come esecutori del compito. Simultaneamente, nella sezione di descrizione, verranno inseriti i nomi dei verificatori incaricati della revisione del lavoro.
     \subsubsection{Regole tipografiche}
     \paragraph*{Nome dei File}\label{sec:NomeFile}
     Il nome dei documenti generati deve essere omogeneo, con la prima lettera maiuscola ed il resto minuscolo e deve contenere un riferimento alla versione del documento (notazione di versionamento:~\ref{sec:RegistroModifiche}).\\
     Nello specifico devono seguire la seguente convenzione:
     \begin{itemize}
-        \item \textbf{Verbali interni:}Verbale interno DDMMAAA\_versioneX\_Y.tex
-        \item \textbf{Verbali interni:}Verbale esterno DDMMAAA\_versioneX\_Y.tex
-        \item \textbf{Norme di Progetto:} Norme di progetto\_versioneX\_Y.tex
+        \item \textbf{Verbali interni:}Verbale interno DD-MM-AAA.pdf
+        \item \textbf{Verbali interni:}Verbale esterno DD-MM-AAA.pdf
+        \item \textbf{Norme di Progetto:} Norme di progetto\_versioneX\_Y.pdf
         \item \textbf{Glossario:} Glossario\_versioneX\_Y.tex
     \end{itemize}
     
@@ -342,10 +347,6 @@ Nella prima pagina di ogni documento deve essere presente:
 \begin{itemize}
     \item Nome e mail del gruppo
     \item Nome del documento 
-    \item Data ultima verifica
-    \item Redattori
-    \item Verificatori
-    \item Amministratore
     \item Destinatari
 \end{itemize}
 \paragraph*{Indice}
@@ -374,19 +375,19 @@ La tabella deve registrare le seguenti informazioni:
  La convenzione per identificare la versione di un documento è: X.Y
 con :
 \begin{itemize}
- \item \textbf{X:} incrementa con l'approvazione del responsabile.
- \item \textbf{Y:}incrementa con la verifica.
+ \item \textbf{X: }Viene incrementato quando vengono apportate modifiche significative al documento, come cambiamenti strutturali, nuove sezioni importanti o modifiche sostanziali nel contenuto.
+ \item \textbf{Y: }Viene incrementato per modifiche minori o aggiornamenti al documento. Questi potrebbero includere correzioni di errori, miglioramenti marginali o l'aggiunta di nuovi contenuti meno rilevanti.
 \end{itemize}
 
-Con l'approvazione da parte del responsabile e quindi l'incremento del valore X, Y torna a zero.\\
+Con l'incremento del valore X, Y torna a zero.\\
 Ogni variazione di versione deve essere presente nel registro delle modifiche.
-Di conseguenza questo avviene al momento di una verifica con esito positivo o al momento dell'approvazione da parte del responsabile.
 
 \paragraph{Verbali: struttura generale}
 Questo documento assume l'importante ruolo di costituire un registro ufficiale, atto a riportare in maniera accurata gli argomenti trattati, le decisioni adottate, le azioni da intraprendere e le figure coinvolte.\\
 In particolare, è possibile distinguere tra verbali interni, destinati all'uso interno dell'organizzazione, e verbali esterni, che trovano applicazione quando vi sono terze parti coinvolte nelle discussioni o nelle decisioni documentate.\\ 
 Nella prima pagina oltre alle informazioni comuni a ogni documento vengono specificate:
 \begin{itemize}
+    \item Data della riunione
     \item Tipologia della riunione (Interna,Esterna).
     \item Luogo: canale di comunicazione adottato.
     \item Ora di inizio e fine dell'incontro.
@@ -410,7 +411,7 @@ L'audience principale di un verbale interno è costituita dai membri del team.
 Un verbale esterno è un documento scritto utilizzato per registrare e documentare in modo accurato i dettagli di una riunione o un incontro che coinvolge non solo i membri interni al nostro gruppo, ma anche terze parti esterne ad esso.\\
 Il pubblico principale di un verbale esterno può includere individui o entità al di fuori del team, come clienti o l'azienda proponente.\\
 La principale distinzione rispetto ai verbali interni risiede nel fatto che entrambe le parti coinvolte nell'incontro convalidino il verbale e concordino sul suo contenuto. Pertanto, è essenziale stabilire un metodo di validazione del documento che garantisca la correttezza e l'accuratezza delle informazioni registrate.\\
-Nel nostro caso, [\textcolor{red}{specificare qui il metodo di validazione, ad esempio, la firma delle parti coinvolte, l'approvazione via e-mail, o qualsiasi altra procedura stabilita contrattualmente}] serve a confermare e legittimare il contenuto del verbale, contribuendo a evitare fraintendimenti e dispute future.
+%Nel nostro caso, [\textcolor{red}{specificare qui il metodo di validazione, ad esempio, la firma delle parti coinvolte, l'approvazione via e-mail, o qualsiasi altra procedura stabilita contrattualmente}] serve a confermare e legittimare il contenuto del verbale, contribuendo a evitare fraintendimenti e dispute future.
 
 \subsection{Verifica}
 \subsubsection{Verifica dei documenti}
@@ -437,12 +438,11 @@ Per validare un documento i le verifiche da attuare sono:
 Dopo l'attuazione dei controlli sopra citati e verificato il loro rispetto, i passi per convalidare il documento sono i seguenti:
 \begin{enumerate}
  \item \textbf{Apri la Pull Request:}Accedi alla pagina della pull request in cui agisci come revisore nel repository "Sorgente documenti" su GitHub.
-  \item \textbf{Registro delle modifiche:} Aggiornare il registro delle modifiche inserendo i dati richiesti in  una nuova riga e incrementando la versione.
     \item \textbf{Accettare la pull request:} Cliccare il pulsante "Merge Pull Request".
      \item \textbf{Sposta la issue in Done:} Nella \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione} sposta la issue relativa al documento validato da "Documentazione da validare" a "Done".
-     \item \textbf{Genera il PDF:} Compila il file Latex e genera il PDF 
+     \item \textbf{Generazione PDF:} Un automazione tramite GitHub Actions compilerà il file   \LaTeX\ e genererà automaticamente il PDF nel branch main della repository \href{https://github.com/ByteOps-swe/Documents}{Documents}. 
      \item \textbf{Rinomina file:}Rinomina il file con il riferimento al numero di versione aggiornato secondo quanto specificato in: ~\ref{sec:RegistroModifiche}.
-     \item \textbf{Carica PDF:} Inserisci il PDF generato dal passaggio precedente nella repository \href{https://github.com/ByteOps-swe/Documents}{Documents} nella corretta posizione.
+    % \item \textbf{Carica PDF:} Inserisci il PDF generato dal passaggio precedente nella repository \href{https://github.com/ByteOps-swe/Documents}{Documents} nella corretta posizione.
      \item \begin{itemize} \item \textbf{Caso documento ad unica versione}:
       (Questo passo viene attuato solo per documenti che non sono in evoluzione nell'arco del ciclo di vita del progetto (ex. Verbali).\\Nella repository "Sorgente documenti" apri la sezione "branches" ed elimina il branch relativo alla redazione del documento appena validato.
     
