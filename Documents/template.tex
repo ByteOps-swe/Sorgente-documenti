@@ -101,7 +101,11 @@
     \hline
     \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Dettaglio} \\
     \hline \hline
-    1.0.0 & 31/10/2023 & Nome autore & Nome verificatore & descrizione \\
+    1.1 & 06/11/2023 & Andrea Barutta,
+    Nicola Preto & Riccardo Smanio & Sezione Comunicazione,Gestione incontri \\
+\hline
+    1.0 & 05/11/2023 & Davide Diotto
+    Nicola Preto & Riccardo Smanio & Sezione Documentazione,Introduzione \\
     \hline
 
 \end{tabular}
@@ -269,6 +273,7 @@ Dalla repository  "Sorgente documenti" contenente i sorgenti \LaTeX, il redattor
     Inoltre dovranno attuare una \textbf{pull request} nella repository "Sorgente documenti".\\
     Si tratta di una richiesta di unire le modifiche fatte nel branch di redazione a un altro branch, in questo caso il main.
     \begin{enumerate}
+     \item Aggiornare il registro delle modifiche inserendo i dati richiesti in  una nuova riga e incrementando la versione (Il verificatore è definito all'assegnazione della task, presente nella descrizione della Issue del'ITS).
         \item Eseguire i passaggi dettagliati nel caso "\textit{\textbf{Salvataggio e condivisone progressi di task non completate}}"
         \item Vai sul repository su GitHub
         \item Apri la sezione "pull request"
@@ -294,7 +299,7 @@ Dalla repository  "Sorgente documenti" contenente i sorgenti \LaTeX, il redattor
   
     \paragraph{L'amministratore}
     L'amministratore inserirà nel ITS le attività specificate dal responsabile, includendo le informazioni quali redattori, verificatori e scadenze.
-
+   Nel processo di assegnazione dei task all'interno del sistema di tracciamento degli issue (ITS), l'amministratore attribuirà i redattori come esecutori del compito. Simultaneamente, nella sezione di descrizione, verranno inseriti i nomi dei verificatori incaricati della revisione del lavoro.
     \subsubsection{Regole tipografiche}
     \paragraph*{Nome dei File}\label{sec:NomeFile}
     Il nome dei documenti generati deve essere omogeneo, con la prima lettera maiuscola ed il resto minuscolo e deve contenere un riferimento alla versione del documento (notazione di versionamento:~\ref{sec:RegistroModifiche}).\\
@@ -433,7 +438,6 @@ Per validare un documento i le verifiche da attuare sono:
 Dopo l'attuazione dei controlli sopra citati e verificato il loro rispetto, i passi per convalidare il documento sono i seguenti:
 \begin{enumerate}
  \item \textbf{Apri la Pull Request:}Accedi alla pagina della pull request in cui agisci come revisore nel repository "Sorgente documenti" su GitHub.
-  \item \textbf{Registro delle modifiche:} Aggiornare il registro delle modifiche inserendo i dati richiesti in  una nuova riga e incrementando la versione.
     \item \textbf{Accettare la pull request:} Cliccare il pulsante "Merge Pull Request".
      \item \textbf{Sposta la issue in Done:} Nella \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione} sposta la issue relativa al documento validato da "Documentazione da validare" a "Done".
      \item \textbf{Generazione PDF:} Un automazione tramite GitHub Actions compilerà il file   \LaTeX\ e genererà automaticamente il PDF nel branch main della repository \href{https://github.com/ByteOps-swe/Documents}{Documents}. 
