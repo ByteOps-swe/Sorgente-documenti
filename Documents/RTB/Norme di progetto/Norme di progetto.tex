@@ -288,21 +288,22 @@ Dalla repository  "Sorgente documenti" contenente i sorgenti \LaTeX, il redattor
         \begin{itemize}
         \item \textbf{Identificare i documenti o le sezioni da redigere. }
         \item \textbf{Stabilire le scadenze entro cui devono essere completati.}
-        \item \textbf{Assegnare i redattori ai task.}
+        \item \textbf{Assegnare i redattori e i verificatori ai task.}
+        \item \textbf{Approvazione:}Una volta che l'intero documento è stato completato e verificato, il responsabile si riserva il diritto di approvare il lavoro o richiedere eventuali ulteriori modifiche.
     \end{itemize}
-    Al termine delle attività svolte dai redattori e dai verificatori, il responsabile si riserva il diritto di approvare il lavoro o di richiedere eventuali ulteriori modifiche.
+  
     \paragraph{L'amministratore}
     L'amministratore inserirà nel ITS le attività specificate dal responsabile, includendo le informazioni quali redattori, verificatori e scadenze.
 
     \subsubsection{Regole tipografiche}
-    \paragraph{Nome dei File}
-    Il nome dei documenti generati deve essere omogeneo, con la prima lettera maiuscola ed il resto minuscolo.\\
+    \paragraph{Nome dei File}\label{sec:NomeFile}
+    Il nome dei documenti generati deve essere omogeneo, con la prima lettera maiuscola ed il resto minuscolo e deve contenere un riferimento alla versione del documento (notazione di versionamento:~\ref{sec:RegistroModifiche}).\\
     Nello specifico devono seguire la seguente convenzione:
     \begin{itemize}
-        \item \textbf{Verbali interni:}Verbale interno DD\_MM\_AAAA.tex
-        \item \textbf{Verbali interni:}Verbale esterno DD\_MM\_AAAA.tex
-        \item \textbf{Norme di Progetto:} Norme di progetto.tex
-        \item \textbf{Glossario:} Glossario.tex
+        \item \textbf{Verbali interni:}Verbale interno DDMMAAA\_versioneX\_Y.tex
+        \item \textbf{Verbali interni:}Verbale esterno DDMMAAA\_versioneX\_Y.tex
+        \item \textbf{Norme di Progetto:} Norme di progetto\_versioneX\_Y.tex
+        \item \textbf{Glossario:} Glossario\_versioneX\_Y.tex
     \end{itemize}
     
     \paragraph{Regole sintattiche e stile del testo:}
@@ -322,11 +323,15 @@ intera e parte decimale.
 \item Italico: Riferimento a paragrafi o sezioni, nomi delle aziende e nomi propri dei membri del team.
     \end{itemize}
     \subsubsection{Abbreviazioni}
+    Nei documenti vi sono molte ripetizioni di termini per la quale si possono usare le seguenti abbreviazioni:\\
+    \vspace{0.2cm}
     \begin{tabular}{|c|c|}
   \hline
   \textbf{Abbreviazione} & \textbf{Scrittura Estesa} \\
   \hline
   ITS & Issue Tracking System \\
+  RTB & Requirements and Technology Baseline  \\
+  PB & Product Baseline\\
   \hline
 \end{tabular}
 
@@ -337,12 +342,14 @@ Nella prima pagina di ogni documento deve essere presente:
 \begin{itemize}
     \item Nome e mail del gruppo
     \item Nome del documento 
-    \item Data del documento
+    \item Data ultima verifica
     \item Redattori
     \item Verificatori
     \item Amministratore
     \item Destinatari
 \end{itemize}
+\paragraph{Indice}
+Tutti i documenti generici (a eccezione di verbali e lettere) devono essere provvisti di indice.
 \paragraph{Pié di pagina}
 In ogni pié di pagina deve essere presente:
 \begin{itemize}
@@ -350,9 +357,8 @@ In ogni pié di pagina deve essere presente:
     \item Nome del documento 
     \item Numero di pagina
 \end{itemize}
-\paragraph{Registro delle modifiche}
-Tutti i documenti (a eccezione di verbali e
-lettere) devono essere provvisti di un registro delle modifiche in formato tabellare che contiene un riassunto
+\paragraph{Registro delle modifiche}\label{sec:RegistroModifiche}
+Tutti i documenti devono essere provvisti di un registro delle modifiche in formato tabellare che contiene un riassunto
 delle modifiche apportate al documento nel corso del tempo.
 La tabella  deve essere inserita nella
 sezione registro delle modifiche subito prima dell’indice del documento.
@@ -372,7 +378,9 @@ con :
  \item \textbf{Y:}incrementa con la verifica.
 \end{itemize}
 
-Con l'approvazione da parte del responsabile e quindi l'incremento del valore X, Y torna a zero.
+Con l'approvazione da parte del responsabile e quindi l'incremento del valore X, Y torna a zero.\\
+Ogni variazione di versione deve essere presente nel registro delle modifiche.
+Di conseguenza questo avviene al momento di una verifica con esito positivo o al momento dell'approvazione da parte del responsabile.
 
 \paragraph{Verbali: struttura generale}
 Questo documento assume l'importante ruolo di costituire un registro ufficiale, atto a riportare in maniera accurata gli argomenti trattati, le decisioni adottate, le azioni da intraprendere e le figure coinvolte.\\
@@ -384,7 +392,8 @@ Nella prima pagina oltre alle informazioni comuni a ogni documento vengono speci
     \item Ora di inizio e fine dell'incontro.
     \item Partecipanti della riunione (interni ed esterni).
 \end{itemize}
-Il registro delle modifiche non è incluso nei verbali in quanto non è necessario; una volta redatti, i verbali non subiscono ulteriori modifiche.
+%Il registro delle modifiche non è incluso nei verbali in quanto non è necessario; una volta redatti, i verbali non subiscono ulteriori modifiche.
+Il verbale, a causa della brevità dei contenuti, sarà sprovvisto di un indice. Oltre alle informazioni presenti in prima pagina, includerà una sintetica esposizione di quanto discusso durante la riunione e un elenco puntato, suddiviso per argomenti, che dettaglia in modo più approfondito ciascun tema trattato.
 \paragraph{Verbali interni}\label{sec:verbali interni}
 Un verbale interno è un documento che ha lo scopo di registrare e documentare in maniera dettagliata i particolari di una riunione che coinvolge esclusivamente i membri del nostro team.\\
 La sua funzione primaria consiste nel tenere traccia di:
@@ -427,10 +436,12 @@ Per validare un documento i le verifiche da attuare sono:
 
 Dopo l'attuazione dei controlli sopra citati e verificato il loro rispetto, i passi per convalidare il documento sono i seguenti:
 \begin{enumerate}
- \item \textbf{Apri la Pull Request:}Accedi alla pagina della pull request in cui agisci come revisore nel repository "Sorgente documenti" su GitHub 
+ \item \textbf{Apri la Pull Request:}Accedi alla pagina della pull request in cui agisci come revisore nel repository "Sorgente documenti" su GitHub.
+  \item \textbf{Registro delle modifiche:} Aggiornare il registro delle modifiche inserendo i dati richiesti in  una nuova riga e incrementando la versione.
     \item \textbf{Accettare la pull request:} Cliccare il pulsante "Merge Pull Request".
      \item \textbf{Sposta la issue in Done:} Nella \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione} sposta la issue relativa al documento validato da "Documentazione da validare" a "Done".
      \item \textbf{Genera il PDF:} Compila il file Latex e genera il PDF 
+     \item \textbf{Rinomina file:}Rinomina il file con il riferimento al numero di versione aggiornato secondo quanto specificato in: ~\ref{sec:RegistroModifiche}.
      \item \textbf{Carica PDF:} Inserisci il PDF generato dal passaggio precedente nella repository \href{https://github.com/ByteOps-swe/Documents}{Documents} nella corretta posizione.
      \item \begin{itemize} \item \textbf{Caso documento ad unica versione}:
       (Questo passo viene attuato solo per documenti che non sono in evoluzione nell'arco del ciclo di vita del progetto (ex. Verbali).\\Nella repository "Sorgente documenti" apri la sezione "branches" ed elimina il branch relativo alla redazione del documento appena validato.
