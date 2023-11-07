@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
+\usepackage[absolute]{textpos}
 \usepackage[default]{raleway}
 \usepackage{titlesec, comment, tabularx, makecell, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, hyperref}
 %\geometry{a4paper, left=2cm, right=2cm, top=2cm, bottom=2.5cm}
@@ -70,22 +71,16 @@
 {\normalfont\normalsize\bfseries}{\theparagraph}{0.2cm}{}
 \titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
 
-% --------------------------Aggiunta firma finale ------------------------
-\AtEndDocument{
-    \begin{center}
-    \vfill
-    \parbox{\textwidth}{
-        \centering
-        \vspace{-1.5cm}
-        \hspace{7cm}
-        Il Responsabile: Nome
-    }
-    \end{center}
-}
-
 % ------------------------------- Front Page ---------------------------------------
 
 \begin{document}
+
+% --------------------------Aggiunta firma finale ------------------------
+\begin{textblock*}{\textwidth}(0.85\textwidth, 1.16\textheight)
+    Il responsabile: Davide Diotto
+\end{textblock*}
+% ------------------------------------------------------------------------
+
 \pagestyle{fancy}
 \begin{center}
 \includegraphics[width = 0.7\textwidth]{../../../Images/logo.png} \\
