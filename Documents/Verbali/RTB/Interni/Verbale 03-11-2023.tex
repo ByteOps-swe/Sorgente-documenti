@@ -78,7 +78,7 @@
         \centering
         \vspace{-1.5cm}
         \hspace{7cm}
-        Il Responsabile: Nome
+        Il Responsabile: Davide Diotto
     }
     \end{center}
 }
@@ -155,10 +155,18 @@ Per la redazione dei documenti relativi alla candidatura, è stato sperimentato 
     \subsection{Definizione nuova metodologia per la redazione dei documenti}
     Considerando gli aspetti negativi precedentemente menzionati, è stata presa la decisione di creare direttamente i documenti in LaTeX e di adottare l'approccio "Documentation As Code" (descritto dettagliatamente nel documento "Norme di progetto") con l'obiettivo di migliorare l'efficienza del processo di redazione dei documenti.
     \subsection{Creazione repository sorgente documenti dedicata al versionamento}
-    è stata creata una nuova repository privata su GitHub per il versionamento dei documenti redatti in LaTeX.
+    Abbiamo creato una nuova repository privata su GitHub per gestire il versionamento dei documenti scritti in LaTeX. Questa scelta ci consente di collaborare in modo efficiente e di monitorare in modo accurato tutte le modifiche apportate, garantendo allo stesso tempo l'ordine e l'integrità della repository principale. Una volta che i documenti LaTeX saranno validati, i file PDF generati verranno prontamente caricati nella repository principale.
 
     \subsection{Automatizzazione del processo di compilazione dei documenti redatti in LaTeX}
-    Si rende utile e pratico implementare un procedimento automatizzato in grado di compilare i file LaTeX dopo la loro verifica e caricamento nel branch principale della repository che contiene i sorgenti della documentazione. Tale obiettivo può essere raggiunto attraverso l'impiego del meccanismo di GitHub Actions, e si è concordato sul dispiegamento di risorse dedicate per attuare questa automatizzazione
+    Si rende utile e pratico implementare un procedimento automatizzato tramite GitHub Actions che, in seguito al caricamento dei file LaTeX nella repository privata e la loro validazione da parte del verificatore (con conseguente merge nel branch "main"), esegua i seguenti passaggi:
+    \begin{enumerate}
+        \item Compilazione file LaTeX
+        \item Generazione PDF
+        \item Caricamento PDF nella repository pubblica        
+    \end{enumerate}
+
+    \subsection{Cambiamento Issue Tracking System}
+    Dopo aver sperimentato l’utilizzo di Jira come Issue Tracking System si è deciso di optare per GitHub. Questa decisione deriva dalla volontà di centralizzare sia il versionamento dei file che la gestione delle attività all'interno di un'unica piattaforma.
 \section{Attività da svolgere}
 \begin{center}
     \begin{tabular}{|C{7cm}|C{1,5cm}|C{3cm}|}
@@ -168,8 +176,8 @@ Per la redazione dei documenti relativi alla candidatura, è stato sperimentato 
         \hline
         Norme di progetto: sez. Documentazione & 9 & Nome Verificatore\\
         Norme di progetto: sez. Comunicazione & 10 & Nome Verificatore\\
-        Analisi dei rischi & 11 & Nome Verificatore\\
-        Verbale interno 03/11/2023 & 12 & Nome Verificatore\\
+        Norme di progetto: sez. Analisi dei rischi & 11 & Nome Verificatore\\
+        Verbale interno 03/11/2023 & 12 & A. Barutta\\
         Norme di progetto: sez. Introduzione & 13 & Nome Verificatore\\
         Automazione compilazione LaTeX & 14 & Nome Verificatore\\
         \hline
