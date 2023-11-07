@@ -427,16 +427,14 @@ Per validare un documento i le verifiche da attuare sono:
 Dopo l'attuazione dei controlli sopra citati e verificato il loro rispetto, i passi per convalidare il documento sono i seguenti:
 \begin{enumerate}
  \item \textbf{Apri la Pull Request:}Accedi alla pagina della pull request in cui agisci come revisore nel repository "Sorgente documenti" su GitHub.
-    \item \textbf{Accettare la pull request:} Cliccare il pulsante "Merge Pull Request".
+    \item \textbf{Accettare la pull request:} Risolvere eventuali conflitti >> Merge Pull Request.
+    \item \textbf{Caso documento non in evoluzione: }(ex. Verbali, Lettere di presentazione).\\
+    Elimina il branch solo nel caso in cui il documento revisionato appartenga alla categoria di documenti non in evoluzione.
      \item \textbf{Sposta la issue in Done:} Nella \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione} sposta la issue relativa al documento validato da "Documentazione da validare" a "Done".
      \item \textbf{Generazione PDF:} Un automazione tramite GitHub Actions compilerà il file   \LaTeX\ e genererà automaticamente il PDF nel branch main della repository \href{https://github.com/ByteOps-swe/Documents}{Documents}. 
-     \item \textbf{Rinomina file:}Rinomina il file con il riferimento al numero di versione aggiornato secondo quanto specificato in: ~\ref{sec:RegistroModifiche}.
+     \item \textbf{Rinomina file: }Rinomina il file con il riferimento al numero di versione aggiornato secondo quanto specificato in: ~\ref{sec:RegistroModifiche}.
     % \item \textbf{Carica PDF:} Inserisci il PDF generato dal passaggio precedente nella repository \href{https://github.com/ByteOps-swe/Documents}{Documents} nella corretta posizione.
-     \item \begin{itemize} \item \textbf{Caso documento ad unica versione}:
-      (Questo passo viene attuato solo per documenti che non sono in evoluzione nell'arco del ciclo di vita del progetto (ex. Verbali).\\Nella repository "Sorgente documenti" apri la sezione "branches" ed elimina il branch relativo alla redazione del documento appena validato.
-    
-      \item \textbf{Caso documento a progresso continuo}: Per documenti come \textit{Norme di progetto} che evolvono per tutto l'arco di ciclo di vita del progetto il branch di redazione resta attivo. 
-    \end{itemize}
+     
      
 \end{enumerate}
 
