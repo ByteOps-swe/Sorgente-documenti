@@ -148,8 +148,13 @@ Da inserire.
 \subsection{Documentazione}
     
     \subsubsection{Introduzione}
-    La documentazione costituisce l'insieme di informazioni scritte che accompagnano un prodotto software, fornendo dettagli utili agli sviluppatori, distributori e utenti. Il suo obiettivo principale è agevolare il team durante il processo di sviluppo, tracciando e documentando tutte le fasi e attività che fanno parto del ciclo di vita del prodotto per migliorare la manutenzione e la qualità del risultato finale. Un elemento chiave è garantire chiarezza e concisione nelle regole redazionali, insieme a una struttura uniforme per tutti i documenti che verranno redatti, in modo da promuovere la coerenza e la familiarità ai documenti per chi li utilizzerà. 
-    Tali regole dovranno essere applicate da tutti i membri del team ed i sorgenti \LaTeX\ che contengono tale documentazione verranno inseriti nel repository privato all'indirizzo:
+    La documentazione costituisce l'insieme di informazioni scritte che accompagnano un prodotto software, fornendo dettagli utili agli sviluppatori, distributori e utenti.\\
+    Il suo obiettivo principale è:
+    \begin{itemize}
+        \item  Definire delle procedure ripetibili che permettano di uniformare la documentazione che viene prodotta dal gruppo ed il metodo di lavoro;
+    \item  Raccogliere e organizzare le norme che i membri del team devono seguire così da semplificare l'operazione di scrittura dei documenti.
+    \end{itemize}
+    Tali norme dovranno essere applicate da tutti i membri del team ed i sorgenti \LaTeX\ che contengono tale documentazione verranno inseriti nel repository privato all'indirizzo:
     \href{https://github.com/ByteOps-swe/Sorgente-documenti}{https://github.com/ByteOps-swe/Sorgente-documenti}
     
    \begin{comment} \paragraph*{Primi approcci alla redazione di documenti e problematiche riscontrate}
@@ -332,8 +337,7 @@ Questo documento assume l'importante ruolo di costituire un registro ufficiale, 
 In particolare, è possibile distinguere tra verbali interni, destinati all'uso interno dell'organizzazione, e verbali esterni, che trovano applicazione quando vi sono terze parti coinvolte nelle discussioni o nelle decisioni documentate.\\ 
 Nella prima pagina oltre alle informazioni comuni a ogni documento vengono specificate:
 \begin{itemize}
-    \item Data della riunione
-    \item Tipologia della riunione (Interna,Esterna).
+    \item Data della riunione e tipologia (Interna,Esterna) nel nome del documento
     \item Luogo: canale di comunicazione adottato.
     \item Ora di inizio e fine dell'incontro.
     \item Partecipanti della riunione (interni ed esterni).
@@ -354,7 +358,7 @@ Corpo del documento:
 \end{itemize}
 
     \subsubsection{Regole tipografiche}
-    \paragraph*{Nome dei File}\label{sec:NomeFile}
+    \paragraph*{Documenti del progetto e nome dei File}\label{sec:NomeFile}
     Il nome dei documenti generati deve essere omogeneo, con la prima lettera maiuscola ed il resto minuscolo e deve contenere un riferimento alla versione del documento (notazione di versionamento:~\ref{sec:RegistroModifiche}).\\
     Nello specifico devono seguire la seguente convenzione:
     \begin{itemize}
