@@ -1,46 +1,89 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage[default]{raleway}
-\usepackage{titlesec, array, setspace, geometry, graphicx, xcolor, relsize, fancyhdr, booktabs, hyperref, atbegshi}
+\usepackage{titlesec, comment, tabularx, makecell, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, hyperref}
 %\geometry{a4paper, left=2cm, right=2cm, top=2cm, bottom=2.5cm}
 \renewcommand{\headrulewidth}{0pt}
 
+% Definisci uno stile per i comandi git
+\definecolor{light-gray}{gray}{0.92}
+
+\lstdefinestyle{code}{
+    frame=single,
+    framesep=1mm,
+    rulecolor=\color{light-gray},
+    backgroundcolor=\color{light-gray},
+    basicstyle=\ttfamily,
+}
+
+% ----------------------------- Definizione tabella ---------------------------
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+%\setcellgapes{2ex} % Imposta l'altezza dell'header (2ex)
+
+
 % ------------------------------Metadati indice --------------------------------
-\title{\textbf{\fontsize{30}{6}\selectfont Indice}}
-\author{\fontsize{14}{6}\selectfont ByteOps}
-\date{\today}
+\title{\textbf{\fontsize{28}{6}\selectfont Indice}}
+\author{\fontsize{14}{6}\selectfont ByteOps} 
+
 
 % -----------------------------Creazione footer --------------------------------
+
 \pagestyle{fancy}
 \fancyhf{}
 \renewcommand{\footrulewidth}{0.4pt}
 \lfoot{
     \parbox[c]{2cm}{\includegraphics[width=2cm]{../../../Images/logo.png}}
-    \textcolor[RGB]{120, 120, 120}{$\cdot$ Verbale}
+    \textcolor[RGB]{120, 120, 120}{$\cdot$ Verbale tipo}
 }
-
+\rfoot{\thepage}
 
 % --------------------------Modifica formato hyperlinks ------------------------
+
 \hypersetup{
-    colorlinks=true, 
+    colorlinks=true,
     linkcolor=black,
     filecolor=black,      
-    pdftitle={Verbale 27-10-2023}, % nome visualizzato in alto a sx nel programma 
+    pdftitle={Norme di Progetto},
     pdfpagemode=FullScreen,
 }
 
+% ------------------------------- Valore sotto-paragrafi indice --------------------------------------
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\titleformat{\section}
+{\normalfont\huge\bfseries}{\thesection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsection}
+{\normalfont\Large\bfseries}{\thesubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsubsection}
+{\normalfont\large\bfseries}{\thesubsubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
 % --------------------------Aggiunta firma finale ------------------------
-\AtEndDocument{%
-  \begin{center}
+\AtEndDocument{
+    \begin{center}
     \vfill
-    \parbox{\textwidth}{%
-      \centering
-      \vspace{-1.5cm}
-      \hspace{7cm}
-      Il Responsabile: Davide Diotto
+    \parbox{\textwidth}{
+        \centering
+        \vspace{-1.5cm}
+        \hspace{7cm}
+        Il Responsabile: Nome
     }
-  \end{center}
+    \end{center}
 }
+
+% ------------------------------- Front Page ---------------------------------------
 
 \begin{document}
 \pagestyle{fancy}
@@ -58,49 +101,79 @@
 \begin{tabular}{>{\raggedleft\arraybackslash}p{0.2\textwidth}|>{\raggedright\arraybackslash}p{0.6\textwidth}c}
 \hline
 \addlinespace
-    \textbf{Luogo} & Discord \vspace{10pt} \\
-    \textbf{Orario} & 10:00 - 12:00 \vspace{10pt} \\
-    \textbf{Redattori} & A. Barutta \\ & R. Smanio \\ & N. Preto \vspace{10pt} \\
-    \textbf{Verificatori} & E. Hysa \\ & L. Skenderi \\ & D. Diotto \vspace{10pt} \\
-    \textbf{Amministratore} & F. Pozza \vspace{10pt} \\
-    \textbf{Destinatari} & T. Vardanega \\ & R. Cardin \vspace{10pt} \\
-    \textbf{Partecipanti} & A. Barutta \\ & E. Hysa \\ & R. Smanio \\ & D. Diotto \\ & F. Pozza \\ & L. Skenderi \\ & N. Preto \vspace{10pt} \\
+\textbf{Luogo} & Luogo \vspace{10pt} \\
+\textbf{Orario} & 9:30 - 11:00 \vspace{10pt} \\
+\textbf{Redattore} & R. Smanio \vspace{10pt} \\
+\textbf{Verificatore} & A. Barutta \vspace{10pt} \\
+\textbf{Amministratore} & F. Pozza \vspace{10pt} \\
+\textbf{Destinatari} & T. Vardanega \\ & R. Cardin \vspace{10pt} \\
+\textbf{Partecipanti} & A. Barutta \\ & E. Hysa \\ & R. Smanio \\ & D. Diotto \\ & F. Pozza \\ & L. Skenderi \\ & N. Preto \vspace{10pt} \\
 \end{tabular}
 \pagebreak 
 
+% ------------------------- Changelog ----------------------------
 
-% --------------------------- inizio documento ----------------------------------
-\section*{\textbf{Sintesi e risultati dell’incontro}}
+\section*{Registro delle modifiche}
 
+\begin{tabular}{|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|}
+    \hline
+    \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Dettaglio} \\
+    \hline \hline
+    0.0.1 & 04/11/2023 & R.Smanio & A. Barutta & descrizione \\
+    \hline
+\end{tabular}
+
+% \pagebreak
+
+% ------------------------- Generazione automatica indice ----------------------
+\setstretch{1.5}
+\maketitle
+\thispagestyle{fancy}
+\tableofcontents
+\setstretch{1.2}
+\pagebreak
+
+% ------------------------ INIZIO DOCUMENTO ----------------------
+\flushleft
+
+\section{Revisione del periodo precedente}
+Per la redazione dei documenti relativi alla candidatura, è stato sperimentato un approccio ibrido combinando l'utilizzo di Google Docs per la scrittura del contenuto e LaTeX per la formattazione del documento. In seguito a ciò sono emersi i seguenti aspetti:
 \begin{itemize}
-  \item \textbf{\fontsize{12}{6}\selectfont Modifica metodologia per la redazione dei documenti}
-  
-  Nella redazione dei documenti relativi alla candidatura, abbiamo adottato un approccio ibrido che combina l'uso di Google Docs e LaTeX. Questo metodo consiste in una prima fase in cui viene redatto il contenuto del documento con Google Docs, una seconda fase per la convalida del contenuto da parte del verificatore e infine una terza fase in cui viene formattato il documento in LaTeX.
-  La separazione tra la fase di elaborazione dei contenuti e la fase di formattazione del documento offre il vantaggio di poter redigere il contenuto senza dover gestire direttamente la sintassi LaTeX. Inoltre, grazie all’integrazione tra Google Docs e Google Drive, ogni membro del gruppo può collaborare alla redazione dello stesso documento in modalità sia sincrona che asincrona, con la possibilità di vedere in tempo reale le modifiche apportate dagli altri membri
-  Nonostante ciò si sono verificati i seguenti problemi che causano inefficienza nel processo:
-  \begin{itemize}
-    \item Sussiste il rischio di commettere errori nel processo di trasposizione dei documenti da Google Docs a LaTeX, con conseguente incoerenza tra i documenti nei due formati. Per mitigare questa problematica diventa necessaria una seconda convalida da parte del verificatore, ma tale approccio risulterebbe inefficiente.
-    \item A causa della complessità della sintassi LaTeX, la trasposizione del documento redatto in Google Docs non può essere semplicemente effettuata tramite copia-incolla del contenuto; al contrario, spesso richiede una significativa riscrittura del testo.
-  \end{itemize}
-  Per tali ragioni si è presa la decisione di redigere direttamente i documenti in LaTeX ed adottare l’approccio “Documentation As Code” che viene descritto nel dettaglio all’interno del file “Norme di progetto” in: Processi di supporto/Documentazione/Redazione documenti. Con l'obiettivo di facilitare il versionamento e la gestione dei documenti redatti in LaTeX in linea con l'approccio "Documentation as Code", è stata istituita una nuova repository privata su GitHub.
-    \vspace{0.5cm}
-  
-  \item \textbf{\fontsize{12}{6}\selectfont Pianificazione e definizione delle successive attività da svolgere}
-  \begin{itemize}
-    \item Redazione documento “Norme di progetto”:
-    \begin{itemize}
-      \item Redazione sezione “Introduzione” (Issue \#13)
-      \item Redazione sezione “Comunicazione” (Issue \#10)
-      \item Redazione sezione “Documentazione” (Issue \#9)
-    \end{itemize}
-    \item Redazione documento “Analisi dei Rischi” (Issue \#11)
-    \item Risoluzione dei problemi relativi al processo di automazione per la compilazione dei file LaTeX su Github  (Issue \#14)
-  \end{itemize}
-  \vspace{0.5cm}
-  
-  \item \textbf{\fontsize{12}{6}\selectfont Automatizzazione del processo di compilazione dei documenti redatti in LaTeX}
-  
-  Si rende utile e pratico implementare un procedimento automatizzato in grado di compilare i file LaTeX dopo la loro verifica e caricamento nel branch principale della repository che contiene i sorgenti della documentazione. Tale obiettivo può essere raggiunto attraverso l'impiego del meccanismo di GitHub Actions, e si è concordato sul dispiegamento di risorse dedicate per attuare questa automatizzazione.\vspace{0.5cm}
-  \end{itemize}
+    \item Aspetti positivi:
+        \begin{itemize}
+            \item La separazione tra la fase di elaborazione dei contenuti e la fase di formattazione del documento offre il vantaggio di poter redigere il contenuto senza dover gestire direttamente la sintassi LaTeX.
+            \item Grazie all’integrazione tra Google Docs e Google Drive, ogni membro del gruppo può collaborare alla redazione dello stesso documento in modalità sia sincrona che asincrona, con la possibilità di vedere in tempo reale le modifiche apportate dagli altri membri.
+        \end{itemize}
+    \item Aspetti negativi:
+        \begin{itemize}
+            \item A causa della complessità della sintassi LaTeX, la trasposizione di un documento redatto in Google Docs non può essere eseguita con una semplice operazione di copia-incolla. Spesso, è richiesta una sostanziale rielaborazione del testo, il che richiede un notevole impegno di tempo. Pertanto, è fondamentale che un revisore verifichi e convalidi il contenuto del documento prima di iniziare la formattazione in LaTeX.
+            \item Sussiste il rischio di commettere errori nel processo di trasposizione dei documenti da Google Docs a LaTeX, con conseguente incoerenza tra i documenti nei due formati. Per mitigare questa problematica diventa necessaria una seconda convalida da parte del verificatore, ma tale approccio risulterebbe inefficiente.
+        \end{itemize}
+\end{itemize}
 
+\section{Ordine del giorno}
+    \subsection{Definizione nuova metodologia per la redazione dei documenti}
+    Considerando gli aspetti negativi precedentemente menzionati, è stata presa la decisione di creare direttamente i documenti in LaTeX e di adottare l'approccio "Documentation As Code" (descritto dettagliatamente nel documento "Norme di progetto") con l'obiettivo di migliorare l'efficienza del processo di redazione dei documenti.
+    \subsection{Creazione repository sorgente documenti dedicata al versionamento}
+    è stata creata una nuova repository privata su GitHub per il versionamento dei documenti redatti in LaTeX.
+
+    \subsection{Automatizzazione del processo di compilazione dei documenti redatti in LaTeX}
+    Si rende utile e pratico implementare un procedimento automatizzato in grado di compilare i file LaTeX dopo la loro verifica e caricamento nel branch principale della repository che contiene i sorgenti della documentazione. Tale obiettivo può essere raggiunto attraverso l'impiego del meccanismo di GitHub Actions, e si è concordato sul dispiegamento di risorse dedicate per attuare questa automatizzazione
+\section{Attività da svolgere}
+\begin{center}
+    \begin{tabular}{|C{7cm}|C{1,5cm}|C{3cm}|}
+        \hline
+        \textbf{Attività da svolgere} & \textbf{\# Issue} & \textbf{Verificatore} \\
+        \hline
+        \hline
+        Norme di progetto: sez. Documentazione & 9 & Nome Verificatore\\
+        Norme di progetto: sez. Comunicazione & 10 & Nome Verificatore\\
+        Analisi dei rischi & 11 & Nome Verificatore\\
+        Verbale interno 03/11/2023 & 12 & Nome Verificatore\\
+        Norme di progetto: sez. Introduzione & 13 & Nome Verificatore\\
+        Automazione compilazione LaTeX & 14 & Nome Verificatore\\
+        \hline
+    \end{tabular}
+\end{center}
+    
 \end{document}
