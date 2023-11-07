@@ -1,42 +1,98 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage[default]{raleway}
-\usepackage{titlesec, array, setspace, geometry, graphicx, xcolor, relsize, fancyhdr, booktabs, hyperref}
+\usepackage{titlesec, comment, tabularx, makecell, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, hyperref}
 %\geometry{a4paper, left=2cm, right=2cm, top=2cm, bottom=2.5cm}
 \renewcommand{\headrulewidth}{0pt}
 
+% Definisci uno stile per i comandi git
+\definecolor{light-gray}{gray}{0.92}
+
+\lstdefinestyle{code}{
+    frame=single,
+    framesep=1mm,
+    rulecolor=\color{light-gray},
+    backgroundcolor=\color{light-gray},
+    basicstyle=\ttfamily,
+}
+
+% ----------------------------- Definizione tabella ---------------------------
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+%\setcellgapes{2ex} % Imposta l'altezza dell'header (2ex)
+
+
 % ------------------------------Metadati indice --------------------------------
-\title{\textbf{\fontsize{30}{6}\selectfont Indice}}
-\author{\fontsize{14}{6}\selectfont ByteOps}
-\date{\today}
+\title{\textbf{\fontsize{28}{6}\selectfont Indice}}
+\author{\fontsize{14}{6}\selectfont ByteOps} 
+
 
 % -----------------------------Creazione footer --------------------------------
+
 \pagestyle{fancy}
 \fancyhf{}
 \renewcommand{\footrulewidth}{0.4pt}
 \lfoot{
-    \parbox[c]{2cm}{\includegraphics[width=2cm]{Images/logo.png}}
-    \textcolor[RGB]{120, 120, 120}{$\cdot$ Nome Documento}
+    \parbox[c]{2cm}{\includegraphics[width=2cm]{../../../Images/logo.png}}
+    \textcolor[RGB]{120, 120, 120}{$\cdot$ Verbale tipo}
 }
 \rfoot{\thepage}
 
 % --------------------------Modifica formato hyperlinks ------------------------
+
 \hypersetup{
     colorlinks=true,
     linkcolor=black,
     filecolor=black,      
-    pdftitle={Nome PDF}, % nome visualizzato in alto a sx nel programma 
+    pdftitle={Norme di Progetto},
     pdfpagemode=FullScreen,
 }
+
+% ------------------------------- Valore sotto-paragrafi indice --------------------------------------
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\titleformat{\section}
+{\normalfont\huge\bfseries}{\thesection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsection}
+{\normalfont\Large\bfseries}{\thesubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsubsection}
+{\normalfont\large\bfseries}{\thesubsubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+% --------------------------Aggiunta firma finale ------------------------
+\AtEndDocument{
+    \begin{center}
+    \vfill
+    \parbox{\textwidth}{
+        \centering
+        \vspace{-1.5cm}
+        \hspace{7cm}
+        Il Responsabile: Nome
+    }
+    \end{center}
+}
+
+% ------------------------------- Front Page ---------------------------------------
 
 \begin{document}
 \pagestyle{fancy}
 \begin{center}
-\includegraphics[width = 0.7\textwidth]{Images/logo.png} \\
+\includegraphics[width = 0.7\textwidth]{../../../Images/logo.png} \\
 \vspace{0.2cm}
 \textcolor[RGB]{60, 60, 60}{\textit{ByteOps.swe@gmail.com}} \\
 \vspace{1cm}
-\fontsize{16}{6}\selectfont Nome Documento $\cdot$ Data: 17/10/2023 \\
+\fontsize{16}{6}\selectfont Verbale Tipo $\cdot$ Data: 1/1/2023 \\
 \vspace{0.5cm}
 \end{center}
 
@@ -45,13 +101,54 @@
 \begin{tabular}{>{\raggedleft\arraybackslash}p{0.2\textwidth}|>{\raggedright\arraybackslash}p{0.6\textwidth}c}
 \hline
 \addlinespace
-    \textbf{Ruolo} & Nome 1 \\ & Nome 2 \\ & Nome 3 \vspace{10pt} \\
-    \textbf{Ruolo} & Nome 1 \\ & Nome 2 \\ & Nome 3 \vspace{10pt} \\
-    \textbf{Ruolo} & Nome 1 \\ & Nome 2 \\ & Nome 3 \vspace{10pt} \\
-    \textbf{Ruolo} & Nome 1 \\ & Nome 2 \\ & Nome 3 \vspace{10pt} \\
-    
+\textbf{Luogo} & Luogo \vspace{10pt} \\
+\textbf{Orario} & 9:30 - 11:00 \vspace{10pt} \\
+\textbf{Redattori} & Nome \\ & Nome \\ & Nome \vspace{10pt} \\
+\textbf{Verificatori} & Nome \\ & Nome \\ & Nome \vspace{10pt} \\
+\textbf{Amministratore} & Nome \vspace{10pt} \\
+\textbf{Destinatari} & T. Vardanega \\ & R. Cardin \vspace{10pt} \\
+\textbf{Partecipanti} & A. Barutta \\ & E. Hysa \\ & R. Smanio \\ & D. Diotto \\ & F. Pozza \\ & L. Skenderi \\ & N. Preto \vspace{10pt} \\
 \end{tabular}
 \pagebreak 
 
+% ------------------------- Changelog ----------------------------
 
+\section*{Registro delle modifiche}
+
+\begin{tabular}{|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|}
+    \hline
+    \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Dettaglio} \\
+    \hline \hline
+    0.0.1 & 31/10/2023 & Nome autore & Nome verificatore & descrizione \\
+    \hline
+\end{tabular}
+
+% \pagebreak
+
+% ------------------------- Generazione automatica indice ----------------------
+\setstretch{1.5}
+\maketitle
+\thispagestyle{fancy}
+\tableofcontents
+\setstretch{1.2}
+\pagebreak
+
+% ------------------------ INIZIO DOCUMENTO ----------------------
+\flushleft
+
+\section{Revisione del periodo precedente}
+
+\section{Ordine del giorno}
+
+\section{Attività da svolgere}
+\begin{center}
+    \begin{tabular}{|C{7cm}|C{1,5cm}|C{3cm}|}
+        \hline
+        \textbf{Attività da svolgere} & \textbf{\# Issue} & \textbf{Verificatore} \\
+        \hline\hline
+        Attività 1 & 1 & Nome Verificatore\\
+        \hline
+    \end{tabular}
+\end{center}
+    
 \end{document}
