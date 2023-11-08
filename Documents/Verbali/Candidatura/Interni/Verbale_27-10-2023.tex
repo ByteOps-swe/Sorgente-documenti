@@ -4,6 +4,7 @@
 \usepackage[default]{raleway}
 \usepackage{titlesec, comment, tabularx, makecell, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, hyperref}
 \usepackage{colortbl}
+\usepackage{makecell}
 %\geometry{a4paper, left=2cm, right=2cm, top=2cm, bottom=2.5cm}
 \renewcommand{\headrulewidth}{0pt}
 
@@ -98,7 +99,7 @@
 \begin{tabular}{>{\raggedleft\arraybackslash}p{0.2\textwidth}|>{\raggedright\arraybackslash}p{0.6\textwidth}c}
 \hline
 \addlinespace
-    \textbf{Luogo} & In Discord \vspace{10pt} \\
+    \textbf{Luogo} & Discord \vspace{10pt} \\
     \textbf{Orario} & 9:30 - 11:00 \vspace{10pt} \\
     \textbf{Redattori} & A. Barutta \\ & R. Smanio \\ & N. Preto \vspace{10pt} \\
     \textbf{Verificatori} & E. Hysa \\ & L. Skenderi \\ & D. Diotto \vspace{10pt} \\
@@ -114,8 +115,8 @@
 \begin{tabular}{|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|} \hline
 \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Dettaglio} \\
 \hline \hline
-0.0.2 & 07/11/2023 & A.Baruta & E.Hysa L.Skenderi & Nuovo template verbali \\ \hline
-0.0.1 & 27/10/2023 & A.Baruta R.Smanio & D.Diotto & Redazione documento\\ \hline
+0.0.2 & 07/11/2023 & A. Barutta & \makecell{E. Hysa\\L. Skenderi} & Nuovo template verbali \\ \hline
+0.0.1 & 27/10/2023 & \makecell{A. Barutta\\R. Smanio} & D. Diotto & Redazione documento\\ \hline
 \end{tabular} % \pagebreak
 
 % ------------------------- Generazione automatica indice ----------------------
@@ -130,16 +131,20 @@
 \flushleft
 
 \section{Revisione del periodo precedente}
-Sulla riunione di oggi, si sottolinea che in questo caso non si sono condotte revisioni dettagliate delle attività svolte dall’ultimo incontro come gruppo.
+    Nel corso della revisione delle attività completate e di quelle in corso, non sono emerse difficoltà o problematiche di rilievo.
 
-\section{Ordine del giorno} \subsection{Preparazione slide diario di bordo}
-Sono state impostate le slide per i diari di bordo e si è discusso sui temi da trattare alla lezione “Diario di Bordo” di lunedi 30/10/2023.
-\subsection{Revisione collettiva dei documenti redatti in \LaTeX}
-I documenti redatti dai verificatori in Latex sono stati esaminati congiuntamente e successivamente caricati nella repository di gruppo.
-\subsection{Consegna prevista}
-È stata formalizzata la milestone concernente l'assegnazione degli appalti, comprensiva delle relative responsabilità fino alla data stabilita. In seguito, saranno caricati nella repository i documenti ufficialmente convalidati.
-
+\section{Ordine del giorno}
+    
+    \subsection{Preparazione slide diario di bordo}
+        Sono state impostate le slide per i diari di bordo e si è discusso sui temi da trattare alla lezione “Diario di Bordo” di lunedi 30/10/2023.
+    
+    \subsection{Revisione collettiva dei documenti redatti in \LaTeX}
+        I documenti redatti dai verificatori in Latex sono stati esaminati congiuntamente e successivamente caricati nella repository di gruppo.
+    
+    \subsection{Consegna prevista}
+        È stata formalizzata la milestone concernente l'assegnazione degli appalti, comprensiva delle relative responsabilità fino alla data stabilita. In seguito, saranno caricati nella repository i documenti ufficialmente convalidati.
 
 \section{Attività da svolgere}
-Non sono state definite nuove attività.
+    Non sono state definite nuove attività.
+
 \end{document}
