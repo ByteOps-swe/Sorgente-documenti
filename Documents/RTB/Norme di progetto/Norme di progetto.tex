@@ -194,7 +194,7 @@ Il ciclo di vita dei documenti è suddiviso in molteplici attività, che possono
 
 %\textbf{Procedimento in sintesi}\\
  %   Per rispettare i principi  di "Documentation as Code" l'approccio attualmente adottato richiede la competenza e l'utilizzo di LaTeX per la stesura dei documenti e una repository ad accesso limitato Git chiamata "Sorgente documenti" dove versionarli. I redattori, seguendo la struttura dettagliata nei prossimi paragrafi, redigeranno il contenuto dei documenti utilizzando il linguaggio \LaTeX\ su un ramo dedicato nella repository "Sorgente documenti". \\
-  %  Al termine del loro lavoro, segnaleranno il completamento posizionando l'Issue relativa al compito di redazione nella colonna "Documentazione da validare" della \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione} di GitHub (unica e condivisa sia dalla repository pubblica "\href{https://github.com/ByteOps-swe/Documents}{Documents}" che dalla repository "Sorgente documenti") e generando una pull request . Questa colonna conterrà i compiti relativi ai documenti completati dai redattori, che necessitano ora della validazione da parte dei verificatori. \\
+  %  Al termine del loro lavoro, segnaleranno il completamento posizionando l'Issue relativa al compito di redazione nella colonna "Da revisionare" della \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione} di GitHub (unica e condivisa sia dalla repository pubblica "\href{https://github.com/ByteOps-swe/Documents}{Documents}" che dalla repository "Sorgente documenti") e generando una pull request . Questa colonna conterrà i compiti relativi ai documenti completati dai redattori, che necessitano ora della validazione da parte dei verificatori. \\
    
    % I file sorgenti LaTeX saranno quindi gestiti e versionati nella repository con accesso limitato denominata "Sorgente documenti", strutturata in modo identico alla repository pubblica chiamata "\href{https://github.com/ByteOps-swe/Documents}{Documents}" ma con file \LaTeX\ al posto dei PDF. \\
  %   I verificatori quindi troveranno il documento da validare in questa repository quando riceveranno una notifica mail generata dalla pull request.\\
@@ -256,7 +256,7 @@ Dalla repository  "Sorgente documenti" contenente i sorgenti \LaTeX, il redattor
      \textbf{Completamento compito di redazione}\\
     Al termine del loro lavoro, i redattori:
     \begin{enumerate}
-        \item Segnalano il completamento dell'attività a loro assegnata (essa sia la stesura completa di un documento o di una sua parte) posizionando l'issue relativa nella colonna "Documentazione da validare" della  \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione}.
+        \item Segnalano il completamento dell'attività a loro assegnata (essa sia la stesura completa di un documento o di una sua parte) posizionando l'issue relativa nella colonna "Da revisionare" della  \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione}.
         \item Attuano una \textbf{pull request:}
         \begin{enumerate}
      \item Aggiornare il registro delle modifiche inserendo i dati richiesti in  una nuova riga e incrementando la versione (Il verificatore è definito all'assegnazione della task, presente nella descrizione della Issue del'ITS).
@@ -343,7 +343,9 @@ Nella prima pagina oltre alle informazioni comuni a ogni documento vengono speci
     \item Data della riunione e tipologia (Interna,Esterna) nel nome del documento
     \item Luogo: canale di comunicazione adottato.
     \item Ora di inizio e fine dell'incontro.
+    \item Amministrare
     \item Partecipanti della riunione (interni ed esterni).
+    \item Il Responsabile (in basso a destra)
 \end{itemize}
 %Il registro delle modifiche non è incluso nei verbali in quanto non è necessario; una volta redatti, i verbali non subiscono ulteriori modifiche.
 Corpo del documento:
@@ -365,9 +367,9 @@ Corpo del documento:
     Il nome dei documenti generati deve essere omogeneo, con la prima lettera maiuscola ed il resto minuscolo e deve contenere un riferimento alla versione del documento (notazione di versionamento:~\ref{sec:RegistroModifiche}).\\
     Nello specifico devono seguire la seguente convenzione:
     \begin{itemize}
-        \item \textbf{Verbali interni:}Verbale interno DD-MM-AAA
-        \item \textbf{Verbali esterni:}Verbale esterno DD-MM-AAA
-        \item \textbf{Norme di Progetto:} Norme di progetto\_vX.Y
+        \item \textbf{Verbali interni:}Verbale\_interno\_DD-MM-AAA
+        \item \textbf{Verbali esterni:}Verbale\_esterno\_DD-MM-AAA
+        \item \textbf{Norme di Progetto:} Norme\_di\_progetto\_vX.Y
         \item \textbf{Glossario:} Glossario\_vX.Y
     \end{itemize}
     
@@ -404,13 +406,13 @@ Corpo del documento:
         \item \textbf{Overleaf}: Per la redazione dei documenti in Latex\textsubscript{\textit{G}} collaborativa.
     \end{itemize}
 
-\subsection{Verifica}
+\subsection{Verifica}\label{sec:verifica}
 \subsubsection{Verifica dei documenti}
 \paragraph{I verificatori}\label{sec:verificatori}
 
     Il ruolo del verificatore nei documenti è cruciale per garantire la qualità e l'accuratezza del contenuto.
 
-Quando il verificatore individua un'Issue nella colonna "Documentazione da validare" della  \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione}, sarà tenuto a convalidare il file corrispondente presente nella repository con accesso limitato denominata "Sorgente documenti". \\
+Quando il verificatore individua un'Issue nella colonna "Da revisionare" della  \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione}, sarà tenuto a convalidare il file corrispondente presente nella repository con accesso limitato denominata "Sorgente documenti". \\
 In aggiunta, il revisore riceverà una notifica via email quando il redattore completa la propria attività, comunicandogli la presenza della pull request assegnatagli.\\
 Nella sezione "pull request" di GitHub, il revisore troverà la richiesta di unire il branch di redazione al branch "main", assumendo il ruolo di revisore. Accedendo alla pull request su GitHub, il revisore avrà la possibilità di esaminare attentamente il documento in questione e di aggiungere commenti visibili ai redattori nel caso in cui siano necessarie modifiche per la validazione.
 
@@ -431,7 +433,7 @@ Dopo l'attuazione dei controlli sopra citati e verificato il loro rispetto, i pa
  \item \textbf{Accetta la Pull Request:} Accedi alla pagina della pull request in cui agisci come revisore nel repository "Sorgente documenti" su GitHub >> Risolvi eventuali conflitti >> Merge Pull Request;
     \item \textbf{Caso documento non in evoluzione: }(ex. Verbali, Lettere di presentazione).\\
     Elimina il branch solo nel caso in cui il documento revisionato appartenga alla categoria di documenti non in evoluzione.
-     \item \textbf{Sposta la issue in Done:} Nella \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione} sposta la issue relativa al documento validato da "Documentazione da validare" a "Done".
+     \item \textbf{Sposta la issue in Done:} Nella \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione} sposta la issue relativa al documento validato da "Da revisionare" a "Done".
      \item \textbf{Generazione PDF:} Un automazione tramite GitHub Actions compilerà il file   \LaTeX\ e genererà automaticamente il PDF nel branch main della repository \href{https://github.com/ByteOps-swe/Documents}{Documents}. 
      \item \textbf{Rinomina file: }Rinomina il file con il riferimento al numero di versione aggiornato secondo quanto specificato in: ~\ref{sec:RegistroModifiche}.
     % \item \textbf{Carica PDF:} Inserisci il PDF generato dal passaggio precedente nella repository \href{https://github.com/ByteOps-swe/Documents}{Documents} nella corretta posizione.
@@ -495,6 +497,32 @@ Il seguente capitolo copre i ruoli di progetto, le modalità di comunicazione in
             \item Ricercare ed in caso segnalare eventuali errori;
             \item Redigere la sezione retrospettiva del \textit{Piano di Qualifica}, descrivendo le verifiche e le prove effettuate durante il processo di sviluppo del prodotto;
         \end{itemize}          
+        \paragraph{Ticketing}
+        GitHub è adottato come sistema di tracciamento degli issue (ITS), garantendo così una gestione agevole e trasparente dei compiti da svolgere. L'amministratore ha la facoltà di creare e assegnare specifici compiti identificati dal responsabile, assicurando chiarezza sulle responsabilità di ciascun individuo e stabilendo tempi definiti. Inoltre, ogni membro del gruppo può monitorare i progressi compiuti nel periodo corrente, consultando lo stato di avanzamento dei vari task attraverso le Dashboard:
+        \begin{itemize}
+            \item \href{https://github.com/orgs/ByteOps-swe/projects/1}{DashBoard}: Per una chiara visione dello stato dei task;
+            \item \href{https://github.com/orgs/ByteOps-swe/projects/3}{RoadMap}: Per visione delle scadenze dei task.
+        \end{itemize}
+        La procedura da seguire in caso di necessità di svolgere un compito è la seguente:
+        \begin{enumerate}
+    \item L' amministratore crea e assegna il task su GitHub;
+    \item L'incaricato apre una branch su GitHub seguendo la denominazione suggerita;
+    \item  All'inizio del lavoro di produzione il task viene marcato in corso sulla DashBoard GitHub;
+    \item Finito il lavoro di produzione viene aperta la pull request su GitHub assegnandoil verificatore.
+    \item Il task viene marcato nella colonna "Da revisionare" sulla DashBoard GitHub.
+    \item Il verificatore si accerta e agisce secondo quanto esposto al punto ~\ref{sec:verifica} nel caso di appartenenza;
+    \item Il task viene marcato nella colonna "Done" della DashBoard GitHub.
+\end{enumerate}
+I task sono creati dall'amministratore e hanno i seguenti attributi:
+\begin{itemize}
+    \item \textbf{Titolo}: un titolo coinciso e descrittivo;
+    \item \textbf{Descrizione}: Descrizione testuale di "to-do" e come come ultima riga il Verificatore della task;
+    \item \textbf{Assegnatario}: incaricato svolgimento della task;
+    \item \textbf{Scadenza}: Data entro la quale la task deve essere completata;
+    \item \textbf{labels}: Tag per identificare la categoria della task (ex. Verbale, Documents, Develop, Bug);
+    \item \textbf{Milestone}: Milestone associata alla task.
+\end{itemize}
+
 
     \subsection{Comunicazione}
     Il gruppo \textit{ByteOps} mantiene comunicazioni attive, sia interne che esterne al team, le quali possono essere sincrone o asincrone a seconda delle necessità.
