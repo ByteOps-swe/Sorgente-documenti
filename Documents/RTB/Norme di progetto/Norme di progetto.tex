@@ -101,10 +101,12 @@
     \hline
     \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Dettaglio} \\
     \hline \hline
-    1.1 & 06/11/2023 & Andrea Barutta,
+    0.2.0
+ & 06/11/2023 & Andrea Barutta,
     Nicola Preto & Riccardo Smanio & Sezione Comunicazione,Gestione incontri \\
 \hline
-    1.0 & 05/11/2023 & Davide Diotto
+    0.1.0
+    & 05/11/2023 & Davide Diotto
     Nicola Preto & Riccardo Smanio & Sezione Documentazione,Introduzione \\
     \hline
 
@@ -354,6 +356,8 @@ Corpo del documento:
         \item Verificatore della attività.
     \end{itemize}
 
+    Il template dei verbali è disponibile al link:\\ \href{https://github.com/ByteOps-swe/Sorgente-documenti/tree/main/Documents/Verbali/Templates}{https://github.com/ByteOps-swe/Sorgente-documenti/tree/main/Documents/Verbali/Templates}
+
 \end{itemize}
 
     \subsubsection{Regole tipografiche}
@@ -462,6 +466,37 @@ Le tecnologie adottata per la gestione dei configuration item sono:
     \item \textbf{GitHub}: Piattaforma web che utilizza Git per il controllo di versione dei CI e per il Ticketing.
 \end{itemize}
 
+\subsubsection{Repository}
+Le repository del team sono:
+    \begin{itemize}
+        \item \href{https://github.com/ByteOps-swe/Sorgente-documenti}{Sorgente-documenti}:Repository per il versionamento, la gestione e lo sviluppo dei sorgenti della documentazione.
+        \item \href{https://github.com/ByteOps-swe/Documents}{Documents}: Repository destinata ai commintenti/proponenti dove vengono condivisi solo i PDF dei file sorgenti revisionati.  
+    \end{itemize}
+ \paragraph{Struttura repository}
+ I repository destinati alla documentazione sono organizzati come segue:
+\begin{itemize}
+    \item \textbf{Verbali}: Il documento in questione contiene tutti i verbali redatti durante il ciclo di vita del progetto. Inoltre, è suddiviso per ogni revisione del progetto (candidatura, RTB, PB), che a sua volta contiene una suddivisione tra verbali esterni ed interni.
+    \item \textbf{candidatura}: Contenente i documenti richiesti per la revisione omonima:
+    \item \textbf{RTB}:\begin{itemize}
+        \item Piano di Qualifica;
+        \item Piano di Progetto;
+        \item Analisi dei Requisiti;
+        \item Glossario;
+        \item Norme di Progetto;
+    \end{itemize}
+    \item \textbf{PB}.
+\end{itemize}
+
+
+\paragraph{Sincronizzazione e Branching}
+\textbf{Documentazione:}
+Il flusso di lavoro adottato per la documentazione, denominato ‘feature branch workflow’, prevede la creazione di un branch dedicato per ogni documento richiesto.
+Tale metodologia forza l'integrazione continua poichè l'utilizzo di un unico branch per la stesura di un documento implica che i redattori debbano immediatamente integrare e risolvere i conflitti derivanti dal lavoro degli altri membri.
+Inoltre permette una parallelizzazione agile dei lavori evitando sovrascritture indesiderate di altri lavori.
+
+\paragraph{Pull Request}
+\textbf{Documentazione:}
+Dopo aver redatto il documento, il creatore del branch deve aprire una richiesta di pull request per effettuare il merge nel ramo principale. La richiesta di pull request può essere accettata solo se la verifica ha esito positivo.
 % -----------------------------Processi organizzativi --------------------------------
 
 \section{Processi organizzativi}
