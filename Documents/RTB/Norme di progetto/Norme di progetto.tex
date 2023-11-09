@@ -328,18 +328,7 @@ La tabella deve registrare le seguenti informazioni:
 \item \textbf{Verificatore}.
 \item \textbf{Descrizione}: un riassunto delle modifiche apportate.
 \end{itemize}
-\textbf{Numeri di versionamento}
- La convenzione per identificare la versione di un documento è: X.Y.Z
-con :
-\begin{itemize}
-\item \textbf{X: }Viene incrementato al raggiungimento di RTB e PB.
- \item \textbf{Y: }Viene incrementato quando vengono apportate modifiche significative al documento, come cambiamenti strutturali, nuove sezioni importanti o modifiche sostanziali nel contenuto.
- \item \textbf{Z: }Viene incrementato per modifiche minori o aggiornamenti al documento. Questi potrebbero includere correzioni di errori, miglioramenti marginali o l'aggiunta di nuovi contenuti meno rilevanti.
-\end{itemize}
-
-Con l'incremento dei valori più significati  porta i meno significativi a zero. \\
-Ogni variazione di versione deve essere presente nel registro delle modifiche.
-
+La convezione per il versionamento è presente al paragrafo : ~\ref{sec:versionamento} .
 \paragraph{Verbali: struttura generale}
 Questo documento assume l'importante ruolo di costituire un registro ufficiale, atto a riportare in maniera accurata gli argomenti trattati, le decisioni adottate, le azioni da intraprendere e le figure coinvolte.\\
 In particolare, è possibile distinguere tra verbali interni, destinati all'uso interno dell'organizzazione, e verbali esterni, che trovano applicazione quando vi sono terze parti coinvolte nelle discussioni o nelle decisioni documentate.\\ 
@@ -401,6 +390,7 @@ Corpo del documento:
   ITS & Issue Tracking System \\
   RTB & Requirements and Technology Baseline  \\
   PB & Product Baseline\\
+  CI & configuration Item \\
   \hline
 \end{tabular}
 
@@ -448,6 +438,29 @@ Dopo l'attuazione dei controlli sopra citati e verificato il loro rispetto, i pa
      
 \end{enumerate}
 \subsection{Gestione della configurazione}
+\subsubsection{Introduzione}
+La gestione della configurazione del progetto è una attività che norma il tracciamento e il controllo delle modifiche a documenti e prodotti del software detti Configuration Item (CI).
+
+La gestione della configurazione può essere applicata a qualunque categoria di documenti o di “artefatti” che svolga un ruolo nello sviluppo software.
+Secondo lo standard IEEE, la gestione della configurazione del software è un processo di identificazione, organizzazione e controllo delle modifiche apportate ai prodotti software durante il ciclo di vita del software.
+ Lo standard IEEE 828-2012 definisce la gestione della configurazione del software come “un processo disciplinato per gestire l’evoluzione del software”. 
+\subsubsection{Numeri di versionamento}\label{sec:versionamento}
+ La convenzione per identificare la versione di un documento è: X.Y.Z
+con :
+\begin{itemize}
+\item \textbf{X: }Viene incrementato al raggiungimento di RTB e PB.
+ \item \textbf{Y: }Viene incrementato quando vengono apportate modifiche significative al documento, come cambiamenti strutturali, nuove sezioni importanti o modifiche sostanziali nel contenuto.
+ \item \textbf{Z: }Viene incrementato per modifiche minori o aggiornamenti al documento. Questi potrebbero includere correzioni di errori, miglioramenti marginali o l'aggiunta di nuovi contenuti meno rilevanti.
+\end{itemize}
+
+Con l'incremento dei valori più significati  porta i meno significativi a zero. \\
+Ogni variazione di versione deve essere presente nel registro delle modifiche.
+\subsubsection{Tecnologie}
+Le tecnologie adottata per la gestione dei configuration item sono:
+\begin{itemize}
+    \item \textbf{Git}: Version Control System distribuito utilizzato per il versionamento dei CI;
+    \item \textbf{GitHub}: Piattaforma web che utilizza Git per il controllo di versione dei CI e per il Ticketing.
+\end{itemize}
 
 % -----------------------------Processi organizzativi --------------------------------
 
