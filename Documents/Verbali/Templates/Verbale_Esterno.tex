@@ -3,6 +3,7 @@
 \usepackage[absolute]{textpos}
 \usepackage[default]{raleway}
 \usepackage{titlesec, comment, tabularx, makecell, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, hyperref}
+\usepackage{colortbl}
 %\geometry{a4paper, left=2cm, right=2cm, top=2cm, bottom=2.5cm}
 \renewcommand{\headrulewidth}{0pt}
 
@@ -26,7 +27,8 @@
 
 % ------------------------------Metadati indice --------------------------------
 \title{\textbf{\fontsize{28}{6}\selectfont Indice}}
-\author{\fontsize{14}{6}\selectfont ByteOps} 
+\author{\fontsize{14}{6}\selectfont ByteOps}
+\date{Mese Giorno, Anno}
 
 
 % -----------------------------Creazione footer --------------------------------
@@ -35,8 +37,8 @@
 \fancyhf{}
 \renewcommand{\footrulewidth}{0.4pt}
 \lfoot{
-    \parbox[c]{2cm}{\includegraphics[width=2cm]{../../../Images/logo.png}}
-    \textcolor[RGB]{120, 120, 120}{$\cdot$ Verbale tipo}
+    \parbox[c]{2cm}{\includegraphics[width=2cm]{../../Images/logo.png}}
+    \textcolor[RGB]{120, 120, 120}{$\cdot$ Verbale Esterno}
 }
 \rfoot{\thepage}
 
@@ -77,17 +79,17 @@
 
 % --------------------------Aggiunta firma finale ------------------------
 \begin{textblock*}{\textwidth}(0.85\textwidth, 1.16\textheight)
-    Il responsabile: Davide Diotto
+    Il responsabile: Nome Cognome
 \end{textblock*}
 % ------------------------------------------------------------------------
 
 \pagestyle{fancy}
 \begin{center}
-\includegraphics[width = 0.7\textwidth]{../../../Images/logo.png} \\
+\includegraphics[width = 0.7\textwidth]{../../Images/logo.png} \\
 \vspace{0.2cm}
 \textcolor[RGB]{60, 60, 60}{\textit{ByteOps.swe@gmail.com}} \\
 \vspace{1cm}
-\fontsize{16}{6}\selectfont Verbale Tipo $\cdot$ Data: 1/1/2023 \\
+\fontsize{16}{6}\selectfont Verbale Esterno $\cdot$ Data: dd/mm/yyyy \\
 \vspace{0.5cm}
 \end{center}
 
@@ -97,12 +99,12 @@
 \hline
 \addlinespace
 \textbf{Luogo} & Luogo \vspace{10pt} \\
-\textbf{Orario} & 9:30 - 11:00 \vspace{10pt} \\
-\textbf{Redattori} & Nome \\ & Nome \\ & Nome \vspace{10pt} \\
-\textbf{Verificatori} & Nome \\ & Nome \\ & Nome \vspace{10pt} \\
+\textbf{Orario} & hh:mm - hh:mm \vspace{10pt} \\
+\textbf{Redattore} & Nome \vspace{10pt} \\
+\textbf{Verificatore} & Nome \vspace{10pt} \\
 \textbf{Amministratore} & Nome \vspace{10pt} \\
 \textbf{Destinatari} & T. Vardanega \\ & R. Cardin \vspace{10pt} \\
-\textbf{Partecipanti} & A. Barutta \\ & E. Hysa \\ & R. Smanio \\ & D. Diotto \\ & F. Pozza \\ & L. Skenderi \\ & N. Preto \vspace{10pt} \\
+\textbf{Partecipanti} & A. Barutta \\ & E. Hysa \\ & R. Smanio \\ & D. Diotto \\ & F. Pozza \\ & L. Skenderi \\ & N. Preto \\ & A. Dorigo \\ & D. Zorzi \\ & F. Pallaro \vspace{10pt} \\
 \end{tabular}
 \pagebreak 
 
@@ -114,14 +116,11 @@
     \hline
     \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Dettaglio} \\
     \hline \hline
-    0.0.1 & 31/10/2023 & Nome autore & Nome verificatore & descrizione \\
+    0.0.1 & dd/mm/yyyy & Nome Cognome & Nome Cognome & Descrizione \\
     \hline
 \end{tabular}
+\pagebreak
 
-% \pagebreak
-
-
-=======
 % ------------------------- Generazione automatica indice ----------------------
 \setstretch{1.5}
 \maketitle
@@ -136,16 +135,21 @@
 \section{Revisione del periodo precedente}
 
 \section{Ordine del giorno}
+    \subsection{Subsection 1}
+    \subsection{Subsection 2}
+    \subsection{Subsection 3}
 
 \section{Attività da svolgere}
-\begin{center}
-    \begin{tabular}{|C{7cm}|C{1,5cm}|C{3cm}|}
-        \hline
-        \textbf{Attività da svolgere} & \textbf{\# Issue} & \textbf{Verificatore} \\
-        \hline\hline
-        Attività 1 & 1 & Nome Verificatore\\
-        \hline
-    \end{tabular}
-\end{center}
+    \begin{center}
+        \begin{tabular}{|C{7cm}|C{1,5cm}|C{3cm}|}
+            \hline
+            \textbf{Titolo} & \textbf{\# Issue} & \textbf{Verificatore} \\
+            \hline\hline
+            Attività 1 & Id & Nome Cognome \\
+            Attività 2 & Id & Nome Cognome \\
+            Attività 3 & Id & Nome Cognome \\
+            \hline
+        \end{tabular}
+    \end{center}
 
 \end{document}
