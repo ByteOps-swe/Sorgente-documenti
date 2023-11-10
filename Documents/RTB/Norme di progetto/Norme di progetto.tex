@@ -141,7 +141,13 @@ Il \textbf{\textit{Glossario}} verrà compilato attraverso un documento condivis
 
 \subsection{Riferimenti}
 \subsubsection{Riferimenti normativi}
-Da inserire.
+\begin{itemize}
+    \item \textbf{Standard ISO/IEC 12207:1995}:Standard internazionale che definisce un modello di ciclo di vita del software.
+     Questo standard fornisce linee guida per la gestione dei processi software e stabilisce una struttura di base per la documentazione associata a tali processi.
+     In breve, è uno strumento che aiuta a organizzare e gestire lo sviluppo del software in modo sistematico e standardizzato.
+     \href{https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf}{\url{https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf}}
+
+    \end{itemize}
 \subsubsection{Riferimenti informativi}
 Da inserire.
 
@@ -497,6 +503,30 @@ Inoltre permette una parallelizzazione agile dei lavori evitando sovrascritture 
 \paragraph{Pull Request}
 \textbf{Documentazione:}
 Dopo aver redatto il documento, il creatore del branch deve aprire una richiesta di pull request per effettuare il merge nel ramo principale. La richiesta di pull request può essere accettata solo se la verifica ha esito positivo.
+\subsubsection{Controllo di configurazione}
+\paragraph{Change request (Richiesta di modifica)}
+Seguendo lo standard  ISO/IEC 12207 per affrontare questo processo in modo strutturato le attività sono:
+\begin{enumerate}
+    \item \textbf{Identificazione e registrazione}: Le change request vengono identificate, registrate e documentate accuratamente. Questo include informazioni come la natura della modifica richiesta, l'urgenza, l'impatto sul sistema esistente\\
+    L'identificazione avviene tramite la creazione di un issue nell'ITS con label: "Change request";
+    \item \textbf{Valutazione e analisi}: Le change request vengono valutate dal team per determinare la loro fattibilità, importanza e impatto sul progetto. Si analizzano i costi e i benefici associati all'implementazione della modifica;
+    \item \textbf{Approvazione o rifiuto}:Il responsabile valuta le informazioni raccolte e decide se approvare o respingere la change request. Questa decisione può essere basata su criteri come il budget, il tempo, le priorità degli stakeholder;
+    \item \textbf{Pianificazione delle modifiche}: Se una change request viene approvata, viene pianificata e integrata nel ciclo di sviluppo del software. Questo può richiedere la rinegoziazione dei tempi di consegna, la revisione del piano di progetto, ecc;
+    \item \textbf{Implementazione delle modifiche}: Le modifiche vengono effettivamente implementate. Durante questo processo, è fondamentale mantenere una traccia accurata di ciò che viene fatto per consentire una corretta documentazione e, se necessario, la possibilità di un rollback;
+    \item \textbf{Verifica e validazione}: Le modifiche apportate vengono verificate per assicurarsi che abbiano raggiunto gli obiettivi previsti e non abbiano introdotto nuovi problemi o errori;
+    \item \textbf{Documentazione}: Tutti i passaggi del processo di gestione delle change request vengono documentati accuratamente per garantire la trasparenza e la tracciabilità. Questa documentazione è utile per futuri riferimenti e per l'apprendimento dalle modifiche apportate;
+    \item \textbf{Comunicazione agli interessati}: Durante tutto il processo, è importante comunicare in modo chiaro e tempestivo agli interessati, come il team di sviluppo, i clienti e altri stakeholder, per mantenere la trasparenza e la fiducia.
+\end{enumerate}
+
+\subsubsection{Configuration Status Accounting (Contabilità dello Stato di Configurazione)}
+Questo processo si occupa di registrare e tenere traccia dello stato di tutte le configurazioni di un sistema software durante il suo ciclo di vita.
+\begin{itemize}
+    \item \textbf{Registrazione delle configurazioni}: Registrazione delle informazioni dettagliate su ogni elemento di configurazione, che può includere codice sorgente, documentazione, specifiche, risorse hardware, e altri componenti del sistema;
+    \item \textbf{Stato e cambiamenti}: Tenere traccia dello stato attuale di ciascun elemento di configurazione e di tutti i cambiamenti che avvengono nel corso del tempo. Ciò include le versioni attuali, le revisioni, le modifiche e le baselines;
+    \item \textbf{Supporto per la gestione delle change request}: Correlazione alla gestione delle change request. Registra e documenta le modifiche apportate agli elementi di configurazione in risposta alle richieste di modifica.
+\end{itemize}
+Processo fondamentale per mantenere la trasparenza e la tracciabilità nel ciclo di vita del software, aiutando a gestire le configurazioni in modo coerente e a mantenere un registro accurato di tutte le attività e le modifiche che coinvolgono gli elementi di configurazione.
+La corretta gestione del registro delle modifiche e il posizionamento nella repository permettono l'identificazione dell'ultima Versione revisionata, con le Configuration Item opportunamente posizionate nel branch main.
 % -----------------------------Processi organizzativi --------------------------------
 
 \section{Processi organizzativi}
