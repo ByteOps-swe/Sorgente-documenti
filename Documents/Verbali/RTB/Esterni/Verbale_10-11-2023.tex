@@ -5,39 +5,77 @@
 \usepackage{titlesec, comment, tabularx, makecell, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, hyperref} \usepackage{colortbl}
 %\geometry{a4paper, left=2cm, right=2cm, top=2cm, bottom=2.5cm} 
 \renewcommand{\headrulewidth}{0pt}
+
 % Definisci uno stile per i comandi git 
 \definecolor{light-gray}{gray}{0.92}
+
 \lstdefinestyle{code}{
-frame=single,
-framesep=1mm, rulecolor=\color{light-gray}, backgroundcolor=\color{light-gray}, basicstyle=\ttfamily,
+    frame=single,
+    framesep=1mm,
+    rulecolor=\color{light-gray},
+    backgroundcolor=\color{light-gray},
+    basicstyle=\ttfamily,
 }
+
 % ----------------------------- Definizione tabella --------------------------- 
+
 \newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}} 
+
 %\setcellgapes{2ex} % Imposta l'altezza dell'header (2ex)
+
+
 % ------------------------------Metadati indice -------------------------------- 
-\title{\textbf{\fontsize{28}{6}\selectfont Indice}} \author{\fontsize{14}{6}\selectfont ByteOps}
-\date{10/11/2023}
+\title{\textbf{\fontsize{28}{6}\selectfont Indice}}
+\author{\fontsize{14}{6}\selectfont ByteOps}
+\date{Novembre 10, 2023}
+
+
 % -----------------------------Creazione footer --------------------------------
+
 \pagestyle{fancy}
-\fancyhf{} \renewcommand{\footrulewidth}{0.4pt} \lfoot{
-\parbox[c]{2cm}{\includegraphics[width=2cm]{../../../Images/logo.png}}
-\textcolor[RGB]{120, 120, 120}{$\cdot$ Verbale Esterno} }
-\rfoot{\thepage}
-% --------------------------Modifica formato hyperlinks ------------------------ 
-\hypersetup{
-colorlinks=true,
-linkcolor=black,
-filecolor=black,
-pdftitle={Verbale Esterno 10/11/2023}, %inserisci data verbale pdfpagemode=FullScreen,
+\fancyhf{}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{
+    \parbox[c]{2cm}{\includegraphics[width=2cm]{../../../Images/logo.png}}
+    \textcolor[RGB]{120, 120, 120}{$\cdot$ Verbale Esterno}
 }
+\rfoot{\thepage}
+
+% --------------------------Modifica formato hyperlinks ------------------------ 
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,
+    pdftitle={Verbale Esterno 10/11/2023}, %inserisci data verbale
+    pdfpagemode=FullScreen,
+}
+
 % ------------------------------- Valore sotto-paragrafi indice --------------------------------------
-\setcounter{secnumdepth}{4} \setcounter{tocdepth}{4}
-\titleformat{\section} {\normalfont\huge\bfseries}{\thesection}{0.2cm}{} \titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
-\titleformat{\subsection} {\normalfont\Large\bfseries}{\thesubsection}{0.2cm}{} \titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
-\titleformat{\subsubsection} {\normalfont\large\bfseries}{\thesubsubsection}{0.2cm}{} \titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
-\titleformat{\paragraph} {\normalfont\normalsize\bfseries}{\theparagraph}{0.2cm}{} \titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\titleformat{\section}
+{\normalfont\huge\bfseries}{\thesection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsection}
+{\normalfont\Large\bfseries}{\thesubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsubsection}
+{\normalfont\large\bfseries}{\thesubsubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
 % ------------------------------- Front Page --------------------------------------- 
+
 \begin{document}
+
 % --------------------------Aggiunta firma finale ------------------------ 
 
 \begin{textblock*}{\textwidth}(0.85\textwidth, 1.08\textheight)
@@ -49,16 +87,20 @@ Il responsabile: Davide Diotto
 \end{textblock*}
 
 % ------------------------------------------------------------------------
+
 \pagestyle{fancy}
 \begin{center}
 \includegraphics[width = 0.7\textwidth]{../../../Images/logo.png} \\
 \vspace{0.2cm}
-\textcolor[RGB]{60, 60, 60}{\textit{ByteOps.swe@gmail.com}} \\ \vspace{1cm}
-\fontsize{16}{6}\selectfont Verbale Esterno $\cdot$ Data: 10/11/2023 \\ \vspace{0.5cm}
+\textcolor[RGB]{60, 60, 60}{\textit{ByteOps.swe@gmail.com}} \\
+\vspace{1cm}
+\fontsize{16}{6}\selectfont Verbale Esterno $\cdot$ Data: 10/11/2023 \\
+\vspace{0.5cm}
 \end{center}
 
- \section*{Informazioni documento}
-\def\arraystretch{1.2} \begin{tabular}{>{\raggedleft\arraybackslash}p{0.2\textwidth}|>{\raggedright\arraybackslash}p {0.6\textwidth}c}
+\section*{Informazioni documento}
+\def\arraystretch{1.2}
+\begin{tabular}{>{\raggedleft\arraybackslash}p{0.2\textwidth}|>{\raggedright\arraybackslash}p {0.6\textwidth}c}
 \hline
 \addlinespace
 \textbf{Luogo} & Google Meet \vspace{10pt} \\
@@ -67,50 +109,70 @@ Il responsabile: Davide Diotto
 \textbf{Verificatore} & L. Skenderi \vspace{10pt} \\
 \textbf{Amministratore} & F. Pozza \vspace{10pt} \\
 \textbf{Destinatari} & T. Vardanega \\ & R. Cardin \vspace{10pt} \\
-\textbf{Partecipanti} & A. Barutta \\ & E. Hysa \\ & R. Smanio \\ & D. Diotto \\ & F. Pozza \\ & L. Skenderi \\ & N. Preto \\ & A. Dorigo \\ & D. Zorzi \\ & F. Pallaro \vspace{10pt} \\ \end{tabular}
+\textbf{Partecipanti} & A. Barutta \\ & E. Hysa \\ & R. Smanio \\ & D. Diotto \\ & F. Pozza \\ & L. Skenderi \\ & N. Preto \\ & A. Dorigo \\ & D. Zorzi \\ & F. Pallaro \vspace{10pt} \\
+\end{tabular}
 \pagebreak
+
 % ------------------------- Changelog ----------------------------
+
 \section*{Registro delle modifiche}
-\begin{tabular}{|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|} \hline
-\textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Dettaglio} \\
-\hline \hline
-0.0.1 & 10/11/2023 & Nome Cognome & Nome Cognome & Prima stesura documento \\ \hline
-\end{tabular} \pagebreak
+
+\begin{tabular}{|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|}
+    \hline
+    \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Dettaglio} \\
+    \hline \hline
+    0.0.1 & 10/11/2023 & Nome Cognome & Nome Cognome & Prima stesura documento \\
+    \hline
+\end{tabular}
+
+\pagebreak
+
 % ------------------------- Generazione automatica indice ---------------------- 
+
 \setstretch{1.5}
 \maketitle
 \thispagestyle{fancy}
-\tableofcontents \setstretch{1.2} \pagebreak
+\tableofcontents
+\setstretch{1.2}
+\pagebreak
+
 % ------------------------ INIZIO DOCUMENTO ----------------------
- \flushleft
+\flushleft
+
 \section{Revisione del periodo precedente}
-L’ultimo incontro a cui si è partecipato aveva come scopo precipuo quello di instaurare una reciproca conoscenza. L’obiettivo cardine era comprendere le intenzioni dell' azienda committente e risolvere alcuni dubbi emersi all’interno del gruppo durante l’analisi dei vari paragrafi del capitolato.
-Pertanto, dalla precedente riunione, non si è avuto modo di rivedere ciò che è stato realizzato dall’ultimo incontro con l’azienda, in quanto solo in data 6/11/2023 ci è stato assegnato il capitolato.
-\section{Ordine del giorno} 
-\subsection{SAL Pianificati} 
-Si offre l’opportunità di pianificare dei SAL (consigliati a cadenza bi-settimanale) al fine di monitorare l’andamento del lavoro svolto, con l’obiettivo di giungere a metà dicembre con una POC. Il gruppo conferma all’azienda proponente l’intenzione 
-di stabilire una durata bi-settimanale per gli sprint. Viene inoltre fissata una conferenza telefonica per le due settimane successive, durante la quale si discuterà la suddivisione delle varie issue e degli obiettivi proposti nello sprint precedente.
+    L’ultimo incontro a cui si è partecipato aveva come scopo precipuo quello di instaurare una reciproca conoscenza. L’obiettivo cardine era comprendere le intenzioni dell' azienda committente e risolvere alcuni dubbi emersi all’interno del gruppo durante l’analisi dei vari paragrafi del capitolato.
+    Pertanto, dalla precedente riunione, non si è avuto modo di rivedere ciò che è stato realizzato dall’ultimo incontro con l’azienda, in quanto solo in data 6/11/2023 ci è stato assegnato il capitolato.
 
-\subsection{Contatti con l'azienda} 
-Si offre l’opportunità di utilizzare il client “Element” per mantenere un contatto costante con l’azienda proponente. Saranno create stanze dedicate al gruppo, dove, in circostanze eccezionali, sarà possibile richiedere una chiamata durante lo sprint.
+\section{Ordine del giorno}
 
-\subsection{Obiettivo primo sprint}
-È richiesta la realizzazione di un sistema per la generazione dei dati per almeno un sensore, lasciando la libera scelta sul metodo di realizzazione (documentata nel caso). I dati del sensore dovranno includere: ID, tipo di sensore, valore rilevato e timestamp di quando il dato viene rilevato.
-Si consiglia l'utilizzo di Docker Compose per simulare la generazione di vari sensori e testare se i dati arrivano in Apache Kafka. È gradito anche il passaggio fino a ClickHouse.
-Inoltre, è richiesta l'identificazione delle User Stories e delle issues che coprono l'intero progetto.
+    \subsection{SAL Pianificati} 
+        Si offre l’opportunità di pianificare dei SAL (consigliati a cadenza bi-settimanale) al fine di monitorare l’andamento del lavoro svolto, con l’obiettivo di giungere a metà dicembre con una POC. Il gruppo conferma all’azienda proponente l’intenzione 
+        di stabilire una durata bi-settimanale per gli sprint. Viene inoltre fissata una conferenza telefonica per le due settimane successive, durante la quale si discuterà la suddivisione delle varie issue e degli obiettivi proposti nello sprint precedente.
 
+    \subsection{Contatti con l'azienda} 
+        Si offre l’opportunità di utilizzare il client “Element” per mantenere un contatto costante con l’azienda proponente. Saranno create stanze dedicate al gruppo, dove, in circostanze eccezionali, sarà possibile richiedere una chiamata durante lo sprint.
 
-\subsection{Domanda su Autorità e Cittadino, Use Case}
-Il progetto è pensata per utente di tipo Autorità, dato che questo tipo di applicazione sarà destinata agli enti comunali o a clienti particolari.
+    \subsection{Obiettivo primo sprint}
+        È richiesta la realizzazione di un sistema per la generazione dei dati per almeno un sensore, lasciando la libera scelta sul metodo di realizzazione (documentata nel caso). I dati del sensore dovranno includere: ID, tipo di sensore, valore rilevato e timestamp di quando il dato viene rilevato.
+        Si consiglia l'utilizzo di Docker Compose per simulare la generazione di vari sensori e testare se i dati arrivano in Apache Kafka. È gradito anche il passaggio fino a ClickHouse.
+        Inoltre, è richiesta l'identificazione delle User Stories e delle issues che coprono l'intero progetto.
 
 
+    \subsection{Domanda su Autorità e Cittadino, Use Case}
+        Il progetto è pensata per utente di tipo Autorità, dato che questo tipo di applicazione sarà destinata agli enti comunali o a clienti particolari.
 
-%\section{Attività da svolgere} \begin{center}
-%\begin{tabular}{|C{7cm}|C{1,5cm}|C{3cm}|} \hline
-%\textbf{Titolo} & \textbf{\# Issue} & \textbf{Verificatore} \\ \hline\hline
-%Attività 1 & Id & Nome Cognome \\
-%Attività 2 & Id & Nome Cognome \\
-%Attività 3 & Id & Nome Cognome \\
-%\hline \end{tabular}
-%\end{center} 
+
+
+\section{Attività da svolgere}
+    \begin{center}
+        \begin{tabular}{|C{7cm}|C{1,5cm}|C{3cm}|} 
+            \hline
+            \textbf{Titolo} & \textbf{\# Issue} & \textbf{Verificatore} \\ \hline\hline
+            Attività 1 & Id & Nome Cognome \\
+            Attività 2 & Id & Nome Cognome \\
+            Attività 3 & Id & Nome Cognome \\
+            \hline
+        \end{tabular}
+    \end{center}
+    
 \end{document}
