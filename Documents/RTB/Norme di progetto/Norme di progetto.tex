@@ -503,11 +503,7 @@ Le repository del team sono:
 \textbf{Documentazione:}
 Il flusso di lavoro adottato per la documentazione, denominato ‘feature branch workflow’, prevede la creazione di un branch dedicato per ogni documento richiesto.
 Tale metodologia forza l'integrazione continua poichè l'utilizzo di un unico branch per la stesura di un documento implica che i redattori debbano immediatamente integrare e risolvere i conflitti derivanti dal lavoro degli altri membri.
-Inoltre permette una parallelizzazione agile dei lavori evitando sovrascritture indesiderate di altri lavori.
-
-\paragraph{Pull Request}
-\textbf{Documentazione:}
-Dopo aver redatto il documento, il creatore del branch deve aprire una richiesta di pull request per effettuare il merge nel ramo principale. La richiesta di pull request può essere accettata solo se la verifica ha esito positivo.
+Inoltre permette una parallelizzazione agile dei lavori evitando sovrascritture indesiderate di altri lavori. 
 \subsubsection{Controllo di configurazione}
 \paragraph{Change request (Richiesta di modifica)}
 Seguendo lo standard  ISO/IEC 12207 per affrontare questo processo in modo strutturato le attività sono:
@@ -533,7 +529,9 @@ Questo processo si occupa di registrare e tenere traccia dello stato di tutte le
 Processo fondamentale per mantenere la trasparenza e la tracciabilità nel ciclo di vita del software, aiutando a gestire le configurazioni in modo coerente e a mantenere un registro accurato di tutte le attività e le modifiche che coinvolgono gli elementi di configurazione.\\
 \textbf{La corretta gestione del registro delle modifiche, il posizionamento nella repository e il branching permettono l'identificazione dello stato dei CI.}
 L'inclusione di CI nel branch principale (main) lo configura come la versione più recente, revisionata e pronta per il rilascio.% -----------------------------Processi organizzativi --------------------------------
-
+\paragraph{Release management and delivery}
+\textbf{Documentazione:}
+Dopo aver completato il lavoro il creatore del branch deve aprire una pull request per effettuare il merge nel ramo principale. La richiesta di pull request può essere accettata solo se la verifica ha esito positivo.
 \section{Processi organizzativi}
 Il seguente capitolo copre i ruoli di progetto, le modalità di comunicazione interna ed esterna e la gestione delle comunicazioni automatiche. Inoltre, l'obiettivo della pianificazione è stabilire una strategia organizzativa per il team \textit{ByteOps} .   
     \subsection{Pianificazione}
