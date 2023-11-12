@@ -121,7 +121,7 @@ Il responsabile: Davide Diotto
     \hline
     \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Dettaglio} \\
     \hline \hline
-    0.0.1 & 10/11/2023 & Nome Cognome & Nome Cognome & Redazione documento \\
+    0.0.1 & 10/11/2023 & R. Smanio & L. Skenderi & Redazione documento \\
     \hline
 \end{tabular}
 
@@ -145,17 +145,18 @@ Il responsabile: Davide Diotto
 \section{Ordine del giorno}
 
     \subsection{SAL Pianificati} 
-        Si offre l’opportunità di pianificare dei SAL (consigliati a cadenza bi-settimanale) al fine di monitorare l’andamento del lavoro svolto, con l’obiettivo di giungere a metà dicembre con una POC. Il gruppo conferma all’azienda proponente l’intenzione 
-        di stabilire una durata bi-settimanale per gli sprint. Viene inoltre fissata una conferenza telefonica per le due settimane successive, durante la quale si discuterà la suddivisione delle varie issue e degli obiettivi proposti nello sprint precedente.
+        I referenti aziendali hanno proposto di programmare i SAL con una frequenza bisettimanale, poiché ritengono che un periodo di due settimane sia l'intervallo temporale ottimale per raggiungere gli obiettivi stabiliti in ciascun SAL. Durante ogni SAL, si procederà con un'analisi comparativa tra le aspettative definite e i risultati effettivamente conseguiti dal team.
+        L'obiettivo delineato è la realizzazione di un POC entro la seconda metà di dicembre.
 
     \subsection{Contatti con l'azienda} 
         È stato concordato che Element sarà il principale mezzo di comunicazione con i referenti aziendali. Verrà creato un canale dedicato in cui sarà possibile richiedere informazioni ed eventuali chiarimenti.
 
-    \subsection{Obiettivo primo sprint}
-        È richiesta la realizzazione di un sistema per la generazione dei dati per almeno un sensore, lasciando la libera scelta sul metodo di realizzazione (documentata nel caso). I dati del sensore dovranno includere: ID, tipo di sensore, valore rilevato e timestamp di quando il dato viene rilevato.
-        Si consiglia l'utilizzo di Docker Compose per simulare la generazione di vari sensori e testare se i dati arrivano in Apache Kafka. È gradito anche il passaggio fino a ClickHouse.
-        Inoltre, è richiesta l'identificazione delle User Stories e delle issues che coprono l'intero progetto.
-
+    \subsection{Obiettivi per il primo sprint}
+        \begin{itemize}
+            \item Creazione di una versione semplificata di un sistema in grado di simulare la generazione dei dati di un sensore. La scelta del tipo di sensore è lasciata libera e i dati generati devono includere un ID, il tipo di sensore, il valore rilevato e il timestamp relativo alla rilevazione. È preferibile che il sensore emetta i dati in formato JSON. Non è necessario che il sensore generi grandi quantità di dati; inviare anche solo un dato al secondo è sufficiente, allo scopo di testare la ricezione di dati su Kafka.
+            \item Configurare una versione semplificata dell'ambiente di esecuzione mediante Docker Compose che permetta l'interconnessione delle diverse componenti del sistema. Inizialmente, è sufficiente verificare che i dati generati dal sensore vengano trasmessi con successo a Kafka, valutando eventualmente l'opzione di salvataggio su ClickHouse che altrimenti sarà svolta in futuro.
+            \item Individuazione delle principali user stories relative all’intero progetto.
+        \end{itemize}
 
     \subsection{Domanda su Autorità e Cittadino, Use Case}
         L'obiettivo principale del progetto è sviluppare un sistema dedicato al monitoraggio dello stato di salute della città, al fine di agevolare la presa di decisioni informate e tempestive nella gestione delle risorse e nell'implementazione dei servizi. I principali destinatari del servizio saranno quindi figure istituzionali, quali autorità locali, enti comunali o organizzazioni affini.\\
@@ -172,8 +173,9 @@ Il responsabile: Davide Diotto
             \textbf{Titolo} & \textbf{\# Issue} & \textbf{Verificatore} \\ \hline\hline
             Identificare e definire le user stories correlate al progetto & Id & Nome Cognome \\
             Progettare ed implementare un sensore tipo & Id & Nome Cognome \\
-            Progettare ed implementare l'ambiente di sviluppo  & Id & Nome Cognome \\
+            Progettare ed implementare una versione semplificata dell'ambiente di esecuzione & Id & Nome Cognome \\
             Aggiungi spazio firma azienda nel template verbale esterno & 21 & R. Smanio \\
+            Creazione repository dedicato al POC & Id & Nome Cognome \\
             \hline
         \end{tabular}
     \end{center}
