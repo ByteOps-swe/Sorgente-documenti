@@ -1,0 +1,158 @@
+name: Build LaTeX Document
+on:
+  pull_request_target:
+    branches: 
+      - main
+    types: [closed]
+
+jobs:
+  build_latex:
+    if: ${{ github.event.pull_request.merged }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone source repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.ACCESS_TOKEN }}
+      
+      - name: Clone destination repo
+        uses: actions/checkout@v4
+        with:
+          path: Output
+          repository: lisienskenderi/pdf-test
+          token: ${{ secrets.ACCESS_TOKEN }}
+      
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v40
+
+      - name: Compile LaTeX document
+        run: |
+          ls -la
+          cd Output
+          ls -la
+          # git config --global --add safe.directory /work/Output
+          git pull
+          git branch -a
+          git checkout Test
+
+          git branch
+          git status
+          git config user.name github-actions[bot]
+          git config user.email github-actions[bot]@github.com
+          cd ..
+          git config user.name github-actions[bot]
+          git config user.email github-actions[bot]@github.com
+          docker run -i --rm -v "$(pwd):/work" -w /work -u "$(id -u):$(id -g)" ghcr.io/xu-cheng/texlive-full bash -c '
+          shopt -s globstar
+          set -e
+          set -m
+
+          for path in ${{ steps.changed-files.outputs.all_changed_files }}; do(
+            echo "$path was changed"
+            if [[ "$(basename "$path")" != "Verbale_Esterno.tex" ]] && [[ "$(basename "$path")" != "Verbale_Interno.tex" ]] && [[ $path == *.tex ]] 
+            then
+              echo "Here is the path"
+              echo $path
+              new_name=$(python Version_finder.py $path)
+              git status
+              echo "Here is the new name"
+              echo $new_name
+              git add "${path}"
+              git add "${new_name}"
+              git status
+              path_no_under="${new_name//_/ }"
+              echo "Here is the path no under"
+              echo $path_no_under
+              name=$(basename "$new_name")
+              echo "Here is the name"
+              echo $name
+              name_no_ext="${name%.*}"
+              echo "Here is the name no ext"
+              echo $name_no_ext
+              new_only_name="Aggiornato $name_no_ext"
+              echo "Here is the new only name"
+              echo $new_only_name
+
+              git commit -m "$new_only_name"
+              echo "$new_name"
+              echo "Here is the basename" 
+              echo $(basename "$path")
+              echo "Here is the dirname"
+              echo $(dirname "$path")
+              cd "$(dirname "$path")"
+              latexmk -pdf "$(basename "$new_name")"
+              ls -la
+            else 
+              echo " template.tex di merda"
+            fi
+          )done
+          pwd
+          echo "Leggi ls"
+          ls -la
+          git push
+          cd Output
+          pwd
+          ls -la
+          git add .
+          git commit -m 'Cancellato file deprecati'
+          cd ..
+          '
+
+      - name: upload pdf
+        run: |
+          shopt -s globstar
+          set -e
+          
+          echo "Mv pdf to dst"
+          echo "For loop"
+          
+          ls -la "Documents/RTB/Norme_di_progetto/"
+
+          count=`ls -1 *.pdf 2>/dev/null | wc -l`
+          if find "Documents" -type f -name "*.pdf" -print -quit 2>/dev/null; then
+            for path in Documents/**/*.pdf; do (
+              echo "$path"
+              # if [[$path != "Documents/**/*.pdf"]]
+              # then
+              dirname=$(dirname "$path")
+              echo "${dirname}"
+              new_dirname="Output/$dirname"
+              dirname_no_under="${new_dirname//_/ }"
+              echo "$new_dirname"
+              name_old=$(basename "$path")
+              name_no_ext="${name_old%.*}"
+              name_no_under="${name_no_ext//_/ }"
+              name="${name_old//_/ }"
+              echo "$dirname_no_under"
+              new_name="Aggiornato $name_no_under"
+              # Create the directory in Output having the same structure/path that it had in Documents removing the ./Documents part with its parent directories
+              if [ ! -d "$dirname_no_under" ]; then
+                mkdir -p "${dirname_no_under}"
+                echo "created: $dirname_no_under"
+              fi
+              # Move $path in Output saving the same structure/path that it had in Documents removing the ./Documents part
+              mv -f "$path" "${dirname_no_under}"
+              mv -f "$dirname_no_under"/"$name_old" "$dirname_no_under"/"$name"
+              echo 1
+              path_no_under="${path//_/ }"
+              cd Output
+              echo 2
+              ls -la
+              git add "${path_no_under}"
+              #git status
+              echo 3
+              git commit -m "$new_name"
+              echo 4
+              cd ..
+              echo 5
+              # fi
+            ) done
+          fi
+          
+          cd Output
+          git config --global push.autoSetupRemote true
+          git status
+          git push
