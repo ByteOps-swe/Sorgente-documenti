@@ -2,7 +2,7 @@ name: Build LaTeX Document
 on:
   pull_request_target:
     branches: 
-      - main
+      - protected
     types: [closed]
 
 jobs:
@@ -23,6 +23,12 @@ jobs:
           path: Output
           repository: lisienskenderi/pdf-test
           token: ${{ secrets.ACCESS_TOKEN }}
+
+      - name: Pushing to the protected branch 'protected'
+        uses: CasperWA/push-protected@v2
+        with:
+          token: ${{ secrets.PUSH_TO_PROTECTED_BRANCH }}
+          branch: protected
       
       - name: Get changed files
         id: changed-files
