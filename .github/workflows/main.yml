@@ -47,7 +47,6 @@ jobs:
           git config user.email github-actions[bot]@github.com
           docker run -i --rm -v "$(pwd):/work" -w /work -u "$(id -u):$(id -g)" ghcr.io/xu-cheng/texlive-full bash -c '
           shopt -s globstar
-          set -e
           set -m
 
           for path in ${{ steps.changed-files.outputs.all_changed_files }}; do(
