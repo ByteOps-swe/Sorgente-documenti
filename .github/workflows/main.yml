@@ -47,6 +47,7 @@ jobs:
           git config user.email github-actions[bot]@github.com
           docker run -i --rm -v "$(pwd):/work" -w /work -u "$(id -u):$(id -g)" ghcr.io/xu-cheng/texlive-full bash -c '
           shopt -s globstar
+          set -e
           set -m
 
           for path in ${{ steps.changed-files.outputs.all_changed_files }}; do(
@@ -91,7 +92,6 @@ jobs:
           pwd
           echo "Leggi ls"
           ls -la
-          git push
           cd Output
           pwd
           ls -la
@@ -154,4 +154,6 @@ jobs:
           cd Output
           git config --global push.autoSetupRemote true
           git status
+          git push
+          cd .. 
           git push
