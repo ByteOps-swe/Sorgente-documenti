@@ -162,7 +162,7 @@ Da inserire.
     \item  Definire delle procedure ripetibili che permettano di uniformare la documentazione che viene prodotta dal gruppo ed il metodo di lavoro;
     \item  Raccogliere e organizzare le norme che i membri del team devono seguire così da semplificare l'operazione di scrittura dei documenti.
     \end{itemize}
-    Tali norme dovranno essere applicate da tutti i membri del team ed i sorgenti \LaTeX\ che contengono tale documentazione verranno inseriti nel repository privato all'indirizzo:
+    Tali norme dovranno essere applicate da tutti i membri del team ed i sorgenti \LaTeX\ che contengono tale documentazione verranno inseriti nel repository disponibile all'indirizzo:
     \href{https://github.com/ByteOps-swe/Sorgente-documenti}{https://github.com/ByteOps-swe/Sorgente-documenti}
     
    \begin{comment} \paragraph*{Primi approcci alla redazione di documenti e problematiche riscontrate}
@@ -173,7 +173,7 @@ Da inserire.
     \end{itemize}
     Per tali ragioni si è presa la decisione di adottare un nuovo approccio.
 \end{comment}
-    \paragraph{Documentation as Code}
+    \paragraph{Documentation as Code}\label{sec:DocumentationAscode}
     L'approccio che si intende adottare è quello di "Documentation as Code" (Documentazione come Codice) che consiste nel trattare la documentazione di un progetto software allo stesso modo in cui si tratta il codice sorgente. Questo approccio è incentrato sull'utilizzo di pratiche e strumenti tipici dello sviluppo software per creare, gestire e distribuire la documentazione.
     Alcuni aspetti chiave di "Documentation as Code" includono:
 \begin{itemize}
@@ -215,23 +215,23 @@ Il ciclo di vita dei documenti è suddiviso in molteplici attività, che possono
 
     Il redattore incaricato della stesura di un documento o di una parte di esso è tenuto ad adottare l'approccio richiesto per apportare modifiche al codice sorgente di un software che utilizza il modello di branching di Git noto come "feature branch".\\
     \vspace{0.1cm}
-    \textbf{Caso redazione nuovo documento}\\
+    \textbf{Caso redazione nuovo documento o sezione}\\
 Dalla repository  "Sorgente documenti" contenente i sorgenti \LaTeX, il redattore dovrà creare un nuovo branch Git in locale e passare ad esso mediante l'utilizzo del comando:
 
     \begin{lstlisting}[style=code]
-    git checkout -b branch_identificativoDocumento 
+    git checkout -b branch_identificativoTask 
     \end{lstlisting}
 
-    A questo punto, dopo aver creato il documento assegnato e avviato la stesura, affinché gli altri redattori possano continuare il lavoro, è necessario rendere il branch accessibile anche nella repository remota, seguendo i seguenti passaggi:        
+    A questo punto, dopo aver creato il documento o la sezione assegnata e avviato la stesura, affinché gli altri redattori possano continuare il lavoro, è necessario rendere il branch accessibile anche nella repository remota, seguendo i seguenti passaggi:        
         \begin{lstlisting}[style=code]
-    git checkout branch_identificativoDocumento 
+    git checkout branch_identificativoTask 
     git add .
     git commit -m "Descrizione del commit"
-    git push origin branch_identificativoDocumento
+    git push origin branch_identificativoTask
         \end{lstlisting}
-    La denominazione del branch utilizzato per la stesura del documento deve consentire un'identificazione rapida e chiara del documento stesso. Pertanto, adotteremo la seguente \underline{convenzione per la nomenclatura dei branch} per la redazione dei documenti:
+    La denominazione del branch utilizzato per la stesura del documento o della sezione deve consentire un'identificazione rapida e chiara della task. Pertanto, adotteremo la seguente \underline{convenzione per la nomenclatura dei branch} per la redazione dei documenti:
     \begin{itemize}
-        \item     Il nome del branch deve essere uguale al nome del documento senza estensioni e versione. (Riferimento: ~\ref{sec:NomeFile})
+        \item     Il nome del branch deve essere uguale al nome del documento senza estensioni, senza spazi e versione, scritto in camel case. Nel caso della redazione di una sezione si pone alla fine "\_NomeSezione". (ex. NormeDiProgetto\_Documentazione) (Riferimento: ~\ref{sec:NomeFile})
     \end{itemize}
 
     %\begin{itemize}
@@ -241,11 +241,11 @@ Dalla repository  "Sorgente documenti" contenente i sorgenti \LaTeX, il redattor
     %\end{itemize}
 
     \textbf{Caso modifica documento in fase di redazione}\\
-   Qualora il redattore intenda continuare la stesura di un documento iniziato da un altro redattore oppure riceva l'assegnazione della scrittura di una sezione, è necessario:
+   Qualora il redattore intenda continuare la stesura di un documento (o sezione) iniziato da un altro redattore,sono necessari i comandi:
 
         \begin{lstlisting}[style=code]
         git pull
-        git checkout branch_identificativoDocumento
+        git checkout branch_identificativoTask
 
         \end{lstlisting}
 
@@ -275,14 +275,14 @@ Dalla repository  "Sorgente documenti" contenente i sorgenti \LaTeX, il redattor
      \item Aggiornare il registro delle modifiche inserendo i dati richiesti in  una nuova riga e incrementando la versione (Il verificatore è definito all'assegnazione della task, presente nella descrizione della Issue del'ITS).
         \item Eseguire i passaggi dettagliati nel caso "\textit{\textbf{Salvataggio e condivisone progressi di task non completate}}"
         \item Vai sul repository su GitHub >> Apri la sezione "pull request" >> Clicca "New pull request"
-        \item Seleziona come branch di destinazione "main" e come branch sorgente il ramo utilizzato per la redazione del documento da validare
+        \item Seleziona come branch di destinazione "main" e come branch sorgente il ramo utilizzato per la redazione del documento (o sezione) da validare
         \item Clicca "Create pull request"
         \item Dai un titolo e una breve descrizione alla pull request >> Seleziona i verificatori su "Reviewers" >> Clicca "Create pull request"
     \end{enumerate}
     \end{enumerate}
     
     
-   Se i verificatori non convalidano il documento,i redattori riceveranno feedback allegati alla pull request relativi ai problemi identificati.
+   Se i verificatori non convalidano il documento (o sezione),i redattori riceveranno feedback allegati alla pull request relativi ai problemi identificati.
    \paragraph{I verificatori}
    I compiti e le procedure dei verificatori sono dettagliate al paragrafo ~\ref{sec:verificatori}. 
     \paragraph{Il responsabile}
@@ -423,7 +423,7 @@ Corpo del documento:
 
     Il ruolo del verificatore nei documenti è cruciale per garantire la qualità e l'accuratezza del contenuto.
 
-Quando il verificatore individua un'Issue nella colonna "Da revisionare" della  \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione}, sarà tenuto a convalidare il file corrispondente presente nella repository con accesso limitato denominata "Sorgente documenti". \\
+Quando il verificatore individua un'Issue nella colonna "Da revisionare" della  \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione}, sarà tenuto a convalidare il file corrispondente presente nella repository "Sorgente documenti". \\
 In aggiunta, il revisore riceverà una notifica via email quando il redattore completa la propria attività, comunicandogli la presenza della pull request assegnatagli.\\
 Nella sezione "pull request" di GitHub, il revisore troverà la richiesta di unire il branch di redazione al branch "main", assumendo il ruolo di revisore. Accedendo alla pull request su GitHub, il revisore avrà la possibilità di esaminare attentamente il documento in questione e di aggiungere commenti visibili ai redattori nel caso in cui siano necessarie modifiche per la validazione.
 
@@ -442,8 +442,7 @@ Per validare un documento i le verifiche da attuare sono:
 Dopo l'attuazione dei controlli sopra citati e verificato il loro rispetto, i passi per convalidare il documento sono i seguenti:
 \begin{enumerate}
  \item \textbf{Accetta la Pull Request:} Accedi alla pagina della pull request in cui agisci come revisore nel repository "Sorgente documenti" su GitHub >> Risolvi eventuali conflitti >> Merge Pull Request;
-    \item \textbf{Caso documento non in evoluzione: }(ex. Verbali, Lettere di presentazione).\\
-    Elimina il branch solo nel caso in cui il documento revisionato appartenga alla categoria di documenti non in evoluzione.
+    \item \textbf{Elimina il branch: } Elimina il branch creato per la redazione del documento (o sezione).
      \item \textbf{Sposta la issue in Done:} Nella \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione} sposta la issue relativa al documento validato da "Da revisionare" a "Done".
      \item \textbf{Generazione PDF:} Un automazione tramite GitHub Actions compilerà il file   \LaTeX\ e genererà automaticamente il PDF nel branch main della repository \href{https://github.com/ByteOps-swe/Documents}{Documents}. 
      \item \textbf{Rinomina file: }Rinomina il file con il riferimento al numero di versione aggiornato secondo quanto specificato in: ~\ref{sec:RegistroModifiche}.
@@ -501,9 +500,8 @@ Le repository del team sono:
 
 \paragraph{Sincronizzazione e Branching}
 \textbf{Documentazione:}
-Il flusso di lavoro adottato per la documentazione, denominato ‘feature branch workflow’, prevede la creazione di un branch dedicato per ogni documento richiesto.
-Tale metodologia forza l'integrazione continua poichè l'utilizzo di un unico branch per la stesura di un documento implica che i redattori debbano immediatamente integrare e risolvere i conflitti derivanti dal lavoro degli altri membri.
-Inoltre permette una parallelizzazione agile dei lavori evitando sovrascritture indesiderate di altri lavori. 
+Il flusso di lavoro adottato per la documentazione, denominato ‘feature branch workflow’, prevede la creazione di un branch dedicato per ogni documento o sezione richiesto.
+Tale metodologia permette una parallelizzazione agile dei lavori evitando sovrascritture indesiderate di altri lavori e permette l'adozione dei principi "Documentation as code". ~\ref{sec:DocumentationAsCode} . 
 \subsubsection{Controllo di configurazione}
 \paragraph{Change request (Richiesta di modifica)}
 Seguendo lo standard  ISO/IEC 12207 per affrontare questo processo in modo strutturato le attività sono:
@@ -528,23 +526,22 @@ Questo processo si occupa di registrare e tenere traccia dello stato di tutte le
 \end{itemize}
 Processo fondamentale per mantenere la trasparenza e la tracciabilità nel ciclo di vita del software, aiutando a gestire le configurazioni in modo coerente e a mantenere un registro accurato di tutte le attività e le modifiche che coinvolgono gli elementi di configurazione.\\
 \textbf{La corretta gestione del registro delle modifiche, il posizionamento nella repository e il branching permettono l'identificazione dello stato dei CI.}
-L'inclusione di CI nel branch principale (main) lo configura come la versione più recente, revisionata e pronta per il rilascio.% -----------------------------Processi organizzativi --------------------------------
+L'inclusione di CI nel branch principale (main) lo configura come la versione più recente, revisionata, mentre le versioni (X.0.0) con X>=1 identificano il CI facente parte della baseline con uguale versione.% -----------------------------Processi organizzativi --------------------------------
 \paragraph{Release management and delivery}
 \textbf{Documentazione:}
 Dopo aver completato il lavoro il creatore del branch deve aprire una pull request per effettuare il merge nel ramo principale. La richiesta di pull request può essere accettata solo se la verifica ha esito positivo.
 \section{Processi organizzativi}
-Il seguente capitolo copre i ruoli di progetto, le modalità di comunicazione interna ed esterna e la gestione delle comunicazioni automatiche. Inoltre, l'obiettivo della pianificazione è stabilire una strategia organizzativa per il team \textit{ByteOps} .   
+Questa sezione fornisce linee guida e normative per la pianificazione, l'esecuzione e il monitoraggio dei processi, contribuendo così a garantire la coerenza e la qualità nelle attività di sviluppo del software.
     \subsection{Pianificazione}
     In questa sezione saranno delineati i procedimenti che conducono dalla definizione dei ruoli alla precisa assegnazione delle attività ai singoli membri del gruppo.
     \subsubsection{Assegnazione dei ruoli}
 
-    Durante l'intero periodo del progetto, i membri del gruppo assumeranno sei ruoli distinti, ovvero assumeranno le responsabilità e svolgeranno le mansioni tipiche dei professionisti nel campo dell'informatica.
+    Durante l'intero periodo del progetto, i membri del gruppo assumeranno sei ruoli distinti, ovvero assumeranno le responsabilità e svolgeranno le mansioni tipiche dei professionisti nel campo dello sviluppo software.
     \\I ruoli a disposizione sono:
         \paragraph{Responsabile}\label{responsabile} Figura fondamentale che coordina il gruppo, fungendo da punto di riferimento per il committente e il fornitore e svolgendo il ruolo di mediatore tra le due parti.\\
         In particolare si occupa di:
         \begin{itemize}
             \item Gestire le relazioni con l'esterno;
-            \item Approvare l'emissione della documentazione;
             \item Pianificare le attività: quali svolgere, data di inizio e fine, assegnazione delle priorità\dots
             \item Valutare i rischi delle scelte da effettuare;
             \item Controllare i progressi del progetto;
