@@ -11,3 +11,4 @@
 *.lot
 *.DS_Store
 *.pdf
+*.synctex(busy)
