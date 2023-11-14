@@ -86,7 +86,7 @@ jobs:
               latexmk -pdf "$(basename "$new_name")"
               ls -la
             else 
-              echo " template.tex di merda"
+              echo "template.tex di merda"
             fi
           )done
           pwd
@@ -96,7 +96,12 @@ jobs:
           pwd
           ls -la
           git add .
-          git commit -m 'Cancellato file deprecati'
+          git status
+          if [[ -n "$(git status --porcelain)" ]]; then
+            git commit -m 'Cancellato file deprecati'
+          else
+            echo "No changes to commit."
+          fi
           cd ..
           '
 
