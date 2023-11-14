@@ -1,0 +1,152 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[default]{raleway}
+\usepackage{titlesec, comment, tabularx, makecell, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, hyperref}
+%\geometry{a4paper, left=2cm, right=2cm, top=2cm, bottom=2.5cm}
+\renewcommand{\headrulewidth}{0pt}
+
+% ----------------------------- Definizione tabella ---------------------------
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+% ------------------------------Metadati indice --------------------------------
+\title{\textbf{\fontsize{30}{6}\selectfont Indice}}
+\author{\fontsize{14}{6}\selectfont ByteOps}
+\date{\today}
+
+% -----------------------------Creazione footer --------------------------------
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{
+    \parbox[c]{2cm}{\includegraphics[width=2cm]{../../Images/logo.png}}
+    \textcolor[RGB]{120, 120, 120}{$\cdot$ Piano di progetto}
+}
+\rfoot{\thepage}
+
+% --------------------------Modifica formato hyperlinks ------------------------
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    pdftitle={Piano di progetto},
+    pdfpagemode=FullScreen,
+}
+
+
+
+
+\begin{document}
+\pagestyle{fancy}
+\begin{center}
+\includegraphics[width = 0.7\textwidth]{../../Images/logo.png} \\
+\vspace{0.2cm}
+\textcolor[RGB]{60, 60, 60}{\textit{ByteOps.swe@gmail.com}} \\
+\vspace{1cm}
+\fontsize{16}{6}\selectfont Piano di progetto \\
+\vspace{0.5cm}
+\end{center}
+
+\section*{Informazioni documento}
+\def\arraystretch{1.2}
+\begin{tabular}{>{\raggedleft\arraybackslash}p{0.2\textwidth}|>{\raggedright\arraybackslash}p{0.6\textwidth}c}
+\hline
+\addlinespace
+    \textbf{Redattori} & A. Barutta \\ & R. Smanio \\ & N. Preto \vspace{10pt} \\
+    \textbf{Verificatori} & E. Hysa \\ & L. Skenderi \\ & D. Diotto \vspace{10pt} \\
+    \textbf{Amministratore} & F. Pozza \vspace{10pt} \\
+    \textbf{Destinatari} & T. Vardanega \\ & R. Cardin \vspace{10pt} \\
+    \textbf{Partecipanti} & A. Barutta \\ & E. Hysa \\ & R. Smanio \\ & D. Diotto \\ & F. Pozza \\ & L. Skenderi \\ & N. Preto \vspace{10pt} \\
+\end{tabular}
+\pagebreak 
+
+% ------------------------- Changelog ----------------------------
+
+\begin{tabular}{|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|}
+    \hline
+    \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Dettaglio} \\
+    \hline
+    0.0.2 & 05/11/2023 & Nome autore & Nome verificatore & Aggiunto rischio sezione 2 \\
+    \hline 
+    0.0.1 & 03/11/2023 & Nome autore & Nome verificatore & Scrittura delle sezioni 1 e 2 \\
+    \hline 
+
+
+    
+\end{tabular}
+
+\pagebreak
+
+% ------------------------- Generazione automatica indice ----------------------
+\setstretch{1.5}
+\maketitle
+\thispagestyle{fancy}
+\tableofcontents
+\setstretch{1.2}
+\pagebreak
+
+% ---------------------------- Inizio documento -------------------------------
+
+\section{Introduzione}
+\subsection{Scopo del documento}
+Il presente documento ha lo scopo di identificare la metodologia di pianificazione e illustrare le modalità con cui il gruppo \textit{ByteOps} sta sviluppando il progetto assegnato, al fine di garantire efficacia ed efficienza nel processo di sviluppo.\\
+I contenuti che vengono trattati sono:
+\begin{itemize}
+    \item Analisi dei rischi
+    \item Assegnazione ruoli dei membri del gruppo
+    \item Descrizione del modello adottato con relative motivazioni della scelta
+\end{itemize}
+
+
+\subsection{Scopo del capitolato}
+Il Capitolato C6 affidato al gruppo, si prefigge come obiettivo la realizzazione di una piattaforma di monitoraggio di una \textit{"Smart City"} che consenta di avere sotto controllo lo stato di salute della città in modo tale da prendere decisioni veloci, efficaci ed analizzare poi gli effetti conseguenti.
+A tale scopo il proponente richiede di simulare dei sensori posti in diverse aree per reperire informazioni relative alle condizioni della città. 
+I dati trasmessi in tempo reale dai sensori devono poter essere memorizzati in modo tale da renderli disponibili per la visualizzazione tramite una dashboard, composta anche da widget e grafici, per una visione d'insieme delle condizioni della città in tempo reale. 
+L'applicativo potrà consentire alle autorità locali di prendere decisioni informate e tempestive sulla gestione delle risorse e sull'implementazione di servizi e, inoltre, si potrebbe rivelare uno strumento essenziale per coinvolgere i cittadini nella gestione e nel miglioramento della città.
+
+\subsection{Riferimenti}
+\subsubsection{Riferimenti normativi}
+\begin{itemize}
+\item Norme di progetto
+\item \href {https://www.math.unipd.it/~tullio/IS-1/2023/Progetto/C6.pdf} {Capitolato d'appalto C6 - InnovaCity}
+\item \href {https://www.math.unipd.it/~tullio/IS-1/2023/Dispense/PD2.pdf} {Regolamento del progetto didattico}
+\end{itemize}
+
+%--Il seguente documento è stato redatto con l'obiettivo di valutare e disaminare i potenziali rischi che il gruppo potrebbe affrontare nel corso delle attività di sviluppo del capitolato. In questo documento veranno esposti i vari rischi identificati, accompagnati da una relativa previsione di impatto che ciascuno di essi potrebbe avere e una possibile soluzione.
+
+\section{Analisi dei rischi}
+\subsection{Rallentamento delle attività}
+Uno dei principali rischi che potrebbero manifestarsi è l'armonizzazione tra le attività personali con quelle attività progettuali. Tale rischio
+potrebbe causare un rallentamento nell'esecuzione dei compiti assegnati ai membri del gruppo, con conseguente rallentamento del processo di sviluppo. 
+Si prevede che questo rischio si intensificherà durante il periodo di sessione invernale 2023-2024, a causa degli impegni legati agli esami.\\ 
+Per quanto riguarda le possibili soluzioni per attenuare il problema, si propone: 
+\begin{itemize}
+    \item Una buona organizzazione tra i membri del gruppo per garantire una distribuzione equa del lavoro da svolgere.
+    \item La creazione di un ambiente di lavoro asincrono, in modo da permettere lo svolgimento dei compiti assegnati da parte di ciascun membro del gruppo secondo le proprie tempistiche.
+\end{itemize}
+
+\subsection{Apprendimento ed utilizzo delle nuove tecnologie}
+L’apprendimento e l'implementazione delle tecnologie proposte possono rappresentare un rischio considerevole per lo 
+sviluppo di un progetto, in quanto esista la possibilità che lo studio accurato di queste tecnologie richieda più tempo del previsto. \\
+Per quanto riguarda le possibili soluzioni per attenuare il problema, si propone:
+\begin{itemize}
+    \item Pianificazione accurata del tempo necessario per l’assimilazione e l’implementazione \\delle nuove tecnologie.
+    \item Sfruttare le competenze individuali di ciascun membro del gruppo, al fine di accelerare \\ il processo di apprendimento.
+    \item Approfittare, ove possibile, delle opportunità di formazione offerte dall’azienda proponente, in modo da risolvere eventuali dubbi e consolidare i concetti appresi.
+\end{itemize}
+\subsection{Inefficacia della comunicazione} 
+L’inefficacia della comunicazione tra i componenti del gruppo potrebbe condurre a ritardi significativi nello sviluppo del progetto. Questo rischio assume una rilevanza particolare considerando la natura collaborativa del lavoro di gruppo, che richiede l’adesione a norme concordate collettivamente.
+\\Per quanto riguarda le possibili soluzioni per attenuare il problema, si propone:
+   \begin{itemize} 
+    \item Impiego di strumenti di comunicazione efficaci e l’istituzione di regole chiare per le riunioni e le discussioni tra i componenti del gruppo.
+    \item Incentivare un ambiente di lavoro che favorisca la collaborazione e sia aperto all'espres-sione di idee o feedback da parte dei membri del gruppo.
+\end{itemize}
+
+
+
+
+
+
+
+
+\end{document} 

@@ -8,5 +8,6 @@
 *.toc
 *.out
 *.lof
-*.lot.DS_Store
+*.lot
+*.DS_Store
 *.pdf
