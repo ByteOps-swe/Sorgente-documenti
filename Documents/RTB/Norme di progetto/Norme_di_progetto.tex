@@ -74,27 +74,17 @@
 \begin{document}
 \pagestyle{fancy}
 \begin{center}
-<<<<<<< HEAD
-    \includegraphics[width = 0.7\textwidth]{../../Images/logo.png} \\
-    \vspace{0.2cm}
-    \textcolor[RGB]{60, 60, 60}{\textit{ByteOps.swe@gmail.com}} \\
-    \vspace{2cm}
-    \fontsize{16}{6}\selectfont Norme di progetto \\
-    \vspace{0.5cm}
-=======
 \includegraphics[width = 0.7\textwidth]{../../Images/logo.png} \\
 \vspace{0.2cm}
 \textcolor[RGB]{60, 60, 60}{\textit{ByteOps.swe@gmail.com}} \\
 \vspace{2cm}
 \fontsize{16}{6}\selectfont Norme di progetto \\ 
 \vspace{0.5cm}
->>>>>>> main
 \end{center}
 
 \section*{Informazioni documento}
 \def\arraystretch{1.2}
 \begin{tabular}{>{\raggedleft\arraybackslash}p{0.2\textwidth}|>{\raggedright\arraybackslash}p{0.6\textwidth}c}
-<<<<<<< HEAD
     \hline
     \addlinespace
     \textbf{Data}           & 30/10/2023 \vspace{10pt} \\
@@ -111,7 +101,7 @@
     \hline
     \textbf{Versione} & \textbf{Data}   & \textbf{Autore}                         & \textbf{Verificatore} & \textbf{Dettaglio} \\
     \hline \hline
-    0.2.0
+    \label{Git_Action_Version} 0.2.0
                       & 06/11/2023      & Andrea Barutta,
     Nicola Preto      & Riccardo Smanio & Sezione Comunicazione,Gestione incontri                                              \\
     \hline
@@ -119,27 +109,6 @@
                       & 05/11/2023      & Davide Diotto
     Nicola Preto      & Riccardo Smanio & Sezione Documentazione,Introduzione                                                  \\
     \hline
-=======
-\hline
-\addlinespace
-    \textbf{Data} & 30/10/2023 \vspace{10pt} \\
-    \textbf{Redattori} & A. Barutta \\ & R. Smanio \\ & N. Preto \vspace{10pt} \\
-    \textbf{Verificatori} & E. Hysa \\ & L. Skenderi \\ & D. Diotto \vspace{10pt} \\
-    \textbf{Amministratore} & F. Pozza \vspace{10pt} \\
-    \textbf{Destinatari} & T. Vardanega \\ & R. Cardin \vspace{10pt} \\
-\end{tabular}
-\pagebreak 
-
-% ------------------------- Changelog ----------------------------
-
-\begin{tabular}{|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|}
-    \hline
-    \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Dettaglio} \\
-    \hline \hline
-    1.0.0 & 31/10/2023 & Nome autore & Nome verificatore & descrizione \\
-    \hline
-
->>>>>>> main
 \end{tabular}
 
 \pagebreak
@@ -156,7 +125,6 @@
 % ---------------------------- Inizio valutazione -------------------------------
 \flushleft
 \section{Introduzione}
-<<<<<<< HEAD
 Nel presente documento, si delineano le fondamentali norme di progetto per lo sviluppo del software. La citazione del film Disney, \emph{"Devi tracciare la tua rotta e devi seguirla anche in caso di burrasca"} risuona come un monito ispiratore, suggerendo l'importanza di una guida coerente e resilientemente seguita anche nelle circostanze più avverse. Analogamente, le norme qui definite fungono da bussola, offrendo un percorso affidabile e strutturato per la realizzazione del software, affinché il progetto possa affrontare le sfide con determinazione e successo.
 
 Il documento segue i principi dei processi del ciclo di vita, presentando una gerarchia in cui ogni processo si configura come una serie di attività. Ciascuna attività è ordinata mediante procedure specifiche, dotate di obiettivi definiti e capaci di generare prodotti; ognuna di tali procedure impiega strumenti chiaramente definiti.
@@ -300,132 +268,11 @@ Alla fine di una sessione di modifiche di un file, nel caso si desideri rendere 
 \begin{enumerate}
     \item Eseguire il push\textsubscript{\textit{G}}  delle modifiche fatte nel branch
           \begin{lstlisting}[style=code]
-=======
-Nel presente documento, si delineano le fondamentali norme di progetto per lo sviluppo del software. La citazione del film Disney, "Devi tracciare la tua rotta e devi seguirla anche in caso di burrasca" risuona come un monito ispiratore, suggerendo l'importanza di una guida coerente e resilientemente seguita anche nelle circostanze più avverse. Analogamente, le norme qui definite fungono da bussola, offrendo un percorso affidabile e strutturato per la realizzazione del software, affinché il progetto possa affrontare le sfide con determinazione e successo.
-
-Il documento segue i principi dei processi del ciclo di vita, presentando una gerarchia in cui ogni processo si configura come una serie di attività. Ciascuna attività è ordinata mediante procedure specifiche, dotate di obiettivi definiti e capaci di generare prodotti; ognuna di tali procedure impiega strumenti chiaramente definiti.
-
-\section{Processi di supporto}
-
-\subsection{Documentazione}
-    
-    \subsubsection{Introduzione}
-    La documentazione costituisce l'insieme di informazioni scritte che accompagnano un prodotto software, fornendo dettagli utili agli sviluppatori, distributori e utenti. Il suo obiettivo principale è agevolare il team durante il processo di sviluppo, tracciando e documentando tutte le fasi e attività che fanno parto del ciclo di vita del prodotto per migliorare la manutenzione e la qualità del risultato finale. Un elemento chiave è garantire chiarezza e concisione nelle regole redazionali, insieme a una struttura uniforme per tutti i documenti che verranno redatti, in modo da promuovere la coerenza e la familiarità ai documenti per chi li utilizzerà. 
-    
-    \paragraph{Primi approcci alla redazione di documenti e problematiche riscontrate}
-    Per la composizione iniziale dei documenti richiesti per la candidatura, è stata sperimentato un'approccio che impiegava gli strumenti di Google Drive. Tale metodologia consentiva ai redattori di redigere agevolmente i documenti senza la necessità di padroneggiare la sintassi LaTeX, con l'intenzione di trasporre successivamente il contenuto in LaTeX una volta che fosse stato validato dai verificatori. Tuttavia, questo approccio ha suscitato problematiche, tra cui:
-    \begin{itemize}
-        \item Rischio di incoerenza tra il contenuto presente negli strumenti di Google Drive.
-        \item Prolungato impiego di tempo per la riscrittura in LaTeX, dovuto alla necessità di un passaggio aggiuntivo. 
-    \end{itemize}
-    Per tali ragioni si è presa la decisione di adottare un nuovo approccio.
-
-    \paragraph{Documentation as Code}
-    L'approccio che si intende adottare è quello di "Documentation as Code" (Documentazione come Codice) che consiste nel trattare la documentazione di un progetto software allo stesso modo in cui si tratta il codice sorgente. Questo approccio è incentrato sull'utilizzo di pratiche e strumenti tipici dello sviluppo software per creare, gestire e distribuire la documentazione.
-    Alcuni aspetti chiave di "Documentation as Code" includono:
-\begin{itemize}
-\item \textbf{Versionamento:}
-La documentazione viene gestita attraverso un sistema di controllo versione (come Git), consentendo di tenere traccia delle modifiche nel tempo e di ripristinare o confrontare versioni precedenti.
-
-\item \textbf{Scrittura in Formato Testuale:}
-La documentazione viene scritta utilizzando formati testuali leggibili da macchine (come Latex o Markdown), che sono facilmente gestibili attraverso un sistema di controllo versione.
-
-\item \textbf{Automazione:}
-L'automazione è utilizzata per generare la documentazione in diversi formati (ad esempio, HTML, PDF) a partire dai sorgenti testuali. Gli strumenti come Sphinx, Jekyll o MkDocs sono comunemente utilizzati per questo scopo.
-
-\item \textbf{Collaborazione:}
-La documentazione è soggetta a revisione del codice e coinvolgimento collaborativo, proprio come il codice sorgente. Questo promuove la qualità e l'accuratezza della documentazione.
-
-\item \textbf{Integrazione Continua:}
-L'integrazione continua può essere utilizzata per automatizzare il processo di generazione e distribuzione della documentazione ogni volta che ci sono modifiche nel repository.
-
-\item \textbf{Distribuzione:}
-La documentazione può essere distribuita insieme al software, consentendo agli utenti di accedere facilmente alle informazioni aggiornate.
-\end{itemize}
-Questo approccio porta diversi vantaggi, tra cui una maggiore coerenza, una migliore tracciabilità delle modifiche e una facilità di manutenzione. Inoltre, il concetto di "Documentation as Code" si allinea con la filosofia DevOps, dove la collaborazione e l'automazione sono valori chiave.\\
-
-\subsubsection{Redazione documenti}
-\textbf{Procedimento in sintesi}\\
-    Per rispettare i principi  di "Documentation as Code" l'approccio attualmente adottato richiede la competenza e l'utilizzo di LaTeX per la stesura dei documenti e una repository ad accesso limitato Git chiamata "Sorgente documenti" dove versionarli. I redattori, seguendo la struttura dettagliata nei prossimi paragrafi, redigeranno il contenuto dei documenti utilizzando il linguaggio \LaTeX\ su un ramo dedicato nella repository "Sorgente documenti". \\
-    Al termine del loro lavoro, segnaleranno il completamento posizionando l'Issue relativa al compito di redazione nella colonna "Documentazione da validare" della \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione} di GitHub relativa alla repository pubblica "\href{https://github.com/ByteOps-swe/Documents}{Documents}" e generando una pull request . Questa colonna conterrà i compiti relativi ai documenti completati dai redattori, che necessitano ora della validazione da parte dei verificatori. \\
-   
-    I file sorgenti LaTeX saranno quindi gestiti e versionati nella repository con accesso limitato denominata "Sorgente documenti", strutturata in modo identico alla repository pubblica chiamata "\href{https://github.com/ByteOps-swe/Documents}{Documents}" ma con file \LaTeX\ al posto dei PDF. \\
-    I verificatori quindi troveranno il documento da validare in questa repository.\\
-   Quando i verificatori avranno convalidato il contenuto, dovranno seguire le istruzioni al paragrafo ~\ref{sec:verificatori} per formalizzare la verifica.
-    \subsubsection{Strumenti}
-    Gli strumenti utilizzati dalle attività di redazione dei documenti vogliono soddisfare il principio adottato di "Documentation as Code".
-    \begin{itemize}
-        \item \textbf{GitHub}: Versionamento,Collaborazione,Integrazione continua, automazione e distribuzione.
-        \item \textbf{Latex}: Scrittura in formato testuale.
-    \end{itemize}
-    \subsubsection{Ruoli: procedure nel dettaglio}
-
-    \paragraph{I redattori: compiti e casi di sviluppo}
-
-    Il redattore incaricato della stesura di un documento o di una parte di esso è tenuto ad adottare un approccio simile a quello richiesto per apportare modifiche al codice sorgente di un software utilizzando il modello di branching di Git noto come "feature branch".\\
-    \vspace{0.1cm}
-    \textbf{Caso redazione nuovo documento}\\
-Dalla repository  "Sorgente documenti" contenente i sorgenti \LaTeX,il redattore dovrà creare un nuovo branch Git in locale e passare ad esso mediante l'utilizzo del comando:
-
-    \begin{lstlisting}[style=code]
-    git checkout -b branch_identificativoDocumento 
-    \end{lstlisting}
-
-    A questo punto, dopo aver creato il documento assegnato e avviato la stesura, affinché gli altri redattori possano continuare il lavoro, è necessario rendere il branch accessibile anche nella repository remota, seguendo i seguenti passaggi:
-
-    \begin{enumerate}
-        \item Assicurati di essere nel branch corretto:
-        \begin{lstlisting}[style=code]
-    git checkout branch_identificativoDocumento 
-        \end{lstlisting}
-
-        \item Aggiungi e committa le tue modifiche:
-        \begin{lstlisting}[style=code]
-    git add .
-    git commit -m "Descrizione del commit"
-        \end{lstlisting}
-        
-        \item Pusha il tuo branch:
-        \begin{lstlisting}[style=code]
-    git push origin branch_identificativoDocumento
-        \end{lstlisting}
-    \end{enumerate}
-
-    La denominazione del branch utilizzato per la stesura del documento deve consentire un'identificazione rapida e chiara del documento stesso. Pertanto, adotteremo la seguente convenzione nella nomenclatura dei branch per la redazione dei documenti.
-
-    \vspace{0.3cm}
-    \textbf{Convezione nomeclatura branch documentazione}
-    \begin{itemize}
-        \item \textbf{Verbali interni}: \verb|branch_VerbaleIn_yyyy_mm_dd|
-        \item \textbf{Verbali esterni}: \verb|branch_VerbaleEx_yyyy_mm_dd|
-        \item \textbf{Norme di progetto}: \verb|branch_NormeDiProgetto|
-    \end{itemize}
-
-    \textbf{Caso modifica documento in fase di redazione}\\
-   Qualora il redattore desideri proseguire la modifica di un documento precedentemente avviato ovvero intendesse continuare la stesura di un documento iniziato da un altro redattore oppure riceva l'assegnazione della scrittura di una sezione, è necessario:
-    
-    \begin{enumerate}
-        \item Aggiornare la propria directory locale con i nuovi branch attivi:
-        \begin{lstlisting}[style=code]
-    git pull
-        \end{lstlisting}
-
-        \item Spostarsi nel branch di redazione del documento
-        \begin{lstlisting}[style=code]
-    git checkout branch_identificativoDocumento
-        \end{lstlisting}
-    \end{enumerate}
-    Alla fine di una sessione di modifiche di un file, nel caso si desideri rendere accessibile ai membri il lavoro non ancora completato e, pertanto, non pronto alla verifica, è necessario:
-    \begin{enumerate}
-        \item Pushare le modifiche fatte nel branch 
-        \begin{lstlisting}[style=code]
->>>>>>> main
     git add .
     git commit -m "Descrizione del commit"
     git push origin branch_identificativoDocumento
         \end{lstlisting}
 
-<<<<<<< HEAD
     \item Nel caso di problemi con il punto 1:
           \begin{lstlisting}[style=code]
    git pull origin branch_identificativoDocumento
@@ -590,36 +437,6 @@ Gli strumenti utilizzati dalle attività di redazione dei documenti vogliono sod
 Il ruolo del verificatore nei documenti è cruciale per garantire la qualità e l'accuratezza del contenuto.
 
 Quando il verificatore individua un'Issue nella colonna "Da revisionare" della  \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione}, sarà tenuto a convalidare il file corrispondente presente nella repository "Sorgente documenti". \\
-=======
-        \item Nel caso di problemi con il punto 1:
-        \begin{lstlisting}[style=code]
-   git pull origin nome_del_branch
-        \end{lstlisting}
-        \item Risolvi i conflitti e ripeti punto 1.
-    \end{enumerate}
-\vspace{0.3cm}
-    Al termine del loro lavoro,i redattori segnaleranno il completamento della attiva a loro assegnata (essa sia la stesura completa di un documento o di una sua parte) posizionando l'issue relativa nella colonna "Documentazione da validare" della  \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione}.\\
-    Inoltre dovranno attuare una \textbf{pull request} nella repository "Sorgente documenti".\\
-    Si tratta di una richiesta di unire le modifiche fatte nel branch di redazione a un altro branch, in questo caso il main.
-    \begin{enumerate}
-        \item Vai sul repository su GitHub
-        \item Apri la sezione "pull request"
-        \item Clicca "New pull request"
-        \item Selziona come branch di destinazione "main" e come branch sorgente il ramo utilizzato per la redazione del documento da validare
-        \item Clicca "Create pull request"
-        \item Dai un titolo e una breve descrizione alla pull request
-        \item Seleziona i verificatori su "Reviewers"
-        \item Clicca "Create pull request"
-    \end{enumerate}
-    
-   Se i verificatori non convalidano il documento, riceveranno feedback allegati alla pull request relativi ai problemi identificati.
-
-    \paragraph{I verificatori: compiti e casi di sviluppo}\label{sec:verificatori}
-
-    Il ruolo del verificatore nei documenti è cruciale per garantire la qualità e l'accuratezza del contenuto.
-
-Quando il verificatore individua un'Issue nella colonna "Documentazione da validare" della  \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione}, sarà tenuto a convalidare il file corrispondente presente nella repository con accesso limitato denominata "Sorgente documenti". \\
->>>>>>> main
 In aggiunta, il revisore riceverà una notifica via email quando il redattore completa la propria attività, comunicandogli la presenza della pull request assegnatagli.\\
 Nella sezione "pull request" di GitHub, il revisore troverà la richiesta di unire il branch di redazione al branch "main", assumendo il ruolo di revisore. Accedendo alla pull request su GitHub, il revisore avrà la possibilità di esaminare attentamente il documento in questione e di aggiungere commenti visibili ai redattori nel caso in cui siano necessarie modifiche per la validazione.
 
@@ -628,23 +445,15 @@ Nella sezione "pull request" di GitHub, il revisore troverà la richiesta di uni
 Per validare un documento i le verifiche da attuare sono:
 \begin{itemize}
     \item \textbf{Revisione della Correttezza Tecnica:} Revisione tecnica del documento per garantire che tutte le informazioni siano corrette, coerenti e rispettino le norme stabilite.
-<<<<<<< HEAD
     \item \textbf{Conformità alle Norme:} Verifica che il documento segua le linee guida e gli standard prestabiliti per la formattazione, la struttura e lo stile.
     \item \textbf{Consistenza e Coerenza:} Si assicura che il documento sia consistente internamente e coerente con altri documenti correlati. Verifica che non ci siano discrepanze o contraddizioni.
     \item \textbf{Chiarezza e Comprensibilità:} Valuta la chiarezza del testo, assicurandosi che il linguaggio sia comprensibile per il pubblico di destinazione e che non ci siano ambiguità.
     \item \textbf{Revisione Grammaticale e Ortografica} Controlla la grammatica, l'ortografia e la punteggiatura del documento per garantire una presentazione professionale.
-=======
-     \item \textbf{Conformità alle Norme:} Verifica che il documento segua le linee guida e gli standard prestabiliti per la formattazione, la struttura e lo stile.
-      \item \textbf{Consistenza e Coerenza:} Si assicura che il documento sia consistente internamente e coerente con altri documenti correlati. Verifica che non ci siano discrepanze o contraddizioni.
-      \item \textbf{Chiarezza e Comprensibilità:} Valuta la chiarezza del testo, assicurandosi che il linguaggio sia comprensibile per il pubblico di destinazione e che non ci siano ambiguità.
-      \item \textbf{Revisione Grammaticale e Ortografica} Controlla la grammatica, l'ortografia e la punteggiatura del documento per garantire una presentazione professionale.
->>>>>>> main
 \end{itemize}
 
 
 Dopo l'attuazione dei controlli sopra citati e verificato il loro rispetto, i passi per convalidare il documento sono i seguenti:
 \begin{enumerate}
-<<<<<<< HEAD
     \item \textbf{Accetta la Pull Request:} Accedi alla pagina della pull request in cui agisci come revisore nel repository "Sorgente documenti" su GitHub >> Risolvi eventuali conflitti >> Merge Pull Request;
     \item \textbf{Elimina il branch: } Elimina il branch creato per la redazione del documento (o sezione).
     \item \textbf{Sposta la issue in Done:} Nella \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione} sposta la issue relativa al documento validato da "Da revisionare" a "Done".
@@ -839,60 +648,3 @@ Per agevolare la comunicazione sincrona, il canale utilizzato per questi incontr
 \end{document}
 
 \end{document}
-=======
- \item \textbf{Apri la Pull Request:}Accedi alla pagina della pull request in cui agisci come revisore nel repository "Sorgente documenti" su GitHub 
-    \item \textbf{Accettare la pull request:} Cliccare il pulsante "Merge Pull Request".
-     \item \textbf{Sposta la issue in Done:} Nella \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione} sposta la issue relativa al documento validato da "Documentazione da validare" a "Done".
-     \item \textbf{Genera il PDF:} Compila il file Latex e genera il PDF 
-     \item \textbf{Carica PDF:} Inserisci il PDF generato dal passaggio precedente nella repository \href{https://github.com/ByteOps-swe/Documents}{Documents} nella corretta posizione.
-     \item \begin{itemize} \item \textbf{Caso documento ad unica versione}:
-      (Questo passo viene attuato solo per documenti che non sono in evoluzione nell'arco del ciclo di vita del progetto (ex. Verbali)).\\Nella repository "Sorgente documenti" apri la sezione "branches" ed elimina il branch relativo alla redazione del documento appena validato.
-    
-      \item \textbf{Caso documento a progresso continuo}: Per documenti come "Norme di progetto" che evolvono per tutto l'arco di ciclo di vita del progetto il branch di redazione resta attivo. 
-    \end{itemize}
-     
-\end{enumerate}
-
-\subsubsection{Verbali: struttura generale}
-Questo documento assume l'importante ruolo di costituire un registro ufficiale, atto a riportare in maniera accurata gli argomenti trattati, le decisioni adottate, le azioni da intraprendere e le figure coinvolte.\\
-In particolare, è possibile distinguere tra verbali interni, destinati all'uso all'interno di un gruppo o di un'organizzazione, e verbali esterni, che trovano applicazione quando vi sono terze parti coinvolte nelle discussioni o nelle decisioni documentate.\\ 
-Nella prima pagina vengono specificate:
-\begin{itemize}
-    \item Nome e mail del gruppo
-    \item Data del documento
-    \item Tipologia della riunione
-    \item Luogo: canale di comunicazione adottato
-    \item Ora di inizio e fine dell'incontro
-    \item Ruoli
-    \item Destinatari
-    \item Partecipanti della riunione
-    
-\end{itemize}
-In questo tipo do documento non è presente il versionamento del file in quanto non necessario. 
-\paragraph{Verbali interni}\label{sec:verbali interni}
-Un verbale interno è un documento redatto all'interno del nostro gruppo con lo scopo di registrare e documentare in maniera dettagliata i particolari di una riunione che coinvolge esclusivamente i membri del nostro team.\\
-La sua funzione primaria consiste nel registrare in modo preciso le conversazioni tenutesi durante l'incontro, le decisioni prese e i piani futuri concordati.\\
-L'audience principale di un verbale interno è costituita dai membri dell'organizzazione o del team.
-
-\paragraph{Verbali esterni}\label{sec:verbali esterni}
-
-Un verbale esterno è un documento scritto utilizzato per registrare e documentare in modo accurato i dettagli di una riunione o un incontro che coinvolge non solo i membri interni al nostro gruppo, ma anche terze parti esterne ad esso.\\
-Il pubblico principale di un verbale esterno può includere individui o entità al di fuori del team, come clienti o l'azienda proponente.\\
-La principale distinzione rispetto ai verbali interni risiede nel fatto che entrambe le parti coinvolte nell'incontro convalidino il verbale e concordino sul suo contenuto. Pertanto, è essenziale stabilire un metodo di validazione del documento che garantisca la correttezza e l'accuratezza delle informazioni registrate.\\
-Nel nostro caso, [specificare qui il metodo di validazione, ad esempio, la firma delle parti coinvolte, l'approvazione via e-mail, o qualsiasi altra procedura stabilita contrattualmente] serve a confermare e legittimare il contenuto del verbale, contribuendo a evitare fraintendimenti e dispute future.
-
-\subsection{Canali di comunicazione}
-\subsubsection{Discord}
-paragrafo relativo a ds
-\subsubsection{Telegram}
-paragrafo relativo a telegram
-
-\subsection{Gestione degli incontri}
-\subsubsection{Meeting settimali}
-Il nostro team ha adottato un approccio settimanale attraverso incontri simili a "stand-up meetings" al fine di facilitare una comunicazione costante e coordinare il progresso delle attività interne.\\
-Questi incontri rivestono un ruolo cruciale nel monitorare il progresso delle mansioni assegnate, valutare i risultati conseguiti e affrontare le sfide che possono sorgere. Durante questi momenti, i membri del team condividono gli aggiornamenti sulle proprie attività, identificano le problematiche riscontrate e discutono di opportunità di miglioramento nei processi di lavoro. Questo ambiente aperto e collaborativo favorisce l'innovazione e la condivisione di nuove prospettive.\\
-Per agevolare la comunicazione sincrona, il canale utilizzato per questi incontri è \textit{Discord}, ritenuto particolarmente efficace per tali scopi.
-\end{document}
-
-\end{document}
->>>>>>> main
