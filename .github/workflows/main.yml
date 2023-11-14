@@ -97,11 +97,11 @@ jobs:
           ls -la
           git add .
           git status
-          if [[ -n "$(git status --porcelain)" ]]; then
-            git commit -m 'Cancellato file deprecati'
-          else
-            echo "No changes to commit."
-          fi
+          # if [[ -n "$(git status --porcelain)" ]]; then
+          #   git commit -m 'Cancellato file deprecati'
+          # else
+          #   echo "No changes to commit."
+          # fi
           cd ..
           '
 
