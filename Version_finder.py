@@ -43,7 +43,7 @@ def rename_latex_file(filename):
         # print("Python post")
         print(new_filename)
     else:
-        # print('Valore non trovato o tabella non trovata.')
+        print("Valore non trovato o tabella non trovata.")
 
 def main():
     if ".tex" not in sys.argv[1]:
