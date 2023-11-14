@@ -23,7 +23,6 @@ def delete_file(file_path):
             os.remove(file)
         # print(f"File '{found_file}' deleted successfully.")
     except FileNotFoundError:
-        print(f"File '{found_file}' not found.")
 
 def get_first_cell_value(filename):
     with open(filename, 'r') as file:
@@ -44,7 +43,7 @@ def rename_latex_file(filename):
         # print("Python post")
         print(new_filename)
     else:
-        print('Valore non trovato o tabella non trovata.')
+        # print('Valore non trovato o tabella non trovata.')
 
 def main():
     if ".tex" not in sys.argv[1]:
