@@ -74,42 +74,41 @@
 \begin{document}
 \pagestyle{fancy}
 \begin{center}
-\includegraphics[width = 0.7\textwidth]{../../Images/logo.png} \\
-\vspace{0.2cm}
-\textcolor[RGB]{60, 60, 60}{\textit{ByteOps.swe@gmail.com}} \\
-\vspace{2cm}
-\fontsize{16}{6}\selectfont Norme di progetto \\ 
-\vspace{0.5cm}
+    \includegraphics[width = 0.7\textwidth]{../../Images/logo.png} \\
+    \vspace{0.2cm}
+    \textcolor[RGB]{60, 60, 60}{\textit{ByteOps.swe@gmail.com}} \\
+    \vspace{2cm}
+    \fontsize{16}{6}\selectfont Norme di progetto \\
+    \vspace{0.5cm}
 \end{center}
 
 \section*{Informazioni documento}
 \def\arraystretch{1.2}
 \begin{tabular}{>{\raggedleft\arraybackslash}p{0.2\textwidth}|>{\raggedright\arraybackslash}p{0.6\textwidth}c}
-\hline
-\addlinespace
-    \textbf{Data} & 30/10/2023 \vspace{10pt} \\
-    \textbf{Redattori} & A. Barutta \\ & R. Smanio \\ & N. Preto \vspace{10pt} \\
-    \textbf{Verificatori} & E. Hysa \\ & L. Skenderi \\ & D. Diotto \vspace{10pt} \\
-    \textbf{Amministratore} & F. Pozza \vspace{10pt} \\
-    \textbf{Destinatari} & T. Vardanega \\ & R. Cardin \vspace{10pt} \\
+    \hline
+    \addlinespace
+    \textbf{Data}           & 30/10/2023 \vspace{10pt} \\
+    \textbf{Redattori}      & A. Barutta               \\ & R. Smanio \\ & N. Preto \vspace{10pt} \\
+    \textbf{Verificatori}   & E. Hysa                  \\ & L. Skenderi \\ & D. Diotto \vspace{10pt} \\
+    \textbf{Amministratore} & F. Pozza \vspace{10pt}   \\
+    \textbf{Destinatari}    & T. Vardanega             \\ & R. Cardin \vspace{10pt} \\
 \end{tabular}
-\pagebreak 
+\pagebreak
 
 % ------------------------- Changelog ----------------------------
 \section*{Registro delle modifiche}
 \begin{tabular}{|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|}
     \hline
-    \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Dettaglio} \\
+    \textbf{Versione} & \textbf{Data}   & \textbf{Autore}                         & \textbf{Verificatore} & \textbf{Dettaglio} \\
     \hline \hline
     0.2.0
- & 06/11/2023 & Andrea Barutta,
-    Nicola Preto & Riccardo Smanio & Sezione Comunicazione,Gestione incontri \\
-\hline
-    0.1.0
-    & 05/11/2023 & Davide Diotto
-    Nicola Preto & Riccardo Smanio & Sezione Documentazione,Introduzione \\
+                      & 06/11/2023      & Andrea Barutta,
+    Nicola Preto      & Riccardo Smanio & Sezione Comunicazione,Gestione incontri                                              \\
     \hline
-
+    0.1.0
+                      & 05/11/2023      & Davide Diotto
+    Nicola Preto      & Riccardo Smanio & Sezione Documentazione,Introduzione                                                  \\
+    \hline
 \end{tabular}
 
 \pagebreak
@@ -143,173 +142,185 @@ Il \textbf{\textit{Glossario}} verrà compilato attraverso un documento condivis
 \subsubsection{Riferimenti normativi}
 \begin{itemize}
     \item \textbf{Standard ISO/IEC 12207:1995}:Standard internazionale che definisce un modello di ciclo di vita del software.
-     Questo standard fornisce linee guida per la gestione dei processi software e stabilisce una struttura di base per la documentazione associata a tali processi.
-     In breve, è uno strumento che aiuta a organizzare e gestire lo sviluppo del software in modo sistematico e standardizzato.
-     \href{https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf}{\url{https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf}}
+          Questo standard fornisce linee guida per la gestione dei processi software e stabilisce una struttura di base per la documentazione associata a tali processi.
+          In breve, è uno strumento che aiuta a organizzare e gestire lo sviluppo del software in modo sistematico e standardizzato.
+          \href{https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf}{\url{https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf}}
 
-    \end{itemize}
+\end{itemize}
 \subsubsection{Riferimenti informativi}
 Da inserire.
 
 \section{Processi di supporto}
 
 \subsection{Documentazione}
-    
-    \subsubsection{Introduzione}
-    La documentazione costituisce l'insieme di informazioni scritte che accompagnano un prodotto software, fornendo dettagli utili agli sviluppatori, distributori e utenti.\\
-    Il suo obiettivo principale è:
-    \begin{itemize}
+
+\subsubsection{Introduzione}
+La documentazione costituisce l'insieme di informazioni scritte che accompagnano un prodotto software, fornendo dettagli utili agli sviluppatori, distributori e utenti.\\
+Il suo obiettivo principale è:
+\begin{itemize}
     \item  Definire delle procedure ripetibili che permettano di uniformare la documentazione che viene prodotta dal gruppo ed il metodo di lavoro;
     \item  Raccogliere e organizzare le norme che i membri del team devono seguire così da semplificare l'operazione di scrittura dei documenti.
-    \end{itemize}
-    Tali norme dovranno essere applicate da tutti i membri del team ed i sorgenti \LaTeX\ che contengono tale documentazione verranno inseriti nel repository disponibile all'indirizzo:
-    \href{https://github.com/ByteOps-swe/Sorgente-documenti}{https://github.com/ByteOps-swe/Sorgente-documenti}
-    
-   \begin{comment} \paragraph*{Primi approcci alla redazione di documenti e problematiche riscontrate}
-    Per la composizione iniziale dei documenti richiesti per la candidatura, è stato sperimentato un'approccio che impiegava gli strumenti di Google Drive. Tale metodologia consentiva ai redattori di redigere agevolmente i documenti senza la necessità di padroneggiare la sintassi LaTeX, con l'intenzione di trasporre successivamente il contenuto in LaTeX una volta che fosse stato validato dai verificatori. Tuttavia, questo approccio ha suscitato problematiche, tra cui:
-    \begin{itemize}
-        \item Rischio di incoerenza tra il contenuto presente negli strumenti di Google Drive.
-        \item Prolungato impiego di tempo per la riscrittura in LaTeX, dovuto alla necessità di un passaggio aggiuntivo. 
-    \end{itemize}
-    Per tali ragioni si è presa la decisione di adottare un nuovo approccio.
-\end{comment}
-    \paragraph{Documentation as Code}\label{sec:DocumentationAscode}
-    L'approccio che si intende adottare è quello di "Documentation as Code" (Documentazione come Codice) che consiste nel trattare la documentazione di un progetto software allo stesso modo in cui si tratta il codice sorgente. Questo approccio è incentrato sull'utilizzo di pratiche e strumenti tipici dello sviluppo software per creare, gestire e distribuire la documentazione.
-    Alcuni aspetti chiave di "Documentation as Code" includono:
+\end{itemize}
+Tali norme dovranno essere applicate da tutti i membri del team ed i sorgenti \LaTeX\ che contengono tale documentazione verranno inseriti nel repository disponibile all'indirizzo:
+\href{https://github.com/ByteOps-swe/Sorgente-documenti}{https://github.com/ByteOps-swe/Sorgente-documenti}
+
+\begin{comment} \paragraph*{Primi approcci alla redazione di documenti e problematiche riscontrate}
+Per la composizione iniziale dei documenti richiesti per la candidatura, è stato sperimentato un'approccio che impiegava gli strumenti di Google Drive. Tale metodologia consentiva ai redattori di redigere agevolmente i documenti senza la necessità di padroneggiare la sintassi LaTeX, con l'intenzione di trasporre successivamente il contenuto in LaTeX una volta che fosse stato validato dai verificatori. Tuttavia, questo approccio ha suscitato problematiche, tra cui:
 \begin{itemize}
-\item \textbf{Versionamento}
-\item \textbf{Scrittura in Formato Testuale}
-\item \textbf{Automazione}
-\item \textbf{Collaborazione}
-\item \textbf{Integrazione Continua}
-\item \textbf{Distribuzione}
+    \item Rischio di incoerenza tra il contenuto presente negli strumenti di Google Drive.
+    \item Prolungato impiego di tempo per la riscrittura in LaTeX, dovuto alla necessità di un passaggio aggiuntivo.
+\end{itemize}
+Per tali ragioni si è presa la decisione di adottare un nuovo approccio.
+\end{comment}
+\paragraph{Documentation as Code}\label{sec:DocumentationAscode}
+L'approccio che si intende adottare è quello di "Documentation as Code" (Documentazione come Codice) che consiste nel trattare la documentazione di un progetto software allo stesso modo in cui si tratta il codice sorgente. Questo approccio è incentrato sull'utilizzo di pratiche e strumenti tipici dello sviluppo software per creare, gestire e distribuire la documentazione.
+Alcuni aspetti chiave di "Documentation as Code" includono:
+\begin{itemize}
+    \item \textbf{Versionamento}
+    \item \textbf{Scrittura in Formato Testuale}
+    \item \textbf{Automazione}
+    \item \textbf{Collaborazione}
+    \item \textbf{Integrazione Continua}
+    \item \textbf{Distribuzione}
 \end{itemize}
 Questo approccio porta diversi vantaggi, tra cui una maggiore coerenza, una migliore tracciabilità delle modifiche e una facilità di manutenzione. Inoltre, il concetto di "Documentation as Code" si allinea con la filosofia DevOps, dove la collaborazione e l'automazione sono valori chiave.\\
 
 \subsubsection{Ciclo di vita dei documenti}
-Il ciclo di vita dei documenti è suddiviso in molteplici attività, che possono essere ripetute:
+Il ciclo di vita dei documenti è una sequenza di stati e attività:
 \begin{enumerate}
-    \item  Ogni tipo di documento viene creato secondo la struttura specificata nei prossimi paragrafi;
-    \item Una volta creato, è necessaria una pianicazione della sua stesura: 
-    \begin{itemize}
-        \item Suddivisione in sezioni;
-        \item Durante le riunioni, si procede alla discussione e alla definizione collettiva di una traccia per il contenuto;
-        \item Assegnazione delle sezioni ai redattori.
-    \end{itemize}
-    \item Il team realizza il documento redigendone il contenuto rispettando le norme definite;
-    \item Quando completato il documento viene revisionato dai verificatori;
-    \item Il documento viene compilato e il PDF generato viene inserito nella repository all'indirizzo: \href{https://github.com/ByteOps-swe/Documents} {https://github.com/ByteOps-swe/Documents} ;
-    \item Manutenzione: Ogni documento sotto configuration management deve essere modificato in accordo alle norme.
+    \item \textbf{Stato: Necessità}
+          \begin{enumerate}
+              \item Nasce la necessità di una documentazione;
+              \item Pianicazione della sua stesura;
+              \item Suddivisione in sezioni;
+              \item Durante le riunioni, si procede alla discussione e alla definizione collettiva di una traccia per il contenuto;
+              \item Assegnazione delle sezioni ai redattori.
+          \end{enumerate}
+    \item \textbf{Stato: Redazione}
+          \begin{enumerate}
+              \item  Ogni tipo di documento viene creato secondo la struttura specificata nei prossimi paragrafi;
+              \item Il team realizza il documento redigendone il contenuto rispettando le norme definite;
+          \end{enumerate}
+    \item \textbf{Stato: Verifica}
+          \begin{enumerate}
+              \item Quando completato il documento viene revisionato dai verificatori;
+              \item Il documento viene compilato e il PDF generato viene inserito nella repository all'indirizzo: \href{https://github.com/ByteOps-swe/Documents} {https://github.com/ByteOps-swe/Documents} ;
+          \end{enumerate}
+    \item \textbf{Stato: Manutenzione}
+          \begin{enumerate}
+              \item Manutenzione: Ogni documento sotto configuration management deve essere modificato in accordo alle norme di versionamento e di change management.
+              \item La richiesta di modifica nasce da una nuova necessità sul contenuto del documento e riporta il documento allo stato omonimo.
+          \end{enumerate}
 \end{enumerate}
 
 %\textbf{Procedimento in sintesi}\\
- %   Per rispettare i principi  di "Documentation as Code" l'approccio attualmente adottato richiede la competenza e l'utilizzo di LaTeX per la stesura dei documenti e una repository ad accesso limitato Git chiamata "Sorgente documenti" dove versionarli. I redattori, seguendo la struttura dettagliata nei prossimi paragrafi, redigeranno il contenuto dei documenti utilizzando il linguaggio \LaTeX\ su un ramo dedicato nella repository "Sorgente documenti". \\
-  %  Al termine del loro lavoro, segnaleranno il completamento posizionando l'Issue relativa al compito di redazione nella colonna "Da revisionare" della \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione} di GitHub (unica e condivisa sia dalla repository pubblica "\href{https://github.com/ByteOps-swe/Documents}{Documents}" che dalla repository "Sorgente documenti") e generando una pull request . Questa colonna conterrà i compiti relativi ai documenti completati dai redattori, che necessitano ora della validazione da parte dei verificatori. \\
-   
-   % I file sorgenti LaTeX saranno quindi gestiti e versionati nella repository con accesso limitato denominata "Sorgente documenti", strutturata in modo identico alla repository pubblica chiamata "\href{https://github.com/ByteOps-swe/Documents}{Documents}" ma con file \LaTeX\ al posto dei PDF. \\
- %   I verificatori quindi troveranno il documento da validare in questa repository quando riceveranno una notifica mail generata dalla pull request.\\
- %  Quando i verificatori avranno convalidato il contenuto, dovranno seguire le istruzioni al paragrafo ~\ref{sec:verificatori} per formalizzare la verifica.
-    
+%   Per rispettare i principi  di "Documentation as Code" l'approccio attualmente adottato richiede la competenza e l'utilizzo di LaTeX per la stesura dei documenti e una repository ad accesso limitato Git chiamata "Sorgente documenti" dove versionarli. I redattori, seguendo la struttura dettagliata nei prossimi paragrafi, redigeranno il contenuto dei documenti utilizzando il linguaggio \LaTeX\ su un ramo dedicato nella repository "Sorgente documenti". \\
+%  Al termine del loro lavoro, segnaleranno il completamento posizionando l'Issue relativa al compito di redazione nella colonna "Da revisionare" della \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione} di GitHub (unica e condivisa sia dalla repository pubblica "\href{https://github.com/ByteOps-swe/Documents}{Documents}" che dalla repository "Sorgente documenti") e generando una pull request . Questa colonna conterrà i compiti relativi ai documenti completati dai redattori, che necessitano ora della validazione da parte dei verificatori. \\
 
-    \paragraph{I redattori}
+% I file sorgenti LaTeX saranno quindi gestiti e versionati nella repository con accesso limitato denominata "Sorgente documenti", strutturata in modo identico alla repository pubblica chiamata "\href{https://github.com/ByteOps-swe/Documents}{Documents}" ma con file \LaTeX\ al posto dei PDF. \\
+%   I verificatori quindi troveranno il documento da validare in questa repository quando riceveranno una notifica mail generata dalla pull request.\\
+%  Quando i verificatori avranno convalidato il contenuto, dovranno seguire le istruzioni al paragrafo ~\ref{sec:verificatori} per formalizzare la verifica.
 
-    Il redattore incaricato della stesura di un documento o di una parte di esso è tenuto ad adottare l'approccio richiesto per apportare modifiche al codice sorgente di un software che utilizza il modello di branching di Git noto come "feature branch".\\
-    \vspace{0.1cm}
-    \textbf{Caso redazione nuovo documento o sezione}\\
+
+\paragraph{I redattori}
+
+Il redattore incaricato della stesura di un documento o di una parte di esso è tenuto ad adottare l'approccio richiesto per apportare modifiche al codice sorgente di un software che utilizza il modello di branching di Git noto come "feature branch".\\
+\vspace{0.1cm}
+\textbf{Caso redazione nuovo documento o sezione}\\
 Dalla repository  "Sorgente documenti" contenente i sorgenti \LaTeX, il redattore dovrà creare un nuovo branch Git in locale e passare ad esso mediante l'utilizzo del comando:
 
-    \begin{lstlisting}[style=code]
+\begin{lstlisting}[style=code]
     git checkout -b branch_identificativoTask 
     \end{lstlisting}
 
-    A questo punto, dopo aver creato il documento o la sezione assegnata e avviato la stesura, affinché gli altri redattori possano continuare il lavoro, è necessario rendere il branch accessibile anche nella repository remota, seguendo i seguenti passaggi:        
-        \begin{lstlisting}[style=code]
+A questo punto, dopo aver creato il documento o la sezione assegnata e avviato la stesura, affinché gli altri redattori possano continuare il lavoro, è necessario rendere il branch accessibile anche nella repository remota, seguendo i seguenti passaggi:
+\begin{lstlisting}[style=code]
     git checkout branch_identificativoTask 
     git add .
     git commit -m "Descrizione del commit"
     git push origin branch_identificativoTask
         \end{lstlisting}
-    La denominazione del branch utilizzato per la stesura del documento o della sezione deve consentire un'identificazione rapida e chiara della task. Pertanto, adotteremo la seguente \underline{convenzione per la nomenclatura dei branch} per la redazione dei documenti:
-    \begin{itemize}
-        \item     Il nome del branch deve essere uguale al nome del documento senza estensioni, senza spazi e versione, scritto in camel case. Nel caso della redazione di una sezione si pone alla fine "\_NomeSezione". (ex. NormeDiProgetto\_Documentazione) (Riferimento: ~\ref{sec:NomeFile})
-    \end{itemize}
+La denominazione del branch utilizzato per la stesura del documento o della sezione deve consentire un'identificazione rapida e chiara della task. Pertanto, adotteremo la seguente \underline{convenzione per la nomenclatura dei branch} per la redazione dei documenti:
+\begin{itemize}
+    \item     Il nome del branch deve essere uguale al nome del documento senza estensioni, senza spazi e versione, scritto in camel case. Nel caso della redazione di una sezione si pone alla fine "\_NomeSezione". (ex. NormeDiProgetto\_Documentazione) (Riferimento: ~\ref{sec:NomeFile})
+\end{itemize}
 
-    %\begin{itemize}
-     %   \item \textbf{Verbali interni}: \verb|branch_VerbaleIn_GG_MM_AAAA|
-      %  \item \textbf{Verbali esterni}: \verb|branch_VerbaleEx_GG_MM_AAAA|
-       % \item \textbf{Norme di progetto}: \verb|Norme-di-progetto|
-    %\end{itemize}
+%\begin{itemize}
+%   \item \textbf{Verbali interni}: \verb|branch_VerbaleIn_GG_MM_AAAA|
+%  \item \textbf{Verbali esterni}: \verb|branch_VerbaleEx_GG_MM_AAAA|
+% \item \textbf{Norme di progetto}: \verb|Norme-di-progetto|
+%\end{itemize}
 
-    \textbf{Caso modifica documento in fase di redazione}\\
-   Qualora il redattore intenda continuare la stesura di un documento (o sezione) iniziato da un altro redattore,sono necessari i comandi:
+\textbf{Caso modifica documento in fase di redazione}\\
+Qualora il redattore intenda continuare la stesura di un documento (o sezione) iniziato da un altro redattore,sono necessari i comandi:
 
-        \begin{lstlisting}[style=code]
+\begin{lstlisting}[style=code]
         git pull
         git checkout branch_identificativoTask
 
         \end{lstlisting}
 
-     \textbf{Salvataggio e condivisone progressi di task non completate}\\
-    Alla fine di una sessione di modifiche di un file, nel caso si desideri rendere accessibile ai membri il lavoro non ancora completato e, pertanto, non pronto alla verifica, è necessario:
-    \begin{enumerate}
-        \item Eseguire il push\textsubscript{\textit{G}}  delle modifiche fatte nel branch 
-        \begin{lstlisting}[style=code]
+\textbf{Salvataggio e condivisone progressi di task non completate}\\
+Alla fine di una sessione di modifiche di un file, nel caso si desideri rendere accessibile ai membri il lavoro non ancora completato e, pertanto, non pronto alla verifica, è necessario:
+\begin{enumerate}
+    \item Eseguire il push\textsubscript{\textit{G}}  delle modifiche fatte nel branch
+          \begin{lstlisting}[style=code]
     git add .
     git commit -m "Descrizione del commit"
     git push origin branch_identificativoDocumento
         \end{lstlisting}
 
-        \item Nel caso di problemi con il punto 1:
-        \begin{lstlisting}[style=code]
+    \item Nel caso di problemi con il punto 1:
+          \begin{lstlisting}[style=code]
    git pull origin branch_identificativoDocumento
         \end{lstlisting}
-        \item Risolvi i conflitti e ripeti punto 1.
-    \end{enumerate}
+    \item Risolvi i conflitti e ripeti punto 1.
+\end{enumerate}
 \vspace{0.3cm}
-     \textbf{Completamento compito di redazione}\\
-    Al termine del loro lavoro, i redattori:
-    \begin{enumerate}
-        \item Segnalano il completamento dell'attività a loro assegnata (essa sia la stesura completa di un documento o di una sua parte) posizionando l'issue relativa nella colonna "Da revisionare" della  \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione}.
-        \item Attuano una \textbf{pull request:}
-        \begin{enumerate}
-     \item Aggiornare il registro delle modifiche inserendo i dati richiesti in  una nuova riga e incrementando la versione (Il verificatore è definito all'assegnazione della task, presente nella descrizione della Issue del'ITS).
-        \item Eseguire i passaggi dettagliati nel caso "\textit{\textbf{Salvataggio e condivisone progressi di task non completate}}"
-        \item Vai sul repository su GitHub >> Apri la sezione "pull request" >> Clicca "New pull request"
-        \item Seleziona come branch di destinazione "main" e come branch sorgente il ramo utilizzato per la redazione del documento (o sezione) da validare
-        \item Clicca "Create pull request"
-        \item Dai un titolo e una breve descrizione alla pull request >> Seleziona i verificatori su "Reviewers" >> Clicca "Create pull request"
-    \end{enumerate}
-    \end{enumerate}
-    
-    
-   Se i verificatori non convalidano il documento (o sezione),i redattori riceveranno feedback allegati alla pull request relativi ai problemi identificati.
-   \paragraph{I verificatori}
-   I compiti e le procedure dei verificatori sono dettagliate al paragrafo ~\ref{sec:verificatori}. 
-    \paragraph{Il responsabile}
-    Nel processo di redazione dei documenti, il compito del responsabile consiste nel: 
-        \begin{itemize}
-        \item \textbf{Identificare i documenti o le sezioni da redigere. }
-        \item \textbf{Stabilire le scadenze entro cui devono essere completati.}
-        \item \textbf{Assegnare i redattori e i verificatori ai task.}
-        \item \textbf{Approvazione:} Prima della conclusione del suo mandato, il responsabile si riserva il diritto di approvare il lavoro o richiedere eventuali ulteriori modifiche su tutti i documenti redatti e verificati nel periodo in cui ha esercitato la propria carica.
-    \end{itemize}
-  
-    \paragraph{L'amministratore}
-     Nel processo di redazione dei documenti, il compito dell'amministratore consiste nel: 
-        \begin{itemize}
-        \item \textbf{Inserire nel ITS le attività specificate dal responsabile:} \begin{itemize}
-            \item Redattori: assegnatari della issue;
-            \item Verificatori: specificati nella descrizione della issue;
-            \item Scadenza.
-        \end{itemize}
-    \end{itemize}
-    \subsubsection{Struttura del documento}
+\textbf{Completamento compito di redazione}\\
+Al termine del loro lavoro, i redattori:
+\begin{enumerate}
+    \item Segnalano il completamento dell'attività a loro assegnata (essa sia la stesura completa di un documento o di una sua parte) posizionando l'issue relativa nella colonna "Da revisionare" della  \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione}.
+    \item Attuano una \textbf{pull request:}
+          \begin{enumerate}
+              \item Aggiornare il registro delle modifiche inserendo i dati richiesti in  una nuova riga e incrementando la versione (Il verificatore è definito all'assegnazione della task, presente nella descrizione della Issue del'ITS).
+              \item Eseguire i passaggi dettagliati nel caso "\textit{\textbf{Salvataggio e condivisone progressi di task non completate}}"
+              \item Vai sul repository su GitHub >> Apri la sezione "pull request" >> Clicca "New pull request"
+              \item Seleziona come branch di destinazione "main" e come branch sorgente il ramo utilizzato per la redazione del documento (o sezione) da validare
+              \item Clicca "Create pull request"
+              \item Dai un titolo e una breve descrizione alla pull request >> Seleziona i verificatori su "Reviewers" >> Clicca "Create pull request"
+          \end{enumerate}
+\end{enumerate}
+
+
+Se i verificatori non convalidano il documento (o sezione),i redattori riceveranno feedback allegati alla pull request relativi ai problemi identificati.
+\paragraph{I verificatori}
+I compiti e le procedure dei verificatori sono dettagliate al paragrafo ~\ref{sec:verificatori}.
+\paragraph{Il responsabile}
+Nel processo di redazione dei documenti, il compito del responsabile consiste nel:
+\begin{itemize}
+    \item \textbf{Identificare i documenti o le sezioni da redigere. }
+    \item \textbf{Stabilire le scadenze entro cui devono essere completati.}
+    \item \textbf{Assegnare i redattori e i verificatori ai task.}
+    \item \textbf{Approvazione:} Prima della conclusione del suo mandato, il responsabile si riserva il diritto di approvare il lavoro o richiedere eventuali ulteriori modifiche su tutti i documenti redatti e verificati nel periodo in cui ha esercitato la propria carica.
+\end{itemize}
+
+\paragraph{L'amministratore}
+Nel processo di redazione dei documenti, il compito dell'amministratore consiste nel:
+\begin{itemize}
+    \item \textbf{Inserire nel ITS le attività specificate dal responsabile:} \begin{itemize}
+              \item Redattori: assegnatari della issue;
+              \item Verificatori: specificati nella descrizione della issue;
+              \item Scadenza.
+          \end{itemize}
+\end{itemize}
+\subsubsection{Struttura del documento}
 I documenti ufficiali seguono un rigoroso e uniforme schema strutturale, il quale richiede un'osservanza scrupolosa.
 \paragraph*{Prima pagina}
 Nella prima pagina di ogni documento deve essere presente:
 \begin{itemize}
     \item Nome e mail del gruppo
-    \item Nome del documento 
+    \item Nome del documento
     \item Redattori
     \item Verificatori
     \item Destinatari
@@ -320,7 +331,7 @@ Tutti i documenti generici devono essere provvisti di indice.
 In ogni pié di pagina deve essere presente:
 \begin{itemize}
     \item Nome del gruppo
-    \item Nome del documento 
+    \item Nome del documento
     \item Numero di pagina
 \end{itemize}
 \paragraph*{Registro delle modifiche}\label{sec:RegistroModifiche}
@@ -330,16 +341,16 @@ La tabella  deve essere inserita nella
 sezione registro delle modifiche subito prima dell’indice del documento.
 La tabella deve registrare le seguenti informazioni:
 \begin{itemize}
-\item \textbf{Versione del file}.
-\item \textbf{Data di rilascio}.
-\item \textbf{Autore}.
-\item \textbf{Verificatore}.
-\item \textbf{Descrizione}: un riassunto delle modifiche apportate.
+    \item \textbf{Versione del file}.
+    \item \textbf{Data di rilascio}.
+    \item \textbf{Autore}.
+    \item \textbf{Verificatore}.
+    \item \textbf{Descrizione}: un riassunto delle modifiche apportate.
 \end{itemize}
 La convezione per il versionamento è presente al paragrafo : ~\ref{sec:versionamento} .
 \paragraph{Verbali: struttura generale}
 Questo documento assume l'importante ruolo di costituire un registro ufficiale, atto a riportare in maniera accurata gli argomenti trattati, le decisioni adottate, le azioni da intraprendere e le figure coinvolte.\\
-In particolare, è possibile distinguere tra verbali interni, destinati all'uso interno dell'organizzazione, e verbali esterni, che trovano applicazione quando vi sono terze parti coinvolte nelle discussioni o nelle decisioni documentate.\\ 
+In particolare, è possibile distinguere tra verbali interni, destinati all'uso interno dell'organizzazione, e verbali esterni, che trovano applicazione quando vi sono terze parti coinvolte nelle discussioni o nelle decisioni documentate.\\
 Nella prima pagina oltre alle informazioni comuni a ogni documento vengono specificate:
 \begin{itemize}
     \item Data della riunione e tipologia (Interna,Esterna) nel nome del documento
@@ -356,72 +367,72 @@ Corpo del documento:
     \item  \textbf{Revisione del periodo precedente:} Si valutano gli aspetti positivi, le sfide incontrate e si identificano azioni di miglioramento per ottimizzare i processi;
     \item  \textbf{Ordine del giorno:} Elenco tematiche discusse durante la riunione, accompagnate dai relativi esiti;
     \item  \textbf{Attività da svolgere:} Tabella dove viene specificato:
-    \begin{itemize}
-        \item Nome della task da svolgere;
-        \item Id issue del ITS;
-        \item Verificatore della attività.
-    \end{itemize}
+          \begin{itemize}
+              \item Nome della task da svolgere;
+              \item Id issue del ITS;
+              \item Verificatore della attività.
+          \end{itemize}
 \end{itemize}
-    Ultima pagina:
+Ultima pagina:
 \begin{itemize}
     \item   Nel caso di verbale esterno, in ultima pagina, deve essere presente la firma delle terze parti coinvolte.
 \end{itemize}
-    Il template dei verbali è disponibile al link:\\ \href{https://github.com/ByteOps-swe/Sorgente-documenti/tree/main/Documents/Verbali/Templates}{https://github.com/ByteOps-swe/Sorgente-documenti/tree/main/Documents/Verbali/Templates}
+Il template dei verbali è disponibile al link:\\ \href{https://github.com/ByteOps-swe/Sorgente-documenti/tree/main/Documents/Verbali/Templates}{https://github.com/ByteOps-swe/Sorgente-documenti/tree/main/Documents/Verbali/Templates}
 
 
 
-    \subsubsection{Regole tipografiche}
-    \paragraph*{Documenti del progetto e nome dei File}\label{sec:NomeFile}
-    Il nome dei documenti generati deve essere omogeneo, con la prima lettera maiuscola ed il resto minuscolo e deve contenere un riferimento alla versione del documento (notazione di versionamento:~\ref{sec:RegistroModifiche}).\\
-    Nello specifico devono seguire la seguente convenzione:
-    \begin{itemize}
-        \item \textbf{Verbali interni:}Verbale\_interno\_DD-MM-AAA ;
-        \item \textbf{Verbali esterni:}Verbale\_esterno\_DD-MM-AAA ;
-        \item \textbf{Norme di Progetto:} Norme\_di\_progetto\_vX.Y.Z ;
-        \item \textbf{Analisi dei requisiti:} Analisi\_dei\_requisiti\_vX.Y.Z ;
-        \item \textbf{Glossario:} Glossario\_vX.Y.Z .
-    \end{itemize}
-    
-    \paragraph*{Regole sintattiche:}
-    \begin{itemize}
-        \item I titoli delle sezioni iniziano con la lettera maiuscola;
-         \item Viene inserito ';' alla fine delle voci dell'elenco tranne l'ultima che termina con '.' . Ogni voce dell'elenco inizia con una lettera maiuscola;
-        \item  Le date vengono scritte nel formato GG/MM/AAAA.
-        \item  I numeri razionali si scrivono utilizzando la virgola come separatore tra parte intera e parte decimale.
-        \end{itemize}
-      \paragraph*{Stile del testo:}
-      \begin{itemize}
-\item \textbf{Grassetto}: Titoli delle sezioni, parole o frasi ritenute di rilievo. 
-\item \textbf{Italico}: Riferimento a paragrafi o sezioni, nomi delle aziende e nomi propri dei membri del team.
-    \end{itemize}
-    \subsubsection{Abbreviazioni}
-    Nei documenti vi sono molte ripetizioni di termini per la quale si possono usare le seguenti abbreviazioni:\\
-    \vspace{0.2cm}
-    \begin{tabular}{|c|c|}
-  \hline
-  \textbf{Abbreviazione} & \textbf{Scrittura Estesa} \\
-  \hline
-  ITS & Issue Tracking System \\
-  RTB & Requirements and Technology Baseline  \\
-  PB & Product Baseline\\
-  CI & configuration Item \\
-  \hline
+\subsubsection{Regole tipografiche}
+\paragraph*{Documenti del progetto e nome dei File}\label{sec:NomeFile}
+Il nome dei documenti generati deve essere omogeneo, con la prima lettera maiuscola ed il resto minuscolo e deve contenere un riferimento alla versione del documento (notazione di versionamento:~\ref{sec:RegistroModifiche}).\\
+Nello specifico devono seguire la seguente convenzione:
+\begin{itemize}
+    \item \textbf{Verbali interni:}Verbale\_interno\_DD-MM-AAA ;
+    \item \textbf{Verbali esterni:}Verbale\_esterno\_DD-MM-AAA ;
+    \item \textbf{Norme di Progetto:} Norme\_di\_progetto\_vX.Y.Z ;
+    \item \textbf{Analisi dei requisiti:} Analisi\_dei\_requisiti\_vX.Y.Z ;
+    \item \textbf{Glossario:} Glossario\_vX.Y.Z .
+\end{itemize}
+
+\paragraph*{Regole sintattiche:}
+\begin{itemize}
+    \item I titoli delle sezioni iniziano con la lettera maiuscola;
+    \item Viene inserito ';' alla fine delle voci dell'elenco tranne l'ultima che termina con '.' . Ogni voce dell'elenco inizia con una lettera maiuscola;
+    \item  Le date vengono scritte nel formato GG/MM/AAAA.
+    \item  I numeri razionali si scrivono utilizzando la virgola come separatore tra parte intera e parte decimale.
+\end{itemize}
+\paragraph*{Stile del testo:}
+\begin{itemize}
+    \item \textbf{Grassetto}: Titoli delle sezioni, parole o frasi ritenute di rilievo.
+    \item \textbf{Italico}: Riferimento a paragrafi o sezioni, nomi delle aziende e nomi propri dei membri del team.
+\end{itemize}
+\subsubsection{Abbreviazioni}
+Nei documenti vi sono molte ripetizioni di termini per la quale si possono usare le seguenti abbreviazioni:\\
+\vspace{0.2cm}
+\begin{tabular}{|c|c|}
+    \hline
+    \textbf{Abbreviazione} & \textbf{Scrittura Estesa}            \\
+    \hline
+    ITS                    & Issue Tracking System                \\
+    RTB                    & Requirements and Technology Baseline \\
+    PB                     & Product Baseline                     \\
+    CI                     & configuration Item                   \\
+    \hline
 \end{tabular}
 
 \subsubsection{Strumenti}
-    Gli strumenti utilizzati dalle attività di redazione dei documenti vogliono soddisfare il principio adottato di "Documentation as Code".
-    \begin{itemize}
-        \item \textbf{GitHub}: Versionamento,Collaborazione,Integrazione continua, automazione e distribuzione;
-        \item \textbf{Latex}: Scrittura in formato testuale, linguaggio per la stesura di documenti compilati;
-        \item \textbf{Overleaf}: Per la redazione dei documenti in Latex\textsubscript{\textit{G}} collaborativa;
-        \item \textbf{VSCode} : Per la redazione con l'utilizzo del plugin LaTex Workshop.
-    \end{itemize}
+Gli strumenti utilizzati dalle attività di redazione dei documenti vogliono soddisfare il principio adottato di "Documentation as Code".
+\begin{itemize}
+    \item \textbf{GitHub}: Versionamento,Collaborazione,Integrazione continua, automazione e distribuzione;
+    \item \textbf{Latex}: Scrittura in formato testuale, linguaggio per la stesura di documenti compilati;
+    \item \textbf{Overleaf}: Per la redazione dei documenti in Latex\textsubscript{\textit{G}} collaborativa;
+    \item \textbf{VSCode} : Per la redazione con l'utilizzo del plugin LaTex Workshop.
+\end{itemize}
 
 \subsection{Verifica}\label{sec:verifica}
 \subsubsection{Verifica dei documenti}
 \paragraph{I verificatori}\label{sec:verificatori}
 
-    Il ruolo del verificatore nei documenti è cruciale per garantire la qualità e l'accuratezza del contenuto.
+Il ruolo del verificatore nei documenti è cruciale per garantire la qualità e l'accuratezza del contenuto.
 
 Quando il verificatore individua un'Issue nella colonna "Da revisionare" della  \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione}, sarà tenuto a convalidare il file corrispondente presente nella repository "Sorgente documenti". \\
 In aggiunta, il revisore riceverà una notifica via email quando il redattore completa la propria attività, comunicandogli la presenza della pull request assegnatagli.\\
@@ -432,23 +443,23 @@ Nella sezione "pull request" di GitHub, il revisore troverà la richiesta di uni
 Per validare un documento i le verifiche da attuare sono:
 \begin{itemize}
     \item \textbf{Revisione della Correttezza Tecnica:} Revisione tecnica del documento per garantire che tutte le informazioni siano corrette, coerenti e rispettino le norme stabilite.
-     \item \textbf{Conformità alle Norme:} Verifica che il documento segua le linee guida e gli standard prestabiliti per la formattazione, la struttura e lo stile.
-      \item \textbf{Consistenza e Coerenza:} Si assicura che il documento sia consistente internamente e coerente con altri documenti correlati. Verifica che non ci siano discrepanze o contraddizioni.
-      \item \textbf{Chiarezza e Comprensibilità:} Valuta la chiarezza del testo, assicurandosi che il linguaggio sia comprensibile per il pubblico di destinazione e che non ci siano ambiguità.
-      \item \textbf{Revisione Grammaticale e Ortografica} Controlla la grammatica, l'ortografia e la punteggiatura del documento per garantire una presentazione professionale.
+    \item \textbf{Conformità alle Norme:} Verifica che il documento segua le linee guida e gli standard prestabiliti per la formattazione, la struttura e lo stile.
+    \item \textbf{Consistenza e Coerenza:} Si assicura che il documento sia consistente internamente e coerente con altri documenti correlati. Verifica che non ci siano discrepanze o contraddizioni.
+    \item \textbf{Chiarezza e Comprensibilità:} Valuta la chiarezza del testo, assicurandosi che il linguaggio sia comprensibile per il pubblico di destinazione e che non ci siano ambiguità.
+    \item \textbf{Revisione Grammaticale e Ortografica} Controlla la grammatica, l'ortografia e la punteggiatura del documento per garantire una presentazione professionale.
 \end{itemize}
 
 
 Dopo l'attuazione dei controlli sopra citati e verificato il loro rispetto, i passi per convalidare il documento sono i seguenti:
 \begin{enumerate}
- \item \textbf{Accetta la Pull Request:} Accedi alla pagina della pull request in cui agisci come revisore nel repository "Sorgente documenti" su GitHub >> Risolvi eventuali conflitti >> Merge Pull Request;
+    \item \textbf{Accetta la Pull Request:} Accedi alla pagina della pull request in cui agisci come revisore nel repository "Sorgente documenti" su GitHub >> Risolvi eventuali conflitti >> Merge Pull Request;
     \item \textbf{Elimina il branch: } Elimina il branch creato per la redazione del documento (o sezione).
-     \item \textbf{Sposta la issue in Done:} Nella \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione} sposta la issue relativa al documento validato da "Da revisionare" a "Done".
-     \item \textbf{Generazione PDF:} Un automazione tramite GitHub Actions compilerà il file   \LaTeX\ e genererà automaticamente il PDF nel branch main della repository \href{https://github.com/ByteOps-swe/Documents}{Documents}. 
-     \item \textbf{Rinomina file: }Rinomina il file con il riferimento al numero di versione aggiornato secondo quanto specificato in: ~\ref{sec:RegistroModifiche}.
-    % \item \textbf{Carica PDF:} Inserisci il PDF generato dal passaggio precedente nella repository \href{https://github.com/ByteOps-swe/Documents}{Documents} nella corretta posizione.
-     
-     
+    \item \textbf{Sposta la issue in Done:} Nella \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione} sposta la issue relativa al documento validato da "Da revisionare" a "Done".
+    \item \textbf{Generazione PDF:} Un automazione tramite GitHub Actions compilerà il file   \LaTeX\ e genererà automaticamente il PDF nel branch main della repository \href{https://github.com/ByteOps-swe/Documents}{Documents}.
+    \item \textbf{Rinomina file: }Rinomina il file con il riferimento al numero di versione aggiornato secondo quanto specificato in: ~\ref{sec:RegistroModifiche}.
+          % \item \textbf{Carica PDF:} Inserisci il PDF generato dal passaggio precedente nella repository \href{https://github.com/ByteOps-swe/Documents}{Documents} nella corretta posizione.
+
+
 \end{enumerate}
 \subsection{Gestione della configurazione}
 \subsubsection{Introduzione}
@@ -456,14 +467,14 @@ La gestione della configurazione del progetto è una attività che norma il trac
 
 La gestione della configurazione può essere applicata a qualunque categoria di documenti o di “artefatti” che svolga un ruolo nello sviluppo software.
 Secondo lo standard IEEE, la gestione della configurazione del software è un processo di identificazione, organizzazione e controllo delle modifiche apportate ai prodotti software durante il ciclo di vita del software.
- Lo standard IEEE 828-2012 definisce la gestione della configurazione del software come “un processo disciplinato per gestire l’evoluzione del software”. 
+Lo standard IEEE 828-2012 definisce la gestione della configurazione del software come “un processo disciplinato per gestire l’evoluzione del software”.
 \subsubsection{Numeri di versionamento}\label{sec:versionamento}
- La convenzione per identificare la versione di un documento è: X.Y.Z
+La convenzione per identificare la versione di un documento è: X.Y.Z
 con :
 \begin{itemize}
-\item \textbf{X: }Viene incrementato al raggiungimento di RTB e PB.
- \item \textbf{Y: }Viene incrementato quando vengono apportate modifiche significative al documento, come cambiamenti strutturali, nuove sezioni importanti o modifiche sostanziali nel contenuto.
- \item \textbf{Z: }Viene incrementato per modifiche minori o aggiornamenti al documento. Questi potrebbero includere correzioni di errori, miglioramenti marginali o l'aggiunta di nuovi contenuti meno rilevanti.
+    \item \textbf{X: }Viene incrementato al raggiungimento di RTB e PB.
+    \item \textbf{Y: }Viene incrementato quando vengono apportate modifiche significative al documento, come cambiamenti strutturali, nuove sezioni importanti o modifiche sostanziali nel contenuto.
+    \item \textbf{Z: }Viene incrementato per modifiche minori o aggiornamenti al documento. Questi potrebbero includere correzioni di errori, miglioramenti marginali o l'aggiunta di nuovi contenuti meno rilevanti.
 \end{itemize}
 
 Con l'incremento dei valori più significati  porta i meno significativi a zero. \\
@@ -473,27 +484,27 @@ Le tecnologie adottata per la gestione dei configuration item sono:
 \begin{itemize}
     \item \textbf{Git}: Version Control System distribuito utilizzato per il versionamento dei CI;
     \item \textbf{GitHub}: Piattaforma web che utilizza Git per il controllo di versione dei CI e per il Ticketing.
-                           Utilizzata per la gestione dei change request tramite issue e label e per la contabilità dello stato di configurazione (Branching e posizionamento nella repository).
+          Utilizzata per la gestione dei change request tramite issue e label e per la contabilità dello stato di configurazione (Branching e posizionamento nella repository).
 \end{itemize}
 
 \subsubsection{Repository}
 Le repository del team sono:
-    \begin{itemize}
-        \item \href{https://github.com/ByteOps-swe/Sorgente-documenti}{Sorgente-documenti}:Repository per il versionamento, la gestione e lo sviluppo dei sorgenti della documentazione.
-        \item \href{https://github.com/ByteOps-swe/Documents}{Documents}: Repository destinata ai commintenti/proponenti dove vengono condivisi solo i PDF dei file sorgenti revisionati.  
-    \end{itemize}
- \paragraph{Struttura repository}
- I repository destinati alla documentazione sono organizzati come segue:
+\begin{itemize}
+    \item \href{https://github.com/ByteOps-swe/Sorgente-documenti}{Sorgente-documenti}:Repository per il versionamento, la gestione e lo sviluppo dei sorgenti della documentazione.
+    \item \href{https://github.com/ByteOps-swe/Documents}{Documents}: Repository destinata ai commintenti/proponenti dove vengono condivisi solo i PDF dei file sorgenti revisionati.
+\end{itemize}
+\paragraph{Struttura repository}
+I repository destinati alla documentazione sono organizzati come segue:
 \begin{itemize}
     \item \textbf{Verbali}: Il documento in questione contiene tutti i verbali redatti durante il ciclo di vita del progetto. Inoltre, è suddiviso per ogni revisione del progetto (candidatura, RTB, PB), che a sua volta contiene una suddivisione tra verbali esterni ed interni.
     \item \textbf{candidatura}: Contenente i documenti richiesti per la revisione omonima:
     \item \textbf{RTB}:\begin{itemize}
-        \item Piano di Qualifica;
-        \item Piano di Progetto;
-        \item Analisi dei Requisiti;
-        \item Glossario;
-        \item Norme di Progetto;
-    \end{itemize}
+              \item Piano di Qualifica;
+              \item Piano di Progetto;
+              \item Analisi dei Requisiti;
+              \item Glossario;
+              \item Norme di Progetto;
+          \end{itemize}
     \item \textbf{PB}.
 \end{itemize}
 
@@ -501,13 +512,13 @@ Le repository del team sono:
 \paragraph{Sincronizzazione e Branching}
 \textbf{Documentazione:}
 Il flusso di lavoro adottato per la documentazione, denominato ‘feature branch workflow’, prevede la creazione di un branch dedicato per ogni documento o sezione richiesto.
-Tale metodologia permette una parallelizzazione agile dei lavori evitando sovrascritture indesiderate di altri lavori e permette l'adozione dei principi "Documentation as code". ~\ref{sec:DocumentationAsCode} . 
+Tale metodologia permette una parallelizzazione agile dei lavori evitando sovrascritture indesiderate di altri lavori e permette l'adozione dei principi "Documentation as code". ~\ref{sec:DocumentationAsCode} .
 \subsubsection{Controllo di configurazione}
 \paragraph{Change request (Richiesta di modifica)}
 Seguendo lo standard  ISO/IEC 12207 per affrontare questo processo in modo strutturato le attività sono:
 \begin{enumerate}
     \item \textbf{Identificazione e registrazione}: Le change request vengono identificate, registrate e documentate accuratamente. Questo include informazioni come la natura della modifica richiesta, l'urgenza, l'impatto sul sistema esistente\\
-    L'identificazione avviene tramite la creazione di un issue nell'ITS con label: "Change request";
+          L'identificazione avviene tramite la creazione di un issue nell'ITS con label: "Change request";
     \item \textbf{Valutazione e analisi}: Le change request vengono valutate dal team per determinare la loro fattibilità, importanza e impatto sul progetto. Si analizzano i costi e i benefici associati all'implementazione della modifica;
     \item \textbf{Approvazione o rifiuto}:Il responsabile valuta le informazioni raccolte e decide se approvare o respingere la change request. Questa decisione può essere basata su criteri come il budget, il tempo, le priorità degli stakeholder;
     \item \textbf{Pianificazione delle modifiche}: Se una change request viene approvata, viene pianificata e integrata nel ciclo di sviluppo del software. Questo può richiedere la rinegoziazione dei tempi di consegna, la revisione del piano di progetto, ecc;
@@ -532,65 +543,65 @@ L'inclusione di CI nel branch principale (main) lo configura come la versione pi
 Dopo aver completato il lavoro il creatore del branch deve aprire una pull request per effettuare il merge nel ramo principale. La richiesta di pull request può essere accettata solo se la verifica ha esito positivo.
 \section{Processi organizzativi}
 Questa sezione fornisce linee guida e normative per la pianificazione, l'esecuzione e il monitoraggio dei processi, contribuendo così a garantire la coerenza e la qualità nelle attività di sviluppo del software.
-    \subsection{Pianificazione}
-    In questa sezione saranno delineati i procedimenti che conducono dalla definizione dei ruoli alla precisa assegnazione delle attività ai singoli membri del gruppo.
-    \subsubsection{Assegnazione dei ruoli}
+\subsection{Pianificazione}
+In questa sezione saranno delineati i procedimenti che conducono dalla definizione dei ruoli alla precisa assegnazione delle attività ai singoli membri del gruppo.
+\subsubsection{Assegnazione dei ruoli}
 
-    Durante l'intero periodo del progetto, i membri del gruppo assumeranno sei ruoli distinti, ovvero assumeranno le responsabilità e svolgeranno le mansioni tipiche dei professionisti nel campo dello sviluppo software.
-    \\I ruoli a disposizione sono:
-        \paragraph{Responsabile}\label{responsabile} Figura fondamentale che coordina il gruppo, fungendo da punto di riferimento per il committente e il fornitore e svolgendo il ruolo di mediatore tra le due parti.\\
-        In particolare si occupa di:
-        \begin{itemize}
-            \item Gestire le relazioni con l'esterno;
-            \item Pianificare le attività: quali svolgere, data di inizio e fine, assegnazione delle priorità\dots
-            \item Valutare i rischi delle scelte da effettuare;
-            \item Controllare i progressi del progetto;
-            \item Gestire le risorse umane;
-            \item Approvazione della documentazione;
-        \end{itemize}
-        \paragraph{Amministratore}\label{amministratore}Questa figura professionale è incaricata del controllo e dell'amministrazione dell'ambiente di lavoro utilizzato dal gruppo ed è anche il punto di riferimento per quanto concerne le norme di progetto. Le sue mansioni principali sono:
-        \begin{itemize}
-            \item Affrontare e risolvere le problematiche associate alla gestione dei processi;
-            \item Gestire versionamento della documentazione;
-            \item Gestire la configurazione del prodotto;
-            \item Redigere ed attuare le norme e le procedure per la gestione della qualità;
-            \item Amministrare le infrastrutture e i servizi per i processi di supporto;
-        \end{itemize}
-        \paragraph{Analista}\label{analista}Figura professionale con competenze avanzate riguardo l'attività di analisi dei requisiti ed il dominio applicativo del problema. Il suo ruolo cruciale è quello di identificare, documentare e comprendere a fondo le esigenze e le specifiche del progetto, traducendole in requisiti chiari e dettagliati. Si occupa di:
-        \begin{itemize}
-            \item Analizzare il contesto di riferimento, definire il problema in esame e stabilire gli obiettivi da raggiungere;
-            \item Comprendere il problema e definire la complessità e i requisiti;
-            \item Redigere il documento \textit{Analisi dei Requisiti};
-            \item Studiare i bisogni espliciti ed impliciti;
-        \end{itemize} 
-        \paragraph{Progettista}\label{progettista}Il \textit{Progettista} è la figura di riferimento per quanto riguarda le scelte progettuali partendo dal lavoro dell'analista. Spetta al progettista assumere decisioni di natura tecnica e tecnologica, oltre a supervisionare il processo di sviluppo. Tuttavia, non è responsabile della manutenzione del prodotto. In particolare si occupa di:
-        \begin{itemize}
-            \item Progettare l'architettura del prodotto secondo specifiche tecniche dettagliate;
-            \item Prendere decisioni per sviluppare soluzioni che soddisfino i criteri di affidabilità, efficienza, sostenibilità e conformità ai Requisiti;
-            \item Redige la \textit{Specifica Architetturale} e la parte pragmatica del \textit{Piano di Qualifica};
-        \end{itemize} 
-        \paragraph{Programmatore}\label{programmatore}Il programmatore è la figura professionale responsabile della codifica del software. Il suo ruolo principale consiste nell'implementare codice informatico basato sulle specifiche fornite dall'analista e sull'architettura fornita dal progettista. In particolare, il \textit{Programmatore}:
-        \begin{itemize}
-            \item Scrivere codice informatico mantenibile in conformità con le \textit{Specifiche di Progetto};
-            \item Codificare le varie parti dell'architettura elaborata seguendo l'architettura ideata dal Progettista;
-            \item Realizza gli strumenti per verificare e validare il codice;
-            \item Redigere il \textit{Manuale Utente};
-        \end{itemize} 
-        \paragraph{Verificatore}\label{verificatore} La principale responsabilità del \textit{Verificatore} consiste nell'ispezionare il lavoro svolto da altri membri del team per assicurare la qualità e la conformità alle attese prefissate. Stabilisce se il lavoro è stato svolto correttamente sulla base delle proprie competenze tecniche, esperienza e conoscenza delle norme. Si occupa di:
-        \begin{itemize}
-            \item Verificare che i prodotti siano conformi alle \textit{Norme di Progetto};
-            \item Verificare la conformità dei prodotti ai requisiti funzionali e di qualità;
-            \item Ricercare ed in caso segnalare eventuali errori;
-            \item Redigere la sezione retrospettiva del \textit{Piano di Qualifica}, descrivendo le verifiche e le prove effettuate durante il processo di sviluppo del prodotto;
-        \end{itemize}          
-        \paragraph{Ticketing}
-        GitHub è adottato come sistema di tracciamento degli issue (ITS), garantendo così una gestione agevole e trasparente dei compiti da svolgere. L'amministratore ha la facoltà di creare e assegnare specifici compiti identificati dal responsabile, assicurando chiarezza sulle responsabilità di ciascun individuo e stabilendo tempi definiti. Inoltre, ogni membro del gruppo può monitorare i progressi compiuti nel periodo corrente, consultando lo stato di avanzamento dei vari task attraverso le Dashboard:
-        \begin{itemize}
-            \item \href{https://github.com/orgs/ByteOps-swe/projects/1}{DashBoard}: Per una chiara visione dello stato dei task;
-            \item \href{https://github.com/orgs/ByteOps-swe/projects/3}{RoadMap}: Per visione delle scadenze dei task.
-        \end{itemize}
-        La procedura da seguire in caso di necessità di svolgere un compito è la seguente:
-        \begin{enumerate}
+Durante l'intero periodo del progetto, i membri del gruppo assumeranno sei ruoli distinti, ovvero assumeranno le responsabilità e svolgeranno le mansioni tipiche dei professionisti nel campo dello sviluppo software.
+\\I ruoli a disposizione sono:
+\paragraph{Responsabile}\label{responsabile} Figura fondamentale che coordina il gruppo, fungendo da punto di riferimento per il committente e il fornitore e svolgendo il ruolo di mediatore tra le due parti.\\
+In particolare si occupa di:
+\begin{itemize}
+    \item Gestire le relazioni con l'esterno;
+    \item Pianificare le attività: quali svolgere, data di inizio e fine, assegnazione delle priorità\dots
+    \item Valutare i rischi delle scelte da effettuare;
+    \item Controllare i progressi del progetto;
+    \item Gestire le risorse umane;
+    \item Approvazione della documentazione;
+\end{itemize}
+\paragraph{Amministratore}\label{amministratore}Questa figura professionale è incaricata del controllo e dell'amministrazione dell'ambiente di lavoro utilizzato dal gruppo ed è anche il punto di riferimento per quanto concerne le norme di progetto. Le sue mansioni principali sono:
+\begin{itemize}
+    \item Affrontare e risolvere le problematiche associate alla gestione dei processi;
+    \item Gestire versionamento della documentazione;
+    \item Gestire la configurazione del prodotto;
+    \item Redigere ed attuare le norme e le procedure per la gestione della qualità;
+    \item Amministrare le infrastrutture e i servizi per i processi di supporto;
+\end{itemize}
+\paragraph{Analista}\label{analista}Figura professionale con competenze avanzate riguardo l'attività di analisi dei requisiti ed il dominio applicativo del problema. Il suo ruolo cruciale è quello di identificare, documentare e comprendere a fondo le esigenze e le specifiche del progetto, traducendole in requisiti chiari e dettagliati. Si occupa di:
+\begin{itemize}
+    \item Analizzare il contesto di riferimento, definire il problema in esame e stabilire gli obiettivi da raggiungere;
+    \item Comprendere il problema e definire la complessità e i requisiti;
+    \item Redigere il documento \textit{Analisi dei Requisiti};
+    \item Studiare i bisogni espliciti ed impliciti;
+\end{itemize}
+\paragraph{Progettista}\label{progettista}Il \textit{Progettista} è la figura di riferimento per quanto riguarda le scelte progettuali partendo dal lavoro dell'analista. Spetta al progettista assumere decisioni di natura tecnica e tecnologica, oltre a supervisionare il processo di sviluppo. Tuttavia, non è responsabile della manutenzione del prodotto. In particolare si occupa di:
+\begin{itemize}
+    \item Progettare l'architettura del prodotto secondo specifiche tecniche dettagliate;
+    \item Prendere decisioni per sviluppare soluzioni che soddisfino i criteri di affidabilità, efficienza, sostenibilità e conformità ai Requisiti;
+    \item Redige la \textit{Specifica Architetturale} e la parte pragmatica del \textit{Piano di Qualifica};
+\end{itemize}
+\paragraph{Programmatore}\label{programmatore}Il programmatore è la figura professionale responsabile della codifica del software. Il suo ruolo principale consiste nell'implementare codice informatico basato sulle specifiche fornite dall'analista e sull'architettura fornita dal progettista. In particolare, il \textit{Programmatore}:
+\begin{itemize}
+    \item Scrivere codice informatico mantenibile in conformità con le \textit{Specifiche di Progetto};
+    \item Codificare le varie parti dell'architettura elaborata seguendo l'architettura ideata dal Progettista;
+    \item Realizza gli strumenti per verificare e validare il codice;
+    \item Redigere il \textit{Manuale Utente};
+\end{itemize}
+\paragraph{Verificatore}\label{verificatore} La principale responsabilità del \textit{Verificatore} consiste nell'ispezionare il lavoro svolto da altri membri del team per assicurare la qualità e la conformità alle attese prefissate. Stabilisce se il lavoro è stato svolto correttamente sulla base delle proprie competenze tecniche, esperienza e conoscenza delle norme. Si occupa di:
+\begin{itemize}
+    \item Verificare che i prodotti siano conformi alle \textit{Norme di Progetto};
+    \item Verificare la conformità dei prodotti ai requisiti funzionali e di qualità;
+    \item Ricercare ed in caso segnalare eventuali errori;
+    \item Redigere la sezione retrospettiva del \textit{Piano di Qualifica}, descrivendo le verifiche e le prove effettuate durante il processo di sviluppo del prodotto;
+\end{itemize}
+\paragraph{Ticketing}
+GitHub è adottato come sistema di tracciamento degli issue (ITS), garantendo così una gestione agevole e trasparente dei compiti da svolgere. L'amministratore ha la facoltà di creare e assegnare specifici compiti identificati dal responsabile, assicurando chiarezza sulle responsabilità di ciascun individuo e stabilendo tempi definiti. Inoltre, ogni membro del gruppo può monitorare i progressi compiuti nel periodo corrente, consultando lo stato di avanzamento dei vari task attraverso le Dashboard:
+\begin{itemize}
+    \item \href{https://github.com/orgs/ByteOps-swe/projects/1}{DashBoard}: Per una chiara visione dello stato dei task;
+    \item \href{https://github.com/orgs/ByteOps-swe/projects/3}{RoadMap}: Per visione delle scadenze dei task.
+\end{itemize}
+La procedura da seguire in caso di necessità di svolgere un compito è la seguente:
+\begin{enumerate}
     \item L' amministratore crea e assegna il task su GitHub;
     \item L'incaricato apre una branch su GitHub seguendo la denominazione suggerita;
     \item  All'inizio del lavoro di produzione il task viene marcato in corso sulla DashBoard GitHub;
@@ -610,32 +621,32 @@ I task sono creati dall'amministratore e hanno i seguenti attributi:
 \end{itemize}
 
 
-    \subsection{Comunicazione}
-    Il gruppo \textit{ByteOps} mantiene comunicazioni attive, sia interne che esterne al team, le quali possono essere sincrone o asincrone a seconda delle necessità.
-    \subsubsection{Comunicazioni sincrone}
-    Per le comunicazioni interne ed esterne, il gruppo ByteOps, in collaborazione con l'azienda proponente, ha scelto di adottare \textit{Discord}\textsubscript{\textit{G}} in quanto permette di comunicare tramite chiamate vocali, videochiamate, messaggi di testo, media e file in chat private o come membri di un \textit{"server Discord"}.
-    \subsubsection{Comunicazioni asincrone}
-        \paragraph{comunicazioni asincrone interne}
-        Le comunicazioni asincrone interne al nostro team avvengono tramite l'applicazione \textit{Telegram}\textsubscript{\textit{G}} all'interno di un Gruppo dedicato, il quale consente una comunicazione rapida tra tutti i membri del gruppo. Inoltre, tramite la stessa piattaforma, è possibile avere conversazioni dirette e private (\textit{chat}) tra due membri.
-        \paragraph{comunicazioni asincrone esterne}
-        Per le comunicazioni asincrone esterne sono stati adottati due canali differenti:
-        \begin{itemize}
-            \item \textbf{E-mail} La posta elettronica è stata utilizzata per comunicare con il committente e, nelle prime fasi del progetto, per coordinare gli incontri con l'azienda proponente. Questa forma di comunicazione offre la flessibilità necessaria per coordinare incontri sincroni e revisioni in modo efficace, consentendo a entrambe le parti di pianificare le interazioni in base alla propria disponibilità.
-            \item \textbf{Element} E' un client di messaggistica istantanea libero ed open source che supporta conversazioni strutturate e crittografate. La sua flessibilità nell'adattarsi a varie esigenze di comunicazione, inclusa la possibilità di condividere file, immagini e altri documenti, ha reso la piattaforma un'opzione versatile e completa per soddisfare le esigenze specifiche del nostro contesto lavorativo.
-        \end{itemize}
-    
-    \subsection{Gestione degli incontri}
-        \subsubsection{Incontri formali esterni}
-        Durante l'implementazione del progetto, si renderà necessaria l'organizzazione di vari incontri con i \textit{Committenti} e/o il \textit{Proponente} allo scopo di valutare lo stato di avanzamento del prodotto.\\
-        La convocazione di tali incontri è di competenza del \textit{Responsabile di Progetto}, il quale è incaricato di pianificarli e di agevolarne lo svolgimento in maniera efficiente. Sarà compito del Responsabile anche l'esposizione dei punti di discussione al Proponente, lasciando la parola ai membri del gruppo interessati quando necessario.
-        In aggiunta, sarà designato un \textit{Segretario} con l'incarico di redigere una sintesi dei temi discussi. \\
-        Questo approccio assicura una comunicazione efficace tra il nostro team e i rappresentanti aziendali, garantendo una gestione ottimale del tempo e una registrazione accurata delle informazioni rilevanti emerse durante gli incontri.
-               
-        \subsubsection{Incontri formali interni}
-        \paragraph{Meeting settimali interni}
-        Il nostro team ha adottato un approccio settimanale attraverso incontri simili a "stand-up meetings" al fine di facilitare una comunicazione costante e coordinare il progresso delle attività interne.\\
-        Questi incontri rivestono un ruolo cruciale nel monitorare il progresso delle mansioni assegnate, valutare i risultati conseguiti e affrontare le sfide che possono sorgere. Durante questi momenti, i membri del team condividono gli aggiornamenti sulle proprie attività, identificano le problematiche riscontrate e discutono di opportunità di miglioramento nei processi di lavoro. Questo ambiente aperto e collaborativo favorisce l'innovazione e la condivisione di nuove prospettive.\\
-        Per agevolare la comunicazione sincrona, il canale utilizzato per questi incontri è \textit{Discord}\textsubscript{\textit{G}}, ritenuto particolarmente efficace per tali scopi.
+\subsection{Comunicazione}
+Il gruppo \textit{ByteOps} mantiene comunicazioni attive, sia interne che esterne al team, le quali possono essere sincrone o asincrone a seconda delle necessità.
+\subsubsection{Comunicazioni sincrone}
+Per le comunicazioni interne ed esterne, il gruppo ByteOps, in collaborazione con l'azienda proponente, ha scelto di adottare \textit{Discord}\textsubscript{\textit{G}} in quanto permette di comunicare tramite chiamate vocali, videochiamate, messaggi di testo, media e file in chat private o come membri di un \textit{"server Discord"}.
+\subsubsection{Comunicazioni asincrone}
+\paragraph{comunicazioni asincrone interne}
+Le comunicazioni asincrone interne al nostro team avvengono tramite l'applicazione \textit{Telegram}\textsubscript{\textit{G}} all'interno di un Gruppo dedicato, il quale consente una comunicazione rapida tra tutti i membri del gruppo. Inoltre, tramite la stessa piattaforma, è possibile avere conversazioni dirette e private (\textit{chat}) tra due membri.
+\paragraph{comunicazioni asincrone esterne}
+Per le comunicazioni asincrone esterne sono stati adottati due canali differenti:
+\begin{itemize}
+    \item \textbf{E-mail} La posta elettronica è stata utilizzata per comunicare con il committente e, nelle prime fasi del progetto, per coordinare gli incontri con l'azienda proponente. Questa forma di comunicazione offre la flessibilità necessaria per coordinare incontri sincroni e revisioni in modo efficace, consentendo a entrambe le parti di pianificare le interazioni in base alla propria disponibilità.
+    \item \textbf{Element} E' un client di messaggistica istantanea libero ed open source che supporta conversazioni strutturate e crittografate. La sua flessibilità nell'adattarsi a varie esigenze di comunicazione, inclusa la possibilità di condividere file, immagini e altri documenti, ha reso la piattaforma un'opzione versatile e completa per soddisfare le esigenze specifiche del nostro contesto lavorativo.
+\end{itemize}
+
+\subsection{Gestione degli incontri}
+\subsubsection{Incontri formali esterni}
+Durante l'implementazione del progetto, si renderà necessaria l'organizzazione di vari incontri con i \textit{Committenti} e/o il \textit{Proponente} allo scopo di valutare lo stato di avanzamento del prodotto.\\
+La convocazione di tali incontri è di competenza del \textit{Responsabile di Progetto}, il quale è incaricato di pianificarli e di agevolarne lo svolgimento in maniera efficiente. Sarà compito del Responsabile anche l'esposizione dei punti di discussione al Proponente, lasciando la parola ai membri del gruppo interessati quando necessario.
+In aggiunta, sarà designato un \textit{Segretario} con l'incarico di redigere una sintesi dei temi discussi. \\
+Questo approccio assicura una comunicazione efficace tra il nostro team e i rappresentanti aziendali, garantendo una gestione ottimale del tempo e una registrazione accurata delle informazioni rilevanti emerse durante gli incontri.
+
+\subsubsection{Incontri formali interni}
+\paragraph{Meeting settimali interni}
+Il nostro team ha adottato un approccio settimanale attraverso incontri simili a "stand-up meetings" al fine di facilitare una comunicazione costante e coordinare il progresso delle attività interne.\\
+Questi incontri rivestono un ruolo cruciale nel monitorare il progresso delle mansioni assegnate, valutare i risultati conseguiti e affrontare le sfide che possono sorgere. Durante questi momenti, i membri del team condividono gli aggiornamenti sulle proprie attività, identificano le problematiche riscontrate e discutono di opportunità di miglioramento nei processi di lavoro. Questo ambiente aperto e collaborativo favorisce l'innovazione e la condivisione di nuove prospettive.\\
+Per agevolare la comunicazione sincrona, il canale utilizzato per questi incontri è \textit{Discord}\textsubscript{\textit{G}}, ritenuto particolarmente efficace per tali scopi.
 \end{document}
 
 \end{document}
