@@ -2,7 +2,6 @@ import re, os, sys
 
 def delete_file(file_path):
     try:
-
         new_file_path = file_path[:-11]
         new_file_path = new_file_path.replace('_', ' ') 
         file_name = os.path.basename(new_file_path)
@@ -23,6 +22,7 @@ def delete_file(file_path):
             os.remove(file)
         # print(f"File '{found_file}' deleted successfully.")
     except FileNotFoundError:
+        print("File non trovato")
 
 def get_first_cell_value(filename):
     with open(filename, 'r') as file:
