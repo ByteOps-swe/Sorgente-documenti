@@ -71,9 +71,6 @@ jobs:
               echo "Questo è un template"
             fi
           )done
-          ls -la 
-          cd ..
-          ls -la 
           cd Output
 
           git add .
@@ -91,7 +88,7 @@ jobs:
         run: |
           shopt -s globstar
           set -e
-          cd Docuemnts
+          cd Documents
 
           if find "Documents" -type f -name "*.pdf" -print -quit 2>/dev/null; then
             for path in Documents/**/*.pdf; do (
