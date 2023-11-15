@@ -65,9 +65,9 @@ jobs:
               new_only_name="Aggiornato $name_no_ext"
 
               git commit -m "$new_only_name"
-              cd ..
               cd "$(dirname "$path")"
               latexmk -pdf "$(basename "$new_name")"
+              cd ..
             else 
               echo "Questo è un template"
             fi
