@@ -31,12 +31,17 @@ jobs:
 
       - name: Compile LaTeX document
         run: |
+          ls -la
           cd Output
+          ls -la
           git pull
 
           git config user.name github-actions[bot]
           git config user.email github-actions[bot]@github.com
           cd ..
+          cd Documents
+          ls -la
+          git branch -a
           git config user.name github-actions[bot]
           git config user.email github-actions[bot]@github.com
           docker run -i --rm -v "$(pwd):/work" -w /work -u "$(id -u):$(id -g)" ghcr.io/xu-cheng/texlive-full bash -c '
