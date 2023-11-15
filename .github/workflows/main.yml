@@ -2,7 +2,7 @@ name: Build LaTeX Document
 on:
   pull_request_target:
     branches: 
-      - protected
+      - main
     types: [closed]
 
 jobs:
@@ -22,7 +22,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           path: Output
-          repository: lisienskenderi/pdf-test
+          repository: ByteOps-swe/Documents
           token: ${{ secrets.ACCESS_TOKEN }}
           
       - name: Get changed files
@@ -98,47 +98,43 @@ jobs:
               echo "$path"
               dirname=$(dirname "$path")
               dirname=${dirname#Documents/}
-              echo "${dirname}"
               new_dirname="Output/$dirname"
               dirname_no_under="${new_dirname//_/ }"
-              echo "$new_dirname"
+
               name_old=$(basename "$path")
               name_no_ext="${name_old%.*}"
               name_no_under="${name_no_ext//_/ }"
               name="${name_old//_/ }"
-              echo "$dirname_no_under"
               new_name="Aggiornato $name_no_under"
-              # Create the directory in Output having the same structure/path that it had in Documents removing the ./Documents part with its parent directories
+
               if [ ! -d "$dirname_no_under" ]; then
                 mkdir -p "${dirname_no_under}"
                 echo "created: $dirname_no_under"
               fi
-              # Move $path in Output saving the same structure/path that it had in Documents removing the ./Documents part
+
               mv -f "$path" "${dirname_no_under}"
               mv -f "$dirname_no_under"/"$name_old" "$dirname_no_under"/"$name"
-              echo 1
+
               path_no_under="${path//_/ }"
               path_no_under=${path_no_under#Documents/}
+              
               cd Output
-              echo 2
-              ls -la
               git add "${path_no_under}"
-              #git status
-              echo 3
               if [[ -n "$(git status --porcelain)" ]]; then
                 git commit -m "$new_name"
               else
                 echo "No changes to commit"
               fi
-              echo 4
+              
               cd ..
-              echo 5
             ) done
           fi
           cd Output
+          
           git config --global push.autoSetupRemote true
           git status
           git push
+
           cd .. 
           cd Documents
           git push
