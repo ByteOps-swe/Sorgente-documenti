@@ -54,7 +54,7 @@ jobs:
             echo "$path was changed"
             if [[ "$(basename "$path")" != "Verbale_Esterno.tex" ]] && [[ "$(basename "$path")" != "Verbale_Interno.tex" ]] && [[ $path == *.tex ]] 
             then
-              new_name=$(python Document/Version_finder.py $path)
+              new_name=$(python Documents/Version_finder.py $path)
 
               git add "${path}"
               git add "${new_name}"
