@@ -55,7 +55,7 @@ jobs:
             if [[ "$(basename "$path")" != "Verbale_Esterno.tex" ]] && [[ "$(basename "$path")" != "Verbale_Interno.tex" ]] && [[ $path == *.tex ]] 
             then
               new_name=$(python Documents/Version_finder.py $path)
-
+              cd Documents
               git add "${path}"
               git add "${new_name}"
               
@@ -65,6 +65,7 @@ jobs:
               new_only_name="Aggiornato $name_no_ext"
 
               git commit -m "$new_only_name"
+              cd ..
               cd "$(dirname "$path")"
               latexmk -pdf "$(basename "$new_name")"
             else 
