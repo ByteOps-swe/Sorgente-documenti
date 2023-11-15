@@ -18,7 +18,11 @@ def delete_file(file_path):
                 if file_name in file_names:
                     found_file.append(os.path.join(root, file_names))
         for file in found_file:
-            os.remove(file)
+            if "Verbale" in file:
+                os.remove(file)
+                return new_file_path
+            else:
+                os.remove(file)
     except FileNotFoundError:
         print("File non trovato")
 
