@@ -123,7 +123,7 @@ jobs:
               git add "${path_no_under}"
               #git status
               echo 3
-              if [[ -n "$(git status --porcelain)" ]]; the
+              if [[ -n "$(git status --porcelain)" ]]; then
                 git commit -m "$new_name"
               else
                 echo "No changes to commit"
