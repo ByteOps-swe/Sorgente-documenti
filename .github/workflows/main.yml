@@ -91,7 +91,7 @@ jobs:
         run: |
           shopt -s globstar
           set -e
-          cd Docuemnts
+          cd Documents
 
           if find "Documents" -type f -name "*.pdf" -print -quit 2>/dev/null; then
             for path in Documents/**/*.pdf; do (
