@@ -27,12 +27,14 @@ def get_first_cell_value(filename):
         return match[0] if match else None
 
 def rename_latex_file(filename):
-    value = get_first_cell_value(filename)
+    filename_abs = "Documents/" + filename
+    filename_abs = os.path.json(os.getcwd(), filename_abs)
+    value = get_first_cell_value(filename_abs)
     value = value.strip()
-    new_filename = re.sub(r'_([^_]+)$', '', filename)
+    new_filename = re.sub(r'_([^_]+)$', '', filename_abs)
     if value:
         new_filename = new_filename + '_v' + value + '.tex'
-        os.rename(filename, new_filename)
+        os.rename(filename_abs, new_filename)
         print(new_filename)
     else:
         print("Valore non trovato o tabella non trovata.")
