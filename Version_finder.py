@@ -2,13 +2,15 @@ import re, os, sys
 
 def delete_file(file_path):
     try:
-        new_file_path = file_path[:-11]
+        if "Verbale" in file_path:
+            new_file_path = file_path[:-4]
+        else:
+            new_file_path = file_path[:-11]
         new_file_path = new_file_path.replace('_', ' ') 
         file_name = os.path.basename(new_file_path)
         file_dir = os.path.dirname(new_file_path)
         file_dir = "Output/" + file_dir
         found_file = []
-        found_file_rename = []
         file_dir = os.path.join(os.getcwd(), file_dir)
             
         for root, dirs, files in os.walk(file_dir):
@@ -43,7 +45,7 @@ def main():
     if ".tex" not in sys.argv[1]:
         return None
     if "Verbale" in sys.argv[1]:
-        return None
+        delete_file(sys.argv[1])
     else:
         delete_file(sys.argv[1])
         rename_latex_file(sys.argv[1])
