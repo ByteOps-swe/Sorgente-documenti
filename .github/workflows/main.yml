@@ -6,7 +6,7 @@ on:
     types: [closed]
 
 jobs:
-  build_latex:
+  Build_Latex:
     if: ${{ github.event.pull_request.merged }}
     runs-on: ubuntu-latest
 
