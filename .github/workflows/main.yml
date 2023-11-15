@@ -44,6 +44,7 @@ jobs:
           git branch -a
           git config user.name github-actions[bot]
           git config user.email github-actions[bot]@github.com
+          cd ..
           docker run -i --rm -v "$(pwd):/work" -w /work -u "$(id -u):$(id -g)" ghcr.io/xu-cheng/texlive-full bash -c '
           shopt -s globstar
           set -e
