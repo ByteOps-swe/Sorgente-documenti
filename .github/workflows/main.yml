@@ -71,9 +71,6 @@ jobs:
               echo "Questo è un template"
             fi
           )done
-          ls -la 
-          cd ..
-          ls -la 
           cd Output
 
           git add .
