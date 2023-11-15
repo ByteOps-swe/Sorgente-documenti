@@ -17,13 +17,13 @@ def delete_file(file_path):
             for file_names in files:
                 if file_name in file_names:
                     found_file.append(os.path.join(root, file_names))
-        for file in found_file:
-            if "Verbale" in file:
+        if not found_file:
+            print(file_path)
+        else:
+            for file in found_file:
                 os.remove(file)
-                return file_path
-            elif file == "":
-                return file_path
-            os.remove(file)
+                if "Verbale" in file:
+                    print(file_path)
     except FileNotFoundError:
         print("File non trovato")
 
