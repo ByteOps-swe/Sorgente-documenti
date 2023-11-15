@@ -18,6 +18,11 @@ def delete_file(file_path):
                 if file_name in file_names:
                     found_file.append(os.path.join(root, file_names))
         for file in found_file:
+            if "Verbale" in file:
+                os.remove(file)
+                return file_path
+            elif file == "":
+                return file_path
             os.remove(file)
     except FileNotFoundError:
         print("File non trovato")
@@ -46,7 +51,6 @@ def main():
         return None
     if "Verbale" in sys.argv[1]:
         delete_file(sys.argv[1])
-        return sys.argv[1]
     else:
         delete_file(sys.argv[1])
         rename_latex_file(sys.argv[1])
