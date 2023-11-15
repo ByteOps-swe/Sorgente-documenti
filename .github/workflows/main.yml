@@ -97,6 +97,7 @@ jobs:
             for path in Documents/**/*.pdf; do (
               echo "$path"
               dirname=$(dirname "$path")
+              dirname=${dirname#Documents/}
               echo "${dirname}"
               new_dirname="Output/$dirname"
               dirname_no_under="${new_dirname//_/ }"
@@ -117,6 +118,7 @@ jobs:
               mv -f "$dirname_no_under"/"$name_old" "$dirname_no_under"/"$name"
               echo 1
               path_no_under="${path//_/ }"
+              path_no_under=${path_no_under#Documents/}
               cd Output
               echo 2
               ls -la
