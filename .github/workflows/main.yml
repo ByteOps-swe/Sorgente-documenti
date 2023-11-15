@@ -63,8 +63,11 @@ jobs:
               name=$(basename "$new_name")
               name_no_ext="${name%.*}"
               new_only_name="Aggiornato $name_no_ext"
-
-              git commit -m "$new_only_name"
+              if [[ -n "$(git status --porcelain)" ]]; then
+                git commit -m "$new_only_name"
+              else
+                echo "No changes to commit"
+              fi
               cd "$(dirname "$path")"
               latexmk -pdf "$(basename "$new_name")"
               cd ..
@@ -120,7 +123,11 @@ jobs:
               git add "${path_no_under}"
               #git status
               echo 3
-              git commit -m "$new_name"
+              if [[ -n "$(git status --porcelain)" ]]; the
+                git commit -m "$new_name"
+              else
+                echo "No changes to commit"
+              fi
               echo 4
               cd ..
               echo 5
