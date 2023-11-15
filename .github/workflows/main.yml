@@ -114,7 +114,6 @@ jobs:
               mv -f "$dirname_no_under"/"$name_old" "$dirname_no_under"/"$name"
               echo 1
               path_no_under="${path//_/ }"
-              cd ..
               cd Output
               echo 2
               ls -la
@@ -124,11 +123,9 @@ jobs:
               git commit -m "$new_name"
               echo 4
               cd ..
-              cd Documents
               echo 5
             ) done
           fi
-          cd ..
           cd Output
           git config --global push.autoSetupRemote true
           git status
