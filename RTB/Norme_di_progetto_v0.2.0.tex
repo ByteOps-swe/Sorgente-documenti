@@ -150,6 +150,94 @@ Il \textbf{\textit{Glossario}} verrà compilato attraverso un documento condivis
 \subsubsection{Riferimenti informativi}
 Da inserire.
 
+\section{Processi primari}
+\subsection{Sviluppo}
+\subsubsection{Introduzione}
+Lo standard ISO/IEC 12207:1995 definisce le linee guida per il processo di sviluppo nel ciclo di vita del software. In base a questo standard, l'attività di sviluppo software è suddivisa in diverse fasi tra cui: analisi, progettazione, codifica, integrazione, testing,
+installazione e accettazione che rispecchino i requisiti definiti.
+\subsubsection{Analisi dei requisiti}
+L'analisi dei requisiti è una fase critica nello sviluppo del software, poiché stabilisce le basi per il design, l'implementazione e il test del sistema. Secondo lo standard ISO/IEC 12207:1995, lo scopo dell'analisi dei requisiti è di comprendere e definire in modo esaustivo le esigenze del cliente e del sistema.
+\paragraph{Obbiettivi:}
+\begin{itemize}
+    \item Stabilire, in collaborazione con il proponente, gli obiettivi del prodotto da sviluppare in modo da rispecchiarne le aspettative:  identificare, documentare e validare i requisiti funzionali e non funzional;
+    \item Facilitare la comprensione comune tra gli stakeholder e il team di sviluppo;
+    \item Permettere una stima sulle tempistiche e sui costi;
+    \item Fornire ai progettisti requisiti chiari e di
+    facile comprensione;
+    \item Favorire l'attività di verifica e test fornendo dei riferimenti pratici.
+\end{itemize}
+
+\paragraph{Documentazione}
+È compito degli analisti effettuare l'Analisi dei Requisiti, redigendo un documento con il
+medesimo nome che deve contenere:
+\begin{itemize}
+    \item Introduzione: Scopo del documento stesso;
+    \item Descrizione: Analisi del prodotto
+    \begin{itemize}
+        \item Obbiettivi del prodotto;
+        \item Funzionalità del prodotto;
+       \item caratteristiche utente;
+       \item Tecnologie.
+    \end{itemize}
+    \item  Casi d'uso: tutte le possibili interazioni che gli attori possono compiere utilizzando il prodotto;
+    \begin{itemize}
+        \item Attori: utenti del prodotto;
+        \item Casu d'uso.
+    \end{itemize}
+    \item Requisiti: le caratteristiche da soddisfare.
+    \begin{itemize}
+        \item Requisiti funzionali
+        \item Requisiti qualitativi
+       \item Requisiti di vincolo
+    \end{itemize}
+\end{itemize}
+\paragraph{Casi d'uso}
+Forniscono una descrizione dettagliata delle funzionalità del sistema dal punto di vista degli utenti, identificando come il sistema risponde a determinate azioni o scenari. In breve, i casi d'uso sono strumenti utilizzati nell'analisi dei requisiti per catturare e illustrare in modo chiaro e comprensibile come gli utenti interagiranno con il software e quali saranno i risultati di tali interazioni.
+\\ Ogni caso d'uso e costituito da:
+\begin{enumerate}
+    \item \textbf{Identificativo} nel formato: UC [Numero caso d'uso] . [Numero sotto caso d'uso] - [Titolo] \\ (ex. UC6.1 - Visualizzazione posizione sensore);
+    con:
+    \begin{itemize}
+        \item \textbf{Numero caso d'uso:} Identificazione numerica del caso d'uso generico;
+        \item \textbf{Numero sotto caso d'uso:} Identificazione numerica dei sotto casi d'uso, presente esclusivamente in caso di presenza di un sotto caso d'uso.
+        \item \textbf{Titolo}: Titolo breve ed esplicativo del caso d'uso.
+    \end{itemize}
+    \item \textbf{Attore principale:} L'utente che svologe il caso d'uso;
+    \item \textbf{Descrizione:} Testo narrativo descrittivo per facilitare la comprensione;
+    \item \textbf{Scenario principale:}Sequenza di eventi che si verifica quando un attore interagisce con il sistema per raggiungere l'obbiettivo del caso d'uso (Postcondizioni);
+    \item \textbf{Estensioni:} Scenari alternativi (se presenti) che portano il flusso del caso d'uso a non giungere alle Postcondizioni (Opzionale);
+    \item \textbf{Precondizioni:} Condizioni del sistema poichè si possa verificare lo scenario principale;
+    \item \textbf{Postcondizioni:} Condizioni del sistema una volta svolto lo scenario principale.
+\end{enumerate}
+\paragraph{Requisiti}
+I requisiti di un prodotto software sono specifiche dettagliate e documentate che delineano le funzionalità, le prestazioni, i vincoli e altri aspetti critici che il software deve soddisfare. Questi requisiti fungono da guida per lo sviluppo, il testing e la valutazione del prodotto, assicurando che risponda alle esigenze degli utenti e agli obiettivi del progetto.
+Includono 
+\begin{itemize}
+    \item \textbf{Requisiti funzionali:}Descrivono cosa il software deve fare 
+    \item \textbf{Requisiti non funzionali:} Definiscono criteri di prestazione, sicurezza, usabilità e altro ancora. 
+\end{itemize}
+La corretta definizione e gestione dei requisiti sono cruciali per il successo del ciclo di vita del software.\\
+Ogni requisiti è costituito da:
+\begin{enumerate}
+    \item \textbf{Identificativo} nel formato: R [Abbreviazione tipologia requisito] [Codice]
+    con:
+    \begin{itemize}
+        \item \textbf{Abbreviazione tipologia requisito:}
+        \begin{itemize}
+            \item \textbf{RF:} Requisito funzionale;
+        \end{itemize} 
+        \item \textbf{Codice:} Identificativo progressivo all'interno della tipologia di requisito.
+    \end{itemize}
+    \item \textbf{Importanza:}
+    \begin{itemize}
+        \item \textbf{Obbligatorio:} Irrinunciabile per qualcuno degli stakeholder;
+        \item \textbf{Desiderabile:}Non strettamente necessario ma a valore aggiunto;
+        \item \textbf{Opzionale:} Relativamente utile o contrattabile più avanti nel tempo.
+    \end{itemize}
+    \item \textbf{Descrizione:} Narrazione chiara e dettagliata che fornisce una spiegazione completa del comportamento o della caratteristica che il software deve possedere;
+    \item \textbf{Fonte:} Fonte del requisito (ex. capitolato, Verbale interno/esterno);
+    \item \textbf{Casi d'uso:} Elenco casi d'uso associati.
+\end{enumerate}
 \section{Processi di supporto}
 
 \subsection{Documentazione}
