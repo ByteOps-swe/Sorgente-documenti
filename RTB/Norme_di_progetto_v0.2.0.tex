@@ -496,7 +496,7 @@ Le tecnologie adottata per la gestione dei configuration item sono:
 \begin{itemize}
     \item \textbf{Git}: Version Control System distribuito utilizzato per il versionamento dei CI;
     \item \textbf{GitHub}: Piattaforma web che utilizza Git per il controllo di versione dei CI e per il Ticketing.
-          Utilizzata per la gestione dei change request tramite issue e label e per la contabilità dello stato di configurazione (Branching e posizionamento nella repository).
+          Utilizzata per la gestione dei change request tramite issue e label e per la contabilità dello stato di configurazione (Branching, posizionamento nella repository e DashBoard di progetto).
 \end{itemize}
 
 \subsubsection{Repository}
@@ -508,14 +508,21 @@ Le repository del team sono:
 \paragraph{Struttura repository}
 I repository destinati alla documentazione sono organizzati come segue:
 \begin{itemize}
-    \item \textbf{Verbali}: Il documento in questione contiene tutti i verbali redatti durante il ciclo di vita del progetto. Inoltre, è suddiviso per ogni revisione del progetto (candidatura, RTB, PB), che a sua volta contiene una suddivisione tra verbali esterni ed interni.
-    \item \textbf{candidatura}: Contenente i documenti richiesti per la revisione omonima:
-    \item \textbf{RTB}:\begin{itemize}
+    \item \textbf{Candidatura:} Contenente i documenti richiesti per la candidatura;
+    \begin{itemize}
+        \item \textbf{Verbali:}Contiene tutti i verbali redatti durante il periodo di candidatura, contiene una Suddivisione tra verbali esterni ed interni;
+        \item Lettera di presentazione;
+        \item Valutazione dei costi e assunzione impegni;
+        \item Valutazione dei capitolati.
+    \end{itemize}
+    \item \textbf{RTB:} Contenente i documenti richiesti per la revisione omonima;
+    \begin{itemize}
+        \item \textbf{Verbali:}Contiene tutti i verbali redatti durante il periodo RTB, contiene una Suddivisione tra verbali esterni ed interni.
               \item Piano di Qualifica; 
               \item Piano di Progetto;
               \item Analisi dei Requisiti;
               \item Glossario;
-              \item Norme di Progetto;
+              \item Norme di Progetto.
           \end{itemize}
     \item \textbf{PB}.
 \end{itemize}
@@ -524,7 +531,7 @@ I repository destinati alla documentazione sono organizzati come segue:
 \paragraph{Sincronizzazione e Branching}
 \textbf{Documentazione:}
 Il flusso di lavoro adottato per la documentazione, denominato ‘feature branch workflow’, prevede la creazione di un branch dedicato per ogni documento o sezione richiesto.
-Tale metodologia permette una parallelizzazione agile dei lavori evitando sovrascritture indesiderate di altri lavori e permette l'adozione dei principi "Documentation as code". ~\ref{sec:DocumentationAsCode} .
+Tale metodologia permette una parallelizzazione agile dei lavori evitando sovrascritture indesiderate di altri lavori e permette l'adozione dei principi "Documentation as code". % ~\ref{sec:DocumentationAsCode} 
 \subsubsection{Controllo di configurazione}
 \paragraph{Change request (Richiesta di modifica)}
 Seguendo lo standard  ISO/IEC 12207 per affrontare questo processo in modo strutturato le attività sono:
@@ -543,13 +550,13 @@ Seguendo lo standard  ISO/IEC 12207 per affrontare questo processo in modo strut
 \subsubsection{Configuration Status Accounting (Contabilità dello Stato di Configurazione)}
 Questo processo si occupa di registrare e tenere traccia dello stato di tutte le configurazioni di un sistema software durante il suo ciclo di vita.
 \begin{itemize}
-    \item \textbf{Registrazione delle configurazioni}: Registrazione delle informazioni dettagliate su ogni elemento di configurazione, che può includere codice sorgente, documentazione, specifiche, risorse hardware, e altri componenti del sistema;
+    \item \textbf{Registrazione delle configurazioni}: Registrazione delle informazioni dettagliate su ogni elemento di configurazione.
     \item \textbf{Stato e cambiamenti}: Tenere traccia dello stato attuale di ciascun elemento di configurazione e di tutti i cambiamenti che avvengono nel corso del tempo. Ciò include le versioni attuali, le revisioni, le modifiche e le baselines;
-    \item \textbf{Supporto per la gestione delle change request}: Correlazione alla gestione delle change request. Registra e documenta le modifiche apportate agli elementi di configurazione in risposta alle richieste di modifica.
+    \item \textbf{Supporto per la gestione delle change request}: Registra e documenta le modifiche apportate agli elementi di configurazione in risposta alle richieste di modifica.
 \end{itemize}
 Processo fondamentale per mantenere la trasparenza e la tracciabilità nel ciclo di vita del software, aiutando a gestire le configurazioni in modo coerente e a mantenere un registro accurato di tutte le attività e le modifiche che coinvolgono gli elementi di configurazione.\\
-\textbf{La corretta gestione del registro delle modifiche, il posizionamento nella repository e il branching permettono l'identificazione dello stato dei CI.}
-L'inclusione di CI nel branch principale (main) lo configura come la versione più recente, revisionata, mentre le versioni (X.0.0) con X>=1 identificano il CI facente parte della baseline con uguale versione.% -----------------------------Processi organizzativi --------------------------------
+\vspace{0.2cm}\textbf{La corretta gestione del registro delle modifiche,le informazioni in prima pagina, il posizionamento nella repository, il branching e le DashBoard di progetto permettono l'identificazione dello stato dei CI.} \\
+L'inclusione di un CI nel branch principale (main) lo configura come la versione più recente, revisionata, mentre le versioni (X.0.0) con X>=1 identificano il CI facente parte della baseline con uguale versione.% -----------------------------Processi organizzativi --------------------------------
 \paragraph{Release management and delivery}
 \textbf{Documentazione:}
 Dopo aver completato il lavoro il creatore del branch deve aprire una pull request per effettuare il merge nel ramo principale. La richiesta di pull request può essere accettata solo se la verifica ha esito positivo.
