@@ -74,19 +74,19 @@
 \begin{document}
 \pagestyle{fancy}
 \begin{center}
-\includegraphics[width = 0.7\textwidth]{../Images/logo.png} \\
-\vspace{0.2cm}
-\textcolor[RGB]{60, 60, 60}{\textit{ByteOps.swe@gmail.com}} \\
-\vspace{2cm}
-\fontsize{16}{6}\selectfont Norme di progetto \\ 
-\vspace{0.5cm}
+    \includegraphics[width = 0.7\textwidth]{../Images/logo.png} \\
+    \vspace{0.2cm}
+    \textcolor[RGB]{60, 60, 60}{\textit{ByteOps.swe@gmail.com}} \\
+    \vspace{2cm}
+    \fontsize{16}{6}\selectfont Norme di progetto \\
+    \vspace{0.5cm}
 \end{center}
- 
+
 \section*{Informazioni documento}
 \def\arraystretch{1.2}
 \begin{tabular}{>{\raggedleft\arraybackslash}p{0.2\textwidth}|>{\raggedright\arraybackslash}p{0.6\textwidth}c}
     \hline
-    \addlinespace 
+    \addlinespace
     \textbf{Data}           & 30/10/2023 \vspace{10pt} \\
     \textbf{Redattori}      & A. Barutta               \\ & R. Smanio \\ & N. Preto \vspace{10pt} \\
     \textbf{Verificatori}   & E. Hysa                  \\ & L. Skenderi \\ & D. Diotto \vspace{10pt} \\
@@ -163,7 +163,7 @@ L'analisi dei requisiti è una fase critica nello sviluppo del software, poiché
     \item Facilitare la comprensione comune tra gli stakeholder e il team di sviluppo;
     \item Permettere una stima sulle tempistiche e sui costi;
     \item Fornire ai progettisti requisiti chiari e di
-    facile comprensione;
+          facile comprensione;
     \item Favorire l'attività di verifica e test fornendo dei riferimenti pratici.
 \end{itemize}
 
@@ -173,67 +173,69 @@ medesimo nome che deve contenere:
 \begin{itemize}
     \item Introduzione: Scopo del documento stesso;
     \item Descrizione: Analisi del prodotto
-    \begin{itemize}
-        \item Obbiettivi del prodotto;
-        \item Funzionalità del prodotto;
-       \item caratteristiche utente;
-       \item Tecnologie.
-    \end{itemize}
+          \begin{itemize}
+              \item Obbiettivi del prodotto;
+              \item Funzionalità del prodotto;
+              \item caratteristiche utente;
+              \item Tecnologie.
+          \end{itemize}
     \item  Casi d'uso: tutte le possibili interazioni che gli attori possono compiere utilizzando il prodotto;
-    \begin{itemize}
-        \item Attori: utenti del prodotto;
-        \item Casu d'uso.
-    \end{itemize}
+          \begin{itemize}
+              \item Attori: utenti del prodotto;
+              \item Casu d'uso.
+          \end{itemize}
     \item Requisiti: le caratteristiche da soddisfare.
-    \begin{itemize}
-        \item Requisiti funzionali
-        \item Requisiti qualitativi
-       \item Requisiti di vincolo
-    \end{itemize}
+          \begin{itemize}
+              \item Requisiti funzionali
+              \item Requisiti qualitativi
+              \item Requisiti di vincolo
+          \end{itemize}
 \end{itemize}
 \paragraph{Casi d'uso}
 Forniscono una descrizione dettagliata delle funzionalità del sistema dal punto di vista degli utenti, identificando come il sistema risponde a determinate azioni o scenari. In breve, i casi d'uso sono strumenti utilizzati nell'analisi dei requisiti per catturare e illustrare in modo chiaro e comprensibile come gli utenti interagiranno con il software e quali saranno i risultati di tali interazioni.
 \\ Ogni caso d'uso e costituito da:
 \begin{enumerate}
     \item \textbf{Identificativo} nel formato: UC [Numero caso d'uso] . [Numero sotto caso d'uso] - [Titolo] \\ (ex. UC6.1 - Visualizzazione posizione sensore);
-    con:
-    \begin{itemize}
-        \item \textbf{Numero caso d'uso:} Identificazione numerica del caso d'uso generico;
-        \item \textbf{Numero sotto caso d'uso:} Identificazione numerica dei sotto casi d'uso, presente esclusivamente in caso di presenza di un sotto caso d'uso.
-        \item \textbf{Titolo}: Titolo breve ed esplicativo del caso d'uso.
-    \end{itemize}
+          con:
+          \begin{itemize}
+              \item \textbf{Numero caso d'uso:} Identificazione numerica del caso d'uso generico;
+              \item \textbf{Numero sotto caso d'uso:} Identificazione numerica dei sotto casi d'uso, presente esclusivamente in caso di presenza di un sotto caso d'uso.
+              \item \textbf{Titolo}: Titolo breve ed esplicativo del caso d'uso.
+          \end{itemize}
     \item \textbf{Attore principale:} L'utente che svologe il caso d'uso;
     \item \textbf{Descrizione:} Testo narrativo descrittivo per facilitare la comprensione;
     \item \textbf{Scenario principale:}Sequenza di eventi che si verifica quando un attore interagisce con il sistema per raggiungere l'obbiettivo del caso d'uso (Postcondizioni);
     \item \textbf{Estensioni:} Scenari alternativi (se presenti) che portano il flusso del caso d'uso a non giungere alle Postcondizioni (Opzionale);
     \item \textbf{Precondizioni:} Condizioni del sistema poichè si possa verificare lo scenario principale;
-    \item \textbf{Postcondizioni:} Condizioni del sistema una volta svolto lo scenario principale.
+    \item \textbf{Postcondizioni:} Condizioni del sistema una volta svolto lo scenario principale;
+    \item \textbf{User story associata:} Breve descrizione di una funzionalità del software, scritta dal punto di vista dell'utente, che fornisce contesto, obiettivi e valore.
+          \\Nella forma: "Come [utente] desidero poter [funzionalita] per [valore aggiunto].
 \end{enumerate}
 \paragraph{Requisiti}
 I requisiti di un prodotto software sono specifiche dettagliate e documentate che delineano le funzionalità, le prestazioni, i vincoli e altri aspetti critici che il software deve soddisfare. Questi requisiti fungono da guida per lo sviluppo, il testing e la valutazione del prodotto, assicurando che risponda alle esigenze degli utenti e agli obiettivi del progetto.
-Includono 
+Includono
 \begin{itemize}
-    \item \textbf{Requisiti funzionali:}Descrivono cosa il software deve fare 
-    \item \textbf{Requisiti non funzionali:} Definiscono criteri di prestazione, sicurezza, usabilità e altro ancora. 
+    \item \textbf{Requisiti funzionali:}Descrivono cosa il software deve fare
+    \item \textbf{Requisiti non funzionali:} Definiscono criteri di prestazione, sicurezza, usabilità e altro ancora.
 \end{itemize}
 La corretta definizione e gestione dei requisiti sono cruciali per il successo del ciclo di vita del software.\\
 Ogni requisiti è costituito da:
 \begin{enumerate}
     \item \textbf{Identificativo} nel formato: R [Abbreviazione tipologia requisito] [Codice]
-    con:
-    \begin{itemize}
-        \item \textbf{Abbreviazione tipologia requisito:}
-        \begin{itemize}
-            \item \textbf{RF:} Requisito funzionale;
-        \end{itemize} 
-        \item \textbf{Codice:} Identificativo progressivo all'interno della tipologia di requisito.
-    \end{itemize}
+          con:
+          \begin{itemize}
+              \item \textbf{Abbreviazione tipologia requisito:}
+                    \begin{itemize}
+                        \item \textbf{RF:} Requisito funzionale;
+                    \end{itemize}
+              \item \textbf{Codice:} Identificativo progressivo all'interno della tipologia di requisito.
+          \end{itemize}
     \item \textbf{Importanza:}
-    \begin{itemize}
-        \item \textbf{Obbligatorio:} Irrinunciabile per qualcuno degli stakeholder;
-        \item \textbf{Desiderabile:}Non strettamente necessario ma a valore aggiunto;
-        \item \textbf{Opzionale:} Relativamente utile o contrattabile più avanti nel tempo.
-    \end{itemize}
+          \begin{itemize}
+              \item \textbf{Obbligatorio:} Irrinunciabile per qualcuno degli stakeholder;
+              \item \textbf{Desiderabile:}Non strettamente necessario ma a valore aggiunto;
+              \item \textbf{Opzionale:} Relativamente utile o contrattabile più avanti nel tempo.
+          \end{itemize}
     \item \textbf{Descrizione:} Narrazione chiara e dettagliata che fornisce una spiegazione completa del comportamento o della caratteristica che il software deve possedere;
     \item \textbf{Fonte:} Fonte del requisito (ex. capitolato, Verbale interno/esterno);
     \item \textbf{Casi d'uso:} Elenco casi d'uso associati.
@@ -585,7 +587,7 @@ I repository destinati alla documentazione sono organizzati come segue:
     \item \textbf{Verbali}: Il documento in questione contiene tutti i verbali redatti durante il ciclo di vita del progetto. Inoltre, è suddiviso per ogni revisione del progetto (candidatura, RTB, PB), che a sua volta contiene una suddivisione tra verbali esterni ed interni.
     \item \textbf{candidatura}: Contenente i documenti richiesti per la revisione omonima:
     \item \textbf{RTB}:\begin{itemize}
-              \item Piano di Qualifica; 
+              \item Piano di Qualifica;
               \item Piano di Progetto;
               \item Analisi dei Requisiti;
               \item Glossario;
