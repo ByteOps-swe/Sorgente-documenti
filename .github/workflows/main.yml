@@ -44,6 +44,21 @@ jobs:
           git branch -a
           git config user.name github-actions[bot]
           git config user.email github-actions[bot]@github.com
+
+          # Check if there are any deleted files
+          if [[ -n "${{ steps.changed-files.outputs.deleted_files }}" ]]; then
+              # Iterate through the deleted files
+              for deleted_file in ${{ steps.changed-files.outputs.deleted_files }}; do
+                  # Check if the deleted file is a Python script
+                  if [[ $deleted_file == *.py ]]; then
+                      # Call the Python script to delete the file and its folder if empty
+                      python delete_latex_files.py "$deleted_file"
+                  fi
+              done
+          else
+              echo "No deleted files found."
+          fi
+
           cd ..
           docker run -i --rm -v "$(pwd):/work" -w /work -u "$(id -u):$(id -g)" ghcr.io/xu-cheng/texlive-full bash -c '
           shopt -s globstar
