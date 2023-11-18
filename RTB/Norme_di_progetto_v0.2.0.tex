@@ -148,7 +148,9 @@ Il \textbf{\textit{Glossario}} verrà compilato attraverso un documento condivis
 
 \end{itemize}
 \subsubsection{Riferimenti informativi}
-Da inserire.
+\begin{itemize}
+    \item  Libro "Clean Code" di Robert C. Martin.
+\end{itemize}
 
 \section{Processi primari}
 \subsection{Sviluppo}
@@ -182,7 +184,7 @@ medesimo nome che deve contenere:
     \item  Casi d'uso: tutte le possibili interazioni che gli attori possono compiere utilizzando il prodotto;
           \begin{itemize}
               \item Attori: utenti del prodotto;
-              \item Casu d'uso.
+              \item Casi d'uso.
           \end{itemize}
     \item Requisiti: le caratteristiche da soddisfare.
           \begin{itemize}
@@ -247,8 +249,180 @@ Ogni requisiti è costituito da:
     \item \textbf{Fonte:} Fonte del requisito (ex. capitolato, Verbale interno/esterno);
     \item \textbf{Casi d'uso:} Elenco casi d'uso associati.
 \end{enumerate}
-\section{Processi di supporto}
+\paragraph{Metriche}
+\paragraph{Strumenti}
+\begin{itemize}
+    \item \textbf{StarUML}
+\end{itemize}
 
+\subsubsection{Codifica}
+\paragraph{Scopo}
+Il compito della Codifica, compiuto dal programmatore, mira a concretizzare il software richiesto dal proponente.
+Quest'operazione trasforma le concezioni dei progettisti in codice, generando istruzioni eseguibili dai calcolatori.
+I programmatori sono tenuti a osservare tali direttive nel corso delle fasi di programmazione e implementazione.
+\paragraph{Aspettative}
+La codifica è finalizzata alla creazione di un prodotto software in linea con le richieste del committente e conforme agli accordi stipulati. Il rispetto accurato delle norme stabilite assicura la produzione di un codice leggibile, uniforme e di alta qualità. Aderire alle norme e alle convenzioni è essenziale, poiché facilita le operazioni di estensione, manutenzione, verifica e validazione, contribuendo così al continuo miglioramento della qualità del prodotto.
+\paragraph{Norme di codifica}
+Il linguaggio adottato per svolgimento del progetto è python:  linguaggio di programmazione interpretato, ad alto livello e general-purpose.
+Dal punto di vista tecnico, Python è dinamicamente tipizzato e dispone di un sistema di gestione della memoria automatico (garbage collection).
+Per quanto riguarda il supporto ai thread, Python dispone di un modulo chiamato threading che consente la creazione e la gestione di thread.
+Tuttavia, per il calcolo intensivo e la parallelizzazione su più processori, spesso si preferisce utilizzare il modulo multiprocessing che permette l'esecuzione di processi separati, superando le limitazioni del Global Interpreter Lock (GIL), che permette a un solo thread di eseguire istruzioni Python alla volta.
+
+\vspace{0.2cm}
+
+Le seguenti norme sono state formalizzate prendendo spunto dal libro "Clean Code" di Robert C. Martin.
+
+\paragraph*{Nomi significativi}
+Usare nomi che riflettano il significato e lo scopo delle variabili, funzioni e classi. Evitare abbreviazioni ambigue.
+\paragraph*{Indentazioni e formattazione Consistente}
+Per assicurare una strutturazione corretta del codice, è imperativo che i blocchi annidati adottino un'indentazione appropriata, con l'uso di un TAB per ciascun livello di annidamento.
+Adottare un'omogeneità nella formattazione del codice al fine di agevolarne la comprensione e la gestione.
+\paragraph*{Lunghezza dei metodi}
+La lunghezza ottimale dei metodi può variare a seconda del contesto e delle best practices di programmazione. Tuttavia, in generale, molti esperti consigliano che i metodi siano brevi e focalizzati su una singola responsabilità.
+Un principio comune è quello espresso da Robert C. Martin nel suo libro "Clean Code", che suggerisce che i metodi dovrebbero essere idealmente lunghi quanto basta per svolgere una singola operazione e non più lungo di quanto si possa visualizzare senza dover scorrere la pagina.
+Questo favorisce:
+\begin{itemize}
+    \item \textbf{Chiarezza};
+    \item \textbf{Manutenibilità};
+    \item \textbf{Comprensibilità};
+    \item \textbf{Testabilità:}Metodi più brevi sono più facili da testare in isolamento, il che favorisce l'implementazione di test unitari efficaci;
+    \item \textbf{Conformità ai principi SOLID:} La brevità dei metodi è spesso correlata al principio Single Responsibility Principle (SRP) dei principi SOLID, il che favorisce la costruzione di codice più modulare e coeso.
+\end{itemize} 
+
+\paragraph*{Lunghezza righe di codice}
+Mantenere le righe di codice entro i 80-120 caratteri permette una migliore leggibilità del codice su schermi di diverse dimensioni e facilita la visualizzazione di più file affiancati.
+Inoltre, limitare la lunghezza delle righe può incoraggiare la scrittura di codice più chiaro e modulare.
+\paragraph{Evita commenti inutili}
+L'obiettivo è scrivere il codice in modo chiaro e autoesplicativo, riducendo la dipendenza da commenti esplicativi. 
+\subsubsection{Configurazione dell'ambiente di esecuzione}
+\paragraph{Docker}
+
+La progettazione dei Docker e la scrittura dei Dockerfile sono considerate parte del processo di sviluppo del software.
+Le regole e le best practice di codifica per i file Docker sono fondamentali per garantire la creazione, la gestione e la distribuzione efficace dei container:
+\begin{itemize}
+    \item \textbf{Chiarezza e Coerenza:}
+    \begin{itemize}
+        \item Usa nomi descrittivi per le immagini e i container.
+        \item Mantieni una struttura coerente nei tuoi file Docker.
+    \end{itemize}
+
+\item \textbf{Versionamento:}
+    \begin{itemize}
+        \item Specifica sempre la versione dell'immagine di base (base image) per garantire la riproducibilità.
+        \item Evita di usare tag "latest" per immagini di produzione.
+    \end{itemize}
+
+\item \textbf{Minimizzazione degli Strati (Layering):}
+    \begin{itemize}
+        \item Riduci il numero di istruzioni nell'esecuzione del Dockerfile per minimizzare gli strati dell'immagine.
+        \item Raggruppa le istruzioni correlate per sfruttare la cache Docker.
+    \end{itemize}
+
+\item \textbf{Sicurezza:}
+    \begin{itemize}
+        \item Utilizza immagini ufficiali o verificate.
+        \item Evita di eseguire processi Docker con privilegi elevati quando possibile.
+        \item Usa ARG per parametrizzare informazioni sensibili.
+    \end{itemize}
+
+\item \textbf{Ottimizzazione delle Risorse:}
+    \begin{itemize}
+        \item Limita l'uso di risorse all'interno dei container (CPU, memoria, etc.).
+        \item Usa immagini leggere e ottimizzate per la produzione.
+    \end{itemize}
+
+\item \textbf{Gestione delle Variabili d'Ambiente:}
+    \begin{itemize}
+        \item Usa variabili d'ambiente per configurazioni dinamiche.
+        \item Fornisci valori predefiniti sensati per le variabili d'ambiente.
+    \end{itemize}
+
+\item \textbf{Logging e Monitoraggio:}
+    \begin{itemize}
+        \item Configura i container per registrare i log in modo efficace.
+        \item Integra strumenti di monitoraggio, se necessario.
+    \end{itemize}
+
+\item \textbf{Pulizia e Riduzione delle Dimensioni:}
+    \begin{itemize}
+        \item Pulisci i pacchetti temporanei e le risorse non necessarie dopo l'installazione delle dipendenze.
+        \item Riduci le dimensioni delle immagini utilizzando multi-stage builds.
+    \end{itemize}
+
+\item \textbf{Documentazione:}
+    \begin{itemize}
+        \item Aggiungi commenti nel Dockerfile per spiegare le decisioni di progettazione.
+        \item Fornisci una documentazione chiara su come utilizzare e configurare il container.
+    \end{itemize}
+
+\item \textbf{Testing:}
+    \begin{itemize}
+        \item Implementa test automatizzati per il tuo Dockerfile e i tuoi container, se possibile.
+    \end{itemize}
+\end{itemize}
+\paragraph{Strumenti}
+\begin{itemize}
+    \item \textbf{VSCode}
+    \item \textbf{Docker}
+    \item \textbf{Git}
+\end{itemize}
+\subsubsection{Progettazione}
+\paragraph{Scopo}
+L'attività di progettazione consiste nel processo di definizione e documentazione di:
+\begin{itemize}
+    \item Requisiti;
+    \item Specifiche tecniche;
+    \item Struttura del prodotto software.
+\end{itemize}
+al fine di ottenere un prodotto adeguato alle necessità degli stakeholder.
+Inoltre la progettazione ha lo scopo di:
+\begin{itemize}
+    \item Assicurare la qualità del prodotto finale;
+    \item Suddividere i compiti di
+    implementazione, rendendoli più semplici ed efficienti;
+    \item Ottimizzare i tempi e le risorse necessarie per il completamento del progetto;
+\end{itemize}
+
+La progettazione costituisce un procedimento inverso all'Analisi dei Requisiti; essa si configura come un articolato processo volto a gestire la complessità del prodotto mediante l'organizzazione e la distribuzione delle responsabilità di realizzazione. Si avvale di un approccio sistematico per affrontare e superare le sfide intrinseche, ricorrendo a pattern e best practice al fine di individuare soluzioni congrue alle esigenze delineate nei requisiti.
+
+\paragraph{Diagrammi dei casi d'uso}
+I diagrammi dei casi d'uso sono uno strumento di modellazione utilizzato nell'ingegneria del software per rappresentare le interazioni tra un sistema e gli attori (utenti o altri sistemi) che interagiscono con esso. Ecco una spiegazione generale dei principali elementi di un diagramma dei casi d'uso:
+
+\begin{enumerate}
+  \item \textbf{Attori:}
+    Gli attori sono le entità esterne al sistema che interagiscono con esso. Possono essere utenti umani, altri sistemi software o componenti esterne. Gli attori sono rappresentati come "stickman" all'esterno del rettangolo del sistema.
+
+  \item \textbf{Casi d'Uso:}
+    I casi d'uso rappresentano le diverse interazioni che un attore può avere con il sistema. Ogni caso d'uso è rappresentato da un ovale all'interno del rettangolo del sistema e contiene l'identificativo e il titolo esplicativo del tipo di interazione che si verifica.
+
+  \item \textbf{Relazioni tra Attori e Casi d'Uso:}
+    Le linee di associazione collegano gli attori ai casi d'uso corrispondenti, indicando quali attori sono coinvolti in una particolare interazione. Ad esempio, una linea collega un attore a un caso d'uso se quell'attore è coinvolto in quell'interazione.
+
+  \item \textbf{Estensioni e Inclusioni:}
+  \begin{enumerate}
+    \item \textbf{Inclusione:}
+      La relazione di inclusione indica che un caso d'uso (detto "includente") include il comportamento di un altro caso d'uso (detto "incluso"). In pratica, quando un attore avvia il caso d'uso includente, il caso d'uso incluso viene eseguito come parte integrante del primo. Questo è utile per evitare la duplicazione del codice o delle azioni in diversi casi d'uso. La relazione di inclusione è spesso rappresentata da una freccia con la punta aperta.
+  
+      Esempio: Supponiamo che ci sia un caso d'uso generico chiamato "Autenticazione". Questo caso d'uso può includere il caso d'uso più specifico "Gestione Password". Quando un utente si autentica, il sistema eseguirà anche la gestione della password come parte del processo di autenticazione.
+  
+    \item \textbf{Estensione:}
+      La relazione di estensione indica che un caso d'uso (detto "estendente") può estendere il comportamento di un altro caso d'uso (detto "esteso") in determinate circostanze. In altre parole, l'esecuzione del caso d'uso estendente può essere condizionalmente estesa o arricchita dal caso d'uso esteso. La relazione di estensione è spesso rappresentata da una freccia con la punta chiusa.
+  
+      Esempio: Considera un caso d'uso "Gestione Ordini". Questo caso d'uso potrebbe estendere il caso d'uso "Verifica Disponibilità" se durante la gestione degli ordini si verifica la necessità di verificare la disponibilità di un determinato prodotto. In questo modo, l'estensione permette di gestire situazioni specifiche senza ingombrare il flusso principale del caso d'uso base.
+  \end{enumerate}
+
+  \item \textbf{Generalizzazione casi d'uso:} La generalizzazione nei diagrammi dei casi d'uso rappresenta una relazione di ereditarietà tra casi d'uso, indicando che un caso d'uso più specifico eredita il comportamento da un caso d'uso più generico. Questa relazione è simboleggiata da una linea con una freccia vuota che punta dal caso d'uso più specifico al caso d'uso più generico.
+  
+  \item \textbf{Sistema:}
+    Il rettangolo esterno rappresenta il sistema stesso. All'interno di questo rettangolo sono posizionati attori e casi d'uso.
+\end{enumerate}
+
+Un diagramma dei casi d'uso fornisce una panoramica visuale delle interazioni chiave tra gli attori e il sistema, facilitando la comprensione dei requisiti funzionali del sistema e la comunicazione tra gli stakeholder del progetto.
+\paragraph{Strumenti}
+\begin{itemize}
+    \item \textbf{StarUML}
+\end{itemize}
+\section{Processi di supporto}
 \subsection{Documentazione}
 
 \subsubsection{Introduzione}
