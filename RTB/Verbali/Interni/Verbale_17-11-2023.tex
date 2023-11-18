@@ -28,7 +28,7 @@
 % ------------------------------Metadati indice --------------------------------
 \title{\textbf{\fontsize{28}{6}\selectfont Indice}}
 \author{\fontsize{14}{6}\selectfont ByteOps}
-\date{Mese Giorno, Anno}
+\date{Novembre 17, 2023}
 
 
 % -----------------------------Creazione footer --------------------------------
@@ -37,7 +37,7 @@
 \fancyhf{}
 \renewcommand{\footrulewidth}{0.4pt}
 \lfoot{
-    \parbox[c]{2cm}{\includegraphics[width=2cm]{../../Images/logo.png}}
+    \parbox[c]{2cm}{\includegraphics[width=2cm]{../../../Images/logo.png}}
     \textcolor[RGB]{120, 120, 120}{$\cdot$ Verbale Interno}
 }
 \rfoot{\thepage}
@@ -48,7 +48,7 @@
     colorlinks=true,
     linkcolor=black,
     filecolor=black,      
-    pdftitle={Verbale Interno dd/mm/yyyy},  %inserisci data verbale
+    pdftitle={Verbale Interno 17/11/2023},  %inserisci data verbale
     pdfpagemode=FullScreen,
 }
 
@@ -79,17 +79,17 @@
 
 % --------------------------Aggiunta firma finale ------------------------
 \begin{textblock*}{\textwidth}(0.85\textwidth, 1.16\textheight)
-    Il responsabile: Nome Cognome
+    Il responsabile: Francesco Pozza
 \end{textblock*}
 % ------------------------------------------------------------------------
 
 \pagestyle{fancy}
 \begin{center}
-\includegraphics[width = 0.7\textwidth]{../../Images/logo.png} \\
+\includegraphics[width = 0.7\textwidth]{../../../Images/logo.png} \\
 \vspace{0.2cm}
 \textcolor[RGB]{60, 60, 60}{\textit{ByteOps.swe@gmail.com}} \\
 \vspace{1cm}
-\fontsize{16}{6}\selectfont Verbale Interno $\cdot$ Data: dd/mm/yyyy \\
+\fontsize{16}{6}\selectfont Verbale Interno $\cdot$ Data: 17/11/2023 \\
 \vspace{0.5cm}
 \end{center}
 
@@ -98,11 +98,11 @@
 \begin{tabular}{>{\raggedleft\arraybackslash}p{0.2\textwidth}|>{\raggedright\arraybackslash}p{0.6\textwidth}c}
 \hline
 \addlinespace
-\textbf{Luogo} & Luogo \vspace{10pt} \\
-\textbf{Orario} & hh:mm - hh:mm \vspace{10pt} \\
-\textbf{Redattore} & Nome \vspace{10pt} \\
-\textbf{Verificatore} & Nome \vspace{10pt} \\
-\textbf{Amministratore} & Nome \vspace{10pt} \\
+\textbf{Luogo} & Discord \vspace{10pt} \\
+\textbf{Orario} & 9:00 - 11:00 \vspace{10pt} \\
+\textbf{Redattore} & F. Pozza \vspace{10pt} \\
+\textbf{Verificatore} & E. Hysa \vspace{10pt} \\
+\textbf{Amministratore} & S. Lisien \vspace{10pt} \\
 \textbf{Destinatari} & T. Vardanega \\ & R. Cardin \vspace{10pt} \\
 \textbf{Partecipanti} & A. Barutta \\ & E. Hysa \\ & R. Smanio \\ & D. Diotto \\ & F. Pozza \\ & L. Skenderi \\ & N. Preto \vspace{10pt} \\
 \end{tabular}
@@ -116,7 +116,7 @@
     \hline
     \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Dettaglio} \\
     \hline \hline
-    0.0.1 & dd/mm/yyyy & Nome Cognome & Nome Cognome & Descrizione \\
+    0.0.1 & 17/11/2023 & Francesco Pozza & Endy Hysa & Redazione documento \\
     \hline
 \end{tabular}
 \pagebreak
@@ -133,11 +133,36 @@
 \flushleft
 
 \section{Revisione del periodo precedente}
+    Durante la riunione è stato discusso lo stato di avanzamento dei compiti assegnati alla riunione interna precedente, quali issue fossero state portate a termine e quali invece avrebbero richiesto ulteriore tempo per essere completate.
+
+    Nello specifico sono state portate a termine le issue \#15, \#16, \#17, \#19 e rimane da completare la \#18.
+    È stato inoltre brevemente trattato lo stato di avanzamento degli incarichi assegnati dal proponente.
 
 \section{Ordine del giorno}
-    \subsection{Subsection 1}
-    \subsection{Subsection 2}
-    \subsection{Subsection 3}
+    \subsection{Rotazione ruoli interni}
+    Conformemente a quanto già discusso sulla cadenza bisettimanale della rotazione dei ruoli, sono stati assunti i nuovi impegni.
+
+    \begin{center}
+        \begin{tabular}{|C{5cm}|C{5cm}|}
+            \hline
+            \textbf{Nome} & \textbf{Ruolo}\\
+            \hline \hline
+            Francesco Pozza & Responsabile \\
+            Lisien Skenderi & Amministratore \\
+            Andrea Barutta & Analista \\
+            Riccardo Smanio & Analista \\
+            Nicola Preto & Progettista  \\
+            Davide Diotto & Programmatore \\
+            Endy Hysa & Verificatore \\         
+            \hline   
+        \end{tabular}
+    \end{center}
+
+    \subsection{Refactoring struttura documenti \LaTeX}
+        Dopo un attenta disamina dei problemi riscontrati nel dover lavorare in più persone su uno stesso documento e dover risolvere manualmente i conflitti di merge derivanti da questa modalità di lavoro, si è deciso di suddividere i documenti più corposi in diversi file sorgente che verranno  
+
+    \subsection{Modifica Verbali esterni}
+
 
 \section{Attività da svolgere}
     \begin{center}
