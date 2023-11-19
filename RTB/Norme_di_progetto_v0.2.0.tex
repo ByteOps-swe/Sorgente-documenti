@@ -2,6 +2,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage[default]{raleway}
 \usepackage{titlesec, comment, tabularx, makecell, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, hyperref}
+\usepackage{caption}
+\usepackage{todonotes}
 %\geometry{a4paper, left=2cm, right=2cm, top=2cm, bottom=2.5cm}
 \renewcommand{\headrulewidth}{0pt}
 
@@ -391,12 +393,32 @@ I diagrammi dei casi d'uso sono uno strumento di modellazione utilizzato nell'in
 \begin{enumerate}
   \item \textbf{Attori:}
     Gli attori sono le entità esterne al sistema che interagiscono con esso. Possono essere utenti umani, altri sistemi software o componenti esterne. Gli attori sono rappresentati come "stickman" all'esterno del rettangolo del sistema.
+    \begin{minipage}[t]{\linewidth}
+        \centering
+        \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/Attore.PNG}
+        \captionof{figure}{Rappresentazione Attore}
+    \end{minipage}
+
+    \todo{Non capisco perché l'immagine diventa così grande e sgranata, forse ho sbagliato package}
 
   \item \textbf{Casi d'Uso:}
     I casi d'uso rappresentano le diverse interazioni che un attore può avere con il sistema. Ogni caso d'uso è rappresentato da un ovale all'interno del rettangolo del sistema e contiene l'identificativo e il titolo esplicativo del tipo di interazione che si verifica.
+    \begin{minipage}[t]{\linewidth}
+        \centering
+        \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/UC.PNG}
+        \captionof{figure}{Rappresentazione caso d'uso}
+    \end{minipage}
 
   \item \textbf{Relazioni tra Attori e Casi d'Uso:}
     Le linee di associazione collegano gli attori ai casi d'uso corrispondenti, indicando quali attori sono coinvolti in una particolare interazione. Ad esempio, una linea collega un attore a un caso d'uso se quell'attore è coinvolto in quell'interazione.
+
+    \begin{minipage}[t]{\linewidth}
+        \centering
+        \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/Associazione.PNG}
+        \captionof{figure}{Rappresentazione associazione}
+    \end{minipage}
+
+    \todo{metto il riquadro del sistema come nelle figure sotto o lascio stare come nelle figure sopra?}
 
   \item \textbf{Estensioni e Inclusioni:}
   \begin{enumerate}
@@ -404,18 +426,36 @@ I diagrammi dei casi d'uso sono uno strumento di modellazione utilizzato nell'in
       La relazione di inclusione indica che un caso d'uso (detto "includente") include il comportamento di un altro caso d'uso (detto "incluso"). In pratica, quando un attore avvia il caso d'uso includente, il caso d'uso incluso viene eseguito come parte integrante del primo. Questo è utile per evitare la duplicazione del codice o delle azioni in diversi casi d'uso. La relazione di inclusione è spesso rappresentata da una freccia con la punta aperta.
   
       Esempio: Supponiamo che ci sia un caso d'uso generico chiamato "Autenticazione". Questo caso d'uso può includere il caso d'uso più specifico "Gestione Password". Quando un utente si autentica, il sistema eseguirà anche la gestione della password come parte del processo di autenticazione.
-  
+      \begin{minipage}[t]{\linewidth}
+        \centering
+        \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/Inclusione.PNG}
+        \captionof{figure}{Rappresentazione inclusione}
+      \end{minipage}
+
     \item \textbf{Estensione:}
       La relazione di estensione indica che un caso d'uso (detto "estendente") può estendere il comportamento di un altro caso d'uso (detto "esteso") in determinate circostanze. In altre parole, l'esecuzione del caso d'uso estendente può essere condizionalmente estesa o arricchita dal caso d'uso esteso. La relazione di estensione è spesso rappresentata da una freccia con la punta chiusa.
   
       Esempio: Considera un caso d'uso "Gestione Ordini". Questo caso d'uso potrebbe estendere il caso d'uso "Verifica Disponibilità" se durante la gestione degli ordini si verifica la necessità di verificare la disponibilità di un determinato prodotto. In questo modo, l'estensione permette di gestire situazioni specifiche senza ingombrare il flusso principale del caso d'uso base.
-  \end{enumerate}
+      \begin{minipage}[t]{\linewidth}
+        \centering
+        \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/Estensione.PNG}
+        \captionof{figure}{Rappresentazione estensione}
+      \end{minipage}
+      
+    \end{enumerate}
 
   \item \textbf{Generalizzazione casi d'uso:} La generalizzazione nei diagrammi dei casi d'uso rappresenta una relazione di ereditarietà tra casi d'uso, indicando che un caso d'uso più specifico eredita il comportamento da un caso d'uso più generico. Questa relazione è simboleggiata da una linea con una freccia vuota che punta dal caso d'uso più specifico al caso d'uso più generico.
-  
+  \begin{minipage}[t]{\linewidth}
+    \centering
+    \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/GeneralizzazioneUC.PNG}
+    \captionof{figure}{Rappresentazione generalizzazione}
+  \end{minipage}
+
   \item \textbf{Sistema:}
     Il rettangolo esterno rappresenta il sistema stesso. All'interno di questo rettangolo sono posizionati attori e casi d'uso.
 \end{enumerate}
+
+\todo{Mancano sottocasi d'uso e generalizzazione tra attori, non so se è voluto}
 
 Un diagramma dei casi d'uso fornisce una panoramica visuale delle interazioni chiave tra gli attori e il sistema, facilitando la comprensione dei requisiti funzionali del sistema e la comunicazione tra gli stakeholder del progetto.
 \paragraph{Strumenti}
