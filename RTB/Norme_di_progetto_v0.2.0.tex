@@ -2,6 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[default]{raleway}
 \usepackage{titlesec, comment, tabularx, makecell, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, hyperref}
+\usepackage{todonotes}
 %\geometry{a4paper, left=2cm, right=2cm, top=2cm, bottom=2.5cm}
 \renewcommand{\headrulewidth}{0pt}
 
@@ -125,18 +126,19 @@
 % ---------------------------- Inizio valutazione -------------------------------
 \flushleft
 \section{Introduzione}
-Nel presente documento, si delineano le fondamentali norme di progetto per lo sviluppo del software. La citazione del film Disney, \emph{"Devi tracciare la tua rotta e devi seguirla anche in caso di burrasca"} risuona come un monito ispiratore, suggerendo l'importanza di una guida coerente e resilientemente seguita anche nelle circostanze più avverse. Analogamente, le norme qui definite fungono da bussola, offrendo un percorso affidabile e strutturato per la realizzazione del software, affinché il progetto possa affrontare le sfide con determinazione e successo.
-
-Il documento segue i principi dei processi del ciclo di vita, presentando una gerarchia in cui ogni processo si configura come una serie di attività. Ciascuna attività è ordinata mediante procedure specifiche, dotate di obiettivi definiti e capaci di generare prodotti; ognuna di tali procedure impiega strumenti chiaramente definiti.
 
 \subsection{Finalità del documento}
-L'obiettivo fondamentale del seguente documento è quello di stabilire delle linee guida e delle \textit{best practice} che ciascun membro del gruppo deve seguire per garantire un approccio efficiente ed efficace nel processo di realizzazione del prodotto finale. In aggiunta, il documento dettaglia le covenzioni relative all'utilizzo dei diversi strumenti adottati durante lo sviluppo del prodotto.
-Più in generale, le norme, dovrebbero offrirci un percorso affidabile e strutturato per la realizzazione del prodotto sofware nonostante le difficoltà incontrabili durante l'avanzamento.
+L'obiettivo fondamentale del seguente documento è quello di stabilire delle linee guida e delle \textit{best practice} che ciascun membro del gruppo deve seguire per garantire un approccio efficiente ed efficace nel processo di realizzazione del prodotto finale. In aggiunta, il documento dettaglia le convenzioni relative all'utilizzo dei diversi strumenti adottati durante lo sviluppo del prodotto.
+Più in generale, le norme, offrono un percorso affidabile e strutturato per la realizzazione del prodotto sofware nonostante le difficoltà incontrabili durante l'avanzamento.
+Per la definizione delle norme viene utilizzato un approccio incrementale... \todo{da terminare}
 
 \subsection{Glossario}
-Incluso nella documentazione è presente il \textbf{\textit{Glossario}} in cui sono definiti tutti i termini specifici o eventualmente ambigui presenti nei vari documenti del progetto. Se un termine è nel \textbf{\textit{Glossario}}, viene segnalato con una \textit{G} a pedice accanto ad esso.
+Nella documentazione è incluso il \textbf{\textit{Glossario}}, dove vengono definiti tutti i termini specifici o potenzialmente ambigui presenti nei vari documenti correlati al progetto. La presenza di una nota a pedice con la lettera \textit{G} accanto a un termine indica che è possibile trovare la sua definizione nel \textbf{\textit{Glossario}}.
+
 \subsubsection{Raccolta termini del glossario}
-Il \textbf{\textit{Glossario}} verrà compilato attraverso un documento condiviso su \LaTeX \textsubscript{\textit{G}}, accessibile a tutti i membri del gruppo. Qui, verranno elencati i termini di particolare rilevanza nel contesto del progetto, seguendo una checklist. Successivamente, l'\textit{Amministratore} del progetto si occuperà di dettagliare ulteriormente questi termini nella creazione del \textbf{\textit{Glossario}} ufficiale.
+Il \textbf{\textit{Glossario}} verrà compilato attraverso un documento condiviso su \LaTeX \textsubscript{\textit{G}} \todo{cosa significa "il Glossario verrà compilato attraverso un documento condiviso su \LaTeX?"}, accessibile a tutti i membri del gruppo. Qui, verranno elencati i termini di particolare rilevanza nel contesto del progetto, seguendo una checklist. Successivamente, l'\textit{Amministratore} del progetto si occuperà di dettagliare ulteriormente questi termini nella creazione del \textbf{\textit{Glossario}} ufficiale.
+
+% \todo{cosa significa "il Glossario verrà compilato attraverso un documento condiviso su \LaTeX?"}
 
 \subsection{Riferimenti}
 \subsubsection{Riferimenti normativi}
@@ -148,7 +150,14 @@ Il \textbf{\textit{Glossario}} verrà compilato attraverso un documento condivis
 
 \end{itemize}
 \subsubsection{Riferimenti informativi}
-Da inserire.
+
+\begin{itemize}
+    \item \href{https://git-scm.com/docs}{Documentazione Git}
+    \item \href{https://docs.github.com/en}{Documentazione Github}
+    \item \href{https://www.latex-project.org/help/documentation/}{Documentazione \LaTeX}
+\end{itemize}
+
+\todo{aggiungere altri riferimenti, per ora mi sono venuti in mente solo questi}
 
 \section{Processi di supporto}
 
