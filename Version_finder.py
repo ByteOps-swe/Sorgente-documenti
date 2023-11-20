@@ -12,9 +12,9 @@ def trimmed_file_name(file_path):
     filename_abs = os.path.join(os.getcwd(), new_file_path)
     version_number = get_first_cell_value(filename_abs)
     if "Verbale" in file_path or version_number == '':
-        return file_path[:-4],  new_file_path, version_number
+        return file_path[:-4],  filename_abs, version_number
     else:
-        return file_path[:-11], new_file_path, version_number
+        return file_path[:-11], filename_abs, version_number
 
 def delete_file(file_path):
     try:
