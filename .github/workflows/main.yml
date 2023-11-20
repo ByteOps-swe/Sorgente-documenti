@@ -74,15 +74,15 @@ jobs:
               cd "$(dirname "$path")"
               latexmk -pdf "$(basename "$new_name")"
               cd ..
-            elif [[ "$path" == */Sezioni/**.tex || "$path" == */Sottosezioni/**.tex ]]; then
+            elif [[ "$path" == */Sezioni/*.tex || "$path" == */Sottosezioni/*.tex ]]; then
               echo "Sono fuori dal tunnellellellel"
               father_dir=$(dirname "$path")
               doc_name=$(basename "$father_dir")
-              if [[ doc_name == "Norme_di_progetto" ]]; then
+              if [[ $doc_name == "Norme_di_progetto" ]]; then
                 has_changes[0]=true
-              elif [[ doc_name == "Piano_di_progetto" ]]; then
+              elif [[ $doc_name == "Piano_di_progetto" ]]; then
                 has_changes[1]=true
-              elif [[ doc_name == "Analisi_dei_requisiti" ]]; then
+              elif [[ $doc_name == "Analisi_dei_requisiti" ]]; then
                 has_changes[2]=true
               fi
             else 
