@@ -1,7 +1,9 @@
 import os, sys, re
 
 def trimmed_file_name(file_path):
-    if "Verbale" in file_path or get_first_cell_value(sys.argv[1]):
+    filename_abs = "Documents/" + file_path
+    filename_abs = os.path.join(os.getcwd(), filename_abs)
+    if "Verbale" in file_path or get_first_cell_value(filename_abs):
         return file_path[:-4]
     else:
         return file_path[:-11]
