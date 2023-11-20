@@ -111,37 +111,39 @@ jobs:
           if find "Documents" -type f -name "*.pdf" -print -quit 2>/dev/null; then
             for path in Documents/**/*.pdf; do (
               echo "$path"
-              dirname=$(dirname "$path")
-              dirname=${dirname#Documents/}
-              new_dirname="Output/$dirname"
-              dirname_no_under="${new_dirname//_/ }"
+              if [[ "$path" != "Documents/**/*.pdf"]] then
+                dirname=$(dirname "$path")
+                dirname=${dirname#Documents/}
+                new_dirname="Output/$dirname"
+                dirname_no_under="${new_dirname//_/ }"
 
-              name_old=$(basename "$path")
-              name_no_ext="${name_old%.*}"
-              name_no_under="${name_no_ext//_/ }"
-              name="${name_old//_/ }"
-              new_name="Aggiornato $name_no_under"
+                name_old=$(basename "$path")
+                name_no_ext="${name_old%.*}"
+                name_no_under="${name_no_ext//_/ }"
+                name="${name_old//_/ }"
+                new_name="Aggiornato $name_no_under"
 
-              if [ ! -d "$dirname_no_under" ]; then
-                mkdir -p "${dirname_no_under}"
-                echo "created: $dirname_no_under"
+                if [ ! -d "$dirname_no_under" ]; then
+                  mkdir -p "${dirname_no_under}"
+                  echo "created: $dirname_no_under"
+                fi
+
+                mv -f "$path" "${dirname_no_under}"
+                mv -f "$dirname_no_under"/"$name_old" "$dirname_no_under"/"$name"
+
+                path_no_under="${path//_/ }"
+                path_no_under=${path_no_under#Documents/}
+                
+                cd Output
+                git add "${path_no_under}"
+                if [[ -n "$(git status --porcelain)" ]]; then
+                  git commit -m "$new_name"
+                else
+                  echo "No changes to commit"
+                fi
+                
+                cd ..
               fi
-
-              mv -f "$path" "${dirname_no_under}"
-              mv -f "$dirname_no_under"/"$name_old" "$dirname_no_under"/"$name"
-
-              path_no_under="${path//_/ }"
-              path_no_under=${path_no_under#Documents/}
-              
-              cd Output
-              git add "${path_no_under}"
-              if [[ -n "$(git status --porcelain)" ]]; then
-                git commit -m "$new_name"
-              else
-                echo "No changes to commit"
-              fi
-              
-              cd ..
             ) done
           fi
           cd Output
