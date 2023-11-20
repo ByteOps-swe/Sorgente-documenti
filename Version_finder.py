@@ -8,13 +8,13 @@ def get_first_cell_value(filename):
         return match[0] if match else ''
 
 def trimmed_file_name(file_path):
-    filename_abs = "Documents/" + file_path
-    filename_abs = os.path.join(os.getcwd(), filename_abs)
+    new_file_path = "Documents/" + file_path
+    filename_abs = os.path.join(os.getcwd(), new_file_path)
     version_number = get_first_cell_value(filename_abs)
     if "Verbale" in file_path or version_number == '':
-        return file_path[:-4],  filename_abs, version_number
+        return file_path[:-4],  new_file_path, version_number
     else:
-        return file_path[:-11], filename_abs, version_number,
+        return file_path[:-11], new_file_path, version_number,
 
 def delete_file(file_path):
     try:
@@ -59,7 +59,7 @@ def main():
     else:
         file_path_delete, file_path, version_number = trimmed_file_name(sys.argv[1])
         delete_file(file_path_delete)
-        rename_latex_file(file_path, version_number)
+        rename_latex_file(sys.argv[1], version_number)
 if __name__ == "__main__":
     main()
 # The python code renames Latex files that should have the version number on the name of the file by getting it from the changelog table on the latex file.
