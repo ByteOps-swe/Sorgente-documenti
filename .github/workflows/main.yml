@@ -92,7 +92,7 @@ jobs:
             fi
           )done
 
-          if [ ${has_changes[0]} == "true" ]; then
+          if [ "${has_changes[0]}" == "true" ]; then
             echo "un attimo che compilo"
             new_name=$(python Documents/Version_finder.py 'RTB/Norme_di_progetto_v0.2.0.tex')
             cd Documents
