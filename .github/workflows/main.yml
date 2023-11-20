@@ -139,6 +139,7 @@ jobs:
           set -e
 
           if find "Documents" -type f -name "*.pdf" -print -quit 2>/dev/null; then
+            ls -la
             for path in Documents/**/*.pdf; do (
               echo "$path"
               dirname=$(dirname "$path")
