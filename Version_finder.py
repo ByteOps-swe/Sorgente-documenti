@@ -42,7 +42,7 @@ def delete_file(file_path):
 
 
 def rename_latex_file(filename , version_number):
-    version_number = filename.strip()
+    version_number = version_number.strip()
     new_filename = re.sub(r'_([^_]+)$', '', filename)
     if version_number:
         new_filename = new_filename + '_v' + version_number + '.tex'
