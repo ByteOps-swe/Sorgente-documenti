@@ -1,11 +1,15 @@
-import re, os, sys
+import os, sys
+from get_first_cell_value import *
+
+def trimmed_file_name(file_path):
+    if "Verbale" in file_path or get_first_cell_value(sys.argv[1]):
+        return file_path[:-4]
+    else:
+        return file_path[:-11]
 
 def delete_file(file_path):
     try:
-        if "Verbale" in file_path or get_first_cell_value(sys.argv[1]):
-            new_file_path = file_path[:-4]
-        else:
-            new_file_path = file_path[:-11]
+        new_file_path = trimmed_file_name(file_path)
         new_file_path = new_file_path.replace('_', ' ') 
         file_name = os.path.basename(new_file_path)
         file_dir = os.path.dirname(new_file_path)
@@ -27,11 +31,11 @@ def delete_file(file_path):
     except FileNotFoundError:
         print("File non trovato")
 
-def get_first_cell_value(filename):
-    with open(filename, 'r') as file:
-        data = file.read()
-        match = re.findall(r'{}(.*?){}'.format("label{Git_Action_Version}", "&"), data, re.DOTALL)
-        return match[0] if match else None
+# def get_first_cell_value(filename):
+#     with open(filename, 'r') as file:
+#         data = file.read()
+#         match = re.findall(r'{}(.*?){}'.format("label{Git_Action_Version}", "&"), data, re.DOTALL)
+#         return match[0] if match else None
 
 # This functions renames the files that should have the version on the name. It gets the version number from the Latex tag {Git_Action_Version} which should be the first line in the changelog of said file
 def rename_latex_file(filename):
