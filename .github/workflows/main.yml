@@ -90,7 +90,8 @@ jobs:
             fi
           )done
 
-          if [ "${has_changes[0]}" = true ]; then
+          if [ "${has_changes[0]}" == true ]; then
+            echo "un attimo che compilo"
             new_name=$(python Documents/Version_finder.py 'RTB/Norme_di_progetto_v0.2.0.tex')
             cd Documents
             git add "RTB/Norme_di_progetto_v0.2.0.tex"
@@ -105,7 +106,7 @@ jobs:
             cd ..
           fi
 
-          if [ "${has_changes[1]}" = true ]; then
+          if [ "${has_changes[1]}" == true ]; then
             new_name=$(python Documents/Version_finder.py "RTB/Piano_di_progetto_v0.0.2.tex")
             cd Documents
             git add "RTB/Piano_di_progetto_v0.0.2.tex"
