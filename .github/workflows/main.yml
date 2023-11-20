@@ -54,7 +54,7 @@ jobs:
 
           for path in ${{ steps.changed-files.outputs.all_changed_files }}; do(
             echo "$path was changed"
-            if [[ "$(basename "$path")" != "Verbale_Esterno.tex" ]] && [[ "$(basename "$path")" != "Verbale_Interno.tex" ]] && [[ $path != *"Sezioni" ]] && [[ $path != *"Sottosezioni" ]] && [[ $path == *.tex ]] 
+            if [[ "$(basename "$path")" != "Verbale_Esterno.tex" ]] && [[ "$(basename "$path")" != "Verbale_Interno.tex" ]] && [[ $path != */Sezioni/**.tex ]] && [[ $path != */Sottosezioni/**.tex ]] && [[ $path == *.tex ]] 
             then
               echo "sono qua"
               new_name=$(python Documents/Version_finder.py $path)
