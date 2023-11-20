@@ -1,4 +1,4 @@
-import os, sys
+import os, sys, re
 
 def trimmed_file_name(file_path):
     if "Verbale" in file_path or get_first_cell_value(sys.argv[1]):
@@ -36,7 +36,7 @@ def get_first_cell_value(filename):
         match = re.findall(r'{}(.*?){}'.format("label{Git_Action_Version}", "&"), data, re.DOTALL)
         return match[0] if match else None
 
-# This functions renames the files that should have the version on the name. It gets the version number from the Latex tag {Git_Action_Version} which should be the first line in the changelog of said file
+
 def rename_latex_file(filename):
     filename_abs = "Documents/" + filename
     filename_abs = os.path.join(os.getcwd(), filename_abs)
@@ -57,8 +57,7 @@ def main():
     #     delete_file(sys.argv[1])
     else:
         delete_file(sys.argv[1])
-        if(get_first_cell_value(sys.argv[1])):
-            rename_latex_file(sys.argv[1])
+        rename_latex_file(sys.argv[1])
 if __name__ == "__main__":
     main()
 # The python code renames Latex files that should have the version number on the name of the file by getting it from the changelog table on the latex file.
