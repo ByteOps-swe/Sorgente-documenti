@@ -59,7 +59,7 @@ def main():
     else:
         file_path_delete, file_path, version_number = trimmed_file_name(sys.argv[1])
         delete_file(file_path_delete)
-        rename_latex_file(sys.argv[1], version_number)
+        rename_latex_file(file_path, version_number)
 if __name__ == "__main__":
     main()
 # The python code renames Latex files that should have the version number on the name of the file by getting it from the changelog table on the latex file.
