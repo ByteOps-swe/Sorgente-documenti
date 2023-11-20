@@ -41,7 +41,7 @@ def get_first_cell_value(filename):
 
 def rename_latex_file(filename):
     filename_abs = "Documents/" + filename
-    filename_abs = os.path.join(os.getcwd(), filename_abs)
+    # filename_abs = os.path.join(os.getcwd(), filename_abs)
     value = get_first_cell_value(filename_abs)
     value = value.strip()
     new_filename = re.sub(r'_([^_]+)$', '', filename_abs)
