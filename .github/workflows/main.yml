@@ -2,7 +2,7 @@ name: Build LaTeX Document
 on:
   pull_request_target:
     branches: 
-      - main
+      - LaTeX_Building
     types: [closed]
 
 jobs:
@@ -22,7 +22,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           path: Output
-          repository: ByteOps-swe/Documents
+          repository: lisienskenderi/pdf-test
           token: ${{ secrets.ACCESS_TOKEN }}
           
       - name: Get changed files
@@ -50,10 +50,13 @@ jobs:
           set -e
           set -m
 
+          has_changes=()
+
           for path in ${{ steps.changed-files.outputs.all_changed_files }}; do(
             echo "$path was changed"
-            if [[ "$(basename "$path")" != "Verbale_Esterno.tex" ]] && [[ "$(basename "$path")" != "Verbale_Interno.tex" ]] && [[ $path == *.tex ]] 
+            if [[ "$(basename "$path")" != "Verbale_Esterno.tex" ]] && [[ "$(basename "$path")" != "Verbale_Interno.tex" ]] && [[ $path != */Sezioni/**.tex ]] && [[ $path != */Sottosezioni/**.tex ]] && [[ $path == *.tex ]] 
             then
+              echo "sono qua"
               new_name=$(python Documents/Version_finder.py $path)
               cd Documents
               git add "${path}"
@@ -71,10 +74,53 @@ jobs:
               cd "$(dirname "$path")"
               latexmk -pdf "$(basename "$new_name")"
               cd ..
+            elif [[ "$path" == */Sezioni/**.tex || "$path" == */Sottosezioni/**.tex ]]; then
+              echo "Sono fuori dal tunnellellellel"
+              father_dir=$(dirname "$path")
+              doc_name=$(basename "$father_dir")
+              if [[ doc_name == "Norme_di_progetto" ]]; then
+                has_changes[0]=true
+              elif [[ doc_name == "Piano_di_progetto" ]]; then
+                has_changes[1]=true
+              elif [[ doc_name == "Analisi_dei_requisiti" ]]; then
+                has_changes[2]=true
+              fi
             else 
               echo "Questo è un template"
             fi
           )done
+
+          if [ ${has_changes[0]} == "true" ]; then
+            echo "un attimo che compilo"
+            new_name=$(python Documents/Version_finder.py 'RTB/Norme_di_progetto_v0.2.0.tex')
+            cd Documents
+            git add "RTB/Norme_di_progetto_v0.2.0.tex"
+            git add "${new_name}"
+              
+            path_no_under="${new_name//_/ }"
+            name=$(basename "$new_name")
+            name_no_ext="${name%.*}"
+            new_only_name="Aggiornato $name_no_ext"
+            cd "$(dirname "RTB/Norme_di_progetto_v0.2.0.tex")"
+            latexmk -pdf "$(basename "$new_name")"
+            cd ..
+          fi
+
+          if [ "${has_changes[1]}" == true ]; then
+            new_name=$(python Documents/Version_finder.py "RTB/Piano_di_progetto_v0.0.2.tex")
+            cd Documents
+            git add "RTB/Piano_di_progetto_v0.0.2.tex"
+            git add "${new_name}"
+              
+            path_no_under="${new_name//_/ }"
+            name=$(basename "$new_name")
+            name_no_ext="${name%.*}"
+            new_only_name="Aggiornato $name_no_ext"
+            cd "$(dirname "RTB/Piano_di_progetto_v0.0.2.tex")"
+            latexmk -pdf "$(basename "$new_name")"
+            cd ..
+          fi
+      
           cd Output
 
           git add .
@@ -94,6 +140,7 @@ jobs:
           set -e
 
           if find "Documents" -type f -name "*.pdf" -print -quit 2>/dev/null; then
+            ls -la
             for path in Documents/**/*.pdf; do (
               echo "$path"
               dirname=$(dirname "$path")

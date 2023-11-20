@@ -13,7 +13,7 @@
     framesep=1mm,
     rulecolor=\color{light-gray},
     backgroundcolor=\color{light-gray},
-    basicstyle=\ttfamily,
+    basicstyle=\ttfamily, 
 }
 % ----------------------------- Definizione tabella ---------------------------
 
@@ -26,14 +26,13 @@
 \title{\textbf{\fontsize{28}{6}\selectfont Indice}}
 \author{\fontsize{14}{6}\selectfont ByteOps} 
 
-
 % -----------------------------Creazione footer --------------------------------
 
 \pagestyle{fancy}
 \fancyhf{}
 \renewcommand{\footrulewidth}{0.4pt} 
 \lfoot{
-    \parbox[c]{2cm}{\includegraphics[width=2cm]{../Images/logo.png}}
+    \parbox[c]{2cm}{\includegraphics[width=2cm]{../../Images/logo.png}}
     \textcolor[RGB]{120, 120, 120}{$\cdot$ Norme di progetto}
 }
 \rfoot{\thepage}
@@ -74,7 +73,7 @@
 \begin{document}
 \pagestyle{fancy}
 \begin{center}
-\includegraphics[width = 0.7\textwidth]{../Images/logo.png} \\
+\includegraphics[width = 0.7\textwidth]{../../Images/logo.png} \\
 \vspace{0.2cm}
 \textcolor[RGB]{60, 60, 60}{\textit{ByteOps.swe@gmail.com}} \\
 \vspace{2cm}
@@ -124,31 +123,8 @@
 
 % ---------------------------- Inizio valutazione -------------------------------
 \flushleft
-\section{Introduzione}
-Nel presente documento, si delineano le fondamentali norme di progetto per lo sviluppo del software. La citazione del film Disney, \emph{"Devi tracciare la tua rotta e devi seguirla anche in caso di burrasca"} risuona come un monito ispiratore, suggerendo l'importanza di una guida coerente e resilientemente seguita anche nelle circostanze più avverse. Analogamente, le norme qui definite fungono da bussola, offrendo un percorso affidabile e strutturato per la realizzazione del software, affinché il progetto possa affrontare le sfide con determinazione e successo.
 
-Il documento segue i principi dei processi del ciclo di vita, presentando una gerarchia in cui ogni processo si configura come una serie di attività. Ciascuna attività è ordinata mediante procedure specifiche, dotate di obiettivi definiti e capaci di generare prodotti; ognuna di tali procedure impiega strumenti chiaramente definiti.
-
-\subsection{Finalità del documento}
-L'obiettivo fondamentale del seguente documento è quello di stabilire delle linee guida e delle \textit{best practice} che ciascun membro del gruppo deve seguire per garantire un approccio efficiente ed efficace nel processo di realizzazione del prodotto finale. In aggiunta, il documento dettaglia le covenzioni relative all'utilizzo dei diversi strumenti adottati durante lo sviluppo del prodotto.
-Più in generale, le norme, dovrebbero offrirci un percorso affidabile e strutturato per la realizzazione del prodotto sofware nonostante le difficoltà incontrabili durante l'avanzamento.
-
-\subsection{Glossario}
-Incluso nella documentazione è presente il \textbf{\textit{Glossario}} in cui sono definiti tutti i termini specifici o eventualmente ambigui presenti nei vari documenti del progetto. Se un termine è nel \textbf{\textit{Glossario}}, viene segnalato con una \textit{G} a pedice accanto ad esso.
-\subsubsection{Raccolta termini del glossario}
-Il \textbf{\textit{Glossario}} verrà compilato attraverso un documento condiviso su \LaTeX \textsubscript{\textit{G}}, accessibile a tutti i membri del gruppo. Qui, verranno elencati i termini di particolare rilevanza nel contesto del progetto, seguendo una checklist. Successivamente, l'\textit{Amministratore} del progetto si occuperà di dettagliare ulteriormente questi termini nella creazione del \textbf{\textit{Glossario}} ufficiale.
-
-\subsection{Riferimenti}
-\subsubsection{Riferimenti normativi}
-\begin{itemize}
-    \item \textbf{Standard ISO/IEC 12207:1995}:Standard internazionale che definisce un modello di ciclo di vita del software.
-          Questo standard fornisce linee guida per la gestione dei processi software e stabilisce una struttura di base per la documentazione associata a tali processi.
-          In breve, è uno strumento che aiuta a organizzare e gestire lo sviluppo del software in modo sistematico e standardizzato.
-          \href{https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf}{\url{https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf}}
-
-\end{itemize}
-\subsubsection{Riferimenti informativi}
-Da inserire.
+\input{Sezioni/Introduzione.tex} 
 
 \section{Processi di supporto}
 
