@@ -551,13 +551,25 @@ Seguendo lo standard  ISO/IEC 12207 per affrontare questo processo in modo strut
 Questo processo si occupa di registrare e tenere traccia dello stato di tutte le configurazioni di un sistema software durante il suo ciclo di vita.
 \begin{itemize}
     \item \textbf{Registrazione delle configurazioni}: Registrazione delle informazioni dettagliate su ogni elemento di configurazione.
+            \begin{itemize}
+                \item  \textbf{Documentazione:} Le informazioni del documento sono presenti nella prima pagina di ciascuno.
+            \end{itemize}
     \item \textbf{Stato e cambiamenti}: Tenere traccia dello stato attuale di ciascun elemento di configurazione e di tutti i cambiamenti che avvengono nel corso del tempo. Ciò include le versioni attuali, le revisioni, le modifiche e le baselines;
+    \begin{itemize}
+        \item  \textbf{Registro delle modifiche:} Per tenere traccia dello stato di ogni CI si adotta il registro delle modifiche presente ognuno di questi.
+        \item  \textbf{Branching \& DashBoard:} Per visionare la presenza di lavori in atto su di un CI si utilizza a supporto la presenza di branch attivi che lo riguardano e il posizionamento di issue associate nella Dashboard di progetto.
+    \end{itemize}
     \item \textbf{Supporto per la gestione delle change request}: Registra e documenta le modifiche apportate agli elementi di configurazione in risposta alle richieste di modifica.
+    \begin{itemize}
+        \item  \textbf{ITS:} Per supportare i change request viene utilizzato l'ITS di github, l'identificazione avviene tramite la creazione di un issue nell'ITS con label: "Change request";
+    \end{itemize}
 \end{itemize}
-Processo fondamentale per mantenere la trasparenza e la tracciabilità nel ciclo di vita del software, aiutando a gestire le configurazioni in modo coerente e a mantenere un registro accurato di tutte le attività e le modifiche che coinvolgono gli elementi di configurazione.\\
-\vspace{0.2cm}\textbf{La corretta gestione del registro delle modifiche,le informazioni in prima pagina, il posizionamento nella repository, il branching e le DashBoard di progetto permettono l'identificazione dello stato dei CI.} \\
-L'inclusione di un CI nel branch principale (main) lo configura come la versione più recente, revisionata, mentre le versioni (X.0.0) con X>=1 identificano il CI facente parte della baseline con uguale versione.% -----------------------------Processi organizzativi --------------------------------
-\paragraph{Release management and delivery}
+La Contabilità dello Stato di Configurazione processo fondamentale per mantenere la trasparenza e la tracciabilità nel ciclo di vita del software, aiutando a gestire le configurazioni in modo coerente e a mantenere un registro accurato di tutte le attività e le modifiche che coinvolgono gli elementi di configurazione.\\
+\vspace{0.2cm}
+(Ex. l'inclusione di un CI nel branch principale (main) lo configura come la versione più recente, revisionata, mentre le versioni (X.0.0) con X>=1 identificano il CI facente parte della baseline con uguale versione.)
+% -----------------------------Processi organizzativi --------------------------------
+
+\subsubsection{Release management and delivery}
 \textbf{Documentazione:}
 Dopo aver completato il lavoro il creatore del branch deve aprire una pull request per effettuare il merge nel ramo principale. La richiesta di pull request può essere accettata solo se la verifica ha esito positivo.
 \section{Processi organizzativi}
