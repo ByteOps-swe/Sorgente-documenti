@@ -1,5 +1,4 @@
 import os, sys
-from get_first_cell_value import *
 
 def trimmed_file_name(file_path):
     if "Verbale" in file_path or get_first_cell_value(sys.argv[1]):
