@@ -1,12 +1,20 @@
 import os, sys, re
 
+def get_first_cell_value(filename):
+    with open(filename, 'r') as file:
+        data = file.read()
+        match = re.findall(r'{}(.*?){}'.format("label{Git_Action_Version}", "&"), data, re.DOTALL)
+        file.close()
+        return match[0] if match else ''
+
 def trimmed_file_name(file_path):
     filename_abs = "Documents/" + file_path
     filename_abs = os.path.join(os.getcwd(), filename_abs)
-    if "Verbale" in file_path or get_first_cell_value(filename_abs):
-        return file_path[:-4]
+    version_number = get_first_cell_value(filename_abs)
+    if "Verbale" in file_path or version_number == '':
+        return file_path[:-4],  filename_abs, version_number
     else:
-        return file_path[:-11]
+        return file_path[:-11], filename_abs, version_number,
 
 def delete_file(file_path):
     try:
@@ -32,22 +40,13 @@ def delete_file(file_path):
     except FileNotFoundError:
         print("File non trovato")
 
-def get_first_cell_value(filename):
-    with open(filename, 'r') as file:
-        data = file.read()
-        match = re.findall(r'{}(.*?){}'.format("label{Git_Action_Version}", "&"), data, re.DOTALL)
-        return match[0] if match else None
 
-
-def rename_latex_file(filename):
-    filename_abs = "Documents/" + filename
-    # filename_abs = os.path.join(os.getcwd(), filename_abs)
-    value = get_first_cell_value(filename_abs)
-    value = value.strip()
-    new_filename = re.sub(r'_([^_]+)$', '', filename_abs)
-    if value:
-        new_filename = new_filename + '_v' + value + '.tex'
-        os.rename(filename_abs, new_filename)
+def rename_latex_file(filename , version_number):
+    version_number = filename.strip()
+    new_filename = re.sub(r'_([^_]+)$', '', filename)
+    if version_number:
+        new_filename = new_filename + '_v' + version_number + '.tex'
+        os.rename(filename, new_filename)
         print(new_filename)
     else:
         print("Valore non trovato o tabella non trovata.")
@@ -58,8 +57,9 @@ def main():
     # if "Verbale" in sys.argv[1]:
     #     delete_file(sys.argv[1])
     else:
-        delete_file(sys.argv[1])
-        rename_latex_file(sys.argv[1])
+        file_path_delete, file_path, version_number = trimmed_file_name(sys.argv[1])
+        delete_file(file_path_delete)
+        rename_latex_file(file_path, version_number)
 if __name__ == "__main__":
     main()
 # The python code renames Latex files that should have the version number on the name of the file by getting it from the changelog table on the latex file.
