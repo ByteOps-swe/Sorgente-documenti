@@ -1,5 +1,4 @@
 import os, sys
-from get_first_cell_value import *
 from Version_finder import trimmed_file_name
 
 def delete_file_and_folder(file_path):
