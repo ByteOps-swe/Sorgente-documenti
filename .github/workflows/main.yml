@@ -74,6 +74,7 @@ jobs:
               latexmk -pdf "$(basename "$new_name")"
               cd ..
             elif [[ "$path" == *"Sezioni" || "$path" == *"Sottosezioni" ]]; then
+              echo "Sono fuori dal tunnellellellel"
               father_dir=$(dirname "$path")
               doc_name=$(basename "$father_dir")
               if [[ doc_name == "Norme_di_progetto" ]]; then
