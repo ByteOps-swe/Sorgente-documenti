@@ -89,7 +89,7 @@ jobs:
           )done
 
           if [ "${has_changes[0]}" = true ]; then
-            new_name=$(python Documents/Version_finder.py "RTB/Norme_di_progetto_v0.2.0.tex")
+            new_name=$(python Documents/Version_finder.py 'RTB/Norme_di_progetto_v0.2.0.tex')
             cd Documents
             git add "RTB/Norme_di_progetto_v0.2.0.tex"
             git add "${new_name}"
