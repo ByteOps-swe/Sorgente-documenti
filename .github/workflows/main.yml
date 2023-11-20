@@ -2,7 +2,7 @@ name: Build LaTeX Document
 on:
   pull_request_target:
     branches: 
-      - main
+      - LaTeX_Building
     types: [closed]
 
 jobs:
