@@ -11,7 +11,7 @@ def delete_file_and_folder(file_path):
             new_file_path = new_file_path.replace('_', ' ')
             
             # Use absolute path
-            abs_file_path = os.path.abspath(new_file_path)
+            abs_file_path = os.path.join(os.getcwd(), new_file_path)
 
             # Delete the file
             os.remove(abs_file_path)
