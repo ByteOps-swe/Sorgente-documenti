@@ -75,7 +75,10 @@ jobs:
               echo "End python"
               ls -la 
               cd Documents
+
               ls -la
+              git status
+              echo "New name: $new_name"
               git add "${path}"
               git add "${new_name}"
               
