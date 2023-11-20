@@ -31,11 +31,11 @@ def delete_file(file_path):
     except FileNotFoundError:
         print("File non trovato")
 
-# def get_first_cell_value(filename):
-#     with open(filename, 'r') as file:
-#         data = file.read()
-#         match = re.findall(r'{}(.*?){}'.format("label{Git_Action_Version}", "&"), data, re.DOTALL)
-#         return match[0] if match else None
+def get_first_cell_value(filename):
+    with open(filename, 'r') as file:
+        data = file.read()
+        match = re.findall(r'{}(.*?){}'.format("label{Git_Action_Version}", "&"), data, re.DOTALL)
+        return match[0] if match else None
 
 # This functions renames the files that should have the version on the name. It gets the version number from the Latex tag {Git_Action_Version} which should be the first line in the changelog of said file
 def rename_latex_file(filename):
