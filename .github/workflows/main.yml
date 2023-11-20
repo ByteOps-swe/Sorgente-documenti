@@ -73,6 +73,9 @@ jobs:
               new_name=$(python Documents/Version_finder.py $path)
               echo "End python"
               cd Documents
+              ls -la
+              ls -la "$path"
+              ls -la "$new_name"
               git add "${path}"
               git add "${new_name}"
               
