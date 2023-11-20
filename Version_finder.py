@@ -38,7 +38,7 @@ def delete_file(file_path):
                 if "Verbale" in file:
                     print(file_path)
     except FileNotFoundError:
-        print("")
+        return
 
 
 def rename_latex_file(filename , version_number):
