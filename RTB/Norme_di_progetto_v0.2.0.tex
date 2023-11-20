@@ -559,7 +559,7 @@ Questo processo si occupa di registrare e tenere traccia dello stato di tutte le
         \item  \textbf{Registro delle modifiche:} Per tenere traccia dello stato di ogni CI si adotta il registro delle modifiche presente ognuno di questi;
         \item  \textbf{Branching \& DashBoard:} Per visionare la presenza di lavori in atto su di un CI si utilizza a supporto la presenza di branch attivi che lo riguardano e il posizionamento di issue associate nella Dashboard di progetto.
         \begin{itemize}
-            \item Ogni issue è associato ad un configuration item tramite label. (ex. Issue relative a Norme di progetto avranno tra i label: NormeDiProgetto).
+            \item Ogni issue è associato ad un CI tramite label.  \label{sec:ticketing} 
         \end{itemize} 
     \end{itemize}
     \item \textbf{Supporto per la gestione delle change request}: Registra e documenta le modifiche apportate agli elementi di configurazione in risposta alle richieste di modifica.
@@ -628,7 +628,7 @@ In particolare si occupa di:
     \item Ricercare ed in caso segnalare eventuali errori;
     \item Redigere la sezione retrospettiva del \textit{Piano di Qualifica}, descrivendo le verifiche e le prove effettuate durante il processo di sviluppo del prodotto;
 \end{itemize}
-\paragraph{Ticketing}
+\paragraph{Ticketing} ~\ref{sec:ticketing}
 GitHub è adottato come sistema di tracciamento degli issue (ITS), garantendo così una gestione agevole e trasparente dei compiti da svolgere. L'amministratore ha la facoltà di creare e assegnare specifici compiti identificati dal responsabile, assicurando chiarezza sulle responsabilità di ciascun individuo e stabilendo tempi definiti. Inoltre, ogni membro del gruppo può monitorare i progressi compiuti nel periodo corrente, consultando lo stato di avanzamento dei vari task attraverso le Dashboard:
 \begin{itemize}
     \item \href{https://github.com/orgs/ByteOps-swe/projects/1}{DashBoard}: Per una chiara visione dello stato dei task;
@@ -636,10 +636,10 @@ GitHub è adottato come sistema di tracciamento degli issue (ITS), garantendo co
 \end{itemize}
 La procedura da seguire in caso di necessità di svolgere un compito è la seguente:
 \begin{enumerate}
-    \item L' amministratore crea e assegna il task su GitHub;
+    \item L' amministratore crea e assegna il task su GitHub, seguendo la convenzione descritta in seguito;
     \item L'incaricato apre una branch su GitHub seguendo la denominazione suggerita;
     \item  All'inizio del lavoro di produzione il task viene marcato in corso sulla DashBoard GitHub;
-    \item Finito il lavoro di produzione viene aperta la pull request su GitHub assegnandoil verificatore.
+    \item Finito il lavoro di produzione viene aperta la pull request su GitHub assegnando il verificatore.
     \item Il task viene marcato nella colonna "Da revisionare" sulla DashBoard GitHub.
     \item Il verificatore si accerta e agisce secondo quanto esposto al punto ~\ref{sec:verifica} nel caso di appartenenza;
     \item Il task viene marcato nella colonna "Done" della DashBoard GitHub.
@@ -647,10 +647,22 @@ La procedura da seguire in caso di necessità di svolgere un compito è la segue
 I task sono creati dall'amministratore e hanno i seguenti attributi:
 \begin{itemize}
     \item \textbf{Titolo}: un titolo coinciso e descrittivo;
-    \item \textbf{Descrizione}: Descrizione testuale di "to-do" e come come ultima riga il Verificatore della task;
+    \item \textbf{Descrizione}:
+    \begin{itemize}
+        \item Descrizione testuale di "to-do";
+        \item Come come ultima riga il Verificatore della task. (Verificatore: Mario Rossi.)
+    \end{itemize} 
     \item \textbf{Assegnatario}: incaricato svolgimento della task;
     \item \textbf{Scadenza}: Data entro la quale la task deve essere completata;
-    \item \textbf{labels}: Tag per identificare la categoria della task (ex. Verbale, Documents, Develop, Bug);
+    \item \textbf{labels}: Tag per identificare la categoria della task. (ex. Verbale, Documents, Develop, Bug).\\ Inoltre per associare ad ogni Issue un CI vengono utilizzati i seguenti label:
+    \begin{itemize}
+        \item \textbf{NdP:} Norme di progetto;
+        \item \textbf{PdQ:} Piano di Qualifica;
+        \item \textbf{PdP:} Piano di Progetto;
+        \item \textbf{AdR:} Analisi dei Requisiti;
+        \item \textbf{Poc:} Proof of concept;
+        \item \textbf{Gls:} Glossario.
+    \end{itemize}
     \item \textbf{Milestone}: Milestone associata alla task.
 \end{itemize}
 
