@@ -50,6 +50,7 @@ jobs:
           set -e
           set -m
 
+          declare -a has_changes
           has_changes=(0 0 0)
 
           for path in ${{ steps.changed-files.outputs.all_changed_files }}; do(
