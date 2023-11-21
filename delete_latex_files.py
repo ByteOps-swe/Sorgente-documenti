@@ -6,7 +6,7 @@ def delete_file_and_folder(file_path):
         # Check if the file has a .tex extension
         if file_path.endswith(".tex") and not 'templates' in file_path.lower() and not 'template' in file_path.lower():
             # Adjusting the path to access the pdf file
-            new_file_path = trimmed_file_name(file_path)
+            new_file_path = file_path[:-4]
             print("Trimmed file name: " + new_file_path)
             new_file_path = 'Output/' + new_file_path + '.pdf'
             
