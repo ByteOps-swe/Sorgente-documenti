@@ -78,6 +78,7 @@ jobs:
               echo "Sono fuori dal tunnellellellel"
               father_dir=$(dirname "$path")
               doc_name=$(basename "$father_dir")
+              echo $doc_name
               if [[ $doc_name == "Norme_di_progetto" ]]; then
                 echo "Norme true"
                 has_changes[0]=1
@@ -93,7 +94,8 @@ jobs:
           )done
 
           echo "outside"
-          if [[ ${has_changes[0]} -eq 1 ]]; then
+          if [[ ${has_changes[0]} -eq 1 ]];
+          then
             echo "un attimo che compilo"
             new_name=$(python Documents/Version_finder.py 'RTB/Norme_di_progetto_v0.2.0.tex')
             cd Documents
