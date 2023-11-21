@@ -1,14 +1,5 @@
 path='RTB/Sottosezioni/Norme_di_progetto/Glossario.tex'
 
-
-# if [ "${has_changes[0]}" == "true" ]; then
-#     echo "Il documento è Norme_di_progetto"
-# elif [ "${has_changes[1]}" == "true" ]; then
-#     echo "Il documento è Piano_di_progetto"
-# elif [ "${has_changes[2]}" == "true" ]; then
-#     echo "Il documento è Analisi_dei_requisiti"
-# fi
-
 declare -a has_changes
 has_changes=(0 0 0)
 
