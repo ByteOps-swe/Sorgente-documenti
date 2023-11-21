@@ -1,7 +1,7 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage[default]{raleway}
-\usepackage{titlesec, comment, tabularx, makecell, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, hyperref}
+\usepackage{pgf-pie, titlesec, comment, tabularx, makecell, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, hyperref, eurosym}
 %\geometry{a4paper, left=2cm, right=2cm, top=2cm, bottom=2.5cm}
 \renewcommand{\headrulewidth}{0pt}
 
@@ -112,6 +112,120 @@ L'applicativo potrà consentire alle autorità locali di prendere decisioni info
 \end{itemize}
 
 %--Il seguente documento è stato redatto con l'obiettivo di valutare e disaminare i potenziali rischi che il gruppo potrebbe affrontare nel corso delle attività di sviluppo del capitolato. In questo documento veranno esposti i vari rischi identificati, accompagnati da una relativa previsione di impatto che ciascuno di essi potrebbe avere e una possibile soluzione.
+\section{Calendario di massima del progetto}
+\subsection{Introduzione}
+Il calendario di massima del progetto illustra le date previste per le revisioni del progetto
+alla luce di quanto analizzato nelle sezioni di:
+\begin{itemize}
+    \item Rischi attesi e loro mitigazione;
+    \item Pianificazione
+\end{itemize}
+\subsection{Prima stesura 25/10/2023}
+Il gruppo si pone come obiettivo temporale delle revisioni il seguente calendario:
+\begin{table}[ht]
+    \centering
+    \caption{Calendario delle Revisioni}
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{Revisione} & \textbf{Data} \\
+        \hline
+        Requirements and Technology Baseline1 & 20/12/2023 \\
+        Product Baseline  & 29/03/2024 \\
+        Customer Acceptance & 30/05/2024 \\
+        % Aggiungi altre revisioni e date secondo necessità
+        \hline
+    \end{tabular}
+\end{table}
+\section{Stima dei costi di realizzazione}
+\subsection{Introduzione}
+La stima dei costi di realizzazione è la stima del budget totale necessario per la realizzazione del progetto alla luce di quanto analizzato in :
+\begin{itemize}
+    \item Analisi dei requisiti;
+    \item Rischi attesi e loro mitigazione;
+    \item Preventivo costi e assunzioni impegni.
+\end{itemize}
+
+\subsection{Prima Stesura 25/10/2023}
+\begin{center}
+        
+    \begin{tabular}{|C{3cm}|C{2cm}|C{2cm}|C{2cm}|C{2cm}|C{2cm}|}
+        \hline
+
+        \textbf{Ruoli} & \textbf{Costo orario} \linebreak \textit{(\euro\ / h)} & \textbf{Ore previste per ruolo} & \textbf{Ore previste per membro} & \textbf{Costo per ruolo} \linebreak \textit{(\euro\ )} \\
+        \hline\hline
+        
+        Responsabile & 30 & 49 & 7 & 1470 \\
+        \hline
+        
+        Amministratore & 20 & 49 & 7 & 980 \\
+        \hline
+        
+        Analista & 25 & 63 & 9 & 1575 \\
+        \hline 
+        
+        Progettista & 25 & 210 & 30 & 5250 \\ 
+        \hline
+        
+        Programmatore & 15 & 105 & 15 & 1575 \\
+        \hline
+        
+        Verificatore & 15 & 175 & 25 & 2625 \\
+        \hline\hline
+        
+        \textbf{TOTALE} & - & 651 & 93 & 13475 \\
+        \hline
+    \end{tabular}
+    \end{center}
+
+    \begin{figure}
+        \centering
+        \begin{tikzpicture}
+            \pie[
+                text=legend,
+                color={blue, green, red, orange, yellow, purple},
+                radius=2 % Imposta il raggio per rendere il grafico circolare
+            ]{11/Responsabile, 8/Amministratore, 12/Analista, 39/Progettista, 11/Programmatore, 19/Verificatore}
+        \end{tikzpicture}
+        \caption{Distribuzione dei costi per ruolo}
+    \end{figure}
+    
+    Il totale identificato di 13475\euro\ verrà considerato come limite di budget invalicabile,
+nel caso ci fosse il rischio di superamento del budget verranno negoziati al ribasso i requisiti
+di progetto.
+\subsection{Seconda Stesura 16/12/2023}
+Dopo una dettagliata rivalutazione dei requisiti e un'analisi con il committente, la stima dei costi è stata riesaminata. Ciò ha comportato la modifica delle ore dedicate alla progettazione e alla programmazione, portando così al nuovo costo di 12565\euro\ .
+\begin{center}
+        
+    \begin{tabular}{|C{3cm}|C{2cm}|C{2cm}|C{2cm}|C{2cm}|C{2cm}|}
+        \hline
+
+        \textbf{Ruoli} & \textbf{Costo orario} \linebreak \textit{(\euro\ / h)} & \textbf{Ore previste per ruolo} & \textbf{Ore previste per membro} & \textbf{Costo per ruolo} \linebreak \textit{(\euro\ )} \\
+        \hline\hline
+        
+        Responsabile & 30 & 49 & 7 & 1470 \\
+        \hline
+        
+        Amministratore & 20 & 49 & 7 & 980 \\
+        \hline
+        
+        Analista & 25 & 63 & 9 & 1575 \\
+        \hline 
+        
+        Progettista & 25 & 140 & 20 & 3500 \\ 
+        \hline
+        
+        Programmatore & 15 & 161 & 23 & 2415 \\
+        \hline
+        
+        Verificatore & 15 & 175 & 25 & 2625 \\
+        \hline\hline
+        
+        \textbf{TOTALE} & - & 651 & 93 & 12565 \\
+        \hline
+    \end{tabular}
+    \end{center}
+
+
 
 \section{Analisi dei rischi}
 \subsection{Rallentamento delle attività}
@@ -139,6 +253,79 @@ L’inefficacia della comunicazione tra i componenti del gruppo potrebbe condurr
    \begin{itemize} 
     \item Impiego di strumenti di comunicazione efficaci e l’istituzione di regole chiare per le riunioni e le discussioni tra i componenti del gruppo.
     \item Incentivare un ambiente di lavoro che favorisca la collaborazione e sia aperto all'espres-sione di idee o feedback da parte dei membri del gruppo.
+\end{itemize}
+
+
+\section{Pianificazione}
+\subsection{Introduzione}
+In conformità con la filosofia di sviluppo moderna e dinamica, abbiamo scelto di adottare il modello agile, con un focus specifico sul framework Scrum.
+
+Lo Scrum, con le sue pratiche iterative e collaborative, offre una risposta efficace alle sfide e alle mutevoli esigenze del mondo contemporaneo dello sviluppo software. Attraverso l'implementazione di Scrum, il nostro team mira a ottenere numerosi benefici positivi che influenzeranno in modo significativo il successo del progetto.
+
+\textbf{Vantaggi del Modello Agile e Scrum}
+
+L'adozione del modello Agile, e in particolare di Scrum, introduce una serie di lati positivi che contribuiranno al raggiungimento dei nostri obiettivi di progetto. Alcuni dei principali vantaggi che ci aspettiamo di acquisire includono:
+
+\begin{itemize}
+    \item \textbf{Flessibilità e Adattabilità:} Lo Scrum consente una rapida risposta ai cambiamenti nei requisiti del cliente, garantendo una maggiore flessibilità durante tutto il ciclo di sviluppo.
+    
+    \item \textbf{Collaborazione e Comunicazione:} La struttura collaborativa di Scrum promuove una comunicazione aperta e continua tra i membri del team e le parti interessate, migliorando la comprensione reciproca e la condivisione di conoscenze.
+    \begin{itemize}
+        \item In particolare con l'azienda proponente sono fissati SAL (Stato avanzamento lavori) ogni due settimane.
+    \end{itemize}
+    \item \textbf{Consegna Incrementale:} Attraverso la pratica di rilasci incrementali, Scrum consente la distribuzione graduale delle funzionalità, fornendo valore al cliente fin dalle prime fasi del progetto.
+    
+    \item \textbf{Miglioramento Continuo:} Le retrospettive regolari incoraggiano il miglioramento continuo del processo, permettendo al team di identificare e risolvere eventuali problematiche in modo tempestivo.
+\end{itemize}
+
+La scelta di adottare il modello Agile con Scrum riflette la nostra dedizione a fornire un prodotto di qualità, rispondendo in modo efficiente ai cambiamenti e alle esigenze del cliente.
+
+\subsection{Requirements and Technology Baseline}
+\subsubsection{Primo periodo  06/11/2023 - 24/11/2023}
+\textbf{Obbiettivi}
+\begin{itemize}
+    \item \textbf{Norme di Progetto}: Redazione delle sezioni:
+    \begin{itemize}
+        \item Introduzione;
+        \item Documentazione;
+        \item Sviluppo (Analisi dei requisiti, Codifica, Progettazione: solo norme dei casi d'uso);
+        \item Gestione della configurazione
+        \item Pianificazione
+        \item Comunicazione
+        \item Gestione degli incontri
+        \item Verifica (processi di Documentazione) 
+    \end{itemize}
+    \item  \textbf{Analisi dei requisiti:} Definizione di:
+        \begin{itemize}
+            \item Use case;
+            \item User story;
+            \item Requisiti funzionali. (Opzionale)
+        \end{itemize}
+    \item  \textbf{Piano di progetto:} Redazione delle sezioni:
+    \begin{itemize}
+        \item Introduzione;
+        \item Calendario di massima del progetto;
+        \item Stima dei costi di realizzazione;
+        \item Analisi dei rischi;
+        \item Pianificazione: (Primo periodo 06/11/2023 - 24/11/2023).
+    \end{itemize}
+    \item  \textbf{POC} Realizzazione di:
+    \begin{itemize}
+        \item La simulazione di almeno un sensore in python;
+        \item La connessione containerizzata docker tra lo script python di simulazione e kafka;
+        \item Aggiunta di ClickHouse nello stack tecnlogico in connessione containerizzata docker (Opzionale).
+    \end{itemize}
+    \item  \textbf{Amministrazione e automatizzazioni:} Realizzazione di:
+    \begin{itemize}
+        \item Automatizzazione della compilazione dei file latex sorgenti;
+        \item Automatizzazione della rinomina dei file sulla base della versione.
+    \end{itemize}
+    \item  \textbf{Altro:} 
+    \begin{itemize}
+        \item Creazione template LateX per i verbali.
+    \end{itemize}
+
+
 \end{itemize}
 
 
