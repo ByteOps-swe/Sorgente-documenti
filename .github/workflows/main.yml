@@ -40,7 +40,6 @@ jobs:
           cd Documents
           git config user.name github-actions[bot]
           git config user.email github-actions[bot]@github.com
-
           
           cd ..
           # Check if there are any deleted files
