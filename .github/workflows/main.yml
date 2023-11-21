@@ -112,7 +112,6 @@ jobs:
             path_no_under="${new_name//_/ }"
             name=$(basename "$new_name")
             name_no_ext="${name%.*}"
-            new_only_name="Aggiornato $name_no_ext"
             cd "$(dirname "RTB/Norme_di_progetto_v0.2.0.tex")"
             latexmk -pdf "$(basename "$new_name")"
             cd ..
@@ -132,7 +131,8 @@ jobs:
             latexmk -pdf "$(basename "$new_name")"
             cd ..
           fi
-      
+
+          ls -la
           cd Output
 
           git add .
