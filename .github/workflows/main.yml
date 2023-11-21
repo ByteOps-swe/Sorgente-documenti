@@ -104,30 +104,31 @@ jobs:
           if [[ ${has_changes[0]} -eq 1 ]];
           then
             echo "un attimo che compilo"
-            new_name=$(python Documents/Version_finder.py 'RTB/Norme_di_progetto_v0.2.0.tex')
+            file_path=$(find RTB -type f -name "Norme_di_progetto*.tex")
+            new_name=$(python Documents/Version_finder.py $file_path)
             cd Documents
-            git add "RTB/Norme_di_progetto_v0.2.0.tex"
+            git add "${file_path}"
             git add "${new_name}"
               
             path_no_under="${new_name//_/ }"
             name=$(basename "$new_name")
             name_no_ext="${name%.*}"
-            cd "$(dirname "RTB/Norme_di_progetto_v0.2.0.tex")"
+            cd "$(dirname "$file_path")"
             latexmk -pdf "$(basename "$new_name")"
             cd ..
           fi
 
           if [ "${has_changes[1]}" == true ]; then
-            new_name=$(python Documents/Version_finder.py "RTB/Piano_di_progetto_v0.0.2.tex")
+            file_path=$(find RTB -type f -name "Piano_di_progetto*.tex")
+            new_name=$(python Documents/Version_finder.py $file_path)
             cd Documents
-            git add "RTB/Piano_di_progetto_v0.0.2.tex"
+            git add "${file_path}"
             git add "${new_name}"
               
             path_no_under="${new_name//_/ }"
             name=$(basename "$new_name")
             name_no_ext="${name%.*}"
-            new_only_name="Aggiornato $name_no_ext"
-            cd "$(dirname "RTB/Piano_di_progetto_v0.0.2.tex")"
+            cd "$(dirname "$file_path")"
             latexmk -pdf "$(basename "$new_name")"
             cd ..
           fi
