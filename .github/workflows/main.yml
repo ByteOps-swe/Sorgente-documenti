@@ -94,6 +94,7 @@ jobs:
           )done
 
           echo "outside"
+          echo ${has_changes[0]}
           if [[ ${has_changes[0]} -eq 1 ]];
           then
             echo "un attimo che compilo"
