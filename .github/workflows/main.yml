@@ -50,7 +50,7 @@ jobs:
           set -e
           set -m
 
-          has_changes=()
+          has_changes=(0 0 0)
 
           for path in ${{ steps.changed-files.outputs.all_changed_files }}; do(
             echo "$path was changed"
@@ -94,7 +94,11 @@ jobs:
           )done
 
           echo "outside"
-          echo ${has_changes[0]}
+
+          for change in "${has_changes[@]}"; do
+            echo "$change"
+          done
+   
           if [[ ${has_changes[0]} -eq 1 ]];
           then
             echo "un attimo che compilo"
