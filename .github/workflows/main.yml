@@ -54,7 +54,7 @@ jobs:
           declare -a has_changes
           has_changes=(0 0 0)
 
-          for path in ${{ steps.changed-files.outputs.all_changed_files }}; do(
+          for path in ${{ steps.changed-files.outputs.all_changed_files }}; do
             echo "$path was changed"
             if [[ "$(basename "$path")" != "Verbale_Esterno.tex" ]] && [[ "$(basename "$path")" != "Verbale_Interno.tex" ]] && [[ $path != */Sezioni/**.tex ]] && [[ $path != */Sottosezioni/**.tex ]] && [[ $path == *.tex ]] 
             then
@@ -93,7 +93,7 @@ jobs:
             else 
               echo "Questo è un template"
             fi
-          )done
+          done
 
           echo "outside"
 
