@@ -104,7 +104,7 @@ jobs:
           if [[ ${has_changes[0]} -eq 1 ]];
           then
             echo "un attimo che compilo"
-            file_path=$(find RTB -type f -name "Norme_di_progetto*.tex")
+            file_path=$(find ../RTB -type f -name "Norme_di_progetto*.tex")
             new_name=$(python Documents/Version_finder.py $file_path)
             cd Documents
             git add "${file_path}"
@@ -119,7 +119,7 @@ jobs:
           fi
 
           if [ "${has_changes[1]}" == true ]; then
-            file_path=$(find RTB -type f -name "Piano_di_progetto*.tex")
+            file_path=$(find ../RTB -type f -name "Piano_di_progetto*.tex")
             new_name=$(python Documents/Version_finder.py $file_path)
             cd Documents
             git add "${file_path}"
