@@ -48,8 +48,6 @@ def rename_latex_file(filename , version_number):
         new_filename = new_filename + '_v' + version_number + '.tex'
         os.rename(filename, new_filename)
         print(new_filename)
-    else:
-        print("Valore non trovato o tabella non trovata.")
 
 def main():
     if ".tex" not in sys.argv[1]:
