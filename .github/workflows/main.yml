@@ -133,6 +133,8 @@ jobs:
           fi
 
           ls -la
+          cd..
+          ls -la
           cd Output
 
           git add .
