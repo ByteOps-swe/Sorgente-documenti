@@ -478,13 +478,14 @@ Dopo l'attuazione dei controlli sopra citati e verificato il loro rispetto, i pa
 La gestione della configurazione del progetto è una attività che norma il tracciamento e il controllo delle modifiche a documenti e prodotti del software detti Configuration Item (CI).
 
 La gestione della configurazione può essere applicata a qualunque categoria di documenti o di “artefatti” che svolga un ruolo nello sviluppo software.
-Secondo lo standard IEEE, la gestione della configurazione del software è un processo di identificazione, organizzazione e controllo delle modifiche apportate ai prodotti software durante il ciclo di vita del software.
+Secondo lo standard IEEE, la gestione della configurazione del software è un processo di identificazione, organizzazione e controllo delle modifiche apportate ai prodotti software durante il loro ciclo di vita.
 Lo standard IEEE 828-2012 definisce la gestione della configurazione del software come “un processo disciplinato per gestire l’evoluzione del software”.
 \subsubsection{Numeri di versionamento}\label{sec:versionamento}
+\textbf{Documentazione:} \\
 La convenzione per identificare la versione di un documento è: X.Y.Z
 con :
 \begin{itemize}
-    \item \textbf{X: }Viene incrementato al raggiungimento di RTB e PB;
+    \item \textbf{X: }Viene incrementato al raggiungimento di RTB, PB ed eventualmente CA;
     \item \textbf{Y: }Viene incrementato quando vengono apportate modifiche significative al documento, come cambiamenti strutturali, nuove sezioni importanti o modifiche sostanziali nel contenuto;
     \item \textbf{Z: }Viene incrementato per modifiche minori o aggiornamenti al documento. Questi potrebbero includere correzioni di errori, miglioramenti marginali o l'aggiunta di nuovi contenuti meno rilevanti.
 \end{itemize}
@@ -503,21 +504,22 @@ Le tecnologie adottata per la gestione dei configuration item sono:
 Le repository del team sono:
 \begin{itemize}
     \item \href{https://github.com/ByteOps-swe/Sorgente-documenti}{Sorgente-documenti:} Repository per il versionamento, la gestione e lo sviluppo dei sorgenti della documentazione;
-    \item \href{https://github.com/ByteOps-swe/Documents}{Documents:}: Repository destinata ai commintenti/proponenti dove vengono condivisi solo i PDF dei file sorgenti revisionati.
+    \item \href{https://github.com/ByteOps-swe/Documents}{Documents:} Repository destinata ai commintenti/proponenti dove vengono condivisi solo i PDF dei file sorgenti revisionati.
+    \item \href{https://github.com/ByteOps-swe/proof-of-concept}{proof-of-concept:} Repository destinata al POC.
 \end{itemize}
 \paragraph{Struttura repository}
 I repository destinati alla documentazione sono organizzati come segue:
 \begin{itemize}
     \item \textbf{Candidatura:} Contenente i documenti richiesti per la candidatura;
     \begin{itemize}
-        \item \textbf{Verbali:}Contiene tutti i verbali redatti durante il periodo di candidatura, contiene una Suddivisione tra verbali esterni ed interni;
+        \item \textbf{Verbali:} Contiene tutti i verbali redatti nel corso del periodo di candidatura, distinti tra verbali esterni e interni;
         \item Lettera di presentazione;
         \item Valutazione dei costi e assunzione impegni;
         \item Valutazione dei capitolati.
     \end{itemize}
     \item \textbf{RTB:} Contenente i documenti richiesti per la revisione omonima;
     \begin{itemize}
-        \item \textbf{Verbali:}Contiene tutti i verbali redatti durante il periodo RTB, contiene una Suddivisione tra verbali esterni ed interni;
+        \item \textbf{Verbali:} Contiene tutti i verbali redatti nel corso del periodo della RTB, distinti tra verbali esterni e interni;
               \item Piano di Qualifica; 
               \item Piano di Progetto;
               \item Analisi dei Requisiti;
@@ -530,7 +532,7 @@ I repository destinati alla documentazione sono organizzati come segue:
 
 \paragraph{Sincronizzazione e Branching}
 \textbf{Documentazione:}
-Il flusso di lavoro adottato per la documentazione, denominato ‘feature branch workflow’, prevede la creazione di un branch dedicato per ogni documento o sezione richiesto.
+Il processo operativo utilizzato per la redazione della documentazione, noto come "feature branch workflow", implica la creazione di un ramo dedicato per ciascun documento o sezione da elaborare.
 Tale metodologia permette una parallelizzazione agile dei lavori evitando sovrascritture indesiderate di altri lavori e permette l'adozione dei principi "Documentation as code". % ~\ref{sec:DocumentationAsCode} 
 \subsubsection{Controllo di configurazione}
 \paragraph{Change request (Richiesta di modifica)}
@@ -556,7 +558,7 @@ Questo processo si occupa di registrare e tenere traccia dello stato di tutte le
             \end{itemize}
     \item \textbf{Stato e cambiamenti}: Tenere traccia dello stato attuale di ciascun elemento di configurazione e di tutti i cambiamenti che avvengono nel corso del tempo. Ciò include le versioni attuali, le revisioni, le modifiche e le baselines;
     \begin{itemize}
-        \item  \textbf{Registro delle modifiche:} Per tenere traccia dello stato di ogni CI si adotta il registro delle modifiche presente ognuno di questi;
+        \item  \textbf{Registro delle modifiche:} Per monitorare lo stato di ciascun CI, si utilizza il registro delle modifiche incorporato in ognuno di essi;
         \item  \textbf{Branching \& DashBoard:} Per visionare la presenza di lavori in atto su di un CI si utilizza a supporto la presenza di branch attivi che lo riguardano e il posizionamento di issue associate nella Dashboard di progetto.
         \begin{itemize}
             \item Ogni issue è associato ad un CI tramite label.  \label{sec:ticketing} 
@@ -567,14 +569,15 @@ Questo processo si occupa di registrare e tenere traccia dello stato di tutte le
         \item  \textbf{ITS:} Per supportare i change request viene utilizzato l'ITS di github, l'identificazione avviene tramite la creazione di un issue nell'ITS con label: "Change request".
     \end{itemize}
 \end{itemize}
-La Contabilità dello Stato di Configurazione processo fondamentale per mantenere la trasparenza e la tracciabilità nel ciclo di vita del software, aiutando a gestire le configurazioni in modo coerente e a mantenere un registro accurato di tutte le attività e le modifiche che coinvolgono gli elementi di configurazione.\\
+La Contabilità dello Stato di Configurazione è un processo fondamentale per mantenere la trasparenza e la tracciabilità nel ciclo di vita del software, aiutando a gestire le configurazioni in modo coerente e a mantenere un registro accurato di tutte le attività e le modifiche che coinvolgono gli elementi di configurazione.\\
 \vspace{0.2cm}
-(Ex. l'inclusione di un CI nel branch principale (main) lo configura come la versione più recente, revisionata, mentre le versioni (X.0.0) con X>=1 identificano il CI facente parte della baseline con uguale versione.)
+
+Ad esempio, l'aggiunta di un elemento di configurazione al ramo principale (main) lo designa come la versione più recente e revisionata, mentre le versioni (X.0.0) con X>=1 indicano l'appartenenza del suddetto elemento di configurazione alla baseline, con la medesima versione.
 % -----------------------------Processi organizzativi --------------------------------
 
 \subsubsection{Release management and delivery}
 \textbf{Documentazione:}
-Dopo aver completato il lavoro il creatore del branch deve aprire una pull request per effettuare il merge nel ramo principale. La richiesta di pull request può essere accettata solo se la verifica ha esito positivo.
+Dopo aver portato a termine le attività nel proprio branch, il responsabile del suo sviluppo è tenuto a avviare una richiesta di pull per incorporare le modifiche nel ramo principale. La richiesta di pull può essere accettata solo se la verifica ha esito positivo.
 \section{Processi organizzativi}
 Questa sezione fornisce linee guida e normative per la pianificazione, l'esecuzione e il monitoraggio dei processi, contribuendo così a garantire la coerenza e la qualità nelle attività di sviluppo del software.
 \subsection{Pianificazione}
