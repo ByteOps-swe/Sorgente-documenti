@@ -46,6 +46,7 @@ jobs:
           git config user.email github-actions[bot]@github.com
           cd ..
           docker run -i --rm -v "$(pwd):/work" -w /work -u "$(id -u):$(id -g)" ghcr.io/xu-cheng/texlive-full bash -c '
+          bash --version
           shopt -s globstar
           set -e
           set -m
@@ -85,9 +86,9 @@ jobs:
                 has_changes[0]=1
                 echo ${has_changes[0]}
               elif [[ $doc_name == "Piano_di_progetto" ]]; then
-                has_changes[1]=true
+                has_changes[1]=1
               elif [[ $doc_name == "Analisi_dei_requisiti" ]]; then
-                has_changes[2]=true
+                has_changes[2]=1
               fi
             else 
               echo "Questo è un template"
