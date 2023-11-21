@@ -105,9 +105,9 @@ jobs:
           then
             echo "un attimo che compilo"
             ls -la
-            file_path=$(find "RTB" -type f -name "Norme_di_progetto*.tex")
-            new_name=$(python Documents/Version_finder.py $file_path)
             cd Documents
+            file_path=$(find "RTB" -type f -name "Norme_di_progetto*.tex")
+            new_name=$(python Version_finder.py $file_path)
             git add "${file_path}"
             git add "${new_name}"
               
