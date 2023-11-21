@@ -7,12 +7,14 @@ def delete_file_and_folder(file_path):
         if file_path.endswith(".tex") and not 'templates' in file_path.lower() and not 'template' in file_path.lower():
             # Adjusting the path to access the pdf file
             new_file_path = trimmed_file_name(file_path)
+            print("Trimmed file name: " + new_file_path)
             new_file_path = 'Output/' + new_file_path + '.pdf'
-            new_file_path = new_file_path.replace('_', ' ')
+            
             
             # Use absolute path
             abs_file_path = os.path.join(os.getcwd(), new_file_path)
-
+            abs_file_path = abs_file_path.replace('_', ' ')
+            print("Absolute path: " + abs_file_path)
             # Delete the file
             os.remove(abs_file_path)
 
