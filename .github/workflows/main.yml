@@ -2,7 +2,7 @@ name: Build LaTeX Document
 on:
   pull_request_target:
     branches: 
-      - protected
+      - main
     types: [closed]
 
 jobs:
@@ -22,7 +22,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           path: Output
-          repository: lisienskenderi/pdf-test
+          repository: ByteOps-swe/Documents
           token: ${{ secrets.ACCESS_TOKEN }}
           
       - name: Get changed files
@@ -31,17 +31,13 @@ jobs:
 
       - name: Compile LaTeX document
         run: |
-          ls -la
           cd Output
-          ls -la
           git pull
 
           git config user.name github-actions[bot]
           git config user.email github-actions[bot]@github.com
           cd ..
           cd Documents
-          ls -la
-          git branch -a
           git config user.name github-actions[bot]
           git config user.email github-actions[bot]@github.com
 
@@ -73,12 +69,9 @@ jobs:
               echo "Begin python"
               new_name=$(python Documents/Version_finder.py $path)
               echo "End python"
-              ls -la 
+
               cd Documents
 
-              ls -la
-              git status
-              echo "New name: $new_name"
               git add "${path}"
               git add "${new_name}"
               
