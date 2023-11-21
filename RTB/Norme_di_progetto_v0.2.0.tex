@@ -150,13 +150,20 @@ Il \textbf{\textit{Glossario}} verrà compilato attraverso un documento condivis
 \subsubsection{Riferimenti informativi}
 Da inserire.
 
+
 \section{Processi di supporto}
 
 \subsection{Documentazione}
 
 \subsubsection{Introduzione}
 La documentazione costituisce l'insieme di informazioni scritte che accompagnano un prodotto software, fornendo dettagli utili agli sviluppatori, distributori e utenti.\\
-Il suo obiettivo principale è:
+Tra gli scopi della documentazione troviamo:
+\begin{itemize}
+    \item Comprensione del prodotto senza supporto umano, usandolo come mezzo di comunicazione;
+    \item Segnare il confine tra creatività e disciplina;
+    \item Assicurare che i processi produttivi si svolgano con la qualità attesa.
+\end{itemize}
+L'obbiettivo della sezione è:
 \begin{itemize}
     \item  Definire delle procedure ripetibili che permettano di uniformare la documentazione che viene prodotta dal gruppo ed il metodo di lavoro;
     \item  Raccogliere e organizzare le norme che i membri del team devono seguire così da semplificare l'operazione di scrittura dei documenti.
@@ -190,7 +197,7 @@ Il ciclo di vita dei documenti è una sequenza di stati e attività:
 \begin{enumerate}
     \item \textbf{Stato: Necessità}
           \begin{enumerate}
-              \item Nasce la necessità di una documentazione;
+              \item Nasce la necessità di una documentazione, per obbligo o per opportunità;
               \item Pianicazione della sua stesura;
               \item Suddivisione in sezioni;
               \item Durante le riunioni, si procede alla discussione e alla definizione collettiva di una traccia per il contenuto;
@@ -363,13 +370,16 @@ Nella prima pagina oltre alle informazioni comuni a ogni documento vengono speci
     \item Amministratore;
     \item Partecipanti della riunione (interni ed esterni);
     \item Il Responsabile (in basso a destra);
-    \item Nel caso di verbale esterno, in ultima pagina, deve essere presente la firma delle terze parti coinvolte.
 \end{itemize}
 %Il registro delle modifiche non è incluso nei verbali in quanto non è necessario; una volta redatti, i verbali non subiscono ulteriori modifiche.
 Corpo del documento:
 \begin{itemize}
     \item  \textbf{Revisione del periodo precedente:} Si valutano gli aspetti positivi, le sfide incontrate e si identificano azioni di miglioramento per ottimizzare i processi;
-    \item  \textbf{Ordine del giorno:} Elenco tematiche discusse durante la riunione, accompagnate dai relativi esiti;
+    \item  \textbf{Ordine del giorno:} Elenco tematiche discusse durante la riunione, accompagnate dai relativi esiti.\\
+    Nel caso del verbale esterno, se sono presenti richieste di chiarimenti effettuate alle terze parti coinvolte, saranno incluse nella sottosezione:
+    \begin{itemize}
+        \item \textbf{Richieste e chiarimenti}.
+    \end{itemize}
     \item  \textbf{Attività da svolgere:} Tabella dove viene specificato:
           \begin{itemize}
               \item Nome della task da svolgere;
@@ -377,7 +387,10 @@ Corpo del documento:
               \item Verificatore della attività.
           \end{itemize}
 \end{itemize}
-
+Ultima pagina:
+\begin{itemize}
+    \item Nel caso di verbale esterno, in ultima pagina, deve essere presente la firma delle terze parti coinvolte, il luogo e la data.
+\end{itemize}
 
 Il template dei verbali è disponibile al link:\\ \href{https://github.com/ByteOps-swe/Sorgente-documenti/tree/main/Documents/Verbali/Templates}{https://github.com/ByteOps-swe/Sorgente-documenti/tree/main/Documents/Verbali/Templates}
 
@@ -392,6 +405,7 @@ Nello specifico devono seguire la seguente convenzione:
     \item \textbf{Verbali esterni:}Verbale\_esterno\_DD-MM-AAA ;
     \item \textbf{Norme di Progetto:} Norme\_di\_progetto\_vX.Y.Z ;
     \item \textbf{Analisi dei requisiti:} Analisi\_dei\_requisiti\_vX.Y.Z ;
+    \item \textbf{Piano di progetto:} Piano\_di\_progetto\_vX.Y.Z ;
     \item \textbf{Glossario:} Glossario\_vX.Y.Z .
 \end{itemize}
 
@@ -464,14 +478,15 @@ Dopo l'attuazione dei controlli sopra citati e verificato il loro rispetto, i pa
 La gestione della configurazione del progetto è una attività che norma il tracciamento e il controllo delle modifiche a documenti e prodotti del software detti Configuration Item (CI).
 
 La gestione della configurazione può essere applicata a qualunque categoria di documenti o di “artefatti” che svolga un ruolo nello sviluppo software.
-Secondo lo standard IEEE, la gestione della configurazione del software è un processo di identificazione, organizzazione e controllo delle modifiche apportate ai prodotti software durante il ciclo di vita del software.
+Secondo lo standard IEEE, la gestione della configurazione del software è un processo di identificazione, organizzazione e controllo delle modifiche apportate ai prodotti software durante il loro ciclo di vita.
 Lo standard IEEE 828-2012 definisce la gestione della configurazione del software come “un processo disciplinato per gestire l’evoluzione del software”.
 \subsubsection{Numeri di versionamento}\label{sec:versionamento}
+\textbf{Documentazione:} \\
 La convenzione per identificare la versione di un documento è: X.Y.Z
 con :
 \begin{itemize}
-    \item \textbf{X: }Viene incrementato al raggiungimento di RTB e PB.
-    \item \textbf{Y: }Viene incrementato quando vengono apportate modifiche significative al documento, come cambiamenti strutturali, nuove sezioni importanti o modifiche sostanziali nel contenuto.
+    \item \textbf{X: }Viene incrementato al raggiungimento di RTB, PB ed eventualmente CA;
+    \item \textbf{Y: }Viene incrementato quando vengono apportate modifiche significative al documento, come cambiamenti strutturali, nuove sezioni importanti o modifiche sostanziali nel contenuto;
     \item \textbf{Z: }Viene incrementato per modifiche minori o aggiornamenti al documento. Questi potrebbero includere correzioni di errori, miglioramenti marginali o l'aggiunta di nuovi contenuti meno rilevanti.
 \end{itemize}
 
@@ -482,26 +497,34 @@ Le tecnologie adottata per la gestione dei configuration item sono:
 \begin{itemize}
     \item \textbf{Git}: Version Control System distribuito utilizzato per il versionamento dei CI;
     \item \textbf{GitHub}: Piattaforma web che utilizza Git per il controllo di versione dei CI e per il Ticketing.
-          Utilizzata per la gestione dei change request tramite issue e label e per la contabilità dello stato di configurazione (Branching e posizionamento nella repository).
+          Utilizzata per la gestione dei change request tramite issue e label e per la contabilità dello stato di configurazione (Branching, posizionamento nella repository e DashBoard di progetto).
 \end{itemize}
 
 \subsubsection{Repository}
 Le repository del team sono:
 \begin{itemize}
-    \item \href{https://github.com/ByteOps-swe/Sorgente-documenti}{Sorgente-documenti}:Repository per il versionamento, la gestione e lo sviluppo dei sorgenti della documentazione.
-    \item \href{https://github.com/ByteOps-swe/Documents}{Documents}: Repository destinata ai commintenti/proponenti dove vengono condivisi solo i PDF dei file sorgenti revisionati.
+    \item \href{https://github.com/ByteOps-swe/Sorgente-documenti}{Sorgente-documenti:} Repository per il versionamento, la gestione e lo sviluppo dei sorgenti della documentazione;
+    \item \href{https://github.com/ByteOps-swe/Documents}{Documents:} Repository destinata ai commintenti/proponenti dove vengono condivisi solo i PDF dei file sorgenti revisionati.
+    \item \href{https://github.com/ByteOps-swe/proof-of-concept}{proof-of-concept:} Repository destinata al POC.
 \end{itemize}
 \paragraph{Struttura repository}
 I repository destinati alla documentazione sono organizzati come segue:
 \begin{itemize}
-    \item \textbf{Verbali}: Il documento in questione contiene tutti i verbali redatti durante il ciclo di vita del progetto. Inoltre, è suddiviso per ogni revisione del progetto (candidatura, RTB, PB), che a sua volta contiene una suddivisione tra verbali esterni ed interni.
-    \item \textbf{candidatura}: Contenente i documenti richiesti per la revisione omonima:
-    \item \textbf{RTB}:\begin{itemize}
+    \item \textbf{Candidatura:} Contenente i documenti richiesti per la candidatura;
+    \begin{itemize}
+        \item \textbf{Verbali:} Contiene tutti i verbali redatti nel corso del periodo di candidatura, distinti tra verbali esterni e interni;
+        \item Lettera di presentazione;
+        \item Valutazione dei costi e assunzione impegni;
+        \item Valutazione dei capitolati.
+    \end{itemize}
+    \item \textbf{RTB:} Contenente i documenti richiesti per la revisione omonima;
+    \begin{itemize}
+        \item \textbf{Verbali:} Contiene tutti i verbali redatti nel corso del periodo della RTB, distinti tra verbali esterni e interni;
               \item Piano di Qualifica; 
               \item Piano di Progetto;
               \item Analisi dei Requisiti;
               \item Glossario;
-              \item Norme di Progetto;
+              \item Norme di Progetto.
           \end{itemize}
     \item \textbf{PB}.
 \end{itemize}
@@ -509,8 +532,8 @@ I repository destinati alla documentazione sono organizzati come segue:
 
 \paragraph{Sincronizzazione e Branching}
 \textbf{Documentazione:}
-Il flusso di lavoro adottato per la documentazione, denominato ‘feature branch workflow’, prevede la creazione di un branch dedicato per ogni documento o sezione richiesto.
-Tale metodologia permette una parallelizzazione agile dei lavori evitando sovrascritture indesiderate di altri lavori e permette l'adozione dei principi "Documentation as code". ~\ref{sec:DocumentationAsCode} .
+Il processo operativo utilizzato per la redazione della documentazione, noto come "feature branch workflow", implica la creazione di un ramo dedicato per ciascun documento o sezione da elaborare.
+Tale metodologia permette una parallelizzazione agile dei lavori evitando sovrascritture indesiderate di altri lavori e permette l'adozione dei principi "Documentation as code". % ~\ref{sec:DocumentationAsCode} 
 \subsubsection{Controllo di configurazione}
 \paragraph{Change request (Richiesta di modifica)}
 Seguendo lo standard  ISO/IEC 12207 per affrontare questo processo in modo strutturato le attività sono:
@@ -529,16 +552,32 @@ Seguendo lo standard  ISO/IEC 12207 per affrontare questo processo in modo strut
 \subsubsection{Configuration Status Accounting (Contabilità dello Stato di Configurazione)}
 Questo processo si occupa di registrare e tenere traccia dello stato di tutte le configurazioni di un sistema software durante il suo ciclo di vita.
 \begin{itemize}
-    \item \textbf{Registrazione delle configurazioni}: Registrazione delle informazioni dettagliate su ogni elemento di configurazione, che può includere codice sorgente, documentazione, specifiche, risorse hardware, e altri componenti del sistema;
+    \item \textbf{Registrazione delle configurazioni}: Registrazione delle informazioni dettagliate su ogni elemento di configurazione;
+            \begin{itemize}
+                \item  \textbf{Documentazione:} Le informazioni del documento sono presenti nella prima pagina di ciascuno.
+            \end{itemize}
     \item \textbf{Stato e cambiamenti}: Tenere traccia dello stato attuale di ciascun elemento di configurazione e di tutti i cambiamenti che avvengono nel corso del tempo. Ciò include le versioni attuali, le revisioni, le modifiche e le baselines;
-    \item \textbf{Supporto per la gestione delle change request}: Correlazione alla gestione delle change request. Registra e documenta le modifiche apportate agli elementi di configurazione in risposta alle richieste di modifica.
+    \begin{itemize}
+        \item  \textbf{Registro delle modifiche:} Per monitorare lo stato di ciascun CI, si utilizza il registro delle modifiche incorporato in ognuno di essi;
+        \item  \textbf{Branching \& DashBoard:} Per visionare la presenza di lavori in atto su di un CI si utilizza a supporto la presenza di branch attivi che lo riguardano e il posizionamento di issue associate nella Dashboard di progetto.
+        \begin{itemize}
+            \item Ogni issue è associato ad un CI tramite label.  \label{sec:ticketing} 
+        \end{itemize} 
+    \end{itemize}
+    \item \textbf{Supporto per la gestione delle change request}: Registra e documenta le modifiche apportate agli elementi di configurazione in risposta alle richieste di modifica.
+    \begin{itemize}
+        \item  \textbf{ITS:} Per supportare i change request viene utilizzato l'ITS di github, l'identificazione avviene tramite la creazione di un issue nell'ITS con label: "Change request".
+    \end{itemize}
 \end{itemize}
-Processo fondamentale per mantenere la trasparenza e la tracciabilità nel ciclo di vita del software, aiutando a gestire le configurazioni in modo coerente e a mantenere un registro accurato di tutte le attività e le modifiche che coinvolgono gli elementi di configurazione.\\
-\textbf{La corretta gestione del registro delle modifiche, il posizionamento nella repository e il branching permettono l'identificazione dello stato dei CI.}
-L'inclusione di CI nel branch principale (main) lo configura come la versione più recente, revisionata, mentre le versioni (X.0.0) con X>=1 identificano il CI facente parte della baseline con uguale versione.% -----------------------------Processi organizzativi --------------------------------
-\paragraph{Release management and delivery}
+La Contabilità dello Stato di Configurazione è un processo fondamentale per mantenere la trasparenza e la tracciabilità nel ciclo di vita del software, aiutando a gestire le configurazioni in modo coerente e a mantenere un registro accurato di tutte le attività e le modifiche che coinvolgono gli elementi di configurazione.\\
+\vspace{0.2cm}
+
+Ad esempio, l'aggiunta di un elemento di configurazione al ramo principale (main) lo designa come la versione più recente e revisionata, mentre le versioni (X.0.0) con X>=1 indicano l'appartenenza del suddetto elemento di configurazione alla baseline, con la medesima versione.
+% -----------------------------Processi organizzativi --------------------------------
+
+\subsubsection{Release management and delivery}
 \textbf{Documentazione:}
-Dopo aver completato il lavoro il creatore del branch deve aprire una pull request per effettuare il merge nel ramo principale. La richiesta di pull request può essere accettata solo se la verifica ha esito positivo.
+Dopo aver portato a termine le attività nel proprio branch, il responsabile del suo sviluppo è tenuto a avviare una richiesta di pull per incorporare le modifiche nel ramo principale. La richiesta di pull può essere accettata solo se la verifica ha esito positivo.
 \section{Processi organizzativi}
 Questa sezione fornisce linee guida e normative per la pianificazione, l'esecuzione e il monitoraggio dei processi, contribuendo così a garantire la coerenza e la qualità nelle attività di sviluppo del software.
 \subsection{Pianificazione}
@@ -592,7 +631,7 @@ In particolare si occupa di:
     \item Ricercare ed in caso segnalare eventuali errori;
     \item Redigere la sezione retrospettiva del \textit{Piano di Qualifica}, descrivendo le verifiche e le prove effettuate durante il processo di sviluppo del prodotto;
 \end{itemize}
-\paragraph{Ticketing}
+\paragraph{Ticketing} ~\ref{sec:ticketing}
 GitHub è adottato come sistema di tracciamento degli issue (ITS), garantendo così una gestione agevole e trasparente dei compiti da svolgere. L'amministratore ha la facoltà di creare e assegnare specifici compiti identificati dal responsabile, assicurando chiarezza sulle responsabilità di ciascun individuo e stabilendo tempi definiti. Inoltre, ogni membro del gruppo può monitorare i progressi compiuti nel periodo corrente, consultando lo stato di avanzamento dei vari task attraverso le Dashboard:
 \begin{itemize}
     \item \href{https://github.com/orgs/ByteOps-swe/projects/1}{DashBoard}: Per una chiara visione dello stato dei task;
@@ -600,10 +639,10 @@ GitHub è adottato come sistema di tracciamento degli issue (ITS), garantendo co
 \end{itemize}
 La procedura da seguire in caso di necessità di svolgere un compito è la seguente:
 \begin{enumerate}
-    \item L' amministratore crea e assegna il task su GitHub;
+    \item L' amministratore crea e assegna il task su GitHub, seguendo la convenzione descritta in seguito;
     \item L'incaricato apre una branch su GitHub seguendo la denominazione suggerita;
     \item  All'inizio del lavoro di produzione il task viene marcato in corso sulla DashBoard GitHub;
-    \item Finito il lavoro di produzione viene aperta la pull request su GitHub assegnandoil verificatore.
+    \item Finito il lavoro di produzione viene aperta la pull request su GitHub assegnando il verificatore.
     \item Il task viene marcato nella colonna "Da revisionare" sulla DashBoard GitHub.
     \item Il verificatore si accerta e agisce secondo quanto esposto al punto ~\ref{sec:verifica} nel caso di appartenenza;
     \item Il task viene marcato nella colonna "Done" della DashBoard GitHub.
@@ -611,10 +650,22 @@ La procedura da seguire in caso di necessità di svolgere un compito è la segue
 I task sono creati dall'amministratore e hanno i seguenti attributi:
 \begin{itemize}
     \item \textbf{Titolo}: un titolo coinciso e descrittivo;
-    \item \textbf{Descrizione}: Descrizione testuale di "to-do" e come come ultima riga il Verificatore della task;
+    \item \textbf{Descrizione}:
+    \begin{itemize}
+        \item Descrizione testuale di "to-do";
+        \item Come come ultima riga il Verificatore della task. (Verificatore: Mario Rossi.)
+    \end{itemize} 
     \item \textbf{Assegnatario}: incaricato svolgimento della task;
     \item \textbf{Scadenza}: Data entro la quale la task deve essere completata;
-    \item \textbf{labels}: Tag per identificare la categoria della task (ex. Verbale, Documents, Develop, Bug);
+    \item \textbf{labels}: Tag per identificare la categoria della task. (ex. Verbale, Documents, Develop, Bug).\\ Inoltre per associare ad ogni Issue un CI vengono utilizzati i seguenti label:
+    \begin{itemize}
+        \item \textbf{NdP:} Norme di progetto;
+        \item \textbf{PdQ:} Piano di Qualifica;
+        \item \textbf{PdP:} Piano di Progetto;
+        \item \textbf{AdR:} Analisi dei Requisiti;
+        \item \textbf{Poc:} Proof of concept;
+        \item \textbf{Gls:} Glossario.
+    \end{itemize}
     \item \textbf{Milestone}: Milestone associata alla task.
 \end{itemize}
 
