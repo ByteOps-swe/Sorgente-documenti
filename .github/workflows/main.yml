@@ -129,7 +129,7 @@ jobs:
             # esempio file path = Documents/RTB/Norme_di_progetto_v0.2.0.tex
             
             echo $file_path
-            new_name=$(python Documents/Version_finder.py $file_path)
+            new_name=$(python Version_finder.py $file_path)
             ls -la
             git add "${file_path}"
             git add "${new_name}"
