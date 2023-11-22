@@ -70,6 +70,9 @@ jobs:
             if [[ "$(basename "$path")" != "Verbale_Esterno.tex" ]] && [[ "$(basename "$path")" != "Verbale_Interno.tex" ]] && [[ $path != */Sezioni/**.tex ]] && [[ $path != */Sottosezioni/**.tex ]] && [[ $path == *.tex ]] 
             then
               echo "Begin python"
+
+              # esempio di path = RTB/Piano_di_progetto_v0.0.2.tex
+              
               new_name=$(python Documents/Version_finder.py $path)
               echo "End python"
 
@@ -120,6 +123,9 @@ jobs:
             echo "un attimo che compilo"
             ls -la
             file_path=$(find "Documents/RTB" -type f -name "Norme_di_progetto*.tex")
+
+            # esempio file path = Documents/RTB/Norme_di_progetto_v0.2.0.tex
+            
             echo $file_path
             new_name=$(python Documents/Version_finder.py $file_path)
             ls -la
