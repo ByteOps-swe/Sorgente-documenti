@@ -131,7 +131,9 @@ jobs:
             echo $file_path
             cd ..
             new_name=$(python Documents/Version_finder.py $file_path)
+            echo $new_name
             ls -la
+            cd Documents
             git add "${file_path}"
             git add "${new_name}"
               
