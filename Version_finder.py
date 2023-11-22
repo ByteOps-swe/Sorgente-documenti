@@ -30,12 +30,12 @@ def delete_file(file_path):
                 if file_name in file_names:
                     found_file.append(os.path.join(root, file_names))
         if not found_file:
-            print(file_path)
+            return
         else:
             for file in found_file:
                 os.remove(file)
                 if "Verbale" in file:
-                    print(file_path)
+                    return
     except FileNotFoundError:
         return
 
