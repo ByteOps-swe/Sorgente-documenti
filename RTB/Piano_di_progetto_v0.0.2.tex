@@ -1,7 +1,7 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage[default]{raleway}
-\usepackage{pgf-pie, titlesec, comment, tabularx, makecell, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, hyperref, eurosym}
+\usepackage{pgf-pie, titlesec, comment, tabularx, makecell, float, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, hyperref, eurosym}
 %\geometry{a4paper, left=2cm, right=2cm, top=2cm, bottom=2.5cm}
 \renewcommand{\headrulewidth}{0pt}
 
@@ -12,7 +12,7 @@
 % ------------------------------Metadati indice --------------------------------
 \title{\textbf{\fontsize{30}{6}\selectfont Indice}}
 \author{\fontsize{14}{6}\selectfont ByteOps}
-\date{\today}
+\date{}
 
 % -----------------------------Creazione footer --------------------------------
 \pagestyle{fancy} 
@@ -115,33 +115,34 @@ L'applicativo potrà consentire alle autorità locali di prendere decisioni info
 \section{Calendario di massima del progetto}
 \subsection{Introduzione}
 Il calendario di massima del progetto illustra le date previste per le revisioni del progetto
-alla luce di quanto analizzato nelle sezioni di:
+alla luce di quanto analizzato nelle sezioni:
 \begin{itemize}
-    \item Rischi attesi e loro mitigazione;
-    \item Pianificazione
+    \item Analisi dei rischi;
+    \item Analisi dei requisiti;
+    \item Pianificazione.
 \end{itemize}
 \subsection{Prima stesura 25/10/2023}
 Il gruppo si pone come obiettivo temporale delle revisioni il seguente calendario:
 \begin{table}[ht]
     \centering
-    \caption{Calendario delle Revisioni}
     \begin{tabular}{|c|c|}
         \hline
         \textbf{Revisione} & \textbf{Data} \\
         \hline
-        Requirements and Technology Baseline1 & 20/12/2023 \\
+        Requirements and Technology Baseline & 20/12/2023 \\
         Product Baseline  & 29/03/2024 \\
         Customer Acceptance & 30/05/2024 \\
         % Aggiungi altre revisioni e date secondo necessità
         \hline
     \end{tabular}
+    \caption{Calendario delle Revisioni}
 \end{table}
 \section{Stima dei costi di realizzazione}
 \subsection{Introduzione}
 La stima dei costi di realizzazione è la stima del budget totale necessario per la realizzazione del progetto alla luce di quanto analizzato in :
 \begin{itemize}
+    \item Analisi dei rischi;
     \item Analisi dei requisiti;
-    \item Rischi attesi e loro mitigazione;
     \item Preventivo costi e assunzioni impegni.
 \end{itemize}
 
@@ -177,7 +178,7 @@ La stima dei costi di realizzazione è la stima del budget totale necessario per
     \end{tabular}
     \end{center}
 
-    \begin{figure}
+    \begin{figure}[H]
         \centering
         \begin{tikzpicture}
             \pie[
@@ -260,8 +261,10 @@ L’inefficacia della comunicazione tra i componenti del gruppo potrebbe condurr
 \subsection{Introduzione}
 In conformità con la filosofia di sviluppo moderna e dinamica, abbiamo scelto di adottare il modello agile, con un focus specifico sul framework Scrum.
 
-Lo Scrum, con le sue pratiche iterative e collaborative, offre una risposta efficace alle sfide e alle mutevoli esigenze del mondo contemporaneo dello sviluppo software. Attraverso l'implementazione di Scrum, il nostro team mira a ottenere numerosi benefici positivi che influenzeranno in modo significativo il successo del progetto.
+Lo Scrum, con le sue pratiche iterative e collaborative, offre una risposta efficace alle sfide e alle mutevoli esigenze del mondo contemporaneo dello sviluppo software.\\
+Attraverso l'implementazione di Scrum, il nostro team mira a ottenere numerosi benefici positivi che influenzeranno in modo significativo il successo del progetto.
 
+\vspace{0.2cm}
 \textbf{Vantaggi del Modello Agile e Scrum}
 
 L'adozione del modello Agile, e in particolare di Scrum, introduce una serie di lati positivi che contribuiranno al raggiungimento dei nostri obiettivi di progetto. Alcuni dei principali vantaggi che ci aspettiamo di acquisire includono:
