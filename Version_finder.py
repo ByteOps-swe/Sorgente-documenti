@@ -18,8 +18,7 @@ def trimmed_file_name(file_path):
 
 def delete_file(file_path):
     try:
-        new_file_path = trimmed_file_name(file_path)
-        new_file_path = new_file_path.replace('_', ' ') 
+        new_file_path = file_path.replace('_', ' ') 
         file_name = os.path.basename(new_file_path)
         file_dir = os.path.dirname(new_file_path)
         file_dir = "Output/" + file_dir
