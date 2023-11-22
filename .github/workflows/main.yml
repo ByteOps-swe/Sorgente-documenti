@@ -107,6 +107,7 @@ jobs:
               elif [[ $doc_name == "Analisi_dei_requisiti" ]]; then
                 has_changes[2]=1
               fi
+              cd ..
             else 
               echo "Questo è un template"
             fi
