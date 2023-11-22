@@ -1,7 +1,7 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage[default]{raleway}
-\usepackage{pgf-pie, titlesec, comment, tabularx, makecell, float, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, hyperref, eurosym}
+\usepackage{pgf-pie, tikz, titlesec, comment, tabularx, makecell, float, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, hyperref, eurosym}
 %\geometry{a4paper, left=2cm, right=2cm, top=2cm, bottom=2.5cm}
 \renewcommand{\headrulewidth}{0pt}
 
@@ -33,6 +33,12 @@
     pdfpagemode=FullScreen,
 }
 
+\definecolor{responsabile}{RGB}{0,102,204}
+\definecolor{amministratore}{RGB}{0,204,102}
+\definecolor{analista}{RGB}{255,165,0}
+\definecolor{progettista}{RGB}{255,0,0}
+\definecolor{programmatore}{RGB}{128,0,128}
+\definecolor{verificatore}{RGB}{255,192,203}
 
 
 
@@ -178,21 +184,22 @@ La stima dei costi di realizzazione è la stima del budget totale necessario per
     \end{tabular}
     \end{center}
 
-    \begin{figure}[H]
+    \begin{figure}[h]
         \centering
         \begin{tikzpicture}
             \pie[
                 text=legend,
-                color={blue, green, red, orange, yellow, purple},
-                radius=2 % Imposta il raggio per rendere il grafico circolare
+                color={responsabile, amministratore, analista, progettista, programmatore, verificatore},
+                radius=2, % Imposta il raggio per rendere il grafico circolare
+                line width=0pt % Rimuovi i contorni
             ]{11/Responsabile, 8/Amministratore, 12/Analista, 39/Progettista, 11/Programmatore, 19/Verificatore}
         \end{tikzpicture}
         \caption{Distribuzione dei costi per ruolo}
     \end{figure}
     
     Il totale identificato di 13475\euro\ verrà considerato come limite di budget invalicabile,
-nel caso ci fosse il rischio di superamento del budget verranno negoziati al ribasso i requisiti
-di progetto.
+    nel caso ci fosse il rischio di superamento del budget verranno negoziati al ribasso i requisiti
+    di progetto.
 \subsection{Seconda Stesura 16/12/2023}
 Dopo una dettagliata rivalutazione dei requisiti e un'analisi con il committente, la stima dei costi è stata riesaminata. Ciò ha comportato la modifica delle ore dedicate alla progettazione e alla programmazione, portando così al nuovo costo di 12565\euro\ .
 \begin{center}
@@ -226,7 +233,18 @@ Dopo una dettagliata rivalutazione dei requisiti e un'analisi con il committente
     \end{tabular}
     \end{center}
 
-
+    \begin{figure}[h]
+        \centering
+        \begin{tikzpicture}
+            \pie[
+                text=legend,
+                color={responsabile, amministratore, analista, progettista, programmatore, verificatore},
+                radius=2, % Imposta il raggio per rendere il grafico circolare
+                line width=0pt % Rimuovi i contorni
+            ]{12/Responsabile, 8/Amministratore, 12/Analista, 28/Progettista, 20/Programmatore, 10/Verificatore}
+        \end{tikzpicture}
+        \caption{Distribuzione dei costi per ruolo aggiornameto 16/12/2023}
+    \end{figure}
 
 \section{Analisi dei rischi}
 \subsection{Rallentamento delle attività}
@@ -234,6 +252,7 @@ Uno dei principali rischi che potrebbero manifestarsi è l'armonizzazione tra le
 potrebbe causare un rallentamento nell'esecuzione dei compiti assegnati ai membri del gruppo, con conseguente rallentamento del processo di sviluppo. 
 Si prevede che questo rischio si intensificherà durante il periodo di sessione invernale 2023-2024, a causa degli impegni legati agli esami.\\ 
 Per quanto riguarda le possibili soluzioni per attenuare il problema, si propone: 
+
 \begin{itemize}
     \item Una buona organizzazione tra i membri del gruppo per garantire una distribuzione equa del lavoro da svolgere.
     \item La creazione di un ambiente di lavoro asincrono, in modo da permettere lo svolgimento dei compiti assegnati da parte di ciascun membro del gruppo secondo le proprie tempistiche.
@@ -260,24 +279,21 @@ L’inefficacia della comunicazione tra i componenti del gruppo potrebbe condurr
 \section{Pianificazione}
 \subsection{Introduzione}
 In conformità con la filosofia di sviluppo moderna e dinamica, abbiamo scelto di adottare il modello agile, con un focus specifico sul framework Scrum.
-
 Lo Scrum, con le sue pratiche iterative e collaborative, offre una risposta efficace alle sfide e alle mutevoli esigenze del mondo contemporaneo dello sviluppo software.\\
 Attraverso l'implementazione di Scrum, il nostro team mira a ottenere numerosi benefici positivi che influenzeranno in modo significativo il successo del progetto.
-
-\vspace{0.2cm}
+\\
+\\
 \textbf{Vantaggi del Modello Agile e Scrum}
-
-L'adozione del modello Agile, e in particolare di Scrum, introduce una serie di lati positivi che contribuiranno al raggiungimento dei nostri obiettivi di progetto. Alcuni dei principali vantaggi che ci aspettiamo di acquisire includono:
+\\L'adozione del modello Agile, e in particolare di Scrum, introduce una serie di lati positivi che contribuiranno al raggiungimento dei nostri obiettivi di progetto.
+Alcuni dei principali vantaggi che ci aspettiamo di acquisire includono:
 
 \begin{itemize}
-    \item \textbf{Flessibilità e Adattabilità:} Lo Scrum consente una rapida risposta ai cambiamenti nei requisiti del cliente, garantendo una maggiore flessibilità durante tutto il ciclo di sviluppo.
-    
-    \item \textbf{Collaborazione e Comunicazione:} La struttura collaborativa di Scrum promuove una comunicazione aperta e continua tra i membri del team e le parti interessate, migliorando la comprensione reciproca e la condivisione di conoscenze.
+    \item \textbf{Flessibilità e Adattabilità:} Lo Scrum consente una rapida risposta ai cambiamenti nei requisiti del cliente, garantendo una maggiore flessibilità durante tutto il ciclo di sviluppo;
+    \item \textbf{Collaborazione e Comunicazione:} La struttura collaborativa di Scrum promuove una comunicazione aperta e continua tra i membri del team e le parti interessate, migliorando la comprensione reciproca e la condivisione di conoscenze;
     \begin{itemize}
         \item In particolare con l'azienda proponente sono fissati SAL (Stato avanzamento lavori) ogni due settimane.
     \end{itemize}
-    \item \textbf{Consegna Incrementale:} Attraverso la pratica di rilasci incrementali, Scrum consente la distribuzione graduale delle funzionalità, fornendo valore al cliente fin dalle prime fasi del progetto.
-    
+    \item \textbf{Consegna Incrementale:} Attraverso la pratica di rilasci incrementali, Scrum consente la distribuzione graduale delle funzionalità, fornendo valore al cliente fin dalle prime fasi del progetto;
     \item \textbf{Miglioramento Continuo:} Le retrospettive regolari incoraggiano il miglioramento continuo del processo, permettendo al team di identificare e risolvere eventuali problematiche in modo tempestivo.
 \end{itemize}
 
@@ -312,13 +328,13 @@ La scelta di adottare il modello Agile con Scrum riflette la nostra dedizione a 
         \item Analisi dei rischi;
         \item Pianificazione: (Primo periodo 06/11/2023 - 24/11/2023).
     \end{itemize}
-    \item  \textbf{POC} Realizzazione di:
+    \item  \textbf{POC} Realizzazione:
     \begin{itemize}
-        \item La simulazione di almeno un sensore in python;
-        \item La connessione containerizzata docker tra lo script python di simulazione e kafka;
+        \item Simulazione di almeno un sensore in python;
+        \item Connessione containerizzata docker tra lo script python di simulazione e kafka;
         \item Aggiunta di ClickHouse nello stack tecnlogico in connessione containerizzata docker (Opzionale).
     \end{itemize}
-    \item  \textbf{Amministrazione e automatizzazioni:} Realizzazione di:
+    \item  \textbf{Amministrazione e automatizzazioni:} Realizzazione:
     \begin{itemize}
         \item Automatizzazione della compilazione dei file latex sorgenti;
         \item Automatizzazione della rinomina dei file sulla base della versione.
