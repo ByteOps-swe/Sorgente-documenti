@@ -40,7 +40,6 @@ jobs:
           cd Documents
           git config user.name github-actions[bot]
           git config user.email github-actions[bot]@github.com
-
           
           cd ..
           # Check if there are any deleted files
@@ -58,17 +57,19 @@ jobs:
               echo "No deleted files found."
           fi
           docker run -i --rm -v "$(pwd):/work" -w /work -u "$(id -u):$(id -g)" ghcr.io/xu-cheng/texlive-full bash -c '
+          bash --version
           shopt -s globstar
           set -e
           set -m
 
-          for path in ${{ steps.changed-files.outputs.all_changed_files }}; do(
+          declare -a has_changes
+          has_changes=(0 0 0)
+
+          for path in ${{ steps.changed-files.outputs.all_changed_files }}; do
             echo "$path was changed"
-            if [[ "$(basename "$path")" != "Verbale_Esterno.tex" ]] && [[ "$(basename "$path")" != "Verbale_Interno.tex" ]] && [[ $path == *.tex ]] 
+            if [[ "$(basename "$path")" != "Verbale_Esterno.tex" ]] && [[ "$(basename "$path")" != "Verbale_Interno.tex" ]] && [[ $path != */Sezioni/**.tex ]] && [[ $path != */Sottosezioni/**.tex ]] && [[ $path == *.tex ]] 
             then
-              echo "Begin python"
               new_name=$(python Documents/Version_finder.py $path)
-              echo "End python"
 
               cd Documents
 
@@ -79,18 +80,96 @@ jobs:
               name=$(basename "$new_name")
               name_no_ext="${name%.*}"
               new_only_name="Aggiornato $name_no_ext"
+
               if [[ -n "$(git status --porcelain)" ]]; then
                 git commit -m "$new_only_name"
               else
                 echo "No changes to commit"
               fi
+
               cd "$(dirname "$path")"
               latexmk -pdf "$(basename "$new_name")"
+              cd ..
+            elif [[ "$path" == */Sezioni/*.tex || "$path" == */Sottosezioni/*.tex ]]; then
+              father_dir=$(dirname "$path")
+              doc_name=$(basename "$father_dir")
+
+              if [[ $doc_name == "Norme_di_progetto" ]]; then
+                has_changes[0]=1
+                echo ${has_changes[0]}
+              elif [[ $doc_name == "Piano_di_progetto" ]]; then
+                has_changes[1]=1
+              elif [[ $doc_name == "Analisi_dei_requisiti" ]]; then
+                has_changes[2]=1
+              fi
+
               cd ..
             else 
               echo "Questo è un template"
             fi
-          )done
+          done
+
+          # COMPILAZIONE NORME DI PROGETTO
+          if [[ ${has_changes[0]} -eq 1 ]];
+          then
+            cd Documents
+            file_path=$(find "RTB" -type f -name "Norme_di_progetto*.tex")
+            cd ..
+            new_name=$(python Documents/Version_finder.py $file_path)
+            cd Documents
+            
+            git add "${file_path}"
+            git add "${new_name}"
+              
+            path_no_under="${new_name//_/ }"
+            name=$(basename "$new_name")
+            name_no_ext="${name%.*}"
+            cd "$(dirname "$file_path")"
+            latexmk -pdf "$(basename "$new_name")"
+            cd ..
+          fi
+
+          # COMPILAZIONE PIANO DI PROGETTO
+          if [[ ${has_changes[1]} -eq 1 ]];
+          then
+            cd Documents
+            file_path=$(find "RTB" -type f -name "Piano_di_progetto*.tex")
+            cd ..
+            new_name=$(python Documents/Version_finder.py $file_path)
+            cd Documents
+
+            git add "${file_path}"
+            git add "${new_name}"
+
+            path_no_under="${new_name//_/ }"
+            name=$(basename "$new_name")
+            name_no_ext="${name%.*}"
+            cd "$(dirname "$file_path")"
+            latexmk -pdf "$(basename "$new_name")"
+            cd ..
+          fi
+
+          # COMPILAZIONE ANALISI DEI REQUISITI
+          if [[ ${has_changes[2]} -eq 1 ]];
+          then
+            cd Documents
+            file_path=$(find "RTB" -type f -name "Analisi_dei_requisiti*.tex")
+            cd ..
+            new_name=$(python Documents/Version_finder.py $file_path)
+            cd Documents
+
+            git add "${file_path}"
+            git add "${new_name}"
+              
+            path_no_under="${new_name//_/ }"
+            name=$(basename "$new_name")
+            name_no_ext="${name%.*}"
+            cd "$(dirname "$file_path")"
+            latexmk -pdf "$(basename "$new_name")"
+            cd ..
+          fi
+
+          cd ..
           cd Output
 
           git add .
