@@ -274,7 +274,7 @@ L'attore principale sarà unicamente l'autorità locale, il quale avrà accesso 
           \end{itemize}
     \item \textbf{User story associata:}
           \begin{itemize}
-              \item Come un autorità locale
+              \item Come autorità locale
                     Voglio visualizzare grafici aggiornati in tempo reale per ogni tipologia di sensore nella dashboard della città.
           \end{itemize}
 
@@ -304,6 +304,30 @@ L'attore principale sarà unicamente l'autorità locale, il quale avrà accesso 
           \end{itemize}
 \end{itemize}
 
+%______________________________________________________________________%
+%______________________________________________________________________%
+\subsubsection{UC1.3 - Visualizzazione punteggio di salute città}
+\begin{itemize}
+    \item \textbf{Attore principale:} Autorità locale;
+    \item \textbf{Descrizione:} L'autorità locale accede alla dashboard della città e visualizza un widget contenente un punteggio che rappresenta lo stato di salute della città.
+    \item \textbf{Scenario principale:}
+          \begin{enumerate}
+              \item L'utente visualizza un widget contente un punteggio che rappresenta lo stato di salute della città.
+          \end{enumerate}
+    \item \textbf{Precondizioni:}
+          \begin{itemize}
+              \item Almeno un sensore è attivo e ha trasmesso dati;
+              \item L'utente si trova nella dashboard della città. (UC1)
+          \end{itemize}
+    \item \textbf{Postcondizioni:}
+          \begin{itemize}
+              \item      L'utente ha una visione aggiornata di un punteggio, un numero intero, rappresentante lo stato di salute della città.
+          \end{itemize}
+    \item \textbf{User story associata:}
+          \begin{itemize}
+              \item Come autorità locale, desidero avere la capacità di visualizzare un punteggio ottenuto tramite una funzione di aggregazione, il quale fornisca una visione immediata di eventuali dati anomali rilevati dai sensori disseminati nella città.
+          \end{itemize}
+\end{itemize}
 %______________________________________________________________________%
 
 \begin{figure}[H]
@@ -394,6 +418,28 @@ L'attore principale sarà unicamente l'autorità locale, il quale avrà accesso 
 \end{itemize}
 
 %______________________________________________________________________%
+\subsubsection{UC2.3 - Visualizzazione punteggio di salute cella}
+\begin{itemize}
+    \item \textbf{Attore principale:} Autorità locale;
+    \item \textbf{Descrizione:} L'autorità locale accede alla dashboard della città e visualizza un widget contenente un punteggio che rappresenta lo stato di salute della cella.
+    \item \textbf{Scenario principale:}
+          \begin{enumerate}
+              \item L'utente visualizza un widget contente un punteggio che rappresenta lo stato di salute della cella.
+          \end{enumerate}
+    \item \textbf{Precondizioni:}
+          \begin{itemize}
+              \item Almeno un sensore è attivo e ha trasmesso dati;
+              \item L'utente si trova nella dashboard di una cella. (UC2)
+          \end{itemize}
+    \item \textbf{Postcondizioni:}
+          \begin{itemize}
+              \item      L'utente ha una visione aggiornata di un punteggio, un numero intero, rappresentante lo stato di salute della cela.
+          \end{itemize}
+    \item \textbf{User story associata:}
+          \begin{itemize}
+              \item Come autorità locale, desidero avere la capacità di visualizzare un punteggio ottenuto tramite una funzione di aggregazione, il quale fornisca una visione immediata di eventuali dati anomali rilevati dai sensori disseminati nella cella.
+          \end{itemize}
+\end{itemize}
 
 \begin{figure}[H]
     \centering
@@ -593,7 +639,7 @@ L'attore principale sarà unicamente l'autorità locale, il quale avrà accesso 
           \end{itemize}
     \item \textbf{User story associata:}
           \begin{itemize}
-            \item In qualità di utente, desidero avere la possibilità di filtrare la visualizzazione dello storico dei dati in base alle misurazioni del sensore comprese tra due valori specifici. Questo mi consentirà di analizzare in modo più mirato e focalizzato i dati che rientrano in un determinato intervallo, facilitando l'identificazione di pattern o anomalie significative.
+            \item Come autorità locale, desidero avere la possibilità di filtrare la visualizzazione dello storico dei dati in base alle misurazioni del sensore comprese tra due valori specifici. Questo mi consentirà di analizzare in modo più mirato e focalizzato i dati che rientrano in un determinato intervallo, facilitando l'identificazione di pattern o anomalie significative.
           \end{itemize}
 \end{itemize}
 
@@ -626,7 +672,7 @@ L'attore principale sarà unicamente l'autorità locale, il quale avrà accesso 
           \end{itemize}
     \item \textbf{User story associata:}
           \begin{itemize}
-              \item In quanto Autorità Locale, desidero accedere alla piattaforma e visualizzare esclusivamente lo storico dei dati trasmessi da una specifica tipologia di sensori nella città, attraverso la dashboard relativa allo stato di salute della città.
+              \item Come Autorità Locale, desidero accedere alla piattaforma e visualizzare esclusivamente lo storico dei dati trasmessi da una specifica tipologia di sensori nella città, attraverso la dashboard relativa allo stato di salute della città.
           \end{itemize}
 \end{itemize}
 \subsubsection{UC3.2 - Visualizzazione Storico Dati cella per una Specifica Tipologia di Sensore}
@@ -878,7 +924,7 @@ L'attore principale sarà unicamente l'autorità locale, il quale avrà accesso 
           \end{itemize}
     \item \textbf{User story associata:}
           \begin{itemize}
-              \item n quanto autorità locale, desidero poter salvare un dato storico tra i preferiti dalla pagina dedicata alla visualizzazione degli storici, al fine di accedere rapidamente a informazioni importanti.
+              \item Come autorità locale, desidero poter salvare un dato storico tra i preferiti dalla pagina dedicata alla visualizzazione degli storici, al fine di accedere rapidamente a informazioni importanti.
           \end{itemize}
 \end{itemize}
 %______________________________________________________________________%
@@ -998,7 +1044,7 @@ L'attore principale sarà unicamente l'autorità locale, il quale avrà accesso 
           \end{itemize}
     \item \textbf{User story associata:}
           \begin{itemize}
-              \item In qualità di Autorità Locale, desidero visualizzare i dati dei sensori precedentemente salvati come preferiti sulla piattaforma, così da poter accedere rapidamente alle informazioni rilevanti.
+              \item Come di Autorità Locale, desidero visualizzare i dati dei sensori precedentemente salvati come preferiti sulla piattaforma, così da poter accedere rapidamente alle informazioni rilevanti.
           \end{itemize}
 \end{itemize}
 
@@ -1067,7 +1113,7 @@ L'attore principale sarà unicamente l'autorità locale, il quale avrà accesso 
     \hline
     \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio        & La mappa deve mostrare i sensori posizionati nella città, e ognuno di essi deve essere etichettato in modo da consentire il riconoscimento della tipologia                                                                         & Capitolato      & UC1.2               \\
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio        & La dashboard deve fornire un punteggio di salute relativo alla città basato sui dati aggregati provenienti dai sensori.                                                                                                            & Verbale interno & UC1                    \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio        & La dashboard deve fornire un punteggio di salute relativo alla città basato sui dati aggregati provenienti dai sensori.                                                                                                            & Verbale interno & UC1.3                    \\
     \hline
     %----------------------------------------UC1--------------------------------
     \hline
@@ -1087,7 +1133,7 @@ L'attore principale sarà unicamente l'autorità locale, il quale avrà accesso 
     \hline
     \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio        & La mappa deve mostrare in modo chiaro la posizione di ciascun sensore nella cella.                                                                                                                                                 & Capitolato      & UC2.2               \\
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio        & La dashboard deve presentare un punteggio di salute relativo alla cella, basato sull'analisi dei dati provenienti dai sensori.                                                                                                     & Verbale interno      & UC2               \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio        & La dashboard deve presentare un punteggio di salute relativo alla cella, basato sull'analisi dei dati provenienti dai sensori.                                                                                                     & Verbale interno      & UC2.3               \\
     \hline
     \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio        & L'utente principale (Autorità locale) deve poter selezionare l'opzione per visualizzare i dati storici dei sensori sulla piattaforma.                                                                                              & Capitolato      & UC3               \\
     \hline
