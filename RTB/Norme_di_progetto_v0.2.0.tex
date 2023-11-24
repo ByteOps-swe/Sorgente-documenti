@@ -155,19 +155,20 @@ Il \textbf{\textit{Glossario}} verrà compilato attraverso un documento condivis
 \end{itemize}
 
 \section{Processi primari}
+
 \subsection{Sviluppo}
+
 \subsubsection{Introduzione}
-Lo standard ISO/IEC 12207:1995 definisce le linee guida per il processo di sviluppo nel ciclo di vita del software. In base a questo standard, l'attività di sviluppo software è suddivisa in diverse fasi tra cui: analisi, progettazione, codifica, integrazione, testing,
-installazione e accettazione che rispecchino i requisiti definiti.
+L'ISO/IEC 12207:1995 stabilisce le linee guida per il processo di sviluppo, il quale include attività cruciali come analisi, progettazione, codifica, integrazione, testing, installazione e accettazione. È fondamentale svolgere queste attività in stretta aderenza alle linee guida e ai requisiti definiti nel contratto con il cliente, garantendo così un'implementazione accurata e conforme alle specifiche richieste.
+
 \subsubsection{Analisi dei requisiti}
-L'analisi dei requisiti è una fase critica nello sviluppo del software, poiché stabilisce le basi per il design, l'implementazione e il test del sistema. Secondo lo standard ISO/IEC 12207:1995, lo scopo dell'analisi dei requisiti è di comprendere e definire in modo esaustivo le esigenze del cliente e del sistema.
+L'analisi dei requisiti è una attività critica nello sviluppo del software, poiché stabilisce le basi per il design, l'implementazione e i test del sistema. Secondo lo standard ISO/IEC 12207:1995, lo scopo dell'analisi dei requisiti è di comprendere e definire in modo esaustivo le esigenze del cliente e del sistema.
 \paragraph{Obbiettivi:}
 \begin{itemize}
-    \item Stabilire, in collaborazione con il proponente, gli obiettivi del prodotto da sviluppare in modo da rispecchiarne le aspettative:  identificare, documentare e validare i requisiti funzionali e non funzional;
+    \item Definire insieme al proponente gli obiettivi del prodotto per rispecchiarne le aspettative, comprendendo l'identificazione, documentazione e validazione dei requisiti funzionali e non funzionali;
     \item Facilitare la comprensione comune tra gli stakeholder e il team di sviluppo;
     \item Permettere una stima sulle tempistiche e sui costi;
-    \item Fornire ai progettisti requisiti chiari e di
-          facile comprensione;
+    \item Fornire ai progettisti requisiti chiari e di facile comprensione;
     \item Favorire l'attività di verifica e test fornendo dei riferimenti pratici.
 \end{itemize}
 
@@ -180,24 +181,24 @@ medesimo nome che deve contenere:
           \begin{itemize}
               \item Obbiettivi del prodotto;
               \item Funzionalità del prodotto;
-              \item caratteristiche utente;
+              \item Caratteristiche utente;
               \item Tecnologie.
           \end{itemize}
-    \item  Casi d'uso: tutte le possibili interazioni che gli attori possono compiere utilizzando il prodotto;
+    \item  Casi d'uso: Tutte le possibili interazioni che gli attori possono compiere utilizzando il prodotto
           \begin{itemize}
-              \item Attori: utenti del prodotto;
-              \item Casi d'uso.
+              \item Attori: Utenti del prodotto; \todo{tutto ciò che è esterno al sistema, che non può essere modificato}
+              \item Elenco dei casi d'uso. 
           \end{itemize}
-    \item Requisiti: le caratteristiche da soddisfare.
+    \item Requisiti:
           \begin{itemize}
-              \item Requisiti funzionali
-              \item Requisiti qualitativi
-              \item Requisiti di vincolo
+              \item Requisiti funzionali;
+              \item Requisiti qualitativi;
+              \item Requisiti di vincolo.
           \end{itemize}
 \end{itemize}
 \paragraph{Casi d'uso}
-Forniscono una descrizione dettagliata delle funzionalità del sistema dal punto di vista degli utenti, identificando come il sistema risponde a determinate azioni o scenari. In breve, i casi d'uso sono strumenti utilizzati nell'analisi dei requisiti per catturare e illustrare in modo chiaro e comprensibile come gli utenti interagiranno con il software e quali saranno i risultati di tali interazioni.
-\\ Ogni caso d'uso e costituito da:
+Forniscono una descrizione dettagliata delle funzionalità del sistema dal punto di vista degli utenti, identificando come il sistema risponde a determinate azioni o scenari. In breve, i casi d'uso sono strumenti utilizzati nell'analisi dei requisiti per catturare e illustrare in modo chiaro e comprensibile come gli utenti interagiranno con il software e quali saranno i risultati di tali interazioni. \\
+Ogni caso d'uso e costituito da:
 \begin{enumerate}
     \item \textbf{Identificativo} nel formato:\\
           \begin{center}
@@ -212,22 +213,25 @@ Forniscono una descrizione dettagliata delle funzionalità del sistema dal punto
           \end{itemize}
     \item \textbf{Attore principale:} L'utente che svologe il caso d'uso;
     \item \textbf{Descrizione:} Testo narrativo descrittivo per facilitare la comprensione;
-    \item \textbf{Scenario principale:}Sequenza di eventi che si verifica quando un attore interagisce con il sistema per raggiungere l'obbiettivo del caso d'uso (Postcondizioni);
+    \item \textbf{Scenario principale:}Sequenza di eventi che si verifica quando un attore interagisce con il sistema per raggiungere l'obbiettivo del caso d'uso (Postcondizioni); \todo{ciò che avviene tra le precondizioni e postcondizioni}
     \item \textbf{Estensioni:} Scenari alternativi (se presenti) che portano il flusso del caso d'uso a non giungere alle Postcondizioni (Opzionale);
     \item \textbf{Precondizioni:} Condizioni del sistema poichè si possa verificare lo scenario principale;
     \item \textbf{Postcondizioni:} Condizioni del sistema una volta svolto lo scenario principale;
     \item \textbf{User story associata:} Breve descrizione di una funzionalità del software, scritta dal punto di vista dell'utente, che fornisce contesto, obiettivi e valore.
           \\Nella forma: "Come [utente] desidero poter [funzionalita] per [valore aggiunto].
 \end{enumerate}
+
+\todo{tutti i campi dati dei casi d'uso sono da raffinare}
+
 \paragraph{Requisiti}
 I requisiti di un prodotto software sono specifiche dettagliate e documentate che delineano le funzionalità, le prestazioni, i vincoli e altri aspetti critici che il software deve soddisfare. Questi requisiti fungono da guida per lo sviluppo, il testing e la valutazione del prodotto, assicurando che risponda alle esigenze degli utenti e agli obiettivi del progetto.
 Includono
 \begin{itemize}
-    \item \textbf{Requisiti funzionali:}Descrivono cosa il software deve fare
-    \item \textbf{Requisiti non funzionali:} Definiscono criteri di prestazione, sicurezza, usabilità e altro ancora.
+    \item \textbf{Requisiti funzionali:} Descrivono le funzionalità che il software deve avere.
+    \item \textbf{Requisiti non funzionali:} Definiscono principalmente criteri di prestazione, qualità, sicurezza e vincoli del sistema, ovvero caratteristiche che non riguardano direttamente le funzionalità specifiche del software.
 \end{itemize}
-La corretta definizione e gestione dei requisiti sono cruciali per il successo del ciclo di vita del software.\\
-Ogni requisiti è costituito da:
+Una precisa definizione dei requisiti è fondamentale: devono risultare inequivocabili e rispondere pienamente alle attese del cliente o del proponente.\\
+Ogni requisito è costituito da:
 \begin{enumerate}
     \item \textbf{Identificativo} nel formato:\\
           \begin{center}
@@ -238,64 +242,69 @@ Ogni requisiti è costituito da:
               \item \textbf{Abbreviazione tipologia requisito:}
                     \begin{itemize}
                         \item \textbf{RF:} Requisito funzionale;
+                        \item \textbf{RQ:} Requisito qualitativo;
+                        \item \textbf{RV:} Requisito di vincolo;
                     \end{itemize}
               \item \textbf{Codice:} Identificativo progressivo all'interno della tipologia di requisito.
           \end{itemize}
     \item \textbf{Importanza:}
           \begin{itemize}
-              \item \textbf{Obbligatorio:} Irrinunciabile per qualcuno degli stakeholder;
-              \item \textbf{Desiderabile:}Non strettamente necessario ma a valore aggiunto;
-              \item \textbf{Opzionale:} Relativamente utile o contrattabile più avanti nel tempo.
+              \item \textbf{Obbligatorio:} irrinunciabile per qualcuno degli stakeholder;
+              \item \textbf{Desiderabile:} non strettamente necessario ma a valore aggiunto;
+              \item \textbf{Opzionale:} relativamente utile o contrattabile più avanti nel tempo.
           \end{itemize}
     \item \textbf{Descrizione:} Narrazione chiara e dettagliata che fornisce una spiegazione completa del comportamento o della caratteristica che il software deve possedere;
     \item \textbf{Fonte:} Fonte del requisito (ex. capitolato, Verbale interno/esterno);
     \item \textbf{Casi d'uso:} Elenco casi d'uso associati.
 \end{enumerate}
 \paragraph{Metriche}
-\paragraph{Strumenti}
+Le metriche nell'analisi dei requisiti sono strumenti utilizzati per valutare, misurare e gestire diversi aspetti dei requisiti di un sistema o di un progetto. Queste metriche aiutano a garantire che i requisiti siano completi, corretti, coerenti e comprensibili. Alcune metriche comuni utilizzate nell'analisi dei requisiti includono:
 \begin{itemize}
-    \item \textbf{StarUML}
+    \item \textbf{Completezza dei requisiti:} Misura la quantità di requisiti identificati rispetto a quelli effettivamente necessari per il sistema. Una metrica comune è la percentuale di requisiti identificati rispetto a quelli totali;
+    \item \textbf{Coerenza:} Valuta la coerenza tra i requisiti. Ad esempio, si potrebbe misurare il numero di conflitti o di requisiti duplicati;
+    \item \textbf{Tracciabilità:} Indica la capacità di tracciare i requisiti attraverso le fasi del progetto. Si possono usare metriche come il numero di requisiti tracciati rispetto al totale;
+    \item \textbf{Comprensibilità:} Misura la chiarezza e la comprensibilità dei requisiti. Si potrebbe valutare tramite sondaggi o questionari la facilità con cui gli stakeholder comprendono i requisiti;
+    \item \textbf{Stabilità:} Misura quanto i requisiti cambiano nel tempo. Si possono usare metriche come il tasso di cambiamento dei requisiti per periodo;
+    \item \textbf{Priorità:} Valuta l'importanza relativa dei requisiti. Si possono assegnare punteggi di priorità ai requisiti e valutare la distribuzione di questi punteggi;
+    \item \textbf{Testabilità:} Misura la facilità con cui i requisiti possono essere verificati tramite test. Si potrebbe valutare la quantità di requisiti che possono essere testati e quelli che richiedono ulteriori specifiche per la verifica;
+    \item \textbf{Misurazione del rischio:} Valuta il livello di rischio associato ai requisiti. Si potrebbero utilizzare valutazioni qualitative o quantitative per attribuire livelli di rischio a ciascun requisito.
 \end{itemize}
+Ognuna di queste metriche è necessaria ad assicurare che i requisiti siano gestiti in modo efficace e che siano allineati alle esigenze degli stakeholder.
+
+\paragraph{Strumenti}
 
 \subsubsection{Codifica}
 \paragraph{Scopo}
-Il compito della Codifica, compiuto dal programmatore, mira a concretizzare il software richiesto dal proponente.
-Quest'operazione trasforma le concezioni dei progettisti in codice, generando istruzioni eseguibili dai calcolatori.
-I programmatori sono tenuti a osservare tali direttive nel corso delle fasi di programmazione e implementazione.
+L'attività di codifica è affidata al programmatore e rappresenta il momento cruciale in cui le funzionalità richieste dal proponente prendono forma. \\
+Durante questa fase, le idee e i concetti delineati dai progettisti vengono tradotti in codice, creando istruzioni e procedure che i calcolatori possono eseguire. \\
+I programmatori devono rispettare scrupolosamente le linee guida e le norme stabilite per garantire che il codice sia in linea con le specifiche stabilite e che traduca in modo accurato le concezioni iniziali dei progettisti.
 \paragraph{Aspettative}
-La codifica è finalizzata alla creazione di un prodotto software in linea con le richieste del committente e conforme agli accordi stipulati. Il rispetto accurato delle norme stabilite assicura la produzione di un codice leggibile, uniforme e di alta qualità. Aderire alle norme e alle convenzioni è essenziale, poiché facilita le operazioni di estensione, manutenzione, verifica e validazione, contribuendo così al continuo miglioramento della qualità del prodotto.
+La codifica è finalizzata alla creazione di un prodotto software in linea con le richieste del committente e conforme agli accordi stipulati.\\
+Il rigoroso rispetto delle norme garantisce la creazione di codice di alta qualità, facilitando la manutenzione, l'estensione e la verifica del software, contribuendo costantemente al miglioramento della sua qualità complessiva.
 \paragraph{Norme di codifica}
-Il linguaggio adottato per svolgimento del progetto è python:  linguaggio di programmazione interpretato, ad alto livello e general-purpose.
-Dal punto di vista tecnico, Python è dinamicamente tipizzato e dispone di un sistema di gestione della memoria automatico (garbage collection).
-Per quanto riguarda il supporto ai thread, Python dispone di un modulo chiamato threading che consente la creazione e la gestione di thread.
-Tuttavia, per il calcolo intensivo e la parallelizzazione su più processori, spesso si preferisce utilizzare il modulo multiprocessing che permette l'esecuzione di processi separati, superando le limitazioni del Global Interpreter Lock (GIL), che permette a un solo thread di eseguire istruzioni Python alla volta.
-
-\vspace{0.2cm}
-
 Le seguenti norme sono state formalizzate prendendo spunto dal libro "Clean Code" di Robert C. Martin.
 
 \paragraph*{Nomi significativi}
 Usare nomi che riflettano il significato e lo scopo delle variabili, funzioni e classi. Evitare abbreviazioni ambigue.
-\paragraph*{Indentazioni e formattazione Consistente}
-Per assicurare una strutturazione corretta del codice, è imperativo che i blocchi annidati adottino un'indentazione appropriata, con l'uso di un TAB per ciascun livello di annidamento.
-Adottare un'omogeneità nella formattazione del codice al fine di agevolarne la comprensione e la gestione.
+\paragraph*{Indentazioni e formattazione consistente}
+L'utilizzo di un tab per ciascun livello di annidamento è fondamentale per assicurare una struttura coerente del codice, migliorandone la comprensione e agevolandone la gestione.
 \paragraph*{Lunghezza dei metodi}
 La lunghezza ottimale dei metodi può variare a seconda del contesto e delle best practices di programmazione. Tuttavia, in generale, molti esperti consigliano che i metodi siano brevi e focalizzati su una singola responsabilità.
-Un principio comune è quello espresso da Robert C. Martin nel suo libro "Clean Code", che suggerisce che i metodi dovrebbero essere idealmente lunghi quanto basta per svolgere una singola operazione e non più lungo di quanto si possa visualizzare senza dover scorrere la pagina.
+Un principio comune è quello espresso da Robert C. Martin nel suo libro "Clean Code", che suggerisce che i metodi dovrebbero essere idealmente lunghi quanto basta per svolgere una singola operazione e non più lungo di quanto si possa visualizzare senza dover scorrere la pagina. \\
 Questo favorisce:
 \begin{itemize}
     \item \textbf{Chiarezza};
     \item \textbf{Manutenibilità};
     \item \textbf{Comprensibilità};
-    \item \textbf{Testabilità:}Metodi più brevi sono più facili da testare in isolamento, il che favorisce l'implementazione di test unitari efficaci;
+    \item \textbf{Testabilità:} Metodi più brevi sono più facili da testare in isolamento, il che favorisce l'implementazione di test di unità efficaci;
     \item \textbf{Conformità ai principi SOLID:} La brevità dei metodi è spesso correlata al principio Single Responsibility Principle (SRP) dei principi SOLID, il che favorisce la costruzione di codice più modulare e coeso.
 \end{itemize} 
 
 \paragraph*{Lunghezza righe di codice}
 Mantenere le righe di codice entro i 80-120 caratteri permette una migliore leggibilità del codice su schermi di diverse dimensioni e facilita la visualizzazione di più file affiancati.
 Inoltre, limitare la lunghezza delle righe può incoraggiare la scrittura di codice più chiaro e modulare.
-\paragraph{Evita commenti inutili}
-L'obiettivo è scrivere il codice in modo chiaro e autoesplicativo, riducendo la dipendenza da commenti esplicativi. 
+\paragraph{Commenti}
+Evitare commenti superflui e non necessari: l'obiettivo è scrivere il codice in modo chiaro e autoesplicativo, riducendo la dipendenza da commenti esplicativi. 
 \subsubsection{Configurazione dell'ambiente di esecuzione}
 \paragraph{Docker}
 
@@ -304,62 +313,62 @@ Le regole e le best practice di codifica per i file Docker sono fondamentali per
 \begin{itemize}
     \item \textbf{Chiarezza e Coerenza:}
     \begin{itemize}
-        \item Usa nomi descrittivi per le immagini e i container.
-        \item Mantieni una struttura coerente nei tuoi file Docker.
+        \item Utilizzare nomi descrittivi per le immagini e i container.
+        \item Mantenere una struttura coerente e consistente per assicurare un'organizzazione uniforme all'interno dei file Docker.
     \end{itemize}
 
 \item \textbf{Versionamento:}
     \begin{itemize}
-        \item Specifica sempre la versione dell'immagine di base (base image) per garantire la riproducibilità.
-        \item Evita di usare tag "latest" per immagini di produzione.
+        \item Specificare sempre la versione dell'immagine di base (base image) per garantire la riproducibilità.
+        \item Evitare di utilizzare tag "latest" per immagini di produzione.
     \end{itemize}
 
-\item \textbf{Minimizzazione degli Strati (Layering):}
+\item \textbf{Minimizzazione degli strati (Layering):}
     \begin{itemize}
-        \item Riduci il numero di istruzioni nell'esecuzione del Dockerfile per minimizzare gli strati dell'immagine.
-        \item Raggruppa le istruzioni correlate per sfruttare la cache Docker.
+        \item Ridurre il numero di istruzioni nell'esecuzione del Dockerfile per minimizzare gli strati dell'immagine.
+        \item Raggruppare le istruzioni correlate per sfruttare la cache Docker.
     \end{itemize}
 
 \item \textbf{Sicurezza:}
     \begin{itemize}
-        \item Utilizza immagini ufficiali o verificate.
-        \item Evita di eseguire processi Docker con privilegi elevati quando possibile.
-        \item Usa ARG per parametrizzare informazioni sensibili.
+        \item Utilizzare immagini ufficiali o verificate.
+        \item Evitare di eseguire processi Docker con privilegi elevati quando possibile.
+        \item Usare ARG per parametrizzare informazioni sensibili.
     \end{itemize}
 
-\item \textbf{Ottimizzazione delle Risorse:}
+\item \textbf{Ottimizzazione delle risorse:}
     \begin{itemize}
-        \item Limita l'uso di risorse all'interno dei container (CPU, memoria, etc.).
-        \item Usa immagini leggere e ottimizzate per la produzione.
+        \item Limitare l'uso di risorse all'interno dei container (CPU, memoria, etc.).
+        \item Usare immagini leggere e ottimizzate per la produzione.
     \end{itemize}
 
-\item \textbf{Gestione delle Variabili d'Ambiente:}
+\item \textbf{Gestione delle variabili d'ambiente:}
     \begin{itemize}
-        \item Usa variabili d'ambiente per configurazioni dinamiche.
-        \item Fornisci valori predefiniti sensati per le variabili d'ambiente.
+        \item Usare variabili d'ambiente per configurazioni dinamiche.
+        \item Fornire valori predefiniti opportuni per le variabili d'ambiente.
     \end{itemize}
 
-\item \textbf{Logging e Monitoraggio:}
+\item \textbf{Logging e monitoraggio:}
     \begin{itemize}
-        \item Configura i container per registrare i log in modo efficace.
-        \item Integra strumenti di monitoraggio, se necessario.
+        \item Configurare i container per registrare i log in modo efficace.
+        \item Integrare strumenti di monitoraggio, se necessario.
     \end{itemize}
 
-\item \textbf{Pulizia e Riduzione delle Dimensioni:}
+\item \textbf{Pulizia e riduzione delle dimensioni:}
     \begin{itemize}
-        \item Pulisci i pacchetti temporanei e le risorse non necessarie dopo l'installazione delle dipendenze.
-        \item Riduci le dimensioni delle immagini utilizzando multi-stage builds.
+        \item Pulire i pacchetti temporanei e le risorse non necessarie dopo l'installazione delle dipendenze.
+        \item Ridurre le dimensioni delle immagini utilizzando multi-stage builds.
     \end{itemize}
 
 \item \textbf{Documentazione:}
     \begin{itemize}
-        \item Aggiungi commenti nel Dockerfile per spiegare le decisioni di progettazione.
-        \item Fornisci una documentazione chiara su come utilizzare e configurare il container.
+        \item Aggiungere commenti nel Dockerfile per spiegare le decisioni di progettazione.
+        \item Fornire una documentazione chiara su come utilizzare e configurare il container.
     \end{itemize}
 
 \item \textbf{Testing:}
     \begin{itemize}
-        \item Implementa test automatizzati per il tuo Dockerfile e i tuoi container, se possibile.
+        \item Implementare test automatizzati per il Dockerfile e i container, se possibile.
     \end{itemize}
 \end{itemize}
 \paragraph{Strumenti}
@@ -374,9 +383,9 @@ L'attività di progettazione consiste nel processo di definizione e documentazio
 \begin{itemize}
     \item Requisiti;
     \item Specifiche tecniche;
-    \item Struttura del prodotto software.
+    \item Architettura del prodotto software.
 \end{itemize}
-al fine di ottenere un prodotto adeguato alle necessità degli stakeholder.
+al fine di ottenere un prodotto adeguato alle necessità degli stakeholder. \\ \todo{da raffinare! vedi dispense T6}
 Inoltre la progettazione ha lo scopo di:
 \begin{itemize}
     \item Assicurare la qualità del prodotto finale;
@@ -388,79 +397,104 @@ Inoltre la progettazione ha lo scopo di:
 La progettazione costituisce un procedimento inverso all'Analisi dei Requisiti; essa si configura come un articolato processo volto a gestire la complessità del prodotto mediante l'organizzazione e la distribuzione delle responsabilità di realizzazione. Si avvale di un approccio sistematico per affrontare e superare le sfide intrinseche, ricorrendo a pattern e best practice al fine di individuare soluzioni congrue alle esigenze delineate nei requisiti.
 
 \paragraph{Diagrammi dei casi d'uso}
-I diagrammi dei casi d'uso sono uno strumento di modellazione utilizzato nell'ingegneria del software per rappresentare le interazioni tra un sistema e gli attori (utenti o altri sistemi) che interagiscono con esso. Ecco una spiegazione generale dei principali elementi di un diagramma dei casi d'uso:
+I diagrammi dei casi d'uso sono strumenti grafici che permettono di visualizzare in modo chiaro e intuitivo le funzionalità offerte dal sistema dal punto di vista dell'utente. Inoltre, consentono di identificare e comprendere rapidamente le relazioni e le interazioni tra i vari casi d'uso, offrendo una visione d'insieme delle dinamiche del sistema.\\
+I diagrammi dei casi d'uso si concentrano sulla descrizione delle funzionalità del sistema dal punto di vista degli utenti senza approfondire dettagli implementativi. La loro finalità principale è evidenziare le interazioni esterne al sistema, offrendo una visione focalizzata sulle funzionalità e sull'interazione dell'utente con il sistema stesso.
+Un diagramma dei casi d'uso fornisce una panoramica visuale delle interazioni chiave tra gli attori e il sistema, facilitando la comprensione dei requisiti funzionali del sistema e la comunicazione tra gli stakeholder del progetto.
+Di seguito sono elencati i principali componenti di un diagramma dei casi d'uso:
 
-\begin{enumerate}
-  \item \textbf{Attori:}
-    Gli attori sono le entità esterne al sistema che interagiscono con esso. Possono essere utenti umani, altri sistemi software o componenti esterne. Gli attori sono rappresentati come "stickman" all'esterno del rettangolo del sistema.
+\begin{itemize}
+    \item \textbf{Attori:}
+    Gli attori sono le entità esterne al sistema che interagiscono con esso e possono essere utenti umani, altri sistemi software o componenti esterne. \\
+    Gli attori sono rappresentati come "stickman" all'esterno del rettangolo che delinea il sistema.
     \begin{minipage}[t]{\linewidth}
         \centering
         \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/Attore.PNG}
         \captionof{figure}{Rappresentazione Attore}
     \end{minipage}
 
-    \todo{Non capisco perché l'immagine diventa così grande e sgranata, forse ho sbagliato package}
-
-  \item \textbf{Casi d'Uso:}
-    I casi d'uso rappresentano le diverse interazioni che un attore può avere con il sistema. Ogni caso d'uso è rappresentato da un ovale all'interno del rettangolo del sistema e contiene l'identificativo e il titolo esplicativo del tipo di interazione che si verifica.
+    \item \textbf{Casi d'Uso:}
+    I casi d'uso identificano le diverse funzionalità offerte dal sistema con cui l'attore può interagire. \\
+    Ogni caso d'uso viene rappresentato tramite una forma ovale contenente un ID ed un titolo esplicativo.
     \begin{minipage}[t]{\linewidth}
         \centering
         \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/UC.PNG}
         \captionof{figure}{Rappresentazione caso d'uso}
     \end{minipage}
 
-  \item \textbf{Relazioni tra Attori e Casi d'Uso:}
-    Le linee di associazione collegano gli attori ai casi d'uso corrispondenti, indicando quali attori sono coinvolti in una particolare interazione. Ad esempio, una linea collega un attore a un caso d'uso se quell'attore è coinvolto in quell'interazione.
-
+    \item \textbf{Sottocasi d'uso:}
+    Un sottocaso d'uso rappresenta una versione più dettagliata di un caso d'uso più generico, offrendo un livello di dettaglio più approfondito sulle funzionalità o sui particolari scenari di utilizzo rispetto al caso d'uso principale.
     \begin{minipage}[t]{\linewidth}
         \centering
-        \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/Associazione.PNG}
-        \captionof{figure}{Rappresentazione associazione}
+        \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/SottocasoD'Uso.PNG}
+        \captionof{figure}{Rappresentazione sottocaso d'uso}
     \end{minipage}
 
-    \todo{metto il riquadro del sistema come nelle figure sotto o lascio stare come nelle figure sopra?}
-
-  \item \textbf{Estensioni e Inclusioni:}
-  \begin{enumerate}
-    \item \textbf{Inclusione:}
-      La relazione di inclusione indica che un caso d'uso (detto "includente") include il comportamento di un altro caso d'uso (detto "incluso"). In pratica, quando un attore avvia il caso d'uso includente, il caso d'uso incluso viene eseguito come parte integrante del primo. Questo è utile per evitare la duplicazione del codice o delle azioni in diversi casi d'uso. La relazione di inclusione è spesso rappresentata da una freccia con la punta aperta.
-  
-      Esempio: Supponiamo che ci sia un caso d'uso generico chiamato "Autenticazione". Questo caso d'uso può includere il caso d'uso più specifico "Gestione Password". Quando un utente si autentica, il sistema eseguirà anche la gestione della password come parte del processo di autenticazione.
-      \begin{minipage}[t]{\linewidth}
+    \item \textbf{Sistema:}
+    Il sistema viene rappresentato da un rettangolo e viene identificato con un titolo. All'interno del sistema saranno collocati i casi d'uso, mentre al suo esterno gli attori.
+    \begin{minipage}[t]{\linewidth}
         \centering
-        \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/Inclusione.PNG}
-        \captionof{figure}{Rappresentazione inclusione}
-      \end{minipage}
+        \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/Sistema.PNG}
+        \captionof{figure}{Rappresentazione sistema}
+    \end{minipage}
 
-    \item \textbf{Estensione:}
-      La relazione di estensione indica che un caso d'uso (detto "estendente") può estendere il comportamento di un altro caso d'uso (detto "esteso") in determinate circostanze. In altre parole, l'esecuzione del caso d'uso estendente può essere condizionalmente estesa o arricchita dal caso d'uso esteso. La relazione di estensione è spesso rappresentata da una freccia con la punta chiusa.
-  
-      Esempio: Considera un caso d'uso "Gestione Ordini". Questo caso d'uso potrebbe estendere il caso d'uso "Verifica Disponibilità" se durante la gestione degli ordini si verifica la necessità di verificare la disponibilità di un determinato prodotto. In questo modo, l'estensione permette di gestire situazioni specifiche senza ingombrare il flusso principale del caso d'uso base.
-      \begin{minipage}[t]{\linewidth}
-        \centering
-        \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/Estensione.PNG}
-        \captionof{figure}{Rappresentazione estensione}
-      \end{minipage}
-      
-    \end{enumerate}
+    \item \textbf{Relazioni tra Attori e Casi d'Uso:}
+    \begin{itemize}
+        \item \textbf{Associazione:}
+        Le linee di associazione collegano gli attori ai casi d'uso corrispondenti, indicando quali attori sono coinvolti in una particolare interazione. Più precisamente, una linea di associazione collega un attore a un caso d'uso quando quell'attore è coinvolto nell'interazione descritta dal caso d'uso stesso. Questo legame rappresenta visivamente il ruolo dell'attore nell'utilizzo o nell'avvio di una funzione specifica offerta dal sistema.
+        \begin{minipage}[t]{\linewidth}
+            \centering
+            \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/Associazione.PNG}
+            \captionof{figure}{Rappresentazione associazione}
+        \end{minipage}
+    \end{itemize}
 
-  \item \textbf{Generalizzazione casi d'uso:} La generalizzazione nei diagrammi dei casi d'uso rappresenta una relazione di ereditarietà tra casi d'uso, indicando che un caso d'uso più specifico eredita il comportamento da un caso d'uso più generico. Questa relazione è simboleggiata da una linea con una freccia vuota che punta dal caso d'uso più specifico al caso d'uso più generico.
-  \begin{minipage}[t]{\linewidth}
-    \centering
-    \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/GeneralizzazioneUC.PNG}
-    \captionof{figure}{Rappresentazione generalizzazione}
-  \end{minipage}
+    \item \textbf{Relazioni tra attori:}
+    \begin{itemize}
+        \item \textbf{Generalizzazione tra attori:}
+        La generalizzazione tra attori rappresenta una relazione di ereditarietà tra attori, dove un attore specializzato (figlio) eredita comportamenti e caratteristiche da un attore base (genitore). Questo aiuta a organizzare gerarchicamente gli attori coinvolti nell'interazione con il sistema nei diagrammi dei casi d'uso.
+        \begin{minipage}[t]{\linewidth}
+            \centering
+            \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/GeneralizzazioneAttori.PNG}
+            \captionof{figure}{Rappresentazione generalizzazione tra attori}
+        \end{minipage}
+    \end{itemize}
+    
+    \item \textbf{Relazioni tra casi d'uso:}
+    \begin{itemize}
+        \item \textbf{Inclusione:}
+        La relazione di inclusione indica che un caso d'uso (detto "includente") include il comportamento di un altro caso d'uso (detto "incluso"). In pratica, quando un attore avvia il caso d'uso includente, il caso d'uso incluso viene eseguito come parte integrante del primo. Questo è utile per evitare la duplicazione del codice o delle azioni in diversi casi d'uso. La relazione di inclusione è spesso rappresentata da una freccia con la punta aperta.
+        Esempio: Supponiamo che ci sia un caso d'uso generico chiamato "Autenticazione". Questo caso d'uso può includere il caso d'uso più specifico "Gestione Password". Quando un utente si autentica, il sistema eseguirà anche la gestione della password come parte del processo di autenticazione.
+        \begin{minipage}[t]{\linewidth}
+            \centering
+            \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/Inclusione.PNG}
+            \captionof{figure}{Rappresentazione inclusione}
+        \end{minipage}
 
-  \item \textbf{Sistema:}
-    Il rettangolo esterno rappresenta il sistema stesso. All'interno di questo rettangolo sono posizionati attori e casi d'uso.
-\end{enumerate}
+        \item \textbf{Estensione:}
+        La relazione di estensione indica che un caso d'uso (detto "estendente") può estendere il comportamento di un altro caso d'uso (detto "esteso") in determinate circostanze. In altre parole, l'esecuzione del caso d'uso estendente può essere condizionalmente estesa o arricchita dal caso d'uso esteso. La relazione di estensione è spesso rappresentata da una freccia con la punta chiusa.
+        Esempio: Considera un caso d'uso "Gestione Ordini". Questo caso d'uso potrebbe estendere il caso d'uso "Verifica Disponibilità" se durante la gestione degli ordini si verifica la necessità di verificare la disponibilità di un determinato prodotto. In questo modo, l'estensione permette di gestire situazioni specifiche senza ingombrare il flusso principale del caso d'uso base.
+        \begin{minipage}[t]{\linewidth}
+            \centering
+            \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/Estensione.PNG}
+            \captionof{figure}{Rappresentazione estensione}
+        \end{minipage}
 
-\todo{Mancano sottocasi d'uso e generalizzazione tra attori, non so se è voluto}
+        \item \textbf{Generalizzazione casi d'uso:}
+        La generalizzazione nei diagrammi dei casi d'uso rappresenta una relazione di ereditarietà tra casi d'uso, indicando che un caso d'uso più specifico eredita il comportamento da un caso d'uso più generico. Questa relazione è simboleggiata da una linea con una freccia vuota che punta dal caso d'uso più specifico al caso d'uso più generico.
+        \begin{minipage}[t]{\linewidth}
+            \centering
+            \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/GeneralizzazioneUC.PNG}
+            \captionof{figure}{Rappresentazione generalizzazione}
+        \end{minipage}
+    \end{itemize}
 
-Un diagramma dei casi d'uso fornisce una panoramica visuale delle interazioni chiave tra gli attori e il sistema, facilitando la comprensione dei requisiti funzionali del sistema e la comunicazione tra gli stakeholder del progetto.
+\end{itemize}
+
 \paragraph{Strumenti}
 \begin{itemize}
-    \item \textbf{StarUML}
+    \item \textbf{StarUML:}
+    È un'applicazione software utilizzata per creare diagrammi e modelli UML nel processo di sviluppo del software. \\
+    Aiuta a visualizzare graficamente i vari aspetti di un sistema, consentendo agli utenti di creare e modificare facilmente diagrammi UML come diagrammi dei casi d'uso, delle classi, di attività e altri, semplificando così il processo di progettazione e analisi dei sistemi software.
 \end{itemize}
 \section{Processi di supporto}
 \subsection{Documentazione}
