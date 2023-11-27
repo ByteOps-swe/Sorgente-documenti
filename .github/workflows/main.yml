@@ -170,7 +170,6 @@ jobs:
             cd "$initial_dir"
           fi
 
-          cd ..
           cd Output
 
           git add .
