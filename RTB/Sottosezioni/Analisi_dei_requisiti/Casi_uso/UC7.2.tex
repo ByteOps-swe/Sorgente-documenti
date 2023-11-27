@@ -1,0 +1,26 @@
+\subsubsection{UC7.2 - Salvataggio dato storico cella}
+\begin{itemize}
+    \item \textbf{Attore principale:} Autorità locale;
+    \item \textbf{Descrizione:} L’autorità locale dalla pagina adibita alla visulizzazione dello storico dati in formato testuale relativo ad una cella salva un dato emesso tra i preferiti.
+    \item \textbf{Scenario principale:}
+          \begin{enumerate}
+              \item L'utente salva tra i preferiti uno dei dati storici della cella emesso .
+          \end{enumerate}
+    \item \textbf{Precondizioni:}
+          \begin{itemize}
+              \item  L'utente si trova nella pagina di visulizzazione in formato testuale dei dati storici emessi in una cella per una tipologia di sensore (UC3.2)
+              \item  Il dato che intende salvare tra i preferiti non lo era già in precedenza.
+          \end{itemize}
+    \item \textbf{Postcondizioni:}
+          \begin{itemize}
+              \item  Il dato storico della città viene memorizzato nella lista dei preferiti formato testuale (Cella,
+                    TipoSensore, TIMESTAMP,
+                    Dato)
+          \end{itemize}
+    \item \textbf{User story associata:}
+          \begin{itemize}
+              \item Come Autorità locale
+                    Voglio poter salvare uno dei dati storici emessi da una cella tra i preferiti
+                    In modo che possa accedere rapidamente ai dati rilevanti in futuro.
+          \end{itemize}
+\end{itemize}
