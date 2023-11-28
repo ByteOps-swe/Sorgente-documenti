@@ -148,10 +148,11 @@ jobs:
                 echo "No changes to commit"
             fi
             
-            # Use latexmk without changing directory, and pass the new file path
-            cd Documents
-            latexmk -pdf "$new_name"
-            cd ..
+            
+            cd "Documents/$(dirname "$path")"
+            latexmk -pdf "$(basename "$new_name")"
+            cd "$initial_dir"
+
           done 
 
 
