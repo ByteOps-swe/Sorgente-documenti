@@ -135,7 +135,7 @@ jobs:
             file_to_compile=$(find "Documents" -type f -name "$file*.tex" -not -path "*/Sezioni/*" -not -path "*/Sottosezioni/*")
             
             
-            cd "Documents/$(dirname "$file_to_compile")"
+            cd "$(dirname "$file_to_compile")"
             latexmk -pdf "$(basename "$file_to_compile")"
             cd "$initial_dir"
 
