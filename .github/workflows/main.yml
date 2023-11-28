@@ -93,9 +93,11 @@ jobs:
                 echo "No changes to commit"
               fi
 
-              cd Documents
+              cd "Documents/$(dirname "$path")"
+              ls -la
+              echo"$new_name Here is the new name"
               latexmk -pdf "$new_name"
-              cd ..
+              cd "$initial_dir"
 
             # elif [[ "$path" == */Sezioni/*.tex || "$path" == */Sottosezioni/*.tex ]]; then
             #   father_dir=$(dirname "$path")
