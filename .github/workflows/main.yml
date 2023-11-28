@@ -78,12 +78,9 @@ jobs:
               && [[ $path == *.tex ]]
             then
               new_name=$(python Documents/Version_finder.py $path)
-
-
-              cd Documents
-
-              git add "${path}"
-              git add "${new_name}"
+              
+              git -C Documents add "${path}"
+              git -C Documents add "${new_name}"
               
               path_no_under="${new_name//_/ }"
               name=$(basename "$new_name")
