@@ -133,13 +133,12 @@ jobs:
           # Iterate through the has_changed array
           for file in "${has_changed[@]}"; do
             file_to_compile=$(find "Documents" -type f -name "$file*.tex" -not -path "*/Sezioni/*" -not -path "*/Sottosezioni/*")
-            new_name=$(python Documents/Version_finder.py "$file_to_compile")
-            echo "$new_name The new name"
+            echo "$file_to_compile The new name"
             # Cosi non serve cambiare directory per fare operazioni git, da provare
-            git -C Documents add "${new_name}"
+            git -C Documents add "${file_to_compile}"
             
-            path_no_under="${new_name//_/ }"
-            name=$(basename "$new_name")
+            path_no_under="${file_to_compile//_/ }"
+            name=$(basename "$file_to_compile")
             name_no_ext="${name%.*}"
             new_only_name="Aggiornato $name_no_ext"
             if [[ -n "$(git -C Documents status --porcelain)" ]]; then
@@ -150,7 +149,7 @@ jobs:
             
             
             cd "Documents/$(dirname "$path")"
-            latexmk -pdf "$(basename "$new_name")"
+            latexmk -pdf "$(basename "$file_to_compile")"
             cd "$initial_dir"
 
           done 
