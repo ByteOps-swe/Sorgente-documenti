@@ -2,7 +2,7 @@ name: Build LaTeX Document
 on:
   pull_request_target:
     branches: 
-      - main
+      - protected
     types: [closed]
 
 jobs:
@@ -22,7 +22,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           path: Output
-          repository: ByteOps-swe/Documents
+          repository: lisienskenderi/pdf-test
           token: ${{ secrets.ACCESS_TOKEN }}
           
       - name: Get changed files
