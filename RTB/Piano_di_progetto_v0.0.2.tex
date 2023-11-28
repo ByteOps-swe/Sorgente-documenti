@@ -81,7 +81,7 @@
     \hline
     0.0.3 & 07/11/2023 & E.Hysa & L.Skenderi & Aggiunti nuovi rischi attesi \\
     \hline
-    0.0.2 & 05/11/2023 & E.Hysa & D.Diotto & Aggiunta sez. rischi \\
+    0.0.2 & 05/11/2023 & E.Hysa & L.Skenderi & Aggiunta sez. rischi \\
     \hline 
     0.0.1 & 03/11/2023 & A.Barutta & E.Hysa & Prima impostazione documento\\
     \hline 
@@ -325,24 +325,49 @@ Effettuare un monitoraggio periodico delle attività in corso e degli artefatti 
 
 \begin{comment}
 Qui dentro viene mostrato il codice dei rischi che andrà normato nella sezione Gestione dei Rischi nel file Norme di Progetto.
-Il rischio ha il seguente codice:   R[tipo]-[probabilità][priorità]-[id_identificativo]
+Il rischio ha il seguente codice:   R[Tipo]-[Probabilità][Priorità]-[Indice]
 
 R: rischio
-tipo: natura del rischio (tecnologico (T), organizzativo (O), personale (P), requisiti (R))
-probabilità: probabilità di occorrenza (Alta(1), Media(2), Bassa(3))
-priorità: grado di pericolosità  (Alta(A), Media(M), Bassa(B))
-id_identificativo: numero progressivo che identifica il rischio (1, 2, 3, ecc..)
+Tipo: natura del rischio (tecnologico (T), organizzativo (O), personale (P), requisiti (R))
+Probabilità: probabilità di occorrenza (Alta(1), Media(2), Bassa(3))
+Priorità: grado di pericolosità  (Alta(A), Media(M), Bassa(B))
+Indice: numero progressivo che identifica il rischio (1, 2, 3, ecc..)
 
 \end{comment}
 
 
 
 \subsection{Rischi previsti}
-Di seguito sono riportate le tabelle relative ai rischi previsti che potrebbero presentarsi durante lo sviluppo del progetto. Per il codice identificativo dei rischi si rimanda al documento \textit{Norme di progetto}.
+Di seguito sono riportate le tabelle relative ai rischi previsti che potrebbero presentarsi durante lo sviluppo del progetto. \\
+La convenzione utilizzata per la codifica dei rischi è la seguente: 
+\begin{center}
+    \texttt{R[Tipologia]-[Probabilità][Priorità]-[Indice]} : \textit{Nome associato al rischio}
+\end{center} 
+\newpage
+
+\textbf{Tipologia}: natura del rischio:
+\begin{itemize}
+    \item \textbf{T}: Rischi legati all'utilizzo delle tecnologie
+    \item \textbf{O}: Rischi legati all'organizzazione del gruppo
+    \item \textbf{P}: Rischi legati agli impegni personali dei membri del gruppo
+    \item \textbf{R}: Rischi legati alla corretta identificazione e risoluzione dei requisiti
+\end{itemize}
+\textbf{Probabilità}: valore alfabetico che indica la probabilità di occorrenza del rischio:
+\begin{itemize}
+    \item \textbf{A}: Alta
+    \item \textbf{M}: Media
+    \item \textbf{B}: Bassa
+\end{itemize}
+\textbf{Priorità}: valore numerico che indica la pericolosità del rischio:
+\begin{itemize}
+    \item \textbf{1}: Alta
+    \item \textbf{2}: Media
+    \item \textbf{3}: Bassa
+\end{itemize}
+\textbf{Indice}: valore numerico incrementale che determina univocamente il rischio per ogni tipologia di rischio. 
 
 
 %------------------------------------------------------------------------
-\newpage
 \subsubsection{Impegni personali e accademici}
 \begin{table}[h]
     \centering
@@ -361,6 +386,7 @@ Di seguito sono riportate le tabelle relative ai rischi previsti che potrebbero 
     \end{tabularx}
 \end{table}
 %------------------------------------------------------------------------
+\newpage
 \subsubsection{Ritardo nel completamento delle attività rispetto ai tempi previsti.}
 \begin{table}[h]
     \centering
@@ -380,7 +406,6 @@ Di seguito sono riportate le tabelle relative ai rischi previsti che potrebbero 
 \end{table}
 
 %------------------------------------------------------------------------
-\newpage
 \subsubsection{Apprendimento ed utilizzo delle nuove tecnologie}
 \begin{table}[h]
     \centering
@@ -400,6 +425,7 @@ Di seguito sono riportate le tabelle relative ai rischi previsti che potrebbero 
 \end{table}
 
 %------------------------------------------------------------------------
+\newpage
 \subsubsection{Contrasti interni al gruppo}
 \begin{table}[h]
     \centering
@@ -419,7 +445,6 @@ Di seguito sono riportate le tabelle relative ai rischi previsti che potrebbero 
 \end{table}
 
 %------------------------------------------------------------------------
-\newpage
 \subsubsection{Contatti con la proponente}
 \begin{table}[h]
     \centering
@@ -438,79 +463,6 @@ Di seguito sono riportate le tabelle relative ai rischi previsti che potrebbero 
     \end{tabularx}
 \end{table}
 %------------------------------------------------------------------------
-
-\section{Pianificazione}
-\subsection{Introduzione}
-In conformità con la filosofia di sviluppo moderna e dinamica, abbiamo scelto di adottare il modello agile, con un focus specifico sul framework Scrum.
-Lo Scrum, con le sue pratiche iterative e collaborative, offre una risposta efficace alle sfide e alle mutevoli esigenze del mondo contemporaneo dello sviluppo software.\\
-Attraverso l'implementazione di Scrum, il nostro team mira a ottenere numerosi benefici positivi che influenzeranno in modo significativo il successo del progetto.
-\\
-\\
-\textbf{Vantaggi del Modello Agile e Scrum}
-\\L'adozione del modello Agile, e in particolare di Scrum, introduce una serie di lati positivi che contribuiranno al raggiungimento dei nostri obiettivi di progetto.
-Alcuni dei principali vantaggi che ci aspettiamo di acquisire includono:
-
-\begin{itemize}
-    \item \textbf{Flessibilità e Adattabilità:} Lo Scrum consente una rapida risposta ai cambiamenti nei requisiti del cliente, garantendo una maggiore flessibilità durante tutto il ciclo di sviluppo;
-    \item \textbf{Collaborazione e Comunicazione:} La struttura collaborativa di Scrum promuove una comunicazione aperta e continua tra i membri del team e le parti interessate, migliorando la comprensione reciproca e la condivisione di conoscenze;
-    \begin{itemize}
-        \item In particolare con l'azienda proponente sono fissati SAL (Stato avanzamento lavori) ogni due settimane.
-    \end{itemize}
-    \item \textbf{Consegna Incrementale:} Attraverso la pratica di rilasci incrementali, Scrum consente la distribuzione graduale delle funzionalità, fornendo valore al cliente fin dalle prime fasi del progetto;
-    \item \textbf{Miglioramento Continuo:} Le retrospettive regolari incoraggiano il miglioramento continuo del processo, permettendo al team di identificare e risolvere eventuali problematiche in modo tempestivo.
-\end{itemize}
-
-La scelta di adottare il modello Agile con Scrum riflette la nostra dedizione a fornire un prodotto di qualità, rispondendo in modo efficiente ai cambiamenti e alle esigenze del cliente.
-
-\subsection{Requirements and Technology Baseline}
-\subsubsection{Primo periodo  06/11/2023 - 24/11/2023}
-\textbf{Obbiettivi}
-\begin{itemize}
-    \item \textbf{Norme di Progetto}: Redazione delle sezioni:
-    \begin{itemize}
-        \item Introduzione;
-        \item Documentazione;
-        \item Sviluppo (Analisi dei requisiti, Codifica, Progettazione: solo norme dei casi d'uso);
-        \item Gestione della configurazione
-        \item Pianificazione
-        \item Comunicazione
-        \item Gestione degli incontri
-        \item Verifica (processi di Documentazione) 
-    \end{itemize}
-    \item  \textbf{Analisi dei requisiti:} Definizione di:
-        \begin{itemize}
-            \item Use case;
-            \item User story;
-            \item Requisiti funzionali. (Opzionale)
-        \end{itemize}
-    \item  \textbf{Piano di progetto:} Redazione delle sezioni:
-    \begin{itemize}
-        \item Introduzione;
-        \item Calendario di massima del progetto;
-        \item Stima dei costi di realizzazione;
-        \item Analisi dei rischi;
-        \item Pianificazione: (Primo periodo 06/11/2023 - 24/11/2023).
-    \end{itemize}
-    \item  \textbf{POC} Realizzazione:
-    \begin{itemize}
-        \item Simulazione di almeno un sensore in python;
-        \item Connessione containerizzata docker tra lo script python di simulazione e kafka;
-        \item Aggiunta di ClickHouse nello stack tecnlogico in connessione containerizzata docker (Opzionale).
-    \end{itemize}
-    \item  \textbf{Amministrazione e automatizzazioni:} Realizzazione:
-    \begin{itemize}
-        \item Automatizzazione della compilazione dei file latex sorgenti;
-        \item Automatizzazione della rinomina dei file sulla base della versione.
-    \end{itemize}
-    \item  \textbf{Altro:} 
-    \begin{itemize}
-        \item Creazione template LateX per i verbali.
-\end{itemize}
-
-
-\end{itemize}
-
-
 
 
 \end{document} 
