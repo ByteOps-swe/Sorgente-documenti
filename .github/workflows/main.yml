@@ -64,18 +64,24 @@ jobs:
 
           declare -a has_changes
           has_changes=(0 0 0)
+          has_changed=()
           initial_dir=$(pwd)
           
           for path in ${{ steps.changed-files.outputs.all_changed_files }}; do
             echo "$path was changed"
-            if [[ "$(basename "$path")" != "Verbale_Esterno.tex" ]] && [[ "$(basename "$path")" != "Verbale_Interno.tex" ]] && [[ $path != */Sezioni/**.tex ]] && [[ $path != */Sottosezioni/**.tex ]] && [[ $path != */Casi_uso/**.tex ]] && [[ $path == *.tex ]] 
+            # if [[ "$(basename "$path")" != "Verbale_Esterno.tex" ]] && [[ "$(basename "$path")" != "Verbale_Interno.tex" ]] && [[ $path != */Sezioni/**.tex ]] && [[ $path != */Sottosezioni/**.tex ]] && [[ $path != */Casi_uso/**.tex ]] && [[ $path == *.tex ]] 
+            if [[ "$(basename "$path")" != "Verbale_Esterno.tex" ]] \
+              && [[ "$(basename "$path")" != "Verbale_Interno.tex" ]] \
+              && [[ $path != */Sezioni/**.tex ]] \
+              && [[ $path != */Sottosezioni/**.tex ]] \
+              && [[ $path != */Casi_uso/**.tex ]] \
+              && [[ $path == *.tex ]]
             then
               new_name=$(python Documents/Version_finder.py $path)
 
-              cd Documents
 
-              git add "${path}"
-              git add "${new_name}"
+              git -C Documents add "${path}"
+              git -C Documents add "${new_name}"
               
               path_no_under="${new_name//_/ }"
               name=$(basename "$new_name")
@@ -92,95 +98,130 @@ jobs:
               latexmk -pdf "$(basename "$new_name")"
               cd "$initial_dir"
 
+            # elif [[ "$path" == */Sezioni/*.tex || "$path" == */Sottosezioni/*.tex ]]; then
+            #   father_dir=$(dirname "$path")
+            #   doc_name=$(basename "$father_dir")
+
+            #   if [[ $doc_name == "Norme_di_progetto" ]]; then
+            #     has_changes[0]=1
+            #     echo ${has_changes[0]}
+            #   elif [[ $doc_name == "Piano_di_progetto" ]]; then
+            #     has_changes[1]=1
+            #   elif [[ $doc_name == "Analisi_dei_requisiti" || "$path" == *"UC"* ]]; then
+            #     has_changes[2]=1
+            #   fi
+
             elif [[ "$path" == */Sezioni/*.tex || "$path" == */Sottosezioni/*.tex ]]; then
               father_dir=$(dirname "$path")
               doc_name=$(basename "$father_dir")
 
-              if [[ $doc_name == "Norme_di_progetto" ]]; then
-                has_changes[0]=1
-                echo ${has_changes[0]}
-              elif [[ $doc_name == "Piano_di_progetto" ]]; then
-                has_changes[1]=1
-              elif [[ $doc_name == "Analisi_dei_requisiti" || "$path" == *"UC"* ]]; then
-                has_changes[2]=1
+              # Check if doc_name is not in has_changed array before appending
+              if [[ ! " ${has_changed[@]} " =~ " $doc_name " ]]; then
+                  has_changed+=("$doc_name")
               fi
-
+              # Adds Analisi_dei_requisiti to has_changed if a UC file is changed and checks if it is already in the array
+              if [[ "$path" == *"UC"* ]]; then
+                if [[ ! ${has_changed[@]} " =~ "Analisi_dei_requisiti" ]]; then
+                  has_changed+=("Analisi_dei_requisiti")
+                fi
+              fi
             else 
-              echo "Questo è un template"
+              echo "Questo è un template o un file non .tex"
             fi
           done
+          
+          # Iterate through the has_changed array
+          for file in "${has_changed[@]}"; do
+            file_to_compile=$(find "Documents" -type f -name "$file*.tex" -not -path "*/Sezioni/*" -not -path "*/Sottosezioni/*")
+            new_name=$(python Documents/Version_finder.py "$file_to_compile")
+            
+            # Cosi non serve cambiare directory per fare operazioni git, da provare
+            git -C Documents add "${file_to_compile}"
+            git -C Documents add "${new_name}"
+            
+            path_no_under="${new_name//_/ }"
+            name=$(basename "$new_name")
+            name_no_ext="${name%.*}"
+            new_only_name="Aggiornato $name_no_ext"
+            if [[ -n "$(git -C Documents status --porcelain)" ]]; then
+                git -C Documents commit -m "$new_only_name"
+            else
+                echo "No changes to commit"
+            fi
+            
+            # Use latexmk without changing directory, and pass the new file path
+            latexmk -pdf "$new_name"
+          done 
+
 
           # COMPILAZIONE NORME DI PROGETTO
-          if [[ ${has_changes[0]} -eq 1 ]];
-          then
-            cd Documents
-            file_path=$(find "RTB" -type f -name "Norme_di_progetto*.tex")
-            cd ..
-            new_name=$(python Documents/Version_finder.py $file_path)
-            cd Documents
+          # if [[ ${has_changes[0]} -eq 1 ]];
+          # then
+          #   cd Documents
+          #   file_path=$(find "RTB" -type f -name "Norme_di_progetto*.tex")
+          #   cd ..
+          #   new_name=$(python Documents/Version_finder.py $file_path)
+          #   cd Documents
             
-            git add "${file_path}"
-            git add "${new_name}"
+          #   git add "${file_path}"
+          #   git add "${new_name}"
               
-            path_no_under="${new_name//_/ }"
-            name=$(basename "$new_name")
-            name_no_ext="${name%.*}"
-            cd "$(dirname "$file_path")"
-            latexmk -pdf "$(basename "$new_name")"
-            cd "$initial_dir"
-          fi
+          #   path_no_under="${new_name//_/ }"
+          #   name=$(basename "$new_name")
+          #   name_no_ext="${name%.*}"
+          #   cd "$(dirname "$file_path")"
+          #   latexmk -pdf "$(basename "$new_name")"
+          #   cd "$initial_dir"
+          # fi
 
-          # COMPILAZIONE PIANO DI PROGETTO
-          if [[ ${has_changes[1]} -eq 1 ]];
-          then
-            cd Documents
-            file_path=$(find "RTB" -type f -name "Piano_di_progetto*.tex")
-            cd ..
-            new_name=$(python Documents/Version_finder.py $file_path)
-            cd Documents
+          # # COMPILAZIONE PIANO DI PROGETTO
+          # if [[ ${has_changes[1]} -eq 1 ]];
+          # then
+          #   cd Documents
+          #   file_path=$(find "RTB" -type f -name "Piano_di_progetto*.tex")
+          #   cd ..
+          #   new_name=$(python Documents/Version_finder.py $file_path)
+          #   cd Documents
 
-            git add "${file_path}"
-            git add "${new_name}"
+          #   git add "${file_path}"
+          #   git add "${new_name}"
 
-            path_no_under="${new_name//_/ }"
-            name=$(basename "$new_name")
-            name_no_ext="${name%.*}"
-            cd "$(dirname "$file_path")"
-            latexmk -pdf "$(basename "$new_name")"
-            cd "$initial_dir"
-          fi
+          #   path_no_under="${new_name//_/ }"
+          #   name=$(basename "$new_name")
+          #   name_no_ext="${name%.*}"
+          #   cd "$(dirname "$file_path")"
+          #   latexmk -pdf "$(basename "$new_name")"
+          #   cd "$initial_dir"
+          # fi
 
-          # COMPILAZIONE ANALISI DEI REQUISITI
-          if [[ ${has_changes[2]} -eq 1 ]];
-          then
-            cd Documents
-            file_path=$(find "RTB" -type f -name "Analisi_dei_requisiti*.tex")
-            cd ..
-            new_name=$(python Documents/Version_finder.py $file_path)
-            cd Documents
+          # # COMPILAZIONE ANALISI DEI REQUISITI
+          # if [[ ${has_changes[2]} -eq 1 ]];
+          # then
+          #   cd Documents
+          #   file_path=$(find "RTB" -type f -name "Analisi_dei_requisiti*.tex")
+          #   cd ..
+          #   new_name=$(python Documents/Version_finder.py $file_path)
+          #   cd Documents
 
-            git add "${file_path}"
-            git add "${new_name}"
+          #   git add "${file_path}"
+          #   git add "${new_name}"
               
-            path_no_under="${new_name//_/ }"
-            name=$(basename "$new_name")
-            name_no_ext="${name%.*}"
-            cd "$(dirname "$file_path")"
-            latexmk -pdf "$(basename "$new_name")"
-            cd "$initial_dir"
-          fi
+          #   path_no_under="${new_name//_/ }"
+          #   name=$(basename "$new_name")
+          #   name_no_ext="${name%.*}"
+          #   cd "$(dirname "$file_path")"
+          #   latexmk -pdf "$(basename "$new_name")"
+          #   cd "$initial_dir"
+          # fi
 
-          cd Output
 
-          git add .
-          git status
+          git -C Output add .
 
-          if [[ -n "$(git status --porcelain)" ]]; then
-            git commit -m "Cancellato file deprecati"
+          if [[ -n "$(git -C Output status --porcelain)" ]]; then
+            git -C Output commit -m "Cancellato file deprecati"
           else
             echo "No changes to commit."
           fi
-          cd ..
           '
 
       - name: upload pdf
