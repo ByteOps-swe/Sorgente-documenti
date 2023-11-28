@@ -8,7 +8,7 @@ def get_first_cell_value(filename):
         return match[0] if match else ''
 
 def trimmed_file_name(file_path):
-    new_file_path = "Documents/" + file_path
+    new_file_path = "" + file_path
     filename_abs = os.path.join(os.getcwd(), new_file_path)
     version_number = get_first_cell_value(filename_abs)
     if "Verbale" in file_path or version_number == '':
