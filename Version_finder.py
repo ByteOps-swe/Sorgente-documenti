@@ -8,7 +8,11 @@ def get_first_cell_value(filename):
         return match[0] if match else ''
 
 def trimmed_file_name(file_path):
-    filename_abs = os.path.join(os.getcwd(), file_path)
+    new_file_path = "Documents/" + file_path
+    if len(re.findall(r'Documents/', new_file_path)) > 1:
+    # Replace all but the first occurrence with an empty string
+        new_file_path = re.sub(r'(Documents/.*?)Documents/', r'\1', new_file_path)
+    filename_abs = os.path.join(os.getcwd(), new_file_path)
     version_number = get_first_cell_value(filename_abs)
     if "Verbale" in file_path or version_number == '':
         return file_path[:-4],  filename_abs, version_number
