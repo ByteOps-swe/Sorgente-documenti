@@ -117,14 +117,15 @@ jobs:
               father_dir=$(dirname "$path")
               doc_name=$(basename "$father_dir")
 
-              # Check if doc_name is not in has_changed array before appending
-              if [[ ! " ${has_changed[@]} " =~ " $doc_name " ]]; then
-                  has_changed+=("$doc_name")
-              fi
               # Adds Analisi_dei_requisiti to has_changed if a UC file is changed and checks if it is already in the array
               if [[ "$path" == *"UC"* ]]; then
-                if [[ ! ${has_changed[@]} " =~ "Analisi_dei_requisiti" ]]; then
+                if [[ ! "${has_changed[@]}" =~ "Analisi_dei_requisiti" ]]; then
                   has_changed+=("Analisi_dei_requisiti")
+                fi
+              else
+                # Check if doc_name is not in has_changed array before appending
+                if [[ ! "${has_changed[@]}" =~ " $doc_name " ]]; then
+                  has_changed+=("$doc_name")
                 fi
               fi
             else 
