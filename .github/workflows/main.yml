@@ -78,7 +78,7 @@ jobs:
               && [[ $path == *.tex ]]
             then
               new_name=$(python Documents/Version_finder.py $path)
-              
+
               git -C Documents add "${path}"
               git -C Documents add "${new_name}"
               
@@ -87,8 +87,8 @@ jobs:
               name_no_ext="${name%.*}"
               new_only_name="Aggiornato $name_no_ext"
 
-              if [[ -n "$(git status --porcelain)" ]]; then
-                git commit -m "$new_only_name"
+              if [[ -n "$(git -C Documents status --porcelain)" ]]; then
+                git -C Documents commit -m "$new_only_name"
               else
                 echo "No changes to commit"
               fi
