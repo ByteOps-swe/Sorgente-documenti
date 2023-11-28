@@ -80,8 +80,10 @@ jobs:
               new_name=$(python Documents/Version_finder.py $path)
 
 
-              git -C Documents add "${path}"
-              git -C Documents add "${new_name}"
+              cd Documents
+
+              git add "${path}"
+              git add "${new_name}"
               
               path_no_under="${new_name//_/ }"
               name=$(basename "$new_name")
