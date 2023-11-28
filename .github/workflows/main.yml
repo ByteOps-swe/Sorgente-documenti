@@ -92,8 +92,10 @@ jobs:
               else
                 echo "No changes to commit"
               fi
-              new_name="Documents/$new_name"
+
+              cd Documents
               latexmk -pdf "$new_name"
+              cd ..
 
             # elif [[ "$path" == */Sezioni/*.tex || "$path" == */Sottosezioni/*.tex ]]; then
             #   father_dir=$(dirname "$path")
@@ -148,8 +150,9 @@ jobs:
             fi
             
             # Use latexmk without changing directory, and pass the new file path
-            new_name="Documents/$new_name"
+            cd Documents
             latexmk -pdf "$new_name"
+            cd ..
           done 
 
 
