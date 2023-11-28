@@ -113,7 +113,7 @@ jobs:
             elif [[ "$path" == */Sezioni/*.tex || "$path" == */Sottosezioni/*.tex ]]; then
               father_dir=$(dirname "$path")
               doc_name=$(basename "$father_dir")
-
+              echo "1"
               # Adds Analisi_dei_requisiti to has_changed if a UC file is changed and checks if it is already in the array
               if [[ "$path" == *"UC"* ]]; then
                 if [[ ! "${has_changed[@]}" =~ "Analisi_dei_requisiti" ]]; then
@@ -129,12 +129,12 @@ jobs:
               echo "Questo è un template o un file non .tex"
             fi
           done
-          
+          echo "2"
           # Iterate through the has_changed array
           for file in "${has_changed[@]}"; do
             file_to_compile=$(find "Documents" -type f -name "$file*.tex" -not -path "*/Sezioni/*" -not -path "*/Sottosezioni/*")
             new_name=$(python Documents/Version_finder.py "$file_to_compile")
-            
+            echo "$new_name The new name"
             # Cosi non serve cambiare directory per fare operazioni git, da provare
             git -C Documents add "${file_to_compile}"
             git -C Documents add "${new_name}"
