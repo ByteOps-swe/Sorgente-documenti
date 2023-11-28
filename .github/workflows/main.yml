@@ -136,7 +136,6 @@ jobs:
             new_name=$(python Documents/Version_finder.py "$file_to_compile")
             echo "$new_name The new name"
             # Cosi non serve cambiare directory per fare operazioni git, da provare
-            git -C Documents add "${file_to_compile}"
             git -C Documents add "${new_name}"
             
             path_no_under="${new_name//_/ }"
