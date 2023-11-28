@@ -94,9 +94,7 @@ jobs:
               fi
 
               cd "Documents/$(dirname "$path")"
-              ls -la
-              echo"$new_name Here is the new name"
-              latexmk -pdf "$new_name"
+              latexmk -pdf "$(basename "$new_name")"
               cd "$initial_dir"
 
             # elif [[ "$path" == */Sezioni/*.tex || "$path" == */Sottosezioni/*.tex ]]; then
