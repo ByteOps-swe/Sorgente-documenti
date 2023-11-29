@@ -1,0 +1,564 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[default]{raleway}
+\usepackage{titlesec, comment, tabularx, makecell, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, hyperref}
+\usepackage[hypcap=false]{caption}
+\usepackage{todonotes}
+%\geometry{a4paper, left=2cm, right=2cm, top=2cm, bottom=2.5cm}
+\renewcommand{\headrulewidth}{0pt}
+
+% Definisci uno stile per i comandi git
+\definecolor{light-gray}{gray}{0.92}
+
+\lstdefinestyle{code}{
+    frame=single,
+    framesep=1mm,
+    rulecolor=\color{light-gray},
+    backgroundcolor=\color{light-gray},
+    basicstyle=\ttfamily,
+}
+% ----------------------------- Definizione tabella ---------------------------
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+%\setcellgapes{2ex} % Imposta l'altezza dell'header (2ex)
+
+
+% ------------------------------Metadati indice --------------------------------
+\title{\textbf{\fontsize{28}{6}\selectfont Indice}}
+\author{\fontsize{14}{6}\selectfont ByteOps}
+\date{}
+
+% -----------------------------Creazione footer --------------------------------
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\footrulewidth}{0.4pt} 
+\lfoot{
+    \parbox[c]{2cm}{\includegraphics[width=2cm]{../Images/logo.png}}
+    \textcolor[RGB]{120, 120, 120}{$\cdot$ Glossario}
+}
+\rfoot{\thepage}
+
+% --------------------------Modifica formato hyperlinks ------------------------
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    pdftitle={Glossario},
+    pdfpagemode=FullScreen,
+}
+
+% ------------------------------- Valore sotto-paragrafi indice --------------------------------------
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\titleformat{\section}
+{\normalfont\huge\bfseries}{\thesection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsection}
+{\normalfont\Large\bfseries}{\thesubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsubsection}
+{\normalfont\large\bfseries}{\thesubsubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+%----------Per indice --------------------------------
+\usepackage{titletoc} % Pacchetto per la gestione dell'indice
+
+\titlecontents{section}[0em]{\bfseries} % Formattazione per le sezioni nell'indice
+{\thecontentslabel.\enspace}{} % Aggiunge il numero della sezione e spazio dopo i puntini
+{\titlerule*[1pc]{.}\contentspage} % Regola e numero di pagina
+
+% ------------------------------- Front Page ---------------------------------------
+
+\begin{document}
+\pagestyle{fancy}
+\begin{center}
+    \includegraphics[width = 0.7\textwidth]{../Images/logo.png} \\
+    \vspace{0.2cm}
+    \textcolor[RGB]{60, 60, 60}{\textit{ByteOps.swe@gmail.com}} \\
+    \vspace{2cm}
+    \fontsize{16}{6}\selectfont Glossario \\
+    \vspace{0.5cm}
+\end{center}
+
+\section*{Informazioni documento}
+\def\arraystretch{1.2}
+\begin{tabular}{>{\raggedleft\arraybackslash}p{0.2\textwidth}|>{\raggedright\arraybackslash}p{0.6\textwidth}c}
+    \hline
+    \addlinespace 
+    \textbf{Redattori}      & A. Barutta               \\ & R. Smanio \\ & N. Preto \vspace{10pt} \\
+    \textbf{Verificatori}   & E. Hysa                  \\ & L. Skenderi \\ & D. Diotto \vspace{10pt} \\
+    \textbf{Amministratore} & F. Pozza \vspace{10pt}   \\
+    \textbf{Destinatari}    & T. Vardanega             \\ & R. Cardin \vspace{10pt} \\
+\end{tabular}
+
+\pagebreak 
+
+% ------------------------- Changelog ----------------------------
+\section*{Registro delle modifiche}
+\begin{tabular}{|C{1.5cm}|C{2cm}|C{2cm}|C{2cm}|C{5cm}|}
+    \hline
+    \textbf{Versione} & \textbf{Data}   & \textbf{Autore}                         & \textbf{Verificatore} & \textbf{Dettaglio} \\
+    \hline \hline
+    \label{Git_Action_Version} 0.0.1
+                      & 28/11/2023      & \makecell{A. Barutta}      & D. Diotto & \makecell{Prima stesura} \\
+    \hline
+\end{tabular}
+
+\pagebreak
+
+% ------------------------- Generazione automatica indice ----------------------
+\maketitle
+\thispagestyle{fancy}
+\tableofcontents
+\pagebreak
+
+
+%--------------------------Inizio Glossario--------------------------
+\section*{Sommario}
+Il presente documento fornisce descrizioni dettagliate ai termini tecnici e/o ambigui presenti nella documentazione.
+La sua utilità primaria risiede nella chiarezza e nella standardizzazione del linguaggio adoperato all'interno di documenti, testi o comunicazioni. Un glossario consente di facilitare la comprensione e la comunicazione tra diversi partecipanti o stakeholder coinvolti nel medesimo progetto.
+
+% Definizione delle voci nell'indice con descrizioni
+\section*{A}
+\index{A}
+\phantomsection
+\addcontentsline{toc}{section}{A}
+\textbf{Actual cost:} Una metrica che valuta i costi reali sostenuti sin dall'inizio del progetto fino al presente.
+\\
+\\
+\textbf{Analisi dei requisiti:} L'analisi dei requisiti è una fase fondamentale nello sviluppo del software che coinvolge la raccolta, l'analisi, la documentazione e la comprensione approfondita delle esigenze e delle specifiche di un \textit{sistema}\textsubscript{\textit{G}} o di un'applicazione software che si intende sviluppare (oltre ad essere un documento all’interno del nostro progetto).
+\\
+\\
+\textbf{Apache kafka:} Apache Kafka è una piattaforma di streaming distribuito \textit{open-source}\textsubscript{\textit{G}} utilizzata per la gestione e l'elaborazione di feed di dati in tempo reale. Progettato per affrontare problemi di ingestione, archiviazione e trasmissione di grandi volumi di dati in modo scalabile, Apache Kafka è ampiamente utilizzato nell'ambito del \textit{data streaming}\textsubscript{\textit{G}} e dell'elaborazione degli eventi.
+\\
+\\
+\textbf{API:} Un'API, acronimo di Application Programming Interface, è un insieme di regole, protocolli e strumenti che consente a diverse applicazioni \textit{software}\textsubscript{\textit{G}} di comunicare tra loro. In sostanza, fornisce un modo standardizzato per diverse parti del \textit{software}\textsubscript{\textit{G}} di interagire e scambiare informazioni.
+\\
+\\
+\textbf{Architettura:} L'architettura rappresenta il tessuto connettivo, le relazioni e le restrizioni che coordinano e organizzano i diversi componenti di un prodotto \textit{software}\textsubscript{\textit{G}}. Essenzialmente, definisce la struttura generale, il modo in cui i vari elementi interagiscono tra loro e le modalità di comunicazione all'interno del \textit{sistema}\textsubscript{\textit{G}}.
+\\
+\\
+\textbf{Arg:} L’istruzione ARG viene utilizzata per definire variabili di build che possono essere utilizzate nel \textit{Dockerfile}\textsubscript{\textit{G}} durante la creazione dell'immagine. 
+\\
+\\
+\textbf{Artefatto:} Gli Artefatti sono elementi generati o prodotti durante il processo di sviluppo del \textit{software}\textsubscript{\textit{G}}. Gli Artefatti rappresentano risultati intermedi o finali di un processo, che possono essere file, documenti, codice compilato, librerie, o qualsiasi altro elemento creato durante lo sviluppo o il processo di build di un'applicazione software.
+\\
+\\
+\textbf{Attività:} Un'Attività rappresenta un'unità di lavoro specifica che contribuisce al raggiungimento di un obiettivo nel ciclo di vita del \textit{software}\textsubscript{\textit{G}}. Le Attività sono azioni o compiti distinti che devono essere eseguiti per portare avanti il \textit{processo}\textsubscript{\textit{G}} di sviluppo.
+\\
+\\
+\section*{B}
+\index{B}
+\phantomsection
+\addcontentsline{toc}{section}{B}
+\textbf{Best practice:} Il termine Best Practice si riferisce a un metodo o a un \textit{processo}\textsubscript{\textit{G}} riconosciuto come una delle migliori e più efficaci modalità di esecuzione di un'\textit{attività}\textsubscript{\textit{G}} o di un'operazione in un determinato contesto. Le Best Practice rappresentano un insieme di tecniche, metodi o procedure che sono state identificate come le più efficienti, efficaci o appropriate per raggiungere un obiettivo specifico o ottenere risultati di alta qualità.
+\\
+\\
+\textbf{Big Data:} Il termine Big Data si riferisce a enormi insiemi di dati caratterizzati da volume massivo, velocità elevata di generazione e varietà di tipi e formati. Questi dati richiedono tecniche avanzate per l'elaborazione e l'analisi. L'obiettivo è estrarre informazioni significative per prendere decisioni informate e identificare modelli.
+\\
+\\
+\textbf{Bit:} Bit è l'unità fondamentale di informazione in informatica, può assumere i valori 0 o 1. 
+\\
+\\
+\textbf{Branch:} Un Branch, anche chiamato ramo, costituisce un percorso separato di sviluppo. È una rappresentazione isolata utilizzata per modificare e registrare le modifiche di una specifica funzionalità, sviluppata in modo autonomo ma derivante dalla radice da cui è stato creato il Branch.
+\\
+\\
+\textbf{Broker:} Un Broker agisce come un intermediario tra componenti \textit{software}\textsubscript{\textit{G}}, \textit{sistemi}\textsubscript{\textit{G}} o \textit{servizi}\textsubscript{\textit{G}}, facilitando la loro interazione e comunicazione. Ci sono diverse tipologie di Broker, e il loro ruolo specifico può variare a seconda del contesto.
+\\
+\\
+\textbf{Budget at Completion (BAC):} Budget preventivato ad inizio progetto.
+\\
+\\
+\pagebreak
+\section*{C}
+\index{C}
+\phantomsection
+\addcontentsline{toc}{section}{C}
+\textbf{CA:} Customer Acceptance (CA) è un acronimo che identifica una revisione facoltativa nel corso dello sviluppo di un progetto didattico. Durante questa fase, il prodotto \textit{software}\textsubscript{\textit{G}}, considerato completo, viene presentato al \textit{committente}\textsubscript{\textit{G}} in una sessione pubblica per ottenere la sua accettazione finale.
+\\
+\\
+\textbf{Calendario:} Il Calendario rappresenta l’insieme del quantitativo di ore disponibili di lavoro utile di ogni membro del gruppo.
+\\
+\\
+\textbf{Change Management:} Il Change Management è il \textit{processo}\textsubscript{\textit{G}} di gestione e controllo dei cambiamenti apportati all'ambiente \textit{IT}\textsubscript{\textit{G}}, inclusi \textit{software}\textsubscript{\textit{G}}, infrastrutture, \textit{processi}\textsubscript{\textit{G}} o procedure. Questo processo è progettato per gestire in modo controllato e documentato le modifiche proposte, garantendo che siano valutate, autorizzate, pianificate, implementate e monitorate in modo coerente e sicuro. L'obiettivo è minimizzare il rischio di interruzioni indesiderate o impatti negativi sul sistema a causa di modifiche non pianificate o non gestite correttamente.
+\\
+\\
+\textbf{Clickhouse:} ClickHouse è un \textit{database}\textsubscript{\textit{G}} \textit{open-source}\textsubscript{\textit{G}} di analisi e archiviazione progettato per l'elaborazione rapida di grandi quantità di dati in modo scalabile ed efficiente. Questo sistema di gestione dei dati utilizza un modello di architettura di tipo column-oriented, in cui i dati vengono organizzati e memorizzati per colonne anziché per righe. Tale struttura ottimizza le prestazioni delle query analitiche e l'efficienza della compressione dei dati, consentendo operazioni di lettura ad alta velocità su grandi volumi di informazioni. 
+\\
+\\
+\textbf{Committente:} Un Committente è una parte esterna responsabile di assegnare l'esecuzione di un progetto a un esecutore, che stabilisce i termini contrattuali relativi all'esecuzione stessa.
+\\
+\\
+\textbf{Configuration item (CI):} Un Configuration Item (CI) è un elemento che viene identificato, controllato e gestito all'interno di un \textit{sistema}\textsubscript{\textit{G}} o di un progetto. Rappresenta un'entità gestita e tracciabile all'interno di un ambiente di sviluppo o di produzione.
+\\
+\\
+\textbf{Configuration management:} Configuration Management si riferisce al processo di gestione e controllo delle configurazioni \textit{software}\textsubscript{\textit{G}} e hardware all'interno di un \textit{sistema}\textsubscript{\textit{G}} o di un ambiente \textit{IT}\textsubscript{\textit{G}}. Questo include il monitoraggio, la gestione e la registrazione dettagliata di tutte le componenti, le versioni e le modifiche apportate a \textit{software}\textsubscript{\textit{G}}, hardware, documentazione e altri elementi del sistema. L'obiettivo è garantire la coerenza, la tracciabilità e la disponibilità delle configurazioni in modo che gli elementi possano essere facilmente riprodotti o ripristinati in un determinato stato, evitando confusione o errori dovuti a versioni obsolete o non autorizzate.
+\\
+\\
+\textbf{Container:} Un Container, contestualizzato all’utilizzo di \textit{Docker}\textsubscript{\textit{G}}, è un'unità di \textit{software}\textsubscript{\textit{G}} che contiene un'applicazione e tutte le sue dipendenze, compresi i file di \textit{sistema}\textsubscript{\textit{G}}, le librerie e le configurazioni necessarie per eseguire l'applicazione in un ambiente isolato e autonomo.
+\\
+\\
+\pagebreak
+\section*{D}
+\index{D}
+\phantomsection
+\addcontentsline{toc}{section}{D}
+\textbf{Dashboard:} Una Dashboard è un'interfaccia utente grafica che fornisce una panoramica visiva delle informazioni più importanti, dei dati o delle metriche pertinenti a un utente o a un processo specifico. Le Dashboard sono progettate per semplificare la visualizzazione dei dati complessi e offrire una rapida panoramica delle prestazioni, delle tendenze o delle metriche chiave. Le Dashboard possono essere personalizzate per soddisfare le esigenze specifiche di un utente o di un'organizzazione e spesso includono grafici, tabelle, grafici e altri elementi visivi che rappresentano i dati in modo chiaro e comprensibile.
+\\
+\\
+\textbf{Database:} Un Database è un \textit{sistema}\textsubscript{\textit{G}} organizzato per raccogliere, memorizzare e gestire dati in modo strutturato, al fine di consentire l'accesso, la gestione e l'aggiornamento efficiente di quei dati.
+\\
+\\
+\textbf{Database noSQL:} Un Database NoSQL, o "non relazionale", è un tipo di sistema di gestione del \textit{database}\textsubscript{\textit{G}} (DBMS) che si discosta dai tradizionali database relazionali. Questi \textit{database}\textsubscript{\textit{G}} sono progettati per gestire volumi elev
+\\
+\\
+\textbf{Database SQL:} Un Database SQL (Structured Query Language) è un tipo di \textit{sistema}\textsubscript{\textit{G}} di gestione del \textit{database}\textsubscript{\textit{G}} (DBMS) basato su un modello relazionale, in cui i dati sono organizzati in tabelle con righe e colonne. Il linguaggio \textit{SQL}\textsubscript{\textit{G}} è utilizzato per definire, manipolare e interrogare i dati all'interno di questo tipo di \textit{database}\textsubscript{\textit{G}}.
+\\
+\\
+\textbf{Data Gathering:} Data gathering si riferisce alla raccolta di dati da diverse fonti. Può coinvolgere l'acquisizione, l'archiviazione e l'organizzazione di informazioni per un'analisi successiva.
+\\
+\\
+\textbf{Data Streaming Processing:} Il Data Streaming Processing si riferisce al trattamento e all'analisi di dati in tempo reale mentre vengono trasmessi o generati. A differenza del modello di batch processing, in cui i dati vengono raccolti, salvati e successivamente processati, il \textit{data streaming processing}\textsubscript{\textit{G}} opera su flussi continui di dati in tempo reale.
+\\
+\\
+\textbf{Data visualization:} Il termine Data Visualization si riferisce al processo di rappresentare visivamente dati complessi e astratti in modo chiaro e comprensibile. L'obiettivo principale della Data Visualization è trasformare informazioni numeriche o qualitative in grafici, diagrammi, mappe e altre rappresentazioni visive che facilitino la comprensione, l'analisi e la comunicazione dei dati. 
+\\
+\\
+\textbf{Deep dive:} Il termine Deep dive è un'espressione inglese che viene spesso utilizzata per indicare un'indagine, un'analisi approfondita o un'immersione dettagliata in un argomento specifico.
+\\
+\\
+\textbf{Demo:} Una Demo di prodotto o servizio è una presentazione pratica che mira a mostrare le funzionalità, le caratteristiche e i vantaggi di un determinato prodotto o servizio. Può coinvolgere l'uso diretto del prodotto o una spiegazione dettagliata delle sue capacità.
+\pagebreak
+\\
+\textbf{DevOps:} DevOps, una combinazione di sviluppo (Dev) e operazioni (Ops), è l'unione di persone, \textit{processi}\textsubscript{\textit{G}} e tecnologia per offrire continuamente valore ai clienti. DevOps permette a ruoli in precedenza isolati, tra cui sviluppo, operazioni \textit{IT}\textsubscript{\textit{G}}, controllo della qualità e sicurezza, di coordinarsi e collaborare per fornire prodotti migliori e più affidabili.
+\\
+\\
+\textbf{Disaccoppiare:} Il termine Disaccoppiare significa separare o isolare componenti o \textit{processi}\textsubscript{\textit{G}} in modo che non siano fortemente dipendenti l'uno dall'altro.
+\\
+\\
+\textbf{Discord:} Discord fornisce canali di chat testuale e vocali, consentendo agli utenti di comunicare tramite messaggi di testo o chiamate vocali, sia uno a uno che in gruppo.
+\\
+\\
+\textbf{Dispositivi iOT:} I Dispositivi iOT sono dispositivi fisici che incorporano tecnologia, \textit{sensori}\textsubscript{\textit{G}}, \textit{software}\textsubscript{\textit{G}} e connettività di rete per consentire la raccolta, la condivisione e l'elaborazione di dati. Questi \textit{dispositivi}\textsubscript{\textit{G}} sono progettati per interagire con l'ambiente circostante e/o con altri \textit{dispositivi}\textsubscript{\textit{G}}, attraverso la connessione a Internet o attraverso reti locali.
+\\
+\\
+\textbf{Docker:} Docker è una piattaforma che facilita la creazione, la distribuzione e l'esecuzione di applicazioni all'interno di contenitori \textit{software}\textsubscript{\textit{G}}. I contenitori sono ambienti isolati e leggeri che includono l'applicazione e tutte le sue dipendenze (librerie, strumenti, codice, configurazioni), consentendo alle applicazioni di essere eseguite in modo coerente e affidabile su diversi ambienti, come lo sviluppo locale, i \textit{test}\textsubscript{\textit{G}} e i server di produzione.
+\\
+\\
+\textbf{Dockerfile:} Un Dockerfile è un file di testo che contiene una serie di istruzioni e comandi che definiscono i passaggi necessari per creare un'immagine \textit{Docker}\textsubscript{\textit{G}}.
+\\
+\\
+\pagebreak
+\section*{E}
+\index{E}
+\phantomsection
+\addcontentsline{toc}{section}{E}
+\textbf{Element:} Element è un client di messaggistica istantanea libero e \textit{open-source}\textsubscript{\textit{G}} basato sul protocollo Matrix e distribuito con licenza Apache 2.0.
+\\
+\\
+\pagebreak
+\section*{F}
+\index{F}
+\phantomsection
+\addcontentsline{toc}{section}{F}
+\textbf{Faker:} Faker è una libreria di Python progettata per generare dati falsi in modo casuale. Gli sviluppatori possono utilizzare questa libreria per creare insiemi di dati che rispecchiano la struttura e la variabilità dei dati reali, senza dover utilizzare informazioni sensibili o reali durante lo sviluppo o i \textit{test}\textsubscript{\textit{G}} del \textit{software}\textsubscript{\textit{G}}.
+\\
+\\
+\textbf{Feature brach:} Il Feature branch è un approccio nel controllo delle versioni del \textit{software}\textsubscript{\textit{G}} che coinvolge la creazione di rami separati (\textit{branch}\textsubscript{\textit{G}}) nel \textit{sistema}\textsubscript{\textit{G}} di gestione delle versioni, come Git, per sviluppare nuove funzionalità o modifiche senza influenzare il ramo principale del codice.
+\\
+\\
+\textbf{Fornitore:} Un Fornitore è un'entità o un'organizzazione che offre beni o \textit{servizi}\textsubscript{\textit{G}} relativi al \textit{software}\textsubscript{\textit{G}}.
+\\
+\\
+\textbf{Framework:} Un Framework nel contesto dell'informatica e dello sviluppo del \textit{software}\textsubscript{\textit{G}}, si riferisce a un insieme di strumenti, librerie, linee guida e convenzioni di codifica predefinite che forniscono una struttura comune per lo sviluppo di \textit{software}\textsubscript{\textit{G}}. In altre parole, un Framework è un'infrastruttura software che facilita lo sviluppo di applicazioni fornendo un ambiente predefinito e organizzato in cui i programmatori possono lavorare.
+\\
+\\
+\textbf{Front-end:} Il termine Front-end si riferisce alla parte di un'applicazione o di un \textit{sistema}\textsubscript{\textit{G}} che interagisce direttamente con gli utenti finali. È la parte visibile e interattiva di un'applicazione, responsabile della presentazione dell'interfaccia utente e dell'interazione con gli input dell'utente.
+\pagebreak
+\section*{G}
+\index{G}
+\phantomsection
+\addcontentsline{toc}{section}{G}
+\textbf{Gmail:} Servizio di posta elettronica fornito da Google.
+\\
+\\
+\textbf{Git:} Git è un sistema di controllo delle versioni distribuito (DVCS - Distributed Version Control System) progettato per gestire il tracciamento delle modifiche nel codice sorgente durante lo sviluppo del \textit{software}\textsubscript{\textit{G}}. È uno strumento ampiamente utilizzato dai team di sviluppo \textit{software}\textsubscript{\textit{G}} per tenere traccia delle revisioni del codice, facilitare la collaborazione e gestire le modifiche apportate al progetto.
+\\
+\\
+\textbf{Github:} GitHub è una \textit{piattaforma}\textsubscript{\textit{G}} di hosting per il controllo delle versioni basato su \textit{Git}\textsubscript{\textit{G}}, utilizzato principalmente per la gestione dei \textit{repository}\textsubscript{\textit{G}} di codice sorgente. Fornisce strumenti per lo sviluppo collaborativo del \textit{software}\textsubscript{\textit{G}}, facilitando la gestione, l'hosting e la collaborazione su progetti \textit{software}\textsubscript{\textit{G}}.
+\\
+\\
+\textbf{Github Actions:} GitHub Actions è un servizio di automazione fornito da \textit{Github}\textsubscript{\textit{G}} che consente di automatizzare diversi flussi di lavoro all'interno di un \textit{repository}\textsubscript{\textit{G}} \textit{Github}\textsubscript{\textit{G}}. Consente agli sviluppatori di creare, personalizzare e condividere \textit{workflow}\textsubscript{\textit{G}} personalizzati che vengono attivati da specifici eventi all'interno del \textit{repository}\textsubscript{\textit{G}}.
+\\
+\\
+\textbf{Google Meet:} Google Meet è un servizio di videoconferenza sviluppato da Google. Consente agli utenti di organizzare e partecipare a riunioni online, conferenze video e chiamate virtuali. È stato progettato per scopi aziendali, educativi e personali e offre diverse funzionalità per facilitare la collaborazione a distanza. 
+\\
+\\
+\textbf{Grafana:} Grafana è una piattaforma \textit{open-source}\textsubscript{\textit{G}} per la visualizzazione e l'analisi di dati metrici e \textit{log}\textsubscript{\textit{G}}. Essa fornisce strumenti potenti per la creazione di \textit{dashboard}\textsubscript{\textit{G}} interattive, che consentono agli utenti di monitorare e esplorare dati provenienti da una varietà di fonti. Grafana è ampiamente utilizzato nel monitoraggio di sistemi, nell'analisi dei dati e nella creazione di \textit{dashboard}\textsubscript{\textit{G}} per presentare informazioni in modo chiaro e comprensibile.
+\pagebreak
+\section*{I}
+\index{I}
+\phantomsection
+\addcontentsline{toc}{section}{I}
+\textbf{ID:} ID è l'abbreviazione di "identificatore" o "identificativo". Un ID è un numero o un codice univoco assegnato a un oggetto, un record o un'entità per identificarlo in modo univoco in un sistema o contesto specifico. Gli ID vengono spesso utilizzati per riferirsi a dati o risorse in modo univoco e per garantire che ciascun elemento all'interno di un sistema possa essere distintamente identificato.
+\\
+\\
+\textbf{IEEE:} L'IEEE (Institute of Electrical and Electronics Engineers) è un'organizzazione internazionale che riunisce professionisti provenienti da una vasta gamma di discipline nell'ambito dell'ingegneria elettrica, dell'informatica, dell'elettronica e delle scienze informatiche. L'IEEE svolge un ruolo cruciale nello sviluppo e nella promozione degli \textit{standard}\textsubscript{\textit{G}} tecnici in vari settori, pubblica una vasta gamma di contenuti tecnici, organizza eventi e gestisce numerose società.
+\\
+\\
+\textbf{Integrazione:} In informatica, l'Integrazione si riferisce al processo di connessione e coordinamento di \textit{sistemi}\textsubscript{\textit{G}}, applicazioni e dati diversi per farli lavorare insieme in modo efficace e sinergico. L'obiettivo principale dell'integrazione è facilitare lo scambio di informazioni tra sistemi eterogenei per migliorare l'efficienza, l'automazione dei \textit{processi}\textsubscript{\textit{G}} e la coerenza dei dati.
+\\
+\\
+\textbf{Issue:} Issue si riferisce a un problema, a una richiesta di funzionalità, a un bug o a un compito specifico che richiede attenzione all'interno di un \textit{sistema}\textsubscript{\textit{G}} di tracciamento dei problemi (\textit{ITS}\textsubscript{\textit{G}}).
+\\
+\\
+\textbf{Issue Tracking System (ITS):} Un ITS, acronimo di "Issue Tracking System", è un \textit{software}\textsubscript{\textit{G}} utilizzato per gestire e tenere traccia di problemi, bug, richieste di funzionalità e altre \textit{attività}\textsubscript{\textit{G}} correlate nello sviluppo del \textit{software}\textsubscript{\textit{G}} o in altri contesti lavorativi. Questi sistemi forniscono un'infrastruttura organizzativa per il \textit{processo}\textsubscript{\textit{G}} di gestione delle problematiche, consentendo agli sviluppatori, ai team di supporto o agli \textit{stakeholder}\textsubscript{\textit{G}} di registrare, monitorare, assegnare priorità e risolvere le problematiche che possono emergere durante lo sviluppo del \textit{software}\textsubscript{\textit{G}} o in altri progetti.
+\pagebreak
+\section*{J}
+\index{J}
+\phantomsection
+\addcontentsline{toc}{section}{J}
+\textbf{Jira:} Jira è una \textit{piattaform}\textsubscript{\textit{G}} \textit{software}\textsubscript{\textit{G}} di gestione dei progetti sviluppata da Atlassian. È ampiamente utilizzata per la gestione delle \textit{attività}\textsubscript{\textit{G}}, la tracciabilità dei progetti e la collaborazione tra team, in particolare nel contesto dello sviluppo \textit{software}\textsubscript{\textit{G}} e della gestione dei progetti agili.
+\\
+\\
+\textbf{JSON:} JSON (JavaScript Object Notation) è un formato di scrittura per lo scambio di dati. È basato su un sottoinsieme del linguaggio JavaScript, ma è un formato di testo indipendente dal linguaggio di programmazione, ampiamente utilizzato per la trasmissione di dati strutturati tra un server e un client web o tra diverse componenti \textit{software}\textsubscript{\textit{G}}.
+\pagebreak
+\section*{L}
+\index{L}
+\phantomsection
+\addcontentsline{toc}{section}{L}
+\textbf{LaTeX:} LaTeX è un linguaggio di markup e un sistema di composizione tipografica utilizzato principalmente per la produzione di documenti scientifici, accademici e tecnici di alta qualità.
+\\
+\\
+\textbf{Label:} Una label in un ITS (Issue Tracking System) è un'etichetta o un'annotazione che viene associata a un'\textit{attività}\textsubscript{\textit{G}}, un problema o una richiesta all'interno del \textit{sistema}\textsubscript{\textit{G}} di tracciamento delle problematiche. Questa etichetta fornisce un'indicazione rapida e categorica sull'argomento, sulla tipologia o sulla priorità dell'elemento in questione.
+\\
+\\
+\textbf{Librerie:} Il termine Libreria si riferisce a una raccolta di codice pre-sviluppato che fornisce funzionalità comuni e specifiche per facilitare lo sviluppo del \textit{software}\textsubscript{\textit{G}}. Le Librerie sono composte da moduli o routine di codice che possono essere utilizzati da un programma per eseguire operazioni specifiche, senza dover scrivere tutto il codice da zero.
+\\
+\\
+\textbf{Log:} Il termine Log si riferisce a un file o a un registro che registra eventi, \textit{attività}\textsubscript{\textit{G}} o messaggi relativi al funzionamento di un \textit{sistema}\textsubscript{\textit{G}}, di un'applicazione o di un componente \textit{software}\textsubscript{\textit{G}}. I Log sono spesso utilizzati per monitorare il comportamento di un \textit{sistema}\textsubscript{\textit{G}}, per diagnosticare problemi, e per tracciare le \textit{attività}\textsubscript{\textit{G}} al fine di analizzarle in seguito.
+\pagebreak
+\section*{M}
+\index{M}
+\phantomsection
+\addcontentsline{toc}{section}{M}
+\textbf{Maschera:} Il termine Maschera si riferisce generalmente a un'interfaccia grafica o a un elemento visuale che consente agli utenti di interagire con un'applicazione o un \textit{sistema}\textsubscript{\textit{G}}. Le Maschere sono utilizzate per raccogliere o visualizzare informazioni, spesso in forma di moduli, finestre o schermate.
+\\
+\\
+\textbf{Milestone:} Le Milestone sono punti specifici o traguardi significativi nel ciclo di sviluppo di un'applicazione o di un progetto. Questi sono eventi cruciali che segnalano il completamento di una fase importante o di un insieme di \textit{attività}\textsubscript{\textit{G}} rilevanti verso il raggiungimento di un obiettivo.
+\\
+\\
+\textbf{Multi-stage builds:} Le Multi-stage Builds in \textit{Docker}\textsubscript{\textit{G}} sono un'approccio che consente di creare immagini \textit{Docker}\textsubscript{\textit{G}} utilizzando più fasi o fasi di build separate all'interno di un singolo \textit{Dockerfile}\textsubscript{\textit{G}}. Questa funzionalità è utile per ottimizzare le dimensioni delle immagini finali e per semplificare il \textit{processo}\textsubscript{\textit{G}} di creazione delle immagini, eliminando la necessità di layer non necessari o file temporanei.
+\\
+\\
+\textbf{MVP:} Acronimo di Minimun Viable Product. Rappresenta una versione preliminare del prodotto \textit{software}\textsubscript{\textit{G}} da realizzare, il cui scopo è raccogliere quante più informazioni possibili riguardo i needs del cliente con il minimo impiego di risorse.
+\pagebreak
+\section*{N}
+\index{N}
+\phantomsection
+\addcontentsline{toc}{section}{N}
+\textbf{Normalizzazione:} La Normalizzazione dei dati è un \textit{processo}\textsubscript{\textit{G}} utilizzato nell'ambito dell'analisi dei dati e del machine learning per standardizzare o regolarizzare le caratteristiche di un dataset. L'obiettivo della normalizzazione è rendere i dati confrontabili, eliminando eventuali differenze nelle unità di misura, nelle scale o nelle distribuzioni dei dati originali.
+\pagebreak
+\section*{O}
+\index{O}
+\phantomsection
+\addcontentsline{toc}{section}{O}
+\textbf{OLAP:} OLAP è l'acronimo di "Online Analytical Processing", una tecnologia informatica che consente l'analisi interattiva e in tempo reale di grandi quantità di dati da varie prospettive. Questa metodologia organizza i dati in modo multidimensionale, facilita l'esplorazione interattiva, e supporta l'aggregazione dei dati a diversi livelli.
+\\
+\\
+\textbf{Olistico:} Olistico deriva da "olismo", un concetto che si riferisce alla considerazione dell'insieme come maggiore della somma delle sue parti. Può indicare un approccio completo che considera tutte le componenti coinvolte in un \textit{sistema}\textsubscript{\textit{G}} o un'idea, anziché focalizzarsi solo su alcuni aspetti isolati. 
+\\
+\\
+\textbf{Open-source:} Il termine Open-source si riferisce a un tipo di licenza \textit{software}\textsubscript{\textit{G}} che permette agli utenti di accedere, modificare e distribuire liberamente il codice sorgente di un'applicazione. La filosofia principale dell'approccio Open-source promuove la trasparenza, la collaborazione e la condivisione nella creazione e nell'uso del \textit{software}\textsubscript{\textit{G}}.
+\\
+\\
+\textbf{Overleaf:} Overleaf è una \textit{piattaforma}\textsubscript{\textit{G}} online per la scrittura collaborativa di documenti in \textit{LaTeX}\textsubscript{\textit{G}}. Questa \textit{piattaforma}\textsubscript{\textit{G}} offre un ambiente di scrittura \textit{LaTeX}\textsubscript{\textit{G}} basato sul web, consentendo a più utenti di lavorare contemporaneamente sugli stessi documenti, facilitando la collaborazione e la revisione.
+\pagebreak
+\section*{P}
+\index{P}
+\phantomsection
+\addcontentsline{toc}{section}{P}
+\textbf{Paradigma:} Il termine Paradigma si riferisce a un modello o a un approccio di programmazione fondamentale che guida la progettazione e l'implementazione del \textit{software}\textsubscript{\textit{G}}. Ogni Paradigma ha principi di base che definiscono come vengono organizzati i programmi, come i dati sono manipolati e come il controllo del flusso è gestito.
+\\
+\\
+\textbf{Pattern:} I Pattern forniscono un metodo riconosciuto e testato per affrontare e risolvere determinate sfide di progettazione e sviluppo, consentendo agli sviluppatori di condividere conoscenze e approcci comuni.
+\\
+\\
+\textbf{PDF:} PDF è l'acronimo di Portable Document Format. Si tratta di un formato di file sviluppato da Adobe che consente di rappresentare documenti in modo indipendente dal \textit{software}\textsubscript{\textit{G}}, dall'hardware e dal sistema operativo.
+\\
+\\
+\textbf{Piattaforma:} Il termine Piattaforma si riferisce a un ambiente hardware e/o \textit{software}\textsubscript{\textit{G}} che fornisce le risorse e i servizi necessari per lo sviluppo, l'esecuzione e la gestione di applicazioni \textit{software}\textsubscript{\textit{G}}.
+\\
+\\
+\textbf{PB:} Product Baseline (PB) è un acronimo che identifica una tappa fondamentale nello sviluppo di un progetto didattico. Durante questa revisione, viene dimostrata la solidità dell'architettura definita nella fase precedente (\textit{RTB}\textsubscript{\textit{G}}) e il progresso nell'evoluzione del prodotto in sviluppo.
+\\
+\\
+\textbf{POC:} L'acronimo POC sta per "Proof of Concept”. Un POC è un'implementazione pratica di un'idea o di un concetto, realizzata con l'obiettivo di dimostrare la fattibilità tecnica o la validità di un approccio particolare prima di impegnarsi in uno sviluppo a pieno regime.
+\\
+\\
+\textbf{Processi:} Raggruppano e codificano le \textit{attività}\textsubscript{\textit{G}} da svolgere per effettuare corrette transizioni di stato nel ciclo di vita di un prodotto \textit{software}\textsubscript{\textit{G}}.
+\\
+\\
+\textbf{Programma:} Un Programma è una sequenza di istruzioni scritte in un linguaggio di programmazione che definisce una serie di operazioni da eseguire da parte di un computer.
+\\
+\\
+\textbf{Proponente:} In ambito di sviluppo \textit{software}\textsubscript{\textit{G}}, il termine Proponente si riferisce generalmente a chi propone o suggerisce un progetto, un'idea o una soluzione.
+\\
+\\
+\textbf{Python:} Python è un linguaggio di programmazione ad alto livello, versatile e orientato agli oggetti, utilizzato per lo sviluppo di \textit{software}\textsubscript{\textit{G}}, scripting, automazione e altre applicazioni.
+\\
+\\
+\textbf{Pull request:} Una Pull Request (PR) è una richiesta effettuata da un collaboratore di un \textit{repository}\textsubscript{\textit{G}} \textit{Git}\textsubscript{\textit{G}} o di una \textit{piattaforma}\textsubscript{\textit{G}} di hosting come \textit{Github}\textsubscript{\textit{G}} per incorporare le modifiche effettuate in un \textit{branch}\textsubscript{\textit{G}} del \textit{repository}\textsubscript{\textit{G}} principale.
+\pagebreak
+\section*{R}
+\index{R}
+\phantomsection
+\addcontentsline{toc}{section}{R}
+\textbf{Raw:} Raw si riferisce ai dati grezzi o non elaborati provenienti direttamente dai \textit{sensori}\textsubscript{\textit{G}}, senza ulteriori manipolazioni o trasformazioni.
+\\
+\\
+\textbf{Report:} Il termine Report si riferisce a un documento scritto o a una presentazione che fornisce informazioni dettagliate su un determinato argomento, situazione o \textit{attività}\textsubscript{\textit{G}}.
+\\
+\\
+\textbf{Repository:} Un repository è uno spazio di archiviazione o deposito digitale in cui vengono conservati e gestiti file, dati, codice sorgente o altre informazioni pertinenti a un progetto, a un'applicazione o a un insieme di dati.
+\\
+\\
+\textbf{Requisiti contrattuali:} Rappresentano l’accordo tra la parte \textit{proponente}\textsubscript{\textit{G}} e il \textit{fornitore}\textsubscript{\textit{G}} su quale deve essere l’oggetto e la forma del prodotto \textit{software}\textsubscript{\textit{G}} da realizzare.
+\\
+\\
+\textbf{Requisiti soluzione:} Requisiti che rispecchiano le funzionalità del prodotto, atti a soddisfare i \textit{requisiti utente}\textsubscript{\textit{G}}.
+\\
+\\
+\textbf{Requisiti utente:} Requisiti che rispecchiano il lato utente, vengono espressi sotto forma di bisogni.
+\\
+\\
+\textbf{Rete:} Il termine Rete si riferisce a un insieme di dispositivi e \textit{sistemi}\textsubscript{\textit{G}} interconnessi che comunicano tra loro per condividere risorse, dati e informazioni.
+\\
+\\
+\textbf{Roadmap:} Una Roadmap è un piano strategico che visualizza le tappe chiave, le \textit{attività}\textsubscript{\textit{G}} e le direzioni principali necessarie per raggiungere un obiettivo specifico nel tempo.
+\\
+\\
+\textbf{Rollback:} Il Rollback nello sviluppo \textit{software}\textsubscript{\textit{G}} si riferisce al \textit{processo}\textsubscript{\textit{G}} di ripristino di una versione precedente, funzionante e stabile di un'applicazione o di un \textit{sistema}\textsubscript{\textit{G}}.
+\\
+\\
+\textbf{Routine di codice:} Il termine si riferisce a una sequenza di istruzioni o operazioni di programmazione che eseguono una specifica funzione o compito all'interno di un programma \textit{software}\textsubscript{\textit{G}}.
+\\
+\\
+\textbf{RTB:} Requirements and Technology Baseline (RTB) è un acronimo che identifica la revisione essenziale nel percorso di sviluppo di un progetto didattico.
+\\
+\pagebreak
+\section*{S}
+\index{S}
+\phantomsection
+\addcontentsline{toc}{section}{S}
+\textbf{Scouting tecnologico:} Lo scouting tecnologico è un \textit{processo}\textsubscript{\textit{G}} strategico volto a identificare, valutare e monitorare le nuove tecnologie emergenti e le innovazioni nel settore tecnologico.
+\\
+\\
+\textbf{Script:} Uno Script è un file contenente una serie di istruzioni o comandi scritti in un linguaggio di scripting, come \textit{Python}\textsubscript{\textit{G}}, Bash, o JavaScript.
+\\
+\\
+\textbf{Stato avanzamento lavori (SAL):} Lo Stato di Avanzamento Lavori (SAL) è una misurazione o un resoconto che indica quanto un progetto o un lavoro è progredito rispetto alle \textit{attività}\textsubscript{\textit{G}} pianificate o alle fasi di sviluppo.
+\\
+\\
+\textbf{Sensore:} In informatica e nell'ambito dell'Internet delle cose (IoT), un Sensore è un dispositivo in grado di rilevare o misurare un input fisico o ambientale e convertirlo in un segnale o dati.
+\\
+\\
+\textbf{Servizio:} Un Servizio si riferisce a una funzionalità o a un'opzione offerta da un \textit{sistema}\textsubscript{\textit{G}}.
+\\
+\\
+\textbf{Single Responsibility Principle (SRP):} Il Single Responsibility Principle è uno dei cinque principi del SOLID, un insieme di linee guida e \textit{best practice}\textsubscript{\textit{G}} per la progettazione del \textit{software}\textsubscript{\textit{G}}.
+\\
+\\
+\textbf{Sistema:} Il termine Sistema si riferisce a un insieme di componenti interconnessi che lavorano insieme per raggiungere uno scopo comune.
+\\
+\\
+\textbf{Smart city:} Una Smart City (città intelligente) è una città che utilizza la tecnologia e l'innovazione digitale per migliorare la qualità della vita dei suoi cittadini e ottimizzare l'efficienza delle operazioni urbane.
+\\
+\\
+\textbf{Software:} Un Software è una collezione di istruzioni, programmi, dati e documentazione che permette al computer di eseguire determinate funzioni o compiti.
+\\
+\\
+\textbf{SOLID:} SOLID è un acronimo che rappresenta cinque principi di progettazione del \textit{software}\textsubscript{\textit{G}} che mirano a creare codice più manutenibile, flessibile e facile da comprendere.
+\\
+\\
+\textbf{SQL:} SQL (Structured Query Language) è un linguaggio di programmazione specializzato utilizzato per gestire e manipolare i dati all'interno di un sistema di gestione del \textit{database}\textsubscript{\textit{G}} relazionale (RDBMS).
+\\
+\\
+\textbf{Stack tecnologico:} Lo Stack Tecnologico si riferisce a un insieme di tecnologie \textit{software}\textsubscript{\textit{G}}, strumenti e \textit{framework}\textsubscript{\textit{G}} utilizzati per sviluppare e gestire un'applicazione o un \textit{sistema}\textsubscript{\textit{G}} \textit{software}\textsubscript{\textit{G}}.
+\\
+\\
+\textbf{Stakeholder:} Lo Stakeholder è un termine utilizzato per identificare qualsiasi individuo, gruppo o entità che ha un interesse diretto o può essere influenzato dalle azioni.
+\pagebreak
+\\
+\textbf{Standard:} Standard è un termine utilizzato per indicare un modello, una regola o una specifica che è comunemente accettata come riferimento.
+\\
+\\
+\textbf{Stand-up meeting:} Gli Stand-up Meeting sono incontri brevi e regolari utilizzati comunemente in contesti di sviluppo \textit{software}\textsubscript{\textit{G}} e in ambito lavorativo per favorire la comunicazione.
+\\
+\\
+\textbf{Storage:} Il termine Storage si riferisce alla memorizzazione permanente e alla gestione dei dati su dispositivi di archiviazione.
+\\
+\\
+\textbf{Stream:} Il termine Stream in informatica si riferisce a un flusso di dati in movimento continuo da una sorgente a una destinazione.
+\\
+\\
+\textbf{Stream processing:} Lo Stream Processing è un paradigma di elaborazione dei dati in cui le informazioni vengono analizzate e elaborate in tempo reale man mano che vengono generate o ricevute.
+\pagebreak
+\section*{T}
+\index{T}
+\phantomsection
+\addcontentsline{toc}{section}{T}
+\textbf{Technology baseline:} Il termine Technology Baseline (Baseline Tecnologica) si riferisce a una linea di base o ad una configurazione di tecnologie, strumenti e risorse necessarie per lo sviluppo e la realizzazione di un progetto o di un sistema specifico. Questa linea di base comprende una serie di elementi essenziali, come hardware, software, framework, strumenti di sviluppo, metodologie, standard e altre risorse tecnologiche fondamentali necessarie per supportare e facilitare il processo di sviluppo e la realizzazione di un sistema, prodotto o servizio. La Technology Baseline viene stabilita durante le fasi iniziali di pianificazione di un progetto, definendo gli strumenti e le tecnologie che verranno utilizzati come punto di partenza per lo sviluppo.
+\\
+\\
+\textbf{Telegram:} Applicazione di messaggistica istantanea.
+\\
+\\
+\textbf{Test:} Il termine Test si riferisce a un \textit{processo}\textsubscript{\textit{G}} o a un'\textit{attività}\textsubscript{\textit{G}} che mira a verificare il funzionamento di un \textit{software}\textsubscript{\textit{G}} o di un \textit{sistema}\textsubscript{\textit{G}} informatico al fine di identificare eventuali difetti o problemi.
+\\
+\\
+\textbf{Tool:} La parola Tool (strumento) si riferisce a un \textit{software}\textsubscript{\textit{G}} o a un'applicazione che fornisce funzionalità specifiche o servizi per facilitare un compito o un'\textit{attività}\textsubscript{\textit{G}}. Un Tool può essere progettato per svolgere una vasta gamma di compiti.
+\pagebreak
+\section*{U}
+\index{U}
+\phantomsection
+\addcontentsline{toc}{section}{U}
+\textbf{Use case:} Nel contesto UML rappresenta una lista di azioni compiute da un attore sul \textit{sistema}\textsubscript{\textit{G}} \textit{software}\textsubscript{\textit{G}} al fine di raggiungere un determinato fine.
+\\
+\\
+\textbf{UML:} UML (Unified Modeling Language) è un linguaggio di modellazione visuale utilizzato principalmente nell'ingegneria del \textit{software}\textsubscript{\textit{G}} per descrivere, progettare e documentare \textit{sistemi}\textsubscript{\textit{G}} \textit{software}\textsubscript{\textit{G}} complessi.
+\\
+\\
+\textbf{Unità architetturale:} Un'Unità Architetturale si riferisce a un modulo, a una componente o a un'entità di base che costituisce una parte significativa di un \textit{sistema}\textsubscript{\textit{G}} \textit{software}\textsubscript{\textit{G}} o hardware. 
+\pagebreak
+\section*{V}
+\index{V}
+\phantomsection
+\addcontentsline{toc}{section}{V}
+\textbf{VSCode:} Visual Studio Code (VSCode) è un editor di codice sorgente leggero, estensibile e \textit{open-source}\textsubscript{\textit{G}} sviluppato da Microsoft. È ampiamente utilizzato dagli sviluppatori \textit{software}\textsubscript{\textit{G}} per scrivere, modificare e debuggare codice in diversi linguaggi di programmazione.
+\pagebreak
+\section*{W}
+\index{W}
+\phantomsection
+\addcontentsline{toc}{section}{W}
+\textbf{Way of working:} Insieme delle metodologie, dei \textit{pattern}\textsubscript{\textit{G}} e degli strumenti utilizzati in maniera sistematica e disciplinata durante lo sviluppo di un progetto \textit{software}\textsubscript{\textit{G}}.
+\\
+\\
+\textbf{Widget:} Un Widget è un componente grafico o un oggetto interattivo che può essere incorporato in un'interfaccia utente di un'applicazione \textit{software}\textsubscript{\textit{G}} o di una pagina web. I Widget sono progettati per fornire funzionalità specifiche e interazioni dirette con gli utenti, migliorando l'esperienza utente complessiva.
+\\
+\\
+\textbf{Workflow:} Un Workflow rappresenta il flusso o la sequenza di \textit{attività}\textsubscript{\textit{G}}, \textit{processi}\textsubscript{\textit{G}} o azioni che vengono eseguite in un particolare ordine per completare un compito o raggiungere un obiettivo specifico. È una rappresentazione visuale o concettuale di come le \textit{attività}\textsubscript{\textit{G}} sono strutturate e connesse tra loro all'interno di un processo più ampio.
+
+
+\end{document}
