@@ -312,6 +312,9 @@ Ogni periodo sarà documentato attraverso una tabella esaustiva in cui saranno i
 \\ Le ore impiegate per tali attività sono regolarmente registrate nella sezione "Preventivo orario per membro" presente in ciascun periodo.
 \\Al termine di ciascun periodo, sarà calcolato il costo totale fino a quel momento del progetto, fornendo una chiara visione del progresso complessivo.
 \\Inoltre ogni periodo conterrà una discussione sui rischi occorsi e sull'esito della loro mitigazione seguendo quanto definito in (\ref{sec:AnalisiRischi})
+\\I dati riportati in ogni periodo sono il resconto di quanto inserito in autonomia dai membri nel foglio google condiviso disponibile al link:
+\linebreak\url{https://docs.google.com/spreadsheets/d/1gbGCTKO6tLKN7lI9kTZHLpoItniJIi9X/edit?usp=sharing&ouid=104272518979154193028&rtpof=true&sd=true}
+
 
 \subsection{Requirements and Technology Baseline}
 \subsubsection{Primo periodo  06/11/2023 - 24/11/2023}
@@ -321,7 +324,7 @@ Tra i molteplici obiettivi delineati, si evidenziano la realizzazione di almeno 
 È soddisfacente constatare che tutte le richieste avanzate dalla proponente sono state risolte entro i tempi concordati, includendo le richieste opzionali.
 Parallelamente, durante questa fase, gli amministratori hanno investito risorse per automatizzare il processo di compilazione dei sorgenti LaTeX, una volta caricati nella repository condivisa. Inoltre, è stata implementata una procedura automatica di rinomina dei file PDF generati, inclusiva dell'indicazione della versione.
 
-\subsubsection*{Rischi occorsi, impatto, mitigazione}
+\paragraph{Rischi occorsi, impatto, mitigazione}
 
 Nel corso del primo periodo, si sono presentate le seguenti problematiche:
 \begin{itemize}
@@ -334,7 +337,7 @@ Nel corso del primo periodo, si sono presentate le seguenti problematiche:
                     Inoltre, al fine di conformarsi alle best practices dell'ambiente, è stata presa la decisione di regolamentare, nel documento "Norme di Progetto", lo sviluppo degli ambienti Docker.
           \end{itemize}
 \end{itemize}
-\subsubsection*{Pianificazione attività divise per ruoli con consuntivo e preventivo orario e dei costi}
+\paragraph{Pianificazione attività divise per ruoli con consuntivo e preventivo orario e dei costi}
 
 \begin{figure}[H]
     \centering
@@ -347,18 +350,32 @@ Al termine del primo periodo, l'ammontare parziale totale del costo del progetto
 
 \begin{figure}[h]
     \centering
-    \begin{tikzpicture}
-        \pie[
-            text=legend,
-            color={blue!50, red!80}, % Sostituisci con i colori desiderati
-            radius=2, % Imposta il raggio per rendere il grafico circolare
-            line width=0pt % Rimuovi i contorni
-        ]{8/Speso, 92/Rimanente}
-    \end{tikzpicture}
-    \caption{Grafico a torta del budget speso e rimanente preventivato nel primo periodo}
+    \begin{minipage}[b]{0.45\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \pie[
+                text=legend,
+                color={blue!50, red!80}, % Sostituisci con i colori desiderati
+                radius=2, % Imposta il raggio per rendere il grafico circolare
+                line width=0pt % Rimuovi i contorni
+            ]{8/Speso, 92/Rimanente}
+        \end{tikzpicture}
+        \caption{Grafico a torta del budget speso e rimanente preventivato nel primo periodo}
+        \label{fig:GraficoTorta}
+    \end{minipage}
+
+    \vspace{1cm} % Aggiungi spazio verticale tra le due figure
+
+    \begin{minipage}[b]{0.70\textwidth}
+        \centering
+        \includegraphics[width=0.7\textwidth]{../Images/avanzamento1Periodo.png}
+        \caption{Avanzamento dei lavori RTB - primo periodo}
+        \label{fig:AvRtb1}
+    \end{minipage}
 \end{figure}
 
-\subsubsection*{Preventivo e consuntivo orario per membro}
+
+\paragraph{Preventivo e consuntivo orario per membro}
 Nel corso del primo periodo, sono state impiegate ore per l'esecuzione di attività interne, come dettagliato nella tabella precedente. Tali ore non sono state incluse nei costi e per svolgerle sono intervenuti i ruoli di responsabile e amministratore.
 Per le attività registrate nei costi, sono stati assegnati i seguenti ruoli:
 
@@ -391,7 +408,7 @@ Per le attività registrate nei costi, sono stati assegnati i seguenti ruoli:
           \end{itemize}
 \end{itemize}
 
-\paragraph*{Preventivo orario}
+\paragraph{Preventivo orario}
 
 \begin{figure}[h]
     \centering
@@ -400,13 +417,31 @@ Per le attività registrate nei costi, sono stati assegnati i seguenti ruoli:
     \label{fig:Pv1}
 \end{figure}
 
-\paragraph*{Consuntivo orario}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../Images/preventivoDivisioneRuoli1Periodo.png}
+    \caption{Istogramma preventivo della ripartizione oraria dei ruoli - primo periodo}
+    \label{fig:PvD1}
+\end{figure}
+
+
+
+
+
+\paragraph{Consuntivo orario }
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.9\textwidth]{../Images/consuntivoOrario1Periodo.png}
     \caption{Consuntivo orario per membro - primo periodo}
     \label{fig:Cv1}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../Images/consuntivoDivisioneRuoli1Periodo.png}
+    \caption{Istogramma consuntivo della ripartizione oraria dei ruoli - primo periodo}
+    \label{fig:PvD1}
 \end{figure}
 
 
