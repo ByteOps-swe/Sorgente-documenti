@@ -8,7 +8,15 @@
     \hline
     \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio        & Il prodotto non deve avere una gestione di amministrazione.                                                                                                                                                                        & Capitolato      &                     \\
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio        & L'utente deve poter visualizzare una dashboard con una visuale completa sullo stato della città tramite \newline i dati dei sensori, con l'utilizzo di grafici e widget                                                             & Capitolato      & UC1          \\
+    %SIMULAZIONE SENSORI
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio        &  Il sistema deve integrare simulatori di diverso tipo al fine di generare dati di misurazioni che siano coerenti con l'ambito del sensore simulato. Ogni dato generato deve essere strettamente correlato al dato successivo, garantendo così una transizione realistica e plausibile tra le misurazioni.                                                                                                                                            & Capitolato      &                \\
+    \hline
+
+    %SALVATAGGIO
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio        & Il sistema deve essere in grado di memorizzare in modo sicuro e efficiente i dati generati dai sensori. Ciò include la registrazione accurata di ogni misurazione, assicurando l'integrità e la coerenza dei dati.                                                                                                                                                                        & Capitolato      &                     \\
+    \hline
+    %use case
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio        & L'utente deve poter visualizzare una dashboard con una visuale completa sullo stato della città tramite \newline i dati dei sensori, con l'utilizzo di grafici e widget.                                                             & Capitolato      & UC1          \\
     \hline
     \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio        & La dashboard deve essere aggiornata in tempo reale per riflettere immediatamente i dati provenienti dai sensori.                                                                                                                   & Capitolato      & UC1               \\
     \hline
@@ -22,7 +30,7 @@
     \hline
     \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio        & La dashboard della città deve includere una mappa interattiva che mostra la posizione dei diversi sensori nella città.                                                                                                             & Capitolato      & UC1.2                   \\
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio        & La mappa deve mostrare i sensori posizionati nella città, e ognuno di essi deve essere etichettato in modo da consentire il riconoscimento della tipologia                                                                         & Capitolato      & UC1.2               \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio        & La mappa deve mostrare i sensori posizionati nella città, e ognuno di essi deve essere etichettato in modo da consentire il riconoscimento della tipologia.                                                                         & Capitolato      & UC1.2               \\
     \hline
     \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio        & La dashboard deve fornire un punteggio di salute relativo alla città basato sui dati aggregati provenienti dai sensori.                                                                                                            & Verbale interno & UC1.3                    \\
     \hline
@@ -87,25 +95,25 @@
     \hline
     \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio        & L'utente deve avere la possibilità di impostare la visualizzazione dei dati storici in formato grafico.                                                                                                                   & Capitolato      & UC5               \\
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio        & L'utente deve poter visualizzare lo storico dei dati trasmessi da una specifica categoria di sensori presenti nella città in formato grafico                                                                                       & Capitolato      & UC3.1, UC5               \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio        & L'utente deve poter visualizzare lo storico dei dati trasmessi da una specifica categoria di sensori presenti nella città in formato grafico.                                                                                       & Capitolato      & UC3.1, UC5               \\
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio        & L'utente deve poter visualizzare lo storico dei dati trasmessi da una specifica categoria di sensori presenti nella \newline città in formato testuale (TIMESTAMP : dato)                                                          & Capitolato & UC3.1, UC4                   \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio        & L'utente deve poter visualizzare lo storico dei dati trasmessi da una specifica categoria di sensori presenti nella \newline città in formato testuale (TIMESTAMP : dato).                                                          & Capitolato & UC3.1, UC4                   \\
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio        & L'utente deve poter visualizzare lo storico dei dati trasmessi da una specifica categoria di sensori presenti in una cella in formato grafico                                                                                      & Capitolato      & UC3.2, UC5             \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio        & L'utente deve poter visualizzare lo storico dei dati trasmessi da una specifica categoria di sensori presenti in una cella in formato grafico.                                                                                      & Capitolato      & UC3.2, UC5             \\
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio        & L'utente deve poter visualizzare lo storico dei dati trasmessi da una specifica categoria di sensori presenti in \newline una cella in formato testuale (TIMESTAMP : dato)                                                         & Capitolato & UC3.2, UC4                \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio        & L'utente deve poter visualizzare lo storico dei dati trasmessi da una specifica categoria di sensori presenti in \newline una cella in formato testuale (TIMESTAMP : dato).                                                         & Capitolato & UC3.2, UC4                \\
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio        & L'utente deve poter visualizzare lo storico dei dati trasmessi da un sensore in formato grafico                                                                                                                                    & Capitolato & UC3.3, UC5                 \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio        & L'utente deve poter visualizzare lo storico dei dati trasmessi da un sensore in formato grafico.                                                                                                                                    & Capitolato & UC3.3, UC5                 \\
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio        & L'utente deve poter visualizzare lo storico dei dati trasmessi da un sensore in formato testuale (TIMESTAMP : dato)                                                                                                                & Capitolato & UC3.3, UC4            \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio        & L'utente deve poter visualizzare lo storico dei dati trasmessi da un sensore in formato testuale (TIMESTAMP : dato).                                                                                                                & Capitolato & UC3.3, UC4            \\
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio        & L'utente deve poter salvare dati storici trasmessi dal/i sensore/i in una lista di preferiti visibile e comune ad ogni utente                                & Verbale interno & UC7               \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio        & L'utente deve poter salvare dati storici trasmessi dal/i sensore/i in una lista di preferiti visibile e comune ad ogni utente.                                & Verbale interno & UC7               \\
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio        & L'utente deve poter salvare dati trasmessi dai sensori di una tipologia nella città nel formato testuale (TipoSensore, TIMESTAMP, Dato) in una lista di preferiti visibile e comune ad ogni utente                                & Verbale interno & UC7.1               \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio        & L'utente deve poter salvare dati trasmessi dai sensori di una tipologia nella città nel formato testuale (TipoSensore, TIMESTAMP, Dato) in una lista di preferiti visibile e comune ad ogni utente.                                & Verbale interno & UC7.1               \\
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio        & L'utente deve poter salvare dati trasmessi dai  sensori di una tipologia nella cella nel formato testuale (Cella, TipoSensore, TIMESTAMP, Dato) in una lista di preferiti visibile e comune ad ogni utente                         & Verbale interno & UC7.2               \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio        & L'utente deve poter salvare dati trasmessi dai  sensori di una tipologia nella cella nel formato testuale (Cella, TipoSensore, TIMESTAMP, Dato) in una lista di preferiti visibile e comune ad ogni utente.                         & Verbale interno & UC7.2               \\
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio        & L'utente deve poter salvare dei dati trasmessi da un sensore nel formato testuale (IDSensore,Cella, TipoSensore, TIMESTAMP, Dato) in una lista di preferiti visibile e comune ad ogni utente                                       & Verbale interno & UC7.3               \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio        & L'utente deve poter salvare dei dati trasmessi da un sensore nel formato testuale (IDSensore,Cella, TipoSensore, TIMESTAMP, Dato) in una lista di preferiti visibile e comune ad ogni utente.                                       & Verbale interno & UC7.3               \\
     \hline
     \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio        & Prima di salvare il dato tra i preferiti, il sistema deve verificare che il dato non sia già presente nella lista dei preferiti.                                                                                                   & Verbale interno      & UC7               \\
     \hline
@@ -129,5 +137,6 @@
     \hline
     \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio        & Il sistema deve fornire all'autorità locale, munita delle competenze pertinenti, la capacità di condurre operazioni personalizzate di visualizzazione e analisi dei dati mediante l'esecuzione di Query sulla base di dati.    & Verbale interno      & UC3               \\
     \hline
+    
 \end{longtable}
 

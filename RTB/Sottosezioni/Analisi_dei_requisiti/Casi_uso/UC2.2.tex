@@ -3,14 +3,14 @@
     \item \textbf{Attore principale:} Autorità locale.
     \item \textbf{Descrizione:} L'autorità locale accede alla dashboard di una cella e visualizza una mappa con una visione dei sensori posizionati nella cella.
     \item \textbf{Scenario principale:}
-          \begin{enumerate}
-              \item L'utente visualizza una mappa contenente soli i sensori presenti nella cella. (i sensori sono etichettati per riconoscere la tipologia)
-          \end{enumerate}
-    \item \textbf{Precondizioni:}
-          \begin{itemize}
-              \item  Almeno un sensore nella cella è attivo e ha trasmesso dati;
-              \item L'utente si trova nella dashboard di una cella. (UC2)
-          \end{itemize}
+    \begin{enumerate}
+      \item L'utente accede alla piattaforma per la visualizzazione della dashboard di una cella. (UC2)
+    \end{enumerate}
+\item \textbf{Precondizioni:}
+    \begin{itemize}
+        \item  Almeno un sensore nella cella è attivo e ha trasmesso dati durante la giornata;
+        \item L'utente si trova nella dashboard relativa alla città (UC1)
+    \end{itemize}
     \item \textbf{Postcondizioni:}
           \begin{itemize}
               \item      L'utente ha una visione grafica aggiornata della mappa dei sensori nella cella e della loro tipologia.
