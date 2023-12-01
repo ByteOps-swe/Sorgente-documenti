@@ -1,0 +1,29 @@
+\subsection{Verifica}\label{sec:verifica}
+\subsubsection{Verifica dei documenti}
+\paragraph{I verificatori}\label{sec:verificatori}
+
+Il ruolo del verificatore nei documenti è cruciale per garantire la qualità e l'accuratezza del contenuto.
+
+Quando il verificatore individua un'Issue nella colonna "Da revisionare" della  \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione}, sarà tenuto a convalidare il file corrispondente presente nella repository "Sorgente documenti". \\
+In aggiunta, il revisore riceverà una notifica via email quando il redattore completa la propria attività, comunicandogli la presenza della pull request assegnatagli.\\
+Nella sezione "pull request" di GitHub, il revisore troverà la richiesta di unire il branch di redazione al branch "main", assumendo il ruolo di revisore. Accedendo alla pull request su GitHub, il revisore avrà la possibilità di esaminare attentamente il documento in questione e di aggiungere commenti visibili ai redattori nel caso in cui siano necessarie modifiche per la validazione.
+
+\vspace{0.3cm}
+
+Per validare un documento i le verifiche da attuare sono:
+\begin{itemize}
+    \item \textbf{Revisione della Correttezza Tecnica:} Revisione tecnica del documento per garantire che tutte le informazioni siano corrette, coerenti e rispettino le norme stabilite.
+    \item \textbf{Conformità alle Norme:} Verifica che il documento segua le linee guida e gli standard prestabiliti per la formattazione, la struttura e lo stile.
+    \item \textbf{Consistenza e Coerenza:} Si assicura che il documento sia consistente internamente e coerente con altri documenti correlati. Verifica che non ci siano discrepanze o contraddizioni.
+    \item \textbf{Chiarezza e Comprensibilità:} Valuta la chiarezza del testo, assicurandosi che il linguaggio sia comprensibile per il pubblico di destinazione e che non ci siano ambiguità.
+    \item \textbf{Revisione Grammaticale e Ortografica} Controlla la grammatica, l'ortografia e la punteggiatura del documento per garantire una presentazione professionale.
+\end{itemize}
+
+
+Dopo l'attuazione dei controlli sopra citati e verificato il loro rispetto, i passi per convalidare il documento sono i seguenti:
+\begin{enumerate}
+    \item \textbf{Accetta la Pull Request:} Accedi alla pagina della pull request in cui agisci come revisore nel repository "Sorgente documenti" su GitHub >> Risolvi eventuali conflitti >> Merge Pull Request;
+    \item \textbf{Elimina il branch: } Elimina il branch creato per la redazione del documento (o sezione).
+    \item \textbf{Sposta la issue in Done:} Nella \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione} sposta la issue relativa al documento validato da "Da revisionare" a "Done".
+    \item \textbf{Generazione PDF:} Un automazione tramite GitHub Actions compilerà il file   \LaTeX\ e genererà automaticamente il PDF nel branch main della repository \href{https://github.com/ByteOps-swe/Documents}{Documents} con, se richiesto, la versiona aggiornata nel nome.
+\end{enumerate}
