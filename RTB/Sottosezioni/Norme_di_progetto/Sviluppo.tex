@@ -228,31 +228,24 @@ L'obiettivo principale è quindi quello di assicurare il soddisfacimento dei req
 
 \paragraph{Obiettivi}
 Inizialmente, il team di progettazione condurrà un'analisi approfondita per selezionare con attenzione le tecnologie più adatte, valutandone attentamente i punti di forza, le debolezze e le eventuali criticità. \\
-Una volta scelte le tecnologie appropriate, si procederà con la definizione delle componenti e delle interfacce necessarie alla loro interazione e all’interazione con l’ambiente di esecuzione. Si presterà particolare attenzione a rendere il sistema flessibile e adatto a potenziali modifiche future. \\
-Successivamente, si avvierà lo sviluppo di un Proof of Concept (POC) volto a valutare le decisioni prese in merito all'architettura e alle tecnologie adottate, nonché la loro aderenza agli obiettivi e alle specifiche del progetto. \\
-Dopo il completamento del POC, si procederà con iterazioni aggiuntive, apportando miglioramenti, aggiunte e approfondimenti, fino a giungere a un design completo. Questo design sarà fondamentale per lo sviluppo dell'MVP (Minimum Viable Product), che costituirà una versione essenziale e funzionale del prodotto.
-
-
+Una volta individuate le tecnologie appropriate, si procede allo sviluppo di un'architettura di alto livello per comprendere e delineare la struttura generale del prodotto, costituendo così una base di partenza per la realizzazione del PoC.
+Questa architettura fornisce una visione panoramica del sistema, identificando i principali componenti, i flussi di dati e le interazioni tra di essi. Si presterà particolare attenzione a rendere il sistema flessibile e adatto a potenziali modifiche future. \\
+Successivamente, si avvierà lo sviluppo di un Proof of Concept (PoC), parte fondamentale della Technology Baseline, per valutare le decisioni prese riguardo all'architettura e alle tecnologie adottate, nonché per verificarne l'aderenza agli obiettivi e alle specifiche del progetto. \\
+In seguito allo sviluppo e ad un'attenta analisi del POC, si procederà con iterazioni aggiuntive, apportando miglioramenti, aggiustamenti e aggiunte, fino a giungere a un design completo. Questo design sarà fondamentale per lo sviluppo dell'MVP (Minimum Viable Product), che costituirà una versione essenziale e funzionale del prodotto e che sarà parte della Product Baseline.
 
 \paragraph{Documentazione}
-Ogni Baseline sarà accompagnata dalla redazione di documentazione relativa:
+\textbf{Specifica tecnica} \\
+Il documento descrive in modo approfondito il design definitivo del prodotto e fornisce istruzioni precise agli sviluppatori, guidandoli nella corretta implementazione della soluzione software secondo i requisiti e le specifiche indicate. Ciò permette di ridurre la complessità e le ambiguità nel processo di sviluppo del software, contribuendo a garantire che il prodotto finale sia allineato alle aspettative del cliente e funzioni in modo ottimale.
+Questo documento comprende diversi elementi cruciali: 
 \begin{itemize}
-    \item Technology Baseline
-    \begin{itemize}
-        \item Proof of concept
-        \item Definizione delle componenti
-        \item Scelte tecnologiche
-    \end{itemize}
-    \item Product Baseline
-    \begin{itemize}
-        \item Diagrammi UML
-        \item Design pattern
-        \item Definizione delle classi
-        \item Test unitari
-    \end{itemize}
+    \item Tecnologie utilizzate: Specifica le tecnologie e le librerie di terze parti integrate nel sistema;
+    \item Architettura logica: Definisce i componenti, i ruoli, le connessioni e le interazioni nel sistema;
+    \item Architettura di deployment: Indica come le componenti architetturali vengono allocate e distribuite nel sistema in esecuzione;
+    \item Pattern architetturali e design pattern: Descrive i design pattern architetturali adottati e quelli influenzati dalle tecnologie utilizzate, oltre agli eventuali idiomi a livello più basso;
+    \item Vincoli e linee guida: Include restrizioni e regole da seguire durante lo sviluppo;
+    \item Procedure di testing e validazione: Indica i processi per testare e verificare che il software soddisfi i requisiti specificati;
+    \item Requisiti tecnici: Specifica in dettaglio i requisiti prestazionali, di sicurezza, di scalabilità e di compatibilità con determinate piattaforme che il software deve soddisfare
 \end{itemize}
-
-\paragraph{Aspettative}
 
 \paragraph{Diagrammi UML}
 Vantaggi:
