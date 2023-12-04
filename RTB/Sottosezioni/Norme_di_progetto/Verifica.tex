@@ -46,8 +46,10 @@ Dopo l'attuazione dei controlli sopra citati e aver verificato che siano stati a
         eliminare il branch creato per la redazione del documento (o sezione).
     \item \textbf{Sposta la issue in Done:} 
         nella \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione} spostare la issue relativa al documento validato dalla sezione "Da revisionare" a "Done".
-    \item \textbf{Generazione PDF:} 
+    \item \textbf{Controllo generazione PDF:} 
         un automazione tramite GitHub Actions compilerà il file \LaTeX\ e genererà automaticamente il PDF nel branch main della repository \href{https://github.com/ByteOps-swe/Documents}{Documents} con la data di redazione nel caso il documento sia un verbale, oppure la versione aggiornata per tutte le altre tipologie di file.
+
+        Il verificatore dovrà accedere alla sezione "Actions" di GitHub, supervisionare il processo di compilazione per la possibile generazione di errori, attendere la conclusione del processo di build del codice sorgente e controllare la corretta generazione del documento in formato PDF.
 \end{enumerate}
 
 \paragraph{Analisi}
