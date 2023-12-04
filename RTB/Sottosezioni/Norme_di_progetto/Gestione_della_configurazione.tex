@@ -36,16 +36,16 @@ Le repository del team sono:
 I repository destinati alla documentazione sono organizzati come segue:
 \begin{itemize}
     \item \textbf{Candidatura:} Contenente i documenti richiesti per la candidatura;
-    \begin{itemize}
-        \item \textbf{Verbali:} Contiene tutti i verbali redatti nel corso del periodo di candidatura, distinti tra verbali esterni e interni;
-        \item Lettera di presentazione;
-        \item Valutazione dei costi e assunzione impegni;
-        \item Valutazione dei capitolati.
-    \end{itemize}
+          \begin{itemize}
+              \item \textbf{Verbali:} Contiene tutti i verbali redatti nel corso del periodo di candidatura, distinti tra verbali esterni e interni;
+              \item Lettera di presentazione;
+              \item Valutazione dei costi e assunzione impegni;
+              \item Valutazione dei capitolati.
+          \end{itemize}
     \item \textbf{RTB:} Contenente i documenti richiesti per la revisione omonima;
-    \begin{itemize}
-        \item \textbf{Verbali:} Contiene tutti i verbali redatti nel corso del periodo della RTB, distinti tra verbali esterni e interni;
-              \item Piano di Qualifica; 
+          \begin{itemize}
+              \item \textbf{Verbali:} Contiene tutti i verbali redatti nel corso del periodo della RTB, distinti tra verbali esterni e interni;
+              \item Piano di Qualifica;
               \item Piano di Progetto;
               \item Analisi dei Requisiti;
               \item Glossario;
@@ -78,21 +78,21 @@ Seguendo lo standard  ISO/IEC 12207 per affrontare questo processo in modo strut
 Questo processo si occupa di registrare e tenere traccia dello stato di tutte le configurazioni di un sistema software durante il suo ciclo di vita.
 \begin{itemize}
     \item \textbf{Registrazione delle configurazioni}: Registrazione delle informazioni dettagliate su ogni elemento di configurazione;
-            \begin{itemize}
-                \item  \textbf{Documentazione:} Le informazioni del documento sono presenti nella prima pagina di ciascuno.
-            \end{itemize}
+          \begin{itemize}
+              \item  \textbf{Documentazione:} Le informazioni del documento sono presenti nella prima pagina di ciascuno.
+          \end{itemize}
     \item \textbf{Stato e cambiamenti}: Tenere traccia dello stato attuale di ciascun elemento di configurazione e di tutti i cambiamenti che avvengono nel corso del tempo. Ciò include le versioni attuali, le revisioni, le modifiche e le baselines;
-    \begin{itemize}
-        \item  \textbf{Registro delle modifiche:} Per monitorare lo stato di ciascun CI, si utilizza il registro delle modifiche incorporato in ognuno di essi;
-        \item  \textbf{Branching \& DashBoard:} Per visionare la presenza di lavori in atto su di un CI si utilizza a supporto la presenza di branch attivi che lo riguardano e il posizionamento di issue associate nella Dashboard di progetto.
-        \begin{itemize}
-            \item Ogni issue è associato ad un CI tramite label.  \label{sec:ticketing} 
-        \end{itemize} 
-    \end{itemize}
+          \begin{itemize}
+              \item  \textbf{Registro delle modifiche:} Per monitorare lo stato di ciascun CI, si utilizza il registro delle modifiche incorporato in ognuno di essi;
+              \item  \textbf{Branching \& DashBoard:} Per visionare la presenza di lavori in atto su di un CI si utilizza a supporto la presenza di branch attivi che lo riguardano e il posizionamento di issue associate nella Dashboard di progetto.
+                    \begin{itemize}
+                        \item Ogni issue è associato ad un CI tramite label.  \label{sec:ticketing}
+                    \end{itemize}
+          \end{itemize}
     \item \textbf{Supporto per la gestione delle change request}: Registra e documenta le modifiche apportate agli elementi di configurazione in risposta alle richieste di modifica.
-    \begin{itemize}
-        \item  \textbf{ITS:} Per supportare i change request viene utilizzato l'ITS di github, l'identificazione avviene tramite la creazione di un issue nell'ITS con label: "Change request".
-    \end{itemize}
+          \begin{itemize}
+              \item  \textbf{ITS:} Per supportare i change request viene utilizzato l'ITS di github, l'identificazione avviene tramite la creazione di un issue nell'ITS con label: "Change request".
+          \end{itemize}
 \end{itemize}
 La Contabilità dello Stato di Configurazione è un processo fondamentale per mantenere la trasparenza e la tracciabilità nel ciclo di vita del software, aiutando a gestire le configurazioni in modo coerente e a mantenere un registro accurato di tutte le attività e le modifiche che coinvolgono gli elementi di configurazione.\\
 \vspace{0.2cm}
@@ -100,5 +100,4 @@ La Contabilità dello Stato di Configurazione è un processo fondamentale per ma
 Ad esempio, l'aggiunta di un elemento di configurazione al ramo principale (main) lo designa come la versione più recente e revisionata, mentre le versioni (X.0.0) con X>=1 indicano l'appartenenza del suddetto elemento di configurazione alla baseline, con la medesima versione.
 
 \subsubsection{Release management and delivery}
-\textbf{Documentazione:}
 Dopo aver portato a termine le attività nel proprio branch, il responsabile del suo sviluppo è tenuto a avviare una richiesta di pull per incorporare le modifiche nel ramo principale. La richiesta di pull può essere accettata solo se la verifica ha esito positivo.
