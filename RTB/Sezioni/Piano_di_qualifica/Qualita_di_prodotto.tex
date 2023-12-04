@@ -1,0 +1,122 @@
+\section{Qualità di prodotto}
+\subsection{Introduzione}
+La qualità di prodotto si riferisce alle caratteristiche intrinseche di un prodotto che determinano la sua capacità di soddisfare le esigenze degli utenti.
+Queste caratteristiche includono funzionalità, affidabilità, usabilità, manutenibilità, efficienza e portabilità.
+
+\subsection{Funzionalità}
+Capacità del prodotto di soddisfare tutti i requisiti
+individuati nel documento di Analisi dei
+Requisiti.
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|p{1.5cm}|p{3cm}|p{4cm}|p{3cm}|p{3cm}|}
+        \hline
+        \textbf{Metrica} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Valore di accettazione} & \textbf{Valore preferibile} \\
+        \hline
+        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}ROS} & Requisiti Obbligatori Soddisfatti & Misura la percentuale di requisiti obbligatori completamente soddisfatti rispetto al totale dei requisiti obbligatori. & $100\%$ & $100\%$ \\
+        \hline
+        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}RDS} & Requisiti Desiderabili Soddisfatti & Misura la percentuale di requisiti desiderabili soddisfatti rispetto al totale dei requisiti desiderabili. & $\geq 0\%$ & $\geq 50\%$ \\
+        \hline
+        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}ROPZS} & Requisiti Opzionali Soddisfatti & Misura la percentuale di requisiti opzionali soddisfatti rispetto al totale dei requisiti opzionali. & $\geq 0\%$ & $\geq 30\%$ \\
+        \hline
+    \end{tabular}
+    \caption{Funzionalità - Metriche e indici di qualità}
+    \label{tab:qualita_prodotto}
+\end{table}
+
+
+
+\subsection{Usabilità}
+Capacit`a di essere comprensibile e di facile utilizzo per l’utente.
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|p{1.5cm}|p{3cm}|p{4cm}|p{3cm}|p{3cm}|}
+        \hline
+        {Metrica} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Valore di accettazione} & \textbf{Valore preferibile} \\
+        \hline
+        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}PD} & Tempo di Apprendimento & Misura il tempo massimo richiesto per apprendere l'utilizzo del prodotto. & $\leq 10$ minuti & $\leq 5$ minuti \\
+        \hline
+        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}PD} & Semplicità di Utilizzo & Misura il numero massimo di click necessari per utilizzare il prodotto. & $\leq 7$ click & $\leq 5$ click \\
+        \hline
+    \end{tabular}
+    \caption{Usabilità - Metriche e indici di qualità}
+    \label{tab:qualita_prodotto_parte2}
+\end{table}
+
+
+
+\subsection{Manutenibilità}
+Capacit`a di permettere future correzioni e modifiche
+senza compromettere l’intero prodotto software.
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|p{1.5cm}|p{3cm}|p{4cm}|p{3cm}|p{3cm}|}
+        \hline
+        \textbf{Metrica} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Valore di accettazione} & \textbf{Valore preferibile} \\
+        \hline
+        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}AC} & Accoppiamento tra Classi & Misura il livello di accoppiamento tra le classi del sistema. & $\leq 3$ & $\leq 2$ \\
+        \hline
+        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}ATC} & Attributi per Classe & Misura il numero massimo di attributi per classe. & $\leq 6$ & $\leq 4$ \\
+        \hline
+        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}PM} & Parametri per Metodo & Misura il numero massimo di parametri per metodo. & $\leq 5$ & $\leq 4$ \\
+        \hline
+        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}LCM} & Linee di Codice per Metodo & Misura il numero massimo di linee di codice per metodo. & $\leq 30$ & $\leq 20$ \\
+        \hline
+    \end{tabular}
+    \caption{Manutenibilità - Metriche e indici di qualità}
+    \label{tab:qualita_prodotto_dati}
+\end{table}
+
+
+\subsection{Affidabilità}
+Capacit`a di svolgere i compiti anche in caso di errori
+o problemi, cercando di evitare che si manifestino.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|p{1.5cm}|p{3cm}|p{4cm}|p{3cm}|p{3cm}|}
+        \hline
+        \textbf{Metrica} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Valore di accettazione} & \textbf{Valore preferibile} \\
+        \hline
+        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}DE} & Densità degli Errori & Misura la percentuale di errori presenti nel prodotto rispetto al totale del codice. & $\leq 10\%$ & $0\%$ \\
+        \hline
+    \end{tabular}
+    \caption{Affidabilità - Metriche e indici di qualità}
+    \label{tab:qualita_prodotto_aggiornata}
+\end{table}
+
+
+\subsection{Efficienza}
+Capacit`a di svolgere un compito nel minor tempo
+possibile e con l’utilizzo della minor quantit`a
+possibile di risorse.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|p{1.5cm}|p{3cm}|p{4cm}|p{3cm}|p{3cm}|}
+        \hline
+        \stepcounter{metriccounter}\textbf{Metrica} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Valore di accettazione} & \textbf{Valore preferibile} \\
+        \hline
+        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}PD} & Tempo Medio di Risposta & Misura il tempo medio impiegato per rispondere a una richiesta. & $\leq 6$ secondi & $\leq 4$ secondi \\
+        \hline
+    \end{tabular}
+    \caption{Efficienza - Metriche e indici di qualità}
+    \label{tab:qualita_prodotto}
+\end{table}
+
+\subsection{Portabilità}
+Capacità di funzionare in diversi ambienti di
+esecuzione.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|p{1.5cm}|p{3cm}|p{4cm}|p{3cm}|p{3cm}|}
+        \hline
+        \textbf{Metrica} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Valore di accettazione} & \textbf{Valore preferibile} \\
+        \hline
+        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}PD} & Versioni dei browser supportate & Percentuale delle versioni di browser supportate rispetto al totale delle versioni disponibili. & $\geq 80\%$ & $100\%$ \\
+        \hline
+    \end{tabular}
+    \caption{Portabilità - Metriche e indici di qualità}
+    \label{tab:qualita_prodotto_2}
+\end{table}

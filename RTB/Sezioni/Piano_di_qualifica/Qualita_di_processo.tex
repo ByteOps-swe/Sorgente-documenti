@@ -1,18 +1,127 @@
 \section{Qualità di processo}
 \subsection{Introduzione}
 Durante l'implementazione del progetto, i processi adottano criteri di qualità al fine di perseguire un miglioramento continuo finalizzato a soddisfare appieno tali criteri.
- Nel contesto di questo progetto, si è deliberatamente scelto di utilizzare il metodo PDCA (Plan-Do-Check-Act) e lo standard ISO/IEC 15504.
+ Nel contesto di questo progetto, si è scelto di utilizzare il metodo PDCA (Plan-Do-Check-Act) e lo standard ISO/IEC 15504 noto anche come SPICE (Software Process Improvement and Capability Determination).
 \\
-Ciò consente di garantire un'implementazione dei processi che, basandosi sull'esperienza accumulata, si orienta al miglioramento costante e assicura al cliente il raggiungimento di un prodotto di elevata qualità. Nella presente sezione, vengono delineati i livelli di qualità accettabili e ottimali in base alle metriche definite nel documento NORME DI PROGETTO V4.0.0D.
+Ciò consente di garantire un'implementazione dei processi che, basandosi sull'esperienza accumulata, si orienta al miglioramento costante e assicura al cliente il raggiungimento di un prodotto di elevata qualità. Nella presente sezione, vengono delineati i livelli di qualità accettabili e ottimali in base alle metriche definite nel documento "Norme di progetto".
 
-\subsection{Gestione delle risorse}
-Il processo di gestione delle risorse è responsabile della supervisione dell'utilizzo ottimale delle risorse disponibili e del monitoraggio del progresso delle attività pianificate nel contesto del documento "Piano di progetto".
-Le metriche utilizzate possono essere visionate all’interno del documento "Norme di progetto".
-\subsubsection*{Metriche}
-\begin{itemize}
-    \item MQ13CPS Costo pianificato sostenuto;
-    \item MQ14CAS Costo attuale sostenuto;
-    \item MQ15CVS Costo preventivato sostenuto;
-    \item MQ16VP Varazione programmazione;
-    \item MQ17VC Varazione costi.
-\end{itemize}
+\subsection{Processi primari}
+\subsubsection{Fornitura}
+Processo che consiste nel decidere procedure e risorse
+adatte allo sviluppo del progetto.
+
+\paragraph{Metriche}
+
+\textbf{BAC (Budget at Completion):}
+Il Budget at Completion rappresenta il budget totale previsto per completare l'intero progetto. In altre parole, è il costo massimo che si prevede di sostenere per portare a termine tutte le attività pianificate.
+\vspace{0.1cm}
+\textbf{EAC (Estimate at Completion):}
+Stima previsionale del costo totale per completare un progetto. In termini pratici, l'EAC tiene conto dei costi effettivi già sostenuti nel progetto e stima quanto sarà necessario spendere per portare a termine il lavoro.
+\newcounter{metriccounter}
+\setcounter{metriccounter}{1} % Inizia dal numero 13
+
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|p{1.5cm}|p{3cm}|p{4cm}|p{3cm}|p{3cm}|}
+        \hline
+        \textbf{Metrica} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Valore di accettazione} & \textbf{Valore preferibile} \\
+        \hline
+        \textbf{M\arabic{metriccounter}EAC} & Estimated at Completion & Stima del costo totale previsto per completare l'intero progetto. & $\pm 5\%$ rispetto al preventivo & Pari al preventivo \\
+        \hline
+        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}CPI} & Cost Performance Index & Indice di prestazione del costo, misura l'efficienza dei costi nel progetto. & $\pm 10\%$ & $0\%$ \\
+        \hline
+        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}BV} & Budget Variance & Varianza rispetto al budget previsto. & $\geq -10\%$ & $0\%$ \\
+        \hline
+        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}AC} & Actual Cost & Costo effettivamente sostenuto fino a un certo punto nel tempo durante l'esecuzione del progetto. & $\geq 0 $ & $ \leq$ EAC  \\
+        \hline
+        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}SV} & Schedule Variance & Varianza rispetto alla pianificazione prevista. & $\geq -10\%$ & $0\%$ \\
+        \hline
+        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}EV} & Earned Value & Valore del lavoro effettivamente completato fino a un certo punto nel tempo. & $\geq 0 $ & $\leq$ EAC  \\
+        \hline
+        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}PV} & Planned Value & Valore del lavoro pianificato fino a un certo punto nel tempo. & $\geq 0  $ & $ \leq$ BAC  \\
+        \hline
+        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}ETC} & Estimate to Complete & Stima del costo totale previsto per completare il progetto. & $\geq 0  $ & $ \leq$ EAC  \\
+        \hline
+    \end{tabular}
+    \caption{Metriche di Controllo di Progetto}
+    \label{tab:controllo_progetto}
+\end{table}
+
+
+\subsubsection{Codifica}
+\paragraph{Metriche}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|p{1.5cm}|p{3cm}|p{4cm}|p{3cm}|p{3cm}|}
+        \hline
+        \textbf{Metrica} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Valore di accettazione} & \textbf{Valore preferibile} \\
+        \hline
+        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}CCM} & Complessità Ciclomatica per Metodo & Rappresenta la complessità di un metodo in base ai percorsi possibili & $\leq 5$ & $\leq 3$ \\
+        \hline
+        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}CC} & Code Coverage & Percentuale del codice sorgente coperto dai test & $\geq 80\%$ & $100\%$ \\
+        \hline
+        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}SC} & Statement Coverage & Percentuale degli statement del codice coperti dai test & $\geq 70\%$ & $\geq 85\%$ \\
+        \hline
+        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}BC} & Branch Coverage & Percentuale dei rami decisionali del codice coperti dai test & $\geq 50\%$ & $\geq 75\%$ \\
+        \hline
+        \textbf{M\arabic{metriccounter}PM} & Parametri per Metodo & Numero massimo di parametri per metodo & $\leq 6$ & $\leq 5$ \\
+        \hline
+        \stepcounter{metriccounter} \textbf{M\arabic{metriccounter}LCM} & Linee di Codice per Metodo & Limite massimo di linee di codice per metodo & $\leq 30$ & $\leq 20$ \\
+        \hline
+    \end{tabular}
+    \caption{Codifica - Metriche e indici di qualità}
+    \label{tab:metriche}
+\end{table}
+
+\subsection{Processi di supporto}
+\paragraph{Documentazione}
+\paragraph*{Metriche}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|p{1.5cm}|p{3cm}|p{4cm}|p{3cm}|p{3cm}|}
+        \hline
+        \textbf{Metrica} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Valore di accettazione} & \textbf{Valore preferibile} \\
+        \hline
+        \stepcounter{metriccounter} \textbf{M\arabic{metriccounter}CO} & Correttezza Ortografica & Misura la presenza di errori ortografici nei documenti & $0$ & $0$ \\
+        \hline
+        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}IG} & Indice Gulpease & Misura la leggibilità di un testo in base alla lunghezza delle parole e delle frasi & $\geq 40$ & $\geq 60$ \\
+        \hline
+    \end{tabular}
+    \caption{Documentazione - Metriche e indici di qualità}
+    \label{tab:metriche_testo}
+\end{table}
+
+
+\paragraph{Gestione dei rischi}
+\paragraph*{Metriche}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|p{1.5cm}|p{3cm}|p{4cm}|p{3cm}|p{3cm}|}
+      \hline
+      \textbf{Metrica} &  \textbf{Nome} &  \textbf{Descrizione} & \textbf{Valore di accettazione} & \textbf{Valore preferibile} \\
+      \hline
+      \stepcounter{metriccounter}\stepcounter{metriccounter}\textbf{M\arabic{metriccounter}RNP}    & Rischi non previsti   & Misura il numero di rischi non previsti nel corso del progetto. & $\leq 5$ &   $0$ \\
+      \hline
+    \end{tabular}
+    \caption{Gestione dei rischi - Metriche e indici di qualità}
+    \label{tab:tabella2}
+\end{table}
+
+
+\subsection{Processi organizzativi}
+\paragraph{Miglioramento}
+\paragraph*{Metriche}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|p{1.5cm}|p{3cm}|p{4cm}|p{3cm}|p{3cm}|}
+        \hline
+        \textbf{Metrica} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Valore di accettazione} & \textbf{Valore preferibile} \\
+        \hline
+        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}PMS} & Percentuale Metriche Soddisfatte & Misura la percentuale di metriche del progetto che sono soddisfatte rispetto a quelle definite nelle norme di progetto. & $\geq 80\%$ & $ 100\% $ \\
+        \hline
+    \end{tabular}
+    \caption{Miglioramento - Metriche e indici di qualità}
+    \label{tab:metriche_testo}
+\end{table}
+
