@@ -9,6 +9,9 @@ def get_first_cell_value(filename):
 
 def trimmed_file_name(file_path):
     new_file_path = "Documents/" + file_path
+    if len(re.findall(r'Documents/', new_file_path)) > 1:
+    # Replace all but the first occurrence with an empty string
+        new_file_path = re.sub(r'(Documents/.*?)Documents/', r'\1', new_file_path)
     filename_abs = os.path.join(os.getcwd(), new_file_path)
     version_number = get_first_cell_value(filename_abs)
     if "Verbale" in file_path or version_number == '':
@@ -47,7 +50,7 @@ def rename_latex_file(filename , version_number):
         new_filename = re.sub(r'_([^_]+)$', '', filename)
         new_filename = new_filename + '_v' + version_number + '.tex'
         os.rename(filename, new_filename)
-    
+    new_filename = re.sub(r'.*?Documents/', '', new_filename)
     print(new_filename)
 
 def main():
