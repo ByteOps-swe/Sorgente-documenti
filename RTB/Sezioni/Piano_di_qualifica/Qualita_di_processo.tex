@@ -11,30 +11,7 @@ Processo che consiste nel decidere procedure e risorse
 adatte allo sviluppo del progetto.
 
 \paragraph{Metriche}
-\paragraph*{Parametri}
-\begin{itemize}
-    \item \textbf{BAC (Budget at Completion):}
-    Il Budget at Completion rappresenta il budget totale previsto per completare l'intero progetto. In altre parole, è il costo massimo che si prevede di sostenere per portare a termine tutte le attività pianificate;
-    \item \textbf{EAC (Estimate at Completion):}
-    Stima previsionale del costo totale per completare un progetto. In termini pratici, l'EAC tiene conto dei costi effettivi già sostenuti nel progetto e stima quanto sarà necessario spendere per portare a termine il lavoro. Definita 
-    come: (BAC / CPI);
-    \item \textbf{EV (Earned Value):}
-    Valore del lavoro effettivamente svolto fino a quel periodo;
-    \item \textbf{AC (Actual Cost):} Misura i costi effettivamente sostenuti dall’inizio del progetto fino all’attualità;
-    \item \textbf{PV (Planned Value):} Stima la somma dei costi realizzativi delle attività imminenti periodo per periodo;
-    \item \textbf{SV (Schedule Variance):}Indica in percentuale quanto si è in anticipo o in ritardo con le attività;
-    pianificate. Definita come: (EV - PV);
-    \item \textbf{CPI (Cost Performance Index):} Misura il rapporto tra il valore del lavoro effettivamente svolto ed il 
-    costo reale del lavoro fino al periodo di riferimento. E definita come: (EV / AC);
-    \item \textbf{BV (Budget Variance):} Misura la differenza percentuale di budget tra quanto previsto nella
-    pianificazione di un periodo e l’effettiva realizzazione. Definita come: (EV - AC);
-    \item  \textbf{ETC (Estimate to Complete):} Stima i costi realizzativi fino alla fine del progetto. Definita come: 
-    (EAC - AC).
-    
-\end{itemize} \hspace{1pt}
-
-
-
+\hspace{1pt}
 \begin{table}[H]
     \centering
     \begin{tabular}{|p{1.5cm}|p{3cm}|p{4cm}|p{3cm}|p{3cm}|}
@@ -88,6 +65,8 @@ adatte allo sviluppo del progetto.
         \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}BC} & Branch Coverage & Percentuale dei rami decisionali del codice coperti dai test & $\geq 50\%$ & $\geq 75\%$ \\
         \hline
         \textbf{M\arabic{metriccounter}PM} & Parametri per Metodo & Numero massimo di parametri per metodo & $\leq 6$ & $\leq 5$ \\
+        \hline
+        \textbf{M50ATC} & Attributi per Classe & Misura il numero massimo di attributi per classe. & $\leq 6$ & $\leq 4$ \\
         \hline
         \stepcounter{metriccounter} \textbf{M\arabic{metriccounter}LCM} & Linee di Codice per Metodo & Limite massimo di linee di codice per metodo & $\leq 30$ & $\leq 20$ \\
         \hline
