@@ -11,14 +11,28 @@ Processo che consiste nel decidere procedure e risorse
 adatte allo sviluppo del progetto.
 
 \paragraph{Metriche}
+\paragraph*{Parametri}
+\begin{itemize}
+    \item \textbf{BAC (Budget at Completion):}
+    Il Budget at Completion rappresenta il budget totale previsto per completare l'intero progetto. In altre parole, è il costo massimo che si prevede di sostenere per portare a termine tutte le attività pianificate;
+    \item \textbf{EAC (Estimate at Completion):}
+    Stima previsionale del costo totale per completare un progetto. In termini pratici, l'EAC tiene conto dei costi effettivi già sostenuti nel progetto e stima quanto sarà necessario spendere per portare a termine il lavoro. Definita 
+    come: (BAC / CPI);
+    \item \textbf{EV (Earned Value):}
+    Valore del lavoro effettivamente svolto fino a quel periodo;
+    \item \textbf{AC (Actual Cost):} Misura i costi effettivamente sostenuti dall’inizio del progetto fino all’attualità;
+    \item \textbf{PV (Planned Value):} Stima la somma dei costi realizzativi delle attività imminenti periodo per periodo;
+    \item \textbf{SV (Schedule Variance):}Indica in percentuale quanto si è in anticipo o in ritardo con le attività;
+    pianificate. Definita come: (EV - PV);
+    \item \textbf{CPI (Cost Performance Index):} Misura il rapporto tra il valore del lavoro effettivamente svolto ed il 
+    costo reale del lavoro fino al periodo di riferimento. E definita come: (EV / AC);
+    \item \textbf{BV (Budget Variance):} Misura la differenza percentuale di budget tra quanto previsto nella
+    pianificazione di un periodo e l’effettiva realizzazione. Definita come: (EV - AC);
+    \item  \textbf{ETC (Estimate to Complete):} Stima i costi realizzativi fino alla fine del progetto. Definita come: 
+    (EAC - AC).
+    
+\end{itemize} \hspace{1pt}
 
-\textbf{BAC (Budget at Completion):}
-Il Budget at Completion rappresenta il budget totale previsto per completare l'intero progetto. In altre parole, è il costo massimo che si prevede di sostenere per portare a termine tutte le attività pianificate.
-\vspace{0.1cm}
-\textbf{EAC (Estimate at Completion):}
-Stima previsionale del costo totale per completare un progetto. In termini pratici, l'EAC tiene conto dei costi effettivi già sostenuti nel progetto e stima quanto sarà necessario spendere per portare a termine il lavoro.
-\newcounter{metriccounter}
-\setcounter{metriccounter}{1} % Inizia dal numero 13
 
 
 \begin{table}[h]
@@ -27,21 +41,28 @@ Stima previsionale del costo totale per completare un progetto. In termini prati
         \hline
         \textbf{Metrica} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Valore di accettazione} & \textbf{Valore preferibile} \\
         \hline
-        \textbf{M\arabic{metriccounter}EAC} & Estimated at Completion & Stima del costo totale previsto per completare l'intero progetto. & $\pm 5\%$ rispetto al preventivo & Pari al preventivo \\
+        \textbf{M\arabic{metriccounter}EAC} & Estimated at Completion &  Misura il costo realizzativo stimato per terminare il progetto.  & $\pm 5\%$ rispetto al preventivo & Pari al preventivo \\
         \hline
-        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}CPI} & Cost Performance Index & Indice di prestazione del costo, misura l'efficienza dei costi nel progetto. & $\pm 10\%$ & $0\%$ \\
+        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}CPI} & Cost Performance Index & Misura il rapporto tra il valore del lavoro effettivamente svolto ed il 
+        costo reale del lavoro fino al periodo di riferimento. & $\pm 10\%$ & $0\%$ \\
         \hline
-        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}BV} & Budget Variance & Varianza rispetto al budget previsto. & $\geq -10\%$ & $0\%$ \\
+        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}BV} & Budget Variance & misura la differenza percentuale di budget tra quanto previsto nella 
+        pianificazione di un periodo e l’effettiva realizzazione. & $\geq -10\%$ & $0\%$ \\
         \hline
-        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}AC} & Actual Cost & Costo effettivamente sostenuto fino a un certo punto nel tempo durante l'esecuzione del progetto. & $\geq 0 $ & $ \leq$ EAC  \\
+        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}AC} & Actual Cost & Misura i costi effettivamente sostenuti dall’inizio del progetto fino 
+        all’attualità.
+         & $\geq 0 $ & $ \leq$ EAC  \\
         \hline
-        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}SV} & Schedule Variance & Varianza rispetto alla pianificazione prevista. & $\geq -10\%$ & $0\%$ \\
+        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}SV} & Schedule Variance & Indica in percentuale quanto si è in anticipo o in ritardo con le attività
+        pianificate. & $\geq -10\%$ & $0\%$ \\
         \hline
-        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}EV} & Earned Value & Valore del lavoro effettivamente completato fino a un certo punto nel tempo. & $\geq 0 $ & $\leq$ EAC  \\
+        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}EV} & Earned Value & Valore del lavoro effettivamente svolto fino a quel periodo.
+        & $\geq 0 $ & $\leq$ EAC  \\
         \hline
-        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}PV} & Planned Value & Valore del lavoro pianificato fino a un certo punto nel tempo. & $\geq 0  $ & $ \leq$ BAC  \\
+        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}PV} & Planned Value & Stima la somma dei costi realizzativi delle attività imminenti periodo 
+        per periodo. & $\geq 0  $ & $ \leq$ BAC  \\
         \hline
-        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}ETC} & Estimate to Complete & Stima del costo totale previsto per completare il progetto. & $\geq 0  $ & $ \leq$ EAC  \\
+        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}ETC} & Estimate to Complete &  Stima i costi realizzativi fino alla fine del progetto. & $\geq 0  $ & $ \leq$ EAC  \\
         \hline
     \end{tabular}
     \caption{Metriche di Controllo di Progetto}
@@ -50,7 +71,8 @@ Stima previsionale del costo totale per completare un progetto. In termini prati
 
 
 \subsubsection{Codifica}
-\paragraph{Metriche}
+\paragraph{Metriche} 
+\hspace{1pt}
 \begin{table}[h]
     \centering
     \begin{tabular}{|p{1.5cm}|p{3cm}|p{4cm}|p{3cm}|p{3cm}|}
@@ -77,6 +99,7 @@ Stima previsionale del costo totale per completare un progetto. In termini prati
 \subsection{Processi di supporto}
 \paragraph{Documentazione}
 \paragraph*{Metriche}
+\hspace{1pt}
 \begin{table}[h]
     \centering
     \begin{tabular}{|p{1.5cm}|p{3cm}|p{4cm}|p{3cm}|p{3cm}|}
@@ -95,6 +118,7 @@ Stima previsionale del costo totale per completare un progetto. In termini prati
 
 \paragraph{Gestione dei rischi}
 \paragraph*{Metriche}
+\hspace{1pt}
 \begin{table}[h]
     \centering
     \begin{tabular}{|p{1.5cm}|p{3cm}|p{4cm}|p{3cm}|p{3cm}|}
@@ -109,19 +133,19 @@ Stima previsionale del costo totale per completare un progetto. In termini prati
 \end{table}
 
 
-\subsection{Processi organizzativi}
-\paragraph{Miglioramento}
+\paragraph{Gestione della qualità}
 \paragraph*{Metriche}
+\hspace{1pt}
 \begin{table}[h]
     \centering
     \begin{tabular}{|p{1.5cm}|p{3cm}|p{4cm}|p{3cm}|p{3cm}|}
         \hline
         \textbf{Metrica} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Valore di accettazione} & \textbf{Valore preferibile} \\
         \hline
-        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}PMS} & Percentuale Metriche Soddisfatte & Misura la percentuale di metriche del progetto che sono soddisfatte rispetto a quelle definite nelle norme di progetto. & $\geq 80\%$ & $ 100\% $ \\
+        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}QMS} & Quality Metrics Satisfied & Misura la percentuale di metriche del progetto che sono soddisfatte rispetto a quelle definite nelle norme di progetto. & $\geq 80\%$ & $ 100\% $ \\
         \hline
     \end{tabular}
-    \caption{Miglioramento - Metriche e indici di qualità}
+    \caption{Gestione della qualità - Metriche e indici di qualità}
     \label{tab:metriche_testo}
 \end{table}
 
