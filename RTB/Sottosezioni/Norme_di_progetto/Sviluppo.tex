@@ -69,7 +69,7 @@ Ogni caso d'uso e costituito da:
     Nella forma: "Come [utente] desidero poter [funzionalita] per [valore aggiunto].
 \end{enumerate}
 
-\paragraph{Diagrammi dei casi d'uso} \todo{tutte le immagini sono da ridimensionare bene e forse aggiungerei degli spazi dopo le caption e prima dell'item successivo}
+\paragraph{Diagrammi dei casi d'uso} 
 I diagrammi dei casi d'uso sono strumenti grafici che permettono di visualizzare in modo chiaro e intuitivo le funzionalità offerte dal sistema dal punto di vista dell'utente. Inoltre, consentono di identificare e comprendere rapidamente le relazioni e le interazioni tra i vari casi d'uso, offrendo una visione d'insieme delle dinamiche del sistema.\\
 I diagrammi dei casi d'uso si concentrano sulla descrizione delle funzionalità del sistema dal punto di vista degli utenti senza approfondire dettagli implementativi. La loro finalità principale è evidenziare le interazioni esterne al sistema, offrendo una visione focalizzata sulle funzionalità e sull'interazione dell'utente con il sistema stesso.
 Un diagramma dei casi d'uso fornisce una panoramica visuale delle interazioni chiave tra gli attori e il sistema, facilitando la comprensione dei requisiti funzionali del sistema e la comunicazione tra gli stakeholder del progetto.
@@ -211,7 +211,12 @@ Le metriche nell'analisi dei requisiti sono strumenti utilizzati per valutare, m
 \end{itemize}
 Ognuna di queste metriche è necessaria ad assicurare che i requisiti siano gestiti in modo efficace e che siano allineati alle esigenze degli stakeholder.
 
-\paragraph{Strumenti} \todo{da inserire}
+\paragraph{Strumenti}
+\begin{itemize}
+    \item \textbf{StarUML:}
+    È un'applicazione software utilizzata per creare diagrammi e modelli UML nel processo di sviluppo del software. \\
+    Aiuta a visualizzare graficamente i vari aspetti di un sistema, consentendo agli utenti di creare e modificare facilmente diagrammi UML come diagrammi dei casi d'uso, delle classi, di attività e altri, semplificando così il processo di progettazione e analisi dei sistemi software.
+\end{itemize}
 
 \subsubsection{Progettazione}
 
@@ -247,23 +252,150 @@ Questo documento comprende diversi elementi cruciali:
     \item Requisiti tecnici: Specifica in dettaglio i requisiti prestazionali, di sicurezza, di scalabilità e di compatibilità con determinate piattaforme che il software deve soddisfare
 \end{itemize}
 
+\paragraph{Qualità dell'architettura}
+\begin{itemize}
+    \item \textbf{Sufficienza}: L'architettura soddisfa i requisiti funzionali e non funzionali definiti per il software, senza sovradimensionamento o sottodimensionamento;
+    \item \textbf{Comprensibilità}: La chiarezza e la facilità con cui è possibile comprendere l'architettura software, rendendo agevole per gli sviluppatori e gli stakeholder capire come funziona il sistema;
+    \item \textbf{Modularità}: L'architettura è suddivisa in moduli o componenti chiaramente definiti, consentendo la separazione delle responsabilità e facilitando la manutenzione, l'aggiornamento e lo sviluppo parallelo;
+    \item \textbf{Robustezza}: La capacità del software di gestire situazioni anomale o errate senza interruzioni gravi o perdite di dati, mantenendo un funzionamento accettabile;
+    \item \textbf{Flessibilità}: La facilità con cui il sistema può essere adattato o esteso per soddisfare nuovi requisiti o cambiamenti senza richiedere modifiche radicali o strutturali;
+    \item \textbf{Riusabilità}: La capacità di riutilizzare parti del software in contesti diversi, riducendo lo sforzo di sviluppo e migliorando l'efficienza;
+    \item \textbf{Efficienza}: Il software utilizza in modo ottimale le risorse disponibili, come memoria e CPU, per eseguire le sue funzioni nel minor tempo possibile;
+    \item \textbf{Affidabilità}: La capacità del software di svolgere correttamente le sue funzioni in modo coerente e prevedibile nel tempo;
+    \item \textbf{Disponibilità}: Il software è accessibile e operativo quando richiesto, riducendo al minimo i tempi di inattività non pianificati;
+    \item \textbf{Sicurezza rispetto a malfunzionamenti (Safety)}: La prevenzione di danni fisici o danni a persone o beni a causa di malfunzionamenti del software;
+    \item \textbf{Sicurezza rispetto a intrusioni (Security)}: La protezione del software da accessi non autorizzati, manipolazioni e intrusioni esterne;
+    \item \textbf{Semplicità}: La capacità di mantenere l'architettura software il più semplice possibile senza compromettere la funzionalità o l'efficacia;
+    \item \textbf{Incapsulazione}: Il nascondere dei dettagli implementativi all'esterno di un componente, consentendo l'accesso solo attraverso un'interfaccia definita;
+    \item \textbf{Coesione}: La misura in cui i componenti all'interno di un modulo o un'unità funzionano insieme per un obiettivo comune senza essere eccessivamente interdipendenti;
+    \item \textbf{Basso accoppiamento}: Il grado di dipendenza tra i diversi moduli o componenti del software, cercando di minimizzare le interazioni o le dipendenze tra di essi per migliorare la manutenibilità e la flessibilità del sistema.
+\end{itemize}
+
 \paragraph{Diagrammi UML}
 Vantaggi:
 \begin{itemize}
-    \item \textbf{Chiarezza nella comunicazione:} Rendono più comprensibili e chiari i concetti tecnici ai team e agli stakeholder;
-    \item \textbf{Standardizzazione:} Offrono un linguaggio comune per la documentazione e la comprensione dei sistemi software;
-    \item \textbf{Analisi e progettazione visiva:} Aiutano a identificare errori e lacune nel progetto prima dell'implementazione;
-    \item \textbf{Modellazione e simulazione:} Consentono la creazione di modelli predittivi, riducendo rischi e costi durante lo sviluppo;
-    \item \textbf{Facilitano la manutenzione:} Semplificano la comprensione della struttura del software, agevolando le operazioni di manutenzione;
-    \item \textbf{Riducono errori di progettazione:} Aiutano a individuare problemi prima dell'implementazione, riducendo correzioni costose;
-    \item \textbf{Supportano la documentazione:} Offrono una guida visiva per comprendere il sistema, inclusa nella documentazione del progetto.
+    \item \textbf{Chiarezza nella comunicazione}: Rendono più comprensibili e chiari i concetti tecnici ai team e agli stakeholder;
+    \item \textbf{Standardizzazione}: Offrono un linguaggio comune per la documentazione e la comprensione dei sistemi software;
+    \item \textbf{Analisi e progettazione visiva}: Aiutano a identificare errori e lacune nel progetto prima dell'implementazione;
+    \item \textbf{Modellazione e simulazione}: Consentono la creazione di modelli predittivi, riducendo rischi e costi durante lo sviluppo;
+    \item F\textbf{acilitano la manutenzione}: Semplificano la comprensione della struttura del software, agevolando le operazioni di manutenzione;
+    \item \textbf{Riducono errori di progettazione}: Aiutano a individuare problemi prima dell'implementazione, riducendo correzioni costose;
+    \item \textbf{Supportano la documentazione}: Offrono una guida visiva per comprendere il sistema, inclusa nella documentazione del progetto.
 \end{itemize}
 
+A supporto dell'attività di progettazione verranno utlizzati i seguenti diagrammi:
+\begin{itemize}
+    \item \textbf{Diagrammi delle classi}
+    \item \textbf{Diagrammi delle attività}
+\end{itemize}
+
+\paragraph{Diagrammi delle classi}
+Ciascun diagramma delle classi rappresenta le proprietà e le relazioni tra le varie componenti di un sistema, offrendo una prospettiva statica e non a run time.
+Le classi sono rappresentate graficamente sotto forma di rettangoli divisi in tre sezioni:
+\begin{enumerate}
+    \item \textbf{Nome della classe}: Identificativo della classe. È rappresentato in grassetto seguendo la convenzione PascalCase e deve esplicitare chiaramente la responsabilità della classe. Se la classe è astratta, il nome viene scritto in corsivo.
+    \item \textbf{Attributi}: Ogni elemento sarà presentato in una riga separata, secondo il seguente formato: \\
+    \begin{center}\texttt{Visibilità Nome: Tipo [Molteplicità] = Valore/i di Default}\end{center}
+    \begin{itemize}
+        \item \textbf{Visibilità}: precede obbligatoriamente ogni attributo e rappresenta uno dei seguenti indicatori:
+        \begin{itemize}
+            \item $-$ : Visibilità privata;
+            \item $+$ : Visibilità pubblica;
+            \item $\#$ : Visibilità protetta;
+            \item $\sim$ : Visibilità di package;
+        \end{itemize}
+        \item \textbf{Nome}: Rappresenta univocamente l'attributo. Dev'essere rappresentativo dell'attributo e deve seguire la notazione \texttt{nomeAttributo: tipo}. \\
+        Qualora l'attributo fosse di tipo costante, allora il nome verrà scritto interamente in maiuscolo \texttt{NOMEATTRIBUTO: tipo};
+        \item \textbf{Molteplicità}: Nel caso di una sequenza di elementi, come liste o array, la sua lunghezza può essere specificata con la sintassi \texttt{tipoAttributo[molteplicità]}. \\
+        Se la sequenza contiene un numero di elementi non conosciuto a priori, verrà adottata la sintassi \texttt{tipoAttributo[*]}. \\
+        Nel caso di un singolo elemento, la sua dichiarazione è opzionale.
+        \item \textbf{Default}: Ogni attributo può essere dichiarato con un valore di default.
+    \end{itemize}
+    \item \textbf{Firme dei metodi}: Descrivono il comportamento delle classi individuate. Ogni metodo occuperà una riga e seguiranno il formato: \\
+    \begin{center} \texttt{Visibilità Nome (Parametri Formali): Tipo di Ritorno} \end{center}
+    \begin{itemize}
+        \item \textbf{Visibilità}: Segue la convenzione definita per gli attributi.
+        \item \textbf{Nome}: Rappresenta l'identificativo univoco del metodo e descrive in modo esplicito il suo obiettivo, seguendo la notazione \textit{PascalCase}.
+        \item \textbf{Parametri formali}: Il loro numero varia da $0$ a $n$ e sono separati tramite la virgola. Ogni parametro seguirà la notazione e le convenzioni definite per gli attributi.
+        \item \textbf{Tipo di ritorno}: Determina il tipo che verrà ritornato dal metodo.
+    \end{itemize}
+    I metodi getter, setter e i costruttori non verranno inclusi fra i metodi. \\
+    I metodi astratti verrano scritti in corsivo. \\
+    I metodi statici verranno sottolineati. \\
+    L'assenza di attributi o metodi in una classe, determinerà una visualizzazione di campi vuoti nel diagramma delle classi.
+\end{enumerate}
+
+I diagrammi delle classi sono collegati tra loro mediante frecce che delineano le rispettive relazioni di dipendenza. Qui di seguito, saranno delineate le rappresentazioni mediante frecce per le diverse relazioni: \\
+\begin{itemize}
+    \item Dipendenza: Rappresentata con una freccia tratteggiata
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/ClassDiagram_Dipendenza.PNG}
+        \caption{Diagramma delle classi di una relazione di Dipendenza.}
+    \end{figure}
+    \item Associazione: Rappresentata tramite una linea continua e orientata fra due classi. Molteplicità: quanti oggetti possono far parte dell'associazione.
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/ClassDiagram_Associazione.PNG}
+        \caption{Diagramma delle classi di una relazione di Associazione.}
+    \end{figure}
+    \item Aggregazione: Rappresentata con una freccia a diamante vuota
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/ClassDiagram_Aggregazione.PNG}
+        \caption{Diagramma delle classi di una relazione di Aggregazione.}
+    \end{figure}
+    \item Composizione: Rappresentata con una freccia a diamante piena
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/ClassDiagram_Composizione.PNG}
+        \caption{Diagramma delle classi di una relazione di Composizione.}
+    \end{figure}
+    \item Generalizzazione: Rappresentata con una freccia continua vuota
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/ClassDiagram_Generalizzazione.PNG}
+        \caption{Diagramma delle classi di una relazione di Generalizzazione.}
+    \end{figure}
+    \item Interface Realization: Un'interfaccia A può essere implementata utilizzando una classe B, sia concreta che astratta, e è rappresentato graficamente tramite una freccia da B a A
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/InterfaceRealization.PNG}
+        \caption{Diagramma delle classi di una relazione di Interface Realization.}
+    \end{figure}
+\end{itemize}
+
+\paragraph{Diagrammi delle attività}
+
+\paragraph{Design Pattern}
+I design pattern costituiscono una risposta consolidata a problemi di progettazione che si presentano ciclicamente in determinati contesti. Questi modelli offrono un approccio di progettazione riusabile, garantendo qualità nella soluzione ed una rapida implementazione.
+L'adozione di un design pattern avviene soprattutto quando una soluzione si è dimostrata efficace in un contesto specifico. Solitamente vengono fornite guide dettagliate sull'applicazione dei pattern, delineando il loro utilizzo ottimale.
+Ogni design pattern deve essere accompagnato da una rappresentazione grafica illustrativa del suo funzionamento, da una spiegazione testuale della sua logica e da una descrizione della sua utilità all'interno dell'architettura complessiva. Questa documentazione svolge un ruolo chiave nel favorire una comprensione approfondita dell'integrazione del design pattern nell'architettura generale e nella prevenzione di errori di progettazione.
+
+\paragraph{Test}
+Nell'ambito del processo di sviluppo, il testing riveste un ruolo fondamentale nell'assicurare la qualità del prodotto finale. Durante questa fase, si delineano i requisiti di testing, si definiscono i casi di test e i criteri di accettazione, fungendo da strumenti per valutare il software. \\
+Il suo obiettivo principale è individuare e risolvere eventuali problemi o errori presenti nel software prima del rilascio del prodotto finale. In aggiunta, il processo di testing è essenziale per garantire che il software soddisfi le specifiche e le aspettative del cliente. \\
+I progettisti avranno il completo controllo di questa attività, compresa la definizione dei test da eseguire. Inoltre, nella sezione x.y.z, si può trovare una descrizione dettagliata delle varie tipologie di test e della terminologia da adottare, offrendo così un'ulteriore chiarezza su questa fase critica del processo di sviluppo del software.
+
 \paragraph{Metriche}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|}
+    \hline
+    Metrica & Nome & Riferimento \\
+    \hline \hline
+    MAC & Accoppiamento tra classi &  \\
+    MATC & Attributi per classe &  \\
+    MPM & Parametri per metodo & \\
+    MLCM & Linee di codice per metodo &  \\ 
+    \hline
+    \end{tabular}
+    \caption{Metriche relative all'attività di progettazione}
+\end{table}
 
 \paragraph{Strumenti}
 \begin{itemize}
-    \item \textbf{StarUML:} \todo{forse andrebbe anche sopra, negli strumenti dell'analisi dei requisiti}
+    \item \textbf{StarUML:}
     È un'applicazione software utilizzata per creare diagrammi e modelli UML nel processo di sviluppo del software. \\
     Aiuta a visualizzare graficamente i vari aspetti di un sistema, consentendo agli utenti di creare e modificare facilmente diagrammi UML come diagrammi dei casi d'uso, delle classi, di attività e altri, semplificando così il processo di progettazione e analisi dei sistemi software.
 \end{itemize}
