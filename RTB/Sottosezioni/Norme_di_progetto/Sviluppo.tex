@@ -243,13 +243,13 @@ In seguito allo sviluppo e ad un'attenta analisi del POC, si procederà con iter
 Il documento descrive in modo approfondito il design definitivo del prodotto e fornisce istruzioni precise agli sviluppatori, guidandoli nella corretta implementazione della soluzione software secondo i requisiti e le specifiche indicate. Ciò permette di ridurre la complessità e le ambiguità nel processo di sviluppo del software, contribuendo a garantire che il prodotto finale sia allineato alle aspettative del cliente e funzioni in modo ottimale.
 Questo documento comprende diversi elementi cruciali: 
 \begin{itemize}
-    \item Tecnologie utilizzate: Specifica le tecnologie e le librerie di terze parti integrate nel sistema;
-    \item Architettura logica: Definisce i componenti, i ruoli, le connessioni e le interazioni nel sistema;
-    \item Architettura di deployment: Indica come le componenti architetturali vengono allocate e distribuite nel sistema in esecuzione;
-    \item Pattern architetturali e design pattern: Descrive i design pattern architetturali adottati e quelli influenzati dalle tecnologie utilizzate, oltre agli eventuali idiomi a livello più basso;
-    \item Vincoli e linee guida: Include restrizioni e regole da seguire durante lo sviluppo;
-    \item Procedure di testing e validazione: Indica i processi per testare e verificare che il software soddisfi i requisiti specificati;
-    \item Requisiti tecnici: Specifica in dettaglio i requisiti prestazionali, di sicurezza, di scalabilità e di compatibilità con determinate piattaforme che il software deve soddisfare
+    \item \textbf{Tecnologie utilizzate}: Specifica le tecnologie e le librerie di terze parti integrate nel sistema;
+    \item \textbf{Architettura logica}: Definisce i componenti, i ruoli, le connessioni e le interazioni nel sistema;
+    \item \textbf{Architettura di deployment}: Indica come le componenti architetturali vengono allocate e distribuite nel sistema in esecuzione;
+    \item \textbf{Pattern architetturali e design pattern}: Descrive i design pattern architetturali adottati e quelli influenzati dalle tecnologie utilizzate, oltre agli eventuali idiomi a livello più basso;
+    \item \textbf{Vincoli e linee guida}: Include restrizioni e regole da seguire durante lo sviluppo;
+    \item \textbf{Procedure di testing e validazione}: Indica i processi per testare e verificare che il software soddisfi i requisiti specificati;
+    \item \textbf{Requisiti tecnici}: Specifica in dettaglio i requisiti prestazionali, di sicurezza, di scalabilità e di compatibilità con determinate piattaforme che il software deve soddisfare
 \end{itemize}
 
 \paragraph{Qualità dell'architettura}
@@ -293,7 +293,8 @@ A supporto dell'attività di progettazione verranno utlizzati i seguenti diagram
 Ciascun diagramma delle classi rappresenta le proprietà e le relazioni tra le varie componenti di un sistema, offrendo una prospettiva statica e non a run time.
 Le classi sono rappresentate graficamente sotto forma di rettangoli divisi in tre sezioni:
 \begin{enumerate}
-    \item \textbf{Nome della classe}: Identificativo della classe. È rappresentato in grassetto seguendo la convenzione PascalCase e deve esplicitare chiaramente la responsabilità della classe. Se la classe è astratta, il nome viene scritto in corsivo.
+    \item \textbf{Nome della classe}: Identificativo della classe. \\
+    È rappresentato in grassetto seguendo la convenzione PascalCase e deve esplicitare chiaramente la responsabilità della classe. Se la classe è astratta, il nome viene scritto in corsivo.
     \item \textbf{Attributi}: Ogni elemento sarà presentato in una riga separata, secondo il seguente formato: \\
     \begin{center}\texttt{Visibilità Nome: Tipo [Molteplicità] = Valore/i di Default}\end{center}
     \begin{itemize}
@@ -325,40 +326,55 @@ Le classi sono rappresentate graficamente sotto forma di rettangoli divisi in tr
     L'assenza di attributi o metodi in una classe, determinerà una visualizzazione di campi vuoti nel diagramma delle classi.
 \end{enumerate}
 
-I diagrammi delle classi sono collegati tra loro mediante frecce che delineano le rispettive relazioni di dipendenza. Qui di seguito, saranno delineate le rappresentazioni mediante frecce per le diverse relazioni: \\
+I diagrammi delle classi sono collegati tra loro mediante frecce che delineano le rispettive relazioni di dipendenza. \\
+Qui di seguito, saranno delineate le rappresentazioni mediante frecce per le diverse relazioni: \\
 \begin{itemize}
-    \item \textbf{Dipendenza}: Rappresentata con una freccia tratteggiata
-    \begin{figure}[h]
+    \item \textbf{Dipendenza}: Se la classe A utilizza servizi, metodi o membri forniti dalla classe B, si dice che la classe A dipende dalla classe B e tale relazione viene rappresentata con una freccia tratteggiata dalla classe A alla classe B. \\
+    La relazione di dipendenza indica il minor grado di accoppiamento tra due classi: un cambiamento nella classe B può influenzare la classe A, ma non viceversa.
+    \begin{figure}[H]
         \centering
         \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/ClassDiagram_Dipendenza.PNG}
         \caption{Diagramma delle classi di una relazione di Dipendenza.}
     \end{figure}
-    \item \textbf{Associazione}: Rappresentata tramite una linea continua e orientata fra due classi. Molteplicità: quanti oggetti possono far parte dell'associazione.
-    \begin{figure}[h]
+    \item \textbf{Associazione}: L'associazione tra due classi viene rappresentata tramite una linea continua e orientata. Questa connessione indica che la classe A contiene campi o istanze della classe B. \\
+    Le molteplicità di occorrenza possono essere espresse tramite valori posizionati agli estremi della freccia:
+    \begin{itemize}
+        \item $\mathbf{0...1}$: A può possedere 0 o 1 istanza di B;
+        \item $\mathbf{0...*}$: A può possedere 0 o più istanze di B;
+        \item $\mathbf{1}$:  A possiede esattamente un'istanza di B (in questo caso non è necessario specificare la molteplicità);
+        \item $\mathbf{*}$: A possiede più istanze di B;
+        \item $\mathbf{n}$: A possiede esattamente n istanze di B.
+    \end{itemize}
+    \begin{figure}[H]
         \centering
         \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/ClassDiagram_Associazione.PNG}
         \caption{Diagramma delle classi di una relazione di Associazione.}
     \end{figure}
-    \item \textbf{Aggregazione}: Rappresentata con una freccia a diamante vuota
-    \begin{figure}[h]
+    \item \textbf{Aggregazione}: Rappresentata con una freccia a diamante vuota. \\
+    Indica una relazione "parte di" (part of) in cui una classe è composta da diverse parti (altre classi), ma le parti possono esistere anche indipendentemente dalla classe principale. Nella figura la classe B è parte della classa A.
+    \begin{figure}[H]
         \centering
         \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/ClassDiagram_Aggregazione.PNG}
         \caption{Diagramma delle classi di una relazione di Aggregazione.}
     \end{figure}
-    \item \textbf{Composizione}: Rappresentata con una freccia a diamante piena
-    \begin{figure}[h]
+    \item \textbf{Composizione}: Rappresentata con una freccia a diamante piena. È simile all'aggregazione, ma le parti (altre classi) sono strettamente dipendenti dalla classe principale e non possono esistere indipendentemente. \\
+    Nella figura la classe B è parte della classe A ed esiste solo come parte di A.
+    \begin{figure}[H]
         \centering
         \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/ClassDiagram_Composizione.PNG}
         \caption{Diagramma delle classi di una relazione di Composizione.}
     \end{figure}
-    \item \textbf{Generalizzazione}: Rappresentata con una freccia continua vuota
-    \begin{figure}[h]
+    \item \textbf{Generalizzazione}: Rappresentata con una freccia continua vuota. Rappresenta la relazione "is a" (è un) tra una classe genitore (superclasse) e una classe figlia (sottoclasse). La classe figlia eredita attributi e comportamenti dalla classe genitore. \\
+    Equivale all'ereditarietà nei linguaggi di programmazione. \\
+    Le proprietà della superclasse non si riportano nel diagramma della sottoclasse, a meno di override.
+    \begin{figure}[H]
         \centering
         \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/ClassDiagram_Generalizzazione.PNG}
         \caption{Diagramma delle classi di una relazione di Generalizzazione.}
     \end{figure}
-    \item \textbf{Interface Realization}: Un'interfaccia A può essere implementata utilizzando una classe B, sia concreta che astratta, e è rappresentato graficamente tramite una freccia da B a A
-    \begin{figure}[h]
+    \item \textbf{Interface Realization}: La relazione di "interface realization" indica che una classe fornisce l'implementazione dei metodi definiti in un'interfaccia specifica. Questa relazione è importante quando si desidera mostrare come una classe concreta soddisfi i requisiti di un'interfaccia specifica definendo e implementando i suoi metodi. \\
+    Nella figura l'interfaccia A, rappresentata tramite un cerchio, viene implementata dalla classe B e questa relazione viene rappresentata graficamente con una linea da B ad A.
+    \begin{figure}[H]
         \centering
         \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/InterfaceRealization.PNG}
         \caption{Diagramma delle classi di una relazione di Interface Realization.}
