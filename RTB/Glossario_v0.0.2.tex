@@ -109,10 +109,13 @@
 \begin{tabular}{|C{1.5cm}|C{2cm}|C{2cm}|C{2cm}|C{5cm}|}
     \hline
     \textbf{Versione} & \textbf{Data}   & \textbf{Autore}                         & \textbf{Verificatore} & \textbf{Dettaglio} \\
-    \hline \hline
-    \label{Git_Action_Version} 0.0.1
-                      & 28/11/2023      & \makecell{A. Barutta}      & D. Diotto & \makecell{Prima stesura} \\
     \hline
+    \label{Git_Action_Version} 0.0.1
+     & 28/11/2023      & \makecell{A. Barutta}      & D. Diotto & \makecell{Prima stesura} \\
+    \hline
+    0.0.2
+    & 08/12/2023      & \makecell{D. Diotto}      & R. Smanio & \makecell{Aggiunta termini metriche} \\
+     \hline
 \end{tabular}
 
 \pagebreak
@@ -134,7 +137,7 @@ La sua utilità primaria risiede nella chiarezza e nella standardizzazione del l
 \index{A}
 \phantomsection
 \addcontentsline{toc}{section}{A}
-\textbf{Actual cost:} Una metrica che valuta i costi reali sostenuti sin dall'inizio del progetto fino al presente.
+\textbf{Actual cost:} (Descrizione più approfondita rispetto a quella presente in \textit{Norme di Progetto} nella sezione Metriche di qualità). Una metrica che valuta i costi reali sostenuti sin dall'inizio del progetto fino al presente.
 \\
 \\
 \textbf{Analisi dei requisiti:} L'analisi dei requisiti è una fase fondamentale nello sviluppo del software che coinvolge la raccolta, l'analisi, la documentazione e la comprensione approfondita delle esigenze e delle specifiche di un \textit{sistema}\textsubscript{\textit{G}} o di un'applicazione software che si intende sviluppare (oltre ad essere un documento all’interno del nostro progetto).
@@ -153,11 +156,12 @@ La sua utilità primaria risiede nella chiarezza e nella standardizzazione del l
 \\
 \\
 \textbf{Artefatto:} Gli Artefatti sono elementi generati o prodotti durante il processo di sviluppo del \textit{software}\textsubscript{\textit{G}}. Gli Artefatti rappresentano risultati intermedi o finali di un processo, che possono essere file, documenti, codice compilato, librerie, o qualsiasi altro elemento creato durante lo sviluppo o il processo di build di un'applicazione software.
-\\
+\pagebreak
 \\
 \textbf{Attività:} Un'Attività rappresenta un'unità di lavoro specifica che contribuisce al raggiungimento di un obiettivo nel ciclo di vita del \textit{software}\textsubscript{\textit{G}}. Le Attività sono azioni o compiti distinti che devono essere eseguiti per portare avanti il \textit{processo}\textsubscript{\textit{G}} di sviluppo.
 \\
 \\
+\pagebreak
 \section*{B}
 \index{B}
 \phantomsection
@@ -180,6 +184,9 @@ La sua utilità primaria risiede nella chiarezza e nella standardizzazione del l
 \textbf{Budget at Completion (BAC):} Budget preventivato ad inizio progetto.
 \\
 \\
+\textbf{Budget variance (BV):} 
+(Descrizione più approfondita rispetto a quella presente in \textit{Norme di Progetto} nella sezione Metriche di qualità).
+La Budget Variance (BV) è una misura utilizzata nel project management per valutare la differenza tra la spesa effettiva e la spesa prevista o pianificata in un determinato periodo di tempo o per un'\textit{attività}\textsubscript{\textit{G}} specifica all'interno di un progetto.
 \pagebreak
 \section*{C}
 \index{C}
@@ -200,8 +207,12 @@ La sua utilità primaria risiede nella chiarezza e nella standardizzazione del l
 \textbf{Committente:} Un Committente è una parte esterna responsabile di assegnare l'esecuzione di un progetto a un esecutore, che stabilisce i termini contrattuali relativi all'esecuzione stessa.
 \\
 \\
-\textbf{Configuration item (CI):} Un Configuration Item (CI) è un elemento che viene identificato, controllato e gestito all'interno di un \textit{sistema}\textsubscript{\textit{G}} o di un progetto. Rappresenta un'entità gestita e tracciabile all'interno di un ambiente di sviluppo o di produzione.
+\textbf{Complessità ciclomatica per metodo (MCCM):} (Descrizione più approfondita rispetto a quella presente in \textit{Norme di Progetto} nella sezione Metriche di qualità). La Complessità Ciclomatica per Metodo (MCCM) è una metrica \textit{software}\textsubscript{\textit{G}} utilizzata per misurare la complessità di un singolo metodo o funzione all'interno di un programma. È derivata dalla complessità ciclomatica di McCabe, che valuta la complessità di un intero programma attraverso la quantità di flussi di controllo.
+La Complessità Ciclomatica per Metodo concentra l'attenzione sulla complessità all'interno delle singole funzioni o metodi, valutando la quantità di cammini di esecuzione indipendenti all'interno di una specifica funzione. Questo aiuta a determinare la complessità delle logiche condizionali e dei percorsi di esecuzione all'interno del metodo stesso.
 \\
+\\
+\textbf{Configuration item (CI):} Un Configuration Item (CI) è un elemento che viene identificato, controllato e gestito all'interno di un \textit{sistema}\textsubscript{\textit{G}} o di un progetto. Rappresenta un'entità gestita e tracciabile all'interno di un ambiente di sviluppo o di produzione.
+\pagebreak
 \\
 \textbf{Configuration management:} Configuration Management si riferisce al processo di gestione e controllo delle configurazioni \textit{software}\textsubscript{\textit{G}} e hardware all'interno di un \textit{sistema}\textsubscript{\textit{G}} o di un ambiente \textit{IT}\textsubscript{\textit{G}}. Questo include il monitoraggio, la gestione e la registrazione dettagliata di tutte le componenti, le versioni e le modifiche apportate a \textit{software}\textsubscript{\textit{G}}, hardware, documentazione e altri elementi del sistema. L'obiettivo è garantire la coerenza, la tracciabilità e la disponibilità delle configurazioni in modo che gli elementi possano essere facilmente riprodotti o ripristinati in un determinato stato, evitando confusione o errori dovuti a versioni obsolete o non autorizzate.
 \\
@@ -209,6 +220,7 @@ La sua utilità primaria risiede nella chiarezza e nella standardizzazione del l
 \textbf{Container:} Un Container, contestualizzato all’utilizzo di \textit{Docker}\textsubscript{\textit{G}}, è un'unità di \textit{software}\textsubscript{\textit{G}} che contiene un'applicazione e tutte le sue dipendenze, compresi i file di \textit{sistema}\textsubscript{\textit{G}}, le librerie e le configurazioni necessarie per eseguire l'applicazione in un ambiente isolato e autonomo.
 \\
 \\
+\textbf{Cost performance index (CPI):} (Descrizione più approfondita rispetto a quella presente in \textit{Norme di Progetto} nella sezione Metriche di qualità). Il Cost Performance Index (CPI) è un'importante misura utilizzata nel project management per valutare l'efficienza dei costi in un progetto. È un indicatore di prestazione finanziaria che confronta il valore del lavoro effettuato (Earned Value, EV) con i costi effettivi (Actual Cost, AC) sostenuti fino a un certo punto nel tempo. In termini più semplici, il CPI mostra quanto valore del lavoro pianificato è stato effettivamente ottenuto per ogni unità di costo spesa.
 \pagebreak
 \section*{D}
 \index{D}
@@ -264,8 +276,16 @@ La sua utilità primaria risiede nella chiarezza e nella standardizzazione del l
 \index{E}
 \phantomsection
 \addcontentsline{toc}{section}{E}
+\textbf{Earned Value (EV):} (Descrizione più approfondita rispetto a quella presente in \textit{Norme di Progetto} nella sezione Metriche di qualità). L'Earned Value (EV) è un concetto chiave nel project management che rappresenta il valore del lavoro effettivamente completato in un dato momento nel corso di un progetto. È utilizzato per valutare le prestazioni del progetto in base al valore del lavoro svolto rispetto alla pianificazione.
+\\
+\\
 \textbf{Element:} Element è un client di messaggistica istantanea libero e \textit{open-source}\textsubscript{\textit{G}} basato sul protocollo Matrix e distribuito con licenza Apache 2.0.
 \\
+\\
+\textbf{Estimated at completion (EAC):} (Descrizione più approfondita rispetto a quella presente in \textit{Norme di Progetto} nella sezione Metriche di qualità). Estimated at Completion (EAC) è un termine utilizzato nella gestione dei progetti e dell'analisi dei costi. Rappresenta la stima del costo totale che sarà richiesto per completare un progetto quando è a un certo punto di avanzamento. In sostanza, è una previsione dei costi totali previsti per portare a termine un progetto sulla base delle prestazioni passate e attuali del progetto stesso.
+\\
+\\
+\textbf{Estimated to complete (ETC):} (Descrizione più approfondita rispetto a quella presente in \textit{Norme di Progetto} nella sezione Metriche di qualità). L'Estimate to Complete (ETC) è una previsione dei costi aggiuntivi necessari per portare a termine un progetto o una specifica \textit{attività}\textsubscript{\textit{G}} entro il suo budget assegnato.
 \\
 \pagebreak
 \section*{F}
@@ -404,6 +424,10 @@ La sua utilità primaria risiede nella chiarezza e nella standardizzazione del l
 \textbf{PB:} Product Baseline (PB) è un acronimo che identifica una tappa fondamentale nello sviluppo di un progetto didattico. Durante questa revisione, viene dimostrata la solidità dell'architettura definita nella fase precedente (\textit{RTB}\textsubscript{\textit{G}}) e il progresso nell'evoluzione del prodotto in sviluppo.
 \\
 \\
+\textbf{Planned value (PV):}(Descrizione più approfondita rispetto a quella presente in \textit{Norme di Progetto} nella sezione Metriche di qualità). 
+Il Planned Value (PV) è il valore monetario del lavoro pianificato da completare fino a una determinata data all'interno di un progetto. Il PV è calcolato in base al budget assegnato per svolgere specifiche \textit{attività}\textsubscript{\textit{G}} o raggiungere determinati \textit{milestone}\textsubscript{\textit{G}} entro un periodo prestabilito. Rappresenta il valore totale pianificato che dovrebbe essere raggiunto in termini di costi o tempo alla data specificata.
+\\
+\\
 \textbf{POC:} L'acronimo POC sta per "Proof of Concept”. Un POC è un'implementazione pratica di un'idea o di un concetto, realizzata con l'obiettivo di dimostrare la fattibilità tecnica o la validità di un approccio particolare prima di impegnarsi in uno sviluppo a pieno regime.
 \\
 \\
@@ -462,13 +486,13 @@ La sua utilità primaria risiede nella chiarezza e nella standardizzazione del l
 \index{S}
 \phantomsection
 \addcontentsline{toc}{section}{S}
+\textbf{Schedule Variance:} (Descrizione più approfondita rispetto a quella presente in \textit{Norme di Progetto} nella sezione Metriche di qualità). Lo Schedule Variance (SV) è un indicatore utilizzato nel project management per misurare il ritardo o l'avanzamento rispetto alla pianificazione temporale prevista per il lavoro o le \textit{attività}\textsubscript{\textit{G}} in un progetto.
+\\
+\\
 \textbf{Scouting tecnologico:} Lo scouting tecnologico è un \textit{processo}\textsubscript{\textit{G}} strategico volto a identificare, valutare e monitorare le nuove tecnologie emergenti e le innovazioni nel settore tecnologico.
 \\
 \\
 \textbf{Script:} Uno Script è un file contenente una serie di istruzioni o comandi scritti in un linguaggio di scripting, come \textit{Python}\textsubscript{\textit{G}}, Bash, o JavaScript.
-\\
-\\
-\textbf{Stato avanzamento lavori (SAL):} Lo Stato di Avanzamento Lavori (SAL) è una misurazione o un resoconto che indica quanto un progetto o un lavoro è progredito rispetto alle \textit{attività}\textsubscript{\textit{G}} pianificate o alle fasi di sviluppo.
 \\
 \\
 \textbf{Sensore:} In informatica e nell'ambito dell'Internet delle cose (IoT), un Sensore è un dispositivo in grado di rilevare o misurare un input fisico o ambientale e convertirlo in un segnale o dati.
@@ -507,6 +531,13 @@ La sua utilità primaria risiede nella chiarezza e nella standardizzazione del l
 \textbf{Stand-up meeting:} Gli Stand-up Meeting sono incontri brevi e regolari utilizzati comunemente in contesti di sviluppo \textit{software}\textsubscript{\textit{G}} e in ambito lavorativo per favorire la comunicazione.
 \\
 \\
+\textbf{Statement coverage (MSC):} (Descrizione più approfondita rispetto a quella presente in \textit{Norme di Progetto} nella sezione Metriche di qualità). Lo Statement Coverage (MSC) è una metrica utilizzata nel testing del \textit{software}\textsubscript{\textit{G}} per valutare quanto del codice sorgente viene eseguito durante l'esecuzione dei \textit{test}\textsubscript{\textit{G}}.
+Questa metrica indica la percentuale di istruzioni nel codice sorgente che sono state eseguite almeno una volta durante l'esecuzione dei \textit{test}\textsubscript{\textit{G}} rispetto al totale delle istruzioni presenti nel programma. 
+\\
+\\
+\textbf{Stato avanzamento lavori (SAL):} Lo Stato di Avanzamento Lavori (SAL) è una misurazione o un resoconto che indica quanto un progetto o un lavoro è progredito rispetto alle \textit{attività}\textsubscript{\textit{G}} pianificate o alle fasi di sviluppo.
+\\
+\\
 \textbf{Storage:} Il termine Storage si riferisce alla memorizzazione permanente e alla gestione dei dati su dispositivi di archiviazione.
 \\
 \\
@@ -526,6 +557,21 @@ La sua utilità primaria risiede nella chiarezza e nella standardizzazione del l
 \\
 \\
 \textbf{Test:} Il termine Test si riferisce a un \textit{processo}\textsubscript{\textit{G}} o a un'\textit{attività}\textsubscript{\textit{G}} che mira a verificare il funzionamento di un \textit{software}\textsubscript{\textit{G}} o di un \textit{sistema}\textsubscript{\textit{G}} informatico al fine di identificare eventuali difetti o problemi.
+\\
+\\
+\textbf{Test di accettazione:} La definizione accurata di \textit{test}\textsubscript{\textit{G}} di accettazione viene data nel paragrafo §3.2.3.8 del documento \textit{Norme di Progetto}.
+\\
+\\
+\textbf{Test di integrazione:}  La definizione accurata di \textit{test}\textsubscript{\textit{G}} di integrazione viene data nel paragrafo §3.2.3.5 del documento \textit{Norme di Progetto}.
+\\
+\\
+\textbf{Test di regressione:}  La definizione accurata di \textit{test}\textsubscript{\textit{G}} di regerssione viene data nel paragrafo §3.2.3.7 del documento \textit{Norme di Progetto}.
+\\
+\\
+\textbf{Test di sistema:}  La definizione accurata di \textit{test}\textsubscript{\textit{G}} di sistema viene data nel paragrafo §3.2.3.6 del documento \textit{Norme di Progetto}.
+\\
+\\
+\textbf{Test di unità:}  La definizione accurata di \textit{test}\textsubscript{\textit{G}} di unità viene data nel paragrafo §3.2.3.4 del documento \textit{Norme di Progetto}.
 \\
 \\
 \textbf{Tool:} La parola Tool (strumento) si riferisce a un \textit{software}\textsubscript{\textit{G}} o a un'applicazione che fornisce funzionalità specifiche o servizi per facilitare un compito o un'\textit{attività}\textsubscript{\textit{G}}. Un Tool può essere progettato per svolgere una vasta gamma di compiti.
