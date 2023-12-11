@@ -1,0 +1,174 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[absolute]{textpos}
+\usepackage[default]{raleway}
+\usepackage{titlesec, comment, tabularx, makecell, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, hyperref}
+\usepackage{colortbl}
+%\geometry{a4paper, left=2cm, right=2cm, top=2cm, bottom=2.5cm}
+\renewcommand{\headrulewidth}{0pt}
+
+% Definisci uno stile per i comandi git
+\definecolor{light-gray}{gray}{0.92}
+
+\lstdefinestyle{code}{
+    frame=single,
+    framesep=1mm,
+    rulecolor=\color{light-gray},
+    backgroundcolor=\color{light-gray},
+    basicstyle=\ttfamily,
+}
+
+% ----------------------------- Definizione tabella ---------------------------
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+%\setcellgapes{2ex} % Imposta l'altezza dell'header (2ex)
+
+
+% ------------------------------Metadati indice --------------------------------
+\title{\textbf{\fontsize{28}{6}\selectfont Indice}}
+\author{\fontsize{14}{6}\selectfont ByteOps}
+\date{Novembre 24, 2023}
+
+
+% -----------------------------Creazione footer --------------------------------
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{
+    \parbox[c]{2cm}{\includegraphics[width=2cm]{../../../Images/logo.png}}
+    \textcolor[RGB]{120, 120, 120}{$\cdot$ Verbale Esterno}
+}
+\rfoot{\thepage}
+
+% --------------------------Modifica formato hyperlinks ------------------------
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    pdftitle={Verbale Esterno 24/11/2023},  %inserisci data verbale
+    pdfpagemode=FullScreen,
+}
+
+% ------------------------------- Valore sotto-paragrafi indice --------------------------------------
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\titleformat{\section}
+{\normalfont\huge\bfseries}{\thesection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsection}
+{\normalfont\Large\bfseries}{\thesubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsubsection}
+{\normalfont\large\bfseries}{\thesubsubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+% ------------------------------- Front Page ---------------------------------------
+
+\begin{document}
+
+% --------------------------Aggiunta firma finale ------------------------
+\begin{textblock*}{\textwidth}(0.85\textwidth, 1.16\textheight)
+    Il responsabile: Francesco Pozza
+\end{textblock*}
+% ------------------------------------------------------------------------
+
+\pagestyle{fancy}
+\begin{center}
+\includegraphics[width = 0.7\textwidth]{../../../Images/logo.png} \\
+\vspace{0.2cm}
+\textcolor[RGB]{60, 60, 60}{\textit{ByteOps.swe@gmail.com}} \\
+\vspace{1cm}
+\fontsize{16}{6}\selectfont Verbale Esterno $\cdot$ Data: 24/11/2023 \\
+\vspace{0.5cm}
+\end{center}
+
+\section*{Informazioni documento}
+\def\arraystretch{1.2}
+\begin{tabular}{>{\raggedleft\arraybackslash}p{0.2\textwidth}|>{\raggedright\arraybackslash}p{0.6\textwidth}c}
+\hline
+\addlinespace
+\textbf{Luogo} & Google Meet \vspace{10pt} \\
+\textbf{Orario} & 11:30 - 12:30 \vspace{10pt} \\
+\textbf{Redattore} & R.Smanio \vspace{10pt} \\
+\textbf{Verificatore} & E.Hysa \vspace{10pt} \\
+\textbf{Amministratore} & L.Skenderi \vspace{10pt} \\
+\textbf{Destinatari} & T. Vardanega \\ & R. Cardin \vspace{10pt} \\
+\textbf{Partecipanti} & A. Barutta \\ & E. Hysa \\ & R. Smanio \\ & D. Diotto \\ & F. Pozza \\ & L. Skenderi \\ & N. Preto \\ & A. Dorigo \\ & D. Zorzi \\ & F. Pallaro \vspace{10pt} \\
+\end{tabular}
+\pagebreak 
+
+% ------------------------- Changelog ----------------------------
+
+\section*{Registro delle modifiche}
+
+\begin{tabular}{|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|}
+    \hline
+    \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Dettaglio} \\
+    \hline \hline
+    0.0.1 & 24/11/2023 & R.Smanio & E.Hysa & Redazione documento \\
+    \hline
+\end{tabular}
+\pagebreak
+
+% ------------------------- Generazione automatica indice ----------------------
+\setstretch{1.5}
+\maketitle
+\thispagestyle{fancy}
+\tableofcontents
+\setstretch{1.2}
+\pagebreak
+
+% ------------------------ INIZIO DOCUMENTO ----------------------
+\flushleft
+
+\section{Revisione del periodo precedente}
+Durante il periodo precedente, il gruppo ha concentrato gli sforzi nella realizzazione degli obiettivi proposti dall'azienda proponente in merito al primo SAL. La comunicazione con l'azienda è stata formalizzata tramite Element, facilitando richieste e chiarimenti.
+
+\section{Ordine del giorno}
+\subsection{Visualizzazione e Ottimizzazione del Lavoro Svolto}
+Il lavoro compiuto fino a questo punto è stato ufficialmente presentato, e viene raccomandato vivamente, da parte della proponente, di sfruttare questi incontri per condividere in dettaglio i progressi raggiunti, al fine di garantire una chiara visualizzazione del lavoro svolto e di implementare eventuali azioni correttive.
+In questa fase, è stata analizzata la configurazione dei sensori, implementata in Python. Tale scelta è stata motivata dalla sua raccomandazione e, dalla presenza di funzionalità offerte attraverso librerie esterne che hanno facilitato il processo di generazione dei dati. 
+È stato particolarmente enfatizzato l'aspetto dell'indipendenza reciproca dei sensori, nonché la generazione dei dati basata su una distribuzione realistica della temperatura precedentemente registrata.
+Viene consigliata una revisione dei metodi di connessione tra Kafka e Clickhouse, al fine di sfruttare le funzionalità già implementate da entrambi i sistemi.
+ In merito all'ambiente Docker, si raccomanda l'utilizzo dell'immagine originale di Apache per garantire coerenza e affidabilità.
+\subsection{Webinar su Docker}
+Viene presentata l'opportunità di partecipare a un webinar dedicato a Docker, promosso dall'azienda proponente. L'evento è finalizzato all'approfondimento delle competenze legate a questo strumento e si svolgerà in collaborazione con l'altro gruppo coinvolto. La sessione è programmata per mercoledì 29 dicembre alle ore 15:00. È aperta la possibilità di porre domande e sollevare eventuali dubbi durante l'incontro.
+\subsection{Presentati i casi d'uso}
+Vengono esaminati i diversi casi d'uso, e si raccomanda di proporre nuovi casi solamente quando si dispone di una chiara comprensione di come implementarli. Una dettagliata analisi di tutti i casi d'uso è stata condotta, fornendo indicazioni correttive per quelli che richiedono attenzione.
+ Inoltre, viene consigliato di consultare il Professor R.Cardin per ottenere consigli su come il gruppo dovrebbe procedere nella realizzazione dei casi d'uso.
+\subsection{Obiettivi prossimo Sprint}
+L'obiettivo preposto consiste nell'instaurare una connessione tra i dati memorizzati in ClickHouse e la piattaforma Grafana, con l'intento di sviluppare una dashboard dedicata per la visualizzazione di tali dati.
+\section{Richieste e chiarimenti}
+\begin{enumerate}
+    \item \textbf{Domanda su Kafka e una sua estensione nella rete}\\
+    Un membro del gruppo ha sollevato una domanda riguardante l'inoltro dei dati generati a un server Kafka, al fine di consentire l'invio di dati simulati da diverse fonti. Tuttavia, la proponente al momento sconsiglia questa implementazione a causa delle complessità di networking ad essa associate. 
+    Inoltre, viene dichiarato che questa funzionalità potrà essere presa in considerazione una volta completato il lavoro complessivo.
+    \item \textbf{Approccio ai PoC da parte dell'Azienda Proponente}\\
+    La questione è emersa durante una lezione tenuta dal docente T. Vardanega, in cui si discuteva se l'azienda proponente realizzasse PoC. La proponente ha dichiarato di effettuare PoC principalmente per progetti di notevole entità o nei casi in cui è necessario presentare il proprio prodotto al cliente. 
+    Ha ulteriormente specificato che i PoC possono essere di due tipi: "usa e getta" o "sviluppabili in seconda mano".
+    Nella pratica aziendale, si tende a utilizzare prevalentemente i PoC del secondo tipo.
+\end{enumerate}
+    
+    
+    
+% ------------------------ Firma Azienda ----------------------
+\begin{textblock*}{\textwidth}(0.22\textwidth, 1.08\textheight)
+    Luogo e Data: Padova, 24/11/2023
+\end{textblock*}
+
+\begin{textblock*}{\textwidth}(0.90\textwidth, 1.08\textheight)
+        Firma referente Sync Lab:
+\end{textblock*}
+% -------------------------------------------------------------
+\end{document}
