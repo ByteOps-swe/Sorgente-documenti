@@ -6,7 +6,6 @@ La gestione della configurazione può essere applicata a qualunque categoria di 
 Secondo lo standard IEEE, la gestione della configurazione del software è un processo di identificazione, organizzazione e controllo delle modifiche apportate ai prodotti software durante il loro ciclo di vita.
 Lo standard IEEE 828-2012 definisce la gestione della configurazione del software come “un processo disciplinato per gestire l’evoluzione del software”.
 \subsubsection{Numeri di versionamento}\label{sec:versionamento}
-\textbf{Documentazione:} \\
 La convenzione per identificare la versione di un documento è: X.Y.Z
 con :
 \begin{itemize}
@@ -17,13 +16,7 @@ con :
 
 L'incremento dei valori più significati  porta i meno significativi a zero. \\
 Ogni variazione di versione deve essere presente nel registro delle modifiche.
-\subsubsection{Tecnologie}
-Le tecnologie adottata per la gestione dei configuration item sono:
-\begin{itemize}
-    \item \textbf{Git}: Version Control System distribuito utilizzato per il versionamento dei CI;
-    \item \textbf{GitHub}: Piattaforma web che utilizza Git per il controllo di versione dei CI e per il Ticketing.
-          Utilizzata per la gestione dei change request tramite issue e label e per la contabilità dello stato di configurazione (Branching, posizionamento nella repository e DashBoard di progetto).
-\end{itemize}
+
 
 \subsubsection{Repository}
 Le repository del team sono:
@@ -59,6 +52,100 @@ I repository destinati alla documentazione sono organizzati come segue:
 \textbf{Documentazione:}
 Il processo operativo utilizzato per la redazione della documentazione, noto come "feature branch workflow", implica la creazione di un ramo dedicato per ciascun documento o sezione da elaborare.
 Tale metodologia permette una parallelizzazione agile dei lavori evitando sovrascritture indesiderate di altri lavori e permette l'adozione dei principi "Documentation as code". % ~\ref{sec:DocumentationAsCode} 
+
+\textbf{Sviluppo:}
+Gitflow è lo stile di flusso di lavoro Git che utilizza il team ByteOps per lo sviluppo.
+
+\paragraph*{Flusso generale di Gitflow}
+
+\begin{enumerate}
+    \item \textbf{Branch \texttt{develop}:} Viene creato a partire dal branch principale (\texttt{main}). È il punto di partenza per lo sviluppo di nuove funzionalità;
+
+    \item \textbf{Branch \texttt{release}:} Creato da \texttt{develop}, questo branch gestisce la preparazione del software per un rilascio. Durante questa fase, sono consentite solo correzioni di bug e miglioramenti minori;
+
+    \item \textbf{Branch \texttt{feature}:} Creati da \texttt{develop}, sono utilizzati per lo sviluppo di nuove funzionalità o miglioramenti. 
+
+    \item \textbf{Merge di \texttt{feature} in \texttt{develop}:} Quando una funzionalità è completa, il branch \texttt{feature} viene fuso nel branch \texttt{develop};
+
+    \item \textbf{Merge di \texttt{release} in \texttt{develop} e \texttt{main}:} Dopo il completamento del branch \texttt{release}, viene unito sia in \texttt{develop} che in \texttt{main}, segnalando un nuovo rilascio stabile;
+
+    \item \textbf{Branch \texttt{hotfix}:} Creato da \texttt{main} in caso di problemi critici rilevati nell'ambiente di produzione;
+
+    \item \textbf{Merge di \texttt{hotfix} in \texttt{develop} e \texttt{main}:} Una volta risolto il problema, il branch \texttt{hotfix} viene unito sia in \texttt{develop} che in \texttt{main} per garantire coerenza tra le versioni.
+\end{enumerate}
+
+\subsubsection*{Comandi di comodo}
+\paragraph*{Inizializzare Gitflow}
+
+% Inizializzare Gitflow
+\begin{lstlisting}[style=code]
+    git flow init
+    \end{lstlisting}
+    
+    % Sviluppo di una Nuova Funzionalità
+    \paragraph*{Sviluppo di una Nuova Funzionalità}
+    
+    % Inizia una Feature
+    \begin{lstlisting}[style=code]
+    git flow feature start nome_feature
+    \end{lstlisting}
+    
+    % Lavora sul Codice
+    % Effettua le modifiche e i commit sulla branch della feature.
+    
+    % Completa la Feature
+    \begin{lstlisting}[style=code]
+    git flow feature finish nome_feature
+    \end{lstlisting}
+    
+    % Risoluzione di Bug
+    \paragraph*{Risoluzione di Bug}
+    
+    % Inizia una Hotfix
+    \begin{lstlisting}[style=code]
+    git flow hotfix start nome_hotfix
+    \end{lstlisting}
+    
+    % Lavora sul Codice
+    % Effettua le modifiche e i commit sulla branch del hotfix.
+    
+    % Completa il Hotfix
+    \begin{lstlisting}[style=code]
+    git flow hotfix finish nome_hotfix
+    \end{lstlisting}
+    
+    % Rilascio di una Nuova Versione
+    \paragraph*{Rilascio di una Nuova Versione}
+    
+    % Inizia una Release
+    \begin{lstlisting}[style=code]
+    git flow release start X.X.X
+    \end{lstlisting}
+    
+    % Lavora sul Codice
+    % Effettua eventuali aggiustamenti per la release e imposta il numero di versione nei file appropriati.
+    
+    % Completa la Release
+    \begin{lstlisting}[style=code]
+    git flow release finish X.X.X
+    \end{lstlisting}
+    
+    % Pubblicazione delle Modifiche
+    \paragraph*{Pubblicazione delle Modifiche}
+    
+    % Push delle Branch
+    \begin{lstlisting}[style=code]
+    git push origin develop
+    git push origin master
+    git push origin --tags
+    \end{lstlisting}
+    
+    % Push delle Feature/Hotfix/Release
+    \begin{lstlisting}[style=code]
+    git push origin feature/nome_feature
+    git push origin hotfix/nome_hotfix
+    git push origin release/X.X.X
+    \end{lstlisting}
 \subsubsection{Controllo di configurazione}
 \paragraph{Change request (Richiesta di modifica)}
 Seguendo lo standard  ISO/IEC 12207 per affrontare questo processo in modo strutturato le attività sono:
@@ -79,7 +166,8 @@ Questo processo si occupa di registrare e tenere traccia dello stato di tutte le
 \begin{itemize}
     \item \textbf{Registrazione delle configurazioni}: Registrazione delle informazioni dettagliate su ogni elemento di configurazione;
           \begin{itemize}
-              \item  \textbf{Documentazione:} Le informazioni del documento sono presenti nella prima pagina di ciascuno.
+              \item  \textbf{Documentazione:} Le informazioni del CI sono presenti nella prima pagina di ciascuno.
+              \item  \textbf{Sviulppo:} Le informazioni del CI sono inserite come prime righe del file sotto forma di commento.
           \end{itemize}
     \item \textbf{Stato e cambiamenti}: Tenere traccia dello stato attuale di ciascun elemento di configurazione e di tutti i cambiamenti che avvengono nel corso del tempo. Ciò include le versioni attuali, le revisioni, le modifiche e le baselines;
           \begin{itemize}
@@ -101,3 +189,11 @@ Ad esempio, l'aggiunta di un elemento di configurazione al ramo principale (main
 
 \subsubsection{Release management and delivery}
 Dopo aver portato a termine le attività nel proprio branch, il responsabile del suo sviluppo è tenuto a avviare una richiesta di pull per incorporare le modifiche nel ramo principale. La richiesta di pull può essere accettata solo se la verifica ha esito positivo.
+
+\subsubsection{Strumenti}
+Le tecnologie adottata per la gestione dei configuration item sono:
+\begin{itemize}
+    \item \textbf{Git}: Version Control System distribuito utilizzato per il versionamento dei CI;
+    \item \textbf{GitHub}: Piattaforma web che utilizza Git per il controllo di versione dei CI e per il Ticketing.
+          Utilizzata per la gestione dei change request tramite issue e label e per la contabilità dello stato di configurazione (Branching, posizionamento nella repository e DashBoard di progetto).
+\end{itemize}
