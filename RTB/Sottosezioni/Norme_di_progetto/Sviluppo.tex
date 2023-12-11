@@ -4,11 +4,12 @@
 L'ISO/IEC 12207:1995 stabilisce le linee guida per il processo di sviluppo, il quale include attività cruciali come analisi, progettazione, codifica, integrazione, testing, installazione e accettazione. È fondamentale svolgere queste attività in stretta aderenza alle linee guida e ai requisiti definiti nel contratto con il cliente, garantendo così un'implementazione accurata e conforme alle specifiche richieste.
 
 \subsubsection{Analisi dei requisiti}
-L'analisi dei requisiti è una attività critica nello sviluppo del software, poiché stabilisce le basi per il design, l'implementazione e i test del sistema. Secondo lo standard ISO/IEC 12207:1995, lo scopo dell'analisi dei requisiti è di comprendere e definire in modo esaustivo le esigenze del cliente e del sistema. \\
-L’attività di analisi richiede di rispondere a domande fondamentali come: “Qual è il dominio?”, “Qual è la cosa giusta da fare?” e consiste nella comprensione approfondita del dominio e nella definizione chiara di obiettivi, vincoli e requisiti sia tecnici che funzionali
-\paragraph{Obbiettivi:}
+L'analisi dei requisiti è un' attività critica nell'ambito dello sviluppo software poiché stabilisce le basi per il design, l'implementazione e i test del sistema. \\
+Secondo lo standard ISO/IEC 12207:1995, lo scopo dell'analisi dei requisiti è di comprendere e definire in modo esaustivo le esigenze del cliente e del sistema. \\
+L’attività di analisi richiede di rispondere a domande fondamentali come: “Qual è il dominio?”, “Qual è la cosa giusta da fare?”, "Quali sono le necessità del cliente?" e consiste nella comprensione approfondita del dominio e nella definizione chiara di obiettivi, vincoli e requisiti sia tecnici che funzionali
+\paragraph{Obiettivi:}
 \begin{itemize}
-    \item Definire insieme al proponente gli obiettivi del prodotto per rispecchiarne le aspettative, comprendendo l'identificazione, documentazione e validazione dei requisiti funzionali e non funzionali;
+    \item Definire insieme al proponente gli obiettivi del prodotto per rispecchiarne le aspettative, comprendendo identificazione, documentazione e validazione dei requisiti funzionali e non funzionali;
     \item Facilitare la comprensione comune tra gli stakeholder e il team di sviluppo;
     \item Permettere una stima sulle tempistiche e sui costi;
     \item Fornire ai progettisti requisiti chiari e di facile comprensione;
@@ -19,15 +20,15 @@ L’attività di analisi richiede di rispondere a domande fondamentali come: “
 È compito degli analisti effettuare l'Analisi dei Requisiti, redigendo un documento con il
 medesimo nome che deve contenere:
 \begin{itemize}
-    \item Introduzione: Scopo del documento stesso;
-    \item Descrizione: Analisi del prodotto
+    \item \textbf{Introduzione}: Scopo del documento stesso;
+    \item \textbf{Descrizione}: Analisi del prodotto
           \begin{itemize}
-              \item Obbiettivi del prodotto;
+              \item Obiettivi del prodotto;
               \item Funzionalità del prodotto;
               \item Caratteristiche utente;
               \item Tecnologie.
           \end{itemize}
-    \item  Casi d'uso: Funzionalità offerte dal sistema dal punto di vista dell'utente
+    \item \textbf{Casi d'uso}: Funzionalità offerte dal sistema dal punto di vista dell'utente
         \begin{itemize}
             \item Attori: Utenti esterni al sistema;
             \item Elenco dei casi d'uso:
@@ -35,8 +36,9 @@ medesimo nome che deve contenere:
                 \item Casi d'uso in formato testuale;
                 \item Diagrammi dei casi d'uso.
             \end{itemize}  
+            \item Eventuali diagrammi di attività: permettono di facilitare la comprensione dei processi relativi alle funzionalità.
         \end{itemize}
-    \item Requisiti:
+    \item \textbf{Requisiti}:
         \begin{itemize}
             \item Requisiti funzionali;
             \item Requisiti qualitativi;
@@ -55,14 +57,14 @@ Ogni caso d'uso e costituito da:
           con:
           \begin{itemize}
               \item \textbf{Numero caso d'uso:} ID numerico del caso d'uso;
-              \item \textbf{Numero sotto caso d'uso:} ID numerico del sottocaso d'uso, presente esclusivamente in caso di presenza di un sottocaso d'uso.
+              \item \textbf{Numero sotto caso d'uso:} ID numerico del sottocaso d'uso (presente esclusivamente se si sta identificando un sottocaso d'uso).
               \item \textbf{Titolo}: Titolo breve ed esplicativo del caso d'uso.
           \end{itemize}
     \item \textbf{Attore principale:} Entità esterna che interagisce attivamente con il sistema per soddisfare una sua necessità;
-    \item \textbf{Attore secondario:} Eventuale entità esterna che non interagisce attivamente con il sistema, ma all'interno di un caso d'uso permette al sistema di soddisfare il bisogno dell'attore principale.
+    \item \textbf{Attore secondario:} Eventuale entità esterna che non interagisce attivamente con il sistema, ma all'interno di un caso d'uso permette al sistema di soddisfare il bisogno dell'attore principale;
     \item \textbf{Descrizione:} Eventuale descrizione breve della funzionalità;
-    \item \textbf{Scenario principale:} Sequenza di eventi che si verificano quando un attore interagisce con il sistema per raggiungere l'obbiettivo del caso d'uso (Postcondizioni);
-    \item \textbf{Estensioni:} Scenari alternativi (se presenti) che, in seguito ad una o più specifiche condizioni, portano il flusso del caso d'uso a non giungere alle Postcondizioni (Opzionale);
+    \item \textbf{Scenario principale:} Sequenza di eventi che si verificano quando un attore interagisce con il sistema per raggiungere l'obbiettivo del caso d'uso (postcondizioni);
+    \item \textbf{Estensioni:} Eventuali scenari alternativi che, in seguito ad una o più specifiche condizioni, portano il flusso del caso d'uso a non giungere alle postcondizioni;
     \item \textbf{Precondizioni:} Stato in cui si deve trovare il sistema affinché la funzionalità sia disponibile all'attore;
     \item \textbf{Postcondizioni:} Stato in cui si trova il sistema dopo l'esecuzione dello scenario principale;
     \item \textbf{User story associata:} Breve descrizione di una funzionalità del software, scritta dal punto di vista dell'utente, che fornisce contesto, obiettivi e valore. \\
@@ -70,9 +72,10 @@ Ogni caso d'uso e costituito da:
 \end{enumerate}
 
 \paragraph{Diagrammi dei casi d'uso} 
-I diagrammi dei casi d'uso sono strumenti grafici che permettono di visualizzare in modo chiaro e intuitivo le funzionalità offerte dal sistema dal punto di vista dell'utente. Inoltre, consentono di identificare e comprendere rapidamente le relazioni e le interazioni tra i vari casi d'uso, offrendo una visione d'insieme delle dinamiche del sistema.\\
-I diagrammi dei casi d'uso si concentrano sulla descrizione delle funzionalità del sistema dal punto di vista degli utenti senza approfondire dettagli implementativi. La loro finalità principale è evidenziare le interazioni esterne al sistema, offrendo una visione focalizzata sulle funzionalità e sull'interazione dell'utente con il sistema stesso.
-Un diagramma dei casi d'uso fornisce una panoramica visuale delle interazioni chiave tra gli attori e il sistema, facilitando la comprensione dei requisiti funzionali del sistema e la comunicazione tra gli stakeholder del progetto.
+I diagrammi dei casi d'uso sono strumenti grafici che permettono di visualizzare in modo chiaro e intuitivo le funzionalità offerte dal sistema dal punto di vista dell'utente. Inoltre, consentono di identificare e comprendere rapidamente le relazioni e le interazioni tra i vari casi d'uso, offrendo una visione d'insieme delle funzionalità offerte dal sistema.\\
+I diagrammi dei casi d'uso si concentrano sulla descrizione delle funzionalità del sistema dal punto di vista degli utenti senza approfondire dettagli implementativi. \\
+La loro finalità principale è quella di evidenziare le interazioni dall'esterno al sistema, offrendo una visione focalizzata sulle funzionalità e sull'interazione dell'utente con il sistema stesso. \\
+Un diagramma dei casi d'uso fornisce una panoramica visuale delle interazioni chiave tra gli attori e il sistema, facilitando la comprensione dei requisiti funzionali del sistema e la comunicazione tra gli stakeholder del progetto. \\
 Di seguito sono elencati i principali componenti di un diagramma dei casi d'uso:
 
 \begin{itemize}
@@ -112,7 +115,7 @@ Di seguito sono elencati i principali componenti di un diagramma dei casi d'uso:
 
     \item \textbf{Relazioni tra Attori e Casi d'Uso:}
     \begin{itemize}
-        \item \textbf{Associazione:}
+        \item \textbf{Associazione:} \\
         Le linee di associazione collegano gli attori ai casi d'uso corrispondenti, indicando quali attori sono coinvolti in una particolare interazione. Più precisamente, una linea di associazione collega un attore a un caso d'uso quando quell'attore è coinvolto nell'interazione descritta dal caso d'uso stesso. Questo legame rappresenta visivamente il ruolo dell'attore nell'utilizzo o nell'avvio di una funzione specifica offerta dal sistema.
         \begin{minipage}[t]{\linewidth}
             \centering
@@ -123,8 +126,10 @@ Di seguito sono elencati i principali componenti di un diagramma dei casi d'uso:
 
     \item \textbf{Relazioni tra attori:}
     \begin{itemize}
-        \item \textbf{Generalizzazione tra attori:}
-        La generalizzazione tra attori rappresenta una relazione di ereditarietà tra attori, dove un attore specializzato (figlio) eredita comportamenti e caratteristiche da un attore base (genitore). Questo aiuta a organizzare gerarchicamente gli attori coinvolti nell'interazione con il sistema nei diagrammi dei casi d'uso.
+        \item \textbf{Generalizzazione tra attori:} \\
+        La generalizzazione tra attori rappresenta una relazione di ereditarietà, dove un attore specializzato (figlio) eredita comportamenti e caratteristiche da un attore base (genitore). \\
+        Questo aiuta a organizzare gerarchicamente gli attori coinvolti nell'interazione con il sistema nei diagrammi dei casi d'uso. \\
+        Viene rappresentata con una linea solida e una freccia vuota (senza testa di freccia) parte dall'attore figlio e arriva all'attore padre.
         \begin{minipage}[t]{\linewidth}
             \centering
             \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/GeneralizzazioneAttori.PNG}
@@ -134,26 +139,30 @@ Di seguito sono elencati i principali componenti di un diagramma dei casi d'uso:
     
     \item \textbf{Relazioni tra casi d'uso:}
     \begin{itemize}
-        \item \textbf{Inclusione:}
-        La relazione di inclusione indica che un caso d'uso (detto "includente") include il comportamento di un altro caso d'uso (detto "incluso"). In pratica, quando un attore avvia il caso d'uso includente, il caso d'uso incluso viene eseguito come parte integrante del primo. Questo è utile per evitare la duplicazione del codice o delle azioni in diversi casi d'uso. La relazione di inclusione è spesso rappresentata da una freccia con la punta aperta.
-        Esempio: Supponiamo che ci sia un caso d'uso generico chiamato "Autenticazione". Questo caso d'uso può includere il caso d'uso più specifico "Gestione Password". Quando un utente si autentica, il sistema eseguirà anche la gestione della password come parte del processo di autenticazione.
+        \item \textbf{Inclusione:} \\
+        La relazione di inclusione indica che un caso d'uso (detto "includente") include l'esecuzione di un altro caso d'uso (detto "incluso"). \\
+        In pratica, quando un attore interagisce con il caso d'uso includente, il caso d'uso incluso viene eseguito come parte integrante del primo. Questo è utile per favorire il riutilizzo e per evitare duplicazione in diversi casi d'uso. \\
+        La relazione di inclusione viene rappresentata da una freccia tratteggiata che collega il caso d'uso incluso al caso d'uso che lo include. \\
+        Esempio: Supponiamo che per un applicazione e-commerce ci sia un caso d'uso "Conferma ordine". Questo caso d'uso può includere il caso d'uso "Visualizza carrello". Dopo la conferma dell'ordine, l'utente viene automaticamente reindirizzato alla visualizzazione del carrello al fine di ottenere una panoramica completa dei contenuti dell'ordine.
         \begin{minipage}[t]{\linewidth}
             \centering
             \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/Inclusione.PNG}
             \captionof{figure}{Rappresentazione inclusione}
         \end{minipage}
 
-        \item \textbf{Estensione:}
-        La relazione di estensione indica che un caso d'uso (detto "estendente") può estendere il comportamento di un altro caso d'uso (detto "esteso") in determinate circostanze. In altre parole, l'esecuzione del caso d'uso estendente può essere condizionalmente estesa o arricchita dal caso d'uso esteso. La relazione di estensione è spesso rappresentata da una freccia con la punta chiusa.
-        Esempio: Considera un caso d'uso "Gestione Ordini". Questo caso d'uso potrebbe estendere il caso d'uso "Verifica Disponibilità" se durante la gestione degli ordini si verifica la necessità di verificare la disponibilità di un determinato prodotto. In questo modo, l'estensione permette di gestire situazioni specifiche senza ingombrare il flusso principale del caso d'uso base.
+        \item \textbf{Estensione:} \\
+        La relazione di estensione indica che un caso d'uso (detto "estendente") può estendere il comportamento di un altro caso d'uso (detto "esteso") in determinate circostanze. In altre parole, l'esecuzione del caso d'uso estendente può essere estesa o arricchita dal caso d'uso esteso al verificarsi di determinate condizioni. \\
+        La relazione di estensione è rappresentata da una freccia tratteggiata che collega il caso d'uso estendente al caso d'uso esteso. \\
+        Esempio: Considera un caso d'uso "Visualizzazione errore di autenticazione". Questo caso d'uso potrebbe estendere il caso d'uso "Autenticazione" se durante la fase di autenticazione si inseriscono username e/o password non validi. In questo modo, l'estensione permette di gestire situazioni alternative senza ingombrare lo scenario principale di un caso d'uso e permettendo di evitare duplicazione.
         \begin{minipage}[t]{\linewidth}
             \centering
             \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/Estensione.PNG}
             \captionof{figure}{Rappresentazione estensione}
         \end{minipage}
 
-        \item \textbf{Generalizzazione casi d'uso:}
-        La generalizzazione nei diagrammi dei casi d'uso rappresenta una relazione di ereditarietà tra casi d'uso, indicando che un caso d'uso più specifico eredita il comportamento da un caso d'uso più generico. Questa relazione è simboleggiata da una linea con una freccia vuota che punta dal caso d'uso più specifico al caso d'uso più generico.
+        \item \textbf{Generalizzazione casi d'uso:} \\
+        La generalizzazione nei diagrammi dei casi d'uso rappresenta una relazione di ereditarietà tra casi d'uso, indicando che un caso d'uso più specifico eredita il comportamento da un caso d'uso più generico. \\
+        Questa relazione è simboleggiata da una linea con una freccia vuota che punta dal caso d'uso più specifico al caso d'uso più generico.
         \begin{minipage}[t]{\linewidth}
             \centering
             \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/GeneralizzazioneUC.PNG}
@@ -198,7 +207,22 @@ Ogni requisito è costituito da:
     \item \textbf{Casi d'uso:} Elenco casi d'uso associati.
 \end{enumerate}
 \paragraph{Metriche}
-Le metriche nell'analisi dei requisiti sono strumenti utilizzati per valutare, misurare e gestire diversi aspetti dei requisiti di un sistema o di un progetto. Queste metriche aiutano a garantire che i requisiti siano completi, corretti, coerenti e comprensibili. Alcune metriche comuni utilizzate nell'analisi dei requisiti includono:
+Le metriche nell'analisi dei requisiti sono strumenti utilizzati per valutare, misurare e gestire diversi aspetti dei requisiti di un sistema o di un progetto. Queste metriche aiutano a garantire che i requisiti siano completi, corretti, coerenti e comprensibili.
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|}
+    \hline
+    Metrica & Nome & Riferimento \\
+    \hline \hline
+    MROS & Requisiti obbligatori soddisfatti &  \\
+    MRDS & Requisiti desiderabili soddisfatti &  \\
+    MROPZS & Requisiti opzionali soddisfatti & \\
+    \hline
+    \end{tabular}
+    \caption{Metriche relative all'attività di analisi dei requisiti}
+\end{table}
+
+Altri aspetti da valutare per ottenere una specifica dei requisiti ottimale sono:
 \begin{itemize}
     \item \textbf{Completezza dei requisiti:} Misura la quantità di requisiti identificati rispetto a quelli effettivamente necessari per il sistema. Una metrica comune è la percentuale di requisiti identificati rispetto a quelli totali;
     \item \textbf{Coerenza:} Valuta la coerenza tra i requisiti. Ad esempio, si potrebbe misurare il numero di conflitti o di requisiti duplicati;
@@ -388,7 +412,7 @@ Il suo obiettivo principale è individuare e risolvere eventuali problemi o erro
 I progettisti avranno il completo controllo di questa attività, compresa la definizione dei test da eseguire. Inoltre, nella sezione x.y.z, si può trovare una descrizione dettagliata delle varie tipologie di test e della terminologia da adottare, offrendo così un'ulteriore chiarezza su questa fase critica del processo di sviluppo del software.
 
 \paragraph{Metriche}
-\begin{table}[h]
+\begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|}
     \hline
