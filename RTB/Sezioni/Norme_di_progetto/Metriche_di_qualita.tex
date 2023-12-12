@@ -1,0 +1,272 @@
+\section{Metriche di qualità}
+Le metriche di qualità dei prodotti software e dei processi sono strumenti fondamentali per valutare e migliorare l'efficacia e l'efficienza nello sviluppo del software. Queste metriche forniscono indicatori oggettivi e misurabili che consentono di valutare la conformità agli standard, identificare aree di miglioramento e monitorare la salute complessiva del processo di sviluppo
+
+\subsection{Metriche per la qualità di processo}
+
+\subsubsection{Fornitura}
+\begin{itemize}
+    \item \textbf{Metrica M1EAC:}
+          \begin{itemize}
+              \item \textbf{Nome:} Estimated at Completion (EAC)
+              \item \textbf{Descrizione:} Misura il costo realizzativo stimato per terminare il progetto.
+              \item \textbf{Formula:} $EAC = AC + ETC$
+          \end{itemize}
+
+    \item \textbf{Metrica M2CPI:}
+          \begin{itemize}
+              \item \textbf{Nome:} Cost Performance Index (CPI)
+              \item \textbf{Descrizione:} Misura il rapporto tra il valore del lavoro effettivamente svolto ed il costo reale del lavoro fino al periodo di riferimento.
+              \item \textbf{Formula:} $CPI = \frac{EV}{AC}$
+          \end{itemize}
+
+    \item \textbf{Metrica M3BV:}
+          \begin{itemize}
+              \item \textbf{Nome:} Budget Variance (BV)
+              \item \textbf{Descrizione:} Misura la differenza percentuale di budget tra quanto previsto nella pianificazione di un periodo e l’effettiva realizzazione.
+              \item \textbf{Formula:} $BV = AC - PV \times 100\% $
+          \end{itemize}
+
+    \item \textbf{Metrica M4AC:}
+          \begin{itemize}
+              \item \textbf{Nome:} Actual Cost (AC)
+              \item \textbf{Descrizione:} Misura i costi effettivamente sostenuti dall’inizio del progetto fino all’attualità.
+              \item \textbf{Formula:} Dato disponibile e aggiornato in "Piano di progetto" per ogni periodo.
+          \end{itemize}
+
+    \item \textbf{Metrica M5SV:}
+          \begin{itemize}
+              \item \textbf{Nome:} Schedule Variance (SV)
+              \item \textbf{Descrizione:} Indica in percentuale quanto si è in anticipo o in ritardo con le attività pianificate.
+              \item \textbf{Formula:} $SV = (FP - IP) - (FC - IC)$
+              \\con \begin{itemize}
+                \item $FP$: giorno pianificato di fine attività;
+                \item $IP$: giorno pianificato di inizio attività;
+                \item $FC$: giorno consuntivato di fine attività;
+                \item $IC$: giorno consuntivato di inizio attività.
+            \end{itemize}
+            
+            Il risultato se:
+            \begin{itemize}
+                \item $> 0$: indica un anticipo rispetto alla previsione;
+                \item $= 0$: indica se si è in linea rispetto alla previsione;
+                \item $< 0$: indica se si è in ritardo rispetto alla previsione.
+            \end{itemize}
+          \end{itemize}
+
+    \item \textbf{Metrica M6EV:}
+          \begin{itemize}
+              \item \textbf{Nome:} Earned Value (EV)
+              \item \textbf{Descrizione:} Valore del lavoro effettivamente svolto fino a quel periodo.
+              \item \textbf{Formula:} $EV = \% lavoro svolto \times EAC$
+          \end{itemize}
+
+    \item \textbf{Metrica M7PV:}
+          \begin{itemize}
+              \item \textbf{Nome:} Planned Value
+              \item \textbf{Descrizione:} Stima la somma dei costi realizzativi delle attività imminenti periodo per periodo.
+              \item \textbf{Formula:} $PV = \% lavoro svolto \times BAC$
+          \end{itemize}
+
+    \item \textbf{Metrica M8ETC:}
+          \begin{itemize}
+              \item \textbf{Nome:} Estimate to Complete (ETC)
+              \item \textbf{Descrizione:} Stima i costi realizzativi fino alla fine del progetto.
+              \item \textbf{Formula:} $ETC = EAC - AC$
+          \end{itemize}
+\end{itemize}
+
+
+\subsubsection{Sviluppo}
+\begin{itemize}
+    \item \textbf{Metrica M9CCM:}
+          \begin{itemize}
+              \item \textbf{Nome:} Complessità Ciclomatica per Metodo (MCCM)
+              \item \textbf{Descrizione:} Misura il numero di cammini linearmente indipendenti attraverso il grafo di controllo di flusso del metodo.
+              \item \textbf{Formula:} $MCCM = e - n + 2$
+              \item \textbf{Dove:}
+                    \begin{itemize}
+                        \item $e$: numero di archi del grafo del flusso di esecuzione del metodo;
+                        \item $n$: numero di vertici del grafo del flusso di esecuzione del metodo.
+                    \end{itemize}
+          \end{itemize}
+
+    \item \textbf{Metrica M10CC:}
+          \begin{itemize}
+              \item \textbf{Nome:} Code Coverage (MCC)
+              \item \textbf{Descrizione:} Numero di linee di codice convalidate con successo nell'ambito di una procedura di test.
+              \item \textbf{Formula:} $MCC = \frac{\text{linee di codice percorse}}{\text{linee di codice totali}} \times 100$
+          \end{itemize}
+
+    \item \textbf{Metrica M11SC:}
+          \begin{itemize}
+              \item \textbf{Nome:} Statement Coverage (MSC)
+              \item \textbf{Descrizione:} Misura il numero di istruzioni che sono state eseguite almeno una volta.
+              \item \textbf{Formula:} $MSC = \frac{\text{istruzioni eseguite}}{\text{istruzioni totali}} \times 100$
+          \end{itemize}
+
+    \item \textbf{Metrica M12BC:}
+          \begin{itemize}
+              \item \textbf{Nome:} Branch Coverage (MBC)
+              \item \textbf{Descrizione:} Indice di quante diramazioni del codice vengono eseguite dai test. Un branch è uno dei possibili percorsi di esecuzione che il codice può seguire dopo che un'istruzione decisionale viene valutata.
+              \item \textbf{Formula:} $MBC = \frac{\text{flussi funzionali implementati e testati}}{\text{flussi condizionali riusciti e non}} \times 100$
+          \end{itemize}
+          \item \textbf{Metrica M12PM:}
+          \begin{itemize}
+              \item \textbf{Nome:} Parametri per Metodo (M12PM)
+              \item \textbf{Descrizione:} Numero massimo di parametri per metodo.
+            \end{itemize}
+            \item \textbf{Metrica M50ATC:}
+            \begin{itemize}
+                \item \textbf{Nome:} Attributi per Classe (ATC)
+                \item \textbf{Descrizione:} Misura il numero massimo di attributi per classe.
+            \end{itemize}
+          
+    
+    \item \textbf{Metrica M13LCM:}
+          \begin{itemize}
+              \item \textbf{Nome:} Linee di Codice per Metodo (M13LCM)
+              \item \textbf{Descrizione:} Limite massimo di linee di codice per metodo.
+            \end{itemize}
+\end{itemize}
+
+\subsubsection{Documentazione}
+\begin{itemize}
+    \item \textbf{Metrica M14CO:}
+          \begin{itemize}
+              \item \textbf{Nome:} Correttezza Ortografica (CO)
+              \item \textbf{Descrizione:} Rappresenta il numero di errori grammaticali ed
+              ortografici all'interno di un documento;
+          \end{itemize}
+          \item \textbf{Metrica M15IG:}
+          \begin{itemize}
+              \item \textbf{Nome:} Indice Gulpease (MIG)
+              \item \textbf{Descrizione:} Indice di leggibilità di un testo tarato sulla lingua italiana, che utilizza la lunghezza delle parole in lettere anziché in sillabe, semplificandone il calcolo automatico.
+              \item \textbf{Formula:} $IG = 89 + \frac{300 \cdot N_f - 10 \cdot N_l}{N_p}$
+              \item \textbf{Dove:}
+                    \begin{itemize}
+                        \item $N_f$: numero di frasi;
+                        \item $N_l$: numero di lettere;
+                        \item $N_p$: numero di parole.
+                    \end{itemize}
+              \item I risultati sono compresi tra 0 e 100, dove il valore "100" indica la leggibilità più alta e "0" la leggibilità più bassa. In generale risulta che i testi con un indice:
+                    \begin{itemize}
+                        \item $< 80$: sono difficili da leggere per chi ha la licenza elementare;
+                        \item $< 60$: sono difficili da leggere per chi ha la licenza media;
+                        \item $< 40$: sono difficili da leggere per chi ha un diploma superiore.
+                    \end{itemize}
+          \end{itemize}
+        \end{itemize}
+
+\subsubsection{Gestione dei rischi}
+\begin{itemize}
+    \item \textbf{Metrica M17RNP:}
+          \begin{itemize}
+              \item \textbf{Nome:} Rischi non previsti (RNP)
+              \item \textbf{Descrizione:} Misura il numero di rischi
+              non previsti nel corso del
+              progetto.
+          \end{itemize}
+        \end{itemize}
+
+        \subsubsection{Gestione della qualità}
+        \begin{itemize}
+            \item \textbf{Metrica M18QMS:}
+                  \begin{itemize}
+                      \item \textbf{Nome:} Quality Metrics Satisfied (QMS)
+                      \item \textbf{Descrizione:} Misura la percentuale di metriche del progetto che sono soddisfatte rispetto a quelle definite nelle norme di progetto.
+                      \item \textbf{Formula:} $QMS = \frac{\text{Metriche soddisfatte}}{\text{Metriche definite nelle norme}} \times 100$
+                  \end{itemize}
+        \end{itemize}
+        
+    
+\subsection{Metriche per la qualità di prodotto}
+
+\subsection{Funzionalità}
+\begin{itemize}
+    \item \textbf{Metrica M19ROS:}
+          \begin{itemize}
+              \item \textbf{Nome:} Requisiti Obbligatori Soddisfatti (ROS)
+              \item \textbf{Descrizione:} Misura la percentuale di requisiti obbligatori completamente soddisfatti rispetto al totale dei requisiti obbligatori.
+              \item \textbf{Formula:} $ROS = \frac{\text{Requisiti obbligatori soddisfatti}}{\text{Totale requisiti obbligatori}} \times 100$
+          \end{itemize}
+
+    \item \textbf{Metrica M20RDS:}
+          \begin{itemize}
+              \item \textbf{Nome:} Requisiti Desiderabili Soddisfatti (RDS)
+              \item \textbf{Descrizione:} Misura la percentuale di requisiti desiderabili soddisfatti rispetto al totale dei requisiti desiderabili.
+              \item \textbf{Formula:} $RDS = \frac{\text{Requisiti desiderabili soddisfatti}}{\text{Totale requisiti desiderabili}} \times 100$
+          \end{itemize}
+
+    \item \textbf{Metrica M21ROPZS:}
+          \begin{itemize}
+              \item \textbf{Nome:} Requisiti Opzionali Soddisfatti (ROPZS)
+              \item \textbf{Descrizione:} Misura la percentuale di requisiti opzionali soddisfatti rispetto al totale dei requisiti opzionali.
+              \item \textbf{Formula:} $ROPZS = \frac{\text{Requisiti opzionali soddisfatti}}{\text{Totale requisiti opzionali}} \times 100$
+          \end{itemize}
+\end{itemize}
+
+\subsection{Usabilità}
+\begin{itemize}
+    \item \textbf{Metrica M22PD:}
+          \begin{itemize}
+              \item \textbf{Nome:} Tempo di Apprendimento
+              \item \textbf{Descrizione:} Misura il tempo massimo richiesto per apprendere l’utilizzo del prodotto.
+          \end{itemize}
+
+    \item \textbf{Metrica M23PD:}
+          \begin{itemize}
+              \item \textbf{Nome:} Semplicità di Utilizzo
+              \item \textbf{Descrizione:} Misura il numero massimo di click necessari per utilizzare il prodotto.
+          \end{itemize}
+\end{itemize}
+
+\subsection{Manutenibilità}
+\begin{itemize}
+    \item \textbf{Metrica M24AC:}
+          \begin{itemize}
+              \item \textbf{Nome:} Accoppiamento tra Classi (M24AC)
+              \item \textbf{Descrizione:} Misura il livello di accoppiamento tra le classi del sistema.
+          \end{itemize}
+\end{itemize}
+
+
+\subsection{Affidabilità}
+\begin{itemize}
+    \item \textbf{Metrica M28DE:}
+          \begin{itemize}
+              \item \textbf{Nome:} Densità degli Errori (DE)
+              \item \textbf{Descrizione:} Misura la percentuale di errori presenti nel prodotto rispetto al totale del codice.
+              \item \textbf{Formula:} $DE = \frac{\text{Numero di errori}}{\text{Totale delle linee di codice}} \times 100$
+          \end{itemize}
+\end{itemize}
+
+\subsection{Efficienza}
+\begin{itemize}
+    \item \textbf{Metrica M30PD:}
+          \begin{itemize}
+              \item \textbf{Nome:} Tempo Medio di Risposta
+              \item \textbf{Descrizione:} Misura il tempo medio impiegato per rispondere a una richiesta.
+          \end{itemize}
+\end{itemize}
+
+
+\subsection{Portabilità}
+
+\begin{itemize}
+    \item \textbf{Metrica M31PD:}
+          \begin{itemize}
+              \item \textbf{Nome:} Versioni dei Browser Supportate (M31PD)
+              \item \textbf{Descrizione:} Percentuale delle versioni di browser supportate rispetto al totale delle versioni disponibili.
+              \item \textbf{Formula:} $M31PD = \frac{\text{Versioni di browser supportate}}{\text{Totale delle versioni disponibili}} \times 100$
+          \end{itemize}
+\end{itemize}
+
+\subsection{Copertura dei test}
+\begin{itemize}
+    \item \textbf{Metrica M32TS:}
+          \begin{itemize}
+              \item \textbf{Nome:} Test Superati (TS)
+              \item \textbf{Descrizione:} Percentuale dei test superati.
+              \item \textbf{Formula:} $TS = \frac{\text{Numero di test superati}}{\text{Numero totale di test}} \times 100$
+          \end{itemize}
+\end{itemize}
