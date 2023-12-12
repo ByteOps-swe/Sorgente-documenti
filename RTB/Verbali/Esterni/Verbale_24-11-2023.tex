@@ -116,7 +116,7 @@
     \hline
     \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Dettaglio} \\
     \hline \hline
-    0.0.1 & 24/11/2023 & R.Smanio & E.Hysa & Redazione documento \\
+    0.0.1 & 24/11/2023 & R. Smanio & E. Hysa & Redazione documento \\
     \hline
 \end{tabular}
 \pagebreak
@@ -133,37 +133,43 @@
 \flushleft
 
 \section{Revisione del periodo precedente}
-Durante il periodo trascorso dal precedente SAL, il gruppo ha concentrato gli sforzi nella realizzazione degli obiettivi proposti dall'azienda proponente. 
+Durante il periodo trascorso dal precedente SAL, il gruppo si è concentrato sulla realizzazione degli obiettivi fissati dall'azienda proponente. 
+
+Le attività sono state condotte con efficienza, e le metodologie impiegate si sono dimostrate efficaci nel compimento di tali attività. Di conseguenza tutte le attività pianificate per il SAL sono state completate e verificate e non si ritiene necessario applicare accorgimenti relativamente al way of working.
 
 \section{Ordine del giorno}
-\subsection{Visualizzazione e ottimizzazione del lavoro svolto}
-È stato presentato il lavoro compiuto, dopo aver revisionato e approvato quanto fatto, il proponente ha fornito alcuni spunti su possibili migliorie da apportare al codice presentato, questionando alcune scelte fatte, nello specifico è stata analizzata la configurazione dei sensori, implementata in Python, linguaggio raccomandato dall'azienda che offre numerose librerie esterne per il processo di generazione dei dati. 
+\subsection{Confronto sul lavoro svolto}
+È stato presentato il lavoro svolto al proponente, che dopo aver revisionato e approvato quanto fatto, ha fornito alcuni spunti su possibili migliorie da apportare al codice presentato, mettendo in discussione alcune delle nostre scelte. Nello specifico è stata analizzata la configurazione dei sensori, implementata in Python, linguaggio raccomandato dall’azienda che offre numerose librerie esterne per il processo di generazione dei dati.
 
 Si è posta poi particolare enfasi sull'importanza dell'indipendenza reciproca tra sensori, nonché sulla generazione dei dati basata su una distribuzione realistica della temperatura precedentemente registrata.
-Viene consigliata una revisione dei metodi di connessione tra Kafka e Clickhouse, al fine di sfruttare le funzionalità già implementate da entrambi i sistemi.
 
-In merito all'ambiente Docker, si raccomanda l'utilizzo di un immagine più aggiornata e mantenuta di quella scelta per garantire coerenza e affidabilità.
+L'azienda consiglia di sfruttare le API ufficiali per connettere Kafka con Clickhouse, evidenziandone la maggiore stabilità e documentazione più approfondita.
+
+In merito all'ambiente Docker, si raccomanda l'utilizzo di immagini più aggiornate e mantenute di quelle scelte per garantire coerenza e affidabilità.
 
 \subsection{Webinar su Docker}
-Viene presentata l'opportunità di partecipare a un webinar dedicato a Docker, tenuto dall'azienda proponente.
+Viene proposta l'opportunità di partecipare a un webinar focalizzato su Docker, organizzato dall'azienda proponente. Questo evento mira a approfondire le competenze legate a questo strumento e si terrà in collaborazione con l'altro gruppo coinvolto nello stesso progetto.
+La sessione è pianificata per mercoledì 29 dicembre alle ore 15:30. Durante questo incontro, sarà possibile porre domande per favorire una comprensione approfondita dell'argomento trattato.
 
-L'evento è finalizzato all'approndire le competenze legate a questo strumento e si svolgerà in compartecipazione con l'altro gruppo coinvolto nello stesso capitolato. La sessione è programmata per mercoledì 29 dicembre alle ore 15:30. Durante l'incontro sarà possibile porre domande per favorire una comprensione approfondita dell'argomento trattato.
+\subsection{Presentazione dei casi d'uso}
+Nonostante siano ancora in fase di sviluppo, sono stati esaminati brevemente alcuni dei casi d'uso definiti finora, ottenendo un'approvazione preliminare.
+Tuttavia, poiché permane incertezza nella definizione di alcuni di essi, si è concordato di consultare il professor R. Cardin per ottenere indicazioni su come procedere.
+Una volta completati, verrano nuovamente presentati all'azienda proponente i casi d'uso per una revisione completa.
 
-\subsection{Presentati i casi d'uso}
-Sono stati brevemente esaminati i diversi casi d'uso, l'azienda raccomanda di proporre nuovi casi solamente quando si dispone di una chiara comprensione di come implementarli.
-Viene consigliato di consultare il Professor R.Cardin per ottenere consigli su come il gruppo dovrebbe procedere nella scelta e stesura dei casi d'uso.
+\subsection{Obiettivi del prossimo sprint}
+Per il prossimo sprint, l'obiettivo è realizzare una dashboard preliminare in Grafana con diversi widget per visualizzare i dati provenienti dai sensori. Successivamente, si dovranno mettere in comunicazione Grafana e ClickHouse per poter visualizzare i dati memorizzati nel database direttamente all'interno della dashboard.
 
-\subsection{Obiettivi prossimo sprint}
-L'obiettivo preposto consiste nell'instaurare una connessione tra i dati memorizzati in ClickHouse e la piattaforma Grafana, con l'intento di sviluppare una dashboard dedicata per la visualizzazione di tali dati.
 \section{Richieste e chiarimenti}
 \begin{enumerate}
-    \item \textbf{Domanda su Kafka e una sua estensione nella rete}
+    \item \textbf{Domanda riguardante una possibile estensione di Kafka nella rete}
     
     Durante l'incontro è stata sollevata una domanda riguardante l'inoltro dei dati generati a un server Kafka, al fine di consentire l'invio di dati simulati da diverse fonti. Tuttavia, la proponente al momento sconsiglia questa implementazione a causa delle complessità di networking ad essa associate. 
     Inoltre, viene dichiarato che questa funzionalità potrà essere presa in considerazione una volta completato il lavoro complessivo.
-    \item \textbf{Approccio ai PoC da parte dell'Azienda Proponente}
+
+    \item \textbf{Approccio ai PoC da parte dell'azienda proponente}
     
-    Sotto consiglio del Professor Vardanega è stato chiesto all'azienda proponente il loro approccio per quanto riguarda i PoC, l'azienda ha dichiarato di effettuare PoC principalmente per progetti di notevole entità o nei casi in cui è necessario presentare il proprio prodotto al cliente. Ha ulteriormente specificato che i PoC possono essere di due tipi: "usa e getta" o "sviluppabili in seconda mano". Nella pratica aziendale, si tende a utilizzare prevalentemente i PoC del secondo tipo.
+    Sotto l'indicazione del Professor Vardanega, è stato chiesto all’azienda proponente il loro approccio riguardo ai PoC. L'azienda ha chiarito di effettuare dei PoC principalmente per progetti di ampia portata oppure quando è necessario presentare una versione preliminare del prodotto al cliente. Inoltre, è stato precisato che i PoC possono essere di due tipologie: "usa e getta" o s"riutilizzabili". Nella prassi aziendale, prevale l'uso dei PoC del secondo tipo.
+
 \end{enumerate}
     
     
