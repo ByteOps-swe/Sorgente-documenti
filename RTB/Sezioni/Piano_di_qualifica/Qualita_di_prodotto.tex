@@ -1,115 +1,17 @@
 \section{Qualità di prodotto}
-\subsection{Introduzione}
-La qualità di prodotto si riferisce alle caratteristiche intrinseche di un prodotto che determinano la sua capacità di soddisfare le esigenze degli utenti.
-Queste caratteristiche includono funzionalità, affidabilità, usabilità, manutenibilità, efficienza, portabilità e copertura dei test.
+\input{Sottosezioni/Piano_di_qualifica/Introduzione_prodotto.tex}
 
-\subsection{Funzionalità}
-Capacità del prodotto di soddisfare tutti i requisiti individuati nel documento di Analisi dei Requisiti.
-\begin{table}[H]
-    \centering
-    \begin{tabular}{|p{1.5cm}|p{3cm}|p{4cm}|p{3cm}|p{3cm}|}
-        \hline
-        \textbf{Metrica} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Valore di accettazione} & \textbf{Valore preferibile} \\
-        \hline
-        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}ROS} & Requisiti Obbligatori Soddisfatti & Misura la percentuale di requisiti obbligatori completamente soddisfatti rispetto al totale dei requisiti obbligatori. & $100\%$ & $100\%$ \\
-        \hline
-        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}RDS} & Requisiti Desiderabili Soddisfatti & Misura la percentuale di requisiti desiderabili soddisfatti rispetto al totale dei requisiti desiderabili. & $\geq 0\%$ & $\geq 50\%$ \\
-        \hline
-        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}ROPZS} & Requisiti Opzionali Soddisfatti & Misura la percentuale di requisiti opzionali soddisfatti rispetto al totale dei requisiti opzionali. & $\geq 0\%$ & $\geq 30\%$ \\
-        \hline
-    \end{tabular}
-    \caption{Funzionalità - Metriche e indici di qualità}
-    \label{tab:qualita_prodotto}
-\end{table}
+\input{Sottosezioni/Piano_di_qualifica/Funzionalita.tex}
 
-\subsection{Usabilità}
-Capacità di essere comprensibile e di facile utilizzo per l’utente.
-\begin{table}[H]
-    \centering
-    \begin{tabular}{|p{1.5cm}|p{3cm}|p{4cm}|p{3cm}|p{3cm}|}
-        \hline
-        \textbf{Metrica} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Valore di accettazione} & \textbf{Valore preferibile} \\
-        \hline
-        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}PD} & Tempo di Apprendimento & Misura il tempo massimo richiesto per apprendere l'utilizzo del prodotto. & $\leq 10$ minuti & $\leq 5$ minuti \\
-        \hline
-        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}PD} & Semplicità di Utilizzo & Misura il numero massimo di click necessari per utilizzare il prodotto. & $\leq 7$ click & $\leq 5$ click \\
-        \hline
-    \end{tabular}
-    \caption{Usabilità - Metriche e indici di qualità}
-    \label{tab:qualita_prodotto_parte2}
-\end{table}
+\input{Sottosezioni/Piano_di_qualifica/Usabilita.tex}
 
-\subsection{Manutenibilità}
-Capacità di permettere future correzioni e modifiche senza compromettere l’intero prodotto software.
-\begin{table}[H]
-    \centering
-    \begin{tabular}{|p{1.5cm}|p{3cm}|p{4cm}|p{3cm}|p{3cm}|}
-        \hline
-        \textbf{Metrica} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Valore di accettazione} & \textbf{Valore preferibile} \\
-        \hline
-        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}AC} & Accoppiamento tra Classi & Misura il livello di accoppiamento tra le classi del sistema. & $\leq 3$ & $\leq 2$ \\
-        \hline
-    \end{tabular}
-    \caption{Manutenibilità - Metriche e indici di qualità}
-    \label{tab:qualita_prodotto_dati}
-\end{table}
+\input{Sottosezioni/Piano_di_qualifica/Manutenibilita.tex}
 
-\subsection{Affidabilità}
-Capacità di svolgere i compiti anche in caso di errori o problemi, cercando di evitare che si manifestino.
-\begin{table}[H]
-    \centering
-    \begin{tabular}{|p{1.5cm}|p{3cm}|p{4cm}|p{3cm}|p{3cm}|}
-        \hline
-        \textbf{Metrica} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Valore di accettazione} & \textbf{Valore preferibile} \\
-        \hline
-        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}DE} & Densità degli Errori & Misura la percentuale di errori presenti nel prodotto rispetto al totale del codice. & $\leq 10\%$ & $0\%$ \\
-        \hline
-    \end{tabular}
-    \caption{Affidabilità - Metriche e indici di qualità}
-    \label{tab:qualita_prodotto_aggiornata}
-\end{table}
+\input{Sottosezioni/Piano_di_qualifica/Affidabilita.tex}
 
-\subsection{Efficienza}
-Capacità di svolgere un compito nel minor tempo possibile e con l’utilizzo della minor quantità possibile di risorse.
-\begin{table}[H]
-    \centering
-    \begin{tabular}{|p{1.5cm}|p{3cm}|p{4cm}|p{3cm}|p{3cm}|}
-        \hline
-        \stepcounter{metriccounter}\textbf{Metrica} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Valore di accettazione} & \textbf{Valore preferibile} \\
-        \hline
-        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}PD} & Tempo Medio di Risposta & Misura il tempo medio impiegato per rispondere a una richiesta. & $\leq 6$ secondi & $\leq 4$ secondi \\
-        \hline
-    \end{tabular}
-    \caption{Efficienza - Metriche e indici di qualità}
-    \label{tab:qualita_prodotto}
-\end{table}
+\input{Sottosezioni/Piano_di_qualifica/Efficienza.tex}
 
-\subsection{Portabilità}
-Capacità di funzionare in diversi ambienti di esecuzione.
-\begin{table}[H]
-    \centering
-    \begin{tabular}{|p{1.5cm}|p{3cm}|p{4cm}|p{3cm}|p{3cm}|}
-        \hline
-        \textbf{Metrica} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Valore di accettazione} & \textbf{Valore preferibile} \\
-        \hline
-        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}PD} & Versioni dei browser supportate & Percentuale delle versioni di browser supportate rispetto al totale delle versioni disponibili. & $\geq 80\%$ & $100\%$ \\
-        \hline
-    \end{tabular}
-    \caption{Portabilità - Metriche e indici di qualità}
-    \label{tab:qualita_prodotto_2}
-\end{table}
+\input{Sottosezioni/Piano_di_qualifica/Portabilita.tex}
 
-\subsection{Copertura dei test}
-Capacità del prodotto software di superare i test.
-\begin{table}[H]
-    \centering
-    \begin{tabular}{|p{1.5cm}|p{3cm}|p{4cm}|p{3cm}|p{3cm}|}
-        \hline
-        \textbf{Metrica} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Valore di accettazione} & \textbf{Valore preferibile} \\
-        \hline
-        \stepcounter{metriccounter}\textbf{M\arabic{metriccounter}TS} & Test Superati & Percentuale di test Superati. & $\geq 100\%$ & $100\%$ \\
-        \hline
-    \end{tabular}
-    \caption{Portabilità - Metriche e indici di qualità}
-    \label{tab:qualita_prodotto_2}
-\end{table}
+\input{Sottosezioni/Piano_di_qualifica/Copertura_test.tex}
+

@@ -1,7 +1,7 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage[default]{raleway}
-\usepackage{titlesec, comment, tabularx, makecell, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, hyperref, float}
+\usepackage{titlesec, comment, tabularx, makecell, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, ragged2e, hyperref, float}
 \usepackage[hypcap=false]{caption}
 \usepackage{todonotes}
 
@@ -22,6 +22,7 @@
 % ----------------------------- Definizione tabella ---------------------------
 
 \newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+\newcolumntype{L}[1]{>{\RaggedRight\arraybackslash}m{#1}}
 
 %\setcellgapes{2ex} % Imposta l'altezza dell'header (2ex)
 
@@ -126,7 +127,7 @@
 \input{Sezioni/Piano_di_qualifica/Introduzione.tex}
 
 \newcounter{metriccounter}
-\setcounter{metriccounter}{1} % Inizia dal numero 13
+\setcounter{metriccounter}{1} 
 
 \input{Sezioni/Piano_di_qualifica/Qualita_di_processo.tex}
 
