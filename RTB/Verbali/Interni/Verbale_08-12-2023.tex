@@ -4,6 +4,7 @@
 \usepackage[default]{raleway}
 \usepackage{titlesec, comment, tabularx, makecell, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, hyperref}
 \usepackage{colortbl}
+\usepackage{float}
 %\geometry{a4paper, left=2cm, right=2cm, top=2cm, bottom=2.5cm}
 \renewcommand{\headrulewidth}{0pt}
 
@@ -132,57 +133,58 @@
 \flushleft
 
 \section{Revisione del periodo precedente}
-Durante la fase iniziale della riunione, abbiamo approfondito lo stato attuale delle attività in corso, esaminando attentamente la presenza di eventuali problematiche non ancora riscontrate. È importante notare che, in questa analisi, non sono emerse proposte di modifiche ai processi né sono sorte discussioni rilevanti.
+Nella fase iniziale della riunione, è stata condotta un'analisi approfondita sullo stato delle attività in corso, rilevando che procedono conformemente alle previsioni, senza manifestare alcuna problematica evidente. Di conseguenza, non sono emerse proposte di modifica ai processi né sono state sollevate discussioni rilevanti.
 \section{Ordine del giorno}
     \subsection{Cruscotto di valutazione della qualità - Piano di qualifica}
     Dopo aver inizialmente redatto le metriche di qualità di processo e prodotto, è essenziale condurre una revisione approfondita e sviluppare un cruscotto di valutazione per tracciare il valore di queste metriche durante i diversi periodi del progetto. Questo cruscotto consentirà di visualizzare l'andamento e facilitare valutazioni migliorative. La decisione presa è stata di creare un documento condiviso su Google Fogli, dove verranno registrati i valori delle metriche per ogni periodo e saranno generati grafici illustrativi degli andamenti.
     \subsection{Revisione completa - Norme di progetto}
     Dopo aver completato la stesura del documento "Norme di progetto", si è reputato indispensabile condurre una revisione completa al fine di verificare la coerenza e la consistenza delle diverse sezioni redatte, garantendo così che il file sia pronto per la revisione RTB.
     \subsection{Ottimizzazione POC}
-    Dopo aver ricevuto un feedback positivo dal SAL del 06/12/2023, si è concordato con il proponente di considerare complete le funzionalità richieste per il POC. Di conseguenza, il focus dello sviluppo sarà ora sulla risoluzione di piccoli bug e sulla creazione di una versione stabile e affidabile da presentare durante la revisione RTB.
+    In seguito al feedback positivo ricevuto durante il SAL del 06/12/2023, si è concordato con il proponente di considerare complete le funzionalità richieste per il POC. Di conseguenza, il focus dello sviluppo sarà ora sulla risoluzione di piccoli bug e sulla creazione di una versione stabile da presentare durante la revisione RTB.
     \subsection{Ridefinizione Casi d'Uso - Analisi dei requisiti}
-    La ridefinizione dei casi d'uso è stata completata dopo l'incontro con il Prof. Cardin. L'obiettivo entro il prossimo sprint è la creazione di una nuova versione del documento da sottoporre nuovamente al professore.
+    In seguito all'incontro con il Prof. Cardin, si è proceduto alla ridefinizione dei casi d'uso, sottoponendoli successivamente all'analisi dell'intero team al fine di raccogliere un feedback da parte di ogni componente. \\
+    Considerato il riscontro positivo, l'obiettivo per il prossimo sprint è la creazione di una nuova versione del documento da sottoporre nuovamente alla valutazione del professore.
     \subsection{Rotazione ruoli}
-    \begin{itemize}
-        \item \textbf{Responsabile (Re):}
-              \begin{itemize}
-                  \item R. Smanio.
-              \end{itemize}
-        \item \textbf{Amministratore (Am):}
-              \begin{itemize}
-                  \item D. Diotto
-              \end{itemize}
-        \item \textbf{Analisti (An):}
-              \begin{itemize}
-                  \item L. Skenderi.
-              \end{itemize}
-        \item \textbf{Verificatore (Ve):}
-              \begin{itemize}
-                  \item N. Preto;
-                  \item A. Barutta.
-              \end{itemize}
-        \item \textbf{Programmatori (Pr):}
-              \begin{itemize}
-                  \item F. Pozza;
-                  \item E. Hysa.
-              \end{itemize}
-    \end{itemize}
+
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|c|c|} 
+            \hline
+            \textbf{Ruolo} & \textbf{Nome Cognome} \\
+            \hline \hline
+            Responsabile (Re) & R. Smanio \\ 
+            \hline
+            Amministratore (Am) & D. Diotto \\ 
+            \hline
+            Analista (An) & L. Skenderi \\
+            \hline
+            Verificatore (Ve) & \makecell{N. Preto\\A. Barutta} \\
+            \hline
+            Programmatore (Pr) & \makecell{F. Pozza\\E.Hysa} \\
+            \hline
+        \end{tabular}
+        \caption{Tabella che rappresenta i membri per ogni ruolo}
+    \end{table}
+
 \section{Attività da svolgere}
-    \begin{center}
+    \begin{table}[H]
+        \centering
         \begin{tabular}{|C{7cm}|C{1,5cm}|C{3cm}|}
             \hline
             \textbf{Titolo} & \textbf{\# Issue} & \textbf{Verificatore} \\
             \hline\hline           
             Piano di qualifica - cruscotto valutazione e grafici per il miglioramento  & 55 & A. Barutta \\
-            
-            Revisione finale Norme di progetto & 56 & A. Barutta \\
-            
-            Ottimizzazione POC: Risoluzione Bug e Revisione RTB & 57 & N. Preto \\
-
-            Ridefinizione Casi d'Uso e Creazione Nuova Versione Documento & 59 & A. Barutta \\
-
+            \hline
+            Revisione finale Norme di Progetto & 56 & A. Barutta \\
+            \hline
+            Ottimizzazione POC: risoluzione bug e revisione RTB & 57 & N. Preto \\
+            \hline
+            Redazione verbale interno & 58 & N. Preto \\
+            \hline
+            Ridefinizione casi d'uso e creazione nuova versione documento & 59 & A. Barutta \\
             \hline
         \end{tabular}
-    \end{center}
+        \caption{Tabella conentente le attività da svolgere nel prossimo sprint}
+    \end{table}
 
 \end{document}
