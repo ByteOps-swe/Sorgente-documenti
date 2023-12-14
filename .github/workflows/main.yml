@@ -46,14 +46,14 @@ jobs:
           # Commit le modifiche
           git -C Documents add .
           if [[ -n "$(git -C Documents status --porcelain)" ]]; then
+            git -C Documents add .
             git -C Documents commit -m "Aggiunto G del glossario"
+            git config --global push.autoSetupRemote true
+            cd Documents
+            git push
           else
             echo "No changes to commit"
           fi
-          git config --global push.autoSetupRemote true
-          cd Documents
-          git push
-
 
       # - name: Compile LaTeX document
       #   run: |
