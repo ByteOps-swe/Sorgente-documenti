@@ -3,10 +3,6 @@ on:
   push:
     branches:
       - Glossario-G
-  pull_request_target:
-    branches: 
-      - protected
-    types: [closed]
 
 jobs:
   Build_Latex:
