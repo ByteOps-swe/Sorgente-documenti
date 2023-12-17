@@ -1,22 +1,21 @@
-\subsubsection{UC8 - Inserimento date non valide}
+\subsubsection{UC8 - VISUALIZZAZIONE WIDGET SENSORI DI POLVERI SOTTILI}
 \begin{itemize}
     \item \textbf{Attore principale:} Autorità locale;
-    \item \textbf{Descrizione:} L’autorità locale seleziona date di arco temporale non valide (Data fine precedente a data inizio, Arco temporale precedente o antecedente all'inizio della trasmissione dati).
+    %\item \textbf{Descrizione:} L’autorità locale dalla pagina adibita alla visione dello storico dati di un sensore seleziona la visualizzazione delle informazioni sul sensore.
     \item \textbf{Scenario principale:}
           \begin{enumerate}
-              \item L'utente imposta due date delimitanti entro cui intende esaminare l'andamento storico delle informazioni;
-              \item Le date inserite non sono valide.
+              \item L'autorità locale seleziona la visualizzazione del widget dei sensori di polveri sottili.
           \end{enumerate}
     \item \textbf{Precondizioni:}
           \begin{itemize}
-              \item  L'utente si trova in un interfaccia per la visualizzazione di uno storico dati  (UC3).
+              \item  Almeno un sensore di polveri sottili ha trasmesso dati al sistema.
           \end{itemize}
     \item \textbf{Postcondizioni:}
           \begin{itemize}
-              \item  L'utente riceve una notifica di errore che richiede il reinserimento di date valide.
+              \item  L'autorità locale ha una visione di un widget contenente le informazioni dei sensori di polveri sottili.
           \end{itemize}
     \item \textbf{User story associata:}
           \begin{itemize}
-              \item Come autorità locale, voglio essere avvisato quando inserisco date non valide durante la configurazione dello storico dati, in modo da correggere immediatamente e ottenere informazioni accurate.
+              \item Come Autorità locale, desidero visualizzare un widget per la visualizzazione delle misurazione dei sensori di polveri sottili.
           \end{itemize}
 \end{itemize}

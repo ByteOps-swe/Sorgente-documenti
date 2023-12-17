@@ -1,22 +1,22 @@
-\subsubsection{UC14 -  Selezione dell'intervallo temporale per l'aggregazione delle misurazioni storiche}
+\subsubsection{UC14 - VISUALIZZAZIONE FILTRATA SULLE MISURAZIONI}
 \begin{itemize}
     \item \textbf{Attore principale:} Autorità locale;
-    \item \textbf{Descrizione:} L'autorità locale ha la capacità di selezionare l'intervallo temporale desiderato per l'aggregazione delle misurazioni nel contesto di un'unica visualizzazione dati. Tale intervallo può essere specificato in termini di secondo, minuto, ora, giorno, mese o anno, al fine di personalizzare la scala temporale dell'analisi.
+   % \item \textbf{Descrizione:} L’autorità locale seleziona i/il sensore/i della quale vuole visionare lo storico dei dati e filtra la visualizzazione ai soli dati compresi tra due valori.
     \item \textbf{Scenario principale:}
           \begin{enumerate}
-             \item L'utente sceglie tra le opzioni di aggregazione un intervallo temporale disponibili tra secondo, minuto, ora, giorno, mese o anno;
-             \item Il sistema adatta dinamicamente la rappresentazione dei dati, inclusi i grafici, secondo l'intervallo temporale di aggregazione selezionato.
+              \item L'utente configura due valori specifici 
+              \item Il sistema reimposta la visualizzazione esclusivamente delle misurazioni che ricadono all'interno di tale intervallo.
           \end{enumerate}
     \item \textbf{Precondizioni:}
           \begin{itemize}
-              \item  L'utente si trova in un interfaccia per la visualizzazione di uno storico dati  (UC3).
+              \item  L'utente si trova in un interfaccia per la visualizzazione di un widget (UC3).
           \end{itemize}
     \item \textbf{Postcondizioni:}
           \begin{itemize}
-              \item  L'utente ottiene una visualizzazione chiara e personalizzata delle misurazioni aggregate sull'intervallo temporale d'appartenenza specificato.
+              \item  L'utente accede a una rappresentazione dello storico dei dati trasmessi, la cui visualizzazione è stata filtrata esclusivamente per includere le misurazioni con il dato compreso tra i due valori specificati.
           \end{itemize}
     \item \textbf{User story associata:}
           \begin{itemize}
-              \item Come autorità locale, desidero essere in grado di personalizzare l'intervallo temporale di aggregazione delle misurazioni, scegliendo tra le opzioni di secondo, minuto, ora, giorno, mese o anno. Questa funzionalità mi consentirà di adattare la visualizzazione dei dati alle mie specifiche esigenze temporali, agevolando l'analisi dettagliata dei trend e delle variazioni nel corso del tempo.
+            \item Come autorità locale, desidero avere la possibilità di filtrare la visualizzazione dello storico dei dati in base alle misurazioni del sensore comprese tra due valori specifici. Questo mi consentirà di analizzare in modo più mirato e focalizzato i dati che rientrano in un determinato intervallo, facilitando l'identificazione di pattern o anomalie significative.
           \end{itemize}
 \end{itemize}
