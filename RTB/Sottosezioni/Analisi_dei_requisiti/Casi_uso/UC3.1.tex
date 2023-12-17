@@ -1,22 +1,22 @@
-\subsubsection{UC3.1 - Visualizzazione storico dati città per una specifica tipologia di sensore}
+\subsubsection{UC3.1 - VISUALIZZAZIONE INFORMAZIONI SENSORI}
 \begin{itemize}
     \item \textbf{Attore principale:} Autorità locale;
-    \item \textbf{Descrizione:} L'autorità locale procede all'accesso alla piattaforma e, mediante la dashboard relativa allo stato di salute della città, effettua la selezione di una specifica categoria di sensori al fine di visualizzare esclusivamente i dati storici ad essi pertinenti.
+    %\item \textbf{Descrizione:} L'autorità locale procede all'accesso alla piattaforma e, mediante la dashboard relativa allo stato di salute della città, effettua la selezione di una specifica categoria di sensori al fine di visualizzare esclusivamente i dati storici ad essi pertinenti.
     \item \textbf{Scenario principale:}
         \begin{enumerate}
-            \item L'utente seleziona la tipologia di sensori di cui vuole visionare lo storico dei dati trasmessi.
+            \item Il sistema carica e imposta la visualizzazione delle informazioni dei sensori coinvolti.
         \end{enumerate}
     \item \textbf{Precondizioni:}
         \begin{itemize}
-            \item  L'utente di trova  nella piattaforma per la visualizzazione della dashboard sullo stato della città (UC1);
-            \item  Almeno un sensore della categoria desiderata per la visualizzazione dello storico ha trasmesso dati.
+            \item Il sistema ha caricato e impostato la visualizzazione di un widget di una specifica tipolgia di sensori (UC3);
+            \item Almeno un sensore contribuisce alle misurazioni rappresentate nel widget.
         \end{itemize}
     \item \textbf{Postcondizioni:}
         \begin{itemize}
-            \item  L'utente ha una visione esclusiva aggregata dello storico dei dati trasmessi da tutti sensori della tipologia selezionata.
+            \item  L'autorità locale ha una visione sugli identificativi dei sensori che contribuiscono alle misurazioni reappresentate nel widget.
         \end{itemize}
     \item \textbf{User story associata:}
         \begin{itemize}
-            \item Come Autorità Locale, desidero accedere alla piattaforma e visualizzare esclusivamente lo storico dei dati trasmessi da una specifica tipologia di sensori nella città, attraverso la dashboard relativa allo stato di salute della città.
+            \item Come Autorità Locale, desidero visualizzare informazioni quali l'identificativo dei sensori coinvolti nel widget di misurazioni.
         \end{itemize}
 \end{itemize}

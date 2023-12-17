@@ -1,15 +1,16 @@
 \subsubsection{UC2 - Visualizzazione stato cella}
 \begin{itemize}
     \item \textbf{Attore principale:} Autorità locale.
-    \item \textbf{Descrizione:} L'autorità locale effettua la selezione della cella, ossia la specifica zona urbana, al fine di visualizzare in tempo reale i dati provenienti da varie tipologie di sensori ubicati nella suddetta area. Ciò permette una valutazione reapida dello stato complessivo della cella.
+    %\item \textbf{Descrizione:} L'autorità locale effettua la selezione della cella, ossia la specifica zona urbana, al fine di visualizzare in tempo reale i dati provenienti da varie tipologie di sensori ubicati nella suddetta area. Ciò permette una valutazione reapida dello stato complessivo della cella.
     \item \textbf{Scenario principale:}
         \begin{enumerate}
-            \item L'utente seleziona la cella per la quale desidera visualizzare la dashboard contenente esclusivamente i dati correlati a essa.
+            \item L'utente seleziona la cella per la quale desidera visualizzare la dashboard contenente esclusivamente i dati correlati a essa;
+            \item Il sistema rielabora le informazioni presenti nella dashboard considerando solo quelle provenienti dalla cella selezionata.
         \end{enumerate}
     \item \textbf{Precondizioni:}
         \begin{itemize}
-            \item  Almeno un sensore presente nella cella ha trasmesso dati;
-            \item L'utente si trova  nella piattaforma per la visualizzazione della dashboard sullo stato della città (UC1);
+            \item  Almeno una cella è presente nella città.
+            \item Il sistema ha caricato la visualizzazione della dashboard (UC1);
         \end{itemize}
     \item \textbf{Postcondizioni:}
         \begin{itemize}

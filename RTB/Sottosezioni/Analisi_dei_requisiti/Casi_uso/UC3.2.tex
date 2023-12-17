@@ -1,22 +1,22 @@
-\subsubsection{UC3.2 - Visualizzazione Storico Dati cella per una Specifica Tipologia di Sensore}
+\subsubsection{UC3.2 - VISUALIZZAZIONE MISURAZIONI SENSORI NEL TEMPO}
 \begin{itemize}
-      \item \textbf{Attore principale:} Autorità locale;
-      \item \textbf{Descrizione:} L’autorità locale procede all’accesso alla piattaforma e, mediante la dashboard relativa allo stato di salute della cella, effettua la selezione di una specifica categoria di sensori al fine di visualizzare esclusivamente i dati storici ad essi pertinenti.
-      \item \textbf{Scenario principale:}
-      \begin{enumerate}
-            \item L'utente seleziona la tipologia di sensori di cui vuole visionare lo storico dei dati trasmessi nella cella.
-      \end{enumerate}
-      \item \textbf{Precondizioni:}
-      \begin{itemize}
-            \item L'utente di trova nella piattaforma per la visualizzazione della dashboard sullo stato della cella (UC2);
-            \item  Almeno un sensore della categoria desiderata per la visualizzazione dello storico è presente nella cella ha trasmesso dati.
-      \end{itemize}
-      \item \textbf{Postcondizioni:}
-      \begin{itemize}
-            \item  L'utente ha una visione dello storico dei dati trasmessi dai sensori della tipologia selezionata presenti nella cella.
-      \end{itemize}
-      \item \textbf{User story associata:}
-      \begin{itemize}
-            \item Come autorità locale, desidero accedere alla piattaforma e visualizzare lo storico dei dati trasmessi da una specifica tipologia di sensori in una cella, in modo che possa analizzare e comprendere l'andamento storico dei dati relativi a quella categoria di sensori per prendere decisioni informate sullo stato della cella.
-      \end{itemize}
+    \item \textbf{Attore principale:} Autorità locale;
+    %\item \textbf{Descrizione:} L'autorità locale procede all'accesso alla piattaforma e, mediante la dashboard relativa allo stato di salute della città, effettua la selezione di una specifica categoria di sensori al fine di visualizzare esclusivamente i dati storici ad essi pertinenti.
+    \item \textbf{Scenario principale:}
+        \begin{enumerate}
+            \item Il sistema carica e imposta la visualizzazione delle misurazioni dei sensori coinvolti.
+        \end{enumerate}
+    \item \textbf{Precondizioni:}
+        \begin{itemize}
+            \item Il sistema ha caricato e impostato la visualizzazione di un widget di una specifica tipolgia di sensori (UC3);
+            \item Almeno un sensore contribuisce alle misurazioni rappresentate nel widget.
+        \end{itemize}
+    \item \textbf{Postcondizioni:}
+        \begin{itemize}
+            \item  L'autorità locale visualizza le misurazioni dei sensori che contribuiscono al widget.
+        \end{itemize}
+    \item \textbf{User story associata:}
+        \begin{itemize}
+            \item Come Autorità Locale, desidero visualizzare le misurazioni dei sensori di una specifica categoria per poter effettuare analisi mirate.
+        \end{itemize}
 \end{itemize}

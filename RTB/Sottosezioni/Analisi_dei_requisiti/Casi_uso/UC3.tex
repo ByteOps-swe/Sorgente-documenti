@@ -1,29 +1,23 @@
-\subsubsection{UC3 - Visualizzazione storico dati }
+\subsubsection{UC3 - VISUALIZZAZIONE WIDGET MISURAZIONI DI UNA TIPOLOGIA SPECIFICA DI SENSORI}
 
 \begin{itemize}
     \item \textbf{Attore principale:} Autorità locale;
-    \item \textbf{Descrizione:} L'autorità locale procede all'accesso alla piattaforma e visualizza dati storici dei sensori.
+    %\item \textbf{Descrizione:} L'autorità locale procede all'accesso alla piattaforma e visualizza dati storici dei sensori.
     \item \textbf{Scenario principale:}
         \begin{enumerate}
-            \item L'utente seleziona la visualizzazione dello storico dati del/i sensore/i;
-            \item L'utente seleziona l'arco temporale di visualizzazione dello storico (Di default tutti i dati).
-        \end{enumerate}
-    \item \textbf{Estensioni:}
-        \begin{enumerate}
-            \item L'utente seleziona un arco temporale non valido (UC8);
-            \item Visualizzazione storico dati filtrato sulle misurazioni (UC13).
+            \item Il sistema carica i dati e imposta la visualizzazione di un widget di misurazioni di una specifica tipoligia di sensori.
         \end{enumerate}
     \item \textbf{Precondizioni:}
         \begin{itemize}
-            \item I/Il sensori/e di cui si vogliono visualizzare i dati storici ha trasmesso dati;
-            \item L'utente si trova nell'interfaccia di visualizzazione della dashboard della città/cella  (UC1) (UC2).
+            \item L'autorità locale ha effettuato l'accesso alla piattaforma.
+            \item Il sistema ha caricato la visualizzazione della dashboard (UC1);
         \end{itemize}
     \item \textbf{Postcondizioni:}
         \begin{itemize}
-            \item  L'utente ha una visione esclusiva dello storico dei dati trasmessi  dai/l sensori/e.
+            \item   L'autorità locale ha una visione di un widget di misurazioni per una specifica tipoligia di sensori.
         \end{itemize}
     \item \textbf{User story associata:}
         \begin{itemize}
-            \item Come autorità locale, voglio accedere alla piattaforma e visualizzare i dati storici dei sensori tra due date (Di default, la visualizzazione deve includere tutti i dati disponibili), in modo da analizzare le tendenze nel tempo per prendere decisioni informate sulla gestione urbana.
+            \item Come autorità locale, voglio accedere alla piattaforma e visualizzare un widget che rappresenti le misurazioni dei sensori di una tipolgia specifica per poter analizzare le informazione che li riguardano.
         \end{itemize}
 \end{itemize}
