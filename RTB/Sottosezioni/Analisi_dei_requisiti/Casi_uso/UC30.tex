@@ -1,0 +1,21 @@
+\subsubsection{UC30 - VISUALIZZAZIONE ERRORE INTERVALLO NON VALIDO}
+\begin{itemize}
+    \item \textbf{Attore principale:} Autorità locale;
+    %\item \textbf{Descrizione:} L’autorità locale seleziona i/il sensore/i della quale vuole visionare lo storico dei dati in formato testuale in ordine decrescente rispetto alle misurazioni del/i sensore/i.
+    \item \textbf{Scenario principale:}
+          \begin{enumerate}
+            \item L'utente seleziona un intervallo temporale non valido.
+          \end{enumerate}
+    \item \textbf{Precondizioni:}
+          \begin{itemize}
+              \item  L'utente richiede una filtrazione delle misurazioni per intervallo temporale. (UC12)
+          \end{itemize}
+    \item \textbf{Postcondizioni:}
+          \begin{itemize}
+              \item  L'utente visualizza un messaggio di errore e viene richiesto un nuovo intervallo temporale.
+          \end{itemize}
+    \item \textbf{User story associata:}
+          \begin{itemize}
+            \item Come autorità locale, desidero essere avvisato in caso di selezione di intervallo temporale non valido per la filtrazione delle misurazioni in modo da ricevere un feedback immediato e poter reinserire un intervallo valido.
+          \end{itemize}
+\end{itemize}

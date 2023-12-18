@@ -1,0 +1,23 @@
+\subsubsection{UC23 - TRASMISSIONE DATI TEMPERATURA}
+\begin{itemize}
+    \item \textbf{Attore principale:}Sensore;
+    %\item \textbf{Descrizione:} L’autorità locale, dalla pagina adibita alla visione dei dati salvati tra i preferiti, rimuove un dato dalla lista.
+    \item \textbf{Scenario principale:}
+          \begin{enumerate}
+              \item Il sensore effettua una rilevazione della temperatura;
+              \item Il sensore formatta il messaggio da inviare al sistema;
+              \item Il sensore invia il messaggio al sistema
+          \end{enumerate}
+    \item \textbf{Precondizioni:}
+          \begin{itemize}
+              \item  il sensore è attivito e connesso al sistema. 
+          \end{itemize}
+    \item \textbf{Postcondizioni:}
+          \begin{itemize}
+              \item  il sistema ha memorizzato ed elaborato i dati inviati dal sensore.
+          \end{itemize}
+    \item \textbf{User story associata:}
+          \begin{itemize}
+          \item   Come Sensore, voglio trasmettere in modo affidabile i dati di temperatura al sistema, in modo che possano essere memorizzati e elaborati.
+          \end{itemize}
+\end{itemize}

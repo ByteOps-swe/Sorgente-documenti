@@ -1,23 +1,21 @@
-\subsubsection{UC7 - Salvataggio dato storico}
+\subsubsection{UC7 - VISUALIZZAZIONE WIDGET SENSORI UMIDITÀ}
 \begin{itemize}
     \item \textbf{Attore principale:} Autorità locale;
-    \item \textbf{Descrizione:} L’autorità locale dalle pagina adibite alla visione dello storico seleziona il salvataggio di un dato emesso tra i preferiti.
+    %\item \textbf{Descrizione:} L’autorità locale dalla pagina adibita alla visione dello storico dati di un sensore seleziona la visualizzazione delle informazioni sul sensore.
     \item \textbf{Scenario principale:}
           \begin{enumerate}
-              \item L'utente seleziona il salvataggio tra i preferiti uno dei dati storici emesso.
+              \item L'autorità locale seleziona la visualizzazione del widget dei sensori di umidità.
           \end{enumerate}
     \item \textbf{Precondizioni:}
           \begin{itemize}
-            \item  L'utente si trova in una pagina di visualizzazione dei dati storici(UC3);
-            \item La visualizzazione è impostata nel formato testuale (UC4);
-            \item  Il dato che intende salvare tra i preferiti non lo era già in precedenza.
+              \item  Almeno un sensore di umidità ha trasmesso dati al sistema.
           \end{itemize}
     \item \textbf{Postcondizioni:}
           \begin{itemize}
-              \item  Il dato storico viene memorizzato nella lista dei preferiti.
+              \item  L'autorità locale ha una visione di un widget contenente le informazioni dei sensori di umidità.
           \end{itemize}
     \item \textbf{User story associata:}
           \begin{itemize}
-              \item Come autorità locale, desidero poter salvare un dato storico tra i preferiti dalla pagina dedicata alla visualizzazione degli storici, al fine di accedere rapidamente a informazioni importanti.
+              \item Come Autorità locale, desidero visualizzare un widget per la visualizzazione delle misurazione dei sensori di umidità.
           \end{itemize}
 \end{itemize}
