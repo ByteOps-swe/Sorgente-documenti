@@ -1,22 +1,23 @@
-\subsubsection{UC16 - FILTRO VISUALIZZAZIONE MISURAZIONI PER SENSORE}
+\subsubsection{UC31 - RIMOZIONE FILTRI}
 \begin{itemize}
     \item \textbf{Attore principale:} Autorità locale;
    % \item \textbf{Descrizione:} L’autorità locale seleziona i/il sensore/i della quale vuole visionare lo storico dei dati e filtra la visualizzazione ai soli dati compresi tra due valori.
     \item \textbf{Scenario principale:}
           \begin{enumerate}
-              \item L'utente seleziona la funzionalità di filtraggio per sensore;
-              \item Il sistema reimposta la visualizzazione esclusivamente delle misurazioni provenienti dai sensori selezionati.
+              \item L'utente rimuove delle funzionalità di filtraggio.
+              \item Il sistema reimposta la visualizzazione senza l'applicazione dei filtri disattivati.
           \end{enumerate}
     \item \textbf{Precondizioni:}
           \begin{itemize}
               \item  L'utente si trova in un interfaccia per la visualizzazione di un widget (UC3).
+              \item La visualizzazione include delle funzionalità di filtraggio attivi.
           \end{itemize}
     \item \textbf{Postcondizioni:}
           \begin{itemize}
-              \item  L'utente accede a una rappresentazione delle misurazioni unicamente dei sensori selezionati.
+              \item  L'autorità locale visualizza le misurazioni senza le funzionalità di filtraggio applicate.
           \end{itemize}
     \item \textbf{User story associata:}
           \begin{itemize}
-            \item Come autorità locale, desidero avere la possibilità di filtrare la visualizzazione delle misurazioni in base ai sensori di provenienza. In questo modo sarà possibile una analisi dedicata per ogni sensore della città.
+            \item Come autorità locale, desidero rimuovere delle funzionalità di filtraggio dalla visualizzazione delle misurazioni per poter tornare alla visualizzazione senza tali filtri.
           \end{itemize}
 \end{itemize}
