@@ -1,21 +1,100 @@
 \section{Specifica dei test}
-
-In questa sezione del documento viene presentato il piano di testing, atto a garantire la correttezza del prodotto finale. Riflettendo quanto detto nelle Norme di Progetto v.1.0.0, il piano segue il modello a V, dove ad ogni fase di sviluppo viene fatta corrispondere una specifica tipologia di test da adottare. Questi ultimi sono suddivisi in:
-
+L'esecuzione dei test è un passaggio imprescindibile per confermare che il prodotto, nel suo insieme, rispecchi fedelmente e adempia pienamente a tutti i requisiti espressi e definiti all'interno del documento di Analisi dei Requisiti. I test utili all'interno di un progetto sono:
 \begin{itemize}
-    \item \textbf{Test di Unità:} Si verifica il corretto funzionamento delle singole unità (atomiche e indipendenti) che compongono il sistema;
-    \item \textbf{Test di Integrazione:} Si verifica il corretto funzionamento di più unità che cooperano tra di loro al fine di svolgere uno specifico compito. Vengono svolti dopo i test di unità;
-    \item \textbf{Test di Sistema:} Si verifica il corretto funzionamento dell'intero sistema. I requisiti funzionali obbligatori, di vincolo, di prestazione e di qualità che devono essere soddisfatti per intero;
-    \item \textbf{Test di Accettazione:} Si verifica, assieme al committente, il corretto funzionamento del software. Il loro superamento permette di procedere con il rilascio del prodotto finale.
+    \item \textbf{Test di unità}.
+    \item \textbf{Test di integrazione}
+    \item \textbf{Test di sistema}
+    \item \textbf{Test di regressione}
+    \item \textbf{Test di accettazione}
 \end{itemize}
-
 \subsection{Test di unità}
-
+Sono test mirati a verificare singole parti (unità) del codice, come funzioni, classi o metodi. L'obiettivo è assicurarsi che ciascuna unità funzioni correttamente in isolamento.
+\\
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{|c|p{3cm}|p{5cm}|c|}
+        \hline
+        Codice Test & Descrizione & Stato Test \\
+        \hline
+        TU01 & Esempio. & N-I \\
+        \hline
+        TU02 & Esempio. & N-I \\
+        \hline
+    \end{tabular}
+    \caption{Tabella test di unità}
+    \label{tab:testsUnità}
+\end{table}
 
 \subsection{Test di integrazione}
+Sono test finalizzati a verificare la corretta interazione tra le varie unità di codice o moduli. Si eseguono dopo i test di unità per assicurare che le unità, una volta combinate, lavorino insieme correttamente.
+\\
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{|c|p{3cm}|p{5cm}|c|}
+        \hline
+        Codice Test & Descrizione & Stato Test \\
+        \hline
+        TU01 & Esempio. & N-I \\
+        \hline
+        TU02 & Esempio. & N-I \\
+        \hline
+    \end{tabular}
+    \caption{Tabella test di integrazione}
+    \label{tab:testsIntegrazione}
+\end{table}
+
+\subsection{Test di sistema}Questa sezione illustra i test di sistema, i quali mirano a dimostrare la copertura completa dei requisiti identificati nel documento di Analisi dei Requisiti. Di seguito è fornito l'elenco di questi test.
+\\
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{|c|p{3cm}|p{5cm}|c|}
+        \hline
+        Codice Test & Descrizione & Stato Test \\
+        \hline
+        TF01 & Esempio. & N-I \\
+        \hline
+        TF02 & Esempio. & N-I \\
+        \hline
+    \end{tabular}
+    \caption{Tabella test di sistema}
+    \label{tab:testsSistema}
+\end{table}
+
+\subsection{Test di regressione}
+Sono test che vengono eseguiti per assicurarsi che le modifiche apportate al codice non abbiano introdotto nuovi errori nelle funzionalità già testate in precedenza. Si eseguono dopo ogni modifica al codice per garantire che le funzionalità esistenti continuino a funzionare come previsto.
+\\
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{|c|p{3cm}|p{5cm}|c|}
+        \hline
+        Codice Test & Descrizione & Stato Test \\
+        \hline
+        TU01 & Esempio. & N-I \\
+        \hline
+        TU02 & Esempio. & N-I \\
+        \hline
+    \end{tabular}
+    \caption{Tabella test di regressione}
+    \label{tab:testsRegressione}
+\end{table}
+
+\subsection{Test di accettazione}
+Nella sezione in questione, sono illustrati i test di accettazione del prodotto, condotti sia dai membri del team che dal proponente con il supporto del team di sviluppo. L'obiettivo finale di tali test è concludere il processo di validazione del prodotto.
+\\
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{|c|p{3cm}|p{5cm}|c|}
+        \hline
+        Codice Test & Descrizione & Stato Test \\
+        \hline
+        TF01 & Esempio. & N-I \\
+        \hline
+        TF02 & Esempio. & N-I \\
+        \hline
+    \end{tabular}
+    \caption{Tabella test funzionalità}
+    \label{tab:testsAccettazione}
+\end{table}
 
 
-\subsection{Test di Sistema}
 
-
-\subsection{Test di Accettazione}
