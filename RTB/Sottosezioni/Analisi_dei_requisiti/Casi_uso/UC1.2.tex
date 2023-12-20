@@ -1,24 +1,19 @@
 \subsubsection{UC1.2 - VISUALIZZAZIONE WIDGET MAPPA INTERATTIVA DEI SENSORI}
 \begin{itemize}
     \item \textbf{Attore principale:} Autorità locale.
-    %\item \textbf{Descrizione:} L'autorità locale accede alla dashboard della città e visualizza una mappa con una visione dei sensori posizionati nella città. 
-    %La mappa consentirà di raggiungere la visualizzazione dello storico dei dati trasmessi da ciascun sensore presente nella città.
-    \item \textbf{Scenario principale:}
-        \begin{enumerate}
-            \item L'utente accede alla piattaforma per la visualizzazione della dashboard. (UC1)
-            \item Il sistema elabora i dati e imposta il widget della mappa con i sensori posizionatici correttamente.
-        \end{enumerate}
     \item \textbf{Precondizioni:}
         \begin{itemize}
-            \item  Nessuna.
+            \item  Il sistema è operativo e accessibile.
         \end{itemize}
     \item \textbf{Postcondizioni:}
         \begin{itemize}
-            \item L'utente ha una visione grafica aggiornata della mappa dei sensori nella città e della loro tipologia.
+            \item L’autorità locale ha una visione grafica aggiornata della mappa dei sensori nella città, con indicazione chiara della loro posizione e tipologia.
         \end{itemize}
-    \item \textbf{User story associata:}
-        \begin{itemize}
-            \item Come autorità locale, voglio essere in grado di visualizzare una mappa interattiva contenente i sensori attivi e operativi all'interno della città. La mappa deve mostrare chiaramente la posizione di ciascun sensore e devono essere etichettati per consentire un riconoscimento immediato della tipologia di ogni sensore.
-            Attraverso la mappa interattiva della città è possibile accedere alla visualizzazione dello storico dei dati trasmessi da uno specifico sensore.
-        \end{itemize}
+    \item \textbf{Scenario principale:}
+        \begin{enumerate}
+            \item L'autorità locale accede alla piattaforma per la visualizzazione della dashboard. (UC1)
+            \item Il sistema elabora i dati e imposta il widget della mappa contenente i sensori nella posizione corretta.
+        \end{enumerate}
+    \item \textbf{User story associata:} \\
+        Come autorità locale, desidero essere in grado di visualizzare una mappa interattiva contenente i sensori attivi e operativi all’interno della città. La mappa deve mostrare chiaramente la posizione di ciascun sensore e deve essere etichettata per consentire un riconoscimento immediato della tipologia di ogni sensore. Questa visualizzazione intuitiva e dettagliata mi permetterà di valutare rapidamente la distribuzione dei sensori nella città e di prendere decisioni informate per ottimizzare la copertura e l'efficacia del monitoraggio ambientale.
 \end{itemize}

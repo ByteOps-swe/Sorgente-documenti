@@ -2,22 +2,19 @@
 
 \begin{itemize}
     \item \textbf{Attore principale:} Autorità locale;
-    %\item \textbf{Descrizione:} L'autorità locale procede all'accesso alla piattaforma e visualizza dati storici dei sensori.
-    \item \textbf{Scenario principale:}
-        \begin{enumerate}
-            \item Il sistema carica i dati e imposta la visualizzazione di un widget di misurazioni di una specifica tipoligia di sensori.
-        \end{enumerate}
     \item \textbf{Precondizioni:}
         \begin{itemize}
-            \item L'autorità locale ha effettuato l'accesso alla piattaforma.
+            \item Almeno un sensore della tipologia associata al widget ha trasmesso dati al sistema.
             \item Il sistema ha caricato la visualizzazione della dashboard (UC1);
         \end{itemize}
     \item \textbf{Postcondizioni:}
         \begin{itemize}
-            \item   L'autorità locale ha una visione di un widget di misurazioni per una specifica tipoligia di sensori.
+            \item L'autorità locale visualizza uno specifico widget contenente le misurazioni rilevate da una specifica tipologia di sensori.
         \end{itemize}
-    \item \textbf{User story associata:}
-        \begin{itemize}
-            \item Come autorità locale, voglio accedere alla piattaforma e visualizzare un widget che rappresenti le misurazioni dei sensori di una tipolgia specifica per poter analizzare le informazione che li riguardano.
-        \end{itemize}
+    \item \textbf{Scenario principale:}
+        \begin{enumerate}
+            \item Il sistema carica i dati e imposta la visualizzazione di uno specifico widget contenente le misurazioni relative ad una specifica tipologia di sensori.
+        \end{enumerate}
+    \item \textbf{User story associata:} \\
+        Come autorità locale, voglio accedere a un widget dettagliato che rappresenti le misurazioni provenienti da una specifica tipologia di sensori. Questo mi permetterà di analizzare in modo approfondito i dati relativi a quella tipologia di sensori, aiutandomi a prendere decisioni mirate per migliorare i servizi della città.
 \end{itemize}
