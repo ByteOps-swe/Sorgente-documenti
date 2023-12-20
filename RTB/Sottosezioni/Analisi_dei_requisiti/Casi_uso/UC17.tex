@@ -1,22 +1,19 @@
 \subsubsection{UC17 - APPLICAZIONE FILTRI MULTIPLI AI WIDGET}
 \begin{itemize}
     \item \textbf{Attore principale:} Autorità locale;
-   % \item \textbf{Descrizione:} L’autorità locale seleziona i/il sensore/i della quale vuole visionare lo storico dei dati e filtra la visualizzazione ai soli dati compresi tra due valori.
-    \item \textbf{Scenario principale:}
-          \begin{enumerate}
-              \item L'utente seleziona più funzionalità di filtraggio;
-              \item Il sistema reimposta la visualizzazione esclusivamente delle misurazioni che rispettano i vincoli.
-          \end{enumerate}
     \item \textbf{Precondizioni:}
-          \begin{itemize}
-              \item  L'utente si trova in un interfaccia per la visualizzazione di un widget (UC3).
-          \end{itemize}
+        \begin{itemize}
+            \item L'autorità locale si trova nell'interfaccia di visualizzazione di un widget associato ad una specifica tipologia di sensori (UC3);
+        \end{itemize}
     \item \textbf{Postcondizioni:}
           \begin{itemize}
-              \item  L'autorità locale visualizza solamente i dati relativi ai filtri applicati.
+              \item L'autorità locale visualizza esclusivamente le misurazioni associate ai filtri applicati.
           \end{itemize}
-    \item \textbf{User story associata:}
-          \begin{itemize}
-            \item Come autorità locale, desidero avere la possibilità di filtrare la visualizzazione delle misurazioni in base a più filtri simultanei. In questo modo sarà possibile effettuare analisi mirate.
-          \end{itemize}
+    \item \textbf{Scenario principale:}
+          \begin{enumerate}
+              \item L'utente seleziona funzionalità di filtro multiple;
+              \item Il sistema aggiorna la visualizzazione mostrando esclusivamente le misurazioni che rispettano i vincoli specificati dai vari filtri.
+          \end{enumerate}
+    \item \textbf{User story associata:} \\
+            \item Come autorità locale, desidero disporre della capacità di applicare più filtri contemporaneamente per la visualizzazione delle misurazioni, consentendo un'analisi dettagliata e focalizzata attraverso una combinazione di criteri selettivi.
 \end{itemize}

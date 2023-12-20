@@ -1,23 +1,20 @@
 \subsubsection{UC31 - RIMOZIONE FILTRI}
 \begin{itemize}
     \item \textbf{Attore principale:} Autorità locale;
-   % \item \textbf{Descrizione:} L’autorità locale seleziona i/il sensore/i della quale vuole visionare lo storico dei dati e filtra la visualizzazione ai soli dati compresi tra due valori.
-    \item \textbf{Scenario principale:}
-          \begin{enumerate}
-              \item L'utente rimuove delle funzionalità di filtraggio.
-              \item Il sistema reimposta la visualizzazione senza l'applicazione dei filtri disattivati.
-          \end{enumerate}
     \item \textbf{Precondizioni:}
-          \begin{itemize}
-              \item  L'utente si trova in un interfaccia per la visualizzazione di un widget (UC3).
-              \item La visualizzazione include delle funzionalità di filtraggio attivi.
-          \end{itemize}
+        \begin{itemize}
+        \item L'autorità locale si trova nell'interfaccia di visualizzazione di un widget associato ad una specifica tipologia di sensori (UC3);
+        \item La visualizzazione delle misurazioni include almeno un filtro attivo.
+        \end{itemize}
     \item \textbf{Postcondizioni:}
-          \begin{itemize}
-              \item  L'autorità locale visualizza le misurazioni senza le funzionalità di filtraggio applicate.
-          \end{itemize}
+        \begin{itemize}
+            \item L'autorità locale visualizza le misurazioni senza nessun filtro applicato.
+        \end{itemize}
+    \item \textbf{Scenario principale:}
+        \begin{enumerate}
+            \item L'utente rimuove rimuove uno o più filtri relativi alle misurazioni.
+            \item Il sistema aggiorna la visualizzazione senza l'applicazione dei filtri disattivati.
+        \end{enumerate}
     \item \textbf{User story associata:}
-          \begin{itemize}
-            \item Come autorità locale, desidero rimuovere delle funzionalità di filtraggio dalla visualizzazione delle misurazioni per poter tornare alla visualizzazione senza tali filtri.
-          \end{itemize}
+        Come autorità locale, desidero rimuovere eventuali filtri attivi nella visualizzazione delle misurazioni in modo tale da tornare alla visualizzazione delle misurazioni senza tali filtri.
 \end{itemize}

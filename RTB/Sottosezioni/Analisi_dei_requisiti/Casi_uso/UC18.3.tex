@@ -1,21 +1,19 @@
 \subsubsection{UC18.3 - VISUALIZZAZIONE POSIZIONE SENSORE}
 \begin{itemize}
     \item \textbf{Attore principale:} Autorità locale;
-    %\item \textbf{Descrizione:} L’autorità locale dalla pagina adibita alla visione delle informazioni di un sensore visualizza la sua posizione in coordinate.
-    \item \textbf{Scenario principale:}
-    \begin{enumerate}
-        \item L'utente seleziona la visualizzazione delle informazioni del sensore.
-    \end{enumerate}
-\item \textbf{Precondizioni:}
-    \begin{itemize}
-        \item  L'utente di trova nella pagina di visualizzazione dello storico dei dati di un sensore. (3.3)
-    \end{itemize}
+    \item \textbf{Precondizioni:}
+        \begin{itemize}
+            \item Il sistema ha caricato la visualizzazione della dashboard (UC1);
+        \end{itemize}
     \item \textbf{Postcondizioni:}
-          \begin{itemize}
-              \item  L'utente visualizza le coordinate del sensore.
-          \end{itemize}
-    \item \textbf{User story associata:}
-          \begin{itemize}
-              \item Come Autorità Locale, desidero visualizzare la posizione di un sensore, in coordinate, dalla pagina dedicata alle informazioni del sensore.
-          \end{itemize}
+        \begin{itemize}
+            \item L'autorità locale visualizza la posizione del sensore.
+        \end{itemize}
+    \item \textbf{Scenario principale:}
+        \begin{enumerate}
+            \item L'autorità locale seleziona un sensore dalla mappa interattiva della città presente nella dashboard;
+            \item Il sistema carica le informazioni relative al sensore selezionato.
+        \end{enumerate}
+    \item \textbf{User story associata:} \\
+        Come autorità locale, desidero visualizzare la posizione di uno specifico sensore.
 \end{itemize}

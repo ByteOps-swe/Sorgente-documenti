@@ -1,24 +1,19 @@
 \subsubsection{UC22 - VISUALIZZAZIONE ALLERTE SUPERAMENTO SOGLIE}
 \begin{itemize}
-    \item \textbf{Attore principale:} Autorità locale;
-    %\item \textbf{Descrizione:} L’autorità locale, dalla pagina adibita alla visione dei dati salvati tra i preferiti, rimuove un dato dalla lista.
-    \item \textbf{Scenario principale:}
-          \begin{enumerate}
-            %  \item L'utente accede alla piattaforma per la visualizzazione della dashboard sullo stato della città o di una cella(UC1) (UC1.1);
-             % \item L'utente sceglie di visualizzare la pagina dedicata alla visualizzazione dei dati preferiti;
-              \item  Il sistema rileva condizioni che richiedono l'invio di una notifica per segnalare il superamento di una soglia impostata.
-          \end{enumerate}
-    \item \textbf{Precondizioni:}
-          \begin{itemize}
-              \item  Nessuna.
-          \end{itemize}
-    \item \textbf{Postcondizioni:}
-          \begin{itemize}
-              \item  L'attore riceve una notifica di superamento di una soglia impostata.
-          \end{itemize}
-    \item \textbf{User story associata:}
-          \begin{itemize}
-              \item Come autorità locale,
-                    desidero ricevere allerte in caso di misurazioni che superino la soglia di sicurezza cosi ta poter agire tempestivamente.
-          \end{itemize}
+      \item \textbf{Attore principale:} Autorità locale;
+      \item \textbf{Precondizioni:}
+            \begin{itemize}
+                  \item Il sensore ha registrato una misurazione al di sopra o al di sotto di una soglia specifica.
+            \end{itemize}
+      \item \textbf{Postcondizioni:}
+            \begin{itemize}
+                  \item  L'autorità locale riceve una notifica di superamento di una soglia impostata.
+            \end{itemize}
+      \item \textbf{Scenario principale:}
+            \begin{enumerate}
+                  \item  Il sistema rileva condizioni che richiedono l'invio di una notifica per segnalare il superamento di una soglia impostata;
+                  \item Il sistema inivia una notifica all'autorità locale.
+            \end{enumerate}
+      \item \textbf{User story associata:}
+      Come autorità locale, desidero ricevere notifiche immediate nel caso in cui le misurazioni superino le soglie di sicurezza superiori o scendano al di sotto delle soglie di sicurezza inferiori, permettendomi di adottare prontamente azioni correttive e necessarie.
 \end{itemize}

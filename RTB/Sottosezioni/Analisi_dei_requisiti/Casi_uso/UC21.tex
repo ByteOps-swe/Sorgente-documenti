@@ -1,26 +1,20 @@
 \subsubsection{UC21 - RIMOZIONE MISURAZIONE DA LISTA RILEVANTI}
 \begin{itemize}
-    \item \textbf{Attore principale:} Autorità locale;
-    %\item \textbf{Descrizione:} L’autorità locale, dalla pagina adibita alla visione dei dati salvati tra i preferiti, rimuove un dato dalla lista.
-    \item \textbf{Scenario principale:}
-          \begin{enumerate}
-            %  \item L'utente accede alla piattaforma per la visualizzazione della dashboard sullo stato della città o di una cella(UC1) (UC1.1);
-             % \item L'utente sceglie di visualizzare la pagina dedicata alla visualizzazione dei dati preferiti;
-              \item L'utente rimuove uno dei dati dalla lista.
-          \end{enumerate}
-    \item \textbf{Precondizioni:}
-          \begin{itemize}
-              \item  L'utente di trova nella pagina per la visulizzazione dei dati preferiti. (UC9)
-              \item Almeno una misurazione è presente nella lista rilevanti.
-          \end{itemize}
-    \item \textbf{Postcondizioni:}
-          \begin{itemize}
-              \item  La misurazione viene rimosso dalla lista dei preferiti.
-          \end{itemize}
-    \item \textbf{User story associata:}
-          \begin{itemize}
-              \item Come autorità locale,
-                    Desidero poter rimuovere un dato dalla lista dei preferiti sulla piattaforma,
-                    Per poter gestire in modo efficiente i dati visualizzati sulla dashboard.
-          \end{itemize}
+      \item \textbf{Attore principale:} Autorità locale;
+      \item \textbf{Precondizioni:}
+            \begin{itemize}
+                  \item L'autorità locale si trova nella visualizzazione della lista delle misurazioni rilevanti. (UC20)
+                  \item Almeno una misurazione è presente nella lista delle misurazioni rilevanti.
+            \end{itemize}
+      \item \textbf{Postcondizioni:}
+            \begin{itemize}
+                  \item Nella lista delle misurazioni rilevanti non è più presente la misurazione rimossa.
+            \end{itemize}
+      \item \textbf{Scenario principale:}
+            \begin{enumerate}
+                  \item L'utente seleziona una o più misurazioni che intende rimuovere dalla lista delle misurazioni rilevanti;
+                  \item L'utente seleziona l'opzione di rimozione delle misurazioni selezionate dalla lista delle misurazioni rilevanti.
+            \end{enumerate}
+      \item \textbf{User story associata:} \\
+            Come autorità locale, desidero essere in grado di rimuovere una o più specifiche misurazioni dalla lista delle misurazioni rilevanti, al fine di assicurare che la lista sia costantemente aggiornato con le sole misurazioni pertinenti.
 \end{itemize}

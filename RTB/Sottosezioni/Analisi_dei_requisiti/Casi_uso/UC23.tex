@@ -1,23 +1,20 @@
 \subsubsection{UC23 - TRASMISSIONE DATI TEMPERATURA}
 \begin{itemize}
-    \item \textbf{Attore principale:}Sensore;
-    %\item \textbf{Descrizione:} L’autorità locale, dalla pagina adibita alla visione dei dati salvati tra i preferiti, rimuove un dato dalla lista.
-    \item \textbf{Scenario principale:}
-          \begin{enumerate}
-              \item Il sensore effettua una rilevazione della temperatura;
-              \item Il sensore formatta il messaggio da inviare al sistema;
-              \item Il sensore invia il messaggio al sistema
-          \end{enumerate}
+    \item \textbf{Attore principale:} Sensore;
     \item \textbf{Precondizioni:}
-          \begin{itemize}
-              \item  il sensore è attivito e connesso al sistema. 
-          \end{itemize}
+        \begin{itemize}
+            \item Il sensore è attivo e connesso al sistema. 
+        \end{itemize}
     \item \textbf{Postcondizioni:}
-          \begin{itemize}
-              \item  il sistema ha memorizzato ed elaborato i dati inviati dal sensore.
-          \end{itemize}
+        \begin{itemize}
+            \item Il sistema ha memorizzato ed elaborato i dati inviati dal sensore.
+        \end{itemize}
+    \item \textbf{Scenario principale:}
+        \begin{enumerate}
+            \item Il sensore effettua un rilevamento della temperatura;
+            \item Il sensore formatta il messaggio da trasmette al sistema;
+            \item Il sensore trasmesse il messaggio al sistema.
+        \end{enumerate}
     \item \textbf{User story associata:}
-          \begin{itemize}
-          \item   Come Sensore, voglio trasmettere in modo affidabile i dati di temperatura al sistema, in modo che possano essere memorizzati e elaborati.
-          \end{itemize}
+    Come Sensore, desidero trasmettere con affidabilità i rilevamenti di temperatura al sistema, garantendo che siano memorizzati e processati correttamente.
 \end{itemize}
