@@ -50,171 +50,163 @@ jobs:
           if [[ -n "$(git -C Documents status --porcelain)" ]]; then
             git -C Documents add .
             git -C Documents commit -m "Aggiunto G del glossario"
-            git config --global push.autoSetupRemote true
-            cd Documents
-            git push
           else
             echo "No changes to commit"
           fi
 
-      # - name: Compile LaTeX document
-      #   run: |
-      #     cd Output
-      #     git pull
+      - name: Compile LaTeX document
+        run: |
+          cd Output
+          git pull
 
-      #     git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-      #     git config user.name "github-actions[bot]"
-      #     cd ..
-      #     cd Documents
-      #     git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-      #     git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          cd ..
+          # Check if there are any deleted files
+          if [[ -n "${{ steps.changed-files.outputs.deleted_files }}" ]]; then
+              # Iterate through the deleted files
+              for deleted_file in ${{ steps.changed-files.outputs.deleted_files }}; do
+                  echo "Deleted file: $deleted_file"
+                  # Check if the deleted file is a Python script
+                  if [[ $deleted_file == *.tex ]]; then
+                      # Call the Python script to delete the file and its folder if empty
+                      python Documents/delete_latex_files.py "$deleted_file"
+                  fi
+              done
+          else
+              echo "No deleted files found."
+          fi
+          docker run -i --rm -v "$(pwd):/work" -w /work -u "$(id -u):$(id -g)" ghcr.io/xu-cheng/texlive-full bash -c '
+          bash --version
+          shopt -s globstar
+          set -e
+          set -m
+
+          declare -a has_changes
+          has_changes=(0 0 0)
+          has_changed=()
+          initial_dir=$(pwd)
           
-      #     cd ..
-      #     # Check if there are any deleted files
-      #     if [[ -n "${{ steps.changed-files.outputs.deleted_files }}" ]]; then
-      #         # Iterate through the deleted files
-      #         for deleted_file in ${{ steps.changed-files.outputs.deleted_files }}; do
-      #             echo "Deleted file: $deleted_file"
-      #             # Check if the deleted file is a Python script
-      #             if [[ $deleted_file == *.tex ]]; then
-      #                 # Call the Python script to delete the file and its folder if empty
-      #                 python Documents/delete_latex_files.py "$deleted_file"
-      #             fi
-      #         done
-      #     else
-      #         echo "No deleted files found."
-      #     fi
-      #     docker run -i --rm -v "$(pwd):/work" -w /work -u "$(id -u):$(id -g)" ghcr.io/xu-cheng/texlive-full bash -c '
-      #     bash --version
-      #     shopt -s globstar
-      #     set -e
-      #     set -m
+          for path in ${{ steps.changed-files.outputs.all_changed_files }}; do
+            echo "$path was changed"
+            # if [[ "$(basename "$path")" != "Verbale_Esterno.tex" ]] && [[ "$(basename "$path")" != "Verbale_Interno.tex" ]] && [[ $path != */Sezioni/**.tex ]] && [[ $path != */Sottosezioni/**.tex ]] && [[ $path != */Casi_uso/**.tex ]] && [[ $path == *.tex ]] 
+            if [[ "$(basename "$path")" != "Verbale_Esterno.tex" ]] \
+              && [[ "$(basename "$path")" != "Verbale_Interno.tex" ]] \
+              && [[ $path != */Sezioni/**.tex ]] \
+              && [[ $path != */Sottosezioni/**.tex ]] \
+              && [[ $path != */Esterni/**.tex ]] \
+              && [[ $path != */Casi_uso/**.tex ]] \
+              && [[ $path == *.tex ]]
+            then
+              new_name=$(python Documents/Version_finder.py $path)
 
-      #     declare -a has_changes
-      #     has_changes=(0 0 0)
-      #     has_changed=()
-      #     initial_dir=$(pwd)
-          
-      #     for path in ${{ steps.changed-files.outputs.all_changed_files }}; do
-      #       echo "$path was changed"
-      #       # if [[ "$(basename "$path")" != "Verbale_Esterno.tex" ]] && [[ "$(basename "$path")" != "Verbale_Interno.tex" ]] && [[ $path != */Sezioni/**.tex ]] && [[ $path != */Sottosezioni/**.tex ]] && [[ $path != */Casi_uso/**.tex ]] && [[ $path == *.tex ]] 
-      #       if [[ "$(basename "$path")" != "Verbale_Esterno.tex" ]] \
-      #         && [[ "$(basename "$path")" != "Verbale_Interno.tex" ]] \
-      #         && [[ $path != */Sezioni/**.tex ]] \
-      #         && [[ $path != */Sottosezioni/**.tex ]] \
-      #         && [[ $path != */Esterni/**.tex ]] \
-      #         && [[ $path != */Casi_uso/**.tex ]] \
-      #         && [[ $path == *.tex ]]
-      #       then
-      #         new_name=$(python Documents/Version_finder.py $path)
-
-      #         git -C Documents add "${path}"
-      #         git -C Documents add "${new_name}"
+              git -C Documents add "${path}"
+              git -C Documents add "${new_name}"
               
-      #         path_no_under="${new_name//_/ }"
-      #         name=$(basename "$new_name")
-      #         name_no_ext="${name%.*}"
-      #         new_only_name="Aggiornato $name_no_ext"
+              path_no_under="${new_name//_/ }"
+              name=$(basename "$new_name")
+              name_no_ext="${name%.*}"
+              new_only_name="Aggiornato $name_no_ext"
 
-      #         if [[ -n "$(git -C Documents status --porcelain)" ]]; then
-      #           git -C Documents commit -m "$new_only_name"
-      #         else
-      #           echo "No changes to commit"
-      #         fi
+              if [[ -n "$(git -C Documents status --porcelain)" ]]; then
+                git -C Documents commit -m "$new_only_name"
+              else
+                echo "No changes to commit"
+              fi
 
-      #         cd "Documents/$(dirname "$path")"
-      #         latexmk -pdf "$(basename "$new_name")"
-      #         cd "$initial_dir"
+              cd "Documents/$(dirname "$path")"
+              latexmk -pdf "$(basename "$new_name")"
+              cd "$initial_dir"
 
-      #       elif [[ "$path" == */Sezioni/*.tex || "$path" == */Sottosezioni/*.tex ]]; then
-      #         father_dir=$(dirname "$path")
-      #         doc_name=$(basename "$father_dir")
+            elif [[ "$path" == */Sezioni/*.tex || "$path" == */Sottosezioni/*.tex ]]; then
+              father_dir=$(dirname "$path")
+              doc_name=$(basename "$father_dir")
               
-      #         # Adds Analisi_dei_requisiti to has_changed if a UC file is changed and checks if it is already in the array
-      #         if [[ "$path" == *"UC"* ]]; then
-      #           if [[ ! "${has_changed[@]}" =~ "Analisi_dei_requisiti" ]]; then
-      #             has_changed+=("Analisi_dei_requisiti")
-      #           fi
-      #         else
-      #           # Check if doc_name is not in has_changed array before appending
-      #           if [[ ! "${has_changed[@]}" =~ " $doc_name " ]]; then
-      #             has_changed+=("$doc_name")
-      #           fi
-      #         fi
-      #       else 
-      #         echo "Questo è un template o un file non .tex"
-      #       fi
-      #     done
+              # Adds Analisi_dei_requisiti to has_changed if a UC file is changed and checks if it is already in the array
+              if [[ "$path" == *"UC"* ]]; then
+                if [[ ! "${has_changed[@]}" =~ "Analisi_dei_requisiti" ]]; then
+                  has_changed+=("Analisi_dei_requisiti")
+                fi
+              else
+                # Check if doc_name is not in has_changed array before appending
+                if [[ ! "${has_changed[@]}" =~ " $doc_name " ]]; then
+                  has_changed+=("$doc_name")
+                fi
+              fi
+            else 
+              echo "Questo è un template o un file non .tex"
+            fi
+          done
           
-      #     # Iterate through the has_changed array
-      #     for file in "${has_changed[@]}"; do
-      #       file_to_compile=$(find "Documents" -type f -name "$file*.tex" -not -path "*/Sezioni/*" -not -path "*/Sottosezioni/*")
+          # Iterate through the has_changed array
+          for file in "${has_changed[@]}"; do
+            file_to_compile=$(find "Documents" -type f -name "$file*.tex" -not -path "*/Sezioni/*" -not -path "*/Sottosezioni/*")
             
             
-      #       cd "$(dirname "$file_to_compile")"
-      #       latexmk -pdf "$(basename "$file_to_compile")"
-      #       cd "$initial_dir"
+            cd "$(dirname "$file_to_compile")"
+            latexmk -pdf "$(basename "$file_to_compile")"
+            cd "$initial_dir"
 
-      #     done 
+          done 
 
-      #     git -C Output add .
+          git -C Output add .
 
-      #     if [[ -n "$(git -C Output status --porcelain)" ]]; then
-      #       git -C Output commit -m "Cancellato file deprecati"
-      #     else
-      #       echo "No changes to commit."
-      #     fi
-      #     '
+          if [[ -n "$(git -C Output status --porcelain)" ]]; then
+            git -C Output commit -m "Cancellato file deprecati"
+          else
+            echo "No changes to commit."
+          fi
+          '
 
-      # - name: upload pdf
-      #   run: |
-      #     shopt -s globstar
-      #     set -e
+      - name: upload pdf
+        run: |
+          shopt -s globstar
+          set -e
 
-      #     if find "Documents" -type f -name "*.pdf" -print -quit 2>/dev/null; then
-      #       for path in Documents/**/*.pdf; do (
-      #         echo "$path"
-      #         if [[ $path != "Documents/**/*.pdf" ]]; then
-      #           dirname=$(dirname "$path")
-      #           dirname=${dirname#Documents/}
-      #           new_dirname="Output/$dirname"
-      #           dirname_no_under="${new_dirname//_/ }"
+          if find "Documents" -type f -name "*.pdf" -print -quit 2>/dev/null; then
+            for path in Documents/**/*.pdf; do (
+              echo "$path"
+              if [[ $path != "Documents/**/*.pdf" ]]; then
+                dirname=$(dirname "$path")
+                dirname=${dirname#Documents/}
+                new_dirname="Output/$dirname"
+                dirname_no_under="${new_dirname//_/ }"
 
-      #           name_old=$(basename "$path")
-      #           name_no_ext="${name_old%.*}"
-      #           name_no_under="${name_no_ext//_/ }"
-      #           name="${name_old//_/ }"
-      #           new_name="Aggiornato $name_no_under"
+                name_old=$(basename "$path")
+                name_no_ext="${name_old%.*}"
+                name_no_under="${name_no_ext//_/ }"
+                name="${name_old//_/ }"
+                new_name="Aggiornato $name_no_under"
 
-      #           if [ ! -d "$dirname_no_under" ]; then
-      #             mkdir -p "${dirname_no_under}"
-      #             echo "created: $dirname_no_under"
-      #           fi
+                if [ ! -d "$dirname_no_under" ]; then
+                  mkdir -p "${dirname_no_under}"
+                  echo "created: $dirname_no_under"
+                fi
 
-      #           mv -f "$path" "${dirname_no_under}"
-      #           mv -f "$dirname_no_under"/"$name_old" "$dirname_no_under"/"$name"
+                mv -f "$path" "${dirname_no_under}"
+                mv -f "$dirname_no_under"/"$name_old" "$dirname_no_under"/"$name"
 
-      #           path_no_under="${path//_/ }"
-      #           path_no_under=${path_no_under#Documents/}
+                path_no_under="${path//_/ }"
+                path_no_under=${path_no_under#Documents/}
                 
-      #           cd Output
-      #           git add "${path_no_under}"
-      #           if [[ -n "$(git status --porcelain)" ]]; then
-      #             git commit -m "$new_name"
-      #           else
-      #             echo "No changes to commit"
-      #           fi
+                cd Output
+                git add "${path_no_under}"
+                if [[ -n "$(git status --porcelain)" ]]; then
+                  git commit -m "$new_name"
+                else
+                  echo "No changes to commit"
+                fi
                 
-      #           cd ..
-      #         fi
-      #       ) done
-      #     fi
-      #     cd Output
+                cd ..
+              fi
+            ) done
+          fi
+          cd Output
           
-      #     git config --global push.autoSetupRemote true
-      #     git status
-      #     git push
+          git config --global push.autoSetupRemote true
+          git status
+          git push
 
-      #     cd .. 
-      #     cd Documents
-      #     git push
+          cd .. 
+          cd Documents
+          git push
