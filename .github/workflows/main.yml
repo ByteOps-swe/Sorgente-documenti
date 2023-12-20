@@ -29,6 +29,31 @@ jobs:
         id: changed-files
         uses: tj-actions/changed-files@v40
 
+
+      - name: Run Python script to modify LaTeX file
+        run: |
+          for path in ${{ steps.changed-files.outputs.all_changed_files }}; do
+            if [[ "$(basename "$path")" != "Verbale_Esterno.tex" ]] \
+              && [[ "$(basename "$path")" != "Verbale_Interno.tex" ]] \
+              && [[ $path == *.tex ]] 
+            then
+              output=$(python Documents/updateGlossario.py $path)
+              echo "$output"
+            fi
+          done
+          cd Documents
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          cd ..
+          # Commit le modifiche
+          git -C Documents add .
+          if [[ -n "$(git -C Documents status --porcelain)" ]]; then
+            git -C Documents add .
+            git -C Documents commit -m "Aggiunto G del glossario"
+          else
+            echo "No changes to commit"
+          fi
+
       - name: Compile LaTeX document
         run: |
           cd Output
@@ -36,11 +61,6 @@ jobs:
 
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
-          cd ..
-          cd Documents
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config user.name "github-actions[bot]"
-          
           cd ..
           # Check if there are any deleted files
           if [[ -n "${{ steps.changed-files.outputs.deleted_files }}" ]]; then
