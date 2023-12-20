@@ -1,22 +1,20 @@
 \subsubsection{UC3.2 - VISUALIZZAZIONE MISURAZIONI SENSORI NEL TEMPO}
 \begin{itemize}
     \item \textbf{Attore principale:} Autorità locale;
-    %\item \textbf{Descrizione:} L'autorità locale procede all'accesso alla piattaforma e, mediante la dashboard relativa allo stato di salute della città, effettua la selezione di una specifica categoria di sensori al fine di visualizzare esclusivamente i dati storici ad essi pertinenti.
-    \item \textbf{Scenario principale:}
-        \begin{enumerate}
-            \item Il sistema carica e imposta la visualizzazione delle misurazioni dei sensori coinvolti.
-        \end{enumerate}
     \item \textbf{Precondizioni:}
         \begin{itemize}
-            \item Il sistema ha caricato e impostato la visualizzazione di un widget di una specifica tipolgia di sensori (UC3);
-            \item Almeno un sensore contribuisce alle misurazioni rappresentate nel widget.
+            \item Almeno un sensore della tipologia associata al widget ha trasmesso dati al sistema;
+            \item Il sistema ha caricato la visualizzazione della dashboard (UC1).
         \end{itemize}
     \item \textbf{Postcondizioni:}
         \begin{itemize}
-            \item  L'autorità locale visualizza le misurazioni dei sensori che contribuiscono al widget.
+            \item  L'autorità locale visualizza le misurazioni nel tempo dei sensori associati al widget.
         \end{itemize}
-    \item \textbf{User story associata:}
-        \begin{itemize}
-            \item Come Autorità Locale, desidero visualizzare le misurazioni dei sensori di una specifica categoria per poter effettuare analisi mirate.
-        \end{itemize}
+    \item \textbf{Scenario principale:}
+        \begin{enumerate}
+            \item Il sistema carica e configura la visualizzazione di un widget di una specifica tipologia di sensori (UC3);
+            \item Il sistema carica e configura la visualizzazione all'interno del widget delle misurazioni dei sensori coinvolti.
+        \end{enumerate}
+    \item \textbf{User story associata:} \\
+        Come autorità locale, desidero visualizzare le misurazioni dei sensori di una specifica tipologia per poter effettuare analisi mirate e prendere decisioni informate in base ai dati raccolti nel tempo.
 \end{itemize}

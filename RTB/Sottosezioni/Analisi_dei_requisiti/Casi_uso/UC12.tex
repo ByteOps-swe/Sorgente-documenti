@@ -1,27 +1,26 @@
 \subsubsection{UC12 - FILTRO VISUALIZZAZIONE MISURAZIONI IN UN INTERVALLO TEMPORALE}
 \begin{itemize}
     \item \textbf{Attore principale:} Autorità locale;
-    %\item \textbf{Descrizione:} L’autorità locale seleziona i/il sensore/i della quale vuole visionare lo storico dei dati in formato testuale in ordine decrescente rispetto alle misurazioni del/i sensore/i.
-    \item \textbf{Scenario principale:}
-          \begin{enumerate}
-            \item L'attore seleziona la funzionalità relativa al filtro dei dati per intervallo temporale;
-              \item L'utente imposta un intervallo temporale valido.
-              \item Il sistema reimposta la visualizzazione con le sole misurazioni effettuate nell'intervallo temporale.
-          \end{enumerate}
-          \item \textbf{Estensioni:}
-          \begin{enumerate}
-              \item VISUALIZZAZIONE ERRORE (UC13)
-          \end{enumerate}
     \item \textbf{Precondizioni:}
-          \begin{itemize}
-              \item  L'utente visualizza un widget delle misurazioni(UC3);
-          \end{itemize}
+        \begin{itemize}
+            \item L'autorità locale si trova nell'interfaccia di visualizzazione di un widget associato ad una specifica tipologia di sensori (UC3); 
+        \end{itemize}
     \item \textbf{Postcondizioni:}
-          \begin{itemize}
-              \item  L'utente ha una visione dello storico dei dati trasmessi nell'intervallo temporale selezionato.
-          \end{itemize}
-    \item \textbf{User story associata:}
-          \begin{itemize}
-            \item Come autorità locale, desidero essere in grado di visualizzare i soli dati storici provenienti dai sensori in un intervallo temporale.
-          \end{itemize}
+        \begin{itemize}
+            \item L'autorità locale visualizza le sole misurazioni trasmesse da una specifica tipolgia di sensori nell'intervallo temporale selezionato.
+        \end{itemize}
+    \item \textbf{Scenario principale:}
+        \begin{enumerate}
+            \item L'autorità locale seleziona la funzionalità relativa al filtro dei dati per intervallo temporale;
+            \item L'autorità locale imposta un intervallo temporale.
+            \item Il sistema aggiorna la visualizzazione mostrando solo le misurazioni effettuate durante l'intervallo temporale selezionato.
+        \end{enumerate}
+    \item \textbf{Estensioni:}
+    \begin{enumerate}
+        \item VISUALIZZAZIONE ERRORE (UC13)
+    \end{enumerate}
+    \item \textbf{User story associata:} \\
+        \begin{itemize}
+          \item Come autorità locale, voglio avere la capacità di definire un intervallo temporale personalizzato per poter filtrare le misurazioni trasmesse da una specifica tipologia di sensori. Ciò mi permetterà di analizzare dettagliatamente le misurazioni raccolte in un periodo di interesse specifico.
+        \end{itemize}
 \end{itemize}
