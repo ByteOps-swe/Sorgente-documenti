@@ -4,14 +4,14 @@ Le metriche menzionate in precedenza vengono ora categorizzate secondo la strutt
 \subsubsection{Processi primari}
 \paragraph{Analisi dei requisiti}
 \hspace{1pt}
-    \begin{longtable}{|C{1.5cm}|L{3cm}|L{4cm}|L{2.5cm}|L{2.5cm}|}
+    \begin{longtable}{|C{1.5cm}|L{3cm}|L{2.5cm}|L{2.5cm}|}
         \hline
-        \textbf{Metrica} & \textbf{Nome} & \textbf{\makecell{Descrizione}} & \textbf{\makecell{Valore di \\ accettazione}} & \textbf{\makecell{Valore \\ preferibile}} \\
-        \hline\textbf{M16PROS} & Percentuale di Requisiti Obbligatori Soddisfatti &  Metrica che valuta quanto del lavoro svolto durante lo sviluppo corrisponda ai requisiti essenziali o obbligatori definiti in fase di analisi dei requisiti.  & $ 100\%$  & $ 100\%$ \\
+        \textbf{Metrica} & \textbf{Nome} & \textbf{\makecell{Valore di \\ accettazione}} & \textbf{\makecell{Valore \\ preferibile}} \\
+        \hline\textbf{M18PROS} & Percentuale di Requisiti Obbligatori Soddisfatti & $ 100\%$  & $ 100\%$ \\
         \hline
-        \textbf{M17PRDS} & Percentuale di Requisiti Desiderabili Soddisfatti & Metrica usata per valutare quanti di quei requisiti, che se integrati arricchirebbero l'esperienza dell'utente o fornirebbero vantaggi aggiuntivi non strettamente necessari, sono stati implementati o soddisfatti nel prodotto. & $\geq 0\%$ & $100\%$ \\
+        \textbf{M19PRDS} & Percentuale di Requisiti Desiderabili Soddisfatti & $\geq 0\%$ & $100\%$ \\
         \hline
-        \textbf{M18PRPS} & Percentuale di Requisiti oPzionali Soddisfatti & Metrica per valutare quanti dei requisiti aggiuntivi, non essenziali o di bassa priorità, sono stati implementati o soddisfatti nel prodotto & $\geq 0\%$ & $100\%$ \\
+        \textbf{M20PRPS} & Percentuale di Requisiti oPzionali Soddisfatti & $\geq 0\%$ & $100\%$ \\
         \hline
     \caption{Analisi dei requisiti - Metriche e indici di qualità.}
     \label{tab:analisi_requisiti_progetto}
@@ -21,15 +21,15 @@ Le metriche menzionate in precedenza vengono ora categorizzate secondo la strutt
 La progettazione è un processo in cui vengono definite le specifiche tecniche e architetturali del software che si intende sviluppare. Questo processo traduce i requisiti raccolti durante la fase di acquisizione in un piano strutturato e dettagliato per la creazione del software.
 
 \hspace{1pt}
-    \begin{longtable}{|C{1.5cm}|L{3cm}|L{4cm}|L{2.5cm}|L{2.5cm}|}
+    \begin{longtable}{|C{1.5cm}|L{3cm}|L{2.5cm}|L{2.5cm}|}
         \hline
-        \textbf{Metrica} & \textbf{Nome} & \textbf{\makecell{Descrizione}} & \textbf{\makecell{Valore di \\ accettazione}} & \textbf{\makecell{Valore \\ preferibile}} \\
+        \textbf{Metrica} & \textbf{Nome} & \textbf{\makecell{Valore di \\ accettazione}} & \textbf{\makecell{Valore \\ preferibile}} \\
         \hline
-        \textbf{M24ATC} & Accoppiamento Tra Classi &   Misura della dipendenza e dell'interconnessione tra le classi all'interno di un sistema software.   & $\leq 4$  & $\leq 2$ \\
+        \textbf{M25ATC} & Accoppiamento Tra Classi & $\leq 4$  & $\leq 2$ \\
         \hline
-        \textbf{M25PG} & Profondità delle Gerarchie & Metrica che misura il numero di livelli tra una classe base (superclasse) e le sue sottoclassi (classi derivate). & $\leq 5$  & $\leq 3$ \\
+        \textbf{M26PG} & Profondità delle Gerarchie & $\leq 5$  & $\leq 3$ \\
         \hline
-        \textbf{M27FU} & Facilità di Utilizzo & Metrica che misura l'usabilità di un sistema software & $\leq 7$ \textit{click}  & $\leq 5$ \textit{click} \\
+        \textbf{M28FU} & Facilità di Utilizzo & $\leq 7$ \textit{click}  & $\leq 5$ \textit{click} \\
         \hline
     \caption{Progettazione - Metriche e indici di qualità.}
     \label{tab:progettazione_progetto}
@@ -40,32 +40,25 @@ Processo che consiste nel decidere procedure e risorse
 adatte allo sviluppo del progetto.
 
 \hspace{1pt}
-    \begin{longtable}{|C{1.5cm}|L{3cm}|L{4cm}|L{2.5cm}|L{2.5cm}|}
+    \begin{longtable}{|C{1.5cm}|L{3cm}|L{2.5cm}|L{2.5cm}|}
         \hline
-        \textbf{Metrica} & \textbf{Nome} & \textbf{\makecell{Descrizione}} & \textbf{\makecell{Valore di \\ accettazione}} & \textbf{\makecell{Valore \\ preferibile}} \\
+        \textbf{Metrica} & \textbf{Nome} & \textbf{\makecell{Valore di \\ accettazione}} & \textbf{\makecell{Valore \\ preferibile}} \\
         \hline
-        \textbf{M2EAC} & Estimated at Completion &  Misura il costo realizzativo stimato per terminare il progetto.  & $\pm 5\%$ rispetto al preventivo & Pari al preventivo \\
+        \textbf{M2EAC} & Estimated at Completion & $\pm 5\%$ rispetto al preventivo & Pari al preventivo \\
         \hline
-        \textbf{M3CPI} & Cost Performance Index & Misura il rapporto tra il valore del lavoro effettivamente svolto ed il 
-        costo reale del lavoro fino al periodo di riferimento. & $\pm 10\%$ & $0\%$ \\
+        \textbf{M3CPI} & Cost Performance Index & $\pm 10\%$ & $0\%$ \\
         \hline
-        \textbf{M4BV} & Budget Variance & misura la differenza percentuale di budget tra quanto previsto nella 
-        pianificazione di un periodo e l’effettiva realizzazione. & $\geq -10\%$ & $0\%$ \\
+        \textbf{M4BV} & Budget Variance & $\geq -10\%$ & $0\%$ \\
         \hline
-        \textbf{M5AC} & Actual Cost & Misura i costi effettivamente sostenuti dall’inizio del progetto fino 
-        all’attualità.
-         & $\geq 0 $ & $ \leq$ EAC  \\
+        \textbf{M5AC} & Actual Cost & $\geq 0 $ & $ \leq$ EAC  \\
         \hline
-        \textbf{M6SV} & Schedule Variance & Indica in percentuale quanto si è in anticipo o in ritardo con le attività
-        pianificate. & $\geq -10\%$ & $0\%$ \\
+        \textbf{M6SV} & Schedule Variance & $\geq -10\%$ & $0\%$ \\
         \hline
-        \textbf{M7EV} & Earned Value & Valore del lavoro effettivamente svolto fino a quel periodo.
-        & $\geq 0 $ & $\leq$ EAC  \\
+        \textbf{M7EV} & Earned Value & $\geq 0 $ & $\leq$ EAC  \\
         \hline
-        \textbf{M8PV} & Planned Value & Stima la somma dei costi realizzativi delle attività imminenti periodo 
-        per periodo. & $\geq 0  $ & $ \leq$ BAC  \\
+        \textbf{M8PV} & Planned Value & $\geq 0  $ & $ \leq$ BAC  \\
         \hline
-        \textbf{M9ETC} & Estimate to Complete &  Stima i costi realizzativi fino alla fine del progetto. & $\geq 0  $ & $ \leq$ EAC  \\
+        \textbf{M9ETC} & Estimate to Complete & $\geq 0  $ & $ \leq$ EAC  \\
         \hline
     \caption{Fornitura - Metriche e indici di qualità.}
     \label{tab:controllo_progetto}
@@ -75,19 +68,19 @@ adatte allo sviluppo del progetto.
 La fase di codifica è essenziale in quanto trasforma il progetto e le specifiche del software in istruzioni comprensibili dalla macchina, permettendo al prodotto software di prendere vita e funzionare effettivamente.
 
 \hspace{1pt}
-    \begin{longtable}{|C{1.5cm}|L{3cm}|L{4cm}|L{2.5cm}|L{2.5cm}|}
+    \begin{longtable}{|C{1.5cm}|L{3cm}|L{2.5cm}|L{2.5cm}|}
         \hline
-        \textbf{Metrica} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Valore di accettazione} & \textbf{Valore preferibile} \\
+        \textbf{Metrica} & \textbf{Nome} & \textbf{Valore di accettazione} & \textbf{Valore preferibile} \\
         \hline
-        \textbf{M28CCM} & Complessità Ciclomatica per Metodo & Rappresenta la complessità di un metodo in base ai percorsi possibili & $\leq 5$ & $\leq 3$ \\
+        \textbf{M29MCCM} & Complessità Ciclomatica per Metodo & $\leq 5$ & $\leq 3$ \\
         \hline
-        \textbf{M29PM} & Parametri per Metodo & Numero massimo di parametri per metodo & $\leq 6$ & $\leq 5$ \\
+        \textbf{M30PM} & Parametri per Metodo & $\leq 6$ & $\leq 5$ \\
         \hline
-        \textbf{M30APC} & Attributi Per Classe & Misura il numero massimo di attributi per classe. & $\leq 6$ & $\leq 4$ \\
+        \textbf{M31APC} & Attributi Per Classe & $\leq 6$ & $\leq 4$ \\
         \hline
-        \textbf{M1LCM} & Linee di Codice per Metodo & Limite massimo di linee di codice per metodo & $\leq 30$ & $\leq 20$ \\
+        \textbf{M32LCM} & Linee di Codice per Metodo & $\leq 30$ & $\leq 20$ \\
         \hline
-        \textbf{M26TMR} & Tempo Medio di Risposta & Metrica che misura quanto è efficiente e reattivo un sistema software & $\leq 10$ \textit{secondi}  & $\leq 4$ \textit{secondi} \\
+        \textbf{M27TMR} & Tempo Medio di Risposta & $\leq 10$ \textit{secondi}  & $\leq 4$ \textit{secondi} \\
         \hline
     \caption{Codifica - Metriche e indici di qualità.}
     \label{tab:metriche}
@@ -100,13 +93,13 @@ La fase di codifica è essenziale in quanto trasforma il progetto e le specifich
 
 \paragraph{Documentazione}
 \hspace{1pt}
-    \begin{longtable}{|C{1.5cm}|L{3cm}|L{4cm}|L{2.5cm}|L{2.5cm}|}
+    \begin{longtable}{|C{1.5cm}|L{3cm}|L{2.5cm}|L{2.5cm}|}
         \hline
-        \textbf{Metrica} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Valore di accettazione} & \textbf{Valore preferibile} \\
+        \textbf{Metrica} & \textbf{Nome} & \textbf{Valore di accettazione} & \textbf{Valore preferibile} \\
         \hline
-        \textbf{M19CO} & Correttezza Ortografica & Misura la presenza di errori ortografici nei documenti & $0$ & $0$ \\
+        \textbf{M19CO} & Correttezza Ortografica & $0$ & $0$ \\
         \hline
-        \textbf{M20IG} & Indice Gulpease & Misura la leggibilità di un testo in base alla lunghezza delle parole e delle frasi & $\geq 40$ & $\geq 60$ \\
+        \textbf{M20IG} & Indice Gulpease & $\geq 40$ & $\geq 60$ \\
         \hline
     \caption{Documentazione - Metriche e indici di qualità.}
     \label{tab:metriche_testo}
@@ -114,15 +107,19 @@ La fase di codifica è essenziale in quanto trasforma il progetto e le specifich
 
 \paragraph{Verifica}
 \hspace{1pt}
-\begin{longtable}{|C{1.5cm}|L{3cm}|L{4cm}|L{2.5cm}|L{2.5cm}|}
+\begin{longtable}{|C{1.5cm}|L{3cm}|L{2.5cm}|L{2.5cm}|}
     \hline
-    \textbf{Metrica} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Valore di accettazione} & \textbf{Valore preferibile} \\
+    \textbf{Metrica} & \textbf{Nome} & \textbf{Valore di accettazione} & \textbf{Valore preferibile} \\
     \hline
-    \textbf{M15CC} & Code Coverage & Percentuale del codice sorgente coperto dai test & $\geq 80\%$ & $100\%$ \\
+    \textbf{M15SC} & Statement Coverage & $\geq 80\%$ & $100\%$ \\
     \hline
-    \textbf{M16PCTS} & Percentuale di Casi di Test Superati & Percentuale di casi di test superati & $\geq 80\%$ & $100\%$ \\
+    \textbf{M16BC} & Branch Coverage & $\geq 80\%$ & $100\%$ \\
     \hline
-    \textbf{M17PCTF} & Percentuale di Casi di Test Falliti & Percentuale di casi di test falliti & $\leq 20\%$ & $0\%$ \\
+    \textbf{M17CNC} & CoNdition Coverage & $\geq 80\%$ & $100\%$ \\
+    \hline
+    \textbf{M16PCTS} & Percentuale di Casi di Test Superati & $\geq 80\%$ & $100\%$ \\
+    \hline
+    \textbf{M17PCTF} & Percentuale di Casi di Test Falliti & $\leq 20\%$ & $0\%$ \\
     \hline
 \caption{Verifica - Metriche e indici di qualità.}
 \label{tab:metriche_testo}
@@ -131,11 +128,11 @@ La fase di codifica è essenziale in quanto trasforma il progetto e le specifich
 
 \paragraph{Gestione dei rischi}
 \hspace{1pt}
-    \begin{longtable}{|C{1.5cm}|L{3cm}|L{4cm}|L{2.5cm}|L{2.5cm}|}
+    \begin{longtable}{|C{1.5cm}|L{3cm}|L{2.5cm}|L{2.5cm}|}
         \hline
-      \textbf{Metrica} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Valore di accettazione} & \textbf{Valore preferibile} \\
+      \textbf{Metrica} & \textbf{Nome} & \textbf{Valore di accettazione} & \textbf{Valore preferibile} \\
       \hline
-      \textbf{M11RNP}    & Rischi non previsti   & Misura il numero di rischi non previsti nel corso del progetto. & $\leq 5$ &   $0$ \\
+      \textbf{M11RNP}    & Rischi non previsti  & $\leq 5$ &   $0$ \\
       \hline
     \caption{Gestione dei rischi - Metriche e indici di qualità.}
     \label{tab:tabella2}
@@ -144,11 +141,11 @@ La fase di codifica è essenziale in quanto trasforma il progetto e le specifich
 
 \paragraph{Gestione della qualità}
 \hspace{1pt}
-    \begin{longtable}{|C{1.5cm}|L{3cm}|L{4cm}|L{2.5cm}|L{2.5cm}|}
+    \begin{longtable}{|C{1.5cm}|L{3cm}|L{2.5cm}|L{2.5cm}|}
         \hline
-        \textbf{Metrica} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Valore di accettazione} & \textbf{Valore preferibile} \\
+        \textbf{Metrica} & \textbf{Nome} & \textbf{Valore di accettazione} & \textbf{Valore preferibile} \\
         \hline
-        \textbf{M1PMS} & Percentuale di Metriche Soddisfatte & Misura che valuta quante metriche che sono state definite sono state effettivamente adottate o soddisfatte & $\geq 80\%$ & $100\%$ \\
+        \textbf{M1PMS} & Percentuale di Metriche Soddisfatte & $\geq 80\%$ & $100\%$ \\
         \hline
     \caption{Gestione della qualità - Metriche e indici di qualità.}
     \label{tab:gestione_metriche_testo}
@@ -162,19 +159,17 @@ La fase di codifica è essenziale in quanto trasforma il progetto e le specifich
 La pianificazione organizza obiettivi, risorse e tempistiche per guidare il successo di un progetto.
 
 \hspace{1pt}
-    \begin{longtable}{|C{1.5cm}|L{3cm}|L{4cm}|L{2.5cm}|L{2.5cm}|}
+    \begin{longtable}{|C{1.5cm}|L{3cm}|L{2.5cm}|L{2.5cm}|}
         \hline
-        \textbf{Metrica} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Valore di accettazione} & \textbf{Valore preferibile} \\
+        \textbf{Metrica} & \textbf{Nome} & \textbf{Valore di accettazione} & \textbf{Valore preferibile} \\
         \hline
-        \textbf{M6SV} & Schedule Variance & Indica in percentuale quanto si è in anticipo o in ritardo con le attività
-        pianificate. & $\geq -10\%$ & $0\%$ \\
+        \textbf{M6SV} & Schedule Variance & $\geq -10\%$ & $0\%$ \\
         \hline
-        \textbf{M4BV} & Budget Variance & misura la differenza percentuale di budget tra quanto previsto nella 
-        pianificazione di un periodo e l’effettiva realizzazione. & $\geq -10\%$ & $0\%$ \\
+        \textbf{M4BV} & Budget Variance & $\geq -10\%$ & $0\%$ \\
         \hline
-        \textbf{M12VR} & Variazione dei Requisiti & Misura la variazione nei requisiti dal momento della pianificazione & $\leq 3$ & $0$ \\
+        \textbf{M12VR} & Variazione dei Requisiti & $\leq 3$ & $0$ \\
         \hline
-        \textbf{M22IF} & Implementazione delle Funzionalità & Misura qual è la quantità di funzionalità pianificate che sono state implementate & $ 100\%$ & $ 100\%$ \\
+        \textbf{M22IF} & Implementazione delle Funzionalità & $ 100\%$ & $ 100\%$ \\
         \hline
     \caption{Pianificazione - Metriche e indici di qualità.}
     \label{tab:metriche_pianificazione}
@@ -182,11 +177,11 @@ La pianificazione organizza obiettivi, risorse e tempistiche per guidare il succ
 
 \paragraph{Miglioramento}
 \hspace{1pt}
-    \begin{longtable}{|C{1.5cm}|L{3cm}|L{4cm}|L{2.5cm}|L{2.5cm}|}
+    \begin{longtable}{|C{1.5cm}|L{3cm}|L{2.5cm}|L{2.5cm}|}
         \hline
-        \textbf{Metrica} & \textbf{Nome} & \textbf{Descrizione} & \textbf{Valore di accettazione} & \textbf{Valore preferibile} \\
+        \textbf{Metrica} & \textbf{Nome} & \textbf{Valore di accettazione} & \textbf{Valore preferibile} \\
         \hline
-        \textbf{M21DE} & Densità Errori & Misura la leggibilità di un testo in base alla lunghezza delle parole e delle frasi & $\leq 10\%$ & $ 0\%$ \\
+        \textbf{M21DE} & Densità Errori & $\leq 10\%$ & $ 0\%$ \\
         \hline
     \caption{Miglioramento - Metriche e indici di qualità.}
     \label{tab:metriche_miglioramento}
