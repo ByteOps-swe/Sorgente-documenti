@@ -49,11 +49,18 @@ I repository destinati alla documentazione sono organizzati come segue:
 
 
 \paragraph{Sincronizzazione e Branching}
-\textbf{Documentazione:}
+\textbf{Documentazione} \\
 Il processo operativo utilizzato per la redazione della documentazione, noto come "feature branch workflow", implica la creazione di un ramo dedicato per ciascun documento o sezione da elaborare.
-Tale metodologia permette una parallelizzazione agile dei lavori evitando sovrascritture indesiderate di altri lavori e permette l'adozione dei principi "Documentation as code". % ~\ref{sec:DocumentationAsCode} 
+Tale metodologia permette una parallelizzazione agile dei lavori evitando sovrascritture indesiderate di altri lavori e permette l'adozione dei principi "Documentation as code". \\ % ~\ref{sec:DocumentationAsCode} 
 
-\textbf{Sviluppo:}
+\textbf{Convenzioni per la nomenclatura dei branch} \\
+\begin{itemize}
+    \item Il nome del branch deve essere uguale al nome del documento senza estensioni, senza spazi e versione, scritto in camel case. (ex. VerbaleInterno14\_11\_2023) (Riferimento: ~\ref{sec:NomeFile});
+    \item Nel caso della redazione di una sezione si pone alla fine "\_NomeSezione". (ex. NormeDiProgetto\_Documentazione);
+    \item Nel caso di modifica di una sezione si pone alla fine "\_ModNomeSezione". (ex. NormeDiProgetto\_ModDocumentazione).
+\end{itemize}
+
+\textbf{Sviluppo} \\
 Gitflow è lo stile di flusso di lavoro Git che utilizza il team ByteOps per lo sviluppo.
 
 \paragraph*{Flusso generale di Gitflow}
