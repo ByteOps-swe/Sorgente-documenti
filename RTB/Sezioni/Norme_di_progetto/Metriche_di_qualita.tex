@@ -159,7 +159,15 @@ Le metriche di qualità dei prodotti software e dei processi sono strumenti fond
      \item \textbf{Caratteristica di qualità::} Funzionalità.
     \end{itemize}
 
-    \item \textbf{Metrica M21CO:}
+    \item \textbf{Metrica M21IF:}
+                  \begin{itemize}
+                      \item \textbf{Nome:} Implementazione delle Funzionalità (IF)
+                      \item \textbf{Descrizione:} Misura qual è la quantità di funzionalità pianificate che sono state implementate.
+                      \item \textbf{Formula:}$(1 - \frac{F_{NL}}{F_L}) \times 100$
+                      \item \textbf{Caratteristica di qualità:} Funzionalità.
+                  \end{itemize}
+
+    \item \textbf{Metrica M22CO:}
           \begin{itemize}
               \item \textbf{Nome:} Correttezza Ortografica (CO)
               \item \textbf{Descrizione:} Rappresenta il numero di errori grammaticali ed
@@ -167,7 +175,7 @@ Le metriche di qualità dei prodotti software e dei processi sono strumenti fond
               \item \textbf{Caratteristica di qualità:} Affidabilità.
           \end{itemize}
 
-            \item \textbf{Metrica M22IG:}
+    \item \textbf{Metrica M23IG:}
             \begin{itemize}
                 \item \textbf{Nome:} Indice Gulpease (MIG)
                 \item \textbf{Descrizione:} Indice di leggibilità di un testo tarato sulla lingua italiana, che utilizza la lunghezza delle parole in lettere anziché in sillabe, semplificandone il calcolo automatico.
@@ -187,20 +195,12 @@ Le metriche di qualità dei prodotti software e dei processi sono strumenti fond
                 \item \textbf{Caratteristica di qualità:} Affidabilità.
             \end{itemize}
 
-            \item \textbf{Metrica M23DE:}
+        \item \textbf{Metrica M24DE:}
                   \begin{itemize}
                       \item \textbf{Nome:} Densità degli Errori (DE)
                       \item \textbf{Descrizione:} Misura la percentuale di errori presenti nel prodotto rispetto al totale del codice.
                       \item \textbf{Formula:} $DE = \frac{\textit{Numero di errori}}{\textit{Totale delle linee di codice}} \times 100$
                       \item \textbf{Caratteristica di qualità:} Affidabilità.
-                  \end{itemize}
-
-            \item \textbf{Metrica M24IF:}
-                  \begin{itemize}
-                      \item \textbf{Nome:} Implementazione delle Funzionalità (IF)
-                      \item \textbf{Descrizione:} Misura qual è la quantità di funzionalità pianificate che sono state implementate.
-                      \item \textbf{Formula:}$(1 - \frac{F_{NL}}{F_L}) \times 100$
-                      \item \textbf{Caratteristica di qualità:} Funzionalità.
                   \end{itemize}
 
 
@@ -211,8 +211,44 @@ Le metriche di qualità dei prodotti software e dei processi sono strumenti fond
                       \item \textbf{Caratteristica di qualità:} Manutenibilità.
                   \end{itemize}
 
+        \item \textbf{Metrica M26MCCM}
+            \begin{itemize}
+            \item \textbf{Nome:} Complessità Ciclomatica per Metodo (MCCM)
+            \item \textbf{Descrizione:} Misura il numero di cammini linearmente indipendenti attraverso il grafo di controllo di flusso del metodo.
+            \item \textbf{Formula:} $MCCM = e - n + 2$
+            \item \textbf{Dove:}\textit{e}: numero di archi del grafo del flusso di esecuzione del metodo;\\ \textit{n}: numero di vertici del grafo del flusso di esecuzione del metodo.
+            \item \textbf{Caratteristica di qualità:} Manutenibilità.
+        \end{itemize}
 
-            \item \textbf{Metrica M26TMR:}
+        \item \textbf{Metrica M27PM:}
+        \begin{itemize}
+            \item \textbf{Nome:} Parametri per Metodo (M12PM)
+            \item \textbf{Descrizione:} Numero massimo di parametri per metodo.
+            \item \textbf{Caratteristica di qualità:} Manutenibilità.
+          \end{itemize}
+
+        \item \textbf{Metrica M28APC:}
+          \begin{itemize}
+              \item \textbf{Nome:} Attributi Per Classe (APC)
+              \item \textbf{Descrizione:} Misura il numero massimo di attributi per classe.
+              \item \textbf{Caratteristica di qualità:} Manutenibilità.
+          \end{itemize} 
+
+          \item \textbf{Metrica M29LCM:}
+          \begin{itemize}
+              \item \textbf{Nome:} Linee di Codice per Metodo (LCM)
+              \item \textbf{Descrizione:} Limite massimo di linee di codice per metodo.
+              \item \textbf{Caratteristica di qualità:} Manutenibilità.
+          \end{itemize} 
+
+          \item \textbf{Metrica M30PG:}
+          \begin{itemize}
+              \item \textbf{Nome:} Profondità delle Gerarchie (PG)
+              \item \textbf{Descrizione:} Metrica che misura il numero di livelli tra una classe base (super-classe) e le sue sotto-classi (classi derivate).
+              \item \textbf{Caratteristica di qualità:} Manutenibilità.
+          \end{itemize} 
+
+            \item \textbf{Metrica M31TMR:}
                   \begin{itemize}
                       \item \textbf{Nome:} Tempo Medio di Risposta (TMR)
                       \item \textbf{Descrizione:} Metrica che misura quanto è efficiente e reattivo un sistema software.
@@ -221,42 +257,25 @@ Le metriche di qualità dei prodotti software e dei processi sono strumenti fond
                     \end{itemize}  
 
 
-            \item \textbf{Metrica M27FU:}
+            \item \textbf{Metrica M32FU:}
                   \begin{itemize}
                       \item \textbf{Nome:} Facilità di Utilizzo (FU)
                       \item \textbf{Descrizione:} Metrica che misura l'usabilità di un sistema software.
                       \item \textbf{Caratteristica di qualità:} Usabilità.
                     \end{itemize}
 
+            \item \textbf{Metrica M33TA:}
+                  \begin{itemize}
+                      \item \textbf{Nome:} Tempo di Apprendimento (TA)
+                      \item \textbf{Descrizione:} Misura il tempo massimo richiesto per apprendere l'utilizzo del prodotto.
+                      \item \textbf{Caratteristica di qualità:} Usabilità.
+                    \end{itemize}
 
-            \item \textbf{Metrica M28CCM}
-            \begin{itemize}
-            \item \textbf{Nome:} Complessità Ciclomatica per Metodo (CCM)
-            \item \textbf{Descrizione:} Misura il numero di cammini linearmente indipendenti attraverso il grafo di controllo di flusso del metodo.
-            \item \textbf{Formula:} $MCCM = e - n + 2$
-            \item \textbf{Dove:}\textit{e}: numero di archi del grafo del flusso di esecuzione del metodo;\\ \textit{n}: numero di vertici del grafo del flusso di esecuzione del metodo.
-            \item \textbf{Caratteristica di qualità:} Manutenibilità.
-        \end{itemize}
-                                    
+            \item \textbf{Metrica M34VBS:}
+                    \begin{itemize}
+                        \item \textbf{Nome:} Versioni dei Browser Supportate (VBS)
+                        \item \textbf{Descrizione:} Metrica che misura la percentuale delle versioni di browser supportate rispetto al totale delle versioni disponibili.
+                        \item \textbf{Caratteristica di qualità:} Portabilità.
+                      \end{itemize}
 
-    \item \textbf{Metrica M29PM:}
-        \begin{itemize}
-            \item \textbf{Nome:} Parametri per Metodo (M12PM)
-            \item \textbf{Descrizione:} Numero massimo di parametri per metodo.
-            \item \textbf{Caratteristica di qualità:} Manutenibilità.
-          \end{itemize}
-    
-    \item \textbf{Metrica M30APC:}
-          \begin{itemize}
-              \item \textbf{Nome:} Attributi per Classe (ATC)
-              \item \textbf{Descrizione:} Misura il numero massimo di attributi per classe.
-              \item \textbf{Caratteristica di qualità:} Manutenibilità.
-          \end{itemize} 
-          
-    \item \textbf{Metrica M31LCM:}
-          \begin{itemize}
-              \item \textbf{Nome:} Linee di Codice per Metodo (LCM)
-              \item \textbf{Descrizione:} Limite massimo di linee di codice per metodo.
-              \item \textbf{Caratteristica di qualità:} Manutenibilità.
-          \end{itemize} 
 \end{itemize}
