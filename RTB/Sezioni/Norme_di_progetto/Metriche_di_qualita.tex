@@ -62,14 +62,14 @@ Le metriche di qualità dei prodotti software e dei processi sono strumenti fond
           \begin{itemize}
               \item \textbf{Nome:} Earned Value (EV)
               \item \textbf{Descrizione:} Valore del lavoro effettivamente svolto fino a quel periodo.
-              \item \textbf{Formula:} $EV = \% lavoro svolto \times EAC$
+              \item \textbf{Formula:} $EV = \% lavoro \ svolto \times EAC$
           \end{itemize}
 
     \item \textbf{Metrica M8PV:}
           \begin{itemize}
               \item \textbf{Nome:} Planned Value
               \item \textbf{Descrizione:} Stima la somma dei costi realizzativi delle attività imminenti periodo per periodo.
-              \item \textbf{Formula:} $PV = \% lavoro svolto \times BAC$
+              \item \textbf{Formula:} $PV = \% lavoro \ svolto \times BAC$
           \end{itemize}
 
     \item \textbf{Metrica M9ETC:}
@@ -95,13 +95,6 @@ Le metriche di qualità dei prodotti software e dei processi sono strumenti fond
                 \item \textit{Numero Requisiti Modificati}(Numero Requisiti Modificati) è la quantità di requisiti modificati dall'ultimo incremento.
               \end{itemize}
           \end{itemize}
-
-    \item \textbf{Metrica M13CC:}
-          \begin{itemize}
-           \item \textbf{Nome:} Code Coverage (PMS)
-           \item \textbf{Descrizione:} Percentuale che rappresenta le linee di codice percorse dai test durante la loro esecuzione.
-           \item \textbf{Formula:} $\frac{linee \ codice \ percorse}{linee \ codice \ totali}\times 100$
-          \end{itemize}
     
     \item \textbf{Metrica M14PCTS:}
           \begin{itemize}
@@ -116,41 +109,65 @@ Le metriche di qualità dei prodotti software e dei processi sono strumenti fond
            \item \textbf{Descrizione:} Percentuale di casi di test non superati.
            \item \textbf{Formula:} $\frac{numero \ di \ casi \ di \ test \ non \ superati}{numero \ totale \ di \ casi \ di \ test}\times 100$
           \end{itemize}
-\end{itemize}
 
+          \item \textbf{Metrica M15SC:}
+          \begin{itemize}
+              \item \textbf{Nome:} Statement Coverage (MSC)
+              \item \textbf{Descrizione:} Misura il numero di istruzioni che sono state eseguite almeno una volta.
+              \item \textbf{Formula:} $MSC = \frac{\text{istruzioni eseguite}}{\text{istruzioni totali}} \times 100$
+          \end{itemize}
+
+          \item \textbf{Metrica M16BC:}
+          \begin{itemize}
+              \item \textbf{Nome:} Branch Coverage (MBC)
+              \item \textbf{Descrizione:} Indice di quante diramazioni del codice vengono eseguite dai test. Un branch è uno dei possibili percorsi di esecuzione che il codice può seguire dopo che un'istruzione decisionale viene valutata.
+              \item \textbf{Formula:} $MBC = \frac{\text{flussi funzionali implementati e testati}}{\text{flussi condizionali riusciti e non}} \times 100$
+          \end{itemize}
+
+          \item \textbf{Metrica M17CNC:}
+          \begin{itemize}
+              \item \textbf{Nome:} CoNdition Coverage (CNC)
+              \item \textbf{Descrizione:} Metrica di copertura del codice che indica la percentuale di condizioni logiche nel codice sorgente che sono state eseguite durante i test.
+              \item \textbf{Formula:} $CNC = \frac{\textit{Numero di Operandi Eseguiti}}{\textit{Numero Totale di Operandi Eseguiti}} \times 100$
+          \end{itemize}
+\end{itemize}
 
 \subsection{Metriche per la qualità di prodotto}
 \begin{itemize}
     
-    \item \textbf{Metrica M16PROS:}
+    \item \textbf{Metrica M18PROS:}
     \begin{itemize}
      \item \textbf{Nome:} Percentuale di Requisiti Obbligatori Soddisfatti (PROS)
      \item \textbf{Descrizione:} Metrica che valuta quanto del lavoro svolto durante lo sviluppo corrisponda ai requisiti essenziali o obbligatori definiti in fase di analisi dei requisiti.
      \item \textbf{Formula:} $\frac{requisiti \ obbligatori \ soddisfatti}{requisiti \ obbligatori \ totali}\times 100$
+     \item \textbf{Caratteristica di qualità:} Funzionalità.
     \end{itemize}
 
-    \item \textbf{Metrica M17PRDS:}
+    \item \textbf{Metrica M19PRDS:}
     \begin{itemize}
      \item \textbf{Nome:} Percentuale di Requisiti Desiderati Soddisfatti (PRDS)
      \item \textbf{Descrizione:} Metrica usata per valutare quanti di quei requisiti, che se integrati arricchirebbero l'esperienza dell'utente o fornirebbero vantaggi aggiuntivi non strettamente necessari, sono stati implementati o soddisfatti nel prodotto.
      \item \textbf{Formula:} $\frac{requisiti \ desiderabili \ soddisfatti}{requisiti \ desiderabili \ totali}\times 100$
+     \item \textbf{Caratteristica di qualità:} Funzionalità.
     \end{itemize}
 
-    \item \textbf{Metrica M18PRPS:}
+    \item \textbf{Metrica M20PRPS:}
     \begin{itemize}
      \item \textbf{Nome:} Percentuale di Requisiti oPzionali Soddisfatti (PRPS)
      \item \textbf{Descrizione:} Metrica per valutare quanti dei requisiti aggiuntivi, non essenziali o di bassa priorità, sono stati implementati o soddisfatti nel prodotto.
      \item \textbf{Formula:} $\frac{requisiti \ opzionali \ soddisfatti}{requisiti \ opzionali \ totali}\times 100$
+     \item \textbf{Caratteristica di qualità::} Funzionalità.
     \end{itemize}
 
-    \item \textbf{Metrica M19CO:}
+    \item \textbf{Metrica M21CO:}
           \begin{itemize}
               \item \textbf{Nome:} Correttezza Ortografica (CO)
               \item \textbf{Descrizione:} Rappresenta il numero di errori grammaticali ed
               ortografici all'interno di un documento;
+              \item \textbf{Caratteristica di qualità:} Affidabilità.
           \end{itemize}
 
-            \item \textbf{Metrica M20IG:}
+            \item \textbf{Metrica M22IG:}
             \begin{itemize}
                 \item \textbf{Nome:} Indice Gulpease (MIG)
                 \item \textbf{Descrizione:} Indice di leggibilità di un testo tarato sulla lingua italiana, che utilizza la lunghezza delle parole in lettere anziché in sillabe, semplificandone il calcolo automatico.
@@ -167,27 +184,31 @@ Le metriche di qualità dei prodotti software e dei processi sono strumenti fond
                           \item $< 60$: sono difficili da leggere per chi ha la licenza media;
                           \item $< 40$: sono difficili da leggere per chi ha un diploma superiore.
                       \end{itemize}
+                \item \textbf{Caratteristica di qualità:} Affidabilità.
             \end{itemize}
 
-            \item \textbf{Metrica M21DE:}
+            \item \textbf{Metrica M23DE:}
                   \begin{itemize}
                       \item \textbf{Nome:} Densità degli Errori (DE)
                       \item \textbf{Descrizione:} Misura la percentuale di errori presenti nel prodotto rispetto al totale del codice.
                       \item \textbf{Formula:} $DE = \frac{\textit{Numero di errori}}{\textit{Totale delle linee di codice}} \times 100$
+                      \item \textbf{Caratteristica di qualità:} Affidabilità.
                   \end{itemize}
 
-            \item \textbf{Metrica M22IF:}
+            \item \textbf{Metrica M24IF:}
                   \begin{itemize}
                       \item \textbf{Nome:} Implementazione delle Funzionalità (IF)
                       \item \textbf{Descrizione:} Misura qual è la quantità di funzionalità pianificate che sono state implementate.
                       \item \textbf{Formula:}$(1 - \frac{F_{NL}}{F_L}) \times 100$
+                      \item \textbf{Caratteristica di qualità:} Funzionalità.
                   \end{itemize}
 
 
-            \item \textbf{Metrica M24ATC:}
+            \item \textbf{Metrica M25ATC:}
                   \begin{itemize}
                       \item \textbf{Nome:} Accoppiamento tra Classi (ATC)
                       \item \textbf{Descrizione:} Misura il livello di accoppiamento tra le classi del sistema.
+                      \item \textbf{Caratteristica di qualità:} Manutenibilità.
                   \end{itemize}
 
 
@@ -196,12 +217,16 @@ Le metriche di qualità dei prodotti software e dei processi sono strumenti fond
                       \item \textbf{Nome:} Tempo Medio di Risposta (TMR)
                       \item \textbf{Descrizione:} Metrica che misura quanto è efficiente e reattivo un sistema software.
                       \item \textbf{Formula:}$\frac{\textit{Somma dei tempi di risposta}}{\textit{Numero totale di misurazioni}}$
+                      \item \textbf{Caratteristica di qualità:} Efficienza.
+                    \end{itemize}  
 
 
             \item \textbf{Metrica M27FU:}
                   \begin{itemize}
                       \item \textbf{Nome:} Facilità di Utilizzo (FU)
                       \item \textbf{Descrizione:} Metrica che misura l'usabilità di un sistema software.
+                      \item \textbf{Caratteristica di qualità:} Usabilità.
+                    \end{itemize}
 
 
             \item \textbf{Metrica M28CCM}
@@ -210,6 +235,7 @@ Le metriche di qualità dei prodotti software e dei processi sono strumenti fond
             \item \textbf{Descrizione:} Misura il numero di cammini linearmente indipendenti attraverso il grafo di controllo di flusso del metodo.
             \item \textbf{Formula:} $MCCM = e - n + 2$
             \item \textbf{Dove:}\textit{e}: numero di archi del grafo del flusso di esecuzione del metodo;\\ \textit{n}: numero di vertici del grafo del flusso di esecuzione del metodo.
+            \item \textbf{Caratteristica di qualità:} Manutenibilità.
         \end{itemize}
                                     
 
@@ -217,17 +243,20 @@ Le metriche di qualità dei prodotti software e dei processi sono strumenti fond
         \begin{itemize}
             \item \textbf{Nome:} Parametri per Metodo (M12PM)
             \item \textbf{Descrizione:} Numero massimo di parametri per metodo.
+            \item \textbf{Caratteristica di qualità:} Manutenibilità.
           \end{itemize}
     
     \item \textbf{Metrica M30APC:}
           \begin{itemize}
               \item \textbf{Nome:} Attributi per Classe (ATC)
               \item \textbf{Descrizione:} Misura il numero massimo di attributi per classe.
+              \item \textbf{Caratteristica di qualità:} Manutenibilità.
           \end{itemize} 
           
     \item \textbf{Metrica M31LCM:}
           \begin{itemize}
               \item \textbf{Nome:} Linee di Codice per Metodo (LCM)
               \item \textbf{Descrizione:} Limite massimo di linee di codice per metodo.
+              \item \textbf{Caratteristica di qualità:} Manutenibilità.
           \end{itemize} 
 \end{itemize}
