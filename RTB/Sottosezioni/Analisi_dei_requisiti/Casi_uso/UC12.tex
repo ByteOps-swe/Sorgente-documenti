@@ -1,25 +1,19 @@
-\subsubsection{UC12 - FILTRO VISUALIZZAZIONE MISURAZIONI IN UN INTERVALLO TEMPORALE}
+\subsubsection{UC12 - FILTRO WIDGET MISURAZIONI}
 \begin{itemize}
     \item \textbf{Attore principale:} Autorità locale;
     \item \textbf{Precondizioni:}
         \begin{itemize}
-            \item L'autorità locale si trova nell'interfaccia di visualizzazione di un widget associato ad una specifica tipologia di sensori (UC3); 
+            \item L'autorità locale si trova nell'interfaccia di visualizzazione di un widget associato ad una specifica tipologia di sensori (UC1.1.1);
         \end{itemize}
     \item \textbf{Postcondizioni:}
-        \begin{itemize}
-            \item L'autorità locale visualizza le sole misurazioni trasmesse da una specifica tipolgia di sensori nell'intervallo temporale selezionato.
-        \end{itemize}
+          \begin{itemize}
+              \item L'autorità locale visualizza esclusivamente le misurazioni che soddisfano il filtraggio.
+          \end{itemize}
     \item \textbf{Scenario principale:}
-        \begin{enumerate}
-            \item L'autorità locale seleziona la funzionalità relativa al filtro dei dati per intervallo temporale;
-            \item L'autorità locale imposta un intervallo temporale;
-            \item Il sistema verifica la validità dell'intervallo temporale inserito;
-            \item Il sistema aggiorna la visualizzazione mostrando solo le misurazioni effettuate durante l'intervallo temporale. selezionato.
-        \end{enumerate}
-    \item \textbf{Estensioni:}
-    \begin{enumerate}
-        \item VISUALIZZAZIONE ERRORE INTERVALLO TEMPORALE NON VALIDO (UC30)
-    \end{enumerate}
+          \begin{enumerate}
+              \item L'utente seleziona i filtri da applicare;
+              \item Il sistema aggiorna la visualizzazione mostrando esclusivamente le misurazioni che rispettano i vincoli specificati filtri.
+          \end{enumerate}
     \item \textbf{User story associata:} \\
-        Come autorità locale, voglio avere la capacità di definire un intervallo temporale personalizzato per poter filtrare le misurazioni trasmesse da una specifica tipologia di sensori. Ciò mi permetterà di analizzare dettagliatamente le misurazioni raccolte in un periodo di interesse specifico.
+            \item Come autorità locale, desidero disporre della capacità di applicare filtri per la visualizzazione delle misurazioni, consentendo un'analisi dettagliata e focalizzata attraverso una combinazione di criteri selettivi.
 \end{itemize}

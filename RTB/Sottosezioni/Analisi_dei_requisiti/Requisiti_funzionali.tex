@@ -64,7 +64,7 @@
     \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & La dashboard deve mostrare un widget distinto per ciascun tipo di sensore attivo che trasmette dati al sistema, contenente le misurazioni in formato grafico. & Decisione interna & UC1.1 \\
 
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & Ogni widget che visualizza le misurazioni deve includere, insieme ai dati stessi, informazioni sull'identificativo dei sensori che hanno contribuito a quelle misurazioni. & Decisione interna & UC3.1 \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & Ogni widget che visualizza le misurazioni deve includere, insieme ai dati stessi, informazioni sull'identificativo dei sensori che hanno contribuito a quelle misurazioni. & Decisione interna & UC1.1.1.1 \\
 
     \hline
     \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & La dashboard deve includere un widget dedicato alle misurazioni dei sensori di temperatura. & Capitolato & UC6 \\
@@ -100,10 +100,10 @@
     \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & L'utente deve avere la possibilità di selezionare una cella, ovvero un'area specifica della città, al fine di visualizzare una dashboard dedicata contenente esclusivamente sensori, misurazioni e punteggio di salute correlati a essa. & Capitolato & UC2 \\
 
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & L'utente deve poter filtrare la visualizzazione delle misurazioni di una specifica tipologia di sensori inserendo uno specifico intervallo temporale. & Decisione interna & UC12 \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & L'utente deve poter filtrare la visualizzazione delle misurazioni di una specifica tipologia di sensori inserendo uno specifico intervallo temporale. & Decisione interna & UC12.1 \\
 
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & Il sistema deve verificare la validità dell'intervallo temporale inserito dall'utente. & Decisione interna & UC12 \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & Il sistema deve verificare la validità dell'intervallo temporale inserito dall'utente. & Decisione interna & UC12.1 \\
 
     \hline
     \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & In caso di intervallo temporale non valido, il sistema deve generare una notifica di errore. & Decisione interna & UC30 \\
@@ -115,16 +115,16 @@
     \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & La notifica di errore relativa all'inserimento di un intervallo temporale non valido deve essere chiara e informativa, indicando il motivo specifico dell'invalidità dell'intervallo temporale (data fine precedente a data inizio, arco temporale precedente o antecedente all'inizio della trasmissione dati). & Decisione interna & UC30 \\
 
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & L'utente ha la possibilità di selezionare l'intervallo temporale desiderato (secondo, minuto, ora, giorno, mese, anno) per aggregare le misurazioni in base al relativo periodo di registrazione corrispondente. & Decisione interna & UC14 \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & L'utente ha la possibilità di selezionare l'intervallo temporale desiderato (secondo, minuto, ora, giorno, mese, anno) per aggregare le misurazioni in base al relativo periodo di registrazione corrispondente. & Decisione interna & UC13 \\
 
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & Il sistema deve essere in grado di adattare dinamicamente la rappresentazione delle misurazioni secondo un intervallo temporale di aggregazione selezionato dall'utente. & Decisione interna & UC14 \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & Il sistema deve essere in grado di adattare dinamicamente la rappresentazione delle misurazioni secondo un intervallo temporale di aggregazione selezionato dall'utente. & Decisione interna & UC13 \\
 
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio &  L'utente deve avere la possibilità di definire due valori (un minimo e un massimo) per filtrare le misurazioni dei sensori di una specifica tipologia, utilizzando questi limiti come criterio per visualizzare solo i dati compresi in quei range. & Decisione interna & UC14 \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio &  L'utente deve avere la possibilità di definire due valori (un minimo e un massimo) per filtrare le misurazioni dei sensori di una specifica tipologia, utilizzando questi limiti come criterio per visualizzare solo i dati compresi in quei range. & Decisione interna & UC12.2 \\
 
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & Il sistema deve verificare la validità dell'intervallo di rilevamento inserito dall'utente. & Decisione interna & UC14 \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & Il sistema deve verificare la validità dell'intervallo di rilevamento inserito dall'utente. & Decisione interna & UC12.2 \\
 
     \hline
     \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & In caso di intervallo di rilevamento non valido, il sistema deve generare una notifica di errore. & Decisione interna & UC32 \\
@@ -136,10 +136,10 @@
     \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & La notifica di errore relativa all'inserimento di un intervallo di rilevamento non valido deve essere chiara e informativa, indicando il motivo specifico dell'invalidità dell'intervallo di rilevamento (data fine precedente a data inizio, arco temporale precedente o antecedente all'inizio della trasmissione dati). & Decisione interna & UC32 \\
     
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & L'utente deve avere la possibilità di filtrare le misurazioni selezionando uno o più sensori di una specifica categoria in modo tale da visualizzare esclusivamente le misurazioni corrispondenti ai sensori selezionati. & Decisione interna & UC16 \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & L'utente deve avere la possibilità di filtrare le misurazioni selezionando uno o più sensori di una specifica categoria in modo tale da visualizzare esclusivamente le misurazioni corrispondenti ai sensori selezionati. & Decisione interna & UC12.4 \\
 
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & L'utente deve poter filtrare la visualizzazione delle misurazioni di una specifica tipologia di sensori selezionando una o più specifiche celle come criterio di filtro. & Decisione interna & UC15 \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & L'utente deve poter filtrare la visualizzazione delle misurazioni di una specifica tipologia di sensori selezionando una o più specifiche celle come criterio di filtro. & Decisione interna & UC12.3 \\
     
     \hline
     \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & L'utente deve poter applicare più filtri simultaneamente per la visualizzazione delle misurazioni di una specifica tipologia di sensori. & Decisione interna & UC17 \\
