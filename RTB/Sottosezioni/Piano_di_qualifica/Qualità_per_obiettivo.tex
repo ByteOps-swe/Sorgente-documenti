@@ -27,9 +27,11 @@ La progettazione è un processo in cui vengono definite le specifiche tecniche e
         \hline
         \textbf{M25ATC} & Accoppiamento Tra Classi & $\leq 4$  & $\leq 2$ \\
         \hline
-        \textbf{M26PG} & Profondità delle Gerarchie & $\leq 5$  & $\leq 3$ \\
+        \textbf{M30PG} & Profondità delle Gerarchie & $\leq 5$  & $\leq 3$ \\
         \hline
-        \textbf{M28FU} & Facilità di Utilizzo & $\leq 7$ \textit{click}  & $\leq 5$ \textit{click} \\
+        \textbf{M32FU} & Facilità di Utilizzo & $\leq 7$ \textit{click}  & $\leq 5$ \textit{click} \\
+        \hline
+        \textbf{M33TA} & Tempo di Apprendimento & $\leq 15$ \textit{minuti}  & $\leq 10$ \textit{minuti} \\
         \hline
     \caption{Progettazione - Metriche e indici di qualità.}
     \label{tab:progettazione_progetto}
@@ -48,11 +50,7 @@ adatte allo sviluppo del progetto.
         \hline
         \textbf{M3CPI} & Cost Performance Index & $\pm 10\%$ & $0\%$ \\
         \hline
-        \textbf{M4BV} & Budget Variance & $\geq -10\%$ & $0\%$ \\
-        \hline
         \textbf{M5AC} & Actual Cost & $\geq 0 $ & $ \leq$ EAC  \\
-        \hline
-        \textbf{M6SV} & Schedule Variance & $\geq -10\%$ & $0\%$ \\
         \hline
         \textbf{M7EV} & Earned Value & $\geq 0 $ & $\leq$ EAC  \\
         \hline
@@ -68,19 +66,21 @@ adatte allo sviluppo del progetto.
 La fase di codifica è essenziale in quanto trasforma il progetto e le specifiche del software in istruzioni comprensibili dalla macchina, permettendo al prodotto software di prendere vita e funzionare effettivamente.
 
 \hspace{1pt}
-    \begin{longtable}{|C{1.5cm}|L{3cm}|L{2.5cm}|L{2.5cm}|}
+    \begin{longtable}{|C{1.8cm}|L{3cm}|L{2.5cm}|L{2.5cm}|}
         \hline
         \textbf{Metrica} & \textbf{Nome} & \textbf{Valore di accettazione} & \textbf{Valore preferibile} \\
         \hline
-        \textbf{M29MCCM} & Complessità Ciclomatica per Metodo & $\leq 5$ & $\leq 3$ \\
+        \textbf{M26MCCM} & Complessità Ciclomatica per Metodo & $\leq 5$ & $\leq 3$ \\
         \hline
-        \textbf{M30PM} & Parametri per Metodo & $\leq 6$ & $\leq 5$ \\
+        \textbf{M27PM} & Parametri per Metodo & $\leq 6$ & $\leq 5$ \\
         \hline
-        \textbf{M31APC} & Attributi Per Classe & $\leq 6$ & $\leq 4$ \\
+        \textbf{M28APC} & Attributi Per Classe & $\leq 6$ & $\leq 4$ \\
         \hline
-        \textbf{M32LCM} & Linee di Codice per Metodo & $\leq 30$ & $\leq 20$ \\
+        \textbf{M29LCM} & Linee di Codice per Metodo & $\leq 30$ & $\leq 20$ \\
         \hline
-        \textbf{M27TMR} & Tempo Medio di Risposta & $\leq 10$ \textit{secondi}  & $\leq 4$ \textit{secondi} \\
+        \textbf{M31TMR} & Tempo Medio di Risposta & $\leq 10$ \textit{secondi}  & $\leq 4$ \textit{secondi} \\
+        \hline
+        \textbf{M34VBS} & Versioni dei Browser Supportate & $\geq 80\%$ & $100\%$ \\
         \hline
     \caption{Codifica - Metriche e indici di qualità.}
     \label{tab:metriche}
@@ -97,9 +97,9 @@ La fase di codifica è essenziale in quanto trasforma il progetto e le specifich
         \hline
         \textbf{Metrica} & \textbf{Nome} & \textbf{Valore di accettazione} & \textbf{Valore preferibile} \\
         \hline
-        \textbf{M19CO} & Correttezza Ortografica & $0$ & $0$ \\
+        \textbf{M22CO} & Correttezza Ortografica & $0$ & $0$ \\
         \hline
-        \textbf{M20IG} & Indice Gulpease & $\geq 40$ & $\geq 60$ \\
+        \textbf{M23IG} & Indice Gulpease & $\geq 40$ & $\geq 60$ \\
         \hline
     \caption{Documentazione - Metriche e indici di qualità.}
     \label{tab:metriche_testo}
@@ -117,9 +117,9 @@ La fase di codifica è essenziale in quanto trasforma il progetto e le specifich
     \hline
     \textbf{M17CNC} & CoNdition Coverage & $\geq 80\%$ & $100\%$ \\
     \hline
-    \textbf{M16PCTS} & Percentuale di Casi di Test Superati & $\geq 80\%$ & $100\%$ \\
+    \textbf{M13PCTS} & Percentuale di Casi di Test Superati & $\geq 80\%$ & $100\%$ \\
     \hline
-    \textbf{M17PCTF} & Percentuale di Casi di Test Falliti & $\leq 20\%$ & $0\%$ \\
+    \textbf{M14PCTF} & Percentuale di Casi di Test Falliti & $\leq 20\%$ & $0\%$ \\
     \hline
 \caption{Verifica - Metriche e indici di qualità.}
 \label{tab:metriche_testo}
@@ -169,7 +169,7 @@ La pianificazione organizza obiettivi, risorse e tempistiche per guidare il succ
         \hline
         \textbf{M12VR} & Variazione dei Requisiti & $\leq 3$ & $0$ \\
         \hline
-        \textbf{M22IF} & Implementazione delle Funzionalità & $ 100\%$ & $ 100\%$ \\
+        \textbf{M21IF} & Implementazione delle Funzionalità & $ 100\%$ & $ 100\%$ \\
         \hline
     \caption{Pianificazione - Metriche e indici di qualità.}
     \label{tab:metriche_pianificazione}
@@ -181,7 +181,7 @@ La pianificazione organizza obiettivi, risorse e tempistiche per guidare il succ
         \hline
         \textbf{Metrica} & \textbf{Nome} & \textbf{Valore di accettazione} & \textbf{Valore preferibile} \\
         \hline
-        \textbf{M21DE} & Densità Errori & $\leq 10\%$ & $ 0\%$ \\
+        \textbf{M24DE} & Densità Errori & $\leq 10\%$ & $ 0\%$ \\
         \hline
     \caption{Miglioramento - Metriche e indici di qualità.}
     \label{tab:metriche_miglioramento}
