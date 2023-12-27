@@ -39,7 +39,7 @@ Questo approccio porta diversi vantaggi, tra cui una maggiore coerenza, una migl
 
 \subsubsection{Sorgente documenti}
 Poiché i documenti vengono redatti in LaTeX, per favorire una migliore collaborazione tra diversi autori, si è scelto di creare un file sorgente per ciascuna sezione e sottosezione di ogni documento. Questo approccio consente a ciascun autore di lavorare sulle singole sezioni o sottosezioni, evitando di apportare modifiche a parti del documento non pertinenti al proprio ambito. Infine, si creerà un file principale che prenderà il nome del documento, nel quale verranno collegati tutti i file delle varie sezioni e sottosezioni mediante l'uso del comando \verb|\input{Sezione.tex}| o, nel caso delle sottosezioni, \verb|\input{Sottosezione.tex}|.
-Nel caso dei Verbali, essendo documenti molto brevi, non si utilizza questo approccio.
+Nel caso dei Verbali, essendo documenti composti da sezioni molto brevi, non si utilizza questo approccio.
 
 \subsubsection{Ciclo di vita dei documenti}
 Il ciclo di vita dei documenti è una sequenza di stati e attività:
@@ -89,7 +89,7 @@ Dalla repository  "Sorgente documenti" contenente i sorgenti \LaTeX, il redattor
     git checkout -b branch_identificativoTask 
 \end{lstlisting}
 
-Il nome del branch destinato alla redazione o modifica del documento o di una sua sezione deve essere descrittivo al fine di consentire un'identificazione immediata e precisa del documento o della sezione su cui si sta lavorando. Pertanto, relativamente alla redazione dei documenti, devonono essere adottatate le \textbf{convenzioni per la nomenclatura dei branch} esposte nella sezione 3.4.3.2.
+Il nome del branch destinato alla redazione o modifica del documento o di una sua sezione deve essere descrittivo al fine di consentire un'identificazione immediata e precisa del documento o della sezione su cui si sta lavorando. Pertanto, relativamente alla redazione dei documenti, devonono essere adottatate le \textbf{convenzioni per la nomenclatura dei branch} esposte all'interno della sezione 3.4.3.2.
 
 A questo punto, dopo aver creato il documento,la sezione o la modifca assegnata e avviato la stesura, affinché gli altri redattori possano continuare il lavoro, è necessario rendere il branch accessibile anche nella repository remota, seguendo i seguenti passaggi:
 \begin{lstlisting}[style=code]
