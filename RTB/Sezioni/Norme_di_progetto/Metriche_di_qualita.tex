@@ -90,9 +90,9 @@ Le metriche di qualità dei prodotti software e dei processi sono strumenti fond
               \item \textbf{Nome:} Variazione dei Requisiti (VR)
               \item \textbf{Descrizione:} Misura la variazione nei requisiti dal momento della pianificazione.
               \item \textbf{Formula:} \textit{NRA + NRR + NRM}, dove:\begin{itemize}
-                \item \textit{NRA}(Numero Requisiti Aggiunti) è la quantità di requisiti aggiunti dall'ultimo incremento;
-                \item \textit{NRR}(Numero Requisiti Rimossi) è la quantità di requisiti rimossi dall'ultimo incremento.
-                \item \textit{Numero Requisiti Modificati}(Numero Requisiti Modificati) è la quantità di requisiti modificati dall'ultimo incremento.
+                \item \textit{NRA} (Numero Requisiti Aggiunti) è la quantità di requisiti aggiunti dall'ultimo incremento;
+                \item \textit{NRR} (Numero Requisiti Rimossi) è la quantità di requisiti rimossi dall'ultimo incremento.
+                \item \textit{NRM} (Numero Requisiti Modificati) è la quantità di requisiti modificati dall'ultimo incremento.
               \end{itemize}
           \end{itemize}
     
@@ -114,21 +114,21 @@ Le metriche di qualità dei prodotti software e dei processi sono strumenti fond
           \begin{itemize}
               \item \textbf{Nome:} Statement Coverage (MSC)
               \item \textbf{Descrizione:} Misura il numero di istruzioni che sono state eseguite almeno una volta.
-              \item \textbf{Formula:} $MSC = \frac{\text{istruzioni eseguite}}{\text{istruzioni totali}} \times 100$
+              \item \textbf{Formula:} $MSC = \frac{istruzioni \ eseguite}{istruzioni \ totali} \times 100$
           \end{itemize}
 
           \item \textbf{Metrica M16BC:}
           \begin{itemize}
               \item \textbf{Nome:} Branch Coverage (MBC)
               \item \textbf{Descrizione:} Indice di quante diramazioni del codice vengono eseguite dai test. Un branch è uno dei possibili percorsi di esecuzione che il codice può seguire dopo che un'istruzione decisionale viene valutata.
-              \item \textbf{Formula:} $MBC = \frac{\text{flussi funzionali implementati e testati}}{\text{flussi condizionali riusciti e non}} \times 100$
+              \item \textbf{Formula:} $MBC = \frac{flussi \ funzionali \ implementati \ e \ testati}{flussi \ condizionali \ riusciti \ e \ non} \times 100$
           \end{itemize}
 
           \item \textbf{Metrica M17CNC:}
           \begin{itemize}
               \item \textbf{Nome:} CoNdition Coverage (CNC)
               \item \textbf{Descrizione:} Metrica di copertura del codice che indica la percentuale di condizioni logiche nel codice sorgente che sono state eseguite durante i test.
-              \item \textbf{Formula:} $CNC = \frac{\textit{Numero di Operandi Eseguiti}}{\textit{Numero Totale di Operandi Eseguiti}} \times 100$
+              \item \textbf{Formula:} $CNC = \frac{numero \ di \ operandi \ eseguiti}{numero \ totale \ di \ operandi \ eseguiti} \times 100$
           \end{itemize}
 \end{itemize}
 
@@ -199,7 +199,7 @@ Le metriche di qualità dei prodotti software e dei processi sono strumenti fond
                   \begin{itemize}
                       \item \textbf{Nome:} Densità degli Errori (DE)
                       \item \textbf{Descrizione:} Misura la percentuale di errori presenti nel prodotto rispetto al totale del codice.
-                      \item \textbf{Formula:} $DE = \frac{\textit{Numero di errori}}{\textit{Totale delle linee di codice}} \times 100$
+                      \item \textbf{Formula:} $DE = \frac{numero \ di \ errori}{totale \ delle \ linee \ di \ codice} \times 100$
                       \item \textbf{Caratteristica di qualità:} Affidabilità.
                   \end{itemize}
 
@@ -216,7 +216,11 @@ Le metriche di qualità dei prodotti software e dei processi sono strumenti fond
             \item \textbf{Nome:} Complessità Ciclomatica per Metodo (MCCM)
             \item \textbf{Descrizione:} Misura il numero di cammini linearmente indipendenti attraverso il grafo di controllo di flusso del metodo.
             \item \textbf{Formula:} $MCCM = e - n + 2$
-            \item \textbf{Dove:}\textit{e}: numero di archi del grafo del flusso di esecuzione del metodo;\\ \textit{n}: numero di vertici del grafo del flusso di esecuzione del metodo.
+            \item \textbf{Dove:}
+            \begin{itemize}
+                        \item \textit{e}: Numero di archi del grafo del flusso di esecuzione del metodo.
+                        \item \textit{n}: Numero di vertici del grafo del flusso di esecuzione del metodo.
+            \end{itemize}
             \item \textbf{Caratteristica di qualità:} Manutenibilità.
         \end{itemize}
 
@@ -252,7 +256,7 @@ Le metriche di qualità dei prodotti software e dei processi sono strumenti fond
                   \begin{itemize}
                       \item \textbf{Nome:} Tempo Medio di Risposta (TMR)
                       \item \textbf{Descrizione:} Metrica che misura quanto è efficiente e reattivo un sistema software.
-                      \item \textbf{Formula:}$\frac{\textit{Somma dei tempi di risposta}}{\textit{Numero totale di misurazioni}}$
+                      \item \textbf{Formula:}$\frac{somma \ dei \ tempi \ di \ risposta}{numero \ totale \ di \ misurazioni}$
                       \item \textbf{Caratteristica di qualità:} Efficienza.
                     \end{itemize}  
 
