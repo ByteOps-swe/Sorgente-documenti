@@ -119,6 +119,7 @@ jobs:
 
               cd "Documents/$(dirname "$path")"
               pdflatex  -synctex=1 -interaction=nonstopmode -file-line-error -recorder "$(basename "$new_name")"
+              pdflatex  -synctex=1 -interaction=nonstopmode -file-line-error -recorder "$(basename "$new_name")"
               cd "$initial_dir"
 
             elif [[ "$path" == */Sezioni/*.tex || "$path" == */Sottosezioni/*.tex ]]; then
@@ -147,6 +148,7 @@ jobs:
             
             
             cd "$(dirname "$file_to_compile")"
+            pdflatex  -synctex=1 -interaction=nonstopmode -file-line-error -recorder "$(basename "$file_to_compile")"
             pdflatex  -synctex=1 -interaction=nonstopmode -file-line-error -recorder "$(basename "$file_to_compile")"
             cd "$initial_dir"
 
