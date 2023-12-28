@@ -49,11 +49,44 @@ I repository destinati alla documentazione sono organizzati come segue:
 
 
 \paragraph{Sincronizzazione e Branching}
-\textbf{Documentazione:}
+\textbf{Documentazione} \\
 Il processo operativo utilizzato per la redazione della documentazione, noto come "feature branch workflow", implica la creazione di un ramo dedicato per ciascun documento o sezione da elaborare.
-Tale metodologia permette una parallelizzazione agile dei lavori evitando sovrascritture indesiderate di altri lavori e permette l'adozione dei principi "Documentation as code". % ~\ref{sec:DocumentationAsCode} 
+Tale metodologia permette una parallelizzazione agile dei lavori evitando sovrascritture indesiderate di altri lavori e permette l'adozione dei principi "Documentation as code". \\ % ~\ref{sec:DocumentationAsCode} 
 
-\textbf{Sviluppo:}
+\textbf{Convenzioni per la nomenclatura dei branch relativi alle attività di redazione o modifica di documenti} \\
+
+\begin{itemize}
+    \item Il nome del branch deve presentare l'identificativo del documento che si vuole redarre o modificare. \\
+    Ad ogni documento è associato un identificativo, come descritto nella seguente tabella:
+\end{itemize}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        Documento & ID \\
+        \hline
+        Verbale interno & VI \\
+        Verbale esterno & VE \\
+        Norme di Progetto & NdP \\
+        Piano di Qualifica & PdQ \\
+        Piano di Progetto & PdP \\ 
+        Analisi dei Requisiti & AdR \\
+        \hline
+    \end{tabular}
+    \caption{ID per la nomenclatura dei branch relativi alla documentazione}
+\end{table}
+
+\begin{itemize}
+    \item Nel caso dei verbali, dopo l'identificativo del documento si aggiunge un underscore seguito dalla data: \\
+    \texttt{IdDocumento\_dd-mm-yyyy} (ex. VI\_27-12-2023);
+    \item Nel caso della redazione di una specifica sezione di un documento, il nome del branch deve avere il formato: \\
+    \texttt{IdDocumento\_NomeSezione} (ex. NdP\_Documentazione);
+    \item Nel caso di modifica di una specifica sezione di un documento, il nome del branch deve avere il formato: \\
+    \texttt{IdDocumento\_ModNomeSezione} (ex. NdP\_ModDocumentazione).
+\end{itemize}
+
+\textbf{Sviluppo} \\
 Gitflow è lo stile di flusso di lavoro Git che utilizza il team ByteOps per lo sviluppo.
 
 \paragraph*{Flusso generale di Gitflow}
