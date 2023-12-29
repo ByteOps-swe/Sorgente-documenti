@@ -4,16 +4,14 @@
       \item \textbf{Precondizioni:}
             \begin{itemize} 
                   \item L'autorità locale specifica un intervallo temporale non valido per la visualizzazione filtrata delle misurazioni;
-                  \item Il sistema rileva l'invalidità dell'intervallo temporale specificato dall'autorità locale.
             \end{itemize}
-      \item \textbf{Postcondizioni:}
+            \item \textbf{Postcondizioni:}
             \begin{itemize}
-                  \item L'autorità locale visualizza un messaggio di errore e viene richiesto l'inserimento di un nuovo intervallo temporale.
+                  \item L'autorità locale visualizza un messaggio di errore.
             \end{itemize}
-      \item \textbf{Scenario principale:}
-                  \begin{enumerate}
-                  \item L'autorità locale visualizza di un messaggio di errore;
-                  \item Il sistema richiede all'autorità locale di inserire un intervallo temporale valido.
+            \item \textbf{Scenario principale:}
+            \begin{enumerate}
+                  \item Il sistema rileva l'invalidità dell'intervallo temporale specificato dall'autorità locale.
                   \end{enumerate}
       \item \textbf{User story associata:} \\
             Come autorità locale, desidero ricevere una notifica immediata nel caso in cui selezioni un intervallo temporale non valido come filtro per la visualizzazione delle misurazioni. Questo mi permetterà di ricevere un feedback istantaneo e mi darà la possibilità di inserire successivamente un intervallo temporale corretto.
