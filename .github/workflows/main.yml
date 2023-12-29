@@ -32,6 +32,8 @@ jobs:
       - name: Get changed files
         id: changed-files
         uses: tj-actions/changed-files@v40
+        with: 
+          path: Documents
 
 
       - name: Run Python script to modify LaTeX file
