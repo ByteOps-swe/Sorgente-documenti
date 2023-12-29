@@ -124,7 +124,7 @@ jobs:
               fi
 
               cd "Documents/$(dirname "$path")"
-              pdflatex -draftmode "$(basename "$new_name")"
+              pdflatex -synctex=1 -interaction=nonstopmode -file-line-error -recorder "$(basename "$new_name")"
               pdflatex -synctex=1 -interaction=nonstopmode -file-line-error -recorder "$(basename "$new_name")"
               cd "$initial_dir"
 
