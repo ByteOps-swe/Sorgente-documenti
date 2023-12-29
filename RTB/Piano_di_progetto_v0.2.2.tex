@@ -1,0 +1,128 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[default]{raleway}
+\usepackage[table]{xcolor}
+\usepackage{booktabs} 
+\usepackage{ragged2e}
+\usepackage{subcaption}
+\usepackage{pgf-pie, multirow, longtable, tikz, titlesec, comment, tabularx, makecell, float, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, hyperref, eurosym}
+%\geometry{a4paper, left=2cm, right=2cm, top=2cm, bottom=2.5cm}
+
+\renewcommand{\headrulewidth}{0pt}
+
+% ----------------------------- Definizione tabella ---------------------------
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+% ------------------------------Metadati indice --------------------------------
+\title{\textbf{\fontsize{30}{6}\selectfont Indice}}
+\author{\fontsize{14}{6}\selectfont ByteOps}
+\date{}
+
+% -----------------------------Creazione footer --------------------------------
+\pagestyle{fancy} 
+\fancyhf{}
+\renewcommand{\footrulewidth}{0.4pt} 
+\lfoot{ 
+    \parbox[c]{2cm}{\includegraphics[width=2cm]{../Images/logo.png}}
+    \textcolor[RGB]{120, 120, 120}{$\cdot$ Piano di progetto}
+}
+\rfoot{\thepage}
+
+% --------------------------Modifica formato hyperlinks ------------------------
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    pdftitle={Piano di progetto},
+    pdfpagemode=FullScreen,
+}
+
+\definecolor{responsabile}{RGB}{0,102,204}
+\definecolor{amministratore}{RGB}{0,204,102}
+\definecolor{analista}{RGB}{255,165,0}
+\definecolor{progettista}{RGB}{255,0,0}
+\definecolor{programmatore}{RGB}{128,0,128}
+\definecolor{verificatore}{RGB}{255,192,203}
+
+\definecolor{responsabile}{RGB}{0,102,204}
+\definecolor{amministratore}{RGB}{0,204,102}
+\definecolor{analista}{RGB}{255,165,0}
+\definecolor{progettista}{RGB}{255,0,0}
+\definecolor{programmatore}{RGB}{128,0,128}
+\definecolor{verificatore}{RGB}{255,192,203}
+
+\begin{document}
+\pagestyle{fancy}
+\begin{center}
+    \includegraphics[width = 0.7\textwidth]{../Images/logo.png} \\
+    \vspace{0.2cm}
+    \textcolor[RGB]{60, 60, 60}{\textit{ByteOps.swe@gmail.com}} \\
+    \vspace{1cm}
+    \fontsize{16}{6}\selectfont Piano di progetto \\
+    \vspace{0.5cm}
+\end{center}
+
+\section*{Informazioni documento}
+\def\arraystretch{1.2}
+\begin{tabular}{>{\raggedleft\arraybackslash}p{0.2\textwidth}|>{\raggedright\arraybackslash}p{0.6\textwidth}c}
+    \hline
+    \addlinespace
+    \textbf{Redattori}      & A. Barutta             \\ & R. Smanio \\ & N. Preto \vspace{10pt} \\
+    \textbf{Verificatori}   & E. Hysa                \\ & L. Skenderi \\ & D. Diotto \vspace{10pt} \\
+    \textbf{Amministratore} & F. Pozza \vspace{10pt} \\
+    \textbf{Destinatari}    & T. Vardanega           \\ & R. Cardin \vspace{10pt} \\
+    \textbf{Partecipanti}   & A. Barutta             \\ & E. Hysa \\ & R. Smanio \\ & D. Diotto \\ & F. Pozza \\ & L. Skenderi \\ & N. Preto \vspace{10pt} \\
+\end{tabular}
+\pagebreak
+
+% ------------------------- Changelog ----------------------------
+\begin{tabular}{|C{1.5cm}|C{2cm}|C{2cm}|C{2cm}|C{4.5cm}|}
+    \hline 
+    \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Dettaglio}            \\
+    \hline
+    \label{Git_Action_Version} 0.2.3 & 10/11/2023 & R.Smanio & A. Barutta & RTB - Terzo periodo \\
+    \hline
+     0.2.2 & 10/11/2023 & A.Barutta & D. Diotto & RTB - Secondo periodo \\
+    \hline
+     0.2.1 & 10/11/2023 & A.Barutta & E.Hysa & RTB - Primo periodo \\
+    \hline
+     0.2.0 & 10/11/2023 & A.Barutta & E.Hysa & Aggiunti sez. pianificazione,preventivo, consuntivo \\
+    \hline
+    0.1.2 & 8/11/2023 & A.Barutta & E.Hysa & Aggiunto calendario e stima costi  \\
+    \hline
+    0.1.1 & 07/11/2023 & E.Hysa & L.Skenderi & Aggiunti nuovi rischi attesi \\
+    \hline
+    0.1.0 & 05/11/2023 & E.Hysa & L.Skenderi & Aggiunta sez. rischi \\
+    \hline 
+    0.0.1 & 03/11/2023 & A.Barutta & E.Hysa & Prima impostazione documento\\
+    \hline 
+\end{tabular}
+
+\pagebreak
+
+% ------------------------- Generazione automatica indice ----------------------
+\setstretch{1.5}
+\maketitle
+\thispagestyle{fancy}
+\tableofcontents
+\setcounter{tocdepth}{4}
+\listoffigures % Indice delle figure
+\setstretch{1.2}
+\pagebreak
+
+% ---------------------------- Inizio documento -------------------------------
+
+\flushleft
+
+\input{Sezioni/Piano_di_progetto/Introduzione.tex}
+
+\input{Sezioni/Piano_di_progetto/Analisi_dei_rischi.tex}
+
+\input{Sezioni/Piano_di_progetto/Calendario_del_progetto.tex}
+
+\input{Sezioni/Piano_di_progetto/Stima_dei_costi_realizzazione.tex}
+
+\input{Sezioni/Piano_di_progetto/Pianificazione_preventivo_consuntivo.tex}
+
+\end{document}

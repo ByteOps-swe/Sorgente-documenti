@@ -28,7 +28,7 @@
 % ------------------------------Metadati indice --------------------------------
 \title{\textbf{\fontsize{28}{6}\selectfont Indice}}
 \author{\fontsize{14}{6}\selectfont ByteOps}
-\date{Mese Giorno, Anno}
+\date{Dicembre 15, 2023}
 
 
 % -----------------------------Creazione footer --------------------------------
@@ -37,8 +37,8 @@
 \fancyhf{}
 \renewcommand{\footrulewidth}{0.4pt}
 \lfoot{
-    \parbox[c]{2cm}{\includegraphics[width=2cm]{../../Images/logo.png}}
-    \textcolor[RGB]{120, 120, 120}{$\cdot$ Verbale Esterno}
+    \parbox[c]{2cm}{\includegraphics[width=2cm]{../../../Images/logo.png}}
+    \textcolor[RGB]{120, 120, 120}{$\cdot$ Verbale Interno}
 }
 \rfoot{\thepage}
 
@@ -48,7 +48,7 @@
     colorlinks=true,
     linkcolor=black,
     filecolor=black,      
-    pdftitle={Verbale Esterno dd/mm/yyyy},  %inserisci data verbale
+    pdftitle={Verbale Interno 15/12/2023},  %inserisci data verbale
     pdfpagemode=FullScreen,
 }
 
@@ -79,17 +79,17 @@
 
 % --------------------------Aggiunta firma finale ------------------------
 \begin{textblock*}{\textwidth}(0.85\textwidth, 1.16\textheight)
-    Il responsabile: Nome Cognome
+    Il responsabile: Riccardo Smanio
 \end{textblock*}
 % ------------------------------------------------------------------------
 
 \pagestyle{fancy}
 \begin{center}
-\includegraphics[width = 0.7\textwidth]{../../Images/logo.png} \\
+\includegraphics[width = 0.7\textwidth]{../../../Images/logo.png} \\
 \vspace{0.2cm}
 \textcolor[RGB]{60, 60, 60}{\textit{ByteOps.swe@gmail.com}} \\
 \vspace{1cm}
-\fontsize{16}{6}\selectfont Verbale Esterno $\cdot$ Data: dd/mm/yyyy \\
+\fontsize{16}{6}\selectfont Verbale Interno $\cdot$ Data: 15/12/2023 \\
 \vspace{0.5cm}
 \end{center}
 
@@ -98,13 +98,13 @@
 \begin{tabular}{>{\raggedleft\arraybackslash}p{0.2\textwidth}|>{\raggedright\arraybackslash}p{0.6\textwidth}c}
 \hline
 \addlinespace
-\textbf{Luogo} & Luogo \vspace{10pt} \\
-\textbf{Orario} & hh:mm - hh:mm \vspace{10pt} \\
-\textbf{Redattore} & Nome \vspace{10pt} \\
-\textbf{Verificatore} & Nome \vspace{10pt} \\
-\textbf{Amministratore} & Nome \vspace{10pt} \\
+\textbf{Luogo} & Discord \vspace{10pt} \\
+\textbf{Orario} & 14:30 - 15:30 \vspace{10pt} \\
+\textbf{Redattore} & N. Preto \vspace{10pt} \\
+\textbf{Verificatore} & D. Diotto \vspace{10pt} \\
+\textbf{Amministratore} & D. Diotto \vspace{10pt} \\
 \textbf{Destinatari} & T. Vardanega \\ & R. Cardin \vspace{10pt} \\
-\textbf{Partecipanti} & A. Barutta \\ & E. Hysa \\ & R. Smanio \\ & D. Diotto \\ & F. Pozza \\ & L. Skenderi \\ & N. Preto \\ & A. Dorigo \\ & D. Zorzi \\ & F. Pallaro \vspace{10pt} \\
+\textbf{Partecipanti} & A. Barutta \\ & E. Hysa \\ & R. Smanio \\ & D. Diotto \\ & F. Pozza \\ & L. Skenderi \\ & N. Preto \vspace{10pt} \\
 \end{tabular}
 \pagebreak 
 
@@ -116,7 +116,7 @@
     \hline
     \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Dettaglio} \\
     \hline \hline
-    0.0.1 & dd/mm/yyyy & Nome Cognome & Nome Cognome & Descrizione \\
+    0.0.1 & 17/12/2023 & N. Preto & D. Diotto & Redazione documento \\
     \hline
 \end{tabular}
 \pagebreak
@@ -133,20 +133,29 @@
 \flushleft
 
 \section{Revisione del periodo precedente}
+Durante la riunione, è stato esaminato lo stato di avanzamento delle \textit{attività}\textsubscript{\textit{G}} assegnate nella riunione interna precedente, valutando quali \textit{issue}\textsubscript{\textit{G}} sono state completate e quali necessitano di ulteriore tempo per essere portate a termine. \\
+La stesura del documento di Analisi dei Requisiti è quasi completa: tutte le sezioni sono state redatte ad eccezione di quella relativa ai requisiti di vincolo e ai requisiti qualitativi. Inoltre, rimangono alcuni dettagli da perfezionare. \\
+Il documento "Norme di Progetto" è stato completato, come precedentemente indicato nel verbale del meeting precedente, e attualmente è in corso una revisione finale per verificare la coerenza e la coesione di tutte le sezioni. \\
+Il Piano di Qualifica è attualmente in fase di redazione. La maggior parte delle metriche sono già state redatte, ma alcune sezioni sono ancora in fase di lavorazione e devono essere completate. \\
+In conclusione, la pianificazione e l'esecuzione delle \textit{attività}\textsubscript{\textit{G}} sono state condotte in modo metodico, rispettando le tempistiche stabilite e conformandosi alle direttive interne. Di conseguenza, non sono emersi elementi che richiedano una modifica del nostro approccio lavorativo.
 
 \section{Ordine del giorno}
-    \subsection{Subsection 1}
-    \subsection{Subsection 2}
-    \subsection{Subsection 3}
+    \subsection{Miglioramento POC}
+    Attraverso una ricerca sulla possibilità di automatizzare il collegamento della sorgente dati a \textit{Grafana}\textsubscript{\textit{G}} e sulla possibilità di caricare uno specifico set di \textit{widget}\textsubscript{\textit{G}} all'apertura della schermata principale, è stato individuato che ciò è realizzabile tramite l'impiego dei file di configurazione. Nel prossimo sprint, sarà necessario creare due file di configurazione distinti (uno per il data source e uno per la \textit{dashboard}\textsubscript{\textit{G}}) per implementare questa soluzione.
 
+\section{Attività da svolgere}
+    \begin{center}
+        \begin{tabular}{|C{7cm}|C{1,5cm}|C{3cm}|}
+            \hline
+            \textbf{Titolo} & \textbf{\# Issue} & \textbf{Verificatore} \\
+            \hline\hline
+            Inserire configurazione Datasources & 60 & N. Preto \\
+            Inserire configurazione Dashboard & 61 & N. Preto \\
+            Selezione query in base a variabili \textit{Grafana}\textsubscript{\textit{G}} & 62 & N. Preto \\
+            Rimuovere limite di visualizzazione dati nella query & 63 & N. Preto \\
+            Redazione verbale 15/12/2023 & 72 & D. Diotto \\
+            \hline
+        \end{tabular}
+    \end{center}
 
-% ------------------------ Firma Azienda ----------------------
-\begin{textblock*}{\textwidth}(0.22\textwidth, 1.08\textheight)
-    Luogo e Data: Padova, gg/mm/yy
-\end{textblock*}
-
-\begin{textblock*}{\textwidth}(0.90\textwidth, 1.08\textheight)
-        Firma referente Sync Lab:
-\end{textblock*}
-% -------------------------------------------------------------
 \end{document}

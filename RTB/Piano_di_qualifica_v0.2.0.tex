@@ -1,9 +1,12 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
-\usepackage[absolute]{textpos}
 \usepackage[default]{raleway}
-\usepackage{titlesec, comment, tabularx, makecell, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, hyperref}
-\usepackage{colortbl}
+\usepackage{titlesec, comment, tabularx, makecell, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, ragged2e, hyperref, float}
+\usepackage[hypcap=false]{caption}
+\usepackage{todonotes}
+\usepackage{longtable}
+
+\geometry{a4paper, margin=1in}
 %\geometry{a4paper, left=2cm, right=2cm, top=2cm, bottom=2.5cm}
 \renewcommand{\headrulewidth}{0pt}
 
@@ -17,10 +20,10 @@
     backgroundcolor=\color{light-gray},
     basicstyle=\ttfamily,
 }
-
-% ----------------------------- Definizione tabella ---------------------------
+% ----------------------------- Definizione tabella -----------------------------
 
 \newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+\newcolumntype{L}[1]{>{\RaggedRight\arraybackslash}m{#1}}
 
 %\setcellgapes{2ex} % Imposta l'altezza dell'header (2ex)
 
@@ -28,17 +31,16 @@
 % ------------------------------Metadati indice --------------------------------
 \title{\textbf{\fontsize{28}{6}\selectfont Indice}}
 \author{\fontsize{14}{6}\selectfont ByteOps}
-\date{Mese Giorno, Anno}
-
+\date{}
 
 % -----------------------------Creazione footer --------------------------------
 
 \pagestyle{fancy}
 \fancyhf{}
-\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt} 
 \lfoot{
-    \parbox[c]{2cm}{\includegraphics[width=2cm]{../../Images/logo.png}}
-    \textcolor[RGB]{120, 120, 120}{$\cdot$ Verbale Esterno}
+    \parbox[c]{2cm}{\includegraphics[width=2cm]{../Images/logo.png}}
+    \textcolor[RGB]{120, 120, 120}{$\cdot$ Piano di qualifica}
 }
 \rfoot{\thepage}
 
@@ -48,7 +50,7 @@
     colorlinks=true,
     linkcolor=black,
     filecolor=black,      
-    pdftitle={Verbale Esterno dd/mm/yyyy},  %inserisci data verbale
+    pdftitle={Piano di qualifica},
     pdfpagemode=FullScreen,
 }
 
@@ -76,49 +78,43 @@
 % ------------------------------- Front Page ---------------------------------------
 
 \begin{document}
-
-% --------------------------Aggiunta firma finale ------------------------
-\begin{textblock*}{\textwidth}(0.85\textwidth, 1.16\textheight)
-    Il responsabile: Nome Cognome
-\end{textblock*}
-% ------------------------------------------------------------------------
-
 \pagestyle{fancy}
 \begin{center}
-\includegraphics[width = 0.7\textwidth]{../../Images/logo.png} \\
-\vspace{0.2cm}
-\textcolor[RGB]{60, 60, 60}{\textit{ByteOps.swe@gmail.com}} \\
-\vspace{1cm}
-\fontsize{16}{6}\selectfont Verbale Esterno $\cdot$ Data: dd/mm/yyyy \\
-\vspace{0.5cm}
+    \includegraphics[width = 0.7\textwidth]{../Images/logo.png} \\
+    \vspace{0.2cm}
+    \textcolor[RGB]{60, 60, 60}{\textit{ByteOps.swe@gmail.com}} \\
+    \vspace{2cm}
+    \fontsize{16}{6}\selectfont Piano di qualifica \\
+    \vspace{0.5cm}
 \end{center}
 
 \section*{Informazioni documento}
 \def\arraystretch{1.2}
 \begin{tabular}{>{\raggedleft\arraybackslash}p{0.2\textwidth}|>{\raggedright\arraybackslash}p{0.6\textwidth}c}
-\hline
-\addlinespace
-\textbf{Luogo} & Luogo \vspace{10pt} \\
-\textbf{Orario} & hh:mm - hh:mm \vspace{10pt} \\
-\textbf{Redattore} & Nome \vspace{10pt} \\
-\textbf{Verificatore} & Nome \vspace{10pt} \\
-\textbf{Amministratore} & Nome \vspace{10pt} \\
-\textbf{Destinatari} & T. Vardanega \\ & R. Cardin \vspace{10pt} \\
-\textbf{Partecipanti} & A. Barutta \\ & E. Hysa \\ & R. Smanio \\ & D. Diotto \\ & F. Pozza \\ & L. Skenderi \\ & N. Preto \\ & A. Dorigo \\ & D. Zorzi \\ & F. Pallaro \vspace{10pt} \\
+    \hline
+    \addlinespace 
+    \textbf{Redattori}      & A. Barutta               \\ & R. Smanio \\ & N. Preto \vspace{10pt} \\
+    \textbf{Verificatori}   & E. Hysa                  \\ & L. Skenderi \\ & D. Diotto \vspace{10pt} \\
+    \textbf{Amministratore} & F. Pozza \vspace{10pt}   \\
+    \textbf{Destinatari}    & T. Vardanega             \\ & R. Cardin \vspace{10pt} \\
 \end{tabular}
 \pagebreak 
 
 % ------------------------- Changelog ----------------------------
-
 \section*{Registro delle modifiche}
-
-\begin{tabular}{|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|}
+\begin{tabular}{|C{1.5cm}|C{2cm}|C{2cm}|C{2cm}|C{5cm}|}
     \hline
-    \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Dettaglio} \\
+    \textbf{Versione} & \textbf{Data}   & \textbf{Autore}                         & \textbf{Verificatore} & \textbf{Dettaglio} \\
     \hline \hline
-    0.0.1 & dd/mm/yyyy & Nome Cognome & Nome Cognome & Descrizione \\
+    \label{Git_Action_Version} 0.2.0
+    & 27/12/2023      & \makecell{D. Diotto}      & A. Barutta & \makecell{Refactoring Sezione 2 } \\
     \hline
+    0.1.0
+                      & 21/11/2023      & \makecell{A. Barutta}      & E. Hysa & \makecell{Sezione Gestione della \\ configurazione} \\
+    \hline
+
 \end{tabular}
+
 \pagebreak
 
 % ------------------------- Generazione automatica indice ----------------------
@@ -129,24 +125,16 @@
 \setstretch{1.2}
 \pagebreak
 
-% ------------------------ INIZIO DOCUMENTO ----------------------
+
+% ---------------------------- Inizio valutazione -------------------------------
 \flushleft
+\input{Sezioni/Piano_di_qualifica/Introduzione.tex}
 
-\section{Revisione del periodo precedente}
+\newcounter{metriccounter}
+\setcounter{metriccounter}{1} 
 
-\section{Ordine del giorno}
-    \subsection{Subsection 1}
-    \subsection{Subsection 2}
-    \subsection{Subsection 3}
+\input{Sezioni/Piano_di_qualifica/Obiettivi_metrici_di_qualità.tex}
 
+\input{Sezioni/Piano_di_qualifica/Specifica_dei_test.tex}
 
-% ------------------------ Firma Azienda ----------------------
-\begin{textblock*}{\textwidth}(0.22\textwidth, 1.08\textheight)
-    Luogo e Data: Padova, gg/mm/yy
-\end{textblock*}
-
-\begin{textblock*}{\textwidth}(0.90\textwidth, 1.08\textheight)
-        Firma referente Sync Lab:
-\end{textblock*}
-% -------------------------------------------------------------
 \end{document}

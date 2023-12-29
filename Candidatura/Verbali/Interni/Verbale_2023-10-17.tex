@@ -1,0 +1,175 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[absolute]{textpos}
+\usepackage[default]{raleway}
+\usepackage{titlesec, comment, tabularx, makecell, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, hyperref}
+\usepackage{colortbl}
+\usepackage{makecell}
+%\geometry{a4paper, left=2cm, right=2cm, top=2cm, bottom=2.5cm}
+\renewcommand{\headrulewidth}{0pt}
+
+% Definisci uno stile per i comandi git
+\definecolor{light-gray}{gray}{0.92}
+ 
+\lstdefinestyle{code}{ 
+    frame=single,
+    framesep=1mm, 
+    rulecolor=\color{light-gray}, 
+    backgroundcolor=\color{light-gray},
+    basicstyle=\ttfamily,
+}
+
+% ----------------------------- Definizione tabella -----------------------------
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+%\setcellgapes{2ex} % Imposta l'altezza dell'header (2ex)
+
+
+% ------------------------------Metadati indice --------------------------------
+\title{\textbf{\fontsize{28}{6}\selectfont Indice}}
+\author{\fontsize{14}{6}\selectfont ByteOps}
+\date{Ottobre 17, 2023}
+
+
+% -----------------------------Creazione footer --------------------------------
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{
+    \parbox[c]{2cm}{\includegraphics[width=2cm]{../../../Images/logo.png}}
+    \textcolor[RGB]{120, 120, 120}{$\cdot$ Verbale Interno}
+}
+\rfoot{\thepage}
+
+% --------------------------Modifica formato hyperlinks ------------------------
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    pdftitle={Verbale 17-10-2023},
+    pdfpagemode=FullScreen,
+}
+
+% ------------------------------- Valore sotto-paragrafi indice --------------------------------------
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\titleformat{\section}
+{\normalfont\huge\bfseries}{\thesection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsection}
+{\normalfont\Large\bfseries}{\thesubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsubsection}
+{\normalfont\large\bfseries}{\thesubsubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+% ------------------------------- Front Page ---------------------------------------
+
+\begin{document}
+
+% --------------------------Aggiunta firma finale ------------------------
+\begin{textblock*}{\textwidth}(0.85\textwidth, 1.16\textheight)
+    Il responsabile: Davide Diotto
+\end{textblock*}
+% ------------------------------------------------------------------------
+
+\pagestyle{fancy}
+\begin{center}
+\includegraphics[width = 0.7\textwidth]{../../../Images/logo.png} \\
+\vspace{0.2cm}
+\textcolor[RGB]{60, 60, 60}{\textit{ByteOps.swe@gmail.com}} \\
+\vspace{1cm}
+\fontsize{16}{6}\selectfont Verbale Interno $\cdot$ Data: 17/10/2023 \\
+\vspace{0.5cm}
+\end{center}
+
+\section*{Informazioni documento}
+\def\arraystretch{1.2} \begin{tabular}{>{\raggedleft\arraybackslash}p{0.2\textwidth}|>{\raggedright\arraybackslash}p {0.6\textwidth}c}
+\hline
+\addlinespace
+\textbf{Luogo} & In presenza, Univesità di Padova \vspace{10pt} \\
+\textbf{Orario} & 14:00 - 16:00 \vspace{10pt} \\
+\textbf{Redattori} & A. Barutta \\ & R. Smanio \\ & N. Preto \\ \vspace{10pt} \\
+\textbf{Verificatori} & E. Hysa \\ & L. Skenderi \\ & D. Diotto \vspace{10pt} \\ \textbf{Amministratore} & F. Pozza \vspace{10pt} \\
+\textbf{Destinatari} & T. Vardanega \\ & R. Cardin \vspace{10pt} \\
+\textbf{Partecipanti} & A. Barutta \\ & E. Hysa \\ & R. Smanio \\ & D. Diotto \\ & F. Pozza \\
+& L. Skenderi \\ & N. Preto \vspace{10pt} \\ \end{tabular}
+\pagebreak
+% ------------------------- Changelog ----------------------------
+\section*{Registro delle modifiche}
+\begin{tabular}{|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|} \hline
+\textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Dettaglio} \\
+\hline \hline
+0.0.2 & 07/11/2023 & R. Smanio & \makecell{E. Hysa \\ L. Skenderi} & Nuovo template verbali \\ \hline
+0.0.1 & 17/10/2023 & \makecell{A. Barutta \\ R. Smanio} & D. Diotto & Redazione documento\\ \hline
+\end{tabular} 
+% \pagebreak
+
+% ------------------------- Generazione automatica indice ----------------------
+\setstretch{1.5}
+\maketitle
+\thispagestyle{fancy}
+\tableofcontents
+\setstretch{1.2}
+\pagebreak
+
+% ------------------------ INIZIO DOCUMENTO ----------------------
+\flushleft
+
+\section{Revisione del periodo precedente}
+    In considerazione del fatto che questo costituisce il nostro primo incontro e che nessuna attività è stata ancora avviata, ci è preclusa la possibilità di condurre una revisione di quanto fatto nel periodo precedente.
+
+\section{Ordine del giorno}
+
+    \subsection{Scelta nome e logo del gruppo}
+        Successivamente ad un’attenta analisi da parte dei singoli componenti del gruppo rispetto
+        ai vari capitolati proposti, si sono discussi aspetti positivi e negativi di ciascun capitolato ponendo le basi per la scrittura del documento “Valutazione dei capitolati”. \subsection{Analisi e discussione capitolati proposti}
+        Dopo che ogni componente del gruppo ha espresso le proprie preferenze sono stati identificati i capitolati più votati:\\
+        \textbf{\textit{1. C6 - SyncCity: Smart city monitoring platform\\2.C3 - Easy Meal\\3. C5 - WMS3: warehouse management 3D}}
+
+    \subsection{Definizione canali di comunicazione}
+        Si è scelto di adottare \textit{Discord} e \textit{Telegram} come principali canali di comunicazione
+
+    \subsection{Programmazione prossimo meeting}
+        Il prossimo meeting si terrà il 18/10/2023 su Discord. \\
+        Temi da trattare: oltre a rifinire quanto detto oggi, discuteremo in merito alla creazione del repository, way of working, scelta degli strumenti per la produzione dei documenti, pianificazione e definizione delle prossime attività
+
+    \subsection{Definizione linee guida meeting}
+        Le domande che guideranno ogni incontro sono:\\
+        \textbf{\textit{Come sono state svolte le attività assegnate?\\C’è qualcosa che ne ha impedito lo svolgimento?\\ È possibile attuare miglioramenti?\\
+        Quali sono le successive attività da svolgere?\\ Chi le dovrà svolgere?\\ Come dovranno essere svolte?}}\\
+        Questo set di domande guida sarà in evoluzione e permetterà di analizzare il lavoro svolto rispetto al meeting precedente, discutere degli eventuali problemi riscontrati, definire le nuove attività da svolgere ed assegnare i nuovi incarichi dividendo equamente il carico di lavoro tra i vari membri del gruppo.
+
+    \subsection{Definizione dei ruoli per ciascun componente}
+        Sono stati definiti i ruoli che ciascun componente del gruppo avrà fino alla data di aggiu- dicazione degli appalti per la stesura dei documenti. Nome e ruolo di ogni componente è visibile nella prima pagina di questo documento. \\
+        Di seguito una breve descrizione dei compiti dei ruoli individuati:\\– Redattore: si occupa della stesura dei documenti\\
+        – Verificatore: valida quanto scritto dai redattori e lo rilascia nella repository\\
+        – Amministratore: definisce, controlla, e mantiene l’ambiente IT di lavoro e propone risorse informatiche a supporto del way of working.\\
+        – Responsabile: definisce la lista dei to-do, le scadenze e le priorità. Inoltre rappre- senta il gruppo verso l’esterno.
+
+    \subsection{Metodologia produzione documenti}
+        Si è scelto di adottare la seguente metodologia per la realizzazione dei documenti relativi al progetto: la struttura del documento viene concordata tra i vari membri del gruppo e viene stesa una traccia dei contenuti in modo tale da seguire un modello prestabilito facilitando il lavoro individuale dei redattori e garantendo l’omogeneità tra le parti scritte da ciascun componente. Ogni file di documentazione, prima di essere rilasciato nella repository \textit{Git}, deve essere validato dai verificatori.
+
+\section{Attività da svolgere}
+    \begin{center}
+        \begin{tabular}{|C{7cm}|C{1,5cm}|C{3cm}|}
+            \hline
+            \textbf{Titolo} & \textbf{\# Issue} & \textbf{Verificatore} \\
+            \hline\hline
+            Lettera di presentazione & 6 & E.Hysa\\
+            Valutazione dei capitolati & 8 & L.Skenderi\\ Preventivo costi & 7 & E.Hysa \\
+            \hline
+        \end{tabular}
+    \end{center}
+
+\end{document}
