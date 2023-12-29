@@ -1,18 +1,17 @@
 name: Build LaTeX Document
 
 on:
-  pull_request:
-    types:
-      - closed
+  push:
+    branches: [main]
 
 
 jobs:
   Build_Latex:
-    if: |
-      github.event_name == 'pull_request' &&
-      github.event.action == 'closed' &&
-      github.event.pull_request.merged == true &&
-      github.event.pull_request.base.ref == 'TestBranch'
+    # if: |
+    #   github.event_name == 'pull_request' &&
+    #   github.event.action == 'closed' &&
+    #   github.event.pull_request.merged == true &&
+    #   github.event.pull_request.base.ref == 'TestBranch'
     runs-on: ubuntu-latest
 
     steps:
