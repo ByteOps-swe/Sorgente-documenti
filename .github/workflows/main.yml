@@ -12,7 +12,7 @@ jobs:
       github.event_name == 'pull_request' &&
       github.event.action == 'closed' &&
       github.event.pull_request.merged == true &&
-      github.event.pull_request.base.ref == 'protected'
+      github.event.pull_request.base.ref == 'TestBranch'
     runs-on: ubuntu-latest
 
     steps:
