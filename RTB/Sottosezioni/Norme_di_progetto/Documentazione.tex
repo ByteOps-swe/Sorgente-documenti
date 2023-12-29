@@ -16,7 +16,9 @@ L'obiettivo della sezione è:
 Tali norme dovranno essere applicate da tutti i membri del team, ed i sorgenti \LaTeX\ che contengono tale documentazione verranno inseriti nel repository disponibile all'indirizzo:
 \href{https://github.com/ByteOps-swe/Sorgente-documenti}{https://github.com/ByteOps-swe/Sorgente-documenti}
 
-\begin{comment} \paragraph*{Primi approcci alla redazione di documenti e problematiche riscontrate}
+\begin{comment} 
+
+\paragraph*{Primi approcci alla redazione di documenti e problematiche riscontrate}
 Per la composizione iniziale dei documenti richiesti per la candidatura, è stato sperimentato un'approccio che impiegava gli strumenti di Google Drive. Tale metodologia consentiva ai redattori di redigere agevolmente i documenti senza la necessità di padroneggiare la sintassi LaTeX, con l'intenzione di trasporre successivamente il contenuto in LaTeX una volta che fosse stato validato dai verificatori. Tuttavia, questo approccio ha suscitato problematiche, tra cui:
 \begin{itemize}
     \item Rischio di incoerenza tra il contenuto presente negli strumenti di Google Drive.
@@ -24,6 +26,7 @@ Per la composizione iniziale dei documenti richiesti per la candidatura, è stat
 \end{itemize}
 Per tali ragioni si è presa la decisione di adottare un nuovo approccio.
 \end{comment}
+
 \paragraph{Documentation as Code}\label{sec:DocumentationAscode}
 L'approccio che si intende adottare è quello di "Documentation as Code" (Documentazione come Codice) che consiste nel trattare la documentazione di un progetto software allo stesso modo in cui si tratta il codice sorgente. Questo approccio è incentrato sull'utilizzo di pratiche e strumenti tipici dello sviluppo software per creare, gestire e distribuire la documentazione.
 Alcuni aspetti chiave di "Documentation as Code" includono:
@@ -149,8 +152,10 @@ Al termine del loro lavoro, i redattori:
 
 
 Se i verificatori non convalidano il documento (o sezione),i redattori riceveranno feedback allegati alla pull request relativi ai problemi identificati.
+
 \paragraph{I verificatori}
 I compiti e le procedure dei verificatori sono dettagliate al paragrafo ~\ref{sec:verificatori}.
+
 \paragraph{Il responsabile}
 Nel processo di redazione dei documenti, il compito del responsabile consiste nel:
 \begin{itemize}
@@ -171,6 +176,7 @@ Nel processo di redazione dei documenti, il compito dell'amministratore consiste
 \end{itemize}
 \subsubsection{Struttura del documento}
 I documenti ufficiali seguono un rigoroso e uniforme schema strutturale, il quale richiede un'osservanza scrupolosa.
+
 \paragraph*{Prima pagina}
 Nella prima pagina di ogni documento deve essere presente:
 \begin{itemize}
@@ -180,9 +186,11 @@ Nella prima pagina di ogni documento deve essere presente:
     \item Verificatori
     \item Destinatari
 \end{itemize}
+
 \paragraph*{Indice}
 Tutti i documenti generici devono essere provvisti di un indice dove saranno elencate le varie sezioni e sottosezioni, con la possibilità di raggiungerle direttamente tramite click.
 In caso di presenza di figure nel documento, sarà presente anche un indice relativo.
+
 \paragraph*{Pié di pagina}
 In ogni pié di pagina deve essere presente:
 \begin{itemize}
@@ -190,6 +198,7 @@ In ogni pié di pagina deve essere presente:
     \item Nome del documento
     \item Numero di pagina
 \end{itemize}
+
 \paragraph*{Registro delle modifiche}\label{sec:RegistroModifiche}
 Tutti i documenti devono essere provvisti di un registro delle modifiche in formato tabellare che contiene un riassunto
 delle modifiche apportate al documento nel corso del tempo.
@@ -204,6 +213,7 @@ La tabella deve registrare le seguenti informazioni:
     \item \textbf{Descrizione}: un riassunto delle modifiche apportate.
 \end{itemize}
 La convezione per il versionamento è presente al paragrafo : ~\ref{sec:versionamento} .
+
 \paragraph{Verbali: struttura generale}\label{sec:Verbali}
 Questo documento assume l'importante ruolo di costituire un registro ufficiale, atto a riportare in maniera accurata gli argomenti trattati, le decisioni adottate, le azioni da intraprendere e le figure coinvolte.\\
 In particolare, è possibile distinguere tra verbali interni, destinati all'uso interno dell'organizzazione, e verbali esterni, che trovano applicazione quando vi sono terze parti coinvolte nelle discussioni o nelle decisioni documentate.\\
@@ -240,6 +250,7 @@ Ultima pagina:
 Il template dei verbali è disponibile al link:\\ \href{https://github.com/ByteOps-swe/Sorgente-documenti/tree/main/Documents/Verbali/Templates}{https://github.com/ByteOps-swe/Sorgente-documenti/tree/main/Documents/Verbali/Templates}
 
 \subsubsection{Regole tipografiche}
+
 \paragraph*{Documenti del progetto e nome dei File}\label{sec:NomeFile}
 Il nome dei documenti generati deve essere omogeneo, con la prima lettera maiuscola ed il resto minuscolo e, ad eccezione dei verbali, deve contenere un riferimento alla versione del documento (notazione di versionamento:~\ref{sec:RegistroModifiche}).\\
 Nello specifico devono seguire la seguente convenzione:
@@ -258,6 +269,7 @@ Nello specifico devono seguire la seguente convenzione:
     \item  Le date vengono scritte nel formato GG/MM/AAAA.
     \item  I numeri razionali si scrivono utilizzando la virgola come separatore tra parte intera e parte decimale.
 \end{itemize}
+
 \paragraph*{Stile del testo:}
 \begin{itemize}
     \item \textbf{Grassetto}: Titoli delle sezioni, parole o frasi ritenute di rilievo.
