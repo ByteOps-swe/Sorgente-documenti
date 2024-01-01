@@ -75,6 +75,10 @@
     %RF18
     \hline
     \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & La visualizzazione delle misurazioni in formato testuale deve presentare le informazioni nel formato: \texttt{IDSensore ,TIMESTAMP, Dato}. & Decisione interna & UC4 \\
+   
+    %RF73
+    \hline
+    RF73 & Obbligatorio &  L'utente deve essere in grado di visualizzare le ultime misurazioni all'interno dei widget dedicati alla presentazione delle rilevazioni dei sensori che trasmetto dati binari (ex. Occupato / Libero) attraverso una mappa interattiva. La mappa, tramite etichette adeguate, deve rappresentare chiaramente il valore corrispondente all'ultima misurazione effettuata da ciascun sensore. & Decisione interna & UC14 \\
     
     %RF19
     \hline
@@ -82,7 +86,7 @@
     
     %RF20
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & La dashboard deve mostrare un widget distinto per ciascun tipo di sensore attivo che trasmette dati al sistema, contenente le misurazioni in formato grafico. & Decisione interna & UC1.1 \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & La dashboard deve mostrare un widget distinto per ciascun tipo di sensore attivo che trasmette dati al sistema, contenente le misurazioni in formato grafico, testuale o mappa interattiva. & Decisione interna & UC1.1 \\
     
     %RF21
     \hline
@@ -94,7 +98,7 @@
     
     %RF23
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio &Il widget destinato alla rappresentazione temporale delle misurazioni effettuate dai sensori di temperatura deve offrire all'utente la possibilità di visualizzare tali dati in un formato grafico a linee, con una linea corrispondente a ciascun sensore coinvolto.  & Decisione interna & UC6 \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio &Il widget destinato alla rappresentazione delle misurazioni effettuate dai sensori di temperatura deve offrire all'utente di default la visualizzazione di tali dati in un formato grafico a linee, con una linea corrispondente a ciascun sensore coinvolto.  & Decisione interna & UC6, UC5\\
     
     %RF24
     \hline
@@ -102,7 +106,7 @@
     
     %RF25
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio &Il widget destinato alla rappresentazione temporale delle misurazioni effettuate dai sensori di umidità deve offrire all'utente la possibilità di visualizzare tali dati in un formato grafico a linee, con una linea corrispondente a ciascun sensore coinvolto.  & Decisione interna & UC7 \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio &Il widget destinato alla rappresentazione delle misurazioni effettuate dai sensori di umidità deve offrire all'utente di default la visualizzazione di tali dati in un formato grafico a linee, con una linea corrispondente a ciascun sensore coinvolto.  & Decisione interna & UC7, UC5 \\
     
     %RF26
     \hline
@@ -110,7 +114,7 @@
     
     %RF27
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio &Il widget destinato alla rappresentazione temporale delle misurazioni effettuate dai sensori di polveri sottili deve offrire all'utente la possibilità di visualizzare tali dati in un formato grafico a linee, con una linea corrispondente a ciascun sensore coinvolto.  & Decisione interna & UC8 \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio &Il widget destinato alla rappresentazione temporale delle misurazioni effettuate dai sensori di polveri sottili deve offrire all'utente la possibilità di visualizzare tali dati in un formato grafico a linee, con una linea corrispondente a ciascun sensore coinvolto.  & Decisione interna & UC8, UC5\\
     
     %RF28
     \hline
@@ -118,7 +122,7 @@
     
     %RF29
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio &Il widget destinato alla rappresentazione temporale delle misurazioni effettuate dai sensori dei guasti elettrici  deve offrire all'utente la possibilità di visualizzare tali dati con un grafico a linee per ciascun sensore coinvolto.  & Decisione interna & UC9 \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio &Il widget destinato alla rappresentazione delle misurazioni effettuate dai sensori dei guasti elettrici  deve offrire all'utente di default la visualizzazione di tali dati con una mappa interattiva delle ultime misurazioni  & Decisione interna & UC9, UC14 \\
     
     %RF30
     \hline
@@ -126,7 +130,7 @@
     
     %RF31
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio &Il widget destinato alla rappresentazione temporale delle misurazioni effettuate dai sensori di soglia delle isole ecologiche deve offrire all'utente la possibilità di visualizzare tali dati con un grafico a linee per ciascun sensore coinvolto.  & Decisione interna & UC10 \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio &Il widget destinato alla rappresentazione delle misurazioni effettuate dai sensori di soglia delle isole ecologiche deve offrire all'utente la visualizzazione di tali dati con una mappa interattiva delle ultime misurazioni  & Decisione interna & UC10, UC14 \\
     
     %RF32
     \hline
@@ -134,7 +138,7 @@
     
     %RF33
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio &Il widget destinato alla rappresentazione temporale delle misurazioni effettuate dai sensori delle colonnine di ricarica deve offrire all'utente la possibilità di visualizzare tali dati con un grafico a linee per ciascun sensore coinvolto.  & Decisione interna & UC11 \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio &Il widget destinato alla rappresentazione delle misurazioni effettuate dai sensori delle colonnine di ricarica deve offrire all'utente la visualizzazione di tali dati con una mappa interattiva delle ultime misurazioni  & Decisione interna & UC11, UC14 \\
     
     %RF34
     \hline
@@ -142,7 +146,7 @@
     
     %RF35
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio &Il widget destinato alla rappresentazione temporale delle misurazioni effettuate dai sensori del livello dell'acqua deve offrire all'utente la possibilità di visualizzare tali dati con un grafico a linee per ciascun sensore coinvolto. & Decisione interna & UC33 \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio &Il widget destinato alla rappresentazione delle misurazioni effettuate dai sensori del livello dell'acqua deve offrire all'utente la visualizzazione di tali dati con una mappa interattiva delle ultime misurazioni & Decisione interna & UC33 , UC14\\
     
     %RF36
     \hline
