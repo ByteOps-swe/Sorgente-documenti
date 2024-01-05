@@ -1,92 +1,92 @@
 \subsection{Test di sistema}
-Questa sezione illustra i test di sistema, i quali mirano a dimostrare la copertura completa dei requisiti identificati nel documento di Analisi dei Requisiti. Di seguito è fornito l'elenco di questi test:
+Questa sezione illustra i \textit{test}\textsubscript{\textit{G}} di \textit{sistema}\textsubscript{\textit{G}}, i quali mirano a dimostrare la copertura completa dei requisiti identificati nel documento di Analisi dei Requisiti. Di seguito è fornito l'elenco di questi \textit{test}\textsubscript{\textit{G}}:
 \\
 \begin{longtable}{|c|p{5cm}|>{\raggedright}p{2cm}|c|}
         \hline
         Codice Test & Descrizione & Requisito & Stato Test \\
         \hline
-        TS01 & Verificare che l'accesso al sistema non richieda alcuna procedura di login e che sia immediatamente accessibile all'utente. & RF1 & NI \\
+        TS01 & Verificare che l'accesso al \textit{sistema}\textsubscript{\textit{G}} non richieda alcuna procedura di login e che sia immediatamente accessibile all'utente. & RF1 & NI \\
         \hline
         TS02 & Verificare che il prodotto non abbia alcuna sezione o funzionalità di amministrazione o gestione riservata. & RF2 & NI \\
         \hline
-        TS03 & Verificare che i simulatori integrati producano dati di misurazione coerenti con l'ambito del sensore simulato. & RF3 & NI \\
+        TS03 & Verificare che i simulatori integrati producano dati di misurazione coerenti con l'ambito del \textit{sensore}\textsubscript{\textit{G}} simulato. & RF3 & NI \\
         \hline
-        TS04 & Verificare che ogni misurazione inviata dal simulatore contenga l'id del sensore, un timestamp e la misurazione stessa. & RF4 & NI \\
+        TS04 & Verificare che ogni misurazione inviata dal simulatore contenga l'id del \textit{sensore}\textsubscript{\textit{G}}, un timestamp e la misurazione stessa. & RF4 & NI \\
         \hline
-        TS05 & Verificare che il sistema sia in grado di simulare almeno un sensore che rilevi la temperatura, espressa in gradi Celsius. & RF5 & NI \\
+        TS05 & Verificare che il \textit{sistema}\textsubscript{\textit{G}} sia in grado di simulare almeno un \textit{sensore}\textsubscript{\textit{G}} che rilevi la temperatura, espressa in gradi Celsius. & RF5 & NI \\
         \hline
-        TS06 & Verificare che il sistema sia in grado di simulare almeno un sensore che misuri l'umidità, espressa in percentuale di umidità nell'aria.
+        TS06 & Verificare che il \textit{sistema}\textsubscript{\textit{G}} sia in grado di simulare almeno un \textit{sensore}\textsubscript{\textit{G}} che misuri l'umidità, espressa in percentuale di umidità nell'aria.
         & RF6 & NI \\
         \hline
-        TS07 & Verificare che il sistema sia in grado di simulare almeno un sensore per rilevare le particelle di polveri sottili nell'aria, esprimendole in microgrammi per metro cubo. & RF7 & NI \\
+        TS07 & Verificare che il \textit{sistema}\textsubscript{\textit{G}} sia in grado di simulare almeno un \textit{sensore}\textsubscript{\textit{G}} per rilevare le particelle di polveri sottili nell'aria, esprimendole in microgrammi per metro cubo. & RF7 & NI \\
         \hline
-        TS08 & Verificare che il sistema includa almeno un sensore per individuare guasti elettrici, segnalando le interruzioni nella fornitura di energia tramite un bit binario. & RF8 & NI \\
+        TS08 & Verificare che il \textit{sistema}\textsubscript{\textit{G}} includa almeno un \textit{sensore}\textsubscript{\textit{G}} per individuare guasti elettrici, segnalando le interruzioni nella fornitura di energia tramite un \textit{bit}\textsubscript{\textit{G}} binario. & RF8 & NI \\
         \hline
-        TS09 & Verificare che il sistema sia in grado di simulare almeno un sensore per monitorare lo stato di riempimento dei contenitori nelle isole ecologiche, segnalando con un bit binario se il contenitore è pieno. & RF9 & NI \\
+        TS09 & Verificare che il \textit{sistema}\textsubscript{\textit{G}} sia in grado di simulare almeno un \textit{sensore}\textsubscript{\textit{G}} per monitorare lo stato di riempimento dei contenitori nelle isole ecologiche, segnalando con un \textit{bit}\textsubscript{\textit{G}} binario se il contenitore è pieno. & RF9 & NI \\
         \hline
-        TS10 & Verificare che il sistema includa almeno un sensore per le colonnine di ricarica, indicando tramite un bit binario se la colonnina è occupata o libera. & RF10 & NI \\
+        TS10 & Verificare che il \textit{sistema}\textsubscript{\textit{G}} includa almeno un \textit{sensore}\textsubscript{\textit{G}} per le colonnine di ricarica, indicando tramite un \textit{bit}\textsubscript{\textit{G}} binario se la colonnina è occupata o libera. & RF10 & NI \\
         \hline
-        TS59 & Verificare che il sistema contenga almeno un sensore per il livello dell'acqua, indicando con un bit binario se il sensore rileva liquidi o meno. & RF59 & NI \\
+        TS59 & Verificare che il \textit{sistema}\textsubscript{\textit{G}} contenga almeno un \textit{sensore}\textsubscript{\textit{G}} per il livello dell'acqua, indicando con un \textit{bit}\textsubscript{\textit{G}} binario se il \textit{sensore}\textsubscript{\textit{G}} rileva liquidi o meno. & RF59 & NI \\
         \hline
         TS11 & Verificare che ogni dato generato dai simulatori dei sensori sia strettamente correlato al dato successivo, garantendo una transizione realistica tra le misurazioni. & RF11 & NI \\
         \hline
-        TS12 & Verificare che il sistema memorizzi in modo sicuro e efficiente i dati generati dai sensori, registrando accuratamente ogni misurazione per assicurare l'integrità e la coerenza dei dati. & RF12 & NI \\
+        TS12 & Verificare che il \textit{sistema}\textsubscript{\textit{G}} memorizzi in modo sicuro e efficiente i dati generati dai sensori, registrando accuratamente ogni misurazione per assicurare l'integrità e la coerenza dei dati. & RF12 & NI \\
         \hline
-        TS13 & Verificare che la piattaforma supporti la visualizzazione di dati provenienti da diversi tipi di sensori, permettendo una rappresentazione corretta e coerente. & RF13 & NI \\
+        TS13 & Verificare che la \textit{piattaforma}\textsubscript{\textit{G}} supporti la visualizzazione di dati provenienti da diversi tipi di sensori, permettendo una rappresentazione corretta e coerente. & RF13 & NI \\
         \hline
-        TS14 & Verificare che l'utente possa visualizzare una dashboard completa dello stato della città tramite l'uso di widget rappresentanti le misurazioni dei sensori. & RF14 & NI \\
+        TS14 & Verificare che l'utente possa visualizzare una \textit{dashboard}\textsubscript{\textit{G}} completa dello stato della città tramite l'uso di \textit{widget}\textsubscript{\textit{G}} rappresentanti le misurazioni dei sensori. & RF14 & NI \\
         \hline
-        TS15 & Verificare che l'utente possa vedere le misurazioni all'interno dei widget dedicati alla rappresentazione delle rilevazioni dei sensori in un formato grafico, facilitando la comprensione dei dati. & RF15 & NI \\
+        TS15 & Verificare che l'utente possa vedere le misurazioni all'interno dei \textit{widget}\textsubscript{\textit{G}} dedicati alla rappresentazione delle rilevazioni dei sensori in un formato grafico, facilitando la comprensione dei dati. & RF15 & NI \\
         \hline
-        TS16 & Verificare che l'utente possa vedere le misurazioni all'interno dei widget dedicati alla rappresentazione delle rilevazioni dei sensori in un formato testuale. & RF16 & NI \\
+        TS16 & Verificare che l'utente possa vedere le misurazioni all'interno dei \textit{widget}\textsubscript{\textit{G}} dedicati alla rappresentazione delle rilevazioni dei sensori in un formato testuale. & RF16 & NI \\
         \hline
         TS17 & Verificare che la visualizzazione delle misurazioni in formato testuale segua il formato richiesto: IDSensore, TIMESTAMP, Dato. & RF17 & NI \\
         \hline
-        TS18 & Verificare che la dashboard si aggiorni quasi istantaneamente per riflettere i dati provenienti dai sensori entro un massimo di 10 secondi. & RF18 & NI \\
+        TS18 & Verificare che la \textit{dashboard}\textsubscript{\textit{G}} si aggiorni quasi istantaneamente per riflettere i dati provenienti dai sensori entro un massimo di 10 secondi. & RF18 & NI \\
         \hline
-        TS19 & Verificare che la dashboard mostri widget distinti per ciascun tipo di sensore attivo che trasmette dati al sistema, contenenti le misurazioni in formato grafico. & RF19 & NI \\
+        TS19 & Verificare che la \textit{dashboard}\textsubscript{\textit{G}} mostri \textit{widget}\textsubscript{\textit{G}} distinti per ciascun tipo di \textit{sensore}\textsubscript{\textit{G}} attivo che trasmette dati al \textit{sistema}\textsubscript{\textit{G}}, contenenti le misurazioni in formato grafico. & RF19 & NI \\
         \hline
-        TS21 & Verificare che ogni widget che visualizza le misurazioni includa informazioni sull'identificativo dei sensori che hanno contribuito a quelle misurazioni. & RF21 & NI \\
+        TS21 & Verificare che ogni \textit{widget}\textsubscript{\textit{G}} che visualizza le misurazioni includa informazioni sull'identificativo dei sensori che hanno contribuito a quelle misurazioni. & RF21 & NI \\
         \hline
-        TS62 & Verificare che il widget destinato alla rappresentazione temporale delle misurazioni effettuate dai sensori di temperatura offra all'utente la possibilità di visualizzare tali dati in un formato grafico a linee, con una linea corrispondente a ciascun sensore coinvolto. & RF62 & NI \\
+        TS62 & Verificare che il \textit{widget}\textsubscript{\textit{G}} destinato alla rappresentazione temporale delle misurazioni effettuate dai sensori di temperatura offra all'utente la possibilità di visualizzare tali dati in un formato grafico a linee, con una linea corrispondente a ciascun \textit{sensore}\textsubscript{\textit{G}} coinvolto. & RF62 & NI \\
         \hline
-        TS23 & Verificare che la dashboard includa un widget dedicato alle misurazioni dei sensori di umidità. & RF23 & NI \\
+        TS23 & Verificare che la \textit{dashboard}\textsubscript{\textit{G}} includa un \textit{widget}\textsubscript{\textit{G}} dedicato alle misurazioni dei sensori di umidità. & RF23 & NI \\
         \hline
-        TS63 & Verificare che il widget destinato alla rappresentazione temporale delle misurazioni effettuate dai sensori di umidità offra all'utente la possibilità di visualizzare tali dati in un formato grafico a linee, con una linea corrispondente a ciascun sensore coinvolto. & RF63 & NI \\
+        TS63 & Verificare che il \textit{widget}\textsubscript{\textit{G}} destinato alla rappresentazione temporale delle misurazioni effettuate dai sensori di umidità offra all'utente la possibilità di visualizzare tali dati in un formato grafico a linee, con una linea corrispondente a ciascun \textit{sensore}\textsubscript{\textit{G}} coinvolto. & RF63 & NI \\
         \hline
-        TS64 & Verificare che il widget dedicato alla rappresentazione temporale delle misurazioni dei sensori di polveri sottili offra all'utente la possibilità di visualizzare tali dati in un formato grafico a linee, con una linea corrispondente a ciascun sensore coinvolto. & RF64 & NI \\
+        TS64 & Verificare che il \textit{widget}\textsubscript{\textit{G}} dedicato alla rappresentazione temporale delle misurazioni dei sensori di polveri sottili offra all'utente la possibilità di visualizzare tali dati in un formato grafico a linee, con una linea corrispondente a ciascun \textit{sensore}\textsubscript{\textit{G}} coinvolto. & RF64 & NI \\
         \hline
-        TS25 & Verificare che la dashboard includa un widget dedicato alle misurazioni dei sensori dei guasti elettrici. & RF25 & NI \\
+        TS25 & Verificare che la \textit{dashboard}\textsubscript{\textit{G}} includa un \textit{widget}\textsubscript{\textit{G}} dedicato alle misurazioni dei sensori dei guasti elettrici. & RF25 & NI \\
         \hline
-        TS65 & Verificare che il widget dedicato alla rappresentazione temporale delle misurazioni dei sensori dei guasti elettrici offra all'utente la possibilità di visualizzare tali dati con un grafico a linee per ciascun sensore coinvolto. & RF65 & NI \\
+        TS65 & Verificare che il \textit{widget}\textsubscript{\textit{G}} dedicato alla rappresentazione temporale delle misurazioni dei sensori dei guasti elettrici offra all'utente la possibilità di visualizzare tali dati con un grafico a linee per ciascun \textit{sensore}\textsubscript{\textit{G}} coinvolto. & RF65 & NI \\
         \hline
-        TS26 & Verificare che la dashboard includa un widget dedicato alle misurazioni dei sensori di soglia delle isole ecologiche. & RF26 & NI \\
+        TS26 & Verificare che la \textit{dashboard}\textsubscript{\textit{G}} includa un \textit{widget}\textsubscript{\textit{G}} dedicato alle misurazioni dei sensori di soglia delle isole ecologiche. & RF26 & NI \\
         \hline
-        TS66 & Verificare che il widget destinato alla rappresentazione temporale delle misurazioni dei sensori di soglia delle isole ecologiche offra all'utente la possibilità di visualizzare tali dati con un grafico a linee per ciascun sensore coinvolto. & RF66 & NI \\
+        TS66 & Verificare che il \textit{widget}\textsubscript{\textit{G}} destinato alla rappresentazione temporale delle misurazioni dei sensori di soglia delle isole ecologiche offra all'utente la possibilità di visualizzare tali dati con un grafico a linee per ciascun \textit{sensore}\textsubscript{\textit{G}} coinvolto. & RF66 & NI \\
         \hline
-        TS27 & Verificare che la dashboard includa un widget dedicato alle misurazioni dei sensori delle colonnine di ricarica. & RF27 & NI \\
+        TS27 & Verificare che la \textit{dashboard}\textsubscript{\textit{G}} includa un \textit{widget}\textsubscript{\textit{G}} dedicato alle misurazioni dei sensori delle colonnine di ricarica. & RF27 & NI \\
         \hline
-        TS67 & Verificare che il widget destinato alla rappresentazione temporale delle misurazioni dei sensori delle colonnine di ricarica offra all'utente la possibilità di visualizzare tali dati con un grafico a linee per ciascun sensore coinvolto. & RF67 & NI \\
+        TS67 & Verificare che il \textit{widget}\textsubscript{\textit{G}} destinato alla rappresentazione temporale delle misurazioni dei sensori delle colonnine di ricarica offra all'utente la possibilità di visualizzare tali dati con un grafico a linee per ciascun \textit{sensore}\textsubscript{\textit{G}} coinvolto. & RF67 & NI \\
         \hline
-        TS60 & Verificare che la dashboard includa un widget dedicato alle misurazioni dei sensori del livello dell'acqua. & RF60 & NI \\
+        TS60 & Verificare che la \textit{dashboard}\textsubscript{\textit{G}} includa un \textit{widget}\textsubscript{\textit{G}} dedicato alle misurazioni dei sensori del livello dell'acqua. & RF60 & NI \\
         \hline
-        TS68 & Verificare che il widget destinato alla rappresentazione temporale delle misurazioni dei sensori del livello dell'acqua offra all'utente la possibilità di visualizzare tali dati con un grafico a linee per ciascun sensore coinvolto. & RF68 & NI \\
+        TS68 & Verificare che il \textit{widget}\textsubscript{\textit{G}} destinato alla rappresentazione temporale delle misurazioni dei sensori del livello dell'acqua offra all'utente la possibilità di visualizzare tali dati con un grafico a linee per ciascun \textit{sensore}\textsubscript{\textit{G}} coinvolto. & RF68 & NI \\
         \hline
-        TS28 & Verificare che la dashboard della città includa una mappa interattiva che mostri la posizione dei diversi sensori nella città. & RF28 & NI \\
+        TS28 & Verificare che la \textit{dashboard}\textsubscript{\textit{G}} della città includa una mappa interattiva che mostri la posizione dei diversi sensori nella città. & RF28 & NI \\
         \hline
         TS29 & Verificare che i sensori sulla mappa siano etichettati in modo chiaro e distinguibile, permettendo il riconoscimento della loro tipologia. & RF29 & NI \\
         \hline
         TS61 & Verificare che i sensori posizionati sulla mappa mostrino l'ultimo valore registrato quando il puntatore del mouse è posizionato sopra di essi. & RF61 & NI \\
         \hline
-        TS30 & Verificare che la dashboard fornisca un widget con il punteggio di salute relativo alla città basato sui dati aggregati provenienti dai sensori. & RF30 & NI \\
+        TS30 & Verificare che la \textit{dashboard}\textsubscript{\textit{G}} fornisca un \textit{widget}\textsubscript{\textit{G}} con il punteggio di salute relativo alla città basato sui dati aggregati provenienti dai sensori. & RF30 & NI \\
         \hline
-        TS31 & Verificare che l'utente possa selezionare una cella specifica della città e visualizzare una dashboard dedicata contenente esclusivamente sensori, misurazioni e punteggio di salute correlati a essa. & RF31 & NI \\
+        TS31 & Verificare che l'utente possa selezionare una cella specifica della città e visualizzare una \textit{dashboard}\textsubscript{\textit{G}} dedicata contenente esclusivamente sensori, misurazioni e punteggio di salute correlati a essa. & RF31 & NI \\
         \hline
         TS32 & Verificare che l'utente possa filtrare la visualizzazione delle misurazioni di una specifica tipologia di sensori inserendo uno specifico intervallo temporale. & RF32 & NI \\
         \hline
-        TS33 & Verificare che il sistema verifichi la validità dell'intervallo temporale inserito dall'utente. & RF33 & NI \\
+        TS33 & Verificare che il \textit{sistema}\textsubscript{\textit{G}} verifichi la validità dell'intervallo temporale inserito dall'utente. & RF33 & NI \\
         \hline
-        TS34 & Verificare che, in caso di inserimento di un intervallo temporale non valido, il sistema generi una notifica di errore. & RF34 & NI \\
+        TS34 & Verificare che, in caso di inserimento di un intervallo temporale non valido, il \textit{sistema}\textsubscript{\textit{G}} generi una notifica di errore. & RF34 & NI \\
         \hline
         TS35 & Verificare che la notifica di errore relativa all'inserimento di un intervallo temporale non valido richieda all'utente di reinserire date valide. & RF35 & NI \\
         \hline
@@ -94,11 +94,11 @@ Questa sezione illustra i test di sistema, i quali mirano a dimostrare la copert
         \hline
         TS37 & Verificare che l'utente possa selezionare l'intervallo temporale desiderato (secondo, minuto, ora, giorno, mese, anno) per aggregare le misurazioni in base al periodo di registrazione corrispondente. & RF37 & NI \\
         \hline
-        TS38 & Verificare che il sistema adatti dinamicamente la rappresentazione delle misurazioni secondo l'intervallo temporale di aggregazione selezionato dall'utente. & RF38 & NI \\
+        TS38 & Verificare che il \textit{sistema}\textsubscript{\textit{G}} adatti dinamicamente la rappresentazione delle misurazioni secondo l'intervallo temporale di aggregazione selezionato dall'utente. & RF38 & NI \\
         \hline
-        TS40 & Verificare che il sistema verifichi la validità dell'intervallo di rilevamento inserito dall'utente. & RF40 & NI \\
+        TS40 & Verificare che il \textit{sistema}\textsubscript{\textit{G}} verifichi la validità dell'intervallo di rilevamento inserito dall'utente. & RF40 & NI \\
         \hline
-        TS41 & Verificare che, in caso di inserimento di un intervallo di rilevamento non valido, il sistema generi una notifica di errore. & RF41 & NI \\
+        TS41 & Verificare che, in caso di inserimento di un intervallo di rilevamento non valido, il \textit{sistema}\textsubscript{\textit{G}} generi una notifica di errore. & RF41 & NI \\
         \hline
         TS42 & Verificare che la notifica di errore relativa all'inserimento di un intervallo di rilevamento non valido richieda all'utente di reinserire valori validi. & RF42 & NI \\
         \hline
@@ -112,15 +112,15 @@ Questa sezione illustra i test di sistema, i quali mirano a dimostrare la copert
         \hline
         TS47 & Verificare che l'utente possa rimuovere i filtri applicati e ripristinare la visualizzazione senza tali filtri. & RF47 & NI \\
         \hline
-        TS48 & Verificare che l'utente possa salvare una misurazione trasmessa da un sensore in una lista di misurazioni rilevanti. & RF48 Opzionale & NI \\
+        TS48 & Verificare che l'utente possa salvare una misurazione trasmessa da un \textit{sensore}\textsubscript{\textit{G}} in una lista di misurazioni rilevanti. & RF48 Opzionale & NI \\
         \hline
-        TS49 & Verificare che il sistema effettui una verifica per assicurarsi che la misurazione non sia già presente nella lista delle misurazioni rilevanti prima di salvarla. & RF49 Opzionale & NI \\
+        TS49 & Verificare che il \textit{sistema}\textsubscript{\textit{G}} effettui una verifica per assicurarsi che la misurazione non sia già presente nella lista delle misurazioni rilevanti prima di salvarla. & RF49 Opzionale & NI \\
         \hline
         TS50 & Verificare che l'utente possa visualizzare la lista delle misurazioni rilevanti. & RF50 Opzionale & NI \\
         \hline
-        TS69 & Verificare che ogni misurazione nella lista dei rilevanti fornisca correttamente l'identificativo del sensore. & RF69 Opzionale & NI \\
+        TS69 & Verificare che ogni misurazione nella lista dei rilevanti fornisca correttamente l'identificativo del \textit{sensore}\textsubscript{\textit{G}}. & RF69 Opzionale & NI \\
         \hline
-        TS70 & Verificare che ogni misurazione nella lista dei rilevanti fornisca correttamente la tipologia del sensore. & RF70 Opzionale & NI \\
+        TS70 & Verificare che ogni misurazione nella lista dei rilevanti fornisca correttamente la tipologia del \textit{sensore}\textsubscript{\textit{G}}. & RF70 Opzionale & NI \\
         \hline
         TS71 & Verificare che ogni misurazione nella lista dei rilevanti fornisca correttamente l'orario e la data di misurazione. & RF71 Opzionale & NI \\
         \hline
@@ -132,18 +132,18 @@ Questa sezione illustra i test di sistema, i quali mirano a dimostrare la copert
         \hline
         TS53 & Verificare che l'utente possa visualizzare correttamente le informazioni richieste per i sensori. & RF53 & NI \\
         \hline
-        TS54 & Verificare che l'utente possa visualizzare correttamente l'ID del sensore. & RF54 & NI \\
+        TS54 & Verificare che l'utente possa visualizzare correttamente l'\textit{ID}\textsubscript{\textit{G}} del \textit{sensore}\textsubscript{\textit{G}}. & RF54 & NI \\
         \hline
-        TS55 & Verificare che l'utente possa visualizzare correttamente il tipo di sensore. & RF55 & NI \\
+        TS55 & Verificare che l'utente possa visualizzare correttamente il tipo di \textit{sensore}\textsubscript{\textit{G}}. & RF55 & NI \\
         \hline
         TS56 & Verificare che l'utente possa visualizzare correttamente la posizione in coordinate dei sensori. & RF56 & NI \\
         \hline
-        TS57 & Verificare che l'utente possa visualizzare correttamente la cella di installazione del sensore. & RF57 & NI \\
+        TS57 & Verificare che l'utente possa visualizzare correttamente la cella di installazione del \textit{sensore}\textsubscript{\textit{G}}. & RF57 & NI \\
         \hline
-        TS58 & Verificare che l'utente possa visualizzare correttamente la data di installazione del sensore. & RF58 & NI \\
+        TS58 & Verificare che l'utente possa visualizzare correttamente la data di installazione del \textit{sensore}\textsubscript{\textit{G}}. & RF58 & NI \\
         \hline
-        TS59 & Verificare che l'utente possa visualizzare correttamente l'unità di misura associata al sensore. & RF59 & NI \\
+        TS59 & Verificare che l'utente possa visualizzare correttamente l'unità di misura associata al \textit{sensore}\textsubscript{\textit{G}}. & RF59 & NI \\
         \hline
     \caption{Tabella test di sistema}
-    \label{tab:testsSistema}
+    \\textit{label}\textsubscript{\textit{G}}{tab:testsSistema}
 \end{longtable}
