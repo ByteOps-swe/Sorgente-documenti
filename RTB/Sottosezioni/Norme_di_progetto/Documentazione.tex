@@ -37,6 +37,10 @@ Alcuni aspetti chiave di "Documentation as Code" includono:
 \end{itemize}
 Questo approccio porta diversi vantaggi, tra cui una maggiore coerenza, una migliore tracciabilità delle modifiche e facilità di manutenzione. Inoltre, il concetto di "Documentation as Code" si allinea con la filosofia DevOps, dove la collaborazione e l'automazione sono valori chiave.\\
 
+\subsubsection{Sorgente documenti}
+Poiché i documenti vengono redatti in LaTeX, per favorire una migliore collaborazione tra diversi autori, si è scelto di creare un file sorgente per ciascuna sezione e sottosezione di ogni documento. Questo approccio consente a ciascun autore di lavorare sulle singole sezioni o sottosezioni, evitando di apportare modifiche a parti del documento non pertinenti al proprio ambito. Infine, si creerà un file principale che prenderà il nome del documento, nel quale verranno collegati tutti i file delle varie sezioni e sottosezioni mediante l'uso del comando \verb|\input{Sezione.tex}| o, nel caso delle sottosezioni, \verb|\input{Sottosezione.tex}|.
+Nel caso dei Verbali, essendo documenti composti da sezioni molto brevi, non si utilizza questo approccio.
+
 \subsubsection{Ciclo di vita dei documenti}
 Il ciclo di vita dei documenti è una sequenza di stati e attività:
 \begin{enumerate}
@@ -83,14 +87,9 @@ Dalla repository  "Sorgente documenti" contenente i sorgenti \LaTeX, il redattor
 \begin{lstlisting}[style=code]
     git checkout main
     git checkout -b branch_identificativoTask 
-    \end{lstlisting}
+\end{lstlisting}
 
-    Il nome del branch destinato alla redazione o modifica del documento o di una sua sezione deve essere descrittivo al fine di consentire un'identificazione immediata e precisa del documento o della sezione su cui si sta lavorando. Pertanto, relativamente alla redazione dei documenti, deve essere adottata la seguente \textbf{convenzione per la nomenclatura dei branch}:
-\begin{itemize}
-    \item  Il nome del branch deve essere uguale al nome del documento senza estensioni, senza spazi e versione, scritto in camel case. (ex. VerbaleInterno14\_11\_2023) (Riferimento: ~\ref{sec:NomeFile});
-    \item  Nel caso della redazione di una sezione si pone alla fine "\_NomeSezione". (ex. NormeDiProgetto\_Documentazione);
-    \item Nel caso di modifica di una sezione si pone alla fine "\_ModNomeSezione". (ex. NormeDiProgetto\_ModDocumentazione).
-\end{itemize}
+Il nome del branch destinato alla redazione o modifica del documento o di una sua sezione deve essere descrittivo al fine di consentire un'identificazione immediata e precisa del documento o della sezione su cui si sta lavorando. Pertanto, relativamente alla redazione dei documenti, devonono essere adottatate le \textbf{convenzioni per la nomenclatura dei branch} esposte all'interno della sezione 3.4.3.2.
 
 A questo punto, dopo aver creato il documento,la sezione o la modifca assegnata e avviato la stesura, affinché gli altri redattori possano continuare il lavoro, è necessario rendere il branch accessibile anche nella repository remota, seguendo i seguenti passaggi:
 \begin{lstlisting}[style=code]
@@ -220,7 +219,7 @@ Nella prima pagina oltre alle informazioni comuni a ogni documento vengono speci
 %Il registro delle modifiche non è incluso nei verbali in quanto non è necessario; una volta redatti, i verbali non subiscono ulteriori modifiche.
 Corpo del documento:
 \begin{itemize}
-    \item  \textbf{Revisione del periodo precedente:} Si valutano gli aspetti positivi, le difficoltà incontrate e si identificano azioni di miglioramento per ottimizzare i processi;
+    \item  \textbf{Revisione del periodo precedente:} Si analizza lo stato delle attività e, relativamente all'approccio lavorativo, si valutano gli aspetti positivi e le difficoltà incontrate in modo tale da identificare azioni di miglioramento per ottimizzare i processi;
     \item  \textbf{Ordine del giorno:} Elenco delle tematiche discusse durante la riunione, accompagnate dai relativi esiti.\\
     Nel caso del verbale esterno, se sono presenti richieste di chiarimenti effettuate alle terze parti coinvolte, saranno incluse nella sottosezione:
     \begin{itemize}
@@ -240,14 +239,12 @@ Ultima pagina:
 
 Il template dei verbali è disponibile al link:\\ \href{https://github.com/ByteOps-swe/Sorgente-documenti/tree/main/Documents/Verbali/Templates}{https://github.com/ByteOps-swe/Sorgente-documenti/tree/main/Documents/Verbali/Templates}
 
-
-
 \subsubsection{Regole tipografiche}
 \paragraph*{Documenti del progetto e nome dei File}\label{sec:NomeFile}
-Il nome dei documenti generati deve essere omogeneo, con la prima lettera maiuscola ed il resto minuscolo e deve contenere un riferimento alla versione del documento (notazione di versionamento:~\ref{sec:RegistroModifiche}).\\
+Il nome dei documenti generati deve essere omogeneo, con la prima lettera maiuscola ed il resto minuscolo e, ad eccezione dei verbali, deve contenere un riferimento alla versione del documento (notazione di versionamento:~\ref{sec:RegistroModifiche}).\\
 Nello specifico devono seguire la seguente convenzione:
 \begin{itemize}
-    \item \textbf{Verbali:} Verbale\_DD-MM-AAA ;
+    \item \textbf{Verbali:} Verbale\_AAAA-MM-DD ;
     \item \textbf{Norme di Progetto:} Norme\_di\_progetto\_vX.Y.Z ;
     \item \textbf{Analisi dei requisiti:} Analisi\_dei\_requisiti\_vX.Y.Z ;
     \item \textbf{Piano di progetto:} Piano\_di\_progetto\_vX.Y.Z ;

@@ -1,0 +1,130 @@
+\subsection{Metriche per la qualità di processo}
+\begin{itemize}
+    \item \textbf{Metrica M1PMS:}
+           \begin{itemize}
+            \item \textbf{Nome:} Percentuale di Metriche Soddisfatte (PMS)
+            \item \textbf{Descrizione:} Misura che valuta quante metriche che sono state definite sono state effettivamente adottate o soddisfatte.
+            \item \textbf{Formula:} $\frac{metriche \ soddisfatte}{metriche \ totali}\times 100$
+           \end{itemize}
+
+    \item \textbf{Metrica M2EAC:}
+          \begin{itemize}
+              \item \textbf{Nome:} Estimated at Completion (\textit{EAC}\textsubscript{\textit{G}})
+              \item \textbf{Descrizione:} Misura il costo realizzativo stimato per terminare il progetto.
+              \item \textbf{Formula:} $\textit{EAC}\textsubscript{\textit{G}} = AC + \textit{ETC}\textsubscript{\textit{G}}$
+          \end{itemize}
+
+    \item \textbf{Metrica M3CPI:}
+          \begin{itemize}
+              \item \textbf{Nome:} Cost Performance Index (\textit{CPI}\textsubscript{\textit{G}})
+              \item \textbf{Descrizione:} Misura il rapporto tra il valore del lavoro effettivamente svolto ed il costo reale del lavoro fino al periodo di riferimento.
+              \item \textbf{Formula:} $\textit{CPI}\textsubscript{\textit{G}} = \frac{EV}{AC}$
+          \end{itemize}
+
+    \item \textbf{Metrica M4BV:}
+          \begin{itemize}
+              \item \textbf{Nome:} Budget Variance (BV)
+              \item \textbf{Descrizione:} Misura la differenza percentuale di budget tra quanto previsto nella pianificazione di un periodo e l’effettiva realizzazione.
+              \item \textbf{Formula:} $BV = AC - \textit{PV}\textsubscript{\textit{G}} \times 100\% $
+          \end{itemize}
+
+    \item \textbf{Metrica M5AC:}
+          \begin{itemize}
+              \item \textbf{Nome:} Actual Cost (AC)
+              \item \textbf{Descrizione:} Misura i costi effettivamente sostenuti dall’inizio del progetto fino all’attualità.
+              \item \textbf{Formula:} Dato disponibile e aggiornato in "Piano di progetto" per ogni periodo.
+          \end{itemize}
+
+    \item \textbf{Metrica M6SV:}
+          \begin{itemize}
+              \item \textbf{Nome:} Schedule Variance (SV)
+              \item \textbf{Descrizione:} Indica in percentuale quanto si è in anticipo o in ritardo con le \textit{attività}\textsubscript{\textit{G}} pianificate.
+              \item \textbf{Formula:} $SV = (FP - IP) - (FC - IC)$
+              \\con \begin{itemize}
+                \item $FP$: giorno pianificato di fine \textit{attività}\textsubscript{\textit{G}};
+                \item $IP$: giorno pianificato di inizio \textit{attività}\textsubscript{\textit{G}};
+                \item $FC$: giorno consuntivato di fine \textit{attività}\textsubscript{\textit{G}};
+                \item $IC$: giorno consuntivato di inizio \textit{attività}\textsubscript{\textit{G}}.
+            \end{itemize}
+            
+            Il risultato se:
+            \begin{itemize}
+                \item $> 0$: indica un anticipo rispetto alla previsione;
+                \item $= 0$: indica se si è in linea rispetto alla previsione;
+                \item $< 0$: indica se si è in ritardo rispetto alla previsione.
+            \end{itemize}
+          \end{itemize}
+
+    \item \textbf{Metrica M7EV:}
+          \begin{itemize}
+              \item \textbf{Nome:} Earned Value (EV)
+              \item \textbf{Descrizione:} Valore del lavoro effettivamente svolto fino a quel periodo.
+              \item \textbf{Formula:} $EV = \% lavoro \ svolto \times \textit{EAC}\textsubscript{\textit{G}}$
+          \end{itemize}
+
+    \item \textbf{Metrica M8PV:}
+          \begin{itemize}
+              \item \textbf{Nome:} Planned Value
+              \item \textbf{Descrizione:} Stima la somma dei costi realizzativi delle \textit{attività}\textsubscript{\textit{G}} imminenti periodo per periodo.
+              \item \textbf{Formula:} $\textit{PV}\textsubscript{\textit{G}} = \% lavoro \ svolto \times BAC$
+          \end{itemize}
+
+    \item \textbf{Metrica M9ETC:}
+          \begin{itemize}
+              \item \textbf{Nome:} Estimate to Complete (\textit{ETC}\textsubscript{\textit{G}})
+              \item \textbf{Descrizione:} Stima i costi realizzativi fino alla fine del progetto.
+              \item \textbf{Formula:} $\textit{ETC}\textsubscript{\textit{G}} = \textit{EAC}\textsubscript{\textit{G}} - AC$
+          \end{itemize}
+
+    \item \textbf{Metrica M11RNP:}
+          \begin{itemize}
+              \item \textbf{Nome:} Rischi Non Previsti (RNP)
+              \item \textbf{Descrizione:} Misura il numero di rischi non previsti nel corso del progetto.
+          \end{itemize}
+
+    \item \textbf{Metrica M12VR:}
+          \begin{itemize}
+              \item \textbf{Nome:} Variazione dei Requisiti (VR)
+              \item \textbf{Descrizione:} Misura la variazione nei requisiti dal momento della pianificazione.
+              \item \textbf{Formula:} \textit{NRA + NRR + NRM}, dove:\begin{itemize}
+                \item \textit{NRA} (Numero Requisiti Aggiunti) è la quantità di requisiti aggiunti dall'ultimo incremento;
+                \item \textit{NRR} (Numero Requisiti Rimossi) è la quantità di requisiti rimossi dall'ultimo incremento.
+                \item \textit{NRM} (Numero Requisiti Modificati) è la quantità di requisiti modificati dall'ultimo incremento.
+              \end{itemize}
+          \end{itemize}
+    
+    \item \textbf{Metrica M14PCTS:}
+          \begin{itemize}
+           \item \textbf{Nome:} Percentuale di Casi di Test Superati (PCTS)
+           \item \textbf{Descrizione:} Percentuale di casi di \textit{test}\textsubscript{\textit{G}} superati.
+           \item \textbf{Formula:} $\frac{numero \ di \ casi \ di \ test \ superati}{numero \ totale \ di \ casi \ di \ test}\times 100$
+          \end{itemize}
+
+    \item \textbf{Metrica M14PCTF:}
+          \begin{itemize}
+           \item \textbf{Nome:} Percentuale di Casi di Test Falliti (PCTF)
+           \item \textbf{Descrizione:} Percentuale di casi di \textit{test}\textsubscript{\textit{G}} non superati.
+           \item \textbf{Formula:} $\frac{numero \ di \ casi \ di \ test \ non \ superati}{numero \ totale \ di \ casi \ di \ test}\times 100$
+          \end{itemize}
+
+          \item \textbf{Metrica M15SC:}
+          \begin{itemize}
+              \item \textbf{Nome:} Statement Coverage (\textit{MSC}\textsubscript{\textit{G}})
+              \item \textbf{Descrizione:} Misura il numero di istruzioni che sono state eseguite almeno una volta.
+              \item \textbf{Formula:} $\textit{MSC}\textsubscript{\textit{G}} = \frac{istruzioni \ eseguite}{istruzioni \ totali} \times 100$
+          \end{itemize}
+
+          \item \textbf{Metrica M16BC:}
+          \begin{itemize}
+              \item \textbf{Nome:} Branch Coverage (MBC)
+              \item \textbf{Descrizione:} Indice di quante diramazioni del codice vengono eseguite dai \textit{test}\textsubscript{\textit{G}}. Un \textit{branch}\textsubscript{\textit{G}} è uno dei possibili percorsi di esecuzione che il codice può seguire dopo che un'istruzione decisionale viene valutata.
+              \item \textbf{Formula:} $MBC = \frac{flussi \ funzionali \ implementati \ e \ testati}{flussi \ condizionali \ riusciti \ e \ non} \times 100$
+          \end{itemize}
+
+          \item \textbf{Metrica M17CNC:}
+          \begin{itemize}
+              \item \textbf{Nome:} CoNdition Coverage (CNC)
+              \item \textbf{Descrizione:} Metrica di copertura del codice che indica la percentuale di condizioni logiche nel codice sorgente che sono state eseguite durante i \textit{test}\textsubscript{\textit{G}}.
+              \item \textbf{Formula:} $CNC = \frac{numero \ di \ operandi \ eseguiti}{numero \ totale \ di \ operandi \ eseguiti} \times 100$
+          \end{itemize}
+\end{itemize}
