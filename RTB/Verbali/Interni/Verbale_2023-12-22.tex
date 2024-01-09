@@ -1,0 +1,187 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[absolute]{textpos}
+\usepackage[default]{raleway}
+\usepackage{titlesec, comment, tabularx, makecell, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, hyperref}
+\usepackage{colortbl}
+\usepackage{float}
+%\geometry{a4paper, left=2cm, right=2cm, top=2cm, bottom=2.5cm}
+\renewcommand{\headrulewidth}{0pt}
+
+% Definisci uno stile per i comandi git
+\definecolor{light-gray}{gray}{0.92}
+
+\lstdefinestyle{code}{
+    frame=single,
+    framesep=1mm,
+    rulecolor=\color{light-gray},
+    backgroundcolor=\color{light-gray},
+    basicstyle=\ttfamily,
+}
+
+% ----------------------------- Definizione tabella ---------------------------
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+%\setcellgapes{2ex} % Imposta l'altezza dell'header (2ex)
+
+
+% ------------------------------Metadati indice --------------------------------
+\title{\textbf{\fontsize{28}{6}\selectfont Indice}}
+\author{\fontsize{14}{6}\selectfont ByteOps}
+\date{Dicembre 22, 2023}
+
+
+% -----------------------------Creazione footer --------------------------------
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{
+    \parbox[c]{2cm}{\includegraphics[width=2cm]{../../../Images/logo.png}}
+    \textcolor[RGB]{120, 120, 120}{$\cdot$ Verbale Interno}
+}
+\rfoot{\thepage}
+
+% --------------------------Modifica formato hyperlinks ------------------------
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    pdftitle={Verbale Interno 22/12/2023},  %inserisci data verbale
+    pdfpagemode=FullScreen,
+}
+
+% ------------------------------- Valore sotto-paragrafi indice --------------------------------------
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\titleformat{\section}
+{\normalfont\huge\bfseries}{\thesection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsection}
+{\normalfont\Large\bfseries}{\thesubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsubsection}
+{\normalfont\large\bfseries}{\thesubsubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+% ------------------------------- Front Page ---------------------------------------
+
+\begin{document}
+
+% --------------------------Aggiunta firma finale ------------------------
+\begin{textblock*}{\textwidth}(0.85\textwidth, 1.16\textheight)
+    Il responsabile: N. Preto
+\end{textblock*}
+% ------------------------------------------------------------------------
+
+\pagestyle{fancy}
+\begin{center}
+\includegraphics[width = 0.7\textwidth]{../../../Images/logo.png} \\
+\vspace{0.2cm}
+\textcolor[RGB]{60, 60, 60}{\textit{ByteOps.swe@gmail.com}} \\
+\vspace{1cm}
+\fontsize{16}{6}\selectfont Verbale Interno $\cdot$ Data: 22/12/2023 \\
+\vspace{0.5cm}
+\end{center}
+
+\section*{Informazioni documento}
+\def\arraystretch{1.2}
+\begin{tabular}{>{\raggedleft\arraybackslash}p{0.2\textwidth}|>{\raggedright\arraybackslash}p{0.6\textwidth}c}
+\hline
+\addlinespace
+\textbf{Luogo} & Discord \vspace{10pt} \\
+\textbf{Orario} & 14:30 - 15:30 \vspace{10pt} \\
+\textbf{Redattore} & F. Pozza \vspace{10pt} \\
+\textbf{Verificatore} & N. Preto \vspace{10pt} \\
+\textbf{Amministratore} & E. Hysa \vspace{10pt} \\
+\textbf{Destinatari} & T. Vardanega \\ & R. Cardin \vspace{10pt} \\
+\textbf{Partecipanti} & A. Barutta \\ & E. Hysa \\ & R. Smanio \\ & D. Diotto \\ & F. Pozza \\ & L. Skenderi \\ & N. Preto \vspace{10pt} \\
+\end{tabular}
+\pagebreak 
+
+% ------------------------- Changelog ----------------------------
+
+\section*{Registro delle modifiche}
+
+\begin{tabular}{|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|}
+    \hline
+    \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Dettaglio} \\
+    \hline \hline
+    0.0.1 & 28/12/2023 & F. Pozza & N. Preto & Redazione Verbale \\
+    \hline
+\end{tabular}
+\pagebreak
+
+% ------------------------- Generazione automatica indice ----------------------
+\setstretch{1.5}
+\maketitle
+\thispagestyle{fancy}
+\tableofcontents
+\setstretch{1.2}
+\pagebreak
+
+% ------------------------ INIZIO DOCUMENTO ----------------------
+\flushleft
+
+\section{Revisione del periodo precedente}
+Non è stata ritenuta opportuna una revisione del periodo precedente poiché questa è stata svolta durante il precedente SAL datato 21/12/2023, i cui dettagli sono documentati nel relativo verbale esterno.
+
+\section{Ordine del giorno}
+    \subsection{Revisione documenti da consegnare per la revisione RTB}
+    Si sono analizzate alcune questioni emerse nel corso della revisione finale dei documenti prodotti. In particolare, si è rilevato che è necessario apportare leggere modifiche al file "Norme di Progetto" al fine standardizzare i titoli delle sezioni che, per ogni attività, mirano allo stesso obiettivo. Questo garantirà una struttura omogenea all'intero documento.
+
+    \subsection{Power-point dedicato alla presentazione per la revisione RTB}
+    È stata condotta un'analisi dettagliata per identificare i contenuti da integrare nelle dispense destinate alla presentazione associata alla revisione RTB. In linea generale, la presentazione comprenderà elementi chiave riguardanti gli obiettivi del progetto, le motivazioni alla base delle scelte tecnologiche e la presentazione del Proof of Concept (PoC) sviluppato.
+
+    \subsection{Sviluppo pagina web per maggiore accessibilità alle varie repositories}
+    È stato deciso di sviluppare una pagina web attraverso le API di GitHub al fine di semplificare e rendere più immediato l'accesso ai documenti e agli altri componenti del progetto. Questa piattaforma sarà un punto centrale per accedere facilmente a tutti gli artefatti correlati al progetto, consentendo una navigazione agevole e intuitiva attraverso i vari documenti e risorse disponibili.
+
+    \subsection{Miglioramento POC}
+    Nonostante il PoC abbia ricevuto l'approvazione da parte dell’azienda proponente e sia stato dichiarato pronto per la revisione RTB, si è discusso sull'implementazione di alcune features rilevate durante l'ultimo SAL. Queste richieste includono diverse aggiunte alla dashboard, come l'introduzione di widget per visualizzare le misurazioni in formato tabellare, la realizzazione di un grafico per il confronto delle misurazioni di un sottoinsieme specifico di sensori di una data tipologia e la possibile integrazione di un widget per mostrare la media delle misurazioni relative a una categoria di sensori.
+
+    \subsection{Rotazione ruoli}
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|c|c|} 
+            \hline
+            \textbf{Ruolo} & \textbf{Nome Cognome} \\
+            \hline \hline
+            Responsabile (Re) & N. Preto \\ 
+            \hline
+            Amministratore (Am) & E. Hysa \\ 
+            \hline
+            Analista (An) & \makecell{F. Pozza\\D. Diotto} \\
+            \hline
+            Verificatore (Ve) & \makecell{N. Preto\\L. Skenderi\\E. Hysa} \\
+            \hline
+            Programmatore (Pr) & \makecell{A. Barutta\\R. Smanio} \\
+            \hline
+        \end{tabular}
+        \caption{Tabella che rappresenta i membri per ogni ruolo}
+    \end{table}
+
+\section{Attività da svolgere}
+    \begin{center}
+        \begin{tabular}{|C{7cm}|C{1,5cm}|C{3cm}|}
+            \hline
+            \textbf{Titolo} & \textbf{\# Issue} & \textbf{Verificatore} \\
+            \hline\hline
+            Creare pagina web repositories & 73 & L. Skenderi \\
+            Inserire nella dashboard widget media misurazioni & 75 & N. Preto \\
+            Inserire variabili per confrontare le misurazioni di più sensori in un singolo grafico & 76 & L. Skenderi \\
+            Inserire widget delle misurazioni in formato tabellare  & 77 & N. Preto \\
+            \hline
+        \end{tabular}
+    \end{center}
+
+\end{document}
