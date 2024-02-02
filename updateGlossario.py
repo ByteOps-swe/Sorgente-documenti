@@ -9,7 +9,7 @@ def sostituisci_glossario_dopo_setstretch(testo, glossario):
         testo_dopo_setstretch = testo[setstretch_pos + len(r'\setstretch{1.2}'):]  # Testo dopo \setstretch{1.2}
         
         # Crea un pattern regex per il glossario escludendo le sezioni da escludere..cioè vado ad escludere dalla sostituzione tutte quelle parole contenute tra parentesi graffe
-        regex = r'\b(?:' + '|'.join(re.escape(parola) for parola in glossario) + r')\b(?![^{}]*\})'
+        regex = r'\b(?:' + '|'.join(r'(?<!\\)' + re.escape(parola) for parola in glossario) + r')\b(?![^{}]*\})'
 
         # Sostituisci il glossario escludendo le sezioni specificate
         testo_dopo_setstretch = re.sub(regex, r'\\textit{\g<0>}\\textsubscript{\\textit{G}}', testo_dopo_setstretch)
@@ -18,7 +18,7 @@ def sostituisci_glossario_dopo_setstretch(testo, glossario):
         testo = testo[:setstretch_pos + len(r'\setstretch{1.2}')] + testo_dopo_setstretch
     else:
         # Crea un pattern regex per il glossario escludendo le sezioni da escludere..cioè vado ad escludere dalla sostituzione tutte quelle parole contenute tra parentesi graffe
-        regex = r'\b(?:' + '|'.join(re.escape(parola) for parola in glossario) + r')\b(?![^{}]*\})'
+        regex = r'\b(?:' + '|'.join(r'(?<!\\)' + re.escape(parola) for parola in glossario) + r')\b(?![^{}]*\})'
 
         # Sostituisci il glossario escludendo le sezioni specificate
         testo = re.sub(regex, r'\\textit{\g<0>}\\textsubscript{\\textit{G}}', testo)
