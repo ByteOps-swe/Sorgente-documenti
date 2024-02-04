@@ -1,19 +1,18 @@
 \subsection{Verifica}\label{sec:verifica}
-\subsubsection{Introduzione}
-Lo scopo dell'attività di verifica nello sviluppo software è garantire la qualità del prodotto attraverso un'analisi accurata e sistematica.
+\subsubsection{Descrizione}
+Nel processo di sviluppo, lo scopo dell'attività di verifica è quello di garantire la qualità del prodotto attraverso un'analisi accurata e sistematica.
 
 Questo processo coinvolge la revisione e la valutazione delle fasi di sviluppo del codice sorgente e della documentazione, per identificare e correggere errori, difetti o discrepanze rispetto ai requisiti specificati.
 
-La verifica mira a garantire che il software soddisfi gli standard di qualità prestabiliti, riducendo il rischio di errori e migliorando l'affidabilità, la robustezza e l'efficienza del prodotto finale.
-Questo processo verrà attuato per ciascuna attività e dovrà assicurare che l'output di quest'ultima sia in uno stato stabile, consentendo così l'inizio della successiva fase di validazione.
-
-\subsubsection{Descrizione}
 Il processo di verifica viene eseguito su tutti i processi in esecuzione al raggiungimento di un livello di maturità adeguato o in seguito a modifiche dello stato del processo. Per i processi di supporto, si analizza la qualità dei prodotti generati e dei processi utilizzati al fine di garantire la conformità agli standard di qualità definiti.
 Le attività relative al processo di verifica vengono assegnate ai verificatori, incaricati di analizzare i prodotti e valutarne la conformità ai vincoli qualitativi specificati nel Piano di Qualifica. Tali operazioni seguono l'ordine specificato nel modello a V.
 Nel Piano di Qualifica sono documentate tutte le attività che compongono il processo, descrivendone scopi, risultati sperati e risultati ottenuti. Questo fornisce linee guida per una corretta valutazione della qualità, normando e rendendo ripetibile il processo.
 
-\subsubsection{Attività}
-\paragraph{Verifica dei documenti}\label{sec:verificatori}
+\subsubsection{Obiettivi}
+La verifica mira a garantire che il software soddisfi gli standard di qualità prestabiliti, riducendo il rischio di errori e migliorando l'affidabilità, la robustezza e l'efficienza del prodotto finale.
+Questo processo verrà attuato per ciascuna attività e dovrà assicurare che l'output di quest'ultima sia in uno stato stabile, consentendo così l'inizio della successiva fase di validazione.
+
+\subsubsection{Verifica dei documenti}\label{sec:verificatori}
 
 Il ruolo del verificatore nei documenti è cruciale per garantire la qualità e l'accuratezza del contenuto.
 
@@ -52,13 +51,13 @@ Dopo l'attuazione dei controlli sopra citati e aver verificato che siano stati a
         Il verificatore dovrà accedere alla sezione "Actions" di GitHub, supervisionare il processo di compilazione per la possibile generazione di errori, attendere la conclusione del processo di build del codice sorgente e controllare la corretta generazione del documento in formato PDF.
 \end{enumerate}
 
-\paragraph{Analisi}
+\subsubsection{Analisi}
 Attività di controllo su oggetti statici (documentazione, codice) e dinamici (componenti software).
 
-\paragraph*{Analisi statica}
+\paragraph{Analisi statica}
 Analisi condotta sull'oggetto (documentazione e codice) senza eseguirlo. Si prevede l'impiego di metodi di lettura, sia manuali che automatici, al fine di individuare eventuali errori formali. Le due principali tecniche utilizzate sono:
 
-\paragraph*{Walkthrough}
+\paragraph{Walkthrough}
     Il verificatore controllerà nella totalità l’oggetto in cerca di difetti o errori, senza svolgere una ricerca specifica per un certo tipo di errore.
     Questa metodologia implica appunto un'esaminazione approfondita della documentazione e del codice attraverso un'analisi sistematica. Si promuove la collaborazione tra il verificatore e l'autore del prodotto, strutturata nei seguenti quattro passaggi:
 
@@ -88,21 +87,21 @@ Le attività in cui verrà applicato Walkthrough sono:
         per assicurarsi che la documentazione tecnica sia accurata, chiara e completa.
 \end{itemize}
 
-\paragraph*{Inspection}
+\paragraph{Inspection}
 L'obiettivo di questa tecnica consiste nel rilevare eventuali difetti nel prodotto oggetto di analisi mediante una lettura mirata, piuttosto che eseguire una revisione completa del codice e della documentazione allegata.
 
 Tale approccio prevede la specifica preventiva degli elementi da verificare, i quali vengono organizzati in liste di controllo.
 Queste liste fungono da \textit{checklist} per valutare l'accuratezza dell'attività d'ispezione, determinando se è stata condotta in modo corretto.
 L'inspection è più adatta quando i documenti o il codice sono complessi e strutturati. È efficace nelle fasi più avanzate del progetto, quando la stabilità e la completezza sono cruciali.
 
-\paragraph*{Analisi dinamica}
+\paragraph{Analisi dinamica}
 Nel ciclo di sviluppo software, è essenziale condurre una verifica accurata del codice prodotto al fine di garantirne il corretto funzionamento. Questo processo si avvale dell'analisi dinamica, una categoria di metodologie che richiedono l'esecuzione effettiva del prodotto.
 L'analisi dinamica coinvolge l'esecuzione di una serie di casi di test durante l'attuazione del codice. L'obiettivo di tali test è assicurare l'esecuzione accurata del software e individuare eventuali discordanze tra i risultati ottenuti e quelli previsti.
 
 È importante sottolineare che l'analisi dinamica non è applicabile alla documentazione.
 Per assicurare l'efficacia dell'analisi dinamica, è necessario automatizzare e rendere ripetibile questo processo, garantendo così una valutazione oggettiva del prodotto. Nel contesto dell'ingegneria del software, il test rappresenta la principale tecnica di analisi dinamica.
 
-\paragraph{Testing}
+\subsubsection{Testing}
 Il testing mira a garantire che la componente soggetta al TEST esegua in modo corretto le attività assegnate e aderisca scrupolosamente ai vincoli ad essa attribuiti. Questi test sono inoltre strumentali per individuare eventuali anomalie di funzionamento.
 
 Per ciascun test, è essenziale definire i seguenti parametri:
@@ -169,7 +168,7 @@ I test di regressione devono essere eseguiti ogni volta che vengono apportate mo
 \paragraph{Test di accettazione}
 I test di accettazione sono un passo fondamentale prima del rilascio del software e sono progettati per garantire che il prodotto finale sia in grado di soddisfare le aspettative degli utenti finali e che risponda in modo appropriato ai requisiti specificati.
 
-\paragraph*{Sequenza delle fasi di test}
+\paragraph{Sequenza delle fasi di test}
 La sequenza delle fasi di test è la seguente:
 
 \begin{enumerate}
@@ -238,7 +237,7 @@ I test nel cruscotto potranno assumere i seguenti stati:
         il test ha riportato esito negativo (Non Superato);
 \end{itemize}
 
-\paragraph{Strumenti}
+\subsubsection{Strumenti}
 \begin{itemize}
     \item \textbf{Spell checker:} 
         controllo ortografico integrato nell’ambiente di lavoro;
