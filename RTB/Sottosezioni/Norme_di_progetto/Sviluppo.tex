@@ -213,9 +213,9 @@ Le metriche nell'analisi dei requisiti sono strumenti utilizzati per valutare, m
     \hline
     Metrica & Nome & Riferimento \\
     \hline \hline
-    MROS & Requisiti obbligatori soddisfatti &  \\
-    MRDS & Requisiti desiderabili soddisfatti &  \\
-    MROPZS & Requisiti opzionali soddisfatti & \\
+    M18PROS & Percentuale di Requisiti Obbligatori Soddisfatti &  \hyperlink{item:M18PROS}{\textcolor{linkcolor}{M18PROS}} \\
+    M19PRDS & Percentuale di Requisiti Desiderabili Soddisfatti &  \hyperlink{item:M19PRDS}{\textcolor{linkcolor}{M19PRDS}} \\
+    M20PRPS & Percentuale di Requisiti Opzionali & \hyperlink{item:M20PRPS}{\textcolor{linkcolor}{M20PRPS}} \\
     \hline
     \end{tabular}
     \caption{Metriche relative all'attività di analisi dei requisiti}
@@ -417,10 +417,12 @@ I progettisti avranno il completo controllo di questa attività, compresa la def
     \hline
     Metrica & Nome & Riferimento \\
     \hline \hline
-    MAC & Accoppiamento tra classi &  \\
-    MATC & Attributi per classe &  \\
-    MPM & Parametri per metodo & \\
-    MLCM & Linee di codice per metodo &  \\ 
+    M25ATC & Accoppiamento tra classi (ATC) & \hyperlink{item:M25ATC}{\textcolor{linkcolor}{M25ATC}} \\
+    M30PG & Profondità delle Gerarchie (PG) &  \hyperlink{item:M30PG}{\textcolor{linkcolor}{M30PG}} \\
+    M31TMR & Tempo Medio di Risposta (TMR) & \hyperlink{item:M31TMR}{\textcolor{linkcolor}{M31TMR}} \\
+    M32FU & Facilità di Utilizzo (FU) & \hyperlink{item:M32FU}{\textcolor{linkcolor}{M32FU}} \\
+    M33TA & Tempo di Apprendimento (TA) & \hyperlink{item:M33TA}{\textcolor{linkcolor}{M33TA}} \\
+    M34VBS & Versioni dei Browser Supportate (VBS) & \hyperlink{item:M34VBS}{\textcolor{linkcolor}{M34VBS}} \\
     \hline
     \end{tabular}
     \caption{Metriche relative all'attività di progettazione}
@@ -444,11 +446,11 @@ Il rigoroso rispetto delle norme garantisce la creazione di codice di alta quali
 \paragraph{Norme di codifica}
 Le seguenti norme sono state formalizzate prendendo spunto dal libro "Clean Code" di Robert C. Martin.
 
-\paragraph*{Nomi significativi}
+\paragraph{Nomi significativi}
 Usare nomi che riflettano il significato e lo scopo delle variabili, funzioni e classi. Evitare abbreviazioni ambigue.
-\paragraph*{Indentazioni e formattazione consistente}
+\paragraph{Indentazioni e formattazione consistente}
 L'utilizzo di un tab per ciascun livello di annidamento è fondamentale per assicurare una struttura coerente del codice, migliorandone la comprensione e agevolandone la gestione.
-\paragraph*{Lunghezza dei metodi}
+\paragraph{Lunghezza dei metodi}
 La lunghezza ottimale dei metodi può variare a seconda del contesto e delle best practices di programmazione. Tuttavia, in generale, molti esperti consigliano che i metodi siano brevi e focalizzati su una singola responsabilità.
 Un principio comune è quello espresso da Robert C. Martin nel suo libro "Clean Code", che suggerisce che i metodi dovrebbero essere idealmente lunghi quanto basta per svolgere una singola operazione e non più lungo di quanto si possa visualizzare senza dover scorrere la pagina. \\
 Questo favorisce:
@@ -460,11 +462,32 @@ Questo favorisce:
     \item \textbf{Conformità ai principi SOLID:} La brevità dei metodi è spesso correlata al principio Single Responsibility Principle (SRP) dei principi SOLID, il che favorisce la costruzione di codice più modulare e coeso.
 \end{itemize} 
 
-\paragraph*{Lunghezza righe di codice}
+\paragraph{Lunghezza righe di codice}
 Mantenere le righe di codice entro i 80-120 caratteri permette una migliore leggibilità del codice su schermi di diverse dimensioni e facilita la visualizzazione di più file affiancati.
 Inoltre, limitare la lunghezza delle righe può incoraggiare la scrittura di codice più chiaro e modulare.
 \paragraph{Commenti}
 Evitare commenti superflui e non necessari: l'obiettivo è scrivere il codice in modo chiaro e autoesplicativo, riducendo la dipendenza da commenti esplicativi. 
+
+\paragraph{Metriche}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|}
+    \hline
+    Metrica & Nome & Riferimento \\
+    \hline \hline
+    M15SC & Statement Coverage (MSC) &  \hyperlink{item:M15SC}{\textcolor{linkcolor}{M15SC}} \\
+    M16BC & Branch Coverage (MBC) &  \hyperlink{item:M16BC}{\textcolor{linkcolor}{M16BC}} \\
+    M17CNC & CoNdition Coverage (CNC) &  \hyperlink{item:M17CNC}{\textcolor{linkcolor}{M17CNC}} \\
+    M26MCCM & Complessità Ciclomatica per Metodo (MCCM) &  \hyperlink{item:M26MCCM}{\textcolor{linkcolor}{M26MCCM}} \\
+    M27PM & Parametri per metodo (PM) & \hyperlink{item:M27PM}{\textcolor{linkcolor}{M27PM}} \\
+    M28APC & Attributi per classe (APC) & \hyperlink{item:M28APC}{\textcolor{linkcolor}{M28APC}} \\
+    M29LCM & Linee di codice per metodo (LCM) & \hyperlink{item:M29LCM}{\textcolor{linkcolor}{M29LCM}} \\ 
+    \hline
+    \end{tabular}
+    \caption{Metriche relative all'attività di codifica}
+\end{table}
+
+
 \subsubsection{Configurazione dell'ambiente di esecuzione}
 \paragraph{Docker}
 
