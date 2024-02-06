@@ -1,5 +1,6 @@
 \subsection{Verso la Requirements and Technology Baseline}
 \subsubsection{Primo periodo  06/11/2023 - 24/11/2023}
+\paragraph{Considerazioni}
     Nel corso del primo periodo, il nostro team ha dedicato risorse significative all'elaborazione e alla standardizzazione dei \textit{processi}\textsubscript{\textit{G}}, formalizzando tali linee guida nel documento "Norme di Progetto". In quest'ultimo, sono state dettagliatamente redatte le sezioni specificate nella tabella sottostante.
 
     Durante il primo incontro con l'azienda, abbiamo definito obiettivi chiave da conseguire entro il prossimo \textit{SAL}\textsubscript{\textit{G}} fissato per il 24 novembre 2023, coincidente con l'avvio del prossimo periodo. Questo approccio ricalca la struttura dello sprint backlog di Scrum.
@@ -10,7 +11,7 @@
     Parallelamente, durante questa fase, gli amministratori hanno investito risorse per automatizzare il processo di compilazione dei sorgenti \LaTeX , una volta caricati nella \textit{repository}\textsubscript{\textit{G}} condivisa. Inoltre, è stata implementata una procedura automatica di rinomina dei file PDF generati, inclusiva dell'indicazione della versione.
 
 \paragraph{Gestione dei rischi} 
-
+ 
 Nel corso del primo periodo, ci si attendeva e si sono manifestate le seguenti problematiche:
 \begin{itemize}
     \item \textbf{Inesperienza nell'uso dell'ambiente \textit{Docker}\textsubscript{\textit{G}} - \ref{sec:rischioTec}}
@@ -22,6 +23,35 @@ Nel corso del primo periodo, ci si attendeva e si sono manifestate le seguenti p
             Inoltre, al fine di conformarsi alle best practices dell'ambiente, è stata presa la decisione di regolamentare, nel documento "Norme di Progetto", lo sviluppo degli ambienti \textit{Docker}\textsubscript{\textit{G}}.
     \end{itemize}
 \end{itemize}
+
+\paragraph{Definizione ruoli}
+Per le \textit{attività}\textsubscript{\textit{G}} registrate nei costi, sono stati assegnati i seguenti ruoli: 
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|L{4cm}|L{2cm}|}
+        \hline
+        \textbf{Ruolo} & \textbf{Persona} \\
+        \hline
+        \hline
+        Responsabile (Re)   & F. Pozza \\
+        \hline
+        Amministratore (Am) & L. Skenderi \\
+        \hline
+        Analisti (An)       & A. Barutta \\
+                            & R. Smanio \\
+        \hline
+        Verificatore (Ve)   & E. Hysa \\
+        \hline
+        Programmatori (Pr)  & N. Preto \\
+                            & D. Diotto \\
+        \hline
+        Progettista (Pt)    & Nessuno \\
+        \hline
+    \end{tabular}
+    \caption{Tabella dei Ruoli e delle Persone - primo periodo}
+    \label{tab:Ruoli_persone_1}
+    \end{table}
 
 \newpage
 \paragraph{Pianificazione attività divise per ruoli con consuntivo e preventivo orario e dei costi}\hspace{1pt}
@@ -62,36 +92,9 @@ Al termine del primo periodo, l'ammontare parziale totale del costo del progetto
     \end{minipage}
 \end{figure}
 
-\paragraph{Preventivo e consuntivo orario per membro}
-Per le \textit{attività}\textsubscript{\textit{G}} registrate nei costi, sono stati assegnati i seguenti ruoli: 
 
-\begin{table}[H]
-    \centering
-    \begin{tabular}{|l|l|}
-        \hline
-        \textbf{Ruolo} & \textbf{Persona} \\
-        \hline
-        \hline
-        Responsabile (Re) & F. Pozza \\
-        \hline
-        Amministratore (Am) & L. Skenderi \\
-        \hline
-        Analisti (An) & A. Barutta \\
-        & R. Smanio \\
-        \hline
-        Verificatore (Ve) & E. Hysa \\
-        \hline
-        Programmatori (Pr) & N. Preto \\
-        & D. Diotto \\
-        \hline
-        Progettista (Pt) & Nessuno \\
-        \hline
-    \end{tabular}
-    \caption{Tabella dei Ruoli e delle Persone - primo periodo}
-    \label{tab:Ruoli_persone_1}
-    \end{table}
 
-\paragraph*{Preventivo orario} \hspace{1pt}
+\paragraph{Preventivo orario} \hspace{1pt}
 
 \begin{figure}[H]
     \centering
@@ -107,7 +110,7 @@ Per le \textit{attività}\textsubscript{\textit{G}} registrate nei costi, sono s
     \label{fig:Preventivo_ripartizione_oraria_1}
 \end{figure}
 
-\paragraph*{Consuntivo orario} \hspace{1pt}
+\paragraph{Consuntivo orario} \hspace{1pt}
 
 \begin{figure}[H]
     \centering
@@ -126,7 +129,11 @@ Per le \textit{attività}\textsubscript{\textit{G}} registrate nei costi, sono s
 %________________________-SECONDO PERIODO-_____________________________
 
 \subsubsection{Secondo periodo  24/11/2023 - 08/12/2023}
+\paragraph{Considerazioni}
+
 Durante il secondo periodo, il nostro team ha impegnato risorse per proseguire e completare parzialmente la definizione delle norme nel documento "Norme di progetto".
+
+Durante questo periodo, sono state impiegate ore dei progettisti per prendere in considerazione tecnologie al di fuori di quelle consigliate dal proponente e valutare diverse scelte architetturali. Di fatto, è stato deciso di aggiungere un ulteriore passaggio allo stack tecnologico, consistente in uno script tra Kafka e ClickHouse, mirato a filtrare i dati provenienti dai sensori, evitando il salvataggio di errori di misurazione evidenti e consentendo il calcolo del punteggio di salute tramite una funzione di aggregazione.
 
 Nel corso del \textit{SAL}\textsubscript{\textit{G}} con il \textit{proponente}\textsubscript{\textit{G}}, è stato stabilito l'obiettivo di concludere entro la fine del secondo sprint la fase relativa al Proof of Concept (\textit{POC}\textsubscript{\textit{G}}), focalizzata sull'\textit{integrazione}\textsubscript{\textit{G}} dell'ultimo elemento nello \textit{stack tecnologico}\textsubscript{\textit{G}}, "\textit{Grafana}\textsubscript{\textit{G}}", e sulla visualizzazione di grafici delle misurazioni dei simulatori sviluppati.
 
@@ -149,6 +156,41 @@ Nel corso del secondo periodo, ci si attendeva e si sono manifestate le seguenti
         \end{itemize}
 \end{itemize}
 
+\paragraph{Definizione ruoli}
+Durante questo periodo diversi membri hanno assunto più ruoli per poter portare a termine tutte le attività pianificate.
+Per le \textit{attività}\textsubscript{\textit{G}} registrate nei costi, sono stati assegnati i seguenti ruoli:
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|L{4cm}|L{2cm}|}
+    \hline
+    \textbf{Ruolo} & \textbf{Persona} \\
+    \hline
+    \hline
+    Responsabile (Re)   & L. Skenderi \\
+    \hline
+    Amministratore (Am) & A. Barutta \\
+    \hline
+    Analisti (An)       & E. Hysa \\
+                        & R. Smanio \\
+    \hline
+    Verificatore (Ve)   & D. Diotto \\
+                        & R. Smanio \\
+    \hline
+    Programmatori (Pr)  & N. Preto \\
+                        & F. Pozza \\
+    \hline
+    Progettista (Pt)    & A. Barutta \\
+                        & F. Pozza \\
+                        & R. Smanio \\
+                        & L. Skenderi \\
+                        & E. Hysa \\
+    \hline
+    \end{tabular}
+    \caption{Tabella dei Ruoli e delle Persone - Secondo periodo}
+    \label{tab:Ruoli_persone_2}
+    \end{table}
+    
 \newpage
 \paragraph{Pianificazione attività divise per ruoli con consuntivo e preventivo orario e dei costi}\hspace{1pt}
 
@@ -159,7 +201,7 @@ Nel corso del secondo periodo, ci si attendeva e si sono manifestate le seguenti
     \label{fig:Secondo_periodo}
 \end{figure}
 
-Al termine del secondo periodo, l'ammontare parziale totale del costo del progetto è \textbf{ 1937,50\euro\ } e sono state completate il \textbf{100\%} delle \textit{attività}\textsubscript{\textit{G}} attese.
+Al termine del secondo periodo, l'ammontare parziale totale del costo del progetto è \textbf{ 2137,50\euro\ } e sono state completate il \textbf{100\%} delle \textit{attività}\textsubscript{\textit{G}} attese.
 \href{https://github.com/orgs/ByteOps-swe/projects/3/views/1?sortedBy%5Bdirection%5D=asc&sortedBy%5BcolumnId%5D=64182560}{Vai al Diagramma di Gantt.}
 
 
@@ -173,7 +215,7 @@ Al termine del secondo periodo, l'ammontare parziale totale del costo del proget
                 color={blue!50, red!80}, 
                 radius=2, 
                 line width=0pt
-            ]{15/Speso, 85/Rimanente}
+            ]{17/Speso, 83/Rimanente}
         \end{tikzpicture}
         \caption{Grafico a torta del budget speso e rimanente preventivato - secondo periodo}
         \label{fig:Budget_speso_2}
@@ -189,38 +231,9 @@ Al termine del secondo periodo, l'ammontare parziale totale del costo del proget
     \end{minipage}
 \end{figure}
 
-\paragraph{Preventivo e consuntivo orario per membro}
-Per le \textit{attività}\textsubscript{\textit{G}} registrate nei costi, sono stati assegnati i seguenti ruoli:
 
-\begin{table}[H]
-    \centering
-    \begin{tabular}{|l|l|}
-    \hline
-    \textbf{Ruolo} & \textbf{Persona} \\
-    \hline
-    \hline
-    Responsabile (Re) & L. Skenderi \\
-    \hline
-    Amministratore (Am) & A. Barutta \\
-    \hline
-    Analisti (An) & E. Hysa \\
-     & R. Smanio \\
-     \hline
-    Verificatore (Ve) & D. Diotto \\
-     & R. Smanio \\
-     \hline
-    Programmatori (Pr) & N. Preto \\
-     & F. Pozza \\
-     \hline
-    Progettista (Pt) & Nessuno \\
-    \hline
-    \end{tabular}
-    \caption{Tabella dei Ruoli e delle Persone - Secondo periodo}
-    \label{tab:Ruoli_persone_2}
-    \end{table}
-    
 
-\paragraph*{Preventivo orario} \hspace{1pt}
+\paragraph{Preventivo orario} \hspace{1pt}
 
 \begin{figure}[H]
     \centering
@@ -236,7 +249,7 @@ Per le \textit{attività}\textsubscript{\textit{G}} registrate nei costi, sono s
     \label{fig:Preventivo_ripartizione_oraria_2}
 \end{figure}
 
-\paragraph*{Consuntivo orario } \hspace{1pt}
+\paragraph{Consuntivo orario } \hspace{1pt}
 
 \begin{figure}[H]
     \centering
@@ -257,11 +270,41 @@ Per le \textit{attività}\textsubscript{\textit{G}} registrate nei costi, sono s
 
 
 \subsubsection{Terzo periodo  08/12/2023 - 21/12/2023}
+\paragraph{Considerazioni}
 Nel corso del terzo periodo, il nostro team ha allocato risorse significative per condurre una revisione esaustiva del documento "Norme di progetto". L'amministratore si è concentrato sulla redazione del piano di qualifica, nonché sulla definizione e revisione delle metriche di qualità. Gli analisti hanno redatto e completato il refactor completo dell'Analisi dei requisiti, includendo la conclusione dei casi d'uso, dei requisiti funzionali, dei requisiti di vincolo, dei requisiti di qualità e del tracciamento. I programmatori hanno dedicato un impegno considerevole alla risoluzione di bug nel Proof of Concept (PoC) e alla creazione di una versione stabile destinata alla presentazione durante la revisione \textit{RTB}\textsubscript{\textit{G}}.
 
 \paragraph{Gestione dei rischi} 
 
 Nel corso del terzo periodo non si sono presentate problematiche.
+
+\paragraph{Definizione ruoli} \hspace{1pt}
+Per le \textit{attività}\textsubscript{\textit{G}} registrate nei costi, sono stati assegnati i seguenti ruoli:  
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|L{4cm}|L{2cm}|}
+    \hline
+    \textbf{Ruolo} & \textbf{Persona} \\
+    \hline
+    \hline
+    Responsabile (Re)   & R. Smanio \\
+    \hline
+    Amministratore (Am) & D. Diotto \\
+    \hline
+    Analisti (An)       & L. Skenderi \\
+    \hline
+    Verificatore (Ve)   & N. Preto \\
+                        & A. Barutta \\
+    \hline
+    Programmatori (Pr)  & E. Hysa \\
+                        & F. Pozza \\
+    \hline
+    Progettista (Pt)    & Nessuno \\
+    \hline
+    \end{tabular}
+    \caption{Tabella dei Ruoli e delle Persone - Terzo periodo}
+    \label{tab:Ruoli_persone_3}
+    \end{table}
 
 \newpage
 \paragraph{Pianificazione attività divise per ruoli con consuntivo e preventivo orario e dei costi}\hspace{1pt}
@@ -274,7 +317,7 @@ Nel corso del terzo periodo non si sono presentate problematiche.
 \end{figure}
 
 
-Al termine del terzo periodo, l'ammontare parziale totale del costo del progetto è \textbf{ 2612,5\euro\ } e sono state completate il \textbf{100\%} delle \textit{attività}\textsubscript{\textit{G}} attese.
+Al termine del terzo periodo, l'ammontare parziale totale del costo del progetto è \textbf{ 2812,5\euro\ } e sono state completate il \textbf{100\%} delle \textit{attività}\textsubscript{\textit{G}} attese.
 \href{https://github.com/orgs/ByteOps-swe/projects/3/views/1?sortedBy%5Bdirection%5D=asc&sortedBy%5BcolumnId%5D=64182560}{Vai al Diagramma di Gantt.}\hspace{1pt}
 
 
@@ -288,7 +331,7 @@ Al termine del terzo periodo, l'ammontare parziale totale del costo del progetto
                 color={blue!50, red!80}, 
                 radius=2, 
                 line width=0pt
-            ]{21/Speso, 79/Rimanente}
+            ]{22/Speso, 78/Rimanente}
         \end{tikzpicture}
         \caption{Grafico a torta del budget speso e rimanente preventivato - terzo periodo}
         \label{fig:Budget_speso_3}
@@ -304,37 +347,10 @@ Al termine del terzo periodo, l'ammontare parziale totale del costo del progetto
     \end{minipage}
 \end{figure}
 
-\paragraph{Preventivo e consuntivo orario per membro} \hspace{1pt}
-Per le \textit{attività}\textsubscript{\textit{G}} registrate nei costi, sono stati assegnati i seguenti ruoli:  
 
-\begin{table}[H]
-    \centering
-    \begin{tabular}{|l|l|}
-    \hline
-    \textbf{Ruolo} & \textbf{Persona} \\
-    \hline
-    \hline
-    Responsabile (Re) & R. Smanio \\
-    \hline
-    Amministratore (Am) & D. Diotto \\
-    \hline
-    Analisti (An) & L. Skenderi \\
-    \hline
-    Verificatore (Ve) & N. Preto \\
-     & A. Barutta \\
-     \hline
-    Programmatori (Pr) & E. Hysa \\
-     & F. Pozza \\
-     \hline
-    Progettista (Pt) & Nessuno \\
-    \hline
-    \end{tabular}
-    \caption{Tabella dei Ruoli e delle Persone - Terzo periodo}
-    \label{tab:Ruoli_persone_3}
-    \end{table}
     
 
-\paragraph*{Preventivo orario} \hspace{1pt}
+\paragraph{Preventivo orario} \hspace{1pt}
 
 \begin{figure}[H]
     \centering
@@ -350,7 +366,7 @@ Per le \textit{attività}\textsubscript{\textit{G}} registrate nei costi, sono s
     \label{fig:Preventivo_ripartizione_oraria_3}
 \end{figure}
 
-\paragraph*{Consuntivo orario } \hspace{1pt}
+\paragraph{Consuntivo orario } \hspace{1pt}
 
 \begin{figure}[H]
     \centering
@@ -371,7 +387,7 @@ Per le \textit{attività}\textsubscript{\textit{G}} registrate nei costi, sono s
 
 
 \subsubsection{Quarto periodo  21/12/2023 - 07/01/2024}
-
+\paragraph{Considerazioni}
 Il quarto periodo è stato principalmente focalizzato sul potenziamento e perfezionamento dell'\textit{analisi dei requisiti}\textsubscript{\textit{G}}. Ciò ha comportato un miglioramento delle descrizioni dei casi d'uso, delle use stories, dei requisiti e del tracciamento. Le \textit{attività}\textsubscript{\textit{G}} di programmazione si sono svolte mirando a garantire solidità ed efficienza del prodotto (PoC) in vista della revisione \textit{RTB}\textsubscript{\textit{G}}. Inoltre, è stata creata una pagina su GitHub io per consentire una navigazione chiara e rapida della \textit{repository}\textsubscript{\textit{G}} del progetto.
 
 Durante questo periodo, sono state instanziate rilevanti risorse per condurre \textit{attività}\textsubscript{\textit{G}} di verifica su tutti i \textit{configuration item}\textsubscript{\textit{G}} prodotti nel corso dei quattro periodi.
@@ -388,6 +404,37 @@ Nel corso del quarto periodo, ci si attendeva e si sono manifestate le seguenti 
         \end{itemize}
 \end{itemize}
 
+\paragraph{Definizione ruoli} \hspace{1pt}
+Per le \textit{attività}\textsubscript{\textit{G}} registrate nei costi, sono stati assegnati i seguenti ruoli: (durante tale periodo, alcuni membri del team hanno assunto più responsabilità, conformemente a quanto concordato sin dall'inizio del periodo).
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|L{4cm}|L{2cm}|}
+    \hline
+    \textbf{Ruolo} & \textbf{Persona} \\
+    \hline
+    \hline
+    Responsabile (Re)   & N. Preto \\
+    \hline
+    Amministratore (Am) & E. Hysa \\
+    \hline
+    Analisti (An)       & F. Pozza \\
+                        & D. Diotto \\
+    \hline
+    Verificatore (Ve)   & L. Skenderi \\
+                        & N. Preto \\
+                        & E. Hysa \\
+     \hline
+    Programmatori (Pr)  & A. Barutta \\
+                        & R. Smanio \\
+    \hline
+    Progettista (Pt)    & Nessuno \\
+    \hline
+    \end{tabular}
+    \caption{Tabella dei Ruoli e delle Persone - Quarto periodo}
+    \label{tab:Ruoli_persone_4}
+    \end{table}
+    
 \newpage
 \paragraph{Pianificazione attività divise per ruoli con consuntivo e preventivo orario e dei costi}\hspace{1pt}
 
@@ -399,7 +446,7 @@ Nel corso del quarto periodo, ci si attendeva e si sono manifestate le seguenti 
 \end{figure}
 
 
-Al termine del terzo periodo, l'ammontare parziale totale del costo del progetto è \textbf{ 3607,5\euro\ } e sono state completate il \textbf{100\%} delle \textit{attività}\textsubscript{\textit{G}} attese.
+Al termine del terzo periodo, l'ammontare parziale totale del costo del progetto è \textbf{ 3807,5\euro\ } e sono state completate il \textbf{100\%} delle \textit{attività}\textsubscript{\textit{G}} attese.
 \href{https://github.com/orgs/ByteOps-swe/projects/3/views/1?sortedBy%5Bdirection%5D=asc&sortedBy%5BcolumnId%5D=64182560}{Vai al Diagramma di Gantt.}\hspace{1pt}
 
 
@@ -413,7 +460,7 @@ Al termine del terzo periodo, l'ammontare parziale totale del costo del progetto
                 color={blue!50, red!80}, 
                 radius=2, 
                 line width=0pt
-            ]{29/Speso, 71/Rimanente}
+            ]{30/Speso, 70/Rimanente}
         \end{tikzpicture}
         \caption{Grafico a torta del budget speso e rimanente preventivato - quarto periodo}
         \label{fig:Budget_speso_4}
@@ -429,39 +476,9 @@ Al termine del terzo periodo, l'ammontare parziale totale del costo del progetto
     \end{minipage}
 \end{figure}
 
-\paragraph{Preventivo e consuntivo orario per membro} \hspace{1pt}
-Per le \textit{attività}\textsubscript{\textit{G}} registrate nei costi, sono stati assegnati i seguenti ruoli: (durante tale periodo, alcuni membri del team hanno assunto più responsabilità, conformemente a quanto concordato sin dall'inizio del periodo).
 
-\begin{table}[H]
-    \centering
-    \begin{tabular}{|l|l|}
-    \hline
-    \textbf{Ruolo} & \textbf{Persona} \\
-    \hline
-    \hline
-    Responsabile (Re) & N. Preto \\
-    \hline
-    Amministratore (Am) & E. Hysa \\
-    \hline
-    Analisti (An)   & F. Pozza \\
-                    & D. Diotto \\
-    \hline
-    Verificatore (Ve)   & L. Skenderi \\
-                        & N. Preto \\
-                        & E. Hysa \\
-     \hline
-    Programmatori (Pr)  & A. Barutta \\
-                        & R. Smanio \\
-    \hline
-    Progettista (Pt) & Nessuno \\
-    \hline
-    \end{tabular}
-    \caption{Tabella dei Ruoli e delle Persone - Quarto periodo}
-    \label{tab:Ruoli_persone_4}
-    \end{table}
-    
 
-\paragraph*{Preventivo orario} \hspace{1pt}
+\paragraph{Preventivo orario} \hspace{1pt}
 
 \begin{figure}[H]
     \centering
@@ -477,7 +494,7 @@ Per le \textit{attività}\textsubscript{\textit{G}} registrate nei costi, sono s
     \label{fig:Preventivo_ripartizione_oraria_4}
 \end{figure}
 
-\paragraph*{Consuntivo orario } \hspace{1pt}
+\paragraph{Consuntivo orario } \hspace{1pt}
 
 \begin{figure}[H]
     \centering
@@ -497,6 +514,7 @@ Per le \textit{attività}\textsubscript{\textit{G}} registrate nei costi, sono s
 
 
 \subsubsection{Quinto periodo  07/01/2024 - 15/01/2024}
+\paragraph{Considerazioni}
 In seguito al completamento delle \textit{attività}\textsubscript{\textit{G}} concernenti la baseline \textit{RTB}\textsubscript{\textit{G}}, il team ha impiegato risorse per sviluppare le presentazioni correlate, sia per la parte relativa al professor Cardin che per quella relativa al professor Vardanega.
 È importante notare che il compito eseguito dagli amministratori e le risorse ad esso allocate non sono state incluse nel calcolo dei costi. 
 In aggiunta, sono stati apportati lievi ritocchi di formalizzazione ai documenti.
@@ -512,6 +530,37 @@ Nel corso del quinto periodo, sono previste e sono occorse le seguenti problemat
         L'avanzamento procede a ritmo più lento, tuttavia tale andamento è conforme a quanto preventivato durante la fase di pianificazione.
     \end{itemize}
 \end{itemize}
+
+\paragraph{Definizione ruoli} \hspace{1pt}
+Per le \textit{attività}\textsubscript{\textit{G}} registrate nei costi, sono stati assegnati i seguenti ruoli:
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|L{4cm}|L{2cm}|}
+    \hline
+    \textbf{Ruolo} & \textbf{Persona} \\
+    \hline
+    \hline
+    Responsabile (Re)   & D. Diotto \\
+    \hline
+    Amministratore (Am) & A.Barutta  \\
+                        & R. Smanio \\
+    \hline
+    Analisti (An)       & E. Hysa \\
+                        & N. Preto \\
+    \hline
+    Verificatore (Ve)   & F. Pozza \\
+                        & L. Skenderi\\
+     \hline
+    Programmatori (Pr)  & L. Skenderi \\    
+    \hline
+    Progettista (Pt)    & Nessuno \\
+    \hline
+    \end{tabular}
+    \caption{Tabella dei Ruoli e delle Persone - Quinto periodo}
+    \label{tab:Ruoli_persone_5}
+    \end{table}
+
 \newpage
 \paragraph{Pianificazione attività divise per ruoli con consuntivo e preventivo orario e dei costi}\hspace{1pt}
 
@@ -522,7 +571,7 @@ Nel corso del quinto periodo, sono previste e sono occorse le seguenti problemat
     \label{fig:Quinto_periodo}
 \end{figure}
 
-Al termine del secondo periodo, l'ammontare parziale totale del costo del progetto è \textbf{ 3807,50\euro\ } e sono state completate il \textbf{100\%} delle \textit{attività}\textsubscript{\textit{G}} attese.
+Al termine del secondo periodo, l'ammontare parziale totale del costo del progetto è \textbf{ 4007,50\euro\ } e sono state completate il \textbf{100\%} delle \textit{attività}\textsubscript{\textit{G}} attese.
 
 
 \begin{figure}[H]
@@ -535,46 +584,16 @@ Al termine del secondo periodo, l'ammontare parziale totale del costo del proget
                 color={blue!50, red!80}, 
                 radius=2, 
                 line width=0pt
-            ]{30/Speso, 70/Rimanente}
+            ]{32/Speso, 68/Rimanente}
         \end{tikzpicture}
         \caption{Grafico a torta del budget speso e rimanente preventivato - quinto periodo}
         \label{fig:Budget_speso_5}
     \end{minipage}
     \vspace{1cm}
 \end{figure}
-
-\paragraph{Preventivo e consuntivo orario per membro} \hspace{1pt}
-Per le \textit{attività}\textsubscript{\textit{G}} registrate nei costi, sono stati assegnati i seguenti ruoli:
-
-\begin{table}[H]
-    \centering
-    \begin{tabular}{|l|l|}
-    \hline
-    \textbf{Ruolo} & \textbf{Persona} \\
-    \hline
-    \hline
-    Responsabile (Re) & D. Diotto \\
-    \hline
-    Amministratore (Am) & A.Barutta  \\
-    & R. Smanio \\
-    \hline
-    Analisti (An)   & E. Hysa \\
-    & N. Preto \\
-    \hline
-    Verificatore (Ve)   & F. Pozza \\
-    & L. Skenderi\\
-     \hline
-    Programmatori (Pr)  & L. Skenderi \\    
-    \hline
-    Progettista (Pt) & Nessuno \\
-    \hline
-    \end{tabular}
-    \caption{Tabella dei Ruoli e delle Persone - Quinto periodo}
-    \label{tab:Ruoli_persone_5}
-    \end{table}
     
 
-\paragraph*{Preventivo orario} \hspace{1pt}
+\paragraph{Preventivo orario} \hspace{1pt}
 
 \begin{figure}[H]
     \centering
@@ -590,7 +609,7 @@ Per le \textit{attività}\textsubscript{\textit{G}} registrate nei costi, sono s
     \label{fig:Preventivo_ripartizione_oraria_5}
 \end{figure}
 
-\paragraph*{Consuntivo orario } \hspace{1pt}
+\paragraph{Consuntivo orario } \hspace{1pt}
 
 \begin{figure}[H]
     \centering
@@ -609,6 +628,7 @@ Per le \textit{attività}\textsubscript{\textit{G}} registrate nei costi, sono s
 
 
 \subsubsection{Sesto periodo  15/01/2024 - 01/02/2024}
+\paragraph{Considerazioni}
 Per quanto attiene all'organizzazione di questo periodo, in considerazione della sovrapposizione con l'inizio della sessione di esami, il gruppo ha unanimemente raggiunto un accordo. Oltre a dedicarsi alla preparazione per i colloqui della \textit{RTB}\textsubscript{\textit{G}}, abbiamo deliberato di focalizzarci principalmente sullo studio individuale necessario per affrontare la sessione stessa, evitando ulteriori avanzamenti nel progetto.
 
 In questo periodo quindi, ci dedicheremo esclusivamente alla rifinitura dei dettagli concernenti le presentazioni destinate al Prof. Cardin e al Prof. Vardanega.
