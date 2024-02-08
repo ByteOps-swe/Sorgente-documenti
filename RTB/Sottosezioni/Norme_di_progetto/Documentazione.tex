@@ -14,8 +14,7 @@ L'obiettivo della sezione è:
     \item  Definire delle procedure ripetibili che permettano di uniformare la documentazione prodotta dal gruppo ed il metodo di lavoro;
     \item  Raccogliere ed organizzare le norme che i membri del team devono seguire così da semplificare l'operazione di scrittura dei documenti.
 \end{itemize}
-Tali norme dovranno essere applicate da tutti i membri del team, ed i sorgenti \LaTeX\ che contengono tale documentazione verranno inseriti nel repository disponibile all'indirizzo:
-\href{https://github.com/ByteOps-swe/Sorgente-documenti}{https://github.com/ByteOps-swe/Sorgente-documenti}
+Tali norme dovranno essere applicate da tutti i membri del team, ed i sorgenti \LaTeX\ che contengono tale documentazione verranno inseriti nel repository \href{https://github.com/ByteOps-swe/Sorgente-documenti}{Sorgente-documenti}.
 
 \begin{comment} \paragraph*{Primi approcci alla redazione di documenti e problematiche riscontrate}
 Per la composizione iniziale dei documenti richiesti per la candidatura, è stato sperimentato un'approccio che impiegava gli strumenti di Google Drive. Tale metodologia consentiva ai redattori di redigere agevolmente i documenti senza la necessità di padroneggiare la sintassi LaTeX, con l'intenzione di trasporre successivamente il contenuto in LaTeX una volta che fosse stato validato dai verificatori. Tuttavia, questo approccio ha suscitato problematiche, tra cui:
@@ -41,7 +40,7 @@ Questo approccio porta diversi vantaggi, tra cui una maggiore coerenza, una migl
 \subsubsection{Sorgente documenti}
 Poiché i documenti vengono redatti in \LaTeX, per favorire una migliore collaborazione tra diversi autori, si è scelto di creare un file sorgente per ciascuna sezione e sottosezione di ogni documento. Questo approccio consente a ciascun autore di lavorare sulle singole sezioni o sottosezioni, evitando di apportare modifiche a parti del documento non pertinenti al proprio ambito. \\
 Infine, viene creato un file principale con il nome del documento, nel quale verranno collegati tutti i file delle varie sezioni e sottosezioni mediante l'uso del comando \verb|\input{Sezione.tex}| o, nel caso delle sottosezioni, \verb|\input{Sottosezione.tex}|. \\
-Nel caso dei Verbali, essendo documenti composti da sezioni molto brevi, non si utilizza questo approccio.
+Nel caso dei verbali, essendo documenti composti da sezioni molto brevi, non si utilizza questo approccio.
 
 \subsubsection{Ciclo di vita dei documenti}
 Il ciclo di vita dei documenti è una sequenza di stati e attività:
@@ -56,7 +55,7 @@ Il ciclo di vita dei documenti è una sequenza di stati e attività:
           \end{enumerate}
     \item \textbf{Stato: Redazione}
           \begin{enumerate}
-              \item  Ogni tipo di documento viene creato secondo la struttura specificata nei prossimi paragrafi;\todo{riferimento preciso ai paragrafi}
+              \item  Ogni tipo di documento viene creato secondo la struttura specificata nella sezione~\ref{subsubsec:strutturadocumento};
               \item Il team realizza il documento redigendone il contenuto rispettando le norme definite.
           \end{enumerate}
     \item \textbf{Stato: Verifica}
@@ -84,14 +83,14 @@ Il ciclo di vita dei documenti è una sequenza di stati e attività:
 
 Il redattore responsabile della redazione di un documento o di una sua sezione deve seguire lo stesso approccio richiesto per la codifica del software, adottando il workflow noto come "feature branch".\\
 \vspace{0.1cm}
-\textbf{Caso redazione/modifica nuovo documento o sezione}\\
-Dalla repository \href{https://github.com/ByteOps-swe/Sorgente-documenti}{Sorgente-documenti} contenente i sorgenti \LaTeX, il redattore dovrà creare un nuovo branch Git in locale e passare\todo{cambia} ad esso mediante l'utilizzo del comando:
+\textbf{Caso redazione nuovo documento/sezione o modifica documento/sezione preesistente}\\ \todo{redazione nuovo documento o sezione oppure modifica documento o sezione già validata}
+Dalla repository \href{https://github.com/ByteOps-swe/Sorgente-documenti}{Sorgente-documenti} contenente i sorgenti \LaTeX, il redattore dovrà creare un nuovo branch Git in locale e spostarsi su di esso mediante l'utilizzo del comando:
 \begin{lstlisting}[style=code]
     git checkout main
     git checkout -b branch_identificativoTask 
 \end{lstlisting}
 
-Il nome del branch destinato alla redazione o modifica del documento o di una sua sezione deve essere descrittivo al fine di consentire un'identificazione immediata e precisa del documento o della sezione su cui si sta lavorando. Pertanto, relativamente alla redazione dei documenti, devonono essere adottatate le \textbf{convenzioni per la nomenclatura dei branch} esposte all'interno della sezione 3.4.3.2. \todo{link}
+Il nome del branch destinato alla redazione o modifica del documento o di una sua sezione deve essere descrittivo al fine di consentire un'identificazione immediata e precisa del documento o della sezione su cui si sta lavorando. Pertanto, relativamente alla redazione dei documenti, devonono essere adottatate le specifiche \hyperlink{par:convezioninomenclaturabranchdocumenti}{\textbf{convenzioni per la nomenclatura dei branch}}\todo{cambia colore link}.
 
 A questo punto, dopo aver creato/modificato il documento o la sezione assegnata e avviato la stesura, affinché gli altri redattori possano continuare il lavoro, è necessario rendere il branch accessibile anche nella repository remota, seguendo i seguenti passaggi:
 \begin{lstlisting}[style=code]
@@ -108,7 +107,7 @@ A questo punto, dopo aver creato/modificato il documento o la sezione assegnata 
 % \item \textbf{Norme di progetto}: \verb|Norme-di-progetto|
 %\end{itemize}
 
-\textbf{Caso modifica documento in stato di redazione}\\
+\textbf{Caso modifica documento in stato di redazione} \\\todo{questi sono tutti paragrafi zio cane}
 Qualora il redattore intenda continuare la stesura di un documento (o sezione) iniziato da un altro redattore,sono necessari i comandi:
 
 \begin{lstlisting}[style=code]
@@ -117,7 +116,7 @@ Qualora il redattore intenda continuare la stesura di un documento (o sezione) i
 
         \end{lstlisting}
 
-\textbf{Salvataggio e condivisone progressi di task non completate}\\
+\hypertarget{}{\textbf{Salvataggio e condivisione progressi di task non completate}} \\
 Alla fine di una sessione di modifiche di un file, nel caso si desideri rendere accessibile ai membri il lavoro non ancora completato e, pertanto, non pronto alla verifica, è necessario:
 \begin{enumerate}
     \item Eseguire il push\textsubscript{\textit{G}}  delle modifiche fatte nel branch
@@ -137,15 +136,15 @@ Alla fine di una sessione di modifiche di un file, nel caso si desideri rendere 
 \textbf{Completamento compito di redazione}\\
 Al termine del loro lavoro, i redattori:
 \begin{enumerate}
-    \item Segnalano il completamento dell'attività a loro assegnata (essa sia la stesura completa di un documento o di una sua parte) posizionando l'issue relativa nella colonna "Da revisionare" della  \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione}.
+    \item Segnalano il completamento dell'attività a loro assegnata (essa sia la stesura completa di un documento o di una sua parte) posizionando l'issue relativa nella colonna "Da revisionare" della \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione}.
     \item Attuano una \textbf{pull request:}
           \begin{enumerate}
               \item Aggiornare il registro delle modifiche inserendo i dati richiesti in  una nuova riga e incrementando la versione (il verificatore è definito all'assegnazione della task, presente nella descrizione della Issue del'ITS);
-              \item Eseguire i passaggi dettagliati nel caso "\textit{\textbf{Salvataggio e condivisone progressi di task non completate}}";\todo{link}
-              \item Vai sul repository \todo{link} su GitHub >> Apri la sezione "pull request" >> Clicca "New pull request";
+              \item Eseguire i passaggi dettagliati nel caso "\textit{\textbf{Salvataggio e condivisione progressi di task non completate}}";\todo{link}
+              \item Vai sul \href{https://github.com/ByteOps-swe/Sorgente-documenti.git}{repository} GitHub >> Apri la sezione "Pull requests" >> Clicca "New pull request";
               \item Seleziona come branch di destinazione "main" e come branch sorgente il ramo utilizzato per la redazione del documento (o sezione) da validare;
               \item Clicca "Create pull request";
-              \item Dai un titolo e una breve descrizione alla pull request >> Seleziona i verificatori su "Reviewers" >> Clicca "Create pull request".
+              \item Dai un titolo e una breve descrizione\todo{è da specificare come e cosa scrivere come titolo e come descrizione?} alla pull request >> Seleziona i verificatori su "Reviewers" >> Clicca "Create pull request".
           \end{enumerate}
 \end{enumerate}
 
@@ -175,6 +174,7 @@ Nel processo di redazione dei documenti, il compito dell'amministratore consiste
 \end{itemize}
 
 \subsubsection{Struttura del documento}
+\label{subsubsec:strutturadocumento}
 I documenti ufficiali seguono un rigoroso e uniforme schema strutturale, il quale richiede un'osservanza scrupolosa.
 
 \paragraph*{Prima pagina}
