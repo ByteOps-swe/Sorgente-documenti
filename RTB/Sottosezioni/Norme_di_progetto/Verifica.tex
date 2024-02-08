@@ -1,23 +1,26 @@
-\subsection{Verifica}\label{sec:verifica}
+\subsection{Verifica}
+\label{sec:verifica}
+
 \subsubsection{Introduzione}
-Nel processo di sviluppo, lo scopo dell'attività di verifica è quello di garantire la qualità del prodotto attraverso un'analisi accurata e sistematica.
+Lo scopo del processo di verifica è quello di garantire la qualità del prodotto attraverso un'analisi accurata e sistematica.
 
-Questo processo coinvolge la revisione e la valutazione delle fasi di sviluppo del codice sorgente e della documentazione, per identificare e correggere errori, difetti o discrepanze rispetto ai requisiti specificati.
+Questo processo coinvolge la revisione e la valutazione del codice sorgente e della documentazione, per identificare e correggere errori, difetti o discrepanze rispetto ai requisiti specificati.
 
-Il processo di verifica viene eseguito su tutti i processi in esecuzione al raggiungimento di un livello di maturità adeguato o in seguito a modifiche dello stato del processo. Per i processi di supporto, si analizza la qualità dei prodotti generati e dei processi utilizzati al fine di garantire la conformità agli standard di qualità definiti.
-Le attività relative al processo di verifica vengono assegnate ai verificatori, incaricati di analizzare i prodotti e valutarne la conformità ai vincoli qualitativi specificati nel Piano di Qualifica. Tali operazioni seguono l'ordine specificato nel modello a V.
-Nel Piano di Qualifica sono documentate tutte le attività che compongono il processo, descrivendone scopi, risultati sperati e risultati ottenuti. Questo fornisce linee guida per una corretta valutazione della qualità, normando e rendendo ripetibile il processo.
+Il processo di verifica viene eseguito su tutti i processi in esecuzione al raggiungimento di un livello di maturità adeguato o in seguito a modifiche dello stato del processo. \\
+Relativamente ai processi di supporto, si analizza la qualità dei prodotti generati e dei processi utilizzati al fine di garantire la conformità agli standard di qualità definiti.
+Le attività relative al processo di verifica vengono assegnate ai verificatori, incaricati di analizzare i prodotti e valutarne la conformità ai vincoli qualitativi specificati nel \textit{Piano di Qualifica} \todo{e verificare se le norme specificate in questo documento sono rispettate}. Tali operazioni seguono l'ordine specificato nel \href{https://it.wikipedia.org/wiki/V-Model}{modello a V}. \\
+Nel \textit{Piano di Qualifica} sono documentate tutte le attività che compongono il processo, descrivendone scopi, risultati sperati e risultati ottenuti. Ciò fornisce le linee guida per una corretta valutazione della qualità, normando e rendendo ripetibile il processo.
 
 La verifica mira a garantire che il software soddisfi gli standard di qualità prestabiliti, riducendo il rischio di errori e migliorando l'affidabilità, la robustezza e l'efficienza del prodotto finale.
-Questo processo verrà attuato per ciascuna attività e dovrà assicurare che l'output di quest'ultima sia in uno stato stabile, consentendo così l'inizio della successiva fase di validazione.
+Questo processo verrà attuato per ciascuna attività \todo{non so se attività è il nome corretto} e dovrà assicurare che l'output di quest'ultima sia in uno stato stabile, consentendo così l'inizio della successiva fase di validazione.
 
 \subsubsection{Verifica dei documenti}\label{sec:verificatori}
 
 Il ruolo del verificatore nei documenti è cruciale per garantire la qualità e l'accuratezza del contenuto.
 
-Quando il verificatore individua un'Issue nella colonna "Da revisionare" della \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione}, sarà tenuto a convalidare il file corrispondente presente nella repository "Sorgente documenti". \\
+Quando il verificatore individua un'Issue nella colonna "Da revisionare" della \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione}, sarà tenuto a convalidare il file corrispondente presente nella repository \href{https://github.com/ByteOps-swe/Sorgente-documenti}{Sorgente documenti}. \\
 In aggiunta, il revisore riceverà una notifica via email quando il redattore completa la propria attività, comunicandogli la presenza della pull request assegnatagli.\\
-Nella sezione "pull request" di GitHub, il revisore troverà la richiesta di unire il branch di redazione al branch "main", assumendo il ruolo di revisore. Accedendo alla pull request su GitHub, il revisore avrà la possibilità di esaminare attentamente il documento in questione e di aggiungere commenti visibili ai redattori nel caso in cui siano necessarie modifiche per la validazione.
+Nella sezione "pull request" di GitHub, il revisore troverà la richiesta di unire il branch di redazione al branch "main", assumendo il ruolo di revisore\todo{wtf}. Accedendo alla pull request su GitHub, il revisore avrà la possibilità di esaminare attentamente il documento in questione e di aggiungere commenti visibili ai redattori nel caso in cui siano necessarie modifiche per la validazione.
 
 \vspace{0.3cm}
 
@@ -35,7 +38,7 @@ Per validare un documento le verifiche da attuare sono:
         controllare la grammatica, l'ortografia e la punteggiatura del documento per garantire una presentazione professionale;
 \end{itemize}
 
-Dopo l'attuazione dei controlli sopra citati e aver verificato che siano stati adeguatamenti rispettati, i passi per convalidare il documento sono i seguenti:
+Dopo l'attuazione dei controlli sopra citati e aver verificato che siano stati adeguatamenti rispettati\todo{riformula meglio}, i passi per convalidare il documento sono i seguenti:
 
 \begin{enumerate}
     \item \textbf{Accetta la Pull Request:} 
@@ -43,18 +46,18 @@ Dopo l'attuazione dei controlli sopra citati e aver verificato che siano stati a
     \item \textbf{Elimina il branch:} 
         eliminare il branch creato per la redazione del documento (o sezione).
     \item \textbf{Sposta la issue in Done:} 
-        nella \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione} spostare la issue relativa al documento validato dalla sezione "Da revisionare" a "Done".
+        nella \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione} spostare la issue relativa al documento validato dalla sezione "Da revisionare" a "Done".\todo{non avviene in automatico?}
     \item \textbf{Controllo generazione PDF:} 
-        un automazione tramite GitHub Actions compilerà il file \LaTeX\ e genererà automaticamente il PDF nel branch main della repository \href{https://github.com/ByteOps-swe/Documents}{Documents} con la data di redazione nel caso il documento sia un verbale, oppure la versione aggiornata per tutte le altre tipologie di file.
+        un'automazione tramite GitHub Actions compilerà il file \LaTeX\ e genererà automaticamente il PDF nel branch main della repository \href{https://github.com/ByteOps-swe/Documents}{Documents} con la data di redazione nel caso il documento sia un verbale, oppure la versione aggiornata per tutte le altre tipologie di file.
 
-        Il verificatore dovrà accedere alla sezione "Actions" di GitHub, supervisionare il processo di compilazione per la possibile generazione di errori, attendere la conclusione del processo di build del codice sorgente e controllare la corretta generazione del documento in formato PDF.
+        Il verificatore dovrà accedere alla sezione "Actions" di GitHub, supervisionare il processo di compilazione per la possibile generazione di errori, attendere la conclusione del processo di build del codice sorgente e controllare la corretta generazione del documento in formato PDF.\todo{non serve, arriva la mail se la build fallisce}
 \end{enumerate}
 
 \subsubsection{Analisi}
 Attività di controllo su oggetti statici (documentazione, codice) e dinamici (componenti software).
 
 \paragraph{Analisi statica}
-Analisi condotta sull'oggetto (documentazione e codice) senza eseguirlo. Si prevede l'impiego di metodi di lettura, sia manuali che automatici, al fine di individuare eventuali errori formali. Le due principali tecniche utilizzate sono:
+Analisi condotta sull'oggetto\todo{cossa xeo l'oggetto tioca?} (documentazione e codice) senza eseguirlo. Si prevede l'impiego di metodi di lettura, sia manuali che automatici, al fine di individuare eventuali errori formali. Le due principali tecniche utilizzate sono:
 
 \paragraph{Walkthrough}
     Il verificatore controllerà nella totalità l’oggetto in cerca di difetti o errori, senza svolgere una ricerca specifica per un certo tipo di errore.
@@ -94,11 +97,11 @@ Queste liste fungono da \textit{checklist} per valutare l'accuratezza dell'attiv
 L'inspection è più adatta quando i documenti o il codice sono complessi e strutturati. È efficace nelle fasi più avanzate del progetto, quando la stabilità e la completezza sono cruciali.
 
 \paragraph{Analisi dinamica}
-Nel ciclo di sviluppo software, è essenziale condurre una verifica accurata del codice prodotto al fine di garantirne il corretto funzionamento. Questo processo si avvale dell'analisi dinamica, una categoria di metodologie che richiedono l'esecuzione effettiva del prodotto.
-L'analisi dinamica coinvolge l'esecuzione di una serie di casi di test durante l'attuazione del codice. L'obiettivo di tali test è assicurare l'esecuzione accurata del software e individuare eventuali discordanze tra i risultati ottenuti e quelli previsti.
-
+Nel ciclo di sviluppo software\todo{ciclo?}, è essenziale condurre una verifica accurata del codice prodotto al fine di garantirne il corretto funzionamento. Questo processo si avvale dell'analisi dinamica, una categoria di metodologie che richiedono l'esecuzione effettiva del prodotto.
+L'analisi dinamica coinvolge l'esecuzione di una serie di casi di test durante l'attuazione del codice. L'obiettivo di tali test è assicurare l'esecuzione accurata del software e individuare eventuali discordanze tra i risultati ottenuti e quelli previsti. \\
 È importante sottolineare che l'analisi dinamica non è applicabile alla documentazione.
-Per assicurare l'efficacia dell'analisi dinamica, è necessario automatizzare e rendere ripetibile questo processo, garantendo così una valutazione oggettiva del prodotto. Nel contesto dell'ingegneria del software, il test rappresenta la principale tecnica di analisi dinamica.
+Per assicurare l'efficacia dell'analisi dinamica, è necessario automatizzare e rendere ripetibile questo processo, garantendo così una valutazione oggettiva del prodotto. \\
+Nel contesto dell'ingegneria del software, il test rappresenta la principale tecnica di analisi dinamica.
 
 \subsubsection{Testing}
 \label{subsec:Testing}
@@ -241,5 +244,5 @@ I test nel cruscotto potranno assumere i seguenti stati:
 \begin{itemize}
     \item \textbf{Spell checker:} 
         controllo ortografico integrato nell’ambiente di lavoro;
-    \item \textbf{Modulo "unittest" Python}.
+    \item \href{https://docs.python.org/3/library/unittest.html}{\textbf{Modulo "unittest" Python}}.
 \end{itemize}
