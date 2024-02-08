@@ -1,19 +1,19 @@
 \subsection{Documentazione}
 
 \subsubsection{Introduzione}
-La documentazione costituisce l'insieme di informazioni scritte che accompagnano un prodotto software, fornendo dettagli utili a sviluppatori, distributori e utenti.\\
+La documentazione costituisce l'insieme di informazioni scritte che accompagnano un prodotto \textit{software}\textsubscript{\textit{G}}, fornendo dettagli utili a sviluppatori, distributori e utenti.\\
 Tra gli scopi della documentazione troviamo:
 \begin{itemize}
     \item Comprensione del prodotto senza supporto umano, usandola come mezzo di comunicazione;
     \item Segnare il confine tra creatività e disciplina;
-    \item Assicurare che i processi produttivi si svolgano con la qualità attesa.
+    \item Assicurare che i \textit{processi}\textsubscript{\textit{G}} produttivi si svolgano con la qualità attesa.
 \end{itemize}
 L'obiettivo della sezione è:
 \begin{itemize}
     \item  Definire delle procedure ripetibili che permettano di uniformare la documentazione prodotta dal gruppo ed il metodo di lavoro;
     \item  Raccogliere ed organizzare le norme che i membri del team devono seguire così da semplificare l'operazione di scrittura dei documenti.
 \end{itemize}
-Tali norme dovranno essere applicate da tutti i membri del team, ed i sorgenti \LaTeX\ che contengono tale documentazione verranno inseriti nel repository disponibile all'indirizzo:
+Tali norme dovranno essere applicate da tutti i membri del team, ed i sorgenti \LaTeX\ che contengono tale documentazione verranno inseriti nel \textit{repository}\textsubscript{\textit{G}} disponibile all'indirizzo:
 \href{https://github.com/ByteOps-swe/Sorgente-documenti}{https://github.com/ByteOps-swe/Sorgente-documenti}
 
 \begin{comment} \paragraph*{Primi approcci alla redazione di documenti e problematiche riscontrate}
@@ -25,7 +25,7 @@ Per la composizione iniziale dei documenti richiesti per la candidatura, è stat
 Per tali ragioni si è presa la decisione di adottare un nuovo approccio.
 \end{comment}
 \paragraph{Documentation as Code}\label{sec:DocumentationAscode}
-L'approccio che si intende adottare è quello di "Documentation as Code" (Documentazione come Codice) che consiste nel trattare la documentazione di un progetto software allo stesso modo in cui si tratta il codice sorgente. Questo approccio è incentrato sull'utilizzo di pratiche e strumenti tipici dello sviluppo software per creare, gestire e distribuire la documentazione.
+L'approccio che si intende adottare è quello di "Documentation as Code" (Documentazione come Codice) che consiste nel trattare la documentazione di un progetto \textit{software}\textsubscript{\textit{G}} allo stesso modo in cui si tratta il codice sorgente. Questo approccio è incentrato sull'utilizzo di pratiche e strumenti tipici dello sviluppo \textit{software}\textsubscript{\textit{G}} per creare, gestire e distribuire la documentazione.
 Alcuni aspetti chiave di "Documentation as Code" includono:
 \begin{itemize}
     \item \textbf{Versionamento}
@@ -42,7 +42,7 @@ Poiché i documenti vengono redatti in LaTeX, per favorire una migliore collabor
 Nel caso dei Verbali, essendo documenti composti da sezioni molto brevi, non si utilizza questo approccio.
 
 \subsubsection{Ciclo di vita dei documenti}
-Il ciclo di vita dei documenti è una sequenza di stati e attività:
+Il ciclo di vita dei documenti è una sequenza di stati e \textit{attività}\textsubscript{\textit{G}}:
 \begin{enumerate}
     \item \textbf{Stato: Necessità}
           \begin{enumerate}
@@ -60,38 +60,38 @@ Il ciclo di vita dei documenti è una sequenza di stati e attività:
     \item \textbf{Stato: Verifica}
           \begin{enumerate}
               \item Quando completato il documento viene revisionato dai verificatori;
-              \item Il documento viene compilato e il PDF generato viene inserito nella repository all'indirizzo: \href{https://github.com/ByteOps-swe/Documents} {https://github.com/ByteOps-swe/Documents} ;
+              \item Il documento viene compilato e il PDF generato viene inserito nella \textit{repository}\textsubscript{\textit{G}} all'indirizzo: \href{https://github.com/ByteOps-swe/Documents} {https://github.com/ByteOps-swe/Documents} ;
           \end{enumerate}
     \item \textbf{Stato: Manutenzione}
           \begin{enumerate}
-              \item Manutenzione: ogni documento sotto configuration management deve essere modificato in accordo alle norme di versionamento e di change management.
+              \item Manutenzione: ogni documento sotto \textit{configuration management}\textsubscript{\textit{G}} deve essere modificato in accordo alle norme di versionamento e di \textit{change management}\textsubscript{\textit{G}}.
               \item La richiesta di modifica nasce da una nuova necessità sul contenuto del documento e riporta il documento allo stato omonimo.
           \end{enumerate}
 \end{enumerate}
 
 %\textbf{Procedimento in sintesi}\\
-%   Per rispettare i principi  di "Documentation as Code" l'approccio attualmente adottato richiede la competenza e l'utilizzo di LaTeX per la stesura dei documenti e una repository ad accesso limitato Git chiamata "Sorgente documenti" dove versionarli. I redattori, seguendo la struttura dettagliata nei prossimi paragrafi, redigeranno il contenuto dei documenti utilizzando il linguaggio \LaTeX\ su un ramo dedicato nella repository "Sorgente documenti". \\
-%  Al termine del loro lavoro, segnaleranno il completamento posizionando l'Issue relativa al compito di redazione nella colonna "Da revisionare" della \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione} di GitHub (unica e condivisa sia dalla repository pubblica "\href{https://github.com/ByteOps-swe/Documents}{Documents}" che dalla repository "Sorgente documenti") e generando una pull request . Questa colonna conterrà i compiti relativi ai documenti completati dai redattori, che necessitano ora della validazione da parte dei verificatori. \\
+%   Per rispettare i principi  di "Documentation as Code" l'approccio attualmente adottato richiede la competenza e l'utilizzo di LaTeX per la stesura dei documenti e una \textit{repository}\textsubscript{\textit{G}} ad accesso limitato Git chiamata "Sorgente documenti" dove versionarli. I redattori, seguendo la struttura dettagliata nei prossimi paragrafi, redigeranno il contenuto dei documenti utilizzando il linguaggio \LaTeX\ su un ramo dedicato nella \textit{repository}\textsubscript{\textit{G}} "Sorgente documenti". \\
+%  Al termine del loro lavoro, segnaleranno il completamento posizionando l'Issue relativa al compito di redazione nella colonna "Da revisionare" della \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione} di GitHub (unica e condivisa sia dalla \textit{repository}\textsubscript{\textit{G}} pubblica "\href{https://github.com/ByteOps-swe/Documents}{Documents}" che dalla \textit{repository}\textsubscript{\textit{G}} "Sorgente documenti") e generando una \textit{pull request}\textsubscript{\textit{G}} . Questa colonna conterrà i compiti relativi ai documenti completati dai redattori, che necessitano ora della validazione da parte dei verificatori. \\
 
-% I file sorgenti LaTeX saranno quindi gestiti e versionati nella repository con accesso limitato denominata "Sorgente documenti", strutturata in modo identico alla repository pubblica chiamata "\href{https://github.com/ByteOps-swe/Documents}{Documents}" ma con file \LaTeX\ al posto dei PDF. \\
-%   I verificatori quindi troveranno il documento da validare in questa repository quando riceveranno una notifica mail generata dalla pull request.\\
+% I file sorgenti LaTeX saranno quindi gestiti e versionati nella \textit{repository}\textsubscript{\textit{G}} con accesso limitato denominata "Sorgente documenti", strutturata in modo identico alla \textit{repository}\textsubscript{\textit{G}} pubblica chiamata "\href{https://github.com/ByteOps-swe/Documents}{Documents}" ma con file \LaTeX\ al posto dei PDF. \\
+%   I verificatori quindi troveranno il documento da validare in questa \textit{repository}\textsubscript{\textit{G}} quando riceveranno una notifica mail generata dalla \textit{pull request}\textsubscript{\textit{G}}.\\
 %  Quando i verificatori avranno convalidato il contenuto, dovranno seguire le istruzioni al paragrafo ~\ref{sec:verificatori} per formalizzare la verifica.
 
 
 \paragraph{I redattori}
 
-Il redattore responsabile della redazione di un documento o di una sua sezione deve seguire lo stesso approccio richiesto per la codifica del software, adottando il workflow noto come "feature branch".\\
+Il redattore responsabile della redazione di un documento o di una sua sezione deve seguire lo stesso approccio richiesto per la codifica del \textit{software}\textsubscript{\textit{G}}, adottando il \textit{workflow}\textsubscript{\textit{G}} noto come "feature \textit{branch}\textsubscript{\textit{G}}".\\
 \vspace{0.1cm}
 \textbf{Caso redazione nuovo documento, sezione o modifica}\\
-Dalla repository  "Sorgente documenti" contenente i sorgenti \LaTeX, il redattore dovrà creare un nuovo branch Git in locale e passare ad esso mediante l'utilizzo del comando:
+Dalla \textit{repository}\textsubscript{\textit{G}}  "Sorgente documenti" contenente i sorgenti \LaTeX, il redattore dovrà creare un nuovo \textit{branch}\textsubscript{\textit{G}} Git in locale e passare ad esso mediante l'utilizzo del comando:
 \begin{lstlisting}[style=code]
     git checkout main
     git checkout -b branch_identificativoTask 
 \end{lstlisting}
 
-Il nome del branch destinato alla redazione o modifica del documento o di una sua sezione deve essere descrittivo al fine di consentire un'identificazione immediata e precisa del documento o della sezione su cui si sta lavorando. Pertanto, relativamente alla redazione dei documenti, devonono essere adottatate le \textbf{convenzioni per la nomenclatura dei branch} esposte all'interno della sezione 3.4.3.2.
+Il nome del \textit{branch}\textsubscript{\textit{G}} destinato alla redazione o modifica del documento o di una sua sezione deve essere descrittivo al fine di consentire un'identificazione immediata e precisa del documento o della sezione su cui si sta lavorando. Pertanto, relativamente alla redazione dei documenti, devonono essere adottatate le \textbf{convenzioni per la nomenclatura dei branch} esposte all'interno della sezione 3.4.3.2.
 
-A questo punto, dopo aver creato il documento,la sezione o la modifca assegnata e avviato la stesura, affinché gli altri redattori possano continuare il lavoro, è necessario rendere il branch accessibile anche nella repository remota, seguendo i seguenti passaggi:
+A questo punto, dopo aver creato il documento,la sezione o la modifca assegnata e avviato la stesura, affinché gli altri redattori possano continuare il lavoro, è necessario rendere il \textit{branch}\textsubscript{\textit{G}} accessibile anche nella \textit{repository}\textsubscript{\textit{G}} remota, seguendo i seguenti passaggi:
 \begin{lstlisting}[style=code]
     git add .
     git commit -m "Descrizione del commit"
@@ -118,7 +118,7 @@ Qualora il redattore intenda continuare la stesura di un documento (o sezione) i
 \textbf{Salvataggio e condivisone progressi di task non completate}\\
 Alla fine di una sessione di modifiche di un file, nel caso si desideri rendere accessibile ai membri il lavoro non ancora completato e, pertanto, non pronto alla verifica, è necessario:
 \begin{enumerate}
-    \item Eseguire il push\textsubscript{\textit{G}}  delle modifiche fatte nel branch
+    \item Eseguire il push\textsubscript{\textit{G}}  delle modifiche fatte nel \textit{branch}\textsubscript{\textit{G}}
           \begin{lstlisting}[style=code]
     git add .
     git commit -m "Descrizione del commit"
@@ -135,20 +135,20 @@ Alla fine di una sessione di modifiche di un file, nel caso si desideri rendere 
 \textbf{Completamento compito di redazione}\\
 Al termine del loro lavoro, i redattori:
 \begin{enumerate}
-    \item Segnalano il completamento dell'attività a loro assegnata (essa sia la stesura completa di un documento o di una sua parte) posizionando l'issue relativa nella colonna "Da revisionare" della  \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione}.
+    \item Segnalano il completamento dell'\textit{attività}\textsubscript{\textit{G}} a loro assegnata (essa sia la stesura completa di un documento o di una sua parte) posizionando l'\textit{issue}\textsubscript{\textit{G}} relativa nella colonna "Da revisionare" della  \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione}.
     \item Attuano una \textbf{pull request:}
           \begin{enumerate}
               \item Aggiornare il registro delle modifiche inserendo i dati richiesti in  una nuova riga e incrementando la versione (Il verificatore è definito all'assegnazione della task, presente nella descrizione della Issue del'ITS).
               \item Eseguire i passaggi dettagliati nel caso "\textit{\textbf{Salvataggio e condivisone progressi di task non completate}}"
-              \item Vai sul repository su GitHub >> Apri la sezione "pull request" >> Clicca "New pull request"
-              \item Seleziona come branch di destinazione "main" e come branch sorgente il ramo utilizzato per la redazione del documento (o sezione) da validare
-              \item Clicca "Create pull request"
-              \item Dai un titolo e una breve descrizione alla pull request >> Seleziona i verificatori su "Reviewers" >> Clicca "Create pull request"
+              \item Vai sul \textit{repository}\textsubscript{\textit{G}} su GitHub >> Apri la sezione "\textit{pull request}\textsubscript{\textit{G}}" >> Clicca "New \textit{pull request}\textsubscript{\textit{G}}"
+              \item Seleziona come \textit{branch}\textsubscript{\textit{G}} di destinazione "main" e come \textit{branch}\textsubscript{\textit{G}} sorgente il ramo utilizzato per la redazione del documento (o sezione) da validare
+              \item Clicca "Create \textit{pull request}\textsubscript{\textit{G}}"
+              \item Dai un titolo e una breve descrizione alla \textit{pull request}\textsubscript{\textit{G}} >> Seleziona i verificatori su "Reviewers" >> Clicca "Create \textit{pull request}\textsubscript{\textit{G}}"
           \end{enumerate}
 \end{enumerate}
 
 
-Se i verificatori non convalidano il documento (o sezione),i redattori riceveranno feedback allegati alla pull request relativi ai problemi identificati.
+Se i verificatori non convalidano il documento (o sezione),i redattori riceveranno feedback allegati alla \textit{pull request}\textsubscript{\textit{G}} relativi ai problemi identificati.
 \paragraph{I verificatori}
 I compiti e le procedure dei verificatori sono dettagliate al paragrafo ~\ref{sec:verificatori}.
 \paragraph{Il responsabile}
@@ -164,8 +164,8 @@ Nel processo di redazione dei documenti, il compito del responsabile consiste ne
 Nel processo di redazione dei documenti, il compito dell'amministratore consiste nel:
 \begin{itemize}
     \item \textbf{Inserire nel ITS le attività specificate dal responsabile:} \begin{itemize}
-              \item Redattori: assegnatari della issue;
-              \item Verificatori: specificati nella descrizione della issue;
+              \item Redattori: assegnatari della \textit{issue}\textsubscript{\textit{G}};
+              \item Verificatori: specificati nella descrizione della \textit{issue}\textsubscript{\textit{G}};
               \item Scadenza.
           \end{itemize}
 \end{itemize}
@@ -219,7 +219,7 @@ Nella prima pagina oltre alle informazioni comuni a ogni documento vengono speci
 %Il registro delle modifiche non è incluso nei verbali in quanto non è necessario; una volta redatti, i verbali non subiscono ulteriori modifiche.
 Corpo del documento:
 \begin{itemize}
-    \item  \textbf{Revisione del periodo precedente:} Si analizza lo stato delle attività e, relativamente all'approccio lavorativo, si valutano gli aspetti positivi e le difficoltà incontrate in modo tale da identificare azioni di miglioramento per ottimizzare i processi;
+    \item  \textbf{Revisione del periodo precedente:} Si analizza lo stato delle \textit{attività}\textsubscript{\textit{G}} e, relativamente all'approccio lavorativo, si valutano gli aspetti positivi e le difficoltà incontrate in modo tale da identificare azioni di miglioramento per ottimizzare i \textit{processi}\textsubscript{\textit{G}};
     \item  \textbf{Ordine del giorno:} Elenco delle tematiche discusse durante la riunione, accompagnate dai relativi esiti.\\
     Nel caso del verbale esterno, se sono presenti richieste di chiarimenti effettuate alle terze parti coinvolte, saranno incluse nella sottosezione:
     \begin{itemize}
@@ -228,8 +228,8 @@ Corpo del documento:
     \item  \textbf{Attività da svolgere:} Tabella dove viene specificato:
           \begin{itemize}
               \item Nome della task da svolgere;
-              \item Id issue del ITS;
-              \item Verificatore dell' attività.
+              \item Id \textit{issue}\textsubscript{\textit{G}} del ITS;
+              \item Verificatore dell' \textit{attività}\textsubscript{\textit{G}}.
           \end{itemize}
 \end{itemize}
 Ultima pagina:
@@ -270,19 +270,19 @@ Nei documenti vi sono molte ripetizioni di termini per la quale si possono usare
     \hline
     \textbf{Abbreviazione} & \textbf{Scrittura Estesa}            \\
     \hline
-    RTB                    & Requirements and Technology Baseline \\
-    PB                     & Product Baseline                     \\
+    \textit{RTB}\textsubscript{\textit{G}}                    & Requirements and Technology Baseline \\
+    \textit{PB}\textsubscript{\textit{G}}                     & Product Baseline                     \\
     CA                     & Customer Acceptance                  \\
     ITS                    & Issue Tracking System                \\
     CI                     & Configuration Item                   \\
-    SAL                    & Stato Avanzamento Lavori             \\   
+    \textit{SAL}\textsubscript{\textit{G}}                    & Stato Avanzamento Lavori             \\   
     \hline
 \end{tabular}
 
 \subsubsection{Strumenti}
-Gli strumenti utilizzati dalle attività di redazione dei documenti vogliono soddisfare il principio adottato di "Documentation as Code".
+Gli strumenti utilizzati dalle \textit{attività}\textsubscript{\textit{G}} di redazione dei documenti vogliono soddisfare il principio adottato di "Documentation as Code".
 \begin{itemize}
-    \item \textbf{GitHub}: versionamento, collaborazione, integrazione continua, automazione e distribuzione;
+    \item \textbf{GitHub}: versionamento, collaborazione, \textit{integrazione}\textsubscript{\textit{G}} continua, automazione e distribuzione;
     \item \textbf{Latex}: scrittura in formato testuale, linguaggio per la stesura di documenti compilati;
     \item \textbf{Overleaf}: per la redazione dei documenti in \LaTeX\textsubscript{\textit{G}} collaborativa;
     \item \textbf{VSCode} : per la redazione con l'utilizzo del plugin \LaTeX\ Workshop.
