@@ -221,7 +221,7 @@ Le metriche nell'analisi dei requisiti sono strumenti utilizzati per valutare, m
     \caption{Metriche relative all'attività di analisi dei requisiti}
 \end{table}
 
-Altri aspetti da valutare per ottenere una specifica dei requisiti ottimale sono:
+Altri aspetti da valutare per ottenere una specifica dei requisiti ottimale sono: \todo{non so se ha senso tenere questa parte, forse bastano le metriche}
 \begin{itemize}
     \item \textbf{Completezza dei requisiti:} Misura la quantità di requisiti identificati rispetto a quelli effettivamente necessari per il sistema. Una metrica comune è la percentuale di requisiti identificati rispetto a quelli totali;
     \item \textbf{Coerenza:} Valuta la coerenza tra i requisiti. Ad esempio, misurare il numero di conflitti o di requisiti duplicati;
@@ -236,9 +236,7 @@ Ognuna di queste metriche è necessaria ad assicurare che i requisiti siano gest
 
 \paragraph{Strumenti}
 \begin{itemize}
-    \item \textbf{StarUML:}
-    È un'applicazione software utilizzata per creare diagrammi e modelli UML nel processo di sviluppo del software. \\
-    Aiuta a visualizzare graficamente i vari aspetti di un sistema, consentendo agli utenti di creare e modificare facilmente diagrammi UML come diagrammi dei casi d'uso, delle classi, di attività e altri, semplificando così il processo di progettazione e analisi dei sistemi software.
+    \item \href{https://staruml.io/}{\textbf{StarUML:}} applicazione software utilizzata per la realizzazione di diagrammi e modelli UML.
 \end{itemize}
 
 \subsubsection{Progettazione}
@@ -309,7 +307,7 @@ Vantaggi:
 A supporto dell'attività di progettazione verranno utlizzati i \textbf{Diagrammi delle classi}. \\
 
 \paragraph*{Diagrammi delle classi}
-Ciascun diagramma delle classi rappresenta le proprietà e le relazioni tra le varie componenti di un sistema, offrendo una prospettiva statica e non a run time.
+Ciascun diagramma delle classi rappresenta le proprietà e le relazioni tra le varie componenti di un sistema, offrendo una prospettiva statica e non a run time. \\
 Le classi sono rappresentate graficamente sotto forma di rettangoli divisi in tre sezioni:
 \begin{enumerate}
     \item \textbf{Nome della classe}: Identificativo della classe. \\
@@ -339,12 +337,16 @@ Le classi sono rappresentate graficamente sotto forma di rettangoli divisi in tr
         \item \textbf{Parametri formali}: Il loro numero varia da $0$ a $n$ e sono separati tramite la virgola. Ogni parametro seguirà la notazione e le convenzioni definite per gli attributi.
         \item \textbf{Tipo di ritorno}: Determina il tipo che verrà ritornato dal metodo.
     \end{itemize}
-    \todo{Altre osservazioni: e fai un elenco}
-    I metodi getter, setter e i costruttori non verranno inclusi fra i metodi. \\
-    I metodi astratti verrano scritti in corsivo. \\
-    I metodi statici verranno sottolineati. \\
-    L'assenza di attributi o metodi in una classe, determinerà una visualizzazione di campi vuoti nel diagramma delle classi.
 \end{enumerate}
+
+\vspace{15pt}
+
+I metodi getter, setter e i costruttori non vengono inclusi fra i metodi;  \\
+I metodi astratti sono scritti in corsivo; \\
+I metodi statici sono sottolineati; \\
+L'assenza di attributi o metodi in una classe, determina una visualizzazione di campi vuoti nel diagramma delle classi. \\ 
+
+\vspace{15pt}
 
 I diagrammi delle classi sono collegati tra loro mediante frecce che delineano le rispettive relazioni di dipendenza. \\
 Qui di seguito, saranno delineate le rappresentazioni mediante frecce per le diverse relazioni: \\
@@ -429,9 +431,7 @@ I progettisti avranno il completo controllo di questa attività, compresa la def
 
 \paragraph{Strumenti}
 \begin{itemize}
-    \item \textbf{StarUML:} \todo{tirare via, oppure uniformare in strumenti di processo}
-    È un'applicazione software utilizzata per creare diagrammi e modelli UML nel processo di sviluppo del software. \\
-    Aiuta a visualizzare graficamente i vari aspetti di un sistema, consentendo agli utenti di creare e modificare facilmente diagrammi UML come diagrammi dei casi d'uso, delle classi, di attività e altri, semplificando così il processo di progettazione e analisi dei sistemi software.
+    \item \href{https://staruml.io/}{\textbf{StarUML:}} applicazione software utilizzata per la realizzazione di diagrammi e modelli UML.
 \end{itemize}
 
 \subsubsection{Codifica}

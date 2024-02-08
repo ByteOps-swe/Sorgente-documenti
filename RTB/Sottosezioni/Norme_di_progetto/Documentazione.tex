@@ -80,14 +80,15 @@ Il ciclo di vita dei documenti è una sequenza di stati e attività:
 
 
 \paragraph{I redattori} \todo{si può mandare indietro di un livello di gerarchia?}
+Il redattore responsabile della redazione di un documento o di una sua sezione deve seguire lo stesso approccio richiesto per la codifica del software, adottando il workflow noto come "Feature Branch". \\
 
-Il redattore responsabile della redazione di un documento o di una sua sezione deve seguire lo stesso approccio richiesto per la codifica del software, adottando il workflow noto come "feature branch".\\
 \vspace{0.1cm}
-\textbf{Caso redazione nuovo documento/sezione o modifica documento/sezione preesistente}\\ \todo{redazione nuovo documento o sezione oppure modifica documento o sezione già validata}
+
+\paragraph*{\textbf{Caso redazione nuovo documento/sezione o modifica documento/sezione già verificato/a}}
 Dalla repository \href{https://github.com/ByteOps-swe/Sorgente-documenti}{Sorgente-documenti} contenente i sorgenti \LaTeX, il redattore dovrà creare un nuovo branch Git in locale e spostarsi su di esso mediante l'utilizzo del comando:
 \begin{lstlisting}[style=code]
     git checkout main
-    git checkout -b branch_identificativoTask 
+    git checkout -b identificativoBranch
 \end{lstlisting}
 
 Il nome del branch destinato alla redazione o modifica del documento o di una sua sezione deve essere descrittivo al fine di consentire un'identificazione immediata e precisa del documento o della sezione su cui si sta lavorando. Pertanto, relativamente alla redazione dei documenti, devonono essere adottatate le specifiche \hyperlink{par:convezioninomenclaturabranchdocumenti}{\textbf{convenzioni per la nomenclatura dei branch}}\todo{cambia colore link}.
@@ -96,55 +97,47 @@ A questo punto, dopo aver creato/modificato il documento o la sezione assegnata 
 \begin{lstlisting}[style=code]
     git add .
     git commit -m "Descrizione del commit"
-    git push origin branch_identificativoTask
-        \end{lstlisting}
+    git push origin identificativoBranch
+\end{lstlisting}
 
-
-
-%\begin{itemize}
-%   \item \textbf{Verbali interni}: \verb|branch_VerbaleIn_GG_MM_AAAA|
-%  \item \textbf{Verbali esterni}: \verb|branch_VerbaleEx_GG_MM_AAAA|
-% \item \textbf{Norme di progetto}: \verb|Norme-di-progetto|
-%\end{itemize}
-
-\textbf{Caso modifica documento in stato di redazione} \\\todo{questi sono tutti paragrafi zio cane}
-Qualora il redattore intenda continuare la stesura di un documento (o sezione) iniziato da un altro redattore,sono necessari i comandi:
-
+\paragraph*{\textbf{Caso modifica documento in stato di redazione}}
+Qualora il redattore intenda continuare la stesura di un documento (o sezione) iniziato da un altro redattore, sono necessari i comandi:
 \begin{lstlisting}[style=code]
-        git pull
-        git checkout branch_identificativoTask
+    git pull
+    git checkout identificativoBranch
+\end{lstlisting}
 
-        \end{lstlisting}
-
-\hypertarget{}{\textbf{Salvataggio e condivisione progressi di task non completate}} \\
-Alla fine di una sessione di modifiche di un file, nel caso si desideri rendere accessibile ai membri il lavoro non ancora completato e, pertanto, non pronto alla verifica, è necessario:
+\hypertarget{par:salvataggioecondivisioneprogressitasknoncompletate}{\paragraph*{{\textbf{Salvataggio e condivisione progressi di task non completate}}}}
+Alla fine di una sessione di modifiche di un file, nel caso si desideri rendere accessibile ai membri il lavoro non ancora completato e, pertanto, non pronto alla verifica, è necessario assicurarsi di essere nel branch corretto e successivamente:
 \begin{enumerate}
     \item Eseguire il push\textsubscript{\textit{G}}  delle modifiche fatte nel branch
           \begin{lstlisting}[style=code]
     git add .
     git commit -m "Descrizione del commit"
-    git push origin branch_identificativoDocumento
+    git push origin identificativoBranch
         \end{lstlisting}
 
     \item Nel caso di problemi con il punto 1:
           \begin{lstlisting}[style=code]
-   git pull origin branch_identificativoDocumento
+   git pull origin identificativoBranch
         \end{lstlisting}
     \item Risolvi i conflitti e ripeti punto 1.
 \end{enumerate}
+
 \vspace{0.3cm}
-\textbf{Completamento compito di redazione}\\
+
+\paragraph*{\textbf{Completamento compito di redazione}}
 Al termine del loro lavoro, i redattori:
 \begin{enumerate}
     \item Segnalano il completamento dell'attività a loro assegnata (essa sia la stesura completa di un documento o di una sua parte) posizionando l'issue relativa nella colonna "Da revisionare" della \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione}.
     \item Attuano una \textbf{pull request:}
           \begin{enumerate}
               \item Aggiornare il registro delle modifiche inserendo i dati richiesti in  una nuova riga e incrementando la versione (il verificatore è definito all'assegnazione della task, presente nella descrizione della Issue del'ITS);
-              \item Eseguire i passaggi dettagliati nel caso "\textit{\textbf{Salvataggio e condivisione progressi di task non completate}}";\todo{link}
+              \item Eseguire i passaggi dettagliati nel caso "\hyperlink{par:salvataggioecondivisioneprogressitasknoncompletate}{\textit{\textbf{Salvataggio e condivisione progressi di task non completate}}}";
               \item Vai sul \href{https://github.com/ByteOps-swe/Sorgente-documenti.git}{repository} GitHub >> Apri la sezione "Pull requests" >> Clicca "New pull request";
               \item Seleziona come branch di destinazione "main" e come branch sorgente il ramo utilizzato per la redazione del documento (o sezione) da validare;
               \item Clicca "Create pull request";
-              \item Dai un titolo e una breve descrizione\todo{è da specificare come e cosa scrivere come titolo e come descrizione?} alla pull request >> Seleziona i verificatori su "Reviewers" >> Clicca "Create pull request".
+              \item Dai un titolo significativo e una breve descrizione alla pull request >> Seleziona i verificatori su "Reviewers" >> Clicca "Create pull request".
           \end{enumerate}
 \end{enumerate}
 
@@ -175,7 +168,7 @@ Nel processo di redazione dei documenti, il compito dell'amministratore consiste
 
 \subsubsection{Struttura del documento}
 \label{subsubsec:strutturadocumento}
-I documenti ufficiali seguono un rigoroso e uniforme schema strutturale, il quale richiede un'osservanza scrupolosa.
+I documenti seguono un rigoroso e uniforme schema strutturale, il quale richiede un'osservanza scrupolosa.
 
 \paragraph*{Prima pagina}
 Nella prima pagina di ogni documento deve essere presente:
@@ -211,46 +204,49 @@ La tabella deve essere inserita nella sezione registro delle modifiche subito pr
     \item \textbf{Verificatore};
     \item \textbf{Descrizione}: un riassunto delle modifiche apportate.
 \end{itemize}
-La convezione per il versionamento è presente al paragrafo: ~\ref{sec:versionamento}.
+La convezione per il versionamento è presente alla sezione~\ref{sec:versionamento}.
 
 \paragraph{Verbali: struttura generale}
 \label{sec:Verbali}
-Questo documento assume l'importante ruolo di costituire un registro ufficiale, atto a riportare in maniera accurata gli argomenti trattati, le decisioni adottate, le azioni da intraprendere e le figure coinvolte.\\
+I verbali assumono l'importante ruolo di costituire un registro ufficiale dei meeting, atto a riportare in maniera accurata gli argomenti trattati, le decisioni adottate, le azioni da intraprendere e le figure coinvolte.\\
 In particolare, è possibile distinguere tra verbali interni, destinati all'uso interno dell'organizzazione, e verbali esterni, che trovano applicazione quando vi sono terze parti coinvolte nelle discussioni o nelle decisioni documentate.\\
-Nella prima pagina oltre alle informazioni comuni a ogni documento vengono specificate:
+La struttura dei verbali è la seguente: 
 \begin{itemize}
-    \item Data della riunione e tipologia (Interna,Esterna) nel nome del documento;
-    \item Luogo (nel caso non sia un luogo fisico si specifica il canale di comunicazione adottato);
-    \item Ora di inizio e fine dell'incontro;
-    \item Amministratore;
-    \item Partecipanti della riunione (interni ed eventuali esterni);
-    \item Il Responsabile (in basso a destra);
+    \item \textbf{Prima pagina} \\
+        Oltre alle informazioni comuni a ogni documento vengono specificate:
+        \begin{itemize}
+            \item Data della riunione e tipologia (Interna,Esterna) nel nome del documento;
+            \item Luogo (nel caso non sia un luogo fisico si specifica il canale di comunicazione adottato);
+            \item Ora di inizio e fine dell'incontro;
+            \item Amministratore;
+            \item Partecipanti della riunione (interni ed eventuali esterni);
+            \item Il Responsabile (in basso a destra);
+        \end{itemize}
+    \item \textbf{Corpo del documento} \\
+        Nel corpo del documento sono presenti le seguenti sottosezioni:
+        \begin{itemize}
+            \item \textbf{Revisione del periodo precedente:} Si analizza lo stato delle attività e, relativamente all'approccio lavorativo, si valutano gli aspetti positivi e le difficoltà incontrate in modo tale da identificare azioni di miglioramento per ottimizzare i processi;
+            \item \textbf{Ordine del giorno:} Elenco delle tematiche discusse durante la riunione, accompagnate dai relativi esiti. \\
+            
+            Nel caso del verbale esterno, se sono presenti richieste di chiarimenti effettuate alle terze parti coinvolte, saranno incluse nella sottosezione "\textbf{Richieste e chiarimenti}".
+        
+            \item \textbf{Attività da svolgere} (solo nel caso dei verbali interni): \\
+            Tabella dove ogni riga identifica un'attività e in cui viene specificato:
+                \begin{itemize}
+                    \item Nome della task da svolgere;
+                    \item Id issue dell'ITS;
+                    \item Verificatore dell'attività.
+                \end{itemize}
+        \end{itemize}
+    \item \textbf{Ultima pagina} \\
+        Nel caso di verbale esterno, in ultima pagina, deve essere presente la firma delle terze parti coinvolte, il luogo e la data.
 \end{itemize}
 
-Corpo del documento: \todo{migliora struttura}
-\begin{itemize}
-    \item \textbf{Revisione del periodo precedente:} Si analizza lo stato delle attività e, relativamente all'approccio lavorativo, si valutano gli aspetti positivi e le difficoltà incontrate in modo tale da identificare azioni di miglioramento per ottimizzare i processi;
-    \item \textbf{Ordine del giorno:} Elenco delle tematiche discusse durante la riunione, accompagnate dai relativi esiti. \\
-    
-    Nel caso del verbale esterno, se sono presenti richieste di chiarimenti effettuate alle terze parti coinvolte, saranno incluse nella sottosezione "\textbf{Richieste e chiarimenti}".
-
-    \item  \textbf{Attività da svolgere:} Tabella dove viene specificato:\todo{questo solo per gli interni}
-          \begin{itemize}
-              \item Nome della task da svolgere;
-              \item Id issue del ITS;
-              \item Verificatore dell' attività.
-          \end{itemize}
-\end{itemize}
-Ultima pagina:
-\begin{itemize}
-    \item Nel caso di verbale esterno, in ultima pagina, deve essere presente la firma delle terze parti coinvolte, il luogo e la data.
-\end{itemize}
-
-Il template dei verbali è disponibile al link:\\ \href{https://github.com/ByteOps-swe/Sorgente-documenti/tree/main/Documents/Verbali/Templates}{https://github.com/ByteOps-swe/Sorgente-documenti/tree/main/Documents/Verbali/Templates}
+Il template per i verbali è disponibile a \href{https://github.com/ByteOps-swe/Sorgente-documenti/tree/main/Documents/Verbali/Templates}{questo link}.
 
 \subsubsection{Regole tipografiche}
 \paragraph*{Documenti del progetto e nome dei file}\label{sec:NomeFile}
-Il nome dei documenti generati deve essere omogeneo, con la prima lettera maiuscola ed il resto minuscolo e, ad eccezione dei verbali, deve contenere un riferimento alla versione del documento (notazione di versionamento:~\ref{sec:RegistroModifiche}).\\ \todo{togli sta roba e scrivi solo la convenzione}
+Il nome dei documenti generati deve essere omogeneo, con la prima lettera maiuscola ed il resto minuscolo e, ad eccezione dei verbali, deve contenere un riferimento alla versione del documento (vedi notazione per il versionamento nella sezione~\ref{sec:versionamento}). \\
 Nello specifico devono seguire la seguente convenzione:
 \begin{itemize}
     \item \textbf{Verbali:} Verbale\_AAAA-MM-DD ;
@@ -263,8 +259,8 @@ Nello specifico devono seguire la seguente convenzione:
 \paragraph*{Regole sintattiche:}
 \begin{itemize}
     \item I titoli delle sezioni iniziano con la lettera maiuscola;
-    \item Viene inserito ';' alla fine delle voci dell'elenco tranne l'ultima che termina con '.' . Ogni voce dell'elenco inizia con una lettera maiuscola; \todo{punto e virgola, punto}
-    \item Le date vengono scritte nel formato GG/MM/AAAA;
+    \item Ciascuna voce di un elenco deve essere seguita da un punto e virgola, ad eccezione dell'ultima che deve terminare con un punto.
+    \item Le date vengono scritte nel formato GG/MM/AAAA (giorno/mese/anno);
     \item I numeri razionali si scrivono utilizzando la virgola come separatore tra parte intera e parte decimale;
     \item Quando ci si riferisce a informazioni contenute in un documento, è importante fornire la versione del documento e, quando necessario, specificare anche la sezione pertinente (Ex: Norme di Progetto v.1.0.0 sez. 1.2.3).
 \end{itemize}
