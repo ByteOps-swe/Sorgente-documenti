@@ -2,19 +2,17 @@
 \label{sec:verifica}
 
 \subsubsection{Introduzione}
-Lo scopo del processo di verifica è quello di garantire la qualità del prodotto attraverso un'analisi accurata e sistematica.
-
-Questo processo coinvolge la revisione e la valutazione del codice sorgente e della documentazione, per identificare e correggere errori, difetti o discrepanze rispetto ai requisiti specificati.
-
+Lo scopo del processo di verifica è quello di garantire la qualità del prodotto attraverso un'analisi accurata e sistematica. Questo processo coinvolge la revisione e la valutazione del codice sorgente e della documentazione, per identificare e correggere errori, difetti o discrepanze rispetto ai requisiti specificati. \todo{mi sembra in contrasto con quanto scritto sotto ovvero che il processo di verifica viene eseguito su tutti i processi e durante tutto il ciclo di vita del software} \\
 Il processo di verifica viene eseguito su tutti i processi in esecuzione al raggiungimento di un livello di maturità adeguato o in seguito a modifiche dello stato del processo. \\
 Relativamente ai processi di supporto, si analizza la qualità dei prodotti generati e dei processi utilizzati al fine di garantire la conformità agli standard di qualità definiti.
 Le attività relative al processo di verifica vengono assegnate ai verificatori, incaricati di analizzare i prodotti e valutarne la conformità ai vincoli qualitativi specificati nel \textit{Piano di Qualifica} \todo{e verificare se le norme specificate in questo documento sono rispettate}. Tali operazioni seguono l'ordine specificato nel \href{https://it.wikipedia.org/wiki/V-Model}{modello a V}. \\
 Nel \textit{Piano di Qualifica} sono documentate tutte le attività che compongono il processo, descrivendone scopi, risultati sperati e risultati ottenuti. Ciò fornisce le linee guida per una corretta valutazione della qualità, normando e rendendo ripetibile il processo.
 
-La verifica mira a garantire che il software soddisfi gli standard di qualità prestabiliti, riducendo il rischio di errori e migliorando l'affidabilità, la robustezza e l'efficienza del prodotto finale.
+La verifica mira a garantire che siano soddisfatti gli standard di qualità prestabiliti, riducendo il rischio di errori e migliorando l'affidabilità, la robustezza e l'efficienza del prodotto finale.
 Questo processo verrà attuato per ciascuna attività \todo{non so se attività è il nome corretto} e dovrà assicurare che l'output di quest'ultima sia in uno stato stabile, consentendo così l'inizio della successiva fase di validazione.
 
-\subsubsection{Verifica dei documenti}\label{sec:verificatori}
+\subsubsection{Verifica dei documenti}
+\label{sec:verificatori}
 
 Il ruolo del verificatore nei documenti è cruciale per garantire la qualità e l'accuratezza del contenuto.
 
@@ -38,7 +36,7 @@ Per validare un documento le verifiche da attuare sono:
         controllare la grammatica, l'ortografia e la punteggiatura del documento per garantire una presentazione professionale;
 \end{itemize}
 
-Dopo l'attuazione dei controlli sopra citati e aver verificato che siano stati adeguatamenti rispettati\todo{riformula meglio}, i passi per convalidare il documento sono i seguenti:
+Dopo aver accertato il rispetto dei criteri sopra citati, qualora fossero soddisfatti, il procedimento per convalidare il documento è il seguente:
 
 \begin{enumerate}
     \item \textbf{Accetta la Pull Request:} 
@@ -46,22 +44,21 @@ Dopo l'attuazione dei controlli sopra citati e aver verificato che siano stati a
     \item \textbf{Elimina il branch:} 
         eliminare il branch creato per la redazione del documento (o sezione).
     \item \textbf{Sposta la issue in Done:} 
-        nella \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione} spostare la issue relativa al documento validato dalla sezione "Da revisionare" a "Done".\todo{non avviene in automatico?}
+        nella \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione} spostare la issue relativa al documento validato dalla sezione "Da revisionare" a "Done". \todo{questa cosa dovrebbe avvenire in automatico. bisognerebbe specificare però di linkare la issue alla pull request in modo tale che questa si chiuda automaticamente}
     \item \textbf{Controllo generazione PDF:} 
-        un'automazione tramite GitHub Actions compilerà il file \LaTeX\ e genererà automaticamente il PDF nel branch main della repository \href{https://github.com/ByteOps-swe/Documents}{Documents} con la data di redazione nel caso il documento sia un verbale, oppure la versione aggiornata per tutte le altre tipologie di file.
-
-        Il verificatore dovrà accedere alla sezione "Actions" di GitHub, supervisionare il processo di compilazione per la possibile generazione di errori, attendere la conclusione del processo di build del codice sorgente e controllare la corretta generazione del documento in formato PDF.\todo{non serve, arriva la mail se la build fallisce}
+        un'automazione tramite GitHub Actions compilerà il file \LaTeX\ e genererà automaticamente il PDF nel branch main della repository \href{https://github.com/ByteOps-swe/Documents}{Documents} con la data di redazione nel caso il documento sia un verbale, oppure la versione aggiornata per tutte le altre tipologie di file. \\
+        Se la procedura di compilazione dovesse fallire, il verificatore riceverà automaticamente una notifica via mail e dovrà accedere alla sezione "Actions" di GitHub per esaminare l'origine dell'errore e intraprendere le azioni necessarie per correggerlo.
 \end{enumerate}
 
 \subsubsection{Analisi}
 Attività di controllo su oggetti statici (documentazione, codice) e dinamici (componenti software).
 
 \paragraph{Analisi statica}
-Analisi condotta sull'oggetto\todo{cossa xeo l'oggetto tioca?} (documentazione e codice) senza eseguirlo. Si prevede l'impiego di metodi di lettura, sia manuali che automatici, al fine di individuare eventuali errori formali. Le due principali tecniche utilizzate sono:
+Questo genere di analisi prende il nome di "statica" proprio perché viene condotta sul prodotto senza la necessità di eseguirlo. \\ L'efficacia di questa pratica dipende in modo diretto dall'esperienza e dalla competenza dei verificatori coinvolti. Essa coinvolge l'utilizzo di metodi di lettura, sia manuali che automatici, volti a individuare eventuali errori formali come violazione di vincoli, presenza di difetti e manifestazione di proprietà indesiderate nel prodotto in questione. \\
+Le due principali tecniche impiegate sono:
 
 \paragraph{Walkthrough}
-    Il verificatore controllerà nella totalità l’oggetto in cerca di difetti o errori, senza svolgere una ricerca specifica per un certo tipo di errore.
-    Questa metodologia implica appunto un'esaminazione approfondita della documentazione e del codice attraverso un'analisi sistematica. Si promuove la collaborazione tra il verificatore e l'autore del prodotto, strutturata nei seguenti quattro passaggi:
+Il verificatore controlla nella totalità il prodotto in cerca di difetti o errori, senza svolgere una ricerca specifica per un certo tipo di errore. Questa metodologia implica appunto una verifica approfondita della documentazione e del codice attraverso un'analisi sistematica. Si promuove la collaborazione e l'interazione tra il verificatore e l'autore del prodotto, strutturata nei seguenti quattro passaggi:
 
 \begin{enumerate}
     \item \textbf{Pianificazione:} 
@@ -77,9 +74,9 @@ Analisi condotta sull'oggetto\todo{cossa xeo l'oggetto tioca?} (documentazione e
         attività assegnata agli autori per correggere gli errori individuati nei passaggi precedenti.
 \end{enumerate}
 
-I walkthrough sono più adatti per attività più creative o nelle fasi iniziali del progetto quando la flessibilità e la discussione sono importanti. Sono ideali quando si desidera una comprensione più approfondita e una valutazione qualitativa.
+Questo metodo di verifica sarà prevalentemente adottato nelle fasi iniziali del progetto, in quanto i prodotti soggetti a verifica saranno generalmente meno complessi e, di conseguenza, l'operazione risulterà più agevole e meno dispendiosa in termini di risorse.
 
-Le attività in cui verrà applicato Walkthrough sono:
+Le attività in cui verrà applicata la tecnica del Walkthrough sono:
 \begin{itemize}
     \item \textbf{Revisione dei requisiti:} 
         per assicurarsi che tutti i requisiti siano chiari, comprensibili e conformi alle esigenze del cliente;
@@ -90,14 +87,13 @@ Le attività in cui verrà applicato Walkthrough sono:
 \end{itemize}
 
 \paragraph{Inspection}
-L'obiettivo di questa tecnica consiste nel rilevare eventuali difetti nel prodotto oggetto di analisi mediante una lettura mirata, piuttosto che eseguire una revisione completa del codice e della documentazione allegata.
-
+L'obiettivo di questa tecnica consiste nel rilevare eventuali difetti nel prodotto in esame mediante un'analisi mirata, piuttosto che tramite una revisione completa che non tende ad individuare dei difetti specifici. \\
 Tale approccio prevede la specifica preventiva degli elementi da verificare, i quali vengono organizzati in liste di controllo.
-Queste liste fungono da \textit{checklist} per valutare l'accuratezza dell'attività d'ispezione, determinando se è stata condotta in modo corretto.
-L'inspection è più adatta quando i documenti o il codice sono complessi e strutturati. È efficace nelle fasi più avanzate del progetto, quando la stabilità e la completezza sono cruciali.
+Queste liste fungono da \textit{checklist}\todo{glossario?} per valutare l'accuratezza dell'attività d'ispezione, determinando se è stata condotta in modo corretto.
+L'inspection risulta particolarmente vantaggiosa quando ci si trova di fronte a documenti o codice complessi e strutturati, specialmente nelle fasi avanzate del progetto. In questo contesto, il processo di verifica tramite inspection si rivela più efficace rispetto a un walkthrough, poiché quest'ultimo richiederebbe un considerevole impiego di risorse.
 
-\paragraph{Analisi dinamica}
-Nel ciclo di sviluppo software\todo{ciclo?}, è essenziale condurre una verifica accurata del codice prodotto al fine di garantirne il corretto funzionamento. Questo processo si avvale dell'analisi dinamica, una categoria di metodologie che richiedono l'esecuzione effettiva del prodotto.
+\paragraph{Analisi dinamica} \todo{migliorare!}
+Nel processo di sviluppo software, è essenziale condurre una verifica accurata del codice prodotto al fine di garantirne il corretto funzionamento. Questo processo si avvale dell'analisi dinamica, una categoria di metodologie che richiedono l'esecuzione effettiva del prodotto.
 L'analisi dinamica coinvolge l'esecuzione di una serie di casi di test durante l'attuazione del codice. L'obiettivo di tali test è assicurare l'esecuzione accurata del software e individuare eventuali discordanze tra i risultati ottenuti e quelli previsti. \\
 È importante sottolineare che l'analisi dinamica non è applicabile alla documentazione.
 Per assicurare l'efficacia dell'analisi dinamica, è necessario automatizzare e rendere ripetibile questo processo, garantendo così una valutazione oggettiva del prodotto. \\
