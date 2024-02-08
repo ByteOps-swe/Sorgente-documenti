@@ -47,7 +47,7 @@ L’attività di analisi richiede di rispondere a domande fondamentali come: “
 \end{itemize}
 \paragraph{Casi d'uso}
 Forniscono una descrizione dettagliata delle funzionalità del sistema dal punto di vista degli utenti, identificando come il sistema risponde a determinate azioni o scenari. In breve, i casi d'uso sono strumenti utilizzati nell'analisi dei requisiti per catturare e illustrare in modo chiaro e comprensibile come gli utenti interagiranno con il software e quali saranno i risultati di tali interazioni. \\
-Ogni caso d'uso e costituito da:
+Ogni caso d'uso testuale deve essere costituito da:
 \begin{enumerate}
     \item \textbf{Identificativo} nel formato:\\
           \begin{center}
@@ -409,7 +409,7 @@ Ogni design pattern deve essere accompagnato da una rappresentazione grafica ill
 \paragraph{Test}
 Nell'ambito del processo di sviluppo, il testing riveste un ruolo fondamentale nell'assicurare la qualità del prodotto finale. Durante questa fase, si delineano i requisiti di testing, si definiscono i casi di test e i criteri di accettazione, fungendo da strumenti per valutare il software. \\
 Il suo obiettivo principale è individuare e risolvere eventuali problemi o errori presenti nel software prima del rilascio del prodotto finale. In aggiunta, il processo di testing è essenziale per garantire che il software soddisfi le specifiche e le aspettative del cliente. \\
-I progettisti avranno il completo controllo di questa attività, compresa la definizione dei test da eseguire. Inoltre, nella sezione 6\todo{inserisci link}, si può trovare una descrizione dettagliata delle varie tipologie di test e della terminologia da adottare, offrendo così un'ulteriore chiarezza su questa fase critica del processo di sviluppo del software.
+I progettisti avranno il completo controllo di questa attività, compresa la definizione dei test da eseguire. Inoltre, nella sezione \ref{subsec:Testing}, si può trovare una descrizione dettagliata delle varie tipologie di test e della terminologia da adottare, offrendo così un'ulteriore chiarezza su questa fase critica del processo di sviluppo del software.
 
 \paragraph{Metriche}
 \begin{table}[H]
@@ -443,33 +443,30 @@ I programmatori devono rispettare scrupolosamente le linee guida e le norme stab
 La codifica è finalizzata alla creazione di un prodotto software in linea con le richieste del committente e conforme agli accordi stipulati.\\
 Il rigoroso rispetto delle norme garantisce la creazione di codice di alta qualità, facilitando la manutenzione, l'estensione e la verifica del software, contribuendo costantemente al miglioramento della sua qualità complessiva.
 \paragraph{Norme di codifica}
-Le seguenti norme sono state formalizzate prendendo spunto dal libro "Clean Code" di Robert C. Martin.\todo{link}
+Le seguenti norme sono state formalizzate prendendo spunto dal libro "Clean Code" di Robert C. Martin.
 
-\paragraph*{Nomi significativi} \todo{sarebbe meglio un elenco}
-Usare nomi che riflettano il significato e lo scopo delle variabili, funzioni e classi. Evitare abbreviazioni ambigue.
-\paragraph*{Indentazioni e formattazione consistente}
-L'utilizzo di un tab per ciascun livello di annidamento è fondamentale per assicurare una struttura coerente del codice, migliorandone la comprensione e agevolandone la gestione.
-\paragraph*{Lunghezza dei metodi}
-La lunghezza ottimale dei metodi può variare a seconda del contesto e delle best practices di programmazione. Tuttavia, in generale, molti esperti consigliano che i metodi siano brevi e focalizzati su una singola responsabilità.
-Un principio comune è quello espresso da Robert C. Martin nel suo libro "Clean Code", che suggerisce che i metodi dovrebbero essere idealmente lunghi quanto basta per svolgere una singola operazione e non più lungo di quanto si possa visualizzare senza dover scorrere la pagina. \\
-Questo favorisce:
 \begin{itemize}
-    \item \textbf{Chiarezza};
-    \item \textbf{Manutenibilità};
-    \item \textbf{Comprensibilità};
-    \item \textbf{Testabilità:} Metodi più brevi sono più facili da testare in isolamento, il che favorisce l'implementazione di test di unità efficaci;
-    \item \textbf{Conformità ai principi SOLID:} La brevità dei metodi è spesso correlata al principio Single Responsibility Principle (SRP) dei principi SOLID, il che favorisce la costruzione di codice più modulare e coeso.
-\end{itemize} 
+    \item \textbf{Nomi significativi}: usare nomi che riflettano il significato e lo scopo delle variabili, funzioni e classi. Evitare abbreviazioni ambigue.
+    \item \textbf{Indentazioni e formattazione consistente}: l'utilizzo di un tab per ciascun livello di annidamento è fondamentale per assicurare una struttura coerente del codice, migliorandone la comprensione e agevolandone la gestione.
+    \item \textbf{Lunghezza dei metodi}: la lunghezza ottimale dei metodi può variare a seconda del contesto e delle best practices di programmazione. Tuttavia, in generale, molti esperti consigliano che i metodi siano brevi e focalizzati su una singola responsabilità. Un principio comune è quello espresso da Robert C. Martin nel suo libro "Clean Code", che suggerisce che i metodi dovrebbero essere idealmente lunghi quanto basta per svolgere una singola operazione e non più lungo di quanto si possa visualizzare senza dover scorrere la pagina. \\
+    Questo favorisce:
+    \begin{itemize}
+        \item \textbf{Chiarezza};
+        \item \textbf{Manutenibilità};
+        \item \textbf{Comprensibilità};
+        \item \textbf{Testabilità:} Metodi più brevi sono più facili da testare in isolamento, il che favorisce l'implementazione di test di unità efficaci;
+        \item \textbf{Conformità ai principi SOLID:} La brevità dei metodi è spesso correlata al principio Single Responsibility Principle (SRP) dei principi SOLID, il che favorisce la costruzione di codice più modulare e coeso.
+    \end{itemize} 
+    \item \textbf{Lunghezza righe di codice}: mantenere le righe di codice entro i 80-120 caratteri permette una migliore leggibilità del codice su schermi di diverse dimensioni e facilita la visualizzazione di più file affiancati. Inoltre, limitare la lunghezza delle righe può incoraggiare la scrittura di codice più chiaro e modulare.
+\end{itemize}
 
-\paragraph*{Lunghezza righe di codice}
-Mantenere le righe di codice entro i 80-120 caratteri permette una migliore leggibilità del codice su schermi di diverse dimensioni e facilita la visualizzazione di più file affiancati.
-Inoltre, limitare la lunghezza delle righe può incoraggiare la scrittura di codice più chiaro e modulare.
 \paragraph{Commenti}
-Evitare commenti superflui e non necessari: l'obiettivo è scrivere il codice in modo chiaro e autoesplicativo, riducendo la dipendenza da commenti esplicativi. 
+Evitare commenti superflui e non necessari: l'obiettivo è scrivere il codice in modo chiaro e autoesplicativo, riducendo la dipendenza da commenti esplicativi.
+
 \subsubsection{Configurazione dell'ambiente di esecuzione}
 \paragraph{Docker}
 
-La progettazione dei\todo{dei Docker???????} Docker e la scrittura dei Dockerfile sono considerate parte del processo di sviluppo del software.
+La scrittura dei file Docker è considerata parte del processo di sviluppo del software. \\
 Le regole e le best practice di codifica per i file Docker sono fondamentali per garantire la creazione, la gestione e la distribuzione efficace dei container:
 \begin{itemize}
     \item \textbf{Chiarezza e Coerenza:}
