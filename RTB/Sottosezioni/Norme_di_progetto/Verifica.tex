@@ -18,7 +18,7 @@ Il ruolo del verificatore nei documenti è cruciale per garantire la qualità e 
 
 Quando il verificatore individua un'Issue nella colonna "Da revisionare" della \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione}, sarà tenuto a convalidare il file corrispondente presente nella repository \href{https://github.com/ByteOps-swe/Sorgente-documenti}{Sorgente documenti}. \\
 In aggiunta, il revisore riceverà una notifica via email quando il redattore completa la propria attività, comunicandogli la presenza della pull request assegnatagli.\\
-Nella sezione "pull request" di GitHub, il revisore troverà la richiesta di unire il branch di redazione al branch "main", assumendo il ruolo di revisore\todo{wtf}. Accedendo alla pull request su GitHub, il revisore avrà la possibilità di esaminare attentamente il documento in questione e di aggiungere commenti visibili ai redattori nel caso in cui siano necessarie modifiche per la validazione.
+Nella sezione "Pull request" di GitHub, il revisore troverà la richiesta di unire il branch di redazione al branch "main". Accedendo alla pull request su GitHub, il revisore avrà la possibilità di esaminare attentamente il documento in questione. Durante questa revisione, il revisore potrà aggiungere commenti direttamente sul documento, fornendo feedback e suggerimenti ai redattori per eventuali modifiche necessarie per la validazione. I commenti aggiunti saranno visibili ai redattori, consentendo loro di comprendere le richieste di revisione e apportare le modifiche richieste. Questo processo collaborativo facilita il flusso di lavoro di revisione e garantisce la qualità e l'accuratezza del documento finale.
 
 \vspace{0.3cm}
 
@@ -44,7 +44,7 @@ Dopo aver accertato il rispetto dei criteri sopra citati, qualora fossero soddis
     \item \textbf{Elimina il branch:} 
         eliminare il branch creato per la redazione del documento (o sezione).
     \item \textbf{Sposta la issue in Done:} 
-        nella \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione} spostare la issue relativa al documento validato dalla sezione "Da revisionare" a "Done". \todo{questa cosa dovrebbe avvenire in automatico. bisognerebbe specificare però di linkare la issue alla pull request in modo tale che questa si chiuda automaticamente}
+        nella \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione} spostare la issue relativa al documento validato dalla sezione "Da revisionare" a "Done".
     \item \textbf{Controllo generazione PDF:} 
         un'automazione tramite GitHub Actions compilerà il file \LaTeX\ e genererà automaticamente il PDF nel branch main della repository \href{https://github.com/ByteOps-swe/Documents}{Documents} con la data di redazione nel caso il documento sia un verbale, oppure la versione aggiornata per tutte le altre tipologie di file. \\
         Se la procedura di compilazione dovesse fallire, il verificatore riceverà automaticamente una notifica via mail e dovrà accedere alla sezione "Actions" di GitHub per esaminare l'origine dell'errore e intraprendere le azioni necessarie per correggerlo.
@@ -101,7 +101,7 @@ Nel contesto dell'ingegneria del software, il test rappresenta la principale tec
 
 \subsubsection{Testing}
 \label{subsec:Testing}
-Il testing mira a garantire che la componente soggetta al TEST esegua in modo corretto le attività assegnate e aderisca scrupolosamente ai vincoli ad essa attribuiti. Questi test sono inoltre strumentali per individuare eventuali anomalie di funzionamento.
+Il testing mira a garantire che la componente soggetta a test esegua in modo corretto le attività assegnate e aderisca scrupolosamente ai vincoli ad essa attribuiti. Questi test sono inoltre strumentali per individuare eventuali anomalie di funzionamento.
 
 Per ciascun test, è essenziale definire i seguenti parametri:
 

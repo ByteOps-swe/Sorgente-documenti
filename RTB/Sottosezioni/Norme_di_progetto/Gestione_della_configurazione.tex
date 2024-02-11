@@ -188,7 +188,7 @@ Seguendo lo standard \href{https://www.math.unipd.it/~tullio/IS-1/2009/Approfond
     L'identificazione avviene tramite la creazione di un issue nell'ITS con label: "Change request";
     \item \textbf{Valutazione e analisi}: Le change request vengono valutate dal team per determinare la loro fattibilità, importanza e impatto sul progetto. Si analizzano i costi e i benefici associati all'implementazione della modifica;
     \item \textbf{Approvazione o rifiuto}: Il responsabile valuta le informazioni raccolte e decide se approvare o respingere la change request. Questa decisione può essere basata su criteri come il budget, il tempo, le priorità degli stakeholder;
-    \item \textbf{Pianificazione delle modifiche}: Se una change request viene approvata, viene pianificata e integrata nel ciclo di sviluppo del software. Questo può richiedere la rinegoziazione dei tempi di consegna, la revisione del piano di progetto, ecc; \todo{ecc...?}
+    \item \textbf{Pianificazione delle modifiche}: Se una change request viene approvata, viene pianificata e integrata nel ciclo di sviluppo del software. Questo può richiedere, ad esempio, la rinegoziazione dei tempi di consegna e la revisione del piano di progetto.
     \item \textbf{Implementazione delle modifiche}: Le modifiche vengono effettivamente implementate. Durante questo processo, è fondamentale mantenere una traccia accurata di ciò che viene fatto per consentire una corretta documentazione e, se necessario, la possibilità di un rollback;
     \item \textbf{Verifica e validazione}: Le modifiche apportate vengono verificate per assicurarsi che abbiano raggiunto gli obiettivi previsti e non abbiano introdotto nuovi problemi o errori;
     \item \textbf{Documentazione}: Tutti i passaggi del processo di gestione delle change request vengono documentati accuratamente per garantire la trasparenza e la tracciabilità. Questa documentazione è utile per futuri riferimenti e per l'apprendimento delle modifiche apportate;
@@ -196,21 +196,20 @@ Seguendo lo standard \href{https://www.math.unipd.it/~tullio/IS-1/2009/Approfond
 \end{enumerate}
 
 \subsubsection{Configuration Status Accounting (Contabilità dello Stato di Configurazione)}
-\todo{cos'è una configuerazione?}
 Questo processo si occupa di registrare e tenere traccia dello stato di tutte le configurazioni di un sistema software durante il suo ciclo di vita.
 \begin{itemize}
-    \item \textbf{Registrazione delle configurazioni}: Registrazione delle informazioni dettagliate su ogni elemento di configurazione;
+    \item \hypertarget{item:registrazioneconfigurazioni}{\textbf{Registrazione delle configurazioni}}: registrazione delle informazioni dettagliate su ogni Configuration Item;
           \begin{itemize}
-              \item  \textbf{Documentazione:} Le informazioni relative alla CI\todo{glossario?} sono presenti nella prima pagina di ciascuno.
-              \item  \textbf{Sviulppo:} Le informazioni relative alla CI\todo{Configuration Item? correggere!} sono inserite come prime righe del file sotto forma di commento.
+              \item  \textbf{Documentazione:} Le informazioni relative alla configurazione sono presenti nella prima pagina di ciascuno.
+              \item  \textbf{Sviluppo:} Le informazioni relative alla configurazione sono inserite come prime righe di ciascun file sotto forma di commento.
           \end{itemize}
     \item \textbf{Stato e cambiamenti}: Tenere traccia dello stato attuale di ciascun elemento di configurazione e di tutti i cambiamenti che avvengono nel corso del tempo. \\
     Ciò include le versioni attuali, le revisioni, le modifiche e le baselines;
           \begin{itemize}
-              \item  \textbf{Registro delle modifiche:} Per monitorare lo stato di ciascun Configuration Item, si utilizza il registro delle modifiche incorporato in ognuno di essi; \todo{il registro delle modifiche è presente solo nei documenti}
-              \item  \textbf{Branching \& DashBoard:} Per visionare la presenza di lavori in atto su di un Configuration Item si utilizza a supporto la presenza di branch attivi che lo riguardano e il posizionamento di issue associate nella Dashboard di progetto. \todo{da riformulare}
+              \item  \textbf{Registro delle modifiche:} Per monitorare lo stato di ciascun Configuration Item si utilizza il registro delle modifiche incorporato in ognuno di essi, come specificato in \hyperlink{item:registrazioneconfigurazioni}{"registrazione delle configurazioni"};
+              \item  \textbf{Branching \& DashBoard:} Per visionare la presenza di lavori in corso su di un Configuration Item si utilizza a supporto la presenza di branch attivi che lo riguardano e il posizionamento di issue associate nella Dashboard di progetto. \todo{da riformulare}
                     \begin{itemize}
-                        \item Ogni issue è associato ad un CI tramite label.  \label{sec:ticketing}
+                        \item Ogni issue è associato ad un CI tramite label.  \label{sec:ticketing} \todo{inserire riferimento corretto, dovrebbe essere a pagina 68}
                     \end{itemize}
           \end{itemize}
     \item \textbf{Supporto per la gestione delle change request}: Registra e documenta le modifiche apportate agli elementi di configurazione in risposta alle richieste di modifica.
