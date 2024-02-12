@@ -54,14 +54,22 @@ L'obiettivo primario della pianificazione è assicurare che ciascun membro del t
 La pianificazione, stilata dal responsabile, è integrata nel documento del \textit{Piano di Progetto}. Questo documento fornisce una descrizione completa delle attività e dei compiti necessari per raggiungere gli obiettivi prefissati in ogni periodo del progetto.
 \paragraph{Assegnazione dei ruoli}
 
-Durante l'intero periodo del progetto, i membri del gruppo assumeranno sei ruoli distinti, ovvero assumeranno le responsabilità e svolgeranno le mansioni tipiche dei professionisti nel campo dello sviluppo software.
-\\I ruoli a disposizione sono:\todo{Di seguito verranno descritti in dettaglio i seguenti ruoli, oppure lista senza dettaglio e poi dettaglio sotto}
+Durante l'intero periodo del progetto, i membri del gruppo assumeranno sei ruoli distinti, ovvero assumeranno le responsabilità e svolgeranno le mansioni tipiche dei professionisti nel campo dello sviluppo software. \\
+Nei successivi paragrafi sono descritti in dettaglio i seguenti ruoli:
+\begin{itemize}
+  \item Responsabile;
+  \item Amministratore;
+  \item Analista;
+  \item Progettista;
+  \item Programmatore;
+  \item Verificatore.
+\end{itemize}
 
 \paragraph{Responsabile}\label{responsabile} Figura fondamentale che coordina il gruppo, fungendo da punto di riferimento per il committente e il team, svolgendo il ruolo di mediatore tra le due parti. \\
 In particolare si occupa di:
 \begin{itemize}
     \item Gestire le relazioni con l'esterno;
-    \item Pianificare le attività: quali svolgere, data di inizio e fine, assegnazione delle priorità; \todo{aggiungere altro}
+    \item Pianificare le attività: quali svolgere, data di inizio e fine, assegnazione delle priorità;
     \item Valutare i rischi delle scelte da effettuare;
     \item Controllare i progressi del progetto;
     \item Gestire le risorse umane;
@@ -95,7 +103,9 @@ In particolare si occupa di:
     \item Redige la \textit{Specifica Architetturale} e la parte pragmatica del \textit{Piano di Qualifica};
 \end{itemize}
 
-\paragraph{Programmatore}\label{programmatore}Il Programmatore è la figura professionale responsabile della codifica del software. Il suo ruolo principale consiste nell'implementare codice\todo{migliora?} basato sulle specifiche fornite dall'Analista e sull'architettura fornita dal Progettista. \\
+\paragraph{Programmatore}
+\label{par:programmatore}
+Il Programmatore è la figura professionale incaricata della scrittura del codice software. Il suo compito primario è implementare il codice conformemente alle specifiche fornite dall'Analista e all'architettura definita dal Progettista. \\
 In particolare, il Programmatore:
 \begin{itemize}
     \item Scrive codice manutenibile in conformità con le \textit{Specifiche Tecniche};
@@ -113,11 +123,11 @@ Stabilisce se il lavoro è stato svolto correttamente sulla base delle proprie c
     \item Redigere la sezione retrospettiva del \textit{Piano di Qualifica}, descrivendo le verifiche e le prove effettuate durante il processo di sviluppo del prodotto;
 \end{itemize}
 
-\paragraph{Ticketing} ~\ref{sec:ticketing}
+\hypertarget{par:ticketing}{\paragraph{Ticketing}}
 GitHub è adottato come sistema di tracciamento degli issue (ITS), garantendo così una gestione agevole e trasparente dei compiti da svolgere. L'Amministratore ha la facoltà di creare e assegnare specifici compiti identificati dal Responsabile, assicurando chiarezza sulle responsabilità di ciascun individuo e stabilendo tempi definiti. Inoltre, ogni membro del gruppo può monitorare i progressi compiuti nel periodo corrente, consultando lo stato di avanzamento dei vari task attraverso le Dashboard:
 \begin{itemize}
     \item \href{https://github.com/orgs/ByteOps-swe/projects/1}{DashBoard}: Per una chiara visione dello stato dei task;
-    \item \href{https://github.com/orgs/ByteOps-swe/projects/3}{RoadMap}: Per visione delle scadenze dei task.\todo{ho un po' paura di sta roba io}
+    \item \href{https://github.com/orgs/ByteOps-swe/projects/3}{RoadMap}: Per visione delle scadenze dei task.
 \end{itemize}
 La procedura da seguire nel caso si vogliano assegnare nuove task è la seguente:
 \begin{enumerate}
@@ -140,7 +150,7 @@ I task sono creati dall'amministratore e hanno i seguenti attributi:
     \end{itemize} 
     \item \textbf{Assegnatario}: incaricato/i allo svolgimento della task;
     \item \textbf{Scadenza}: data entro la quale la task deve essere completata;
-    \item \textbf{labels}: tag per identificare la categoria della task. (ex. Verbale, Documents, Develop, Bug).\\
+    \item \textbf{Labels}: tag per identificare la categoria della task. (ex. Verbale, Documents, Develop, Bug).\\
     Inoltre per associare ad ogni issue un Configuration Item vengono utilizzati i seguenti label:
     \begin{itemize}
         \item \textbf{NdP:} Norme di progetto;
@@ -228,7 +238,7 @@ Questo approccio assicura una comunicazione efficace tra il nostro team e i rapp
 I membri del gruppo si impegnano a garantire la propria presenza in modo costante alle riunioni, facendo il possibile per riorganizzare eventuali altri impegni al fine di partecipare. Nel caso in cui gli obblighi inderogabili di un membro del gruppo rendessero impossibile la partecipazione, il responsabile assicurerà di informare tempestivamente il proponente o i committenti, richiedendo la possibilità di rinviare la riunione ad una data successiva.
 
 \paragraph*{Riunioni con l'azienda proponente}
-In accordo con l'azienda propronente si è deciso di attuare con cadenza bisettimanale gli incontri di stato avanzamento lavori (SAL) tramite Google Meet.\\
+In accordo con l'azienda proponente, si è stabilito di tenere incontri di stato avanzamento lavori (SAL) con cadenza bisettimanale tramite Google Meet. \\
 Durante tali incontri, si affrontano diversi aspetti, tra cui:
 \begin{itemize}
     \item Discussione delle attività svolte nel periodo precedente, valutando l'aderenza alle concordanze stabilite e identificando eventuali problematiche riscontrate;
