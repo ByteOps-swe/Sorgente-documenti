@@ -4,7 +4,7 @@ La gestione della configurazione del progetto è un processo che norma il tracci
 
 La gestione della configurazione viene applicata a qualunque categoria di documenti o di “artefatti” coinvolti nel ciclo di vita del software. \\
 Secondo lo standard \href{https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf}{ISO/IEC 12207:1995}, la gestione della configurazione del software è un processo di identificazione, organizzazione e controllo delle modifiche apportate ai prodotti software durante il loro ciclo di vita.
-Lo standard IEEE 828-2012\todo{link} definisce la gestione della configurazione del software come “un processo disciplinato per gestire l’evoluzione del software”.
+Lo standard IEEE 828-2012\todo{link o stile testo?} definisce la gestione della configurazione del software come “un processo disciplinato per gestire l’evoluzione del software”.
 
 \subsubsection{Numeri di versionamento}\label{sec:versionamento}
 La convenzione per identificare la versione di un documento è nel formato X.Y.Z con:
@@ -14,14 +14,14 @@ La convenzione per identificare la versione di un documento è nel formato X.Y.Z
     \item \textbf{Z:} viene incrementato per modifiche minori o aggiornamenti al documento. Questi potrebbero includere correzioni di errori, miglioramenti marginali o l'aggiunta di nuovi contenuti meno rilevanti.
 \end{itemize}
 
-L'incremento dei valori più significativi porta i meno significativi a zero.\todo{fornire un esempio} \\
+L'incremento dei valori più significativi porta i meno significativi a zero. Ad esempio, se in un documento nella versione 0.6.4 vengono effettuate modifiche significative e viene conseguentemente incrementato il valore Y, si passa alla versione 0.7.0 e non alla versione 0.7.4. \\
 Ogni variazione di versione deve essere presente nel registro delle modifiche.
 
 \subsubsection{Repository}
-Le repository\todo{è plulare, sarebbe meglio scrivere le repositories?} del team sono:
+Di seguito sono elencate le repository del team ByteOps con i relativi riferimenti:
 \begin{itemize}
-    \item \href{https://github.com/ByteOps-swe/Sorgente-documenti}{Sorgente-documenti:} repository per il versionamento, la gestione e lo sviluppo dei sorgenti della documentazione;
-    \item \href{https://github.com/ByteOps-swe/Documents}{Documents:} repository destinata ai commintenti/proponenti dove vengono condivisi solo i PDF dei file sorgenti revisionati;
+    \item \href{https://github.com/ByteOps-swe/Sorgente-documenti}{Sorgente-documenti:} repository per il versionamento, la gestione e lo sviluppo dei file sorgente relativi alla documentazione;
+    \item \href{https://github.com/ByteOps-swe/Documents}{Documents:} repository destinata ai committenti/proponenti, dove vengono esclusivamente condivisi i file in formato PDF relativi alla documentazione, ottenuti dalla compilazione dei file sorgente presenti nella cartella "Sorgente-documenti".
     \item \href{https://github.com/ByteOps-swe/proof-of-concept}{proof-of-concept:} repository destinata al POC.
 \end{itemize}
 \paragraph{Struttura repository}
