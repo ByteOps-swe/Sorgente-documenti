@@ -3,8 +3,8 @@
 La gestione della configurazione del progetto è un processo che norma il tracciamento e il controllo delle modifiche a documenti e prodotti del software detti Configuration Item (CI).
 
 La gestione della configurazione viene applicata a qualunque categoria di “artefatti” coinvolti nel ciclo di vita del software. \\
-Secondo lo standard \href{https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf}{ISO/IEC 12207:1995}, la gestione della configurazione del software è un processo di identificazione, organizzazione e controllo delle modifiche apportate ai prodotti software durante il loro ciclo di vita.
-Lo standard IEEE 828-2012\todo{link o stile testo?} definisce la gestione della configurazione del software come “un processo disciplinato per gestire l’evoluzione del software”.
+Secondo lo standard \href{https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf}{ISO/IEC 12207:1995}, la gestione della configurazione del software è un processo di identificazione, organizzazione e controllo delle modifiche apportate ai prodotti software durante il loro ciclo di vita. \\
+Lo standard \href{https://standards.ieee.org/ieee/828/5367/}{IEEE 828-2012} definisce la gestione della configurazione del software come “un processo disciplinato per gestire l’evoluzione del software”.
 
 \subsubsection{Numeri di versionamento}\label{sec:versionamento}
 La convenzione per identificare la versione di un documento è nel formato X.Y.Z con:
@@ -219,21 +219,21 @@ Nello standard \href{https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti
 Le attività e le procedure legate al processo di rilascio e consegna sono strettamente correlate al workflow adottato dal team, il quale è descritto nel dettaglio alla sezione \hyperlink{par:sincronizzazione&branching}{"Sincronizzazione e Branching"}.
 Dopo aver portato a termine le attività nel proprio branch, il responsabile del suo sviluppo è tenuto ad avviare una Pull Request per incorporare le modifiche effettuate nel ramo principale (main). La Pull Request viene approvata solo dopo che le modifiche sono state verificate sulla base di quanto descritto nella sezione~\ref{subsec:verifica}.
 
-\paragraph*{Procedura per la creazione di Pull Request} \todo{non sono sicuro vada all'interno del processo "Release management and delivery"}
+\hypertarget{par:creazionePR}{\paragraph*{Procedura per la creazione di Pull Request}} \todo{non sono sicuro vada all'interno del processo "Release management and delivery"}
 Per creare una Pull Request eseguire i seguenti passaggi:
 \begin{enumerate}
     \item Accedere al repository GitHub e cliccare sulla scheda "Pull requests";
-    \item Cliccare il pulsante "New pull request";
+    \item Cliccare il pulsante "New Pull Request";
     \item Selezionare il branch di partenza ed il branch target;
-    \item Cliccare il pulsante "Create pull request";
-    \item Aggiungere un titolo alla pull request;
+    \item Cliccare il pulsante "Create Pull Request";
+    \item Aggiungere un titolo alla Pull Request;
     \item Aggiungere una descrizione;
     \item Selezionare i verificatori;
-    \item Come convenzione, l'assegnatario è colui che richiede la pull request;
+    \item Come convenzione, l'assegnatario è colui che richiede la Pull Request;
     \item Selezionare le labels;
     \item Selezionare il progetto;
     \item Selezionare le milestones;
-    \item Clicca il pulsante "create pull request";
+    \item Clicca il pulsante "create Pull Request";
     \item Nel caso siano presenti conflitti seguire le istruzioni in Github per rimuovere tali conflitti;
 \end{enumerate}
 

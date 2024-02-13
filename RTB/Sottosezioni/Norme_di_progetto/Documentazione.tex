@@ -72,10 +72,10 @@ Il ciclo di vita dei documenti è una sequenza di stati e attività:
 
 %\textbf{Procedimento in sintesi}\\
 %   Per rispettare i principi  di "Documentation as Code" l'approccio attualmente adottato richiede la competenza e l'utilizzo di LaTeX per la stesura dei documenti e una repository ad accesso limitato Git chiamata "Sorgente documenti" dove versionarli. I redattori, seguendo la struttura dettagliata nei prossimi paragrafi, redigeranno il contenuto dei documenti utilizzando il linguaggio \LaTeX\ su un ramo dedicato nella repository "Sorgente documenti". \\
-%  Al termine del loro lavoro, segnaleranno il completamento posizionando l'Issue relativa al compito di redazione nella colonna "Da revisionare" della \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione} di GitHub (unica e condivisa sia dalla repository pubblica "\href{https://github.com/ByteOps-swe/Documents}{Documents}" che dalla repository "Sorgente documenti") e generando una pull request . Questa colonna conterrà i compiti relativi ai documenti completati dai redattori, che necessitano ora della validazione da parte dei verificatori. \\
+%  Al termine del loro lavoro, segnaleranno il completamento posizionando l'Issue relativa al compito di redazione nella colonna "Da revisionare" della \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione} di GitHub (unica e condivisa sia dalla repository pubblica "\href{https://github.com/ByteOps-swe/Documents}{Documents}" che dalla repository "Sorgente documenti") e generando una Pull Request . Questa colonna conterrà i compiti relativi ai documenti completati dai redattori, che necessitano ora della validazione da parte dei verificatori. \\
 
 % I file sorgenti LaTeX saranno quindi gestiti e versionati nella repository con accesso limitato denominata "Sorgente documenti", strutturata in modo identico alla repository pubblica chiamata "\href{https://github.com/ByteOps-swe/Documents}{Documents}" ma con file \LaTeX\ al posto dei PDF. \\
-%   I verificatori quindi troveranno il documento da validare in questa repository quando riceveranno una notifica mail generata dalla pull request.\\
+%   I verificatori quindi troveranno il documento da validare in questa repository quando riceveranno una notifica mail generata dalla Pull Request.\\
 %  Quando i verificatori avranno convalidato il contenuto, dovranno seguire le istruzioni al paragrafo ~\ref{sec:verificatori} per formalizzare la verifica.
 
 
@@ -130,18 +130,18 @@ Alla fine di una sessione di modifiche di un file, nel caso si desideri rendere 
 Al termine del loro lavoro, i redattori:
 \begin{enumerate}
     \item Segnalano il completamento dell'attività a loro assegnata (essa sia la stesura completa di un documento o di una sua parte) posizionando l'issue relativa nella colonna "Da revisionare" della \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione}.
-    \item Attuano una \textbf{pull request:} \todo{creare una sezione su come si crea una PR e rimandare a quella convenzione}
+    \item Attuano una \hyperlink{par:creazionePR}{\textbf{Pull Request:}}
           \begin{enumerate}
               \item Aggiornare il registro delle modifiche inserendo i dati richiesti in  una nuova riga e incrementando la versione (il verificatore è definito all'assegnazione della task, presente nella descrizione della Issue del'ITS);
               \item Eseguire i passaggi dettagliati nel caso "\hyperlink{par:salvataggioecondivisioneprogressitasknoncompletate}{\textit{\textbf{Salvataggio e condivisione progressi di task non completate}}}";
-              \item Vai sul \href{https://github.com/ByteOps-swe/Sorgente-documenti.git}{repository} GitHub >> Apri la sezione "Pull requests" >> Clicca "New pull request";
+              \item Vai sul \href{https://github.com/ByteOps-swe/Sorgente-documenti.git}{repository} GitHub >> Apri la sezione "Pull requests" >> Clicca "New Pull Request";
               \item Seleziona come branch di destinazione "main" e come branch sorgente il ramo utilizzato per la redazione del documento (o sezione) da validare;
-              \item Clicca "Create pull request";
-              \item Dai un titolo significativo e una breve descrizione alla pull request >> Seleziona i verificatori su "Reviewers" >> Clicca "Create pull request".
+              \item Clicca "Create Pull Request";
+              \item Dai un titolo significativo e una breve descrizione alla Pull Request >> Seleziona i verificatori su "Reviewers" >> Clicca "Create Pull Request".
           \end{enumerate}
 \end{enumerate}
 
-Se i verificatori non convalidano il documento (o sezione), i redattori riceveranno feedback allegati alla pull request relativi ai problemi identificati.
+Se i verificatori non convalidano il documento (o sezione), i redattori riceveranno feedback allegati alla Pull Request relativi ai problemi identificati.
 
 \paragraph{I verificatori}
 I compiti e le procedure dei verificatori sono dettagliate al paragrafo ~\ref{sec:verificatori}.
