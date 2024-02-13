@@ -102,7 +102,7 @@
 \textbf{Orario} & 16:30 - 17:30 \vspace{10pt} \\
 \textbf{Redattore} & N. Preto \vspace{10pt} \\
 \textbf{Verificatore} & F. Pozza \vspace{10pt} \\
-\textbf{Amministratore} & E.Hysa \vspace{10pt} \\
+\textbf{Amministratore} & E. Hysa \vspace{10pt} \\
 \textbf{Destinatari} & T. Vardanega \\ & R. Cardin \vspace{10pt} \\
 \textbf{Partecipanti} & A. Barutta \\ & E. Hysa \\ & R. Smanio \\ & D. Diotto \\ & F. Pozza \\ & L. Skenderi \\ & N. Preto \\ & D. Zorzi \\ & A. Dorigo \vspace{10pt}
 \end{tabular}
@@ -150,18 +150,16 @@ Il 6/02/2024 si è tenuto l'incontro con il Professor Cardin per la presentazion
     
         La risposta al primo e secondo punto è stata la decisione di rendere diretta la connessione tra Kafka e Clickhouse rimuovendo l'intermediario da noi costruito, di cui la scalabilità sarebbe stata gestita internamente senza l'utilizzo di un framework apposito comportando quindi evidenti rischi come casi particolari non gestiti. Per il calcolo del punteggio di salute, che si ricorda essere un requisito opzionale, si è deciso di utilizzare uno script con un framework o libreria appropriato come \textit{kafka stream} per \textit{Java} oppure \textit{Faust} per \textit{Python}, che reperisca i dati da Kafka e li reinserisca in una coda dedicata al punteggio di salute, cosicché i servizi interessati possano ottenere il dato.
         La decisione presa per affrontare il terzo punto implica la richiesta di un incontro con il Professore Cardin oppure il contatto via email, al fine di chiarire quali test si prevede debbano essere condotti, tenendo conto dell'impossibilità di ricreare un ambiente realistico distribuito.
+    
+    \pagebreak
    
     \subsection{Obbiettivi per il prossimo sprint}
     
-    Per il prossimo SAL pianificato per la data 15/02/2024 si è deciso di: 
+    In vista del prossimo SAL pianificato per la data 15/02/2024 si è deciso di: 
     \begin{itemize}
-        \item Concentrarsi sul completamento di tutti i documenti e sulla preparazione della presentazione per il Professor Vardanega;
         \item Studiare le possibili nuove tecnologie (\textit{kafka stream} per \textit{Java} oppure \textit{Faust} per \textit{Python}) analizzate durante l'incontro con il \textit{proponente}\textsubscript{\textit{G}}; 
-        \item Organizzare e presentare al Professor Vardanega la documentazione relativa all'\textit{RTB}\textsubscript{\textit{G}}, possibilmente entro il prossimo \textit{SAL}\textsubscript{\textit{G}}.
+        \item Organizzare e presentare al Professor Vardanega la documentazione relativa all'\textit{RTB}\textsubscript{\textit{G}}.
     \end{itemize}
-
-    \pagebreak 
-
 
 % ------------------------ Firma Azienda ----------------------
 \begin{textblock*}{\textwidth}(0.35\textwidth, 1.08\textheight)
