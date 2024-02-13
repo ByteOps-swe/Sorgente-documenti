@@ -141,20 +141,22 @@ Il 6/02/2024 si è tenuto l'incontro con il Professor Cardin per la presentazion
 
     Durante l'incontro con il \textit{proponente}\textsubscript{\textit{G}}, abbiamo affrontato i temi trattati durante la presentazione del Proof of Concept, concentrandoci soprattutto sui punti di perplessità emersi e sulle possibili soluzioni per affrontarli.
     
-    \subsection{Spunti sugli approcci futuri nello sviluppo del progetto}
     Alcuni punti principali su cui ci siamo soffermati sono stati:
-    \begin{itemize}
+    \begin{enumerate}
         \item Utilità di uno \textit{script}\textsubscript{\textit{G}} consumer e connessione diretta tra Apache kafka e \textit{Clickhouse}\textsubscript{\textit{G}};
         \item Implementazione di \textit{framework}\textsubscript{\textit{G}} integrativi per il data streaming o in alternativa l'utilizzo di una connessione diretta;
-        \item Test di carico e di performance del \textit{sistema}\textsubscript{\textit{G}}.
-        \end{itemize}
-
+        \item Test di carico e di performance del \textit{sistema}\textsubscript{\textit{G}} nella realtà distribuita.
+        \end{enumerate}
+    
+        La risposta al primo punto e secondo punto è stata la decisione di rendere diretta la connessione tra Kafka e Clickhouse rimuovendo l'intermediario da noi costruito, di cui la scalabilità sarebbe stata gestita internamente senza l'utilizzo di un framework apposito comportando quindi evidenti rischi come casi particolari non gestiti. Per il calcolo del punteggio di salute, che si ricorda essere un requisito opzionale, si è deciso di utilizzare uno script con un framework o libreria appropriato come \textit{kafka stream} per \textit{Java} oppure \textit{Faust} per \textit{Python}, che reperisca i dati da Kafka e li reinserisca in una coda dedicata al punteggio di salute, cosicché i servizi interessati possano ottenere il dato.
+        La decisione presa per affrontare il terzo punto implica la richiesta di un incontro con il Professore Cardin oppure il contatto via email, al fine di chiarire quali test si prevede debbano essere condotti, tenendo conto dell'impossibilità di ricreare un ambiente realistico distribuito.
+   
     \subsection{Obbiettivi per il prossimo sprint}
     
-    Per il prossimo sprint pianificato per la data 15/02/2024 si è deciso di: 
+    Per il prossimo SAL pianificato per la data 15/02/2024 si è deciso di: 
     \begin{itemize}
         \item Concentrarsi sul completamento di tutti i documenti e sulla preparazione della presentazione per il Professor Vardanega;
-        \item Studiare le possibili nuove tecnologie analizzate durante l'incontro con il \textit{proponente}\textsubscript{\textit{G}}; 
+        \item Studiare le possibili nuove tecnologie (\textit{kafka stream} per \textit{Java} oppure \textit{Faust} per \textit{Python}) analizzate durante l'incontro con il \textit{proponente}\textsubscript{\textit{G}}; 
         \item Organizzare e presentare al Professor Vardanega la documentazione relativa all'\textit{RTB}\textsubscript{\textit{G}}, possibilmente entro il prossimo \textit{SAL}\textsubscript{\textit{G}}.
     \end{itemize}
 
