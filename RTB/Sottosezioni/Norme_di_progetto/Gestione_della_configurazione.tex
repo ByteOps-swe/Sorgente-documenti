@@ -197,15 +197,14 @@ Seguendo lo standard \href{https://www.math.unipd.it/~tullio/IS-1/2009/Approfond
     Le modifiche apportate vengono verificate per assicurarsi che abbiano raggiunto gli obiettivi previsti e non abbiano introdotto nuovi problemi o errori;
     \item \textbf{Documentazione} \\
     Tutti i passaggi del processo di gestione delle change request vengono documentati accuratamente per garantire la trasparenza e la tracciabilità. Questa documentazione è utile per futuri riferimenti e per l'apprendimento delle modifiche apportate;
-    \item \textbf{Comunicazione agli stakeholder} \\
-    Durante tutto il processo è importante comunicare in modo chiaro e tempestivo con gli stakeholder, per mantenere trasparenza e fiducia.
+    \item \textbf{Comunicazione agli stakeholder} \\Durante tutto il processo è importante comunicare in modo chiaro e tempestivo con gli stakeholder, per mantenere trasparenza e fiducia.
 \end{enumerate}
 
 \subsubsection{Configuration Status Accounting (Contabilità dello Stato di Configurazione)}
 La Contabilità dello Stato di Configurazione è un'attività dedicata a registrare e monitorare lo stato di tutte le configurazioni di un sistema software durante il suo ciclo di vita. Questo processo è cruciale per mantenere la trasparenza e la tracciabilità nel ciclo di vita del software, aiutando a gestire le configurazioni in modo uniforme e a mantenere un registro accurato di tutte le attività e le modifiche relative agli elementi di configurazione.\\
 
 \begin{itemize}
-    \item \hypertarget{item:registrazioneconfigurazioni}{\textbf{Registrazione delle configurazioni}}: registrazione delle informazioni dettagliate su ogni Configuration Item;
+    \item \hypertarget{item:registrazioneconfigurazioni}{\textit{\textbf{Registrazione delle configurazioni}}}: registrazione delle informazioni dettagliate su ogni Configuration Item;
           \begin{itemize}
               \item  \textbf{Documentazione:} le informazioni relative alla configurazione sono presenti nella prima pagina di ciascuno;
               \item  \textbf{Sviluppo:} le informazioni relative alla configurazione sono inserite come prime righe di ciascun file sotto forma di commento.
@@ -213,7 +212,7 @@ La Contabilità dello Stato di Configurazione è un'attività dedicata a registr
     \item \textbf{Stato e cambiamenti}: tenere traccia dello stato attuale di ciascun elemento di configurazione e di tutti i cambiamenti che avvengono nel corso del tempo. \\
     Ciò include le versioni attuali, le revisioni, le modifiche e le baselines;
         \begin{itemize}
-            \item \textbf{Registro delle modifiche:} per monitorare lo stato di ciascun Configuration Item si utilizza il registro delle modifiche incorporato in ognuno di essi, come specificato in \hyperlink{item:registrazioneconfigurazioni}{"registrazione delle configurazioni"};
+            \item \textbf{Registro delle modifiche:} per monitorare lo stato di ciascun Configuration Item si utilizza il registro delle modifiche incorporato in ognuno di essi, come specificato in \hyperlink{item:registrazioneconfigurazioni}{"\textit{registrazione delle configurazioni}"};
             \item \textbf{Branching \& DashBoard:} per verificare se vi sono attività in corso su un Configuration Item, è sufficiente controllare se ci sono branch attivi correlati e, dato che ogni issue è associata a un CI tramite label, verificare le eventuali issue contrassegnate come "In Progress" nella colonna corrispondente della Dashboard del progetto.
         \end{itemize}
     \item \textbf{Supporto per la gestione delle change request}: registra e documenta le modifiche apportate agli elementi di configurazione in risposta alle richieste di modifica. \\
@@ -224,8 +223,8 @@ Per approfondimenti su come creare issues e associare labels a una issue, consul
 
 \subsubsection{Release management and delivery} \todo{non mi piace sta cosa, non so cosa inserirci}
 Nello standard \href{https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf}{ISO/IEC 12207:1995}, il processo "release management and delivery" è definito come un processo che si occupa della pianificazione, del coordinamento e del controllo delle attività necessarie per preparare e distribuire una versione di un prodotto software per l'uso operativo. Questo processo comprende la gestione delle release, la distribuzione del software, la preparazione della documentazione correlata e altre attività correlate al rilascio e alla consegna del prodotto software. \\
-Le attività e le procedure legate al processo di rilascio e consegna sono strettamente correlate al workflow adottato dal team, il quale è descritto nel dettaglio alla sezione \hyperlink{par:sincronizzazione&branching}{"Sincronizzazione e Branching"}.
-Dopo aver portato a termine le attività nel proprio branch, il responsabile del suo sviluppo è tenuto ad avviare una Pull Request per incorporare le modifiche effettuate nel ramo principale (main). La Pull Request viene approvata solo dopo che le modifiche sono state verificate sulla base di quanto descritto nella sezione~\ref{subsec:verifica}.
+Le attività e le procedure legate al processo di rilascio e consegna sono strettamente correlate al workflow adottato dal team, il quale è descritto nel dettaglio alla sezione \hyperlink{par:sincronizzazione&branching}{\textit{"Sincronizzazione e Branching"}}.
+Dopo aver portato a termine le attività nel proprio branch, il responsabile del suo sviluppo è tenuto ad avviare una Pull Request per incorporare le modifiche effettuate nel ramo principale (main). La Pull Request viene approvata solo dopo che le modifiche sono state verificate sulla base di quanto descritto nella sezione~\ref{subsec:verifica}.\todo{undefined reference}
 
 \hypertarget{par:creazionePR}{\paragraph*{Procedura per la creazione di Pull Request}} \todo{non sono sicuro vada all'interno del processo "Release management and delivery"}
 Per creare una Pull Request eseguire i seguenti passaggi:
@@ -249,5 +248,5 @@ Per creare una Pull Request eseguire i seguenti passaggi:
 Le tecnologie adottate per la gestione dei Configuration Item sono:
 \begin{itemize}
     \item \textbf{Git}: Version Control System distribuito utilizzato per il versionamento dei Configuration Item;
-    \item \textbf{GitHub}: piattaforma web per il controllo di versione (tramite Git) dei Configuration Item e per il \hyperlink{par:ticketing}{Ticketing}. È impiegata per gestire le richieste di modifica tramite issue e label, oltre che per la contabilità dello stato di configurazione.
+    \item \textbf{GitHub}: piattaforma web per il controllo di versione (tramite Git) dei Configuration Item e per il \hyperlink{par:ticketing}{\textit{Ticketing}}. È impiegata per gestire le richieste di modifica tramite issue e label, oltre che per la contabilità dello stato di configurazione.
 \end{itemize}
