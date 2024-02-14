@@ -6,7 +6,7 @@ La gestione della configurazione viene applicata a qualunque categoria di “art
 Secondo lo standard \href{https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf}{ISO/IEC 12207:1995}, la gestione della configurazione del software è un processo di identificazione, organizzazione e controllo delle modifiche apportate ai prodotti software durante il loro ciclo di vita. \\
 Lo standard \href{https://standards.ieee.org/ieee/828/5367/}{IEEE 828-2012} definisce la gestione della configurazione del software come “un processo disciplinato per gestire l’evoluzione del software”.
 
-\subsubsection{Numeri di versionamento}\label{sec:versionamento}
+\subsubsection{Numeri di versionamento}\label{subsubsec:versionamento}
 La convenzione per identificare la versione di un documento è nel formato X.Y.Z con:
 \begin{itemize}
     \item \textbf{X:} viene incrementato al raggiungimento di RTB, PB ed eventualmente CA;
@@ -49,7 +49,7 @@ I repository destinati alla documentazione sono organizzati come segue:
 
 \hypertarget{par:sincronizzazione&branching}{\paragraph{Sincronizzazione e Branching}}
 \textbf{Documentazione} \\
-Il processo operativo utilizzato per la redazione della documentazione, noto come "feature branch workflow", implica la creazione di un ramo dedicato per ciascun documento o sezione da elaborare.
+Il processo operativo utilizzato per la redazione della documentazione, noto come "\href{https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow}{Feature Branch workflow}", implica la creazione di un ramo dedicato per ciascun documento o sezione da elaborare.
 Tale metodologia permette una parallelizzazione agile dei lavori evitando sovrascritture indesiderate di altri lavori e permette l'adozione dei principi "Documentation as code" definiti nella sezione~\ref{sec:DocumentationAscode}. \\ 
 
 \paragraph*{\hypertarget{par:convezioninomenclaturabranchdocumenti}{\textbf{Convenzioni per la nomenclatura dei branch relativi alle attività di redazione o modifica di documenti}}}
@@ -182,15 +182,23 @@ Tale metodologia permette una parallelizzazione agile dei lavori evitando sovras
 \paragraph{Change request (Richiesta di modifica)}
 Seguendo lo standard \href{https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf}{ISO/IEC 12207:1995} per affrontare questo processo in modo strutturato le attività sono:
 \begin{enumerate}
-    \item \textbf{Identificazione e registrazione}: Le change request vengono identificate, registrate e documentate accuratamente. Questo include informazioni come la natura della modifica richiesta, l'urgenza e l'impatto sul sistema esistente. \\
+    \item \textbf{Identificazione e registrazione} \\
+    Le change request vengono identificate, registrate e documentate accuratamente. Questo include informazioni come la natura della modifica richiesta, l'urgenza e l'impatto sul sistema esistente. \\
     L'identificazione avviene tramite la creazione di una issue nell'ITS con label: "Change request";
-    \item \textbf{Valutazione e analisi}: Le change request vengono valutate dal team per determinare la loro fattibilità, importanza e impatto sul progetto. Si analizzano i costi e i benefici associati all'implementazione della modifica;
-    \item \textbf{Approvazione o rifiuto}: Il responsabile valuta le informazioni raccolte e decide se approvare o respingere la change request. Questa decisione può essere basata su criteri come il budget, il tempo, le priorità degli stakeholder;
-    \item \textbf{Pianificazione delle modifiche}: Se una change request viene approvata, viene pianificata e integrata nel ciclo di sviluppo del software. Questo può richiedere, ad esempio, la rinegoziazione dei tempi di consegna e la revisione del piano di progetto.
-    \item \textbf{Implementazione delle modifiche}: Le modifiche vengono effettivamente implementate. Durante questo processo, è fondamentale mantenere una traccia accurata di ciò che viene fatto per consentire una corretta documentazione e, se necessario, la possibilità di un rollback;
-    \item \textbf{Verifica e validazione}: Le modifiche apportate vengono verificate per assicurarsi che abbiano raggiunto gli obiettivi previsti e non abbiano introdotto nuovi problemi o errori;
-    \item \textbf{Documentazione}: Tutti i passaggi del processo di gestione delle change request vengono documentati accuratamente per garantire la trasparenza e la tracciabilità. Questa documentazione è utile per futuri riferimenti e per l'apprendimento delle modifiche apportate;
-    \item \textbf{Comunicazione agli stakeholder}: Durante tutto il processo è importante comunicare in modo chiaro e tempestivo con gli stakeholder, per mantenere trasparenza e fiducia.
+    \item \textbf{Valutazione e analisi} \\
+    Le change request vengono valutate dal team per determinare la loro fattibilità, importanza e impatto sul progetto. Si analizzano i costi e i benefici associati all'implementazione della modifica;
+    \item \textbf{Approvazione o rifiuto} \\
+    Il responsabile valuta le informazioni raccolte e decide se approvare o respingere la change request. Questa decisione può essere basata su criteri come il budget, il tempo, le priorità degli stakeholder;
+    \item \textbf{Pianificazione delle modifiche} \\
+    Se una change request viene approvata, viene pianificata e integrata nel ciclo di sviluppo del software. Questo può richiedere, ad esempio, la rinegoziazione dei tempi di consegna e la revisione del piano di progetto.
+    \item \textbf{Implementazione delle modifiche} \\
+    Le modifiche vengono effettivamente implementate. Durante questo processo, è fondamentale mantenere una traccia accurata di ciò che viene fatto per consentire una corretta documentazione e, se necessario, la possibilità di un rollback;
+    \item \textbf{Verifica e validazione} \\
+    Le modifiche apportate vengono verificate per assicurarsi che abbiano raggiunto gli obiettivi previsti e non abbiano introdotto nuovi problemi o errori;
+    \item \textbf{Documentazione} \\
+    Tutti i passaggi del processo di gestione delle change request vengono documentati accuratamente per garantire la trasparenza e la tracciabilità. Questa documentazione è utile per futuri riferimenti e per l'apprendimento delle modifiche apportate;
+    \item \textbf{Comunicazione agli stakeholder} \\
+    Durante tutto il processo è importante comunicare in modo chiaro e tempestivo con gli stakeholder, per mantenere trasparenza e fiducia.
 \end{enumerate}
 
 \subsubsection{Configuration Status Accounting (Contabilità dello Stato di Configurazione)}
