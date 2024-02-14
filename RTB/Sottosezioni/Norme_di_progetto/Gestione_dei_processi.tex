@@ -41,7 +41,7 @@ Le attività di gestione di processo sono:
 
 \paragraph{Descrizione}
 La pianificazione riveste un ruolo centrale nella gestione dei processi, poiché mira a creare un piano organizzato e coerente per assicurare un'efficace esecuzione delle attività durante l'intero ciclo di vita del software. \\
-Il \textit{Responsabile} del progetto assume il compito di coordinare ogni aspetto della pianificazione delle attività, che include l'allocazione delle risorse, la definizione dei tempi e la redazione di piani dettagliati. Inoltre, il \textit{Responsabile} si assicura che il piano elaborato sia fattibile e possa essere eseguito correttamente ed efficientemente dai membri del team. \\
+Il responsabile del progetto assume il compito di coordinare ogni aspetto della pianificazione delle attività, che include l'allocazione delle risorse, la definizione dei tempi e la redazione di piani dettagliati. Inoltre, il responsabile si assicura che il piano elaborato sia fattibile e possa essere eseguito correttamente ed efficientemente dai membri del team. \\
 I piani associati all'esecuzione del processo devono comprendere descrizioni dettagliate delle attività e delle risorse necessarie, specificando le tempistiche, le tecnologie impiegate, le infrastrutture coinvolte e il personale assegnato.
 
 \paragraph{Obiettivi}
@@ -94,7 +94,8 @@ Si occupa di:
     \item Studiare i bisogni espliciti ed impliciti.
 \end{itemize}
 
-\paragraph{Progettista}\label{progettista}Il Progettista è la figura di riferimento per quanto riguarda le scelte progettuali partendo dal lavoro dell'Analista. Spetta al progettista assumere decisioni di natura tecnica e tecnologica, oltre a supervisionare il processo di sviluppo. Tuttavia, non è responsabile della manutenzione del prodotto. \\
+\paragraph{Progettista}\label{progettista}
+Il progettista è la figura di riferimento per quanto riguarda le scelte progettuali partendo dal lavoro dell'analista. Spetta al progettista assumere decisioni di natura tecnica e tecnologica, oltre a supervisionare il processo di sviluppo. Tuttavia, non è responsabile della manutenzione del prodotto. \\
 In particolare si occupa di:
 \begin{itemize}
     \item Progettare l'architettura del prodotto secondo specifiche tecniche dettagliate;
@@ -104,17 +105,18 @@ In particolare si occupa di:
 
 \paragraph{Programmatore}
 \label{par:programmatore}
-Il Programmatore è la figura professionale incaricata della scrittura del codice software. Il suo compito primario è implementare il codice conformemente alle specifiche fornite dall'Analista e all'architettura definita dal Progettista. \\
-In particolare, il Programmatore:
+Il programmatore è la figura professionale incaricata della scrittura del codice software. Il suo compito primario è implementare il codice conformemente alle specifiche fornite dall'analista e all'architettura definita dal progettista. \\
+In particolare, il programmatore:
 \begin{itemize}
     \item Scrive codice manutenibile in conformità con le \textit{Specifiche Tecniche};
-    \item Codifica le varie componenti dell'architettura seguendo quanto ideato dai Progettisti;
+    \item Codifica le varie componenti dell'architettura seguendo quanto ideato dai progettisti;
     \item Realizza gli strumenti per verificare e validare il codice;
     \item Redige il \textit{Manuale Utente};
 \end{itemize}
 
-\paragraph{Verificatore}\label{verificatore} La principale responsabilità del Verificatore consiste nell'ispezionare il lavoro svolto da altri membri del team per assicurare la qualità e la conformità alle attese prefissate.
-Stabilisce se il lavoro è stato svolto correttamente sulla base delle proprie competenze tecniche, esperienza e conoscenza delle norme. In, particolare il Verificatore si occupa di:
+\paragraph{Verificatore}\label{verificatore} La principale responsabilità del verificatore consiste nell'ispezionare il lavoro svolto da altri membri del team per assicurare la qualità e la conformità alle attese prefissate.
+Stabilisce se il lavoro è stato svolto correttamente sulla base delle proprie competenze tecniche, esperienza e conoscenza delle norme. \\
+In, particolare il verificatore si occupa di:
 \begin{itemize}
     \item Verificare che i prodotti siano conformi alle \textit{Norme di Progetto};
     \item Verificare la conformità dei prodotti ai requisiti funzionali e di qualità;
@@ -124,7 +126,7 @@ Stabilisce se il lavoro è stato svolto correttamente sulla base delle proprie c
 
 \hypertarget{par:ticketing}{\paragraph{Ticketing}}
 GitHub è adottato come sistema di tracciamento delle issue (ITS), garantendo così una gestione agevole e trasparente delle attività da svolgere. \\
-L'\textit{Amministratore} ha la facoltà di creare e assegnare specifiche issue sulla base delle attività identificate dal \textit{Responsabile}, assicurando chiarezza sulle responsabilità di ciascun membro del team e stabilendo tempi definiti entro cui ciascuna attività deve essere completata. Inoltre, ogni membro del gruppo può monitorare i progressi compiuti nel periodo corrente, consultando lo stato di avanzamento delle varie issue attraverso le Dashboard:
+L'amministratore ha la facoltà di creare e assegnare specifiche issue sulla base delle attività identificate dal responsabile, assicurando chiarezza sulle responsabilità di ciascun membro del team e stabilendo tempi definiti entro cui ciascuna attività deve essere completata. Inoltre, ogni membro del gruppo può monitorare i progressi compiuti nel periodo corrente, consultando lo stato di avanzamento delle varie issue attraverso le Dashboard:
 \begin{itemize}
     \item \href{https://github.com/orgs/ByteOps-swe/projects/1}{DashBoard}: per una panoramica dettagliata sullo stato delle issue;
     \item \href{https://github.com/orgs/ByteOps-swe/projects/3}{RoadMap}: per una panoramica temporale dettagliata delle issue.
@@ -137,7 +139,7 @@ Le issue vengono create dall'amministratore e devono essere specificati i seguen
     \item \textbf{Descrizione}:
     \begin{itemize}
         \item Descrizione testuale oppure "to-do" tramite bullet points;
-        \item Nell'ultima riga viene specificato il Verificatore della issue nel formato: "Verificatore: Mario Rossi".
+        \item Nell'ultima riga viene specificato il verificatore della issue nel formato: "Verificatore: Mario Rossi".
     \end{itemize} 
     \item \textbf{Assegnatario}: incaricato/i allo svolgimento della issue;
     \item \textbf{Scadenza}: data entro la quale la issue deve essere completata;
@@ -242,8 +244,8 @@ Le indicazioni dettagliate per la compilazione dei verbali interni sono disponib
 
 \paragraph{Riunioni esterne}
 Durante lo svolgimento del progetto, è essenziale organizzare vari incontri con i \textit{Committenti} e/o il \textit{Proponente} al fine di valutare lo stato di avanzamento del prodotto e chiarire eventuali dubbi o questioni. \\
-La responsabilità di convocare tali incontri ricade sul \textit{Responsabile}, il quale è incaricato di pianificarli e agevolarne lo svolgimento in modo efficiente ed efficace. \\
-Sarà compito del \textit{Responsabile} anche l'esposizione dei punti di discussione al proponente/committente, lasciando la parola ai membri del gruppo interessati quando necessario. \\
+La responsabilità di convocare tali incontri ricade sul responsabile, il quale è incaricato di pianificarli e agevolarne lo svolgimento in modo efficiente ed efficace. \\
+Sarà compito del responsabile anche l'esposizione dei punti di discussione al proponente/committente, lasciando la parola ai membri del gruppo interessati quando necessario. \\
 Questo approccio assicura una comunicazione efficace tra le varie parti in causa, garantendo una gestione ottimale del tempo e una registrazione accurata delle informazioni rilevanti emerse durante gli incontri.\\
 I membri del gruppo si impegnano a garantire la propria presenza in modo costante alle riunioni, facendo il possibile per riorganizzare eventuali altri impegni al fine di partecipare. \\
 Nel caso in cui gli obblighi inderogabili di un membro del gruppo rendessero impossibile la partecipazione, il responsabile assicurerà di informare tempestivamente il proponente o i committenti, richiedendo la possibilità di rinviare la riunione ad una data successiva.
