@@ -78,8 +78,9 @@ Il ciclo di vita dei documenti è una sequenza di stati e attività:
 %   I verificatori quindi troveranno il documento da validare in questa repository quando riceveranno una notifica mail generata dalla Pull Request.\\
 %  Quando i verificatori avranno convalidato il contenuto, dovranno seguire le istruzioni al paragrafo ~\ref{sec:verificatori} per formalizzare la verifica.
 
+\subsubsection{Procedure correlate alla redazione di documenti}
 
-\paragraph{I redattori} \todo{si può mandare indietro di un livello di gerarchia?}
+\paragraph{I redattori}
 Il redattore responsabile della redazione di un documento o di una sua sezione deve seguire lo stesso approccio richiesto per la codifica del software, adottando il workflow noto come \href{https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow}{"Feature Branch"}. \\
 
 \vspace{0.1cm}
@@ -126,8 +127,8 @@ Alla fine di una sessione di modifiche di un file, nel caso si desideri rendere 
 
 \vspace{0.3cm}
 
-\paragraph*{\textbf{Completamento compito di redazione}}
-Una volta terminata l'attività di redazione, ogni redattore deve:
+\paragraph*{\textbf{Completamento attività di redazione}}
+Una volta terminata la redazione di un documento o di una sezione, ogni redattore deve:
 \begin{enumerate}
     \item Segnalare il completamento dell'attività a loro assegnata (essa sia la stesura completa di un documento o di una sua parte) posizionando l'issue relativa nella colonna "Da revisionare" della \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione}.
     \item Attuare una \hyperlink{par:creazionePR}{\textit{\textbf{Pull Request:}}}
@@ -153,20 +154,16 @@ Nel processo di redazione dei documenti, il compito del responsabile consiste ne
     \item \textbf{Identificare i documenti o le sezioni da redigere};
     \item \textbf{Stabilire le scadenze entro cui devono essere completati};
     \item \textbf{Assegnare i redattori e i verificatori ai task};
-    \item \textbf{Approvazione:} \\
-    Prima della conclusione del suo mandato, il responsabile si riserva il diritto di approvare il lavoro o richiedere eventuali ulteriori modifiche su tutti i documenti redatti e verificati nel periodo in cui ha esercitato la propria carica.
+    \item \textbf{Approvazione:} il responsabile si riserva il diritto di approvare il lavoro o richiedere eventuali ulteriori modifiche su tutti i documenti redatti e verificati nel periodo in cui ha esercitato la propria carica.
 \end{itemize}
 
 \paragraph{L'amministratore}
-Nel processo di redazione dei documenti, il compito dell'amministratore consiste nel:
-\begin{itemize}
-    \item \textbf{Inserire nell'ITS le attività specificate dal responsabile:}
+Nel processo di redazione dei documenti, il compito dell'amministratore consiste nell'inserire nell'ITS le attività specificate dal responsabile:
     \begin{itemize}
-              \item Redattori: assegnatari della issue;
-              \item Verificatori: specificati nella descrizione della issue;
-              \item Scadenza.
-          \end{itemize}
-\end{itemize}
+        \item Redattori: assegnatari della issue;
+        \item Verificatori: specificati nella descrizione della issue;
+        \item Scadenza.
+    \end{itemize}
 
 \subsubsection{Struttura del documento}
 \label{subsubsec:strutturadocumento}
