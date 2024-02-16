@@ -47,8 +47,8 @@ I repository destinati alla documentazione sono organizzati come segue:
 \end{itemize}
 
 
-\hypertarget{par:sincronizzazione&branching}{\paragraph{Sincronizzazione e Branching}}
-\textbf{Documentazione} \\
+\hypertarget{subsubsec:sincronizzazione&branching}{\subsubsection{Sincronizzazione e Branching}}
+\paragraph{Documentazione}
 Il processo operativo utilizzato per la redazione della documentazione, noto come "\href{https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow}{Feature Branch workflow}", implica la creazione di un ramo dedicato per ciascun documento o sezione da elaborare.
 Tale metodologia permette una parallelizzazione agile dei lavori evitando sovrascritture indesiderate di altri lavori e permette l'adozione dei principi "Documentation as code" definiti nella sezione~\ref{sec:DocumentationAscode}. \\ 
 
@@ -85,7 +85,7 @@ Tale metodologia permette una parallelizzazione agile dei lavori evitando sovras
     \texttt{IdDocumento\_ModNomeSezione} (ex. NdP\_ModDocumentazione).
 \end{itemize}
 
-\textbf{Sviluppo} \\
+\paragraph{Sviluppo}
 \href{https://www.atlassian.com/it/git/tutorials/comparing-workflows/gitflow-workflow}{Gitflow} è lo stile di flusso di lavoro Git che utilizza il team ByteOps per lo sviluppo.
 
 \paragraph*{Flusso generale di Gitflow}
@@ -106,78 +106,67 @@ Tale metodologia permette una parallelizzazione agile dei lavori evitando sovras
     \item \textbf{Merge di \texttt{hotfix} in \texttt{develop} e \texttt{main}:} una volta risolto il problema, il branch \texttt{hotfix} viene unito sia in \texttt{develop} che in \texttt{main} per garantire coerenza tra le versioni.
 \end{enumerate}
 
-\subsubsection*{Comandi di comodo}
-\paragraph*{Inizializzare Gitflow}
+\paragraph*{Comandi di comodo}
+\begin{itemize}
+    \item Inizializzare Gitflow \\
+    \begin{lstlisting}[style=code]
+        git flow init
+    \end{lstlisting}
+    \item Sviluppo di una Nuova Funzionalità \\
+    \begin{lstlisting}[style=code]
+        git flow feature start nome_feature
+    \end{lstlisting}
+    \begin{lstlisting}[style=code]
+        git flow feature finish nome_feature
+    \end{lstlisting}
+    \item Risoluzione di un bug \\
+    \begin{lstlisting}[style=code]
+        git flow hotfix start nome_hotfix
+    \end{lstlisting}
+    \begin{lstlisting}[style=code]
+        git flow hotfix finish nome_hotfix
+    \end{lstlisting}
+    \item Rilascio di una nuova versione \\
+    \begin{lstlisting}[style=code]
+        git flow release start X.X.X
+    \end{lstlisting}
+    \begin{lstlisting}[style=code]
+        git flow release finish X.X.X
+    \end{lstlisting}
+    \item Pubblicazione delle modifiche \\
+    \begin{lstlisting}[style=code]
+        git push origin develop
+        git push origin master
+        git push origin --tags
+    \end{lstlisting}
+    \begin{lstlisting}[style=code]
+        git push origin feature/nome_feature
+        git push origin hotfix/nome_hotfix
+        git push origin release/X.X.X
+    \end{lstlisting}
+\end{itemize}
 
-% Inizializzare Gitflow
-\begin{lstlisting}[style=code]
-    git flow init
-    \end{lstlisting}
-    
-    % Sviluppo di una Nuova Funzionalità
-    \paragraph*{Sviluppo di una Nuova Funzionalità}
-    
-    % Inizia una Feature
-    \begin{lstlisting}[style=code]
-    git flow feature start nome_feature
-    \end{lstlisting}
-    
-    % Lavora sul Codice
-    % Effettua le modifiche e i commit sulla branch della feature.
-    
-    % Completa la Feature
-    \begin{lstlisting}[style=code]
-    git flow feature finish nome_feature
-    \end{lstlisting}
-    
-    % Risoluzione di Bug
-    \paragraph*{Risoluzione di Bug}
-    
-    % Inizia una Hotfix
-    \begin{lstlisting}[style=code]
-    git flow hotfix start nome_hotfix
-    \end{lstlisting}
-    
-    % Lavora sul Codice
-    % Effettua le modifiche e i commit sulla branch del hotfix.
-    
-    % Completa il Hotfix
-    \begin{lstlisting}[style=code]
-    git flow hotfix finish nome_hotfix
-    \end{lstlisting}
-    
-    % Rilascio di una Nuova Versione
-    \paragraph*{Rilascio di una Nuova Versione}
-    
-    % Inizia una Release
-    \begin{lstlisting}[style=code]
-    git flow release start X.X.X
-    \end{lstlisting}
-    
-    % Lavora sul Codice
-    % Effettua eventuali aggiustamenti per la release e imposta il numero di versione nei file appropriati.
-    
-    % Completa la Release
-    \begin{lstlisting}[style=code]
-    git flow release finish X.X.X
-    \end{lstlisting}
-    
-    % Pubblicazione delle Modifiche
-    \paragraph*{Pubblicazione delle Modifiche}
-    
-    % Push delle Branch
-    \begin{lstlisting}[style=code]
-    git push origin develop
-    git push origin master
-    git push origin --tags
-    \end{lstlisting}
-    
-    % Push delle Feature/Hotfix/Release
-    \begin{lstlisting}[style=code]
-    git push origin feature/nome_feature
-    git push origin hotfix/nome_hotfix
-    git push origin release/X.X.X
-    \end{lstlisting}
+\paragraph{Pull Request}
+Dopo aver portato a termine le attività nel proprio branch, il responsabile del suo sviluppo è tenuto ad avviare una Pull Request per incorporare le modifiche effettuate nel ramo principale (main). La Pull Request viene approvata solo dopo che le modifiche sono state verificate sulla base di quanto descritto nella sezione~\ref{subsec:verifica}.
+
+\hypertarget{par:creazionePR}{\paragraph*{Procedura per la creazione di Pull Request}}
+Per creare una Pull Request eseguire i seguenti passaggi:
+\begin{enumerate}
+    \item Accedere al repository GitHub e cliccare sulla scheda "Pull requests";
+    \item Cliccare il pulsante "New Pull Request";
+    \item Selezionare il branch di partenza ed il branch target;
+    \item Cliccare il pulsante "Create Pull Request";
+    \item Aggiungere un titolo alla Pull Request;
+    \item Aggiungere una descrizione;
+    \item Selezionare i verificatori;
+    \item Come convenzione, l'assegnatario è colui che richiede la Pull Request;
+    \item Selezionare le label;
+    \item Selezionare il progetto;
+    \item Selezionare le milestone;
+    \item Clicca il pulsante "Create Pull Request";
+    \item Nel caso siano presenti conflitti seguire le istruzioni in Github per rimuovere tali conflitti;
+\end{enumerate}
+
 \subsubsection{Controllo di configurazione}
 \paragraph{Change request (Richiesta di modifica)}
 Seguendo lo standard \href{https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf}{ISO/IEC 12207:1995} per affrontare questo processo in modo strutturato le attività sono:
@@ -221,28 +210,25 @@ La Contabilità dello Stato di Configurazione è un'attività dedicata a registr
 
 Per approfondimenti su come creare issues e associare labels a una issue, consultare la sezione relativa al \hyperlink{par:ticketing}{\textit{Ticketing}}.
 
-\subsubsection{Release management and delivery} \todo{non mi piace sta cosa, non so cosa inserirci}
+\subsubsection{Release management and delivery} \todo{migliorare sia intro, che procedura}
 Nello standard \href{https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf}{ISO/IEC 12207:1995}, il processo "release management and delivery" è definito come un processo che si occupa della pianificazione, del coordinamento e del controllo delle attività necessarie per preparare e distribuire una versione di un prodotto software per l'uso operativo. Questo processo comprende la gestione delle release, la distribuzione del software, la preparazione della documentazione correlata e altre attività correlate al rilascio e alla consegna del prodotto software. \\
-Le attività e le procedure legate al processo di rilascio e consegna sono strettamente correlate al workflow adottato dal team, il quale è descritto nel dettaglio alla sezione \hyperlink{par:sincronizzazione&branching}{\textit{"Sincronizzazione e Branching"}}.
-Dopo aver portato a termine le attività nel proprio branch, il responsabile del suo sviluppo è tenuto ad avviare una Pull Request per incorporare le modifiche effettuate nel ramo principale (main). La Pull Request viene approvata solo dopo che le modifiche sono state verificate sulla base di quanto descritto nella sezione~\ref{subsec:verifica}.\todo{undefined reference}
+Il team ByteOps ha stabilito che la creazione di una release deve avvenire in relazione alle baseline stabilite \todo{dopo aver verificato e validato il prodotto}, ovvero RTB (Requirements and Technology Baseline) e la PB (Product Baseline) ed eventualmente CA (Customer Acceptance). In conformità con quanto definito nella \textit{sezione \ref{subsubsec:versionamento}}, relativa al versionamento dei numeri, ogni nuova release comporta un incremento di 1 nell'elemento numerico X del formato X.Y.Z.
 
-\hypertarget{par:creazionePR}{\paragraph*{Procedura per la creazione di Pull Request}} \todo{non sono sicuro vada all'interno del processo "Release management and delivery"}
-Per creare una Pull Request eseguire i seguenti passaggi:
-\begin{enumerate}
-    \item Accedere al repository GitHub e cliccare sulla scheda "Pull requests";
-    \item Cliccare il pulsante "New Pull Request";
-    \item Selezionare il branch di partenza ed il branch target;
-    \item Cliccare il pulsante "Create Pull Request";
-    \item Aggiungere un titolo alla Pull Request;
-    \item Aggiungere una descrizione;
-    \item Selezionare i verificatori;
-    \item Come convenzione, l'assegnatario è colui che richiede la Pull Request;
-    \item Selezionare le labels;
-    \item Selezionare il progetto;
-    \item Selezionare le milestones;
-    \item Clicca il pulsante "create Pull Request";
-    \item Nel caso siano presenti conflitti seguire le istruzioni in Github per rimuovere tali conflitti;
-\end{enumerate}
+\paragraph{Procedura per la creazione di una release}
+Per la creazione di una release eseguire la seguente procedura:
+\todo{release per documents e release per sorgente documenti}
+\begin{itemize}
+    \item Accedi alla repository;
+    \item Accedi alla sezione "Releases";
+    \item Clicca sul pulsante "Create a new release";
+    \item Clicca sul pulsante "Choose a tag" e selezionare il tag che identifica la versione della release. Nel caso il tag desiderato non fosse presente nella lista, crearne uno nuovo scrivendo la versione desiderata e cliccando sul pulsante "Create new tag". Vedere sezione numeri di versionamento;
+    \item Scegli il branch target di cui si vuole creare una release, nel nostro caso il main;
+    \item Scegliere un titolo per la release. A seconda della baseline scrivere come titolo la baseline relativa (RTB o PB);
+    \item Scegliere una descrizione per la release;
+    \item Clicca "Publish release";
+\end{itemize}
+
+Dopo aver seguito la procedura, nella sezione release è visibile la nuova release e sarà possibile scaricare il file.zip relativo.
 
 \subsubsection{Strumenti}
 Le tecnologie adottate per la gestione dei Configuration Item sono:
