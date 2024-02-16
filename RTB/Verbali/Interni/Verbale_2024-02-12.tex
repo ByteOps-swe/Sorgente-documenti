@@ -141,20 +141,17 @@ Durante l'incontro con il proponente del 09/02/2024, abbiamo discusso e analizza
 \section{Ordine del giorno}
 
 \subsection{Riscontro RTB Prof. Cardin}
-Si è effettuata una discussione collaborativa esaminando le osservazioni critiche del Professore Cardin sul documento di Analisi dei Requisiti versione 1.0.0. In seguito a questa analisi, abbiamo concordato che gli elementi individuati come errati devono essere risolti con la alta priorità.
-
-
+Si è effettuata una discussione collaborativa esaminando le osservazioni critiche del Professore Cardin sul documento di Analisi dei Requisiti \textit{v.} 1.0.0. In seguito a questa analisi, abbiamo concordato che gli elementi individuati come errati devono essere risolti con la alta priorità.
 
 \subsection{Connessione diretta Kafka-ClickHouse}
-Durante il recente incontro del SAL del 09/02/2024, abbiamo preso la decisione di stabilire una connessione diretta tra Kafka e ClickHouse, eliminando così eventuali rischi associati a "edge-case" non affrontati. In seguito a questa determinazione, abbiamo discusso le modalità di elaborazione dei dati per soddisfare il requisito relativo al calcolo del punteggio di salute. Tale elaborazione verrà gestita mediante l'implementazione di una libreria o framework appropriato, come Kafka Streams o Faust. Una volta eseguito il calcolo sui dati, il risultato verrà reinserito in Kafka, specificamente in una coda dedicata, per renderlo disponibile a tutti i servizi che ne necessitano.
+Durante il recente incontro del SAL del 09/02/2024, abbiamo preso la decisione di stabilire una connessione diretta tra Kafka e ClickHouse, eliminando così eventuali rischi associati a "edge-case" non affrontati. In seguito a questa scelta, abbiamo discusso le modalità di elaborazione dei dati per soddisfare il requisito relativo al calcolo del punteggio di salute. Tale elaborazione verrà gestita mediante l'implementazione di una libreria o framework appropriato, come Kafka Streams o Faust. Una volta eseguito il calcolo sui dati, il risultato verrà reinserito in Kafka, specificamente in una coda dedicata, per renderlo disponibile a tutti i servizi che ne necessitano.
 
 \subsection{Progettazione simulazione sensori}
 Tra le attività pianificate, abbiamo deliberato di dedicare risorse alla fase iniziale della progettazione del diagramma delle classi per la simulazione dei sensori, nonostante ci sia stato chiarito, nel più recente diario di bordo, che il focus del progetto non è su questa specifica area.
 
 \subsection{Prova presentazione prof. Vardanega}
 Come ultima fase dell'incontro, abbiamo condotto una prova della presentazione relativa alla seconda parte della revisione RTB.
- L'esito è stato positivo e soddisfacente, rispettando il limite di tempo richiesto di 15 minuti.
-
+L'esito è stato positivo e soddisfacente, rispettando il limite di tempo richiesto di 15 minuti.
 
 \section{Attività da svolgere}
     \begin{center}
