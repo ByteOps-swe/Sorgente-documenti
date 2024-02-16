@@ -1,34 +1,40 @@
 \subsection{Verso la Requirements and Technology Baseline}
 \subsubsection{Primo periodo  06/11/2023 - 24/11/2023}
 \paragraph{Considerazioni}
-    Nel corso del primo periodo, il nostro team ha dedicato risorse significative all'elaborazione e alla standardizzazione dei \textit{processi}\textsubscript{\textit{G}}, formalizzando tali linee guida nel documento "Norme di Progetto". In quest'ultimo, sono state dettagliatamente redatte le sezioni specificate nella tabella sottostante.
+    Nel corso del primo periodo, il nostro team ha dedicato risorse significative all'elaborazione e alla standardizzazione dei \textit{processi}\textsubscript{\textit{G}}, formalizzando tali linee guida nel documento \textit{Norme di Progetto}. In quest'ultimo, sono state dettagliatamente redatte le sezioni specificate nella tabella sottostante.
 
-    Durante il primo incontro con l'azienda, abbiamo definito obiettivi chiave da conseguire entro il prossimo \textit{SAL}\textsubscript{\textit{G}} fissato per il 24 novembre 2023, coincidente con l'avvio del prossimo periodo. Questo approccio ricalca la struttura dello sprint backlog di Scrum.
-    Tra i molteplici obiettivi delineati, si evidenziano la realizzazione di almeno un simulatore di un \textit{sensore}\textsubscript{\textit{G}} in linguaggio Python, il quale interagisca con un server Kafka mediante \textit{Docker}\textsubscript{\textit{G}}. Opzionalmente, si è prevista l'\textit{integrazione}\textsubscript{\textit{G}} con il \textit{database}\textsubscript{\textit{G}} ClickHouse per immagazzinare i dati dei simulatori. In parallelo, ci si è dedicati alla creazione di user story e casi d'uso correlati al capitolato.
+    \vspace{0.2cm}
+
+    Durante il primo incontro con l'azienda, abbiamo definito obiettivi chiave da conseguire entro il prossimo \textit{SAL}\textsubscript{\textit{G}} fissato per il 24 novembre 2023, coincidente con l'avvio del prossimo periodo. Questo approccio ricalca la struttura dello sprint backlog dello Scrum.
+    Tra i molteplici obiettivi delineati, si evidenziano la realizzazione di almeno un simulatore di un \textit{sensore}\textsubscript{\textit{G}} in linguaggio \textit{Phyton}\textsubscript{\textit{G}}, il quale interagisca con un server \textit{Apache Kafka}\textsubscript{\textit{G}} mediante \textit{Docker}\textsubscript{\textit{G}}. Opzionalmente, si è prevista l'\textit{integrazione}\textsubscript{\textit{G}} con il \textit{database}\textsubscript{\textit{G}} \textit{ClickHouse}\textsubscript{\textit{G}}e per immagazzinare i dati dei simulatori. In parallelo, ci si è dedicati alla creazione di user story e casi d'uso correlati al capitolato.
+
+    \vspace{0.2cm}
 
     È soddisfacente constatare che tutte le richieste avanzate dal \textit{proponente}\textsubscript{\textit{G}} sono state risolte entro i tempi concordati, includendo le richieste opzionali.
 
     Parallelamente, durante questa fase, gli amministratori hanno investito risorse per automatizzare il processo di compilazione dei sorgenti \LaTeX , una volta caricati nella \textit{repository}\textsubscript{\textit{G}} condivisa. Inoltre, è stata implementata una procedura automatica di rinomina dei file PDF generati, inclusiva dell'indicazione della versione.
 
 \paragraph{Gestione dei rischi} 
- 
-%Nel corso del primo periodo, ci si attendeva e si sono manifestate le seguenti problematiche:
+
 \begin{itemize}
     \item \textbf{Rischi attesi e verificati:}
 \begin{itemize}
-    \item \textbf{Inesperienza nell'uso dell'ambiente \textit{Docker}\textsubscript{\textit{G}} - \ref{sec:rischioTec}}
+    \item \textbf{Inesperienza nell'uso dell'ambiente \textit{Docker}\textsubscript{\textit{G}} - \textit{sez:} \ref{sec:rischioTec}}
     \begin{itemize}
         \item \textbf{Esito mitigazione:} 
-            L'autoapprendimento e la conoscenze dei singoli non si sono dimostrate adeguate per acquisire una conoscenza approfondita dell'ambiente \textit{Docker}\textsubscript{\textit{G}} nel breve periodo iniziale, portando all'utilizzo del \textit{sistema}\textsubscript{\textit{G}} senza una comprensione approfondita di ciascuna delle sue componenti e configurazioni. Di conseguenza, è stata formulata una richiesta al \textit{proponente}\textsubscript{\textit{G}} per la realizzazione di un corso di formazione specifico su \textit{Docker}\textsubscript{\textit{G}} seguendo le norme di mitigazione definite in \ref{sec:rischioTec}.
+            l'autoapprendimento e la conoscenze dei singoli non si sono dimostrate adeguate per acquisire una conoscenza approfondita dell'ambiente \textit{Docker}\textsubscript{\textit{G}} nel breve periodo iniziale, portando all'utilizzo del \textit{sistema}\textsubscript{\textit{G}} senza una comprensione approfondita di ciascuna delle sue componenti e configurazioni. Di conseguenza, è stata formulata una richiesta al \textit{proponente}\textsubscript{\textit{G}} per la realizzazione di un corso di formazione specifico su \textit{Docker}\textsubscript{\textit{G}} seguendo le norme di mitigazione definite in \textit{sez:} \ref{sec:rischioTec};
+
+        \pagebreak
+        
         \item \textbf{Impatto:}
-            Nessuna conseguenza significativa è stata riscontrata, poiché le avvertenze segnalate dalla \textit{proponente}\textsubscript{\textit{G}} riguardavano criticità di lieve entità relative alle best practices di \textit{Docker}\textsubscript{\textit{G}}. Le misure di mitigazione necessarie sono state tempestivamente implementate, e un incontro formativo è stato programmato per approfondire ulteriormente la questione.
-            Inoltre, al fine di conformarsi alle best practices dell'ambiente, è stata presa la decisione di regolamentare, nel documento "Norme di Progetto", lo sviluppo degli ambienti \textit{Docker}\textsubscript{\textit{G}}.
+            nessuna conseguenza significativa è stata riscontrata, poiché le avvertenze segnalate dalla \textit{proponente}\textsubscript{\textit{G}} riguardavano criticità di lieve entità relative alle best practices di \textit{Docker}\textsubscript{\textit{G}}. Le misure di mitigazione necessarie sono state tempestivamente implementate, e un incontro formativo è stato programmato per approfondire ulteriormente la questione.
+            Inoltre, al fine di conformarsi alle best practices dell'ambiente, è stata presa la decisione di regolamentare, nel documento \textit{Norme di Progetto}, lo sviluppo degli ambienti \textit{Docker}\textsubscript{\textit{G}}.
     \end{itemize}
 \end{itemize}
 \item \textbf{Rischi attesi ma non verificati:}
  \begin{itemize}
-    \item \textbf{RO-2M-2}: Ritardo nel completamento delle \textit{attività}\textsubscript{\textit{G}} rispetto ai tempi previsti;
-    \item \textbf{RP-2B-1}: Contrasti interni al gruppo.
+    \item \textbf{RO-2M-2}: ritardo nel completamento delle \textit{attività}\textsubscript{\textit{G}} rispetto ai tempi previsti;
+    \item \textbf{RP-2B-1}: contrasti interni al gruppo.
 \end{itemize}
 \item \textbf{Rischi non attesi ma verificati:}
 \begin{itemize}
@@ -38,6 +44,8 @@
 
 \paragraph{Definizione ruoli}
 Per le \textit{attività}\textsubscript{\textit{G}} registrate nei costi, sono stati assegnati i seguenti ruoli: 
+
+\vspace{0.4cm}
 
 \begin{table}[H]
     \centering
@@ -66,7 +74,9 @@ Per le \textit{attività}\textsubscript{\textit{G}} registrate nei costi, sono s
     \end{table}
 
 \newpage
-\paragraph{Pianificazione attività divise per ruoli con consuntivo e preventivo orario e dei costi}\hspace{1pt} 
+\paragraph{Pianificazione attività divise per ruoli con consuntivo e preventivo orario e dei costi}
+
+\vspace{0.4cm}
 
 \begin{figure}[H]
     \centering
@@ -75,11 +85,14 @@ Per le \textit{attività}\textsubscript{\textit{G}} registrate nei costi, sono s
     \label{fig:Primo_periodo}
 \end{figure}
 
+
 Al termine del primo periodo, l'ammontare parziale totale del costo del progetto è \textbf{ 1317,50\euro\ } e sono state completate il \textbf{100\%} delle \textit{attività}\textsubscript{\textit{G}} attese.
 Il preventivo a finire rimane invariato a \textbf{12565,00€} e non risulta necessaria una ripianificazine delle \textit{attività}\textsubscript{\textit{G}} future.
 \href{https://github.com/orgs/ByteOps-swe/projects/3/views/1?sortedBy%5Bdirection%5D=asc&sortedBy%5BcolumnId%5D=64182560}{Vai al Diagramma di Gantt.}
-\hspace{1pt}
-  \begin{figure}[H]
+
+\pagebreak
+
+\begin{figure}[H]
     \centering
     \begin{minipage}[b]{0.70\textwidth}
         \centering
@@ -89,16 +102,16 @@ Il preventivo a finire rimane invariato a \textbf{12565,00€} e non risulta nec
     \end{minipage}
 \end{figure}
 
+\paragraph{Preventivo orario}
 
-
-\paragraph{Preventivo orario} \hspace{1pt}
-
-\begin{figure}[H]
+\begin{figure}[H] 
     \centering
     \includegraphics[width=0.9\textwidth]{../Images/preventivoOrario1Periodo.png}
     \caption{Preventivo orario per membro - primo periodo}
     \label{fig:Preventivo_orario_1}
 \end{figure}
+
+\vspace{0.6cm}
 
 \begin{figure}[H]
     \centering
@@ -107,7 +120,9 @@ Il preventivo a finire rimane invariato a \textbf{12565,00€} e non risulta nec
     \label{fig:Preventivo_ripartizione_oraria_1}
 \end{figure}
 
-\paragraph{Consuntivo orario} \hspace{1pt}
+\pagebreak
+
+\paragraph{Consuntivo orario}
 
 \begin{figure}[H]
     \centering
@@ -115,6 +130,8 @@ Il preventivo a finire rimane invariato a \textbf{12565,00€} e non risulta nec
     \caption{Consuntivo orario per membro - primo periodo}
     \label{fig:Constuntivo_orario_1}
 \end{figure}
+
+\vspace{0.6cm}
 
 \begin{figure}[H]
     \centering
@@ -128,17 +145,25 @@ Il preventivo a finire rimane invariato a \textbf{12565,00€} e non risulta nec
 \subsubsection{Secondo periodo  24/11/2023 - 08/12/2023}
 \paragraph{Considerazioni}
 
-Durante il secondo periodo, il nostro team ha impegnato risorse per proseguire e completare parzialmente la definizione delle norme nel documento "Norme di progetto".
+Durante il secondo periodo, il nostro team ha impegnato risorse per proseguire e completare parzialmente la definizione delle norme nel documento \textit{Norme di Progetto}.
 
-Durante questo periodo, sono state impiegate ore dei progettisti per prendere in considerazione tecnologie al di fuori di quelle consigliate dal \textit{proponente}\textsubscript{\textit{G}} e valutare diverse scelte architetturali. Di fatto, è stato deciso di aggiungere un ulteriore passaggio allo \textit{stack tecnologico}\textsubscript{\textit{G}}, consistente in uno \textit{script}\textsubscript{\textit{G}} tra Kafka e ClickHouse, mirato a filtrare i dati provenienti dai sensori, evitando il salvataggio di errori di misurazione evidenti e consentendo il calcolo del punteggio di salute tramite una funzione di aggregazione.
+Durante questo periodo, sono state impiegate ore dei progettisti per prendere in considerazione tecnologie al di fuori di quelle consigliate dal \textit{proponente}\textsubscript{\textit{G}} e valutare diverse scelte architetturali.
+
+Di fatto, è stato deciso di aggiungere un ulteriore passaggio allo \textit{stack tecnologico}\textsubscript{\textit{G}}, consistente in uno \textit{script}\textsubscript{\textit{G}} tra \textit{Kafka}\textsubscript{\textit{G}} e \textit{ClickHouse}\textsubscript{\textit{G}}, mirato a filtrare i dati provenienti dai sensori, evitando il salvataggio di errori di misurazione evidenti e consentendo il calcolo del punteggio di salute tramite una funzione di aggregazione.
+
+\vspace{0.2cm}
 
 Nel corso del \textit{SAL}\textsubscript{\textit{G}} con il \textit{proponente}\textsubscript{\textit{G}}, è stato stabilito l'obiettivo di integrare entro la fine del secondo sprint l'ultimo elemento dello \textit{stack tecnologico}\textsubscript{\textit{G}} del Proof of Concept (\textit{POC}\textsubscript{\textit{G}}) ovvero "\textit{Grafana}\textsubscript{\textit{G}}", e di inserire la funzionalità visualizzazione di grafici delle misurazioni dei simulatori sviluppati.
+
+\vspace{0.2cm}
 
 È soddisfacente constatare che tutte le richieste del \textit{proponente}\textsubscript{\textit{G}} sono state risolte entro i tempi concordati, portando così a buon punto lo sviluppo del \textit{POC}\textsubscript{\textit{G}}.
 
 Successivamente a un colloquio con il Prof. Cardin e al suo reindirizzamento sui casi d'uso, gli analisti hanno ridefinito parte di essi, causando un arretramento nel progresso verso la conclusione della \textit{RTB}\textsubscript{\textit{G}}.
 
-L'amministratore ha redatto il glossario di progetto e definito gli \textit{standard}\textsubscript{\textit{G}} e le metriche di qualità di processo e prodotti nel documento "Piano di qualifica".
+\vspace{0.2cm}
+
+L'amministratore ha redatto il glossario di progetto e definito gli \textit{standard}\textsubscript{\textit{G}} e le metriche di qualità di processo e prodotti nel documento \textit{Piano di qualifica}.
 
 \paragraph{Gestione dei rischi} 
 
@@ -146,19 +171,19 @@ L'amministratore ha redatto il glossario di progetto e definito gli \textit{stan
 \begin{itemize}
     \item \textbf{Rischi attesi e verificati:}
 \begin{itemize}
-    \item \textbf{Assenza di uno dei membri per 4 giorni - \ref{sec:ImpPersonali}}
+    \item \textbf{Assenza di uno dei membri per 4 giorni - \textit{sez:} \ref{sec:ImpPersonali}}
     \begin{itemize}
         \item \textbf{Esito mitigazione:} 
-        L'azione di mitigazione adottata si è dimostrata efficace, senza suscitare proposte di modifiche.
+        l'azione di mitigazione adottata si è dimostrata efficace, senza suscitare proposte di modifiche;
         \item \textbf{Impatto:}
-        Non sono emerse conseguenze significative; conformemente al processo di mitigazione, il responsabile ha ridistribuito i compiti del membro assente assegnandoli a ruoli con un carico lavorativo ridotto durante il periodo di assenza del membro.
+        non sono emerse conseguenze significative; conformemente al processo di mitigazione, il responsabile ha ridistribuito i compiti del membro assente assegnandoli a ruoli con un carico lavorativo ridotto durante il periodo di assenza del membro.
     \end{itemize}
 \end{itemize}
 \item \textbf{Rischi attesi ma non verificati:}
  \begin{itemize}
-    \item \textbf{RT-1A-1}: Apprendimento ed utilizzo delle nuove tecnologie;
-    \item \textbf{RO-2M-2}: Ritardo nel completamento delle \textit{attività}\textsubscript{\textit{G}} rispetto ai tempi previsti;
-    \item \textbf{RP-2B-1}: Contrasti interni al gruppo.
+    \item \textbf{RT-1A-1}: apprendimento ed utilizzo delle nuove tecnologie;
+    \item \textbf{RO-2M-2}: ritardo nel completamento delle \textit{attività}\textsubscript{\textit{G}} rispetto ai tempi previsti;
+    \item \textbf{RP-2B-1}: contrasti interni al gruppo.
 \end{itemize}
 \item \textbf{Rischi non attesi ma verificati:}
 \begin{itemize}
@@ -166,10 +191,13 @@ L'amministratore ha redatto il glossario di progetto e definito gli \textit{stan
 \end{itemize}
 \end{itemize}
 
+\pagebreak
 
 \paragraph{Definizione ruoli}
 Durante questo periodo diversi membri hanno assunto più ruoli per poter portare a termine tutte le \textit{attività}\textsubscript{\textit{G}} pianificate.
 Per le \textit{attività}\textsubscript{\textit{G}} registrate nei costi, sono stati assegnati i seguenti ruoli:
+
+\vspace{0.4cm}
 
 \begin{table}[H]
     \centering
@@ -203,7 +231,7 @@ Per le \textit{attività}\textsubscript{\textit{G}} registrate nei costi, sono s
     \end{table}
     
 \newpage
-\paragraph{Pianificazione attività divise per ruoli con consuntivo e preventivo orario e dei costi}\hspace{1pt}
+\paragraph{Pianificazione attività divise per ruoli con consuntivo e preventivo orario e dei costi}
 
 \begin{figure}[H]
     \centering
@@ -211,6 +239,8 @@ Per le \textit{attività}\textsubscript{\textit{G}} registrate nei costi, sono s
     \caption{Secondo periodo}
     \label{fig:Secondo_periodo}
 \end{figure}
+
+\vspace{1cm}
 
 Al termine del secondo periodo, l'ammontare parziale totale del costo del progetto è \textbf{ 2137,50\euro\ } e sono state completate il \textbf{100\%} delle \textit{attività}\textsubscript{\textit{G}} attese.
 Il preventivo a finire rimane invariato a \textbf{12565,00€} e non risulta necessaria una ripianificazine delle \textit{attività}\textsubscript{\textit{G}} future.
@@ -229,7 +259,7 @@ Il preventivo a finire rimane invariato a \textbf{12565,00€} e non risulta nec
 
 
 
-\paragraph{Preventivo orario} \hspace{1pt}
+\paragraph{Preventivo orario}
 
 \begin{figure}[H]
     \centering
@@ -238,6 +268,8 @@ Il preventivo a finire rimane invariato a \textbf{12565,00€} e non risulta nec
     \label{fig:Preventivo_orario_2}
 \end{figure}
 
+\vspace{0.6cm}
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{../Images/preventivoDivisioneRuoli2Periodo.png}
@@ -245,7 +277,7 @@ Il preventivo a finire rimane invariato a \textbf{12565,00€} e non risulta nec
     \label{fig:Preventivo_ripartizione_oraria_2}
 \end{figure}
 
-\paragraph{Consuntivo orario } \hspace{1pt}
+\paragraph{Consuntivo orario } 
 
 \begin{figure}[H]
     \centering
@@ -253,6 +285,8 @@ Il preventivo a finire rimane invariato a \textbf{12565,00€} e non risulta nec
     \caption{Consuntivo orario per membro - secondo periodo}
     \label{fig:Constuntivo_orario_2}
 \end{figure}
+
+\vspace{0.6cm}
 
 \begin{figure}[H]
     \centering
@@ -267,7 +301,19 @@ Il preventivo a finire rimane invariato a \textbf{12565,00€} e non risulta nec
 
 \subsubsection{Terzo periodo  08/12/2023 - 21/12/2023}
 \paragraph{Considerazioni}
-Nel corso del terzo periodo, il nostro team ha allocato risorse significative per condurre una revisione esaustiva del documento "Norme di progetto". L'amministratore si è concentrato sulla redazione del piano di qualifica, nonché sulla definizione e revisione delle metriche di qualità. Gli analisti hanno redatto e completato il refactor completo dell'Analisi dei requisiti, includendo la conclusione dei casi d'uso, dei requisiti funzionali, dei requisiti di vincolo, dei requisiti di qualità e del tracciamento. I programmatori hanno dedicato un impegno considerevole alla risoluzione di bug nel Proof of Concept (PoC) e alla creazione di una versione stabile destinata alla presentazione durante la revisione \textit{RTB}\textsubscript{\textit{G}}.
+Nel corso del terzo periodo, il nostro team ha allocato risorse significative per condurre una revisione esaustiva del documento \textit{Norme di Progetto}.
+
+\vspace{0.2cm}
+
+L'amministratore si è concentrato sulla redazione del \textit{Piano di qualifica}, nonché sulla definizione e revisione delle metriche di qualità. 
+
+\vspace{0.2cm}
+
+Gli analisti hanno redatto e completato il refactor completo dell'\textit{Analisi dei requisiti}, includendo la conclusione dei casi d'uso, dei requisiti funzionali, dei requisiti di vincolo, dei requisiti di qualità e del tracciamento.
+
+\vspace{0.2cm}
+
+I programmatori hanno dedicato un impegno considerevole alla risoluzione di bug nel Proof of Concept (\textit{POC}\textsubscript{\textit{G}}) e alla creazione di una versione stabile destinata alla presentazione durante la revisione \textit{RTB}\textsubscript{\textit{G}}.
 
 \paragraph{Gestione dei rischi} 
 
@@ -278,16 +324,18 @@ Nel corso del terzo periodo, il nostro team ha allocato risorse significative pe
 \end{itemize}
 \item \textbf{Rischi attesi ma non verificati:}
  \begin{itemize}
-    \item \textbf{RT-1A-1}: Apprendimento ed utilizzo delle nuove tecnologie;
-    \item \textbf{RO-2M-2}: Ritardo nel completamento delle \textit{attività}\textsubscript{\textit{G}} rispetto ai tempi previsti;
+    \item \textbf{RT-1A-1}: apprendimento ed utilizzo delle nuove tecnologie;
+    \item \textbf{RO-2M-2}: ritardo nel completamento delle \textit{attività}\textsubscript{\textit{G}} rispetto ai tempi previsti.
 \end{itemize}
 \item \textbf{Rischi non attesi ma verificati:}
 \begin{itemize}
     \item Nessuno.
 \end{itemize}
 \end{itemize}
-\paragraph{Definizione ruoli} \hspace{1pt}
+\paragraph{Definizione ruoli} 
 Per le \textit{attività}\textsubscript{\textit{G}} registrate nei costi, sono stati assegnati i seguenti ruoli:  
+
+\vspace{0.4cm}
 
 \begin{table}[H]
     \centering
@@ -316,7 +364,7 @@ Per le \textit{attività}\textsubscript{\textit{G}} registrate nei costi, sono s
     \end{table}
 
 \newpage
-\paragraph{Pianificazione attività divise per ruoli con consuntivo e preventivo orario e dei costi}\hspace{1pt}
+\paragraph{Pianificazione attività divise per ruoli con consuntivo e preventivo orario e dei costi}
 
 \begin{figure}[H]
     \centering
@@ -325,11 +373,13 @@ Per le \textit{attività}\textsubscript{\textit{G}} registrate nei costi, sono s
     \label{fig:Terzo_periodo}
 \end{figure}
 
+\vspace{0.5cm}
 
 Al termine del terzo periodo, l'ammontare parziale totale del costo del progetto è \textbf{ 2812,5\euro\ } e sono state completate il \textbf{100\%} delle \textit{attività}\textsubscript{\textit{G}} attese.
 Il preventivo a finire rimane invariato a \textbf{12565,00€} e non risulta necessaria una ripianificazine delle \textit{attività}\textsubscript{\textit{G}} future.
-\href{https://github.com/orgs/ByteOps-swe/projects/3/views/1?sortedBy%5Bdirection%5D=asc&sortedBy%5BcolumnId%5D=64182560}{Vai al Diagramma di Gantt.}\hspace{1pt}
+\href{https://github.com/orgs/ByteOps-swe/projects/3/views/1?sortedBy%5Bdirection%5D=asc&sortedBy%5BcolumnId%5D=64182560}{Vai al Diagramma di Gantt.}
 
+\pagebreak
 
 \begin{figure}[H]
     \centering
@@ -341,7 +391,7 @@ Il preventivo a finire rimane invariato a \textbf{12565,00€} e non risulta nec
     \end{minipage}
 \end{figure}
 
-\paragraph{Preventivo orario} \hspace{1pt}
+\paragraph{Preventivo orario} 
 
 \begin{figure}[H]
     \centering
@@ -350,6 +400,8 @@ Il preventivo a finire rimane invariato a \textbf{12565,00€} e non risulta nec
     \label{fig:Preventivo_orario_3}
 \end{figure}
 
+\vspace{0.4cm}
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{../Images/preventivoDivisioneRuoli3Periodo.png}
@@ -357,7 +409,7 @@ Il preventivo a finire rimane invariato a \textbf{12565,00€} e non risulta nec
     \label{fig:Preventivo_ripartizione_oraria_3}
 \end{figure}
 
-\paragraph{Consuntivo orario } \hspace{1pt}
+\paragraph{Consuntivo orario } 
 
 \begin{figure}[H]
     \centering
@@ -365,6 +417,8 @@ Il preventivo a finire rimane invariato a \textbf{12565,00€} e non risulta nec
     \caption{Consuntivo orario per membro - terzo periodo}
     \label{fig:Constuntivo_orario_3}
 \end{figure}
+
+\vspace{0.6cm}
 
 \begin{figure}[H]
     \centering
@@ -379,7 +433,10 @@ Il preventivo a finire rimane invariato a \textbf{12565,00€} e non risulta nec
 
 \subsubsection{Quarto periodo  21/12/2023 - 07/01/2024}
 \paragraph{Considerazioni}
-Il quarto periodo è stato principalmente focalizzato sul potenziamento e perfezionamento dell'\textit{analisi dei requisiti}\textsubscript{\textit{G}}. Ciò ha comportato un miglioramento delle descrizioni dei casi d'uso, delle use stories, dei requisiti e del tracciamento. Le \textit{attività}\textsubscript{\textit{G}} di programmazione si sono svolte mirando a garantire solidità ed efficienza del prodotto (PoC) in vista della revisione \textit{RTB}\textsubscript{\textit{G}}. Inoltre, è stata creata una pagina su GitHub io per consentire una navigazione chiara e rapida della \textit{repository}\textsubscript{\textit{G}} del progetto.
+Il quarto periodo è stato principalmente focalizzato sul potenziamento e perfezionamento dell'\textit{Analisi dei requisiti}\textsubscript{\textit{G}}. Ciò ha comportato un miglioramento delle descrizioni dei casi d'uso, delle use stories, dei requisiti e del tracciamento.
+
+Le \textit{attività}\textsubscript{\textit{G}} di programmazione si sono svolte mirando a garantire solidità ed efficienza del prodotto (\textit{POC}\textsubscript{\textit{G}}) in vista della revisione \textit{RTB}\textsubscript{\textit{G}}. 
+Inoltre, è stata creata una pagina su GitHub.io per consentire una navigazione chiara e rapida della \textit{repository}\textsubscript{\textit{G}} del progetto.
 
 Durante questo periodo, sono state instanziate rilevanti risorse per condurre \textit{attività}\textsubscript{\textit{G}} di verifica generale su tutti i \textit{configuration item}\textsubscript{\textit{G}} prodotti nel corso dei quattro periodi.
 
@@ -387,12 +444,12 @@ Durante questo periodo, sono state instanziate rilevanti risorse per condurre \t
 \begin{itemize}
     \item \textbf{Rischi attesi e verificati:}
 \begin{itemize}
-    \item \textbf{Rallentamento del progetto dovuto all'occorrenza delle \textit{attività}\textsubscript{\textit{G}} personali - \ref{sec:ImpPersonali}}
+    \item \textbf{Rallentamento del progetto dovuto all'occorrenza delle \textit{attività}\textsubscript{\textit{G}} personali - \textit{sez:} \ref{sec:ImpPersonali}}
     \begin{itemize}
         \item \textbf{Esito mitigazione:}
-            Il responsabile in accordo con la \textit{proponente}\textsubscript{\textit{G}} ha prudentemente vincolato il numero di \textit{attività}\textsubscript{\textit{G}} avviate durante questo periodo, estendendo contemporaneamente i tempi, al fine di assicurare il completo svolgimento di tutte le \textit{attività}\textsubscript{\textit{G}} pianificate.
+            il responsabile in accordo con la \textit{proponente}\textsubscript{\textit{G}} ha prudentemente vincolato il numero di \textit{attività}\textsubscript{\textit{G}} avviate durante questo periodo, estendendo contemporaneamente i tempi, al fine di assicurare il completo svolgimento di tutte le \textit{attività}\textsubscript{\textit{G}} pianificate;
         \item \textbf{Impatto:}
-            In vista dell'imminente avvio della sessione invernale, si è verificato un rallentamento delle \textit{attività}\textsubscript{\textit{G}} di progetto a causa degli impegni accademici dei membri del team.
+            in vista dell'imminente avvio della sessione invernale, si è verificato un rallentamento delle \textit{attività}\textsubscript{\textit{G}} di progetto a causa degli impegni accademici dei membri del team.
     \end{itemize}
 \end{itemize}
 \item \textbf{Rischi attesi ma non verificati:}
@@ -405,8 +462,10 @@ Durante questo periodo, sono state instanziate rilevanti risorse per condurre \t
 \end{itemize}
 \end{itemize}
 
-\paragraph{Definizione ruoli} \hspace{1pt}
+\paragraph{Definizione ruoli} 
 Per le \textit{attività}\textsubscript{\textit{G}} registrate nei costi, sono stati assegnati i seguenti ruoli: (durante tale periodo, alcuni membri del team hanno assunto più responsabilità, conformemente a quanto concordato sin dall'inizio del periodo).
+
+\vspace{0.4cm}
 
 \begin{table}[H]
     \centering
@@ -437,7 +496,7 @@ Per le \textit{attività}\textsubscript{\textit{G}} registrate nei costi, sono s
     \end{table}
     
 \newpage
-\paragraph{Pianificazione attività divise per ruoli con consuntivo e preventivo orario e dei costi}\hspace{1pt}
+\paragraph{Pianificazione attività divise per ruoli con consuntivo e preventivo orario e dei costi}
 
 \begin{figure}[H]
     \centering
@@ -446,11 +505,13 @@ Per le \textit{attività}\textsubscript{\textit{G}} registrate nei costi, sono s
     \label{fig:Quarto_periodo}
 \end{figure}
 
+\vspace{1cm}
 
 Al termine del terzo periodo, l'ammontare parziale totale del costo del progetto è \textbf{ 3807,5\euro\ } e sono state completate il \textbf{100\%} delle \textit{attività}\textsubscript{\textit{G}} attese.
 Il preventivo a finire rimane invariato a \textbf{12565,00€} e non risulta necessaria una ripianificazine delle \textit{attività}\textsubscript{\textit{G}} future.
-\href{https://github.com/orgs/ByteOps-swe/projects/3/views/1?sortedBy%5Bdirection%5D=asc&sortedBy%5BcolumnId%5D=64182560}{Vai al Diagramma di Gantt.}\hspace{1pt}
+\href{https://github.com/orgs/ByteOps-swe/projects/3/views/1?sortedBy%5Bdirection%5D=asc&sortedBy%5BcolumnId%5D=64182560}{Vai al Diagramma di Gantt.}
 
+\pagebreak
 
 \begin{figure}[H]
     \centering
@@ -462,7 +523,7 @@ Il preventivo a finire rimane invariato a \textbf{12565,00€} e non risulta nec
     \end{minipage}
 \end{figure}
 
-\paragraph{Preventivo orario} \hspace{1pt}
+\paragraph{Preventivo orario} 
 
 \begin{figure}[H]
     \centering
@@ -471,6 +532,8 @@ Il preventivo a finire rimane invariato a \textbf{12565,00€} e non risulta nec
     \label{fig:Preventivo_orario_4}
 \end{figure}
 
+\vspace{0.6cm}
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{../Images/preventivoDivisioneRuoli4Periodo.png}
@@ -478,7 +541,7 @@ Il preventivo a finire rimane invariato a \textbf{12565,00€} e non risulta nec
     \label{fig:Preventivo_ripartizione_oraria_4}
 \end{figure}
 
-\paragraph{Consuntivo orario } \hspace{1pt}
+\paragraph{Consuntivo orario } 
 
 \begin{figure}[H]
     \centering
@@ -486,6 +549,8 @@ Il preventivo a finire rimane invariato a \textbf{12565,00€} e non risulta nec
     \caption{Consuntivo orario per membro - quarto periodo}
     \label{fig:Constuntivo_orario_4}
 \end{figure}
+
+\vspace{0.4cm}
 
 \begin{figure}[H]
     \centering
@@ -500,19 +565,28 @@ Il preventivo a finire rimane invariato a \textbf{12565,00€} e non risulta nec
 \subsubsection{Quinto periodo  07/01/2024 - 15/01/2024}
 \paragraph{Considerazioni}
 Durante il quinto periodo il team ha impiegato risorse per sviluppare le presentazioni sia per la parte relativa al professor Cardin che per quella relativa al professor Vardanega.
+
+\vspace{0.2cm}
+
 È importante notare che questo compito eseguito dagli amministratori e le risorse ad esso allocate non sono state incluse nel calcolo dei costi e nel consuntivo orario di progetto. 
 In aggiunta, sono stati apportati lievi ritocchi di formalizzazione ai documenti.
+
+\vspace{0.2cm}
+
 Al termine del periodo è stato riscontrato il completamento delle \textit{attività}\textsubscript{\textit{G}} richieste per la revisione \textit{RTB}\textsubscript{\textit{G}}.
+
+\pagebreak
+
 \paragraph{Gestione dei rischi} 
 \begin{itemize}
     \item \textbf{Rischi attesi e verificati:}
 \begin{itemize}
-    \item \textbf{Rallentamento del progetto dovuto all'occorrenza delle \textit{attività}\textsubscript{\textit{G}} personali - \ref{sec:ImpPersonali}}
+    \item \textbf{Rallentamento del progetto dovuto all'occorrenza delle \textit{attività}\textsubscript{\textit{G}} personali - \textit{sez:} \ref{sec:ImpPersonali}}
     \begin{itemize}
         \item \textbf{Esito mitigazione:} 
-        In seguito a una concorde decisione tra il responsabile e la \textit{proponente}\textsubscript{\textit{G}}, è stato prudentemente limitato il numero di \textit{attività}\textsubscript{\textit{G}} avviate durante questo periodo. Ulteriormente, considerando l'approssimarsi della sessione invernale di esami, si è provveduto a ridurre l'ampiezza temporale a una settimana.
+        in seguito a una concorde decisione tra il responsabile e la \textit{proponente}\textsubscript{\textit{G}}, è stato prudentemente limitato il numero di \textit{attività}\textsubscript{\textit{G}} avviate durante questo periodo. Ulteriormente, considerando l'avvicinarsi della sessione invernale di esami, si è provveduto a ridurre l'ampiezza temporale a una settimana;
         \item \textbf{Impatto:}
-        L'avanzamento procede a ritmo più lento, tuttavia tale andamento è conforme a quanto preventivato durante la fase di pianificazione.
+        l'avanzamento procede a ritmo più lento, tuttavia tale andamento è conforme a quanto preventivato durante la fase di pianificazione.
     \end{itemize}
 \end{itemize}
 \item \textbf{Rischi attesi ma non verificati:}
@@ -525,8 +599,10 @@ Al termine del periodo è stato riscontrato il completamento delle \textit{attiv
 \end{itemize}
 \end{itemize}
 
-\paragraph{Definizione ruoli} \hspace{1pt}
+\paragraph{Definizione ruoli}
 Per le \textit{attività}\textsubscript{\textit{G}} registrate nei costi, sono stati assegnati i seguenti ruoli:
+
+\vspace{0.4cm}
 
 \begin{table}[H]
     \centering
@@ -556,7 +632,7 @@ Per le \textit{attività}\textsubscript{\textit{G}} registrate nei costi, sono s
     \end{table}
 
 \newpage
-\paragraph{Pianificazione attività divise per ruoli con consuntivo e preventivo orario e dei costi}\hspace{1pt}
+\paragraph{Pianificazione attività divise per ruoli con consuntivo e preventivo orario e dei costi}
 
 \begin{figure}[H]
     \centering
@@ -565,8 +641,12 @@ Per le \textit{attività}\textsubscript{\textit{G}} registrate nei costi, sono s
     \label{fig:Quinto_periodo}
 \end{figure}
 
+\vspace{1cm}
+
 Al termine del secondo periodo, l'ammontare parziale totale del costo del progetto è \textbf{ 4007,50\euro\ } e sono state completate il \textbf{100\%} delle \textit{attività}\textsubscript{\textit{G}} attese.
 Il preventivo a finire rimane invariato a \textbf{12565,00€} e non risulta necessaria una ripianificazine delle \textit{attività}\textsubscript{\textit{G}} future.
+
+\pagebreak
 
 \begin{figure}[H]
     \centering
@@ -578,7 +658,7 @@ Il preventivo a finire rimane invariato a \textbf{12565,00€} e non risulta nec
     \end{minipage}
 \end{figure}
 
-\paragraph{Preventivo orario} \hspace{1pt}
+\paragraph{Preventivo orario}
 
 \begin{figure}[H]
     \centering
@@ -587,14 +667,16 @@ Il preventivo a finire rimane invariato a \textbf{12565,00€} e non risulta nec
     \label{fig:Preventivo_orario_5}
 \end{figure}
 
-\begin{figure}[H]
+\vspace{0.6cm}
+
+\begin{figure}[H] 
     \centering
     \includegraphics[width=0.6\textwidth]{../Images/preventivoDivisioneRuoli5Periodo.png}
     \caption{Istogramma preventivo della ripartizione oraria dei ruoli - quinto periodo}
     \label{fig:Preventivo_ripartizione_oraria_5}
-\end{figure}
+\end{figure} 
 
-\paragraph{Consuntivo orario } \hspace{1pt}
+\paragraph{Consuntivo orario }
 
 \begin{figure}[H]
     \centering
@@ -614,22 +696,30 @@ Il preventivo a finire rimane invariato a \textbf{12565,00€} e non risulta nec
 
 \subsubsection{Sesto periodo  15/01/2024 - 01/02/2024}
 \paragraph{Pianificazione}
-Per quanto attiene all'organizzazione di questo periodo, in considerazione della sovrapposizione con l'inizio della sessione di esami, il gruppo ha unanimemente raggiunto un accordo. Oltre a dedicarsi alla preparazione per i colloqui della \textit{RTB}\textsubscript{\textit{G}}, abbiamo deliberato di focalizzarci principalmente sullo studio individuale necessario per affrontare la sessione stessa, evitando ulteriori avanzamenti nel progetto.
+Per quanto attiene all'organizzazione di questo periodo, in considerazione della sovrapposizione con l'inizio della sessione di esami, il gruppo ha unanimemente raggiunto un accordo.
+
+Oltre a dedicarsi alla preparazione per i colloqui della \textit{RTB}\textsubscript{\textit{G}}, si è deliberato di focalizzarsi principalmente sullo studio individuale necessario per affrontare la sessione stessa, evitando ulteriori avanzamenti nel progetto.
+
+\vspace{0.2cm}
 
 In questo periodo quindi, ci dedicheremo esclusivamente alla rifinitura dei dettagli concernenti le presentazioni destinate al Prof. Cardin e al Prof. Vardanega.
+
 \paragraph{Considerazioni}
 Durante questo periodo, dopo un'analisi delle \textit{attività}\textsubscript{\textit{G}} svolte fino a questo momento e delle ore impiegate dai vari ruoli, è emersa la necessità di modificare la pianificazione delle ore lavorative per i membri, poiché si è constatato che gli amministratori hanno un numero di ore insufficiente rispetto alle \textit{attività}\textsubscript{\textit{G}} rimanenti, mentre i responsabili ne hanno un eccesso.
-Il preventivo a finire è ora quindi di \textbf{12425,00€} data la ridistribuzione oraria visibile in \ref{sec:TerzaStesura} e la consegna finale del prodotto slitta al 25/03/2024, per via del tempo dedicato allo studio per gli esami durante il periodo come indicato in \ref{sec:SecondaStesuraCalendario}. 
+
+\vspace{0.2cm}
+
+Il preventivo a finire è ora quindi di \textbf{12425,00€} data la ridistribuzione oraria visibile in \textit{sez:} \ref{sec:TerzaStesura} e la consegna finale del prodotto slitta al 25/03/2024, per via del tempo dedicato allo studio per gli esami durante il periodo come indicato in \textit{sez:} \ref{sec:SecondaStesuraCalendario}. 
 
 
 \paragraph{Gestione dei rischi} 
 \begin{itemize}
     \item \textbf{Rischi attesi e verificati:}
 \begin{itemize}
-    \item \textbf{Rallentamento del progetto dovuto all'occorrenza delle \textit{attività}\textsubscript{\textit{G}} personali - \ref{sec:ImpPersonali}}
+    \item \textbf{Rallentamento del progetto dovuto all'occorrenza delle \textit{attività}\textsubscript{\textit{G}} personali - \textit{sez:} \ref{sec:ImpPersonali}}
     \begin{itemize}
         \item \textbf{Impatto:}
-       L'avanzamento del progetto è nullo in questo periodo ma ciò è conforme a quanto preventivato
+       l'avanzamento del progetto è nullo in questo periodo ma ciò è conforme a quanto preventivato
     \end{itemize}
 \end{itemize}
 \item \textbf{Rischi attesi ma non verificati:}
