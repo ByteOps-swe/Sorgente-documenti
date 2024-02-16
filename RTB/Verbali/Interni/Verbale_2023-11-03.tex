@@ -115,7 +115,7 @@
     \hline
     \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Dettaglio} \\
     \hline \hline
-    0.0.1 & 04/11/2023 & R. Smanio & A. Barutta & Redazione documento \\
+    0.0.1 & 04/11/2023 & R. Smanio & A. Barutta & Redazione documento. \\
     \hline
 \end{tabular}
 
@@ -133,14 +133,14 @@
 \flushleft
 
 \section{Revisione del periodo precedente}
-Per la redazione dei documenti relativi alla candidatura, è stato sperimentato un approccio ibrido combinando l'utilizzo di Google Docs per la scrittura del contenuto e \LaTeX per la formattazione del documento. In seguito a ciò sono emersi i seguenti aspetti:
+Per la redazione dei documenti relativi alla candidatura, è stato sperimentato un approccio ibrido combinando l'utilizzo di Google Docs per la scrittura del contenuto e \LaTeX per la formattazione del documento. In seguito a ciò sono emersi i seguenti aspetti: 
 \begin{itemize}
-    \item Aspetti positivi:
+    \item Aspetti positivi:  
         \begin{itemize}
             \item La separazione tra la fase di elaborazione dei contenuti e la fase di formattazione del documento offre il vantaggio di poter redigere il contenuto senza dover gestire direttamente la sintassi \LaTeX.
-            \item Grazie all’integrazione tra Google Docs e Google Drive, ogni membro del gruppo può collaborare alla redazione dello stesso documento in modalità sia sincrona che asincrona, con la possibilità di vedere in tempo reale le modifiche apportate dagli altri membri.
+            \item Grazie all’\textit{integrazione}\textsubscript{\textit{G}} tra Google Docs e Google Drive, ogni membro del gruppo può collaborare alla redazione dello stesso documento in modalità sia sincrona che asincrona, con la possibilità di vedere in tempo reale le modifiche apportate dagli altri membri.
         \end{itemize}
-    \item Aspetti negativi:
+    \item Aspetti negativi:  
         \begin{itemize}
             \item A causa della complessità della sintassi \LaTeX, la trasposizione di un documento redatto in Google Docs non può essere eseguita con una semplice operazione di copia-incolla. Spesso, è richiesta una sostanziale rielaborazione del testo, il che richiede un notevole impegno di tempo. Pertanto, è fondamentale che un revisore verifichi e convalidi il contenuto del documento prima di iniziare la formattazione in \LaTeX.
             \item Sussiste il rischio di commettere errori nel processo di trasposizione dei documenti da Google Docs a \LaTeX, con conseguente incoerenza tra i documenti nei due formati. Per mitigare questa problematica diventa necessaria una seconda convalida da parte del verificatore, ma tale approccio risulterebbe inefficiente.
@@ -149,20 +149,20 @@ Per la redazione dei documenti relativi alla candidatura, è stato sperimentato 
 
 \section{Ordine del giorno}
     \subsection{Definizione nuova metodologia per la redazione dei documenti}
-    Considerando gli aspetti negativi precedentemente menzionati, è stata presa la decisione di creare direttamente i documenti in \LaTeX e di adottare l'approccio "Documentation As Code" (descritto dettagliatamente nel documento "Norme di progetto") con l'obiettivo di migliorare l'efficienza del processo di redazione dei documenti.
+    Considerando gli aspetti negativi precedentemente menzionati, è stata presa la decisione di creare direttamente i documenti in \LaTeX e di adottare l'approccio "Documentation As Code" (descritto dettagliatamente nel documento "Norme di progetto") con l'obiettivo di migliorare l'efficienza del processo di redazione dei documenti.    
     \subsection{Creazione repository sorgente documenti dedicata al versionamento}
-    Abbiamo creato una nuova repository privata su GitHub per gestire il versionamento dei documenti scritti in \LaTeX. Questa scelta ci consente di collaborare in modo efficiente e di monitorare in modo accurato tutte le modifiche apportate, garantendo allo stesso tempo l'ordine e l'integrità della repository principale. Una volta che i documenti \LaTeX saranno validati, i file PDF generati verranno prontamente caricati nella repository principale.
+    Abbiamo creato una nuova \textit{repository}\textsubscript{\textit{G}} privata su GitHub per gestire il versionamento dei documenti scritti in \LaTeX. Questa scelta ci consente di collaborare in modo efficiente e di monitorare in modo accurato tutte le modifiche apportate, garantendo allo stesso tempo l'ordine e l'integrità della \textit{repository}\textsubscript{\textit{G}} principale. Una volta che i documenti \LaTeX saranno validati, i file PDF generati verranno prontamente caricati nella \textit{repository}\textsubscript{\textit{G}} principale.  
 
     \subsection{Automatizzazione del processo di compilazione dei documenti redatti in \LaTeX}
-    Si rende utile e pratico implementare un procedimento automatizzato tramite GitHub Actions che, in seguito al caricamento dei file \LaTeX nella repository privata e la loro validazione da parte del verificatore (con conseguente merge nel branch "main"), esegua i seguenti passaggi:
+    Si rende utile e pratico implementare un procedimento automatizzato tramite GitHub Actions che, in seguito al caricamento dei file \LaTeX nella \textit{repository}\textsubscript{\textit{G}} privata e la loro validazione da parte del verificatore (con conseguente merge nel \textit{branch}\textsubscript{\textit{G}} "main"), esegua i seguenti passaggi:  
     \begin{enumerate}
-        \item Compilazione file \LaTeX
-        \item Generazione PDF
-        \item Caricamento PDF nella repository pubblica        
+        \item Compilazione file \LaTeX;
+        \item Generazione PDF;
+        \item Caricamento PDF nella \textit{repository}\textsubscript{\textit{G}} pubblica.       
     \end{enumerate}
 
     \subsection{Cambiamento Issue Tracking System}
-    Dopo aver sperimentato l’utilizzo di Jira come Issue Tracking System si è deciso di optare per GitHub. Questa decisione deriva dalla volontà di centralizzare sia il versionamento dei file che la gestione delle attività all'interno di un'unica piattaforma.
+    Dopo aver sperimentato l’utilizzo di Jira come Issue Tracking System si è deciso di optare per GitHub. Questa decisione deriva dalla volontà di centralizzare sia il versionamento dei file che la gestione delle \textit{attività}\textsubscript{\textit{G}} all'interno di un'unica \textit{piattaforma}\textsubscript{\textit{G}}.  
 \section{Attività da svolgere}
 \begin{center}
     \begin{tabular}{|C{7cm}|C{1,5cm}|C{3cm}|}
@@ -170,12 +170,12 @@ Per la redazione dei documenti relativi alla candidatura, è stato sperimentato 
         \textbf{Attività da svolgere} & \textbf{\# Issue} & \textbf{Verificatore} \\
         \hline
         \hline
-        Norme di progetto: sez. Documentazione & 9 & R. Smanio\\
-        Norme di progetto: sez. Comunicazione & 10 & A. Barutta\\
-        Piano di progetto: sez. Analisi dei rischi & 11 & D. Diotto\\
-        Verbale interno 03/11/2023 & 12 & A. Barutta\\
-        Norme di progetto: sez. Introduzione & 13 & R. Smanio\\
-        Automazione compilazione \LaTeX & 14 & F. Pozza\\
+        Norme di progetto: sez. Documentazione & 9 & R. Smanio \\
+        Norme di progetto: sez. Comunicazione & 10 & A. Barutta \\
+        Piano di progetto: sez. Analisi dei rischi & 11 & D. Diotto \\
+        Verbale interno 03/11/2023 & 12 & A. Barutta \\
+        Norme di progetto: sez. Introduzione & 13 & R. Smanio \\
+        Automazione compilazione \LaTeX & 14 & F. Pozza \\
         \hline
     \end{tabular}
 \end{center}

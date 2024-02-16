@@ -1,194 +1,266 @@
 \subsection{Qualità per obiettivo}
-Le metriche menzionate in precedenza vengono ora categorizzate secondo la struttura delineata nello standard ISO/IEC 12207:1995, che le suddivide nei processi primari, di supporto e organizzativi. Questo adattamento semplificato è stato realizzato per allineare le metriche alle specifiche esigenze del progetto:
+Le metriche menzionate in precedenza vengono ora categorizzate secondo la struttura delineata nello \textit{standard}\textsubscript{\textit{G}} ISO/IEC 12207:1995, che le suddivide nei \textit{processi}\textsubscript{\textit{G}} primari, di supporto e organizzativi. Questo adattamento semplificato è stato realizzato per allineare le metriche alle specifiche esigenze del progetto.
 
 \subsubsection{Processi primari}
 \paragraph{Analisi dei requisiti}
-L'Analisi dei Requisiti coinvolge la raccolta, l'analisi e la definizione dei requisiti del sistema che si intende sviluppare. Coinvolge l'interazione con gli stakeholder per comprendere le loro esigenze e tradurle in requisiti dettagliati e comprensibili per il team di sviluppo. Un'analisi dei requisiti efficace è cruciale per garantire che il software soddisfi le aspettative degli utenti finali.
-\hspace{1pt}
-    \begin{longtable}{|C{1.5cm}|L{3cm}|L{2.5cm}|L{2.5cm}|}
-        \hline
-        \textbf{Metrica} & \textbf{Nome} & \textbf{\makecell{Valore di \\ accettazione}} & \textbf{\makecell{Valore \\ preferibile}} \\
-        \hline\textbf{M18PROS} & Percentuale di Requisiti Obbligatori Soddisfatti & $ 100\%$  & $ 100\%$ \\
-        \hline
-        \textbf{M19PRDS} & Percentuale di Requisiti Desiderabili Soddisfatti & $\geq 0\%$ & $100\%$ \\
-        \hline
-        \textbf{M20PRPS} & Percentuale di Requisiti oPzionali Soddisfatti & $\geq 0\%$ & $100\%$ \\
-        \hline
+L'Analisi dei Requisiti coinvolge la raccolta, l'analisi e la definizione dei requisiti del \textit{sistema}\textsubscript{\textit{G}} che si intende sviluppare.
+
+Coinvolge l'interazione con gli \textit{stakeholder}\textsubscript{\textit{G}} per comprendere le loro esigenze e tradurle in requisiti dettagliati e comprensibili per il team di sviluppo.
+
+Un'\textit{analisi dei requisiti}\textsubscript{\textit{G}} efficace è cruciale per garantire che il \textit{software}\textsubscript{\textit{G}} soddisfi le aspettative degli utenti finali.
+
+\vspace{0.4cm}
+
+\begin{longtable}{|C{1.9cm}|L{4cm}|L{2.2cm}|L{2.1cm}|}
+    \hline
+    \textbf{Metrica} & \centering{\textbf{Nome}} & \textbf{Valore di\linebreak accettazione} & {\textbf{Valore \linebreak preferibile}} \\
+    \hline \hline
+    
+    \textbf{M18PROS} & Percentuale di requisiti obbligatori soddisfatti & $ 100\%$  & $ 100\%$ \\
+    \hline
+
+    \textbf{M19PRDS} & Percentuale di requisiti desiderabili soddisfatti & $\geq 0\%$ & $100\%$ \\
+    \hline
+
+    \textbf{M20PRPS} & Percentuale di Requisiti oPzionali Soddisfatti & $\geq 0\%$ & $100\%$ \\
+    \hline
+
     \caption{Analisi dei requisiti - Metriche e indici di qualità.}
     \label{tab:analisi_requisiti_progetto}
 \end{longtable}
 
-\paragraph{Progettazione}
-La Progettazione è un processo in cui vengono definite le specifiche tecniche e architetturali del software che si intende sviluppare. Questo processo traduce i requisiti raccolti durante la fase di acquisizione in un piano strutturato e dettagliato per la creazione del software.
+\vspace{0.5cm}
 
-\hspace{1pt}
-    \begin{longtable}{|C{1.5cm}|L{3cm}|L{2.5cm}|L{2.5cm}|}
-        \hline
-        \textbf{Metrica} & \textbf{Nome} & \textbf{\makecell{Valore di \\ accettazione}} & \textbf{\makecell{Valore \\ preferibile}} \\
-        \hline
-        \textbf{M25ATC} & Accoppiamento Tra Classi & $\leq 4$  & $\leq 2$ \\
-        \hline
-        \textbf{M30PG} & Profondità delle Gerarchie & $\leq 5$  & $\leq 3$ \\
-        \hline
-        \textbf{M32FU} & Facilità di Utilizzo & $\leq 7$ \textit{click}  & $\leq 5$ \textit{click} \\
-        \hline
-        \textbf{M33TA} & Tempo di Apprendimento & $\leq 15$ \textit{minuti}  & $\leq 10$ \textit{minuti} \\
-        \hline
+\paragraph{Progettazione}
+La Progettazione è un processo in cui vengono definite le specifiche tecniche e architetturali del \textit{software}\textsubscript{\textit{G}} che si intende sviluppare. Questo processo traduce i requisiti raccolti durante la fase di acquisizione in un piano strutturato e dettagliato per la creazione del \textit{software}\textsubscript{\textit{G}}.
+
+\vspace{0.4cm}
+
+\begin{longtable}{|C{1.9cm}|L{4cm}|L{2.2cm}|L{2.1cm}|}
+    \hline
+    \textbf{Metrica} & \centering{\textbf{Nome}} & \textbf{Valore di\linebreak accettazione} & {\textbf{Valore \linebreak preferibile}} \\
+    \hline \hline
+
+    \textbf{M25ATC} & Accoppiamento tra classi & $\leq 4$  & $\leq 2$ \\
+    \hline
+
+    \textbf{M30PG} & Profondità delle gerarchie & $\leq 5$  & $\leq 3$ \\
+    \hline
+
+    \textbf{M32FU} & Facilità di utilizzo & $\leq 7$ \textit{click}  & $\leq 5$ \textit{click} \\
+    \hline
+
+    \textbf{M33TA} & Tempo di apprendimento & $\leq 15$ \textit{minuti}  & $\leq 10$ \textit{minuti} \\
+    \hline
+
     \caption{Progettazione - Metriche e indici di qualità.}
     \label{tab:progettazione_progetto}
 \end{longtable}
 
-\paragraph{Fornitura}
-La Fornitura è un processo che consiste nel decidere procedure e risorse
-adatte allo sviluppo del progetto.
+\pagebreak
 
-\hspace{1pt}
-    \begin{longtable}{|C{1.5cm}|L{3cm}|L{2.5cm}|L{2.5cm}|}
-        \hline
-        \textbf{Metrica} & \textbf{Nome} & \textbf{\makecell{Valore di \\ accettazione}} & \textbf{\makecell{Valore \\ preferibile}} \\
-        \hline
-        \textbf{M2EAC} & Estimated at Completion & $\pm 5\%$ rispetto al preventivo & Pari al preventivo \\
-        \hline
-        \textbf{M3CPI} & Cost Performance Index & $\pm 10\%$ & $0\%$ \\
-        \hline
-        \textbf{M5AC} & Actual Cost & $\geq 0 $ & $ \leq$ EAC  \\
-        \hline
-        \textbf{M7EV} & Earned Value & $\geq 0 $ & $\leq$ EAC  \\
-        \hline
-        \textbf{M8PV} & Planned Value & $\geq 0  $ & $ \leq$ BAC  \\
-        \hline
-        \textbf{M9ETC} & Estimate to Complete & $\geq 0  $ & $ \leq$ EAC  \\
-        \hline
+\paragraph{Fornitura}
+La Fornitura è un processo che consiste nel decidere procedure e risorse adatte allo sviluppo del progetto.
+
+\begin{longtable}{|C{1.9cm}|L{4cm}|L{2.2cm}|L{2.1cm}|}
+    \hline
+    \textbf{Metrica} & \centering{\textbf{Nome}} & \textbf{Valore di\linebreak accettazione} & {\textbf{Valore \linebreak preferibile}} \\
+    \hline \hline
+
+    \textbf{M2EAC} & Estimated at completion & $\pm 5\%$ rispetto al preventivo & Pari al preventivo \\
+    \hline
+
+    \textbf{M3CPI} & Cost performance index & $\pm 10\%$ & $0\%$ \\
+    \hline
+
+    \textbf{M5AC} & Actual cost & $\geq 0 $ & $ \leq$ \textit{EAC}\textsubscript{\textit{G}}  \\
+    \hline
+
+    \textbf{M7EV} & Earned value & $\geq 0 $ & $\leq$ \textit{EAC}\textsubscript{\textit{G}}  \\
+    \hline
+
+    \textbf{M8PV} & Planned value & $\geq 0  $ & $ \leq$ BAC  \\
+    \hline
+
+    \textbf{M9ETC} & Estimate to complete & $\geq 0  $ & $ \leq$ \textit{EAC}\textsubscript{\textit{G}}  \\
+    \hline
+
     \caption{Fornitura - Metriche e indici di qualità.}
     \label{tab:controllo_progetto}
 \end{longtable}
 
-\paragraph{Codifica}
-La fase di codifica è essenziale in quanto trasforma il progetto e le specifiche del software in istruzioni comprensibili dalla macchina, permettendo al prodotto software di prendere vita e funzionare effettivamente.
+\vspace{0.5cm}
 
-\hspace{1pt}
-    \begin{longtable}{|C{1.8cm}|L{3cm}|L{2.5cm}|L{2.5cm}|}
-        \hline
-        \textbf{Metrica} & \textbf{Nome} & \textbf{Valore di accettazione} & \textbf{Valore preferibile} \\
-        \hline
-        \textbf{M26MCCM} & Complessità Ciclomatica per Metodo & $\leq 5$ & $\leq 3$ \\
-        \hline
-        \textbf{M27PM} & Parametri per Metodo & $\leq 6$ & $\leq 5$ \\
-        \hline
-        \textbf{M28APC} & Attributi Per Classe & $\leq 6$ & $\leq 4$ \\
-        \hline
-        \textbf{M29LCM} & Linee di Codice per Metodo & $\leq 30$ & $\leq 20$ \\
-        \hline
-        \textbf{M31TMR} & Tempo Medio di Risposta & $\leq 10$ \textit{secondi}  & $\leq 4$ \textit{secondi} \\
-        \hline
-        \textbf{M34VBS} & Versioni dei Browser Supportate & $\geq 80\%$ & $100\%$ \\
-        \hline
+\paragraph{Codifica}
+La fase di codifica è essenziale in quanto trasforma il progetto e le specifiche del \textit{software}\textsubscript{\textit{G}} in istruzioni comprensibili dalla macchina, permettendo al prodotto \textit{software}\textsubscript{\textit{G}} di prendere vita e funzionare effettivamente.
+
+\vspace{0.4cm}
+
+\begin{longtable}{|C{1.9cm}|L{4cm}|L{2.2cm}|L{2.1cm}|}
+    \hline
+    \textbf{Metrica} & \centering{\textbf{Nome}} & \textbf{Valore di\linebreak accettazione} & {\textbf{Valore \linebreak preferibile}} \\
+    \hline \hline
+
+    \textbf{M26MCCM} & Complessità ciclomatica per metodo & $\leq 5$ & $\leq 3$ \\
+    \hline
+
+    \textbf{M27PM} & Parametri per metodo & $\leq 6$ & $\leq 5$ \\
+    \hline
+
+    \textbf{M28APC} & Attributi per classe & $\leq 6$ & $\leq 4$ \\
+    \hline
+
+    \textbf{M29LCM} & Linee di codice per metodo & $\leq 30$ & $\leq 20$ \\
+    \hline
+
+    \textbf{M31TMR} & Tempo medio di risposta & $\leq 10$ \textit{secondi}  & $\leq 4$ \textit{secondi} \\
+    \hline
+
+    \textbf{M34VBS} & Versioni dei browser supportate & $\geq 80\%$ & $100\%$ \\
+    \hline
+
     \caption{Codifica - Metriche e indici di qualità.}
     \label{tab:metriche}
 \end{longtable}
 
-
-
+\pagebreak
 
 \subsubsection{Processi di supporto}
 
 \paragraph{Documentazione}
-La Documentazione è un processo essenziale che coinvolge la creazione e la gestione di documenti correlati allo sviluppo del software. Una documentazione accurata e completa è fondamentale per comprendere, mantenere e supportare il software nel tempo.
-\hspace{1pt}
-    \begin{longtable}{|C{1.5cm}|L{3cm}|L{2.5cm}|L{2.5cm}|}
-        \hline
-        \textbf{Metrica} & \textbf{Nome} & \textbf{Valore di accettazione} & \textbf{Valore preferibile} \\
-        \hline
-        \textbf{M22CO} & Correttezza Ortografica & $0$ & $0$ \\
-        \hline
-        \textbf{M23IG} & Indice Gulpease & $\geq 40$ & $\geq 60$ \\
-        \hline
+La Documentazione è un processo essenziale che coinvolge la creazione e la gestione di documenti correlati allo sviluppo del \textit{software}\textsubscript{\textit{G}}. Una documentazione accurata e completa è fondamentale per comprendere, mantenere e supportare il \textit{software}\textsubscript{\textit{G}} nel tempo.
+
+\begin{longtable}{|C{1.9cm}|L{4cm}|L{2.2cm}|L{2.1cm}|}
+    \hline
+    \textbf{Metrica} & \centering{\textbf{Nome}} & \textbf{Valore di\linebreak accettazione} & {\textbf{Valore \linebreak preferibile}} \\
+    \hline \hline
+
+    \textbf{M22CO} & Correttezza ortografica & $0$ & $0$ \\
+    \hline
+
+    \textbf{M23IG} & Indice gulpease & $\geq 40$ & $\geq 60$ \\
+    \hline
+
     \caption{Documentazione - Metriche e indici di qualità.}
     \label{tab:metriche_testo}
 \end{longtable}
 
+\vspace{0.5cm}
+
 \paragraph{Verifica}
-La Verifica è un processo che assicura che i prodotti del software siano conformi ai requisiti specificati e agli standard stabiliti. Coinvolge l'analisi, l'esecuzione di test e l'ispezione dei prodotti software per identificare e correggere eventuali difetti o discrepanze.
-\hspace{1pt}
-\begin{longtable}{|C{1.5cm}|L{3cm}|L{2.5cm}|L{2.5cm}|}
+La Verifica è un processo che assicura che i prodotti del \textit{software}\textsubscript{\textit{G}} siano conformi ai requisiti specificati e agli \textit{standard}\textsubscript{\textit{G}} stabiliti. Coinvolge l'analisi, l'esecuzione di \textit{test}\textsubscript{\textit{G}} e l'ispezione dei prodotti \textit{software}\textsubscript{\textit{G}} per identificare e correggere eventuali difetti o discrepanze.
+
+\vspace{0.4cm}
+
+\begin{longtable}{|C{1.9cm}|L{4cm}|L{2.2cm}|L{2.1cm}|}
     \hline
-    \textbf{Metrica} & \textbf{Nome} & \textbf{Valore di accettazione} & \textbf{Valore preferibile} \\
+    \textbf{Metrica} & \centering{\textbf{Nome}} & \textbf{Valore di\linebreak accettazione} & {\textbf{Valore \linebreak preferibile}} \\
+    \hline \hline
+
+    \textbf{M15SC} & Statement coverage & $\geq 80\%$ & $100\%$ \\
     \hline
-    \textbf{M15SC} & Statement Coverage & $\geq 80\%$ & $100\%$ \\
+
+    \textbf{M16BC} & Branch coverage & $\geq 80\%$ & $100\%$ \\
     \hline
-    \textbf{M16BC} & Branch Coverage & $\geq 80\%$ & $100\%$ \\
+
+    \textbf{M17CNC} & CoNdition coverage & $\geq 80\%$ & $100\%$ \\
     \hline
-    \textbf{M17CNC} & CoNdition Coverage & $\geq 80\%$ & $100\%$ \\
+
+    \textbf{M13PCTS} & Percentuale di casi di \textit{test}\textsubscript{\textit{G}} superati & $\geq 80\%$ & $100\%$ \\
     \hline
-    \textbf{M13PCTS} & Percentuale di Casi di Test Superati & $\geq 80\%$ & $100\%$ \\
+
+    \textbf{M14PCTF} & Percentuale di casi di \textit{test}\textsubscript{\textit{G}} falliti & $\leq 20\%$ & $0\%$ \\
     \hline
-    \textbf{M14PCTF} & Percentuale di Casi di Test Falliti & $\leq 20\%$ & $0\%$ \\
-    \hline
+
 \caption{Verifica - Metriche e indici di qualità.}
-\label{tab:metriche_testo}
+\label{tab:metriche_verifica}
 \end{longtable}
 
+\vspace{0.5cm}
 
 \paragraph{Gestione dei rischi}
-Questo processo implica l'identificazione, l'analisi, la valutazione e il controllo dei rischi associati allo sviluppo del software. 
-\hspace{1pt}
-    \begin{longtable}{|C{1.5cm}|L{3cm}|L{2.5cm}|L{2.5cm}|}
-        \hline
-      \textbf{Metrica} & \textbf{Nome} & \textbf{Valore di accettazione} & \textbf{Valore preferibile} \\
-      \hline
-      \textbf{M11RNP}    & Rischi non previsti  & $\leq 5$ &   $0$ \\
-      \hline
+Questo processo implica l'identificazione, l'analisi, la valutazione e il controllo dei rischi associati allo sviluppo del \textit{software}\textsubscript{\textit{G}}. 
+
+\vspace{0.4cm}
+
+\begin{longtable}{|C{1.9cm}|L{4cm}|L{2.2cm}|L{2.1cm}|}
+    \hline
+    \textbf{Metrica} & \centering{\textbf{Nome}} & \textbf{Valore di\linebreak accettazione} & {\textbf{Valore \linebreak preferibile}} \\
+    \hline \hline
+
+    \textbf{M11RNP} & Rischi non previsti & $\leq 5$ & $0$ \\
+    \hline
+
     \caption{Gestione dei rischi - Metriche e indici di qualità.}
     \label{tab:tabella2}
 \end{longtable}
 
+\vspace{0.5cm}
 
 \paragraph{Gestione della qualità}
-Questo processo riguarda l'implementazione di standard, procedure e metodologie atte a garantire che il software soddisfi i requisiti di qualità stabiliti.
-\hspace{1pt}
-    \begin{longtable}{|C{1.5cm}|L{3cm}|L{2.5cm}|L{2.5cm}|}
-        \hline
-        \textbf{Metrica} & \textbf{Nome} & \textbf{Valore di accettazione} & \textbf{Valore preferibile} \\
-        \hline
-        \textbf{M1PMS} & Percentuale di Metriche Soddisfatte & $\geq 80\%$ & $100\%$ \\
-        \hline
+Questo processo riguarda l'implementazione di \textit{standard}\textsubscript{\textit{G}}, procedure e metodologie atte a garantire che il \textit{software}\textsubscript{\textit{G}} soddisfi i requisiti di qualità stabiliti.
+
+\vspace{0.4cm}
+
+\begin{longtable}{|C{1.9cm}|L{4cm}|L{2.2cm}|L{2.1cm}|}
+    \hline
+    \textbf{Metrica} & \centering{\textbf{Nome}} & \textbf{Valore di\linebreak accettazione} & {\textbf{Valore \linebreak preferibile}} \\
+    \hline \hline
+
+    \textbf{M1PMS} & Percentuale di metriche soddisfatte & $\geq 80\%$ & $100\%$ \\
+    \hline
+
     \caption{Gestione della qualità - Metriche e indici di qualità.}
     \label{tab:gestione_metriche_testo}
 \end{longtable}
 
-
+\vspace{0.5cm}
 
 \subsubsection{Processi organizzativi}
 
 \paragraph{Pianificazione}
 La Pianificazione organizza obiettivi, risorse e tempistiche per guidare il successo di un progetto.
 
-\hspace{1pt}
-    \begin{longtable}{|C{1.5cm}|L{3cm}|L{2.5cm}|L{2.5cm}|}
-        \hline
-        \textbf{Metrica} & \textbf{Nome} & \textbf{Valore di accettazione} & \textbf{Valore preferibile} \\
-        \hline
-        \textbf{M6SV} & Schedule Variance & $\geq -10\%$ & $0\%$ \\
-        \hline
-        \textbf{M4BV} & Budget Variance & $\geq -10\%$ & $0\%$ \\
-        \hline
-        \textbf{M12VR} & Variazione dei Requisiti & $\leq 3$ & $0$ \\
-        \hline
-        \textbf{M21IF} & Implementazione delle Funzionalità & $ 100\%$ & $ 100\%$ \\
-        \hline
+\vspace{0.4cm}
+
+\begin{longtable}{|C{1.9cm}|L{4cm}|L{2.2cm}|L{2.1cm}|}
+    \hline
+    \textbf{Metrica} & \centering{\textbf{Nome}} & \textbf{Valore di\linebreak accettazione} & {\textbf{Valore \linebreak preferibile}} \\
+    \hline \hline
+
+    \textbf{M6SV} & Schedule variance & $\geq -10\%$ & $0\%$ \\
+    \hline
+
+    \textbf{M4BV} & Budget variance & $\geq -10\%$ & $0\%$ \\
+    \hline
+
+    \textbf{M12VR} & Variazione dei requisiti & $\leq 3$ & $0$ \\
+    \hline
+
+    \textbf{M21IF} & Implementazione delle funzionalità & $ 100\%$ & $ 100\%$ \\
+    \hline
+
     \caption{Pianificazione - Metriche e indici di qualità.}
     \label{tab:metriche_pianificazione}
 \end{longtable}
 
+\vspace{0.5cm}
+
 \paragraph{Miglioramento}
 Il processo di miglioramento mira a identificare le aree che possono essere ottimizzate o migliorate.
-\hspace{1pt}
-    \begin{longtable}{|C{1.5cm}|L{3cm}|L{2.5cm}|L{2.5cm}|}
-        \hline
-        \textbf{Metrica} & \textbf{Nome} & \textbf{Valore di accettazione} & \textbf{Valore preferibile} \\
-        \hline
-        \textbf{M24DE} & Densità Errori & $\leq 10\%$ & $ 0\%$ \\
-        \hline
+
+\vspace{0.4cm}
+
+\begin{longtable}{|C{1.9cm}|L{4cm}|L{2.2cm}|L{2.1cm}|}
+    \hline
+    \textbf{Metrica} & \centering{\textbf{Nome}} & \textbf{Valore di\linebreak accettazione} & {\textbf{Valore \linebreak preferibile}} \\
+    \hline \hline
+
+    \textbf{M24DE} & Densità errori & $\leq 10\%$ & $ 0\%$ \\
+    \hline
+
     \caption{Miglioramento - Metriche e indici di qualità.}
     \label{tab:metriche_miglioramento}
 \end{longtable}
+
+\pagebreak

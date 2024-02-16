@@ -1,93 +1,130 @@
 \subsection{Test di accettazione}
-Nella sezione in questione, sono illustrati i \textit{test}\textsubscript{\textit{G}} di accettazione del prodotto, condotti sia dai membri del team che dal \textit{proponente}\textsubscript{\textit{G}} con il supporto del team di sviluppo. L'obiettivo finale di tali \textit{test}\textsubscript{\textit{G}} è concludere il processo di validazione del prodotto.
-\\
-\begin{longtable}{|c|p{5cm}|p{2cm}|c|}
+Nella sezione in questione, sono illustrati i \textit{test}\textsubscript{\textit{G}} di accettazione del prodotto, condotti sia dai membri del team che dal \textit{proponente}\textsubscript{\textit{G}} con il supporto del team di sviluppo.
+
+L'obiettivo finale di tali \textit{test}\textsubscript{\textit{G}} è concludere il processo di validazione del prodotto.
+
+\vspace{0.4cm}
+
+\begin{longtable}{|C{1.9cm}|L{5cm}|C{2cm}|}
     \hline
-    Codice Test & Descrizione & Stato Test \\
+    \textbf{Codice Test} & \centering{\textbf{Descrizione}} & \textbf{Stato Test} \\
+    \hline \hline
+    
+    TA01 & Verificare che all'apertura del \textit{sistema}\textsubscript{\textit{G}} sia visualizzabile dall'utente la \textit{dashboard}\textsubscript{\textit{G}} riportante lo stato di salute della città. & NI \\
     \hline
-    TA01 & Verificare che l'accesso al \textit{sistema}\textsubscript{\textit{G}} non richieda alcuna procedura di login e che sia immediatamente accessibile all'utente. & N-I \\
+    
+    TA01.1 & Verificare che tutti i \textit{widget}\textsubscript{\textit{G}} relativi alle diverse tipologie di sensori siano visibili sulla \textit{dashboard}\textsubscript{\textit{G}}. & NI \\
     \hline
-    TA01.1 & Verificare che tutti i \textit{widget}\textsubscript{\textit{G}} relativi alle diverse tipologie di sensori siano visibili sulla \textit{dashboard}\textsubscript{\textit{G}}. & N-I \\
+    
+    TA01.2 & Verificare che la mappa dei sensori si carichi correttamente e permetta interazioni fluide. & NI \\
     \hline
-    TA01.2 & Verificare che la mappa dei sensori si carichi correttamente e permetta interazioni fluide. & N-I \\
+    
+    TA01.3 & Verificare che il \textit{widget}\textsubscript{\textit{G}} relativo al punteggio di salute sia visibile e aggiornato. & NI \\
     \hline
-    TA01.3 & Verificare che il \textit{widget}\textsubscript{\textit{G}} relativo al punteggio di salute sia visibile e aggiornato. & N-I \\
+    
+    TA02 & Verificare che il filtro permetta la corretta visualizzazione della \textit{dashboard}\textsubscript{\textit{G}} per una specifica cella. & NI \\
     \hline
-    TA02 & Verificare che il filtro permetta la corretta visualizzazione della \textit{dashboard}\textsubscript{\textit{G}} per una specifica cella. & N-I \\
+    
+    TA01.1.1 & Verificare che le informazioni di un \textit{sensore}\textsubscript{\textit{G}} specifico siano visualizzate correttamente quando selezionate dalla \textit{dashboard}\textsubscript{\textit{G}}. & NI \\
     \hline
-    TA01.1.1 & Verificare che le informazioni di un \textit{sensore}\textsubscript{\textit{G}} specifico siano visualizzate correttamente quando selezionate dalla \textit{dashboard}\textsubscript{\textit{G}}. & N-I \\
+    
+    TA01.1.2 & Verificare che il \textit{sistema}\textsubscript{\textit{G}} consenta agli utenti di visualizzare correttamente le misurazioni dei sensori nel tempo. & NI \\
     \hline
-    TA01.1.2 & Verificare che il \textit{sistema}\textsubscript{\textit{G}} consenta agli utenti di visualizzare correttamente le misurazioni dei sensori nel tempo. & N-I \\
+    
+    TA04 & Verificare che ci sia la possibilità di visualizzare correttamente le misurazioni associate a uno specifico \textit{widget}\textsubscript{\textit{G}} nel formato testuale.  & NI \\
     \hline
-    TA04 & Verificare che ci sia la possibilità di visualizzare correttamente le misurazioni associate a uno specifico \textit{widget}\textsubscript{\textit{G}} nel formato testuale.  & N-I \\
+    
+    TA04.1 & Verifica della gestione corretta degli errori nel caso in cui i dati dei sensori non siano disponibili o siano incompleti all'interno della visualizzazione testuale. & NI \\
     \hline
-    TA04.1 & Verifica della gestione corretta degli errori nel caso in cui i dati dei sensori non siano disponibili o siano incompleti all'interno della visualizzazione testuale. & N-I \\
+    
+    TA05 & Verificare che ci sia la possibilità di visualizzare correttamente le misurazioni associate a uno specifico \textit{widget}\textsubscript{\textit{G}} nel formato grafico. & NI \\
     \hline
-    TA05 & Verificare che ci sia la possibilità di visualizzare correttamente le misurazioni associate a uno specifico \textit{widget}\textsubscript{\textit{G}} nel formato grafico. & N-I \\
+    
+    TA05.1 & Verifica della gestione corretta degli errori nel caso in cui i dati dei sensori non siano disponibili o siano incompleti all'interno della visualizzazione grafica. & NI \\
     \hline
-    TA05.1 & Verifica della gestione corretta degli errori nel caso in cui i dati dei sensori non siano disponibili o siano incompleti all'interno della visualizzazione grafica. & N-I \\
+    
+    TA06 & Verificare ci sia l'opportunità di visualizzare correttamente il \textit{widget}\textsubscript{\textit{G}} contenente le misurazioni dei sensori di temperatura. & NI \\
     \hline
-    TA06 & Verificare ci sia l'opportunità di visualizzare correttamente il \textit{widget}\textsubscript{\textit{G}} contenente le misurazioni dei sensori di temperatura. & N-I \\
+    
+    TA06.1 & Verificare l'accuratezza e la completezza delle opzioni di interazione offerte dall'interfaccia del \textit{widget}\textsubscript{\textit{G}} per esaminare i dati di temperatura. & NI \\
     \hline
-    TA06.1 & Verificare l'accuratezza e la completezza delle opzioni di interazione offerte dall'interfaccia del \textit{widget}\textsubscript{\textit{G}} per esaminare i dati di temperatura. & N-I \\
+    
+    TA07 & Verificare ci sia l'opportunità di visualizzare correttamente il \textit{widget}\textsubscript{\textit{G}} contenente le misurazioni dei sensori di umidità. & NI \\
     \hline
-    TA07 & Verificare ci sia l'opportunità di visualizzare correttamente il \textit{widget}\textsubscript{\textit{G}} contenente le misurazioni dei sensori di umidità. & N-I \\
+    
+    TA07.1 & Verificare l'accuratezza e la completezza delle opzioni di interazione offerte dall'interfaccia del \textit{widget}\textsubscript{\textit{G}} per esaminare i dati di umidità. & NI \\
     \hline
-    TA07.1 & Verificare l'accuratezza e la completezza delle opzioni di interazione offerte dall'interfaccia del \textit{widget}\textsubscript{\textit{G}} per esaminare i dati di umidità. & N-I \\
+    
+    TA08 & Verificare ci sia l'opportunità di visualizzare correttamente il \textit{widget}\textsubscript{\textit{G}} contenente le misurazioni dei sensori riguardanti le polveri sottili nell'aria. & NI \\
     \hline
-    TA08 & Verificare ci sia l'opportunità di visualizzare correttamente il \textit{widget}\textsubscript{\textit{G}} contenente le misurazioni dei sensori riguardanti le polveri sottili nell'aria. & N-I \\
+    
+    TA08.1 & Verificare l'accuratezza e la completezza delle opzioni di interazione offerte dall'interfaccia del \textit{widget}\textsubscript{\textit{G}} per esaminare i dati delle polveri sottili nell'aria. & NI \\
     \hline
-    TA08.1 & Verificare l'accuratezza e la completezza delle opzioni di interazione offerte dall'interfaccia del \textit{widget}\textsubscript{\textit{G}} per esaminare i dati delle polveri sottili nell'aria. & N-I \\
+    
+    TA09 & Verificare ci sia l'opportunità di visualizzare correttamente il \textit{widget}\textsubscript{\textit{G}} contenente le misurazioni dei sensori riguardanti i guasti elettrici. & NI \\
     \hline
-    TA09 & Verificare ci sia l'opportunità di visualizzare correttamente il \textit{widget}\textsubscript{\textit{G}} contenente le misurazioni dei sensori riguardanti i guasti elettrici. & N-I \\
+    
+    TA09.1 & Verificare l'accuratezza e la completezza delle opzioni di interazione offerte dall'interfaccia del \textit{widget}\textsubscript{\textit{G}} per esaminare i dati dei sensori di guasti elettrici. & NI \\
     \hline
-    TA09.1 & Verificare l'accuratezza e la completezza delle opzioni di interazione offerte dall'interfaccia del \textit{widget}\textsubscript{\textit{G}} per esaminare i dati dei sensori di guasti elettrici. & N-I \\
+    
+    TA10 & Verificare ci sia l'opportunità di visualizzare correttamente il \textit{widget}\textsubscript{\textit{G}} contenente le misurazioni dei sensori riguardanti le isole ecologiche. & NI \\
     \hline
-    TA10 & Verificare ci sia l'opportunità di visualizzare correttamente il \textit{widget}\textsubscript{\textit{G}} contenente le misurazioni dei sensori riguardanti le isole ecologiche. & N-I \\
+    
+    TA10.1 & Verificare l'accuratezza e la completezza delle opzioni di interazione offerte dall'interfaccia del \textit{widget}\textsubscript{\textit{G}} per esaminare i dati sulle isole ecologiche. & NI \\
     \hline
-    TA10.1 & Verificare l'accuratezza e la completezza delle opzioni di interazione offerte dall'interfaccia del \textit{widget}\textsubscript{\textit{G}} per esaminare i dati sulle isole ecologiche. & N-I \\
+    
+    TA11 & Verificare ci sia l'opportunità di visualizzare correttamente il \textit{widget}\textsubscript{\textit{G}} contenente le misurazioni dei sensori riguardanti le colonnine di ricarica. & NI \\
     \hline
-    TA11 & Verificare ci sia l'opportunità di visualizzare correttamente il \textit{widget}\textsubscript{\textit{G}} contenente le misurazioni dei sensori riguardanti le colonnine di ricarica. & N-I \\
+    
+    TA11 & Verificare l'accuratezza e la completezza delle opzioni di interazione offerte dall'interfaccia del \textit{widget}\textsubscript{\textit{G}} per esaminare i dati sulle colonnine di ricarica. & NI \\
     \hline
-    TA11 & Verificare l'accuratezza e la completezza delle opzioni di interazione offerte dall'interfaccia del \textit{widget}\textsubscript{\textit{G}} per esaminare i dati sulle colonnine di ricarica. & N-I \\
+    
+    TA33 & Verificare ci sia l'opportunità di visualizzare correttamente il \textit{widget}\textsubscript{\textit{G}} contenente le misurazioni dei sensori riguardanti il livello dell'acqua. & NI \\
     \hline
-    TA33 & Verificare ci sia l'opportunità di visualizzare correttamente il \textit{widget}\textsubscript{\textit{G}} contenente le misurazioni dei sensori riguardanti il livello dell'acqua. & N-I \\
+    
+    TA33.1 & Verificare l'accuratezza e la completezza delle opzioni di interazione offerte dall'interfaccia del \textit{widget}\textsubscript{\textit{G}} per esaminare i dati sul livello dell'acqua. & NI \\
     \hline
-    TA33.1 & Verificare l'accuratezza e la completezza delle opzioni di interazione offerte dall'interfaccia del \textit{widget}\textsubscript{\textit{G}} per esaminare i dati sul livello dell'acqua. & N-I \\
+    
+    TA12 & Verificare che si possa applicare con successo i filtri per la visualizzazione delle misurazioni e che solo le misurazioni che soddisfano i criteri di filtraggio vengano mostrate. & NI \\
     \hline
-    TA12 & Verificare che si possa applicare con successo i filtri per la visualizzazione delle misurazioni e che solo le misurazioni che soddisfano i criteri di filtraggio vengano mostrate. & N-I \\
+    
+    TA12.1 & Verificare si possa filtrare correttamente le misurazioni dei sensori in un intervallo temporale definito. & NI \\
     \hline
-    TA12.1 & Verificare si possa filtrare correttamente le misurazioni dei sensori in un intervallo temporale definito. & N-I \\
+    
+    TA12.2 & Verificare che si possa filtrare correttamente le misurazioni visualizzate in base a valori di intervallo specifici. & NI \\
     \hline
-    TA12.2 & Verificare che si possa filtrare correttamente le misurazioni visualizzate in base a valori di intervallo specifici. & N-I \\
+    
+    TA12.3 & Verificare che si possa filtrare correttamente la visualizzazione delle misurazioni basate su specifiche celle urbane. & NI \\
     \hline
-    TA12.3 & Verificare che si possa filtrare correttamente la visualizzazione delle misurazioni basate su specifiche celle urbane. & N-I \\
+    
+    TA12.4 & Verificare si possa filtrare correttamente la visualizzazione delle misurazioni in base a specifici sensori selezionati. & NI \\
     \hline
-    TA12.4 & Verificare si possa filtrare correttamente la visualizzazione delle misurazioni in base a specifici sensori selezionati. & N-I \\
+    
+    TA30 & Verificare che il \textit{sistema}\textsubscript{\textit{G}} riconosca e notifichi in modo appropriato quando viene inserito un intervallo temporale non valido o incoerente. & NI \\
     \hline
-    TA30 & Verificare che il \textit{sistema}\textsubscript{\textit{G}} riconosca e notifichi in modo appropriato quando viene inserito un intervallo temporale non valido o incoerente. & N-I \\
+    
+    TA13 & Verificare che si possa personalizzare con successo l'intervallo temporale di aggregazione delle misurazioni e che il \textit{sistema}\textsubscript{\textit{G}} aggiorni correttamente la visualizzazione in base a tale intervallo. & NI \\
     \hline
-    TA32 & Verificare che il \textit{sistema}\textsubscript{\textit{G}} riconosca e notifichi in modo appropriato quando viene inserito un intervallo di misurazione non valido o incoerente. & N-I \\
+    
+    TA31 & Verificare che si possa rimuovere correttamente i filtri attivi dalla visualizzazione delle misurazioni dei sensori. & NI \\
     \hline
-    TA13 & Verificare che si possa personalizzare con successo l'intervallo temporale di aggregazione delle misurazioni e che il \textit{sistema}\textsubscript{\textit{G}} aggiorni correttamente la visualizzazione in base a tale intervallo. & N-I \\
+    
+    TA18 & Verificare che si possa visualizzare correttamente le informazioni dettagliate di uno specifico \textit{sensore}\textsubscript{\textit{G}} sulla \textit{dashboard}\textsubscript{\textit{G}}. & NI \\
     \hline
-    TA31 & Verificare che si possa rimuovere correttamente i filtri attivi dalla visualizzazione delle misurazioni dei sensori. & N-I \\
+    
+    TA19 & Verificare che si possa inserire correttamente una misurazione nella lista delle misurazioni rilevanti. & NI \\
     \hline
-    TA18 & Verificare che si possa visualizzare correttamente le informazioni dettagliate di uno specifico \textit{sensore}\textsubscript{\textit{G}} sulla \textit{dashboard}\textsubscript{\textit{G}}. & N-I \\
+    
+    TA20 & Verificare che si possa visualizzare correttamente la lista delle misurazioni rilevanti. & NI \\
     \hline
-    TA19 & Verificare che si possa inserire correttamente una misurazione nella lista delle misurazioni rilevanti. & N-I \\
+    
+    TA21 & Verificare che si possa rimuovere correttamente una o più misurazioni dalla lista delle misurazioni rilevanti. & NI \\
     \hline
-    TA20 & Verificare che si possa visualizzare correttamente la lista delle misurazioni rilevanti. & N-I \\
+    
+    TA22 & Verificare che si riceva correttamente una notifica in caso di superamento delle soglie impostate per le misurazioni. & NI \\
     \hline
-    TA21 & Verificare che si possa rimuovere correttamente una o più misurazioni dalla lista delle misurazioni rilevanti. & N-I \\
-    \hline
-    TA22 & Verificare che si riceva correttamente una notifica in caso di superamento delle soglie impostate per le misurazioni.
-    & N-I \\
-    \hline
+    
     \caption{Tabella test di accettazione}
-    \\textit{label}\textsubscript{\textit{G}}{tab:testsAccettazione}
-    \end{longtable}
+\end{longtable}
 
-
-
-
+\pagebreak

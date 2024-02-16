@@ -28,7 +28,7 @@
 % ------------------------------Metadati indice --------------------------------
 \title{\textbf{\fontsize{28}{6}\selectfont Indice}}
 \author{\fontsize{14}{6}\selectfont ByteOps}
-\date{Dicembre 7, 2023}
+\date{Febbraio 09, 2024}
 
 
 % -----------------------------Creazione footer --------------------------------
@@ -48,7 +48,7 @@
     colorlinks=true,
     linkcolor=black,
     filecolor=black,      
-    pdftitle={Verbale Esterno 07/12/2023},  %inserisci data verbale
+    pdftitle={Verbale Esterno 09/02/2024},  %inserisci data verbale
     pdfpagemode=FullScreen,
 }
 
@@ -79,7 +79,7 @@
 
 % --------------------------Aggiunta firma finale ------------------------
 \begin{textblock*}{\textwidth}(0.85\textwidth, 1.16\textheight)
-    Il responsabile: Lisien Skenderi
+    Il responsabile: Andrea Barutta
 \end{textblock*}
 % ------------------------------------------------------------------------
 
@@ -89,7 +89,7 @@
 \vspace{0.2cm}
 \textcolor[RGB]{60, 60, 60}{\textit{ByteOps.swe@gmail.com}} \\
 \vspace{1cm}
-\fontsize{16}{6}\selectfont Verbale Esterno $\cdot$ Data: 07/12/2023 \\
+\fontsize{16}{6}\selectfont Verbale Esterno $\cdot$ Data: 09/02/2024 \\
 \vspace{0.5cm}
 \end{center}
 
@@ -100,11 +100,11 @@
 \addlinespace
 \textbf{Luogo} & Google Meet \vspace{10pt} \\
 \textbf{Orario} & 16:30 - 17:30 \vspace{10pt} \\
-\textbf{Redattore} & E. Hysa \vspace{10pt} \\
-\textbf{Verificatore} & R. Smanio \vspace{10pt} \\
-\textbf{Amministratore} & A. Barutta \vspace{10pt} \\
+\textbf{Redattore} & N. Preto \vspace{10pt} \\
+\textbf{Verificatore} & F. Pozza \vspace{10pt} \\
+\textbf{Amministratore} & E. Hysa \vspace{10pt} \\
 \textbf{Destinatari} & T. Vardanega \\ & R. Cardin \vspace{10pt} \\
-\textbf{Partecipanti} & A. Barutta \\ & E. Hysa \\ & R. Smanio \\ & D. Diotto \\ & F. Pozza \\ & L. Skenderi \\ & N. Preto \\ & D. Zorzi \vspace{10pt}
+\textbf{Partecipanti} & A. Barutta \\ & E. Hysa \\ & R. Smanio \\ & D. Diotto \\ & F. Pozza \\ & L. Skenderi \\ & N. Preto \\ & D. Zorzi \\ & A. Dorigo \vspace{10pt}
 \end{tabular}
 \pagebreak 
 
@@ -116,7 +116,7 @@
     \hline
     \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Dettaglio} \\
     \hline \hline
-    0.1.0 & 07/12/2023 & E.Hysa & R.Smanio & Redazione documento \\
+    0.1.0 & 09/02/2024 & N. Preto & F. Pozza & Redazione documento \\
     \hline
 \end{tabular}
 \pagebreak
@@ -133,28 +133,38 @@
 \flushleft
 
 \section{Revisione del periodo precedente}
-Tutte le attività previste per questo SAL sono state completate con successo, lasciando sia il team che l'azienda proponente soddisfatti dello stato attuale del PoC. \\
-Restano alcune migliorie da apportare all'interfaccia utente (UI) e la risoluzione di un bug che occasionalmente influisce sulla corretta visualizzazione dei dati nei grafici. \\
-La pianificazione e l'esecuzione delle attività sono state gestite in modo organizzato, rispettando i tempi stabiliti e aderendo alle nostre direttive interne, di conseguenza non sono emersi elementi significativi che richiedano modifiche nel nostro approccio lavorativo.
+
+Il 6/02/2024 si è tenuto l'incontro con il Professor Cardin per la presentazione del Proof of Concept. Nonostante siano emerse alcune perplessità da parte del docente, il suo giudizio complessivo è stato positivo. È stato comunicato che, a meno di sorprese nel documento di Analisi dei Requisiti, il gruppo potrà procedere con l'incontro successivo con il Professor Vardanega.
 
 \section{Ordine del giorno}
-    \subsection{Confronto sul lavoro svolto}
-    È stato presentato all'azienda proponente lo stato attuale del PoC, il quale ora, rispetto al SAL precedente, include una dashboard con vari widget per visualizzare i dati provenienti dai sensori. \\
-    Inoltre, abbiamo informato il proponente riguardo a un bug che si manifesta in circostanze ancora non ben definite, il quale, in certi intervalli temporali, compromette la corretta visualizzazione dei grafici. \\
-    Il proponente ha approvato lo stato attuale del PoC e ha espresso l'intenzione di avanzare ulteriormente, integrando sensori aggiuntivi per ottenere una mappatura più completa e dettagliata.
+    \subsection{Analisi della presentazione del Proof of Concept}
 
-    \subsection{Obiettivi del prossimo sprint}
-    Per il prossimo SAL è stato richiesto un miglioramento del front-end, lavorando sull'ottimizzazione dell'UI e sulla diversificazione dei grafici. \\
-    Inoltre, considerando l'ampio volume di dati generato dai sensori, si è suggerito di condurre alcuni test per valutare la reattività del sistema di fronte alla necessità di visualizzare grandi quantità di informazioni. Per effettuare questa valutazione, è essenziale far funzionare l'applicazione per un certo periodo di tempo al fine di raccogliere un insieme piuttosto vasto di misurazioni e condurre delle query su tali dati. \\
-    Un'ulteriore richiesta è quella di implementare un nuovo sensore per rappresentare nella mappa della città le colonnine di ricarica per auto elettriche, mostrando il loro stato, che può essere "attivo" o "non attivo", attraverso un controllo a intervalli di 30 minuti.
-
-\section{Richieste e chiarimenti}
-    Durante la presentazione sono stati posti degli interrogativi riguardanti possibili miglioramenti nell'utilizzo di Docker, nello specifico relativi all'implementazione dei volumes. \\
-    Su suggerimento dell'azienda, è stato consigliato di riportare tali domande nel canale Element dedicato, in modo da poter ricevere risposte dai membri aziendali più esperti sull'argomento, alcuni dei quali assenti durante la riunione.
+    Durante l'incontro con il \textit{proponente}\textsubscript{\textit{G}}, si sono affrontati i temi trattati durante la presentazione del Proof of Concept, concentrandoci soprattutto sui punti di perplessità emersi e sulle possibili soluzioni per affrontarli.
+    
+    \subsection{Spunti sugli approcci futuri nello sviluppo del progetto}
+    Alcuni punti principali su cui è stato posto l'accento sono stati:
+        \begin{enumerate}
+        \item Utilità di uno \textit{script}\textsubscript{\textit{G}} consumer e connessione diretta tra \textit{Apache Kafka}\textsubscript{\textit{G}} e \textit{Clickhouse}\textsubscript{\textit{G}};
+        \item Implementazione di \textit{framework}\textsubscript{\textit{G}} integrativi per il data streaming o in alternativa l'utilizzo di una connessione diretta;
+        \item Test di carico e di performance del \textit{sistema}\textsubscript{\textit{G}} nella realtà distribuita.
+        \end{enumerate}
+    
+        La risposta al primo e secondo punto è stata la decisione di rendere diretta la connessione tra Kafka e \textit{Clickhouse}\textsubscript{\textit{G}} rimuovendo l'intermediario da noi costruito, di cui la scalabilità sarebbe stata gestita internamente senza l'utilizzo di un \textit{framework}\textsubscript{\textit{G}} apposito comportando quindi evidenti rischi come casi particolari non gestiti. Per il calcolo del punteggio di salute, che si ricorda essere un requisito opzionale, si è deciso di utilizzare uno \textit{script}\textsubscript{\textit{G}} con un \textit{framework}\textsubscript{\textit{G}} o libreria appropriato come \textit{kafka stream} per \textit{Java} oppure \textit{Faust} per \textit{Python}, che reperisca i dati da Kafka e li reinserisca in una coda dedicata al punteggio di salute, cosicché i servizi interessati possano ottenere il dato.
+        La decisione presa per affrontare il terzo punto implica la richiesta di un incontro con il Professore Cardin oppure il contatto via email, al fine di chiarire quali \textit{test}\textsubscript{\textit{G}} si prevede debbano essere condotti, tenendo conto dell'impossibilità di ricreare un ambiente realistico distribuito.
+    
+    \pagebreak
+   
+    \subsection{Obbiettivi per il prossimo sprint}
+    
+    In vista del prossimo \textit{SAL}\textsubscript{\textit{G}} pianificato per la data 15/02/2024 si è deciso di: 
+    \begin{itemize}
+        \item Studiare le possibili nuove tecnologie (\textit{kafka stream} per \textit{Java} oppure \textit{Faust} per \textit{Python}) analizzate durante l'incontro con il \textit{proponente}\textsubscript{\textit{G}}; 
+        \item Organizzare e presentare al Professor Vardanega la documentazione relativa all'\textit{RTB}\textsubscript{\textit{G}}.
+    \end{itemize}
 
 % ------------------------ Firma Azienda ----------------------
 \begin{textblock*}{\textwidth}(0.35\textwidth, 1.08\textheight)
-    Padova, 07/12/2023
+    Padova, 09/02/2024
 \end{textblock*}
 
 \begin{textblock*}{\textwidth}(0.80\textwidth, 1.08\textheight)

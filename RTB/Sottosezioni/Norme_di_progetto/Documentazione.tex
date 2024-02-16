@@ -1,12 +1,12 @@
 \subsection{Documentazione}
 
 \subsubsection{Introduzione}
-La documentazione costituisce l'insieme di informazioni scritte che accompagnano un prodotto software, fornendo dettagli utili a sviluppatori, distributori e utenti.\\
+La documentazione costituisce l'insieme di informazioni scritte che accompagnano un prodotto \textit{software}\textsubscript{\textit{G}}, fornendo dettagli utili a sviluppatori, distributori e utenti.\\
 Tra gli scopi della documentazione troviamo:
 \begin{itemize}
     \item Comprensione del prodotto senza supporto umano, usandola come mezzo di comunicazione;
     \item Segnare il confine tra creatività e disciplina;
-    \item Assicurare che i processi produttivi si svolgano con la qualità attesa.
+    \item Assicurare che i \textit{processi}\textsubscript{\textit{G}} produttivi si svolgano con la qualità attesa.
 \end{itemize}
 
 L'obiettivo della sezione è:
@@ -43,7 +43,7 @@ Infine, viene creato un file principale con il nome del documento, nel quale ver
 Nel caso dei verbali, essendo documenti composti da sezioni molto brevi, non si utilizza questo approccio.
 
 \subsubsection{Ciclo di vita dei documenti}
-Il ciclo di vita dei documenti è una sequenza di stati e attività:
+Il ciclo di vita dei documenti è una sequenza di stati e \textit{attività}\textsubscript{\textit{G}}:
 \begin{enumerate}
     \item \textbf{Stato: Necessità}
           \begin{enumerate}
@@ -69,14 +69,6 @@ Il ciclo di vita dei documenti è una sequenza di stati e attività:
               \item La richiesta di modifica derivata da nuove esigenze relative al contenuto del documento determina il ritorno del documento allo stato di modifica.
           \end{enumerate}
 \end{enumerate}
-
-%\textbf{Procedimento in sintesi}\\
-%   Per rispettare i principi  di "Documentation as Code" l'approccio attualmente adottato richiede la competenza e l'utilizzo di LaTeX per la stesura dei documenti e una repository ad accesso limitato Git chiamata "Sorgente documenti" dove versionarli. I redattori, seguendo la struttura dettagliata nei prossimi paragrafi, redigeranno il contenuto dei documenti utilizzando il linguaggio \LaTeX\ su un ramo dedicato nella repository "Sorgente documenti". \\
-%  Al termine del loro lavoro, segnaleranno il completamento posizionando l'Issue relativa al compito di redazione nella colonna "Da revisionare" della \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione} di GitHub (unica e condivisa sia dalla repository pubblica "\href{https://github.com/ByteOps-swe/Documents}{Documents}" che dalla repository "Sorgente documenti") e generando una Pull Request . Questa colonna conterrà i compiti relativi ai documenti completati dai redattori, che necessitano ora della validazione da parte dei verificatori. \\
-
-% I file sorgenti LaTeX saranno quindi gestiti e versionati nella repository con accesso limitato denominata "Sorgente documenti", strutturata in modo identico alla repository pubblica chiamata "\href{https://github.com/ByteOps-swe/Documents}{Documents}" ma con file \LaTeX\ al posto dei PDF. \\
-%   I verificatori quindi troveranno il documento da validare in questa repository quando riceveranno una notifica mail generata dalla Pull Request.\\
-%  Quando i verificatori avranno convalidato il contenuto, dovranno seguire le istruzioni al paragrafo ~\ref{sec:verificatori} per formalizzare la verifica.
 
 \subsubsection{Procedure correlate alla redazione di documenti}
 
@@ -111,7 +103,7 @@ Qualora il redattore intenda continuare la stesura di un documento (o sezione) i
 \hypertarget{par:salvataggioecondivisioneprogressitasknoncompletate}{\paragraph*{{\textbf{Salvataggio e condivisione progressi di task non completate}}}}
 Alla fine di una sessione di modifiche di un file, nel caso si desideri rendere accessibile ai membri il lavoro non ancora completato e, pertanto, non pronto alla verifica, è necessario assicurarsi di essere nel branch corretto e successivamente:
 \begin{enumerate}
-    \item Eseguire il push\textsubscript{\textit{G}}  delle modifiche fatte nel branch
+    \item Eseguire il push\textsubscript{\textit{G}}  delle modifiche fatte nel \textit{branch}\textsubscript{\textit{G}}
           \begin{lstlisting}[style=code]
     git add .
     git commit -m "Descrizione del commit"
@@ -295,7 +287,7 @@ Nello specifico devono seguire la seguente convenzione:
 Nei documenti vi sono molte ripetizioni di termini per la quale si possono usare le seguenti abbreviazioni:\\
 \vspace{0.2cm}
 \begin{center}
-    \begin{tabular}{|c|c|}
+    \begin{tabular}{|C{2.5cm}|C{4cm}|}
         \hline
         \textbf{Abbreviazione} & \textbf{Scrittura Estesa}            \\
         \hline
@@ -310,7 +302,7 @@ Nei documenti vi sono molte ripetizioni di termini per la quale si possono usare
 \end{center}
     
 \subsubsection{Strumenti}
-Gli strumenti utilizzati dalle attività di redazione dei documenti vogliono soddisfare il principio adottato di "Documentation as Code".
+Gli strumenti utilizzati dalle \textit{attività}\textsubscript{\textit{G}} di redazione dei documenti vogliono soddisfare il principio adottato di "Documentation as Code".
 \begin{itemize}
     \item \textbf{GitHub}: utilizzato per il versionamento, la collaborazione e la distribuzione dei documenti, nonché per automatizzare la loro compilazione.
     \item \textbf{\LaTeX}: utilizzato per la redazione dei documenti, sfruttando il suo potente sistema di formattazione testuale per creare documenti di alta qualità.
