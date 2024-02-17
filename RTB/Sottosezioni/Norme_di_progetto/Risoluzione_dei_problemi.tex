@@ -1,9 +1,14 @@
 \subsection{Risoluzione dei problemi}
-Il processo di risoluzione dei problemi è un processo che mira ad analizzare e risolvere i problemi (incluse le non conformità) di qualunque natura o fonte, che vengono scoperti durante l'esecuzione di sviluppo, operazioni, manutenzione o altri \textit{processi}\textsubscript{\textit{G}}.
-L'obiettivo è fornire un mezzo tempestivo, responsabile e documentato per garantire che tutti i problemi scoperti siano analizzati e risolti e che siano riconosciute le tendenze.
+
+\subsubsection{Introduzione}
+Il processo di risoluzione dei problemi è un processo che mira ad analizzare e risolvere i problemi (incluse le non conformità) di qualunque natura o fonte, che vengono rilevati durante l'esecuzione di sviluppo, manutenzione o altri processi. \\
+L'obiettivo è fornire un mezzo tempestivo, responsabile e documentato per garantire che tutti i problemi scoperti siano analizzati e risolti e che siano riconosciute le tendenze. \\
+Il processo di risoluzione dei problemi mira ad analizzare e risolvere i problemi, inclusi i casi di non conformità, che emergono durante tutto il ciclo di vita del prodotto. L'obiettivo principale è fornire un approccio tempestivo, responsabile e documentato per affrontare in modo efficace ogni problematica individuata. \\
+Questo processo non si limita a risolvere i problemi immediati, ma si propone anche di identificarne le cause profonde e di adottare misure preventive per evitare che si verifichino nuovamente in futuro. Inoltre, mira a promuovere un ambiente di miglioramento continuo, dove l'apprendimento dagli errori passati gioca un ruolo cruciale nella crescita e nell'ottimizzazione dei processi. \\
+Un aspetto importante della risoluzione dei problemi è l'adozione di approcci strutturati e metodologie efficaci, che includono la raccolta di dati, l'analisi delle cause alla radice, la valutazione degli impatti e la definizione di azioni correttive e preventive. È essenziale anche mantenere una documentazione accurata di tutti i problemi identificati e delle relative soluzioni implementate, al fine di garantire la trasparenza, la tracciabilità e la possibilità di revisione nel tempo.
 
 \subsubsection{Gestione dei rischi}
-Nel documento piano di progetto, nella sezione "Analisi dei rischi", vengono identificati dal responsabile tutti i potenziali rischi di progetto, inclusa la probabilità della loro occorrenza e le misure di mitigazione. Per ogni fase di avanzamento, è dedicata una sezione alla documentazione dei problemi riscontrati, con un'analisi del loro impatto e una valutazione dell'esito della mitigazione programmata nella sezione "Analisi dei rischi". Un esito negativo evidenzia una mitigazione inadeguata che richiede modifiche.
+Nel documento \textit{Piano di Progetto}, nella sezione "Analisi dei rischi", vengono identificati dal responsabile tutti i potenziali rischi di progetto, inclusa la probabilità della loro occorrenza e le misure di mitigazione. Per ogni fase di avanzamento, è dedicata una sezione alla documentazione dei problemi riscontrati, con un'analisi del loro impatto e una valutazione dell'esito della mitigazione programmata. Un esito negativo evidenzia una mitigazione inadeguata che richiede modifiche.
 
 \paragraph{Codifica dei rischi}
 La convenzione utilizzata per la codifica dei rischi è la seguente: 
@@ -12,25 +17,28 @@ La convenzione utilizzata per la codifica dei rischi è la seguente:
 \end{center} 
 
 \begin{flushleft}
-    \textbf{Tipologia}: natura del rischio:
+    \textbf{Tipologia}: \\
+    Natura del rischio:
     \begin{itemize}
-        \item \textbf{T}: Rischi legati all'utilizzo delle tecnologie 
-        \item \textbf{O}: Rischi legati all'organizzazione del gruppo 
-        \item \textbf{P}: Rischi legati agli impegni personali dei membri del gruppo 
+        \item \textbf{T}: Rischi legati all'utilizzo delle tecnologie;
+        \item \textbf{O}: Rischi legati all'organizzazione del gruppo;
+        \item \textbf{P}: Rischi legati agli impegni personali dei membri del gruppo.
     \end{itemize}
-    \textbf{Probabilità}: valore alfabetico che indica la probabilità di occorrenza del rischio: 
+    \textbf{Probabilità}: \\
+    Valore alfabetico che indica la probabilità di occorrenza del rischio:
     \begin{itemize}
-        \item \textbf{1}: Alta 
-        \item \textbf{2}: Media 
-        \item \textbf{3}: Bassa 
+        \item \textbf{1}: Alta;
+        \item \textbf{2}: Media; 
+        \item \textbf{3}: Bassa.
     \end{itemize}
-    \textbf{Priorità}: valore numerico che indica la pericolosità del rischio:
+    \textbf{Priorità}: \\
+    Valore numerico che indica la pericolosità del rischio:
     \begin{itemize}
-        \item \textbf{A}: Alta
-        \item \textbf{M}: Media  
-        \item \textbf{B}: Bassa 
+        \item \textbf{A}: Alta;
+        \item \textbf{M}: Media;
+        \item \textbf{B}: Bassa.
     \end{itemize}
-    \textbf{Indice}: valore numerico incrementale che determina univocamente il rischio per ogni tipologia di rischio.  
+    \textbf{Indice}: Valore numerico incrementale che determina univocamente il rischio per ogni tipologia di rischio. 
 \end{flushleft}
 
 \paragraph{Metriche}
@@ -40,17 +48,16 @@ La convenzione utilizzata per la codifica dei rischi è la seguente:
   \hline
   Metrica & Nome & Riferimento \\
   \hline \hline
-  M11RNP & Rischi non previsti (RNP) &  \hyperlink{item:M11RNP}{\textcolor{linkcolor}{M11RNP}}\\ 
+  M11RNP & Rischi non previsti (RNP) &  \hyperlink{item:M11RNP}{M11RNP}\\ 
   \hline
   \end{tabular}
   \caption{Metriche relative alla gestione dei processi}
 \end{table}
 
 \subsubsection{Identificazione dei problemi}
-Nel caso in cui un membro del team identifichi un problema, è obbligatorio notificarlo immediatamente al gruppo, e contemporaneamente, deve essere aperta una segnalazione nel \textit{sistema}\textsubscript{\textit{G}} di tracciamento degli \textit{issue}\textsubscript{\textit{G}} (ITS) con l'etichetta "bug" e una descrizione completa del problema.
+Nel caso in cui un membro del team identifichi un problema, è obbligatorio notificarlo immediatamente al gruppo, e contemporaneamente, deve essere aperta una segnalazione nel sistema di tracciamento delle issue (ITS) con l'etichetta "bug" e una descrizione completa del problema. La procedura per l'apertura di una issue è descritta nel dettaglio nella sezione \hyperlink{par:ticketing}{\textit{Ticketing}}.
 
 \subsubsection{Strumenti}
 \begin{itemize}
-    \item \textbf{GitHub ITS:} 
-        per la segnalazione dei problemi. 
+    \item \textbf{GitHub:} per la segnalazione delle Issue.
 \end{itemize}
