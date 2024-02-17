@@ -14,7 +14,7 @@ L'obiettivo della sezione è:
     \item  Definire delle procedure ripetibili che permettano di uniformare la documentazione prodotta dal gruppo ed il metodo di lavoro;
     \item  Raccogliere ed organizzare le norme che i membri del team devono seguire così da semplificare l'operazione di scrittura dei documenti.
 \end{itemize}
-Tali norme dovranno essere applicate da tutti i membri del team, ed i sorgenti \LaTeX\ che contengono tale documentazione verranno inseriti nel repository \href{https://github.com/ByteOps-swe/Sorgente-documenti}{Sorgente-documenti}.
+Tali norme dovranno essere applicate da tutti i membri del team, ed i sorgenti \LaTeX\ che contengono tale documentazione verranno inseriti nel \textit{repository}\textsubscript{\textit{G}} \href{https://github.com/ByteOps-swe/Sorgente-documenti}{Sorgente-documenti}.
 
 \begin{comment} \paragraph*{Primi approcci alla redazione di documenti e problematiche riscontrate}
 Per la composizione iniziale dei documenti richiesti per la candidatura, è stato sperimentato un'approccio che impiegava gli strumenti di Google Drive. Tale metodologia consentiva ai redattori di redigere agevolmente i documenti senza la necessità di padroneggiare la sintassi LaTeX, con l'intenzione di trasporre successivamente il contenuto in LaTeX una volta che fosse stato validato dai verificatori. Tuttavia, questo approccio ha suscitato problematiche, tra cui:
@@ -25,7 +25,7 @@ Per la composizione iniziale dei documenti richiesti per la candidatura, è stat
 Per tali ragioni si è presa la decisione di adottare un nuovo approccio.
 \end{comment}
 \subsubsection{Documentation as Code}\label{sec:DocumentationAscode}
-L'approccio che si intende adottare è quello di "Documentation as Code" (Documentazione come Codice) che consiste nel trattare la documentazione di un progetto software allo stesso modo in cui si tratta il codice sorgente. Questo approccio è incentrato sull'utilizzo di pratiche e strumenti tipici dello sviluppo software per creare, gestire e distribuire la documentazione.
+L'approccio che si intende adottare è quello di "Documentation as Code" (Documentazione come Codice) che consiste nel trattare la documentazione di un progetto \textit{software}\textsubscript{\textit{G}} allo stesso modo in cui si tratta il codice sorgente. Questo approccio è incentrato sull'utilizzo di pratiche e strumenti tipici dello sviluppo \textit{software}\textsubscript{\textit{G}} per creare, gestire e distribuire la documentazione.
 Alcuni aspetti chiave della "Documentation as Code" includono:
 \begin{itemize}
     \item \textbf{Versionamento};
@@ -65,7 +65,7 @@ Il ciclo di vita dei documenti è una sequenza di stati e \textit{attività}\tex
           \end{enumerate}
     \item \textbf{Stato: Manutenzione}
           \begin{enumerate}
-              \item Manutenzione: Ogni documento soggetto a configuration management deve essere adeguatamente modificato in conformità alle regole di versionamento e change management;
+              \item Manutenzione: Ogni documento soggetto a \textit{configuration management}\textsubscript{\textit{G}} deve essere adeguatamente modificato in conformità alle regole di versionamento e \textit{change management}\textsubscript{\textit{G}};
               \item La richiesta di modifica derivata da nuove esigenze relative al contenuto del documento determina il ritorno del documento allo stato di modifica.
           \end{enumerate}
 \end{enumerate}
@@ -73,20 +73,20 @@ Il ciclo di vita dei documenti è una sequenza di stati e \textit{attività}\tex
 \subsubsection{Procedure correlate alla redazione di documenti}
 
 \paragraph{I redattori}
-Il redattore responsabile della redazione di un documento o di una sua sezione deve seguire lo stesso approccio richiesto per la codifica del software, adottando il workflow noto come \href{https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow}{"Feature Branch"}. \\
+Il redattore responsabile della redazione di un documento o di una sua sezione deve seguire lo stesso approccio richiesto per la codifica del \textit{software}\textsubscript{\textit{G}}, adottando il \textit{workflow}\textsubscript{\textit{G}} noto come \href{https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow}{"Feature Branch"}. \\
 
 \vspace{0.1cm}
 
 \paragraph*{\textbf{Caso redazione nuovo documento/sezione o modifica documento/sezione già verificato/a}}
-Dalla repository \href{https://github.com/ByteOps-swe/Sorgente-documenti}{Sorgente-documenti} contenente i sorgenti \LaTeX, il redattore dovrà creare un nuovo branch Git in locale e spostarsi su di esso mediante l'utilizzo del comando:
+Dalla \textit{repository}\textsubscript{\textit{G}} \href{https://github.com/ByteOps-swe/Sorgente-documenti}{Sorgente-documenti} contenente i sorgenti \LaTeX, il redattore dovrà creare un nuovo \textit{branch}\textsubscript{\textit{G}} Git in locale e spostarsi su di esso mediante l'utilizzo del comando:
 \begin{lstlisting}[style=code]
     git checkout main
     git checkout -b identificativoBranch
 \end{lstlisting}
 
-Il nome del branch destinato alla redazione o modifica del documento o di una sua sezione deve essere descrittivo al fine di consentire un'identificazione immediata e precisa del documento o della sezione su cui si sta lavorando. Pertanto, relativamente alla redazione dei documenti, devonono essere adottatate le specifiche \hyperlink{par:convezioninomenclaturabranchdocumenti}{\textit{\textbf{convenzioni per la nomenclatura dei branch}}}.
+Il nome del \textit{branch}\textsubscript{\textit{G}} destinato alla redazione o modifica del documento o di una sua sezione deve essere descrittivo al fine di consentire un'identificazione immediata e precisa del documento o della sezione su cui si sta lavorando. Pertanto, relativamente alla redazione dei documenti, devonono essere adottatate le specifiche \hyperlink{par:convezioninomenclaturabranchdocumenti}{\textit{\textbf{convenzioni per la nomenclatura dei branch}}}.
 
-A questo punto, dopo aver creato/modificato il documento o la sezione assegnata e avviato la stesura, affinché gli altri redattori possano continuare il lavoro, è necessario rendere il branch accessibile anche nella repository remota, seguendo i seguenti passaggi:
+A questo punto, dopo aver creato/modificato il documento o la sezione assegnata e avviato la stesura, affinché gli altri redattori possano continuare il lavoro, è necessario rendere il \textit{branch}\textsubscript{\textit{G}} accessibile anche nella \textit{repository}\textsubscript{\textit{G}} remota, seguendo i seguenti passaggi:
 \begin{lstlisting}[style=code]
     git add .
     git commit -m "Descrizione del commit"
@@ -101,7 +101,7 @@ Qualora il redattore intenda continuare la stesura di un documento (o sezione) i
 \end{lstlisting}
 
 \hypertarget{par:salvataggioecondivisioneprogressitasknoncompletate}{\paragraph*{{\textbf{Salvataggio e condivisione progressi di task non completate}}}}
-Alla fine di una sessione di modifiche di un file, nel caso si desideri rendere accessibile ai membri il lavoro non ancora completato e, pertanto, non pronto alla verifica, è necessario assicurarsi di essere nel branch corretto e successivamente:
+Alla fine di una sessione di modifiche di un file, nel caso si desideri rendere accessibile ai membri il lavoro non ancora completato e, pertanto, non pronto alla verifica, è necessario assicurarsi di essere nel \textit{branch}\textsubscript{\textit{G}} corretto e successivamente:
 \begin{enumerate}
     \item Eseguire il push\textsubscript{\textit{G}}  delle modifiche fatte nel \textit{branch}\textsubscript{\textit{G}}
           \begin{lstlisting}[style=code]
@@ -122,14 +122,14 @@ Alla fine di una sessione di modifiche di un file, nel caso si desideri rendere 
 \paragraph*{\textbf{Completamento attività di redazione}}
 Una volta terminata la redazione di un documento o di una sezione, ogni redattore deve:
 \begin{enumerate}
-    \item Segnalare il completamento dell'attività a loro assegnata (essa sia la stesura completa di un documento o di una sua parte) posizionando l'issue relativa nella colonna "Da revisionare" della \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione}.
+    \item Segnalare il completamento dell'\textit{attività}\textsubscript{\textit{G}} a loro assegnata (essa sia la stesura completa di un documento o di una sua parte) posizionando l'\textit{issue}\textsubscript{\textit{G}} relativa nella colonna "Da revisionare" della \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione}.
     \item Attuare una \hyperlink{par:creazionePR}{\textit{\textbf{Pull Request:}}}
           \begin{enumerate}
               \item Aggiornare il registro delle modifiche inserendo i dati richiesti in una nuova riga e incrementando la versione (il verificatore è definito all'assegnazione della task, presente nella descrizione della Issue del'ITS).
               È importante sottolineare che l'incremento della versione deve avvenire seguendo la convenzione specificata nella \textit{sezione~\ref{subsubsec:versionamento}} e tramite il comando "\verb|{\label{Git_Action_Version}X.Y.Z}|", come specificato nel paragrafo \hyperlink{par:infoUtiliRegistroMod}{"\textit{Informazioni utili}"} relativo alla sezione dedicata al registro delle modifiche;
               \item Eseguire i passaggi dettagliati nel caso "\hyperlink{par:salvataggioecondivisioneprogressitasknoncompletate}{\textit{\textbf{Salvataggio e condivisione progressi di task non completate}}}";
               \item Accedere al \href{https://github.com/ByteOps-swe/Sorgente-documenti.git}{repository} GitHub >> Apri la sezione "Pull requests" >> Clicca "New Pull Request";
-              \item Selezionare come branch di destinazione "main" e come branch sorgente il ramo utilizzato per la redazione del documento (o sezione) da validare;
+              \item Selezionare come \textit{branch}\textsubscript{\textit{G}} di destinazione "main" e come \textit{branch}\textsubscript{\textit{G}} sorgente il ramo utilizzato per la redazione del documento (o sezione) da validare;
               \item Cliccare "Create Pull Request";
               \item Inserire un titolo significativo e una breve descrizione alla Pull Request >> Seleziona i verificatori su "Reviewers" >> Clicca "Create Pull Request".
           \end{enumerate}
@@ -150,10 +150,10 @@ Nel processo di redazione dei documenti, il compito del responsabile consiste ne
 \end{itemize}
 
 \paragraph{L'amministratore}
-Nel processo di redazione dei documenti, il compito dell'amministratore consiste nell'inserire nell'ITS le attività specificate dal responsabile:
+Nel processo di redazione dei documenti, il compito dell'amministratore consiste nell'inserire nell'ITS le \textit{attività}\textsubscript{\textit{G}} specificate dal responsabile:
     \begin{itemize}
-        \item Redattori: assegnatari della issue;
-        \item Verificatori: specificati nella descrizione della issue;
+        \item Redattori: assegnatari della \textit{issue}\textsubscript{\textit{G}};
+        \item Verificatori: specificati nella descrizione della \textit{issue}\textsubscript{\textit{G}};
         \item Scadenza.
     \end{itemize}
 
@@ -223,17 +223,17 @@ La struttura dei verbali è la seguente:
         Nel corpo del documento sono presenti le seguenti sottosezioni:
         \begin{itemize}
             \item \textbf{Revisione del periodo precedente} \\
-            Si analizza lo stato delle attività e, relativamente all'approccio lavorativo, si valutano gli aspetti positivi e le difficoltà incontrate in modo tale da identificare azioni di miglioramento per ottimizzare i processi;
+            Si analizza lo stato delle \textit{attività}\textsubscript{\textit{G}} e, relativamente all'approccio lavorativo, si valutano gli aspetti positivi e le difficoltà incontrate in modo tale da identificare azioni di miglioramento per ottimizzare i \textit{processi}\textsubscript{\textit{G}};
             \item \textbf{Ordine del giorno} \\
             Elenco delle tematiche discusse durante la riunione, accompagnate dai relativi esiti. \\
             Nel caso del verbale esterno, se sono presenti richieste di chiarimenti effettuate alle terze parti coinvolte, saranno incluse nella sottosezione "\textbf{Richieste e chiarimenti}".
         
             \item \textbf{Attività da svolgere} (solo nel caso dei verbali interni): \\
-            Tabella dove ogni riga identifica un'attività e in cui viene specificato:
+            Tabella dove ogni riga identifica un'\textit{attività}\textsubscript{\textit{G}} e in cui viene specificato:
                 \begin{itemize}
                     \item Nome della task da svolgere;
-                    \item Id issue dell'ITS;
-                    \item Verificatore dell'attività.
+                    \item Id \textit{issue}\textsubscript{\textit{G}} dell'ITS;
+                    \item Verificatore dell'\textit{attività}\textsubscript{\textit{G}}.
                 \end{itemize}
         \end{itemize}
     \item \textbf{Ultima pagina} \\
@@ -292,12 +292,12 @@ Nei documenti vi sono molte ripetizioni di termini per la quale si possono usare
         \hline
         \textbf{Abbreviazione} & \textbf{Scrittura Estesa}            \\
         \hline
-        RTB                    & Requirements and Technology Baseline \\
-        PB                     & Product Baseline                     \\
+        \textit{RTB}\textsubscript{\textit{G}}                    & Requirements and Technology Baseline \\
+        \textit{PB}\textsubscript{\textit{G}}                     & Product Baseline                     \\
         CA                     & Customer Acceptance                  \\
         ITS                    & Issue Tracking System                \\
         CI                     & Configuration Item                   \\
-        SAL                    & Stato Avanzamento Lavori             \\   
+        \textit{SAL}\textsubscript{\textit{G}}                    & Stato Avanzamento Lavori             \\   
         \hline
     \end{tabular}
 \end{center}
@@ -306,6 +306,6 @@ Nei documenti vi sono molte ripetizioni di termini per la quale si possono usare
 Gli strumenti utilizzati dalle \textit{attività}\textsubscript{\textit{G}} di redazione dei documenti vogliono soddisfare il principio adottato di "Documentation as Code".
 \begin{itemize}
     \item \textbf{GitHub}: utilizzato per il versionamento, la collaborazione e la distribuzione dei documenti, nonché per automatizzare la loro compilazione;
-    \item \textbf{\LaTeX}: utilizzato per la redazione dei documenti, sfruttando il suo potente sistema di formattazione testuale per creare documenti di alta qualità;
+    \item \textbf{\LaTeX}: utilizzato per la redazione dei documenti, sfruttando il suo potente \textit{sistema}\textsubscript{\textit{G}} di formattazione testuale per creare documenti di alta qualità;
     \item \textbf{Visual Studio Code}: IDE utilizzato dai redattori per la redazione dei documenti grazie al supporto del plugin \textbf{\LaTeX\ Workshop}.
 \end{itemize}
