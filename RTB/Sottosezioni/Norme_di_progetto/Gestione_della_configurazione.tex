@@ -211,24 +211,24 @@ La Contabilità dello Stato di Configurazione è un'attività dedicata a registr
 Per approfondimenti su come creare issues e associare labels a una issue, consultare la sezione relativa al \hyperlink{par:ticketing}{\textit{Ticketing}}.
 
 \subsubsection{Release management and delivery} \todo{migliorare sia intro, che procedura}
-Nello standard \href{https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf}{ISO/IEC 12207:1995}, il processo "release management and delivery" è definito come un processo che si occupa della pianificazione, del coordinamento e del controllo delle attività necessarie per preparare e distribuire una versione di un prodotto software per l'uso operativo. Questo processo comprende la gestione delle release, la distribuzione del software, la preparazione della documentazione correlata e altre attività correlate al rilascio e alla consegna del prodotto software. \\
-Il team ByteOps ha stabilito che la creazione di una release deve avvenire in relazione alle baseline stabilite \todo{dopo aver verificato e validato il prodotto}, ovvero RTB (Requirements and Technology Baseline) e la PB (Product Baseline) ed eventualmente CA (Customer Acceptance). In conformità con quanto definito nella \textit{sezione \ref{subsubsec:versionamento}}, relativa al versionamento dei numeri, ogni nuova release comporta un incremento di 1 nell'elemento numerico X del formato X.Y.Z.
+Nello standard \href{https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf}{ISO/IEC 12207:1995}, il processo "Release management and delivery" è definito come un processo che si occupa della pianificazione, del coordinamento e del controllo delle attività necessarie per preparare e distribuire una versione di un prodotto software per l'uso operativo. Questo processo comprende la gestione delle release, la distribuzione del software, la preparazione della documentazione correlata e altre attività correlate al rilascio e alla consegna del prodotto software. \\
+Il team ByteOps ha stabilito che la creazione di una release deve avvenire in relazione alle baseline stabilite per il progetto didattico, ovvero RTB (Requirements and Technology Baseline), PB (Product Baseline) ed eventualmente CA (Customer Acceptance). Questo processo inoltre deve essere attuato solo dopo una completa verifica e validazione del prodotto seguendo le procedure dettagliate nelle \textit{sezioni Verifica(~\ref{subsec:verifica})} e \textit{Validazione(~\ref{subsec:validazione})}. \\
+In conformità con quanto definito nella \textit{sezione~\ref{subsubsec:versionamento}}, relativa al versionamento dei numeri, ogni nuova release comporta un incremento di 1 nell'elemento numerico X del formato X.Y.Z.
 
 \paragraph{Procedura per la creazione di una release}
 Per la creazione di una release eseguire la seguente procedura:
-\todo{release per documents e release per sorgente documenti}
 \begin{itemize}
-    \item Accedi alla repository;
+    \item Accedi alla repository GitHub;
     \item Accedi alla sezione "Releases";
     \item Clicca sul pulsante "Create a new release";
-    \item Clicca sul pulsante "Choose a tag" e selezionare il tag che identifica la versione della release. Nel caso il tag desiderato non fosse presente nella lista, crearne uno nuovo scrivendo la versione desiderata e cliccando sul pulsante "Create new tag". Vedere sezione numeri di versionamento;
-    \item Scegli il branch target di cui si vuole creare una release, nel nostro caso il main;
-    \item Scegliere un titolo per la release. A seconda della baseline scrivere come titolo la baseline relativa (RTB o PB);
-    \item Scegliere una descrizione per la release;
+    \item Clicca sul pulsante "Choose a tag" e selezionare il tag che identifica la versione della release. Nel caso il tag desiderato non fosse presente nella lista, è possibile crearne uno nuovo scrivendo la versione desiderata e cliccando sul pulsante "Create new tag". Per la corretta definizione della versione vedi la \textit{sezione~\ref{subsubsec:versionamento}} relativa ai numeri di versionamento;
+    \item Seleziona il branch main come branch target di cui si vuole creare una release;
+    \item Scegliere un titolo per la release. La convenzione adottata è quella di inserire come titolo il nome della baseline per la quale si vuole creare la release.
+    \item Scrivi una breve descrizione per la release;
     \item Clicca "Publish release";
 \end{itemize}
 
-Dopo aver seguito la procedura, nella sezione release è visibile la nuova release e sarà possibile scaricare il file.zip relativo.
+Dopo aver seguito la procedura, nella sezione "Releases" di GitHub sarà visibile la release appena creata e sarà possibile scaricare il file.zip relativo.
 
 \subsubsection{Strumenti}
 Le tecnologie adottate per la gestione dei Configuration Item sono:
