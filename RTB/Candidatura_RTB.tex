@@ -9,6 +9,8 @@
 
 % Definisci uno stile per i comandi git
 \definecolor{light-gray}{gray}{0.92}
+\definecolor{darkgreen}{rgb}{0.0, 0.5, 0.0}
+\definecolor{navyblue}{rgb}{0.0, 0.0, 0.8}
 
 \lstdefinestyle{code}{
     frame=single,
@@ -46,7 +48,8 @@
 
 \hypersetup{
     colorlinks=true,
-    linkcolor=black,
+    linkcolor=darkgreen,
+    urlcolor=navyblue,
     filecolor=black,      
     pdftitle={Candidatura RTB},  %inserisci data verbale
     pdfpagemode=FullScreen,
@@ -110,7 +113,10 @@
 \setstretch{1.5}
 \maketitle
 \thispagestyle{fancy}
-\tableofcontents
+{
+    \hypersetup{linkcolor=black}
+    \tableofcontents
+}
 \setstretch{1.2}
 \pagebreak
 

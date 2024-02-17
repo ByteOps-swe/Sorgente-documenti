@@ -10,6 +10,8 @@
 
 % Definisci uno stile per i comandi git
 \definecolor{light-gray}{gray}{0.92}
+\definecolor{darkgreen}{rgb}{0.0, 0.5, 0.0}
+\definecolor{navyblue}{rgb}{0.0, 0.0, 0.8}
 
 \lstdefinestyle{code}{
     frame=single,
@@ -48,7 +50,8 @@
 
 \hypersetup{
     colorlinks=true,
-    linkcolor=black,
+    linkcolor=darkgreen,
+    urlcolor=navyblue,
     filecolor=black,      
     pdftitle={Analisi dei Requisiti},
     pdfpagemode=FullScreen,
@@ -178,8 +181,11 @@
 \setstretch{1.5}
 \maketitle
 \thispagestyle{fancy}
-\tableofcontents
-\listoffigures % Indice delle figure
+{
+    \hypersetup{linkcolor=black}
+    \tableofcontents
+    \listoffigures % Indice delle figure
+}
 \setstretch{1.2}
 \pagebreak
 

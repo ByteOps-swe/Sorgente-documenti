@@ -1,4 +1,4 @@
-    \documentclass{article}
+\documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage[default]{raleway}
 \usepackage[table]{xcolor}
@@ -6,7 +6,6 @@
 \usepackage{ragged2e}
 \usepackage{subcaption}
 \usepackage{pgf-pie, multirow, longtable, tikz, titlesec, comment, tabularx, makecell, float, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, hyperref, eurosym}
-%\geometry{a4paper, left=2cm, right=2cm, top=2cm, bottom=2.5cm}
 
 \renewcommand{\headrulewidth}{0pt}
 
@@ -34,22 +33,20 @@
     \textcolor[RGB]{120, 120, 120}{$\cdot$ Piano di progetto}
 }
 \rfoot{\thepage}
- 
-% --------------------------Modifica formato hyperlinks ------------------------
+
+% -------------------------- Definizione colori ------------------------
+\definecolor{darkgreen}{rgb}{0.0, 0.5, 0.0}
+\definecolor{navyblue}{rgb}{0.0, 0.0, 0.8}
+
+% -------------------------- Modifica formato hyperlinks ------------------------
 \hypersetup{
     colorlinks=true,
-    linkcolor=black,
-    filecolor=black,      
-    pdftitle={Piano di progetto},
+    linkcolor=darkgreen,
+    urlcolor=navyblue,
+    filecolor=black,
+    pdftitle={Piano di Progetto},
     pdfpagemode=FullScreen,
 }
-
-\definecolor{responsabile}{RGB}{0,102,204}
-\definecolor{amministratore}{RGB}{0,204,102}
-\definecolor{analista}{RGB}{255,165,0}
-\definecolor{progettista}{RGB}{255,0,0}
-\definecolor{programmatore}{RGB}{128,0,128}
-\definecolor{verificatore}{RGB}{255,192,203}
 
 \definecolor{responsabile}{RGB}{0,102,204}
 \definecolor{amministratore}{RGB}{0,204,102}
@@ -125,9 +122,12 @@
 \setstretch{1.5}
 \maketitle
 \thispagestyle{fancy}
-\tableofcontents
-\setcounter{tocdepth}{4}
-\listoffigures % Indice delle figure
+{
+    \hypersetup{linkcolor=black}
+    \tableofcontents
+    \setcounter{tocdepth}{4}
+    \listoffigures % Indice delle figure
+}
 \setstretch{1.2}
 \pagebreak
 

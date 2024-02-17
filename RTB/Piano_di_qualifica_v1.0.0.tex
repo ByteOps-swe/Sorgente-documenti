@@ -12,6 +12,8 @@
 
 % Definisci uno stile per i comandi git
 \definecolor{light-gray}{gray}{0.92}
+\definecolor{darkgreen}{rgb}{0.0, 0.5, 0.0}
+\definecolor{navyblue}{rgb}{0.0, 0.0, 0.8}
 
 \lstdefinestyle{code}{
     frame=single,
@@ -24,9 +26,6 @@
 
 \newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
 \newcolumntype{L}[1]{>{\RaggedRight\arraybackslash}m{#1}}
-
-%\setcellgapes{2ex} % Imposta l'altezza dell'header (2ex)
-
 
 % ------------------------------Metadati indice --------------------------------
 \title{\textbf{\fontsize{28}{6}\selectfont Indice}}
@@ -48,8 +47,9 @@
 
 \hypersetup{
     colorlinks=true,
-    linkcolor=black,
-    filecolor=black,      
+    linkcolor=darkgreen,
+    urlcolor=navyblue,
+    filecolor=black,
     pdftitle={Piano di qualifica},
     pdfpagemode=FullScreen,
 }
@@ -149,7 +149,10 @@
 \setstretch{1.5}
 \maketitle
 \thispagestyle{fancy}
-\tableofcontents
+{
+    \hypersetup{linkcolor=black}
+    \tableofcontents
+}
 \setstretch{1.2}
 \pagebreak
 
