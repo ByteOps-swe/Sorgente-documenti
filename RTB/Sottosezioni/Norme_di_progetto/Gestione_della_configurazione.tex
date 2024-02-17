@@ -61,16 +61,16 @@ Tale metodologia permette una parallelizzazione agile dei lavori evitando sovras
 
 \begin{table}[H]
     \centering
-    \begin{tabular}{|c|c|}
+    \begin{tabular}{|C{4cm}|C{2cm}|}
         \hline
-        Documento & \textit{ID}\textsubscript{\textit{G}} \\
-        \hline
-        Verbale interno & VI \\
-        Verbale esterno & VE \\
-        Norme di Progetto & NdP \\
-        Piano di Qualifica & PdQ \\
-        Piano di Progetto & PdP \\ 
-        Analisi dei Requisiti & AdR \\
+        \textbf{Documento} & \textbf{ID} \\
+        \hline \hline
+        Verbale interno         & VI  \\
+        Verbale esterno         & VE  \\
+        Norme di Progetto       & NdP \\
+        Piano di Qualifica      & PdQ \\
+        Piano di Progetto       & PdP \\ 
+        Analisi dei Requisiti   & AdR \\
         \hline
     \end{tabular}
     \caption{ID per la nomenclatura dei branch relativi alla documentazione}
@@ -107,33 +107,40 @@ Tale metodologia permette una parallelizzazione agile dei lavori evitando sovras
 \end{enumerate}
 
 \paragraph*{Comandi di comodo}
+\vspace{0.2cm}
 \begin{itemize}
-    \item Inizializzare Gitflow \\
+    \item Inizializzare Gitflow
+    \vspace{0.1cm}
     \begin{lstlisting}[style=code]
         git flow init
     \end{lstlisting}
-    \item Sviluppo di una Nuova Funzionalità \\
+    \item Sviluppo di una Nuova Funzionalità
+    \vspace{0.1cm}
     \begin{lstlisting}[style=code]
         git flow feature start nome_feature
     \end{lstlisting}
     \begin{lstlisting}[style=code]
         git flow feature finish nome_feature
     \end{lstlisting}
-    \item Risoluzione di un bug \\
+    \pagebreak
+    \item Risoluzione di un bug
+    \vspace{0.1cm}
     \begin{lstlisting}[style=code]
         git flow hotfix start nome_hotfix
     \end{lstlisting}
     \begin{lstlisting}[style=code]
         git flow hotfix finish nome_hotfix
     \end{lstlisting}
-    \item Rilascio di una nuova versione \\
+    \item Rilascio di una nuova versione
+    \vspace{0.1cm}
     \begin{lstlisting}[style=code]
         git flow release start X.X.X
     \end{lstlisting}
     \begin{lstlisting}[style=code]
         git flow release finish X.X.X
     \end{lstlisting}
-    \item Pubblicazione delle modifiche \\
+    \item Pubblicazione delle modifiche
+    \vspace{0.1cm}
     \begin{lstlisting}[style=code]
         git push origin develop
         git push origin master
@@ -164,7 +171,7 @@ Per creare una Pull Request eseguire i seguenti passaggi:
     \item Selezionare il progetto;
     \item Selezionare le \textit{milestone}\textsubscript{\textit{G}};
     \item Clicca il pulsante "Create Pull Request";
-    \item Nel caso siano presenti conflitti seguire le istruzioni in \textit{Github}\textsubscript{\textit{G}} per rimuovere tali conflitti;
+    \item Nel caso siano presenti conflitti seguire le istruzioni in \textit{Github}\textsubscript{\textit{G}} per rimuovere tali conflitti.
 \end{enumerate}
 
 \subsubsection{Controllo di configurazione}
@@ -190,7 +197,9 @@ Seguendo lo \textit{standard}\textsubscript{\textit{G}} \href{https://www.math.u
 \end{enumerate}
 
 \subsubsection{Configuration Status Accounting (Contabilità dello Stato di Configurazione)}
-La Contabilità dello Stato di Configurazione è un'\textit{attività}\textsubscript{\textit{G}} dedicata a registrare e monitorare lo stato di tutte le configurazioni di un \textit{sistema}\textsubscript{\textit{G}} \textit{software}\textsubscript{\textit{G}} durante il suo ciclo di vita. Questo processo è cruciale per mantenere la trasparenza e la tracciabilità nel ciclo di vita del \textit{software}\textsubscript{\textit{G}}, aiutando a gestire le configurazioni in modo uniforme e a mantenere un registro accurato di tutte le \textit{attività}\textsubscript{\textit{G}} e le modifiche relative agli elementi di configurazione.\\
+La Contabilità dello Stato di Configurazione è un'\textit{attività}\textsubscript{\textit{G}} dedicata a registrare e monitorare lo stato di tutte le configurazioni di un \textit{sistema}\textsubscript{\textit{G}} \textit{software}\textsubscript{\textit{G}} durante il suo ciclo di vita.
+
+Questo processo è cruciale per mantenere la trasparenza e la tracciabilità nel ciclo di vita del \textit{software}\textsubscript{\textit{G}}, aiutando a gestire le configurazioni in modo uniforme e a mantenere un registro accurato di tutte le \textit{attività}\textsubscript{\textit{G}} e le modifiche relative agli elementi di configurazione.\\
 
 \begin{itemize}
     \item \hypertarget{item:registrazioneconfigurazioni}{\textit{\textbf{Registrazione delle configurazioni}}}: registrazione delle informazioni dettagliate su ogni Configuration Item;
@@ -211,8 +220,16 @@ La Contabilità dello Stato di Configurazione è un'\textit{attività}\textsubsc
 Per approfondimenti su come creare issues e associare labels a una \textit{issue}\textsubscript{\textit{G}}, consultare la sezione relativa al \hyperlink{par:ticketing}{\textit{Ticketing}}.
 
 \subsubsection{Release management and delivery}
-Nello \textit{standard}\textsubscript{\textit{G}} \href{https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf}{ISO/IEC 12207:1995}, il processo "Release management and delivery" è definito come un processo che si occupa della pianificazione, del coordinamento e del controllo delle \textit{attività}\textsubscript{\textit{G}} necessarie per preparare e distribuire una versione di un prodotto \textit{software}\textsubscript{\textit{G}} per l'uso operativo. Questo processo comprende la gestione delle release, la distribuzione del \textit{software}\textsubscript{\textit{G}}, la preparazione della documentazione correlata e altre \textit{attività}\textsubscript{\textit{G}} correlate al rilascio e alla consegna del prodotto \textit{software}\textsubscript{\textit{G}}. \\
-Il team ByteOps ha stabilito che la creazione di una release deve avvenire in relazione alle baseline stabilite per il progetto didattico, ovvero \textit{RTB}\textsubscript{\textit{G}} (Requirements and Technology Baseline), \textit{PB}\textsubscript{\textit{G}} (Product Baseline) ed eventualmente CA (Customer Acceptance). Questo processo inoltre deve essere attuato solo dopo una completa verifica e validazione del prodotto seguendo le procedure dettagliate nelle \textit{sezioni Verifica(~\ref{subsec:verifica})} e \textit{Validazione(~\ref{subsec:validazione})}. \\
+Nello \textit{standard}\textsubscript{\textit{G}} \href{https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf}{ISO/IEC 12207:1995}, il processo "Release management and delivery" è definito come un processo che si occupa della pianificazione, del coordinamento e del controllo delle \textit{attività}\textsubscript{\textit{G}} necessarie per preparare e distribuire una versione di un prodotto \textit{software}\textsubscript{\textit{G}} per l'uso operativo.
+
+Questo processo comprende la gestione delle release, la distribuzione del \textit{software}\textsubscript{\textit{G}}, la preparazione della documentazione correlata e altre \textit{attività}\textsubscript{\textit{G}} correlate al rilascio e alla consegna del prodotto \textit{software}\textsubscript{\textit{G}}.
+
+\vspace{0.2cm}
+
+Il team ByteOps ha stabilito che la creazione di una release deve avvenire in relazione alle baseline stabilite per il progetto didattico, ovvero \textit{RTB}\textsubscript{\textit{G}} (Requirements and Technology Baseline), \textit{PB}\textsubscript{\textit{G}} (Product Baseline) ed eventualmente CA (Customer Acceptance). Questo processo inoltre deve essere attuato solo dopo una completa verifica e validazione del prodotto seguendo le procedure dettagliate nelle \textit{sezioni Verifica(~\ref{subsec:verifica})} e \textit{Validazione(~\ref{subsec:validazione})}.
+
+\vspace{0.2cm}
+
 In conformità con quanto definito nella \textit{sezione~\ref{subsubsec:versionamento}}, relativa al versionamento dei numeri, ogni nuova release comporta un incremento di 1 nell'elemento numerico X del formato X.Y.Z.
 
 \paragraph{Procedura per la creazione di una release}
@@ -225,7 +242,7 @@ Per la creazione di una release eseguire la seguente procedura:
     \item Seleziona il \textit{branch}\textsubscript{\textit{G}} main come \textit{branch}\textsubscript{\textit{G}} target di cui si vuole creare una release;
     \item Scegliere un titolo per la release. La convenzione adottata è quella di inserire come titolo il nome della baseline per la quale si vuole creare la release.
     \item Scrivi una breve descrizione per la release;
-    \item Clicca "Publish release";
+    \item Clicca "Publish release".
 \end{itemize}
 
 Dopo aver seguito la procedura, nella sezione "Releases" di GitHub sarà visibile la release appena creata e sarà possibile scaricare il file.zip relativo.
