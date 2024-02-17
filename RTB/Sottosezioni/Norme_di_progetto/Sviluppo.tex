@@ -311,7 +311,7 @@ Ciascun diagramma delle classi rappresenta le proprietà e le relazioni tra le v
 Le classi sono rappresentate graficamente sotto forma di rettangoli divisi in tre sezioni:
 \begin{enumerate}
     \item \textbf{Nome della classe}: identificativo della classe. \\
-    È rappresentato in grassetto seguendo la convenzione PascalCase e deve esplicitare chiaramente la responsabilità della classe. Se la classe è astratta, il nome viene scritto in corsivo.
+    È rappresentato in grassetto seguendo la convenzione PascalCase e deve esplicitare chiaramente la responsabilità della classe. Se la classe è astratta, il nome viene scritto in corsivo;
     \item \textbf{Attributi}: ogni elemento sarà presentato in una riga separata, secondo il seguente formato: \\
     \begin{center}\texttt{Visibilità Nome: Tipo [Molteplicità] = Valore/i di Default}\end{center}
     \begin{itemize}
@@ -326,24 +326,24 @@ Le classi sono rappresentate graficamente sotto forma di rettangoli divisi in tr
         Qualora l'attributo fosse di tipo costante, allora il nome verrà scritto interamente in maiuscolo \texttt{NOMEATTRIBUTO: tipo};
         \item \textbf{Molteplicità}: nel caso di una sequenza di elementi, come liste o array, la sua lunghezza può essere specificata con la sintassi \texttt{tipoAttributo[molteplicità]}. \\
         Se la sequenza contiene un numero di elementi non conosciuto a priori, verrà adottata la sintassi \texttt{tipoAttributo[*]}. \\
-        Nel caso di un singolo elemento, la sua dichiarazione è opzionale.
+        Nel caso di un singolo elemento, la sua dichiarazione è opzionale;
         \item \textbf{Default}: ogni attributo può essere dichiarato con un valore di default.
     \end{itemize}
     \item \textbf{Firme dei metodi}: descrivono il comportamento delle classi individuate. Ogni metodo occuperà una riga e seguiranno il formato: \\
     \begin{center} \texttt{Visibilità Nome (Parametri Formali): Tipo di Ritorno} \end{center}
     \begin{itemize}
-        \item \textbf{Visibilità}: segue la convenzione definita per gli attributi.
-        \item \textbf{Nome}: rappresenta l'identificativo univoco del metodo e descrive in modo esplicito il suo obiettivo, seguendo la notazione \textit{PascalCase}.
-        \item \textbf{Parametri formali}: il loro numero varia da $0$ a $n$ e sono separati tramite la virgola. Ogni parametro seguirà la notazione e le convenzioni definite per gli attributi.
+        \item \textbf{Visibilità}: segue la convenzione definita per gli attributi;
+        \item \textbf{Nome}: rappresenta l'identificativo univoco del metodo e descrive in modo esplicito il suo obiettivo, seguendo la notazione \textit{PascalCase};
+        \item \textbf{Parametri formali}: il loro numero varia da $0$ a $n$ e sono separati tramite la virgola. Ogni parametro seguirà la notazione e le convenzioni definite per gli attributi;
         \item \textbf{Tipo di ritorno}: determina il tipo che verrà ritornato dal metodo.
     \end{itemize}
 \end{enumerate}
 
 \vspace{15pt}
 
-I metodi getter, setter e i costruttori non vengono inclusi fra i metodi;  \\
-I metodi astratti sono scritti in corsivo; \\
-I metodi statici sono sottolineati; \\
+I metodi getter, setter e i costruttori non vengono inclusi fra i metodi. \\
+I metodi astratti sono scritti in corsivo. \\
+I metodi statici sono sottolineati. \\
 L'assenza di attributi o metodi in una classe, determina una visualizzazione di campi vuoti nel diagramma delle classi. \\ 
 
 \vspace{15pt}
@@ -454,8 +454,8 @@ Il rigoroso rispetto delle norme garantisce la creazione di codice di alta quali
 Le seguenti norme sono state formalizzate prendendo spunto dal libro "Clean Code" di Robert C. Martin.
 
 \begin{itemize}
-    \item \textbf{Nomi significativi}: usare nomi che riflettano il significato e lo scopo delle variabili, funzioni e classi. Evitare abbreviazioni ambigue.
-    \item \textbf{Indentazioni e formattazione consistente}: l'utilizzo di un tab per ciascun livello di annidamento è fondamentale per assicurare una struttura coerente del codice, migliorandone la comprensione e agevolandone la gestione.
+    \item \textbf{Nomi significativi}: usare nomi che riflettano il significato e lo scopo delle variabili, funzioni e classi. Evitare abbreviazioni ambigue;
+    \item \textbf{Indentazioni e formattazione consistente}: l'utilizzo di un tab per ciascun livello di annidamento è fondamentale per assicurare una struttura coerente del codice, migliorandone la comprensione e agevolandone la gestione;
     \item \textbf{Lunghezza dei metodi}: la lunghezza ottimale dei metodi può variare a seconda del contesto e delle best practices di programmazione. Tuttavia, in generale, molti esperti consigliano che i metodi siano brevi e focalizzati su una singola responsabilità. Un principio comune è quello espresso da Robert C. Martin nel suo libro "Clean Code", che suggerisce che i metodi dovrebbero essere idealmente lunghi quanto basta per svolgere una singola operazione e non più lungo di quanto si possa visualizzare senza dover scorrere la pagina. \\
     Questo favorisce:
     \begin{itemize}
@@ -465,7 +465,7 @@ Le seguenti norme sono state formalizzate prendendo spunto dal libro "Clean Code
         \item \textbf{Testabilità:} metodi più brevi sono più facili da testare in isolamento, il che favorisce l'implementazione di test di unità efficaci;
         \item \textbf{Conformità ai principi SOLID:} la brevità dei metodi è spesso correlata al principio Single Responsibility Principle (SRP) dei principi SOLID, il che favorisce la costruzione di codice più modulare e coeso.
     \end{itemize} 
-    \item \textbf{Lunghezza righe di codice}: mantenere le righe di codice entro i 80-120 caratteri permette una migliore leggibilità del codice su schermi di diverse dimensioni e facilita la visualizzazione di più file affiancati. Inoltre, limitare la lunghezza delle righe può incoraggiare la scrittura di codice più chiaro e modulare.
+    \item \textbf{Lunghezza righe di codice}: mantenere le righe di codice entro i 80-120 caratteri permette una migliore leggibilità del codice su schermi di diverse dimensioni e facilita la visualizzazione di più file affiancati. Inoltre, limitare la lunghezza delle righe può incoraggiare la scrittura di codice più chiaro e modulare;
     \item \textbf{Commenti} \\
     Evitare commenti superflui e non necessari: l'obiettivo è scrivere il codice in modo chiaro e autoesplicativo, riducendo la dipendenza da commenti esplicativi.
 \end{itemize}

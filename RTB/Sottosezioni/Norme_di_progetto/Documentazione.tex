@@ -28,12 +28,12 @@ Per tali ragioni si è presa la decisione di adottare un nuovo approccio.
 L'approccio che si intende adottare è quello di "Documentation as Code" (Documentazione come Codice) che consiste nel trattare la documentazione di un progetto software allo stesso modo in cui si tratta il codice sorgente. Questo approccio è incentrato sull'utilizzo di pratiche e strumenti tipici dello sviluppo software per creare, gestire e distribuire la documentazione.
 Alcuni aspetti chiave della "Documentation as Code" includono:
 \begin{itemize}
-    \item \textbf{Versionamento}
-    \item \textbf{Scrittura in formato testuale}
-    \item \textbf{Automazione}
-    \item \textbf{Collaborazione}
-    \item \textbf{Integrazione Continua}
-    \item \textbf{Distribuzione}
+    \item \textbf{Versionamento};
+    \item \textbf{Scrittura in formato testuale};
+    \item \textbf{Automazione};
+    \item \textbf{Collaborazione};
+    \item \textbf{Integrazione Continua};
+    \item \textbf{Distribuzione}.
 \end{itemize}
 Questo approccio porta diversi vantaggi, tra cui una maggiore coerenza, una migliore tracciabilità delle modifiche e facilità di manutenzione. Inoltre, il concetto di "Documentation as Code" si allinea con la filosofia DevOps, dove la collaborazione e l'automazione sono valori chiave.\\
 
@@ -55,7 +55,7 @@ Il ciclo di vita dei documenti è una sequenza di stati e \textit{attività}\tex
           \end{enumerate}
     \item \textbf{Stato: Redazione}
           \begin{enumerate}
-              \item  Ogni tipo di documento viene creato secondo la struttura specificata nella sezione~\ref{subsubsec:strutturadocumento};
+              \item  Ogni tipo di documento viene creato secondo la struttura specificata nella \textit{sezione~\ref{subsubsec:strutturadocumento}};
               \item Il team realizza il documento redigendone il contenuto rispettando le norme definite.
           \end{enumerate}
     \item \textbf{Stato: Verifica}
@@ -126,7 +126,7 @@ Una volta terminata la redazione di un documento o di una sezione, ogni redattor
     \item Attuare una \hyperlink{par:creazionePR}{\textit{\textbf{Pull Request:}}}
           \begin{enumerate}
               \item Aggiornare il registro delle modifiche inserendo i dati richiesti in una nuova riga e incrementando la versione (il verificatore è definito all'assegnazione della task, presente nella descrizione della Issue del'ITS).
-              È importante sottolineare che l'incremento della versione deve avvenire seguendo la convenzione specificata nella sezione~\ref{subsubsec:versionamento} e tramite il comando "\verb|{\label{Git_Action_Version}X.Y.Z}|", come specificato nel paragrafo \hyperlink{par:infoUtiliRegistroMod}{"\textit{Informazioni utili}"} relativo alla sezione dedicata al registro delle modifiche;
+              È importante sottolineare che l'incremento della versione deve avvenire seguendo la convenzione specificata nella \textit{sezione~\ref{subsubsec:versionamento}} e tramite il comando "\verb|{\label{Git_Action_Version}X.Y.Z}|", come specificato nel paragrafo \hyperlink{par:infoUtiliRegistroMod}{"\textit{Informazioni utili}"} relativo alla sezione dedicata al registro delle modifiche;
               \item Eseguire i passaggi dettagliati nel caso "\hyperlink{par:salvataggioecondivisioneprogressitasknoncompletate}{\textit{\textbf{Salvataggio e condivisione progressi di task non completate}}}";
               \item Accedere al \href{https://github.com/ByteOps-swe/Sorgente-documenti.git}{repository} GitHub >> Apri la sezione "Pull requests" >> Clicca "New Pull Request";
               \item Selezionare come branch di destinazione "main" e come branch sorgente il ramo utilizzato per la redazione del documento (o sezione) da validare;
@@ -138,7 +138,7 @@ Una volta terminata la redazione di un documento o di una sezione, ogni redattor
 Se i verificatori non convalidano il documento (o la sezione), i redattori riceveranno dei feedback allegati alla Pull Request relativi ai problemi identificati.
 
 \paragraph{I Verificatori}
-I compiti e le procedure dei verificatori sono dettagliate al paragrafo ~\ref{sec:verificatori}.
+I compiti e le procedure dei verificatori sono dettagliate al \textit{paragrafo~\ref{sec:verificatori}}.
 
 \paragraph{Il responsabile}
 Nel processo di redazione dei documenti, il compito del responsabile consiste nel:
@@ -176,7 +176,7 @@ La tabella deve essere inserita nella sezione registro delle modifiche subito pr
 
 \hypertarget{par:infoUtiliRegistroMod}{\paragraph*{Informazioni utili:}}
 \begin{itemize}
-    \item La convezione per il versionamento è presente alla sezione~\ref{subsubsec:versionamento};
+    \item La convezione per il versionamento è presente alla \textit{sezione~\ref{subsubsec:versionamento}};
     \item La prima riga del registro delle modifiche identifica la versione attuale del documento;
     \item Durante la compilazione del file sorgente \LaTeX, viene eseguito un processo automatizzato che integra la versione corretta nel nome del documento, basandosi sulla prima riga del registro delle modifiche. Affinché ciò avvenga correttamente, è necessario specificare l'ultima versione all'interno del registro delle modifiche del documento utilizzando il comando \verb|{\label{Git_Action_Version}X.Y.Z}|.
 \end{itemize}
@@ -244,7 +244,7 @@ Il template per i verbali è raggiungibile tramite \href{https://github.com/Byte
 
 \subsubsection{Regole tipografiche}
 \paragraph*{Documenti del progetto e nome dei file}\label{sec:NomeFile}
-Il nome dei documenti generati deve essere omogeneo, con la prima lettera maiuscola ed il resto minuscolo e, ad eccezione dei verbali, deve contenere un riferimento alla versione del documento (vedi notazione per il versionamento nella sezione~\ref{subsubsec:versionamento}). \\
+Il nome dei documenti generati deve essere omogeneo, con la prima lettera maiuscola ed il resto minuscolo e, ad eccezione dei verbali, deve contenere un riferimento alla versione del documento (vedi notazione per il versionamento nella \textit{sezione~\ref{subsubsec:versionamento}}). \\
 Nello specifico devono seguire la seguente convenzione:
 \begin{itemize}
     \item \textbf{Verbali:} Verbale\_AAAA-MM-DD ;
@@ -287,7 +287,7 @@ Nello specifico devono seguire la seguente convenzione:
 Nei documenti vi sono molte ripetizioni di termini per la quale si possono usare le seguenti abbreviazioni:\\
 \vspace{0.2cm}
 \begin{center}
-    \begin{tabular}{|C{2.5cm}|C{4cm}|}
+    \begin{tabular}{|C{2.5cm}|C{5cm}|}
         \hline
         \textbf{Abbreviazione} & \textbf{Scrittura Estesa}            \\
         \hline
@@ -304,7 +304,7 @@ Nei documenti vi sono molte ripetizioni di termini per la quale si possono usare
 \subsubsection{Strumenti}
 Gli strumenti utilizzati dalle \textit{attività}\textsubscript{\textit{G}} di redazione dei documenti vogliono soddisfare il principio adottato di "Documentation as Code".
 \begin{itemize}
-    \item \textbf{GitHub}: utilizzato per il versionamento, la collaborazione e la distribuzione dei documenti, nonché per automatizzare la loro compilazione.
-    \item \textbf{\LaTeX}: utilizzato per la redazione dei documenti, sfruttando il suo potente sistema di formattazione testuale per creare documenti di alta qualità.
+    \item \textbf{GitHub}: utilizzato per il versionamento, la collaborazione e la distribuzione dei documenti, nonché per automatizzare la loro compilazione;
+    \item \textbf{\LaTeX}: utilizzato per la redazione dei documenti, sfruttando il suo potente sistema di formattazione testuale per creare documenti di alta qualità;
     \item \textbf{Visual Studio Code}: IDE utilizzato dai redattori per la redazione dei documenti grazie al supporto del plugin \textbf{\LaTeX\ Workshop}.
 \end{itemize}

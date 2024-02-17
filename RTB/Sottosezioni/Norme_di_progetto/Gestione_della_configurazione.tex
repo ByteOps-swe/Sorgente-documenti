@@ -21,7 +21,7 @@ Ogni variazione di versione deve essere presente nel registro delle modifiche.
 Di seguito sono elencate le repository del team ByteOps con i relativi riferimenti:
 \begin{itemize}
     \item \href{https://github.com/ByteOps-swe/Sorgente-documenti}{Sorgente-documenti:} repository per il versionamento, la gestione e lo sviluppo dei file sorgente relativi alla documentazione;
-    \item \href{https://github.com/ByteOps-swe/Documents}{Documents:} repository destinata ai committenti/proponenti, dove vengono esclusivamente condivisi i file in formato PDF relativi alla documentazione, ottenuti dalla compilazione dei file sorgente presenti nella cartella "Sorgente-documenti".
+    \item \href{https://github.com/ByteOps-swe/Documents}{Documents:} repository destinata ai committenti/proponenti, dove vengono esclusivamente condivisi i file in formato PDF relativi alla documentazione, ottenuti dalla compilazione dei file sorgente presenti nella cartella "Sorgente-documenti";
     \item \href{https://github.com/ByteOps-swe/proof-of-concept}{proof-of-concept:} repository destinata al POC.
 \end{itemize}
 \paragraph{Struttura repository}
@@ -50,7 +50,7 @@ I \textit{repository}\textsubscript{\textit{G}} destinati alla documentazione so
 \hypertarget{subsubsec:sincronizzazione&branching}{\subsubsection{Sincronizzazione e Branching}}
 \paragraph{Documentazione}
 Il processo operativo utilizzato per la redazione della documentazione, noto come "\href{https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow}{Feature Branch workflow}", implica la creazione di un ramo dedicato per ciascun documento o sezione da elaborare.
-Tale metodologia permette una parallelizzazione agile dei lavori evitando sovrascritture indesiderate di altri lavori e permette l'adozione dei principi "Documentation as code" definiti nella sezione~\ref{sec:DocumentationAscode}. \\ 
+Tale metodologia permette una parallelizzazione agile dei lavori evitando sovrascritture indesiderate di altri lavori e permette l'adozione dei principi "Documentation as code" definiti nella \textit{sezione~\ref{sec:DocumentationAscode}}. \\ 
 
 \paragraph*{\hypertarget{par:convezioninomenclaturabranchdocumenti}{\textbf{Convenzioni per la nomenclatura dei branch relativi alle attività di redazione o modifica di documenti}}}
 
@@ -147,7 +147,7 @@ Tale metodologia permette una parallelizzazione agile dei lavori evitando sovras
 \end{itemize}
 
 \paragraph{Pull Request}
-Dopo aver portato a termine le attività nel proprio branch, il responsabile del suo sviluppo è tenuto ad avviare una Pull Request per incorporare le modifiche effettuate nel ramo principale (main). La Pull Request viene approvata solo dopo che le modifiche sono state verificate sulla base di quanto descritto nella sezione~\ref{subsec:verifica}.
+Dopo aver portato a termine le attività nel proprio branch, il responsabile del suo sviluppo è tenuto ad avviare una Pull Request per incorporare le modifiche effettuate nel ramo principale (main). La Pull Request viene approvata solo dopo che le modifiche sono state verificate sulla base di quanto descritto nella \textit{sezione~\ref{subsec:verifica}}.
 
 \hypertarget{par:creazionePR}{\paragraph*{Procedura per la creazione di Pull Request}}
 Per creare una Pull Request eseguire i seguenti passaggi:
@@ -179,7 +179,7 @@ Seguendo lo standard \href{https://www.math.unipd.it/~tullio/IS-1/2009/Approfond
     \item \textbf{Approvazione o rifiuto} \\
     Il responsabile valuta le informazioni raccolte e decide se approvare o respingere la change request. Questa decisione può essere basata su criteri come il budget, il tempo, le priorità degli stakeholder;
     \item \textbf{Pianificazione delle modifiche} \\
-    Se una change request viene approvata, viene pianificata e integrata nel ciclo di sviluppo del software. Questo può richiedere, ad esempio, la rinegoziazione dei tempi di consegna e la revisione del piano di progetto.
+    Se una change request viene approvata, viene pianificata e integrata nel ciclo di sviluppo del software. Questo può richiedere, ad esempio, la rinegoziazione dei tempi di consegna e la revisione del piano di progetto;
     \item \textbf{Implementazione delle modifiche} \\
     Le modifiche vengono effettivamente implementate. Durante questo processo, è fondamentale mantenere una traccia accurata di ciò che viene fatto per consentire una corretta documentazione e, se necessario, la possibilità di un rollback;
     \item \textbf{Verifica e validazione} \\
@@ -199,7 +199,7 @@ La Contabilità dello Stato di Configurazione è un'attività dedicata a registr
               \item  \textbf{Sviluppo:} le informazioni relative alla configurazione sono inserite come prime righe di ciascun file sotto forma di commento.
           \end{itemize}
     \item \textbf{Stato e cambiamenti}: tenere traccia dello stato attuale di ciascun elemento di configurazione e di tutti i cambiamenti che avvengono nel corso del tempo. \\
-    Ciò include le versioni attuali, le revisioni, le modifiche e le baselines;
+    Ciò include le versioni attuali, le revisioni, le modifiche e le baseline;
         \begin{itemize}
             \item \textbf{Registro delle modifiche:} per monitorare lo stato di ciascun Configuration Item si utilizza il registro delle modifiche incorporato in ognuno di essi, come specificato in \hyperlink{item:registrazioneconfigurazioni}{"\textit{registrazione delle configurazioni}"};
             \item \textbf{Branching \& DashBoard:} per verificare se vi sono attività in corso su un Configuration Item, è sufficiente controllare se ci sono branch attivi correlati e, dato che ogni issue è associata a un CI tramite label, verificare le eventuali issue contrassegnate come "In Progress" nella colonna corrispondente della Dashboard del progetto.
