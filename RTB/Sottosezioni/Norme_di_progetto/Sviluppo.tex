@@ -6,8 +6,12 @@ L'\href{https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-19
 \subsubsection{Analisi dei requisiti}
 \paragraph{Descrizione}
 L'\textit{analisi dei requisiti}\textsubscript{\textit{G}} è un' \textit{attività}\textsubscript{\textit{G}} critica nell'ambito dello sviluppo \textit{software}\textsubscript{\textit{G}} poiché stabilisce le basi per il design, l'implementazione e i \textit{test}\textsubscript{\textit{G}} del \textit{sistema}\textsubscript{\textit{G}}. \\
-Secondo lo \textit{standard}\textsubscript{\textit{G}} \href{https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf}{ISO/IEC 12207:1995}, lo scopo dell'\textit{analisi dei requisiti}\textsubscript{\textit{G}} è di comprendere e definire in modo esaustivo le esigenze del cliente e del \textit{sistema}\textsubscript{\textit{G}}. \\
+Secondo lo \textit{standard}\textsubscript{\textit{G}} \href{https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf}{ISO/IEC 12207:1995}, lo scopo dell'\textit{analisi dei requisiti}\textsubscript{\textit{G}} è di comprendere e definire in modo esaustivo le esigenze del cliente e del \textit{sistema}\textsubscript{\textit{G}}.
+
+\vspace{0.2cm}
+
 L’\textit{attività}\textsubscript{\textit{G}} di analisi richiede di rispondere a domande fondamentali come: “Qual è il dominio?”, “Qual è la cosa giusta da fare?”, "Quali sono le necessità del cliente?" e consiste nella comprensione approfondita del dominio e nella definizione chiara di obiettivi, vincoli e requisiti sia tecnici che funzionali.
+
 \paragraph{Obiettivi}
 \begin{itemize}
     \item Definire insieme alla \textit{proponente}\textsubscript{\textit{G}} gli obiettivi del prodotto per rispecchiarne le aspettative, comprendendo identificazione, documentazione e validazione dei requisiti funzionali e non funzionali;
@@ -22,12 +26,14 @@ L’\textit{attività}\textsubscript{\textit{G}} di analisi richiede di risponde
 \begin{itemize}
     \item \textbf{Introduzione}: presentazione e scopo del documento stesso;
     \item \textbf{Descrizione}: analisi del prodotto
-          \begin{itemize}
-              \item Obiettivi del prodotto;
-              \item Funzionalità del prodotto;
-              \item Caratteristiche utente;
-              \item Tecnologie.
-          \end{itemize}
+        \begin{itemize}
+            \item Obiettivi del prodotto;
+            \item Funzionalità del prodotto;
+            \item Caratteristiche utente;
+            \item Tecnologie.
+        \end{itemize}
+    
+    \pagebreak
     \item \textbf{Casi d'uso}: funzionalità offerte dal \textit{sistema}\textsubscript{\textit{G}} dal punto di vista dell'utente
         \begin{itemize}
             \item Attori: utenti esterni al \textit{sistema}\textsubscript{\textit{G}};
@@ -46,20 +52,26 @@ L’\textit{attività}\textsubscript{\textit{G}} di analisi richiede di risponde
         \end{itemize}
 \end{itemize}
 \paragraph{Casi d'uso}
-Forniscono una descrizione dettagliata delle funzionalità del \textit{sistema}\textsubscript{\textit{G}} dal punto di vista degli utenti, identificando come il \textit{sistema}\textsubscript{\textit{G}} risponde a determinate azioni o scenari. In breve, i casi d'uso sono strumenti utilizzati nell'\textit{analisi dei requisiti}\textsubscript{\textit{G}} per catturare e illustrare in modo chiaro e comprensibile come gli utenti interagiranno con il \textit{software}\textsubscript{\textit{G}} e quali saranno i risultati di tali interazioni. \\
+Forniscono una descrizione dettagliata delle funzionalità del \textit{sistema}\textsubscript{\textit{G}} dal punto di vista degli utenti, identificando come il \textit{sistema}\textsubscript{\textit{G}} risponde a determinate azioni o scenari. In breve, i casi d'uso sono strumenti utilizzati nell'\textit{analisi dei requisiti}\textsubscript{\textit{G}} per catturare e illustrare in modo chiaro e comprensibile come gli utenti interagiranno con il \textit{software}\textsubscript{\textit{G}} e quali saranno i risultati di tali interazioni. 
+
+\vspace{0.2cm}
+
 Ogni caso d'uso testuale deve essere costituito da:
 \begin{enumerate}
-    \item \textbf{Identificativo} nel formato:\\
-          \begin{center}
-              \textbf{UC [Numero caso d'uso] . [Numero sotto caso d'uso] - [Titolo]}
-          \end{center}
-          (ex. UC6.1 - Visualizzazione posizione \textit{sensore}\textsubscript{\textit{G}}).\\
-          con:
-          \begin{itemize}
-              \item \textbf{Numero caso d'uso:} \textit{ID}\textsubscript{\textit{G}} numerico del caso d'uso;
-              \item \textbf{Numero sotto caso d'uso:} \textit{ID}\textsubscript{\textit{G}} numerico del sottocaso d'uso (presente esclusivamente se si sta identificando un sottocaso d'uso).
-              \item \textbf{Titolo}: titolo breve ed esplicativo del caso d'uso.
-          \end{itemize}
+    \item \textbf{Identificativo}
+    \begin{center}
+        \textbf{UC [Numero caso d'uso] . [Numero sotto caso d'uso] - [Titolo]}
+    \end{center}
+    (ex. UC6.1 - Visualizzazione posizione \textit{sensore}\textsubscript{\textit{G}}).
+    
+    con:
+
+    \begin{itemize}
+        \item \textbf{Numero caso d'uso:} \textit{ID}\textsubscript{\textit{G}} numerico del caso d'uso;
+        \item \textbf{Numero sotto caso d'uso:} \textit{ID}\textsubscript{\textit{G}} numerico del sottocaso d'uso (presente esclusivamente se si sta identificando un sottocaso d'uso).
+        \item \textbf{Titolo}: titolo breve ed esplicativo del caso d'uso.
+    \end{itemize}
+
     \item \textbf{Attore principale:} entità esterna che interagisce attivamente con il \textit{sistema}\textsubscript{\textit{G}} per soddisfare una sua necessità;
     \item \textbf{Attore secondario:} eventuale entità esterna che non interagisce attivamente con il \textit{sistema}\textsubscript{\textit{G}}, ma all'interno di un caso d'uso permette al \textit{sistema}\textsubscript{\textit{G}} di soddisfare il bisogno dell'attore principale;
     \item \textbf{Descrizione:} eventuale descrizione breve della funzionalità;
@@ -72,64 +84,91 @@ Ogni caso d'uso testuale deve essere costituito da:
 \end{enumerate}
 
 \paragraph{Diagrammi dei casi d'uso} 
-I diagrammi dei casi d'uso sono strumenti grafici che permettono di visualizzare in modo chiaro e intuitivo le funzionalità offerte dal \textit{sistema}\textsubscript{\textit{G}} dal punto di vista dell'utente. Inoltre, consentono di identificare e comprendere rapidamente le relazioni e le interazioni tra i vari casi d'uso, offrendo una visione d'insieme delle funzionalità offerte dal \textit{sistema}\textsubscript{\textit{G}}.\\
-I diagrammi dei casi d'uso si concentrano sulla descrizione delle funzionalità del \textit{sistema}\textsubscript{\textit{G}} dal punto di vista degli utenti senza approfondire dettagli implementativi. La loro finalità principale è quella di evidenziare le interazioni dall'esterno al \textit{sistema}\textsubscript{\textit{G}}, offrendo una visione focalizzata sulle funzionalità e sull'interazione dell'utente con il \textit{sistema}\textsubscript{\textit{G}} stesso. \\
-Un diagramma dei casi d'uso fornisce una panoramica visuale delle interazioni chiave tra gli attori e il \textit{sistema}\textsubscript{\textit{G}}, facilitando la comprensione dei requisiti funzionali del \textit{sistema}\textsubscript{\textit{G}} e la comunicazione tra gli \textit{stakeholder}\textsubscript{\textit{G}} del progetto. \\
+I diagrammi dei casi d'uso sono strumenti grafici che permettono di visualizzare in modo chiaro e intuitivo le funzionalità offerte dal \textit{sistema}\textsubscript{\textit{G}} dal punto di vista dell'utente. Inoltre, consentono di identificare e comprendere rapidamente le relazioni e le interazioni tra i vari casi d'uso, offrendo una visione d'insieme delle funzionalità offerte dal \textit{sistema}\textsubscript{\textit{G}}.
+
+\vspace{0.2cm}
+
+I diagrammi dei casi d'uso si concentrano sulla descrizione delle funzionalità del \textit{sistema}\textsubscript{\textit{G}} dal punto di vista degli utenti senza approfondire dettagli implementativi. La loro finalità principale è quella di evidenziare le interazioni dall'esterno al \textit{sistema}\textsubscript{\textit{G}}, offrendo una visione focalizzata sulle funzionalità e sull'interazione dell'utente con il \textit{sistema}\textsubscript{\textit{G}} stesso. 
+
+\vspace{0.2cm}
+
+Un diagramma dei casi d'uso fornisce una panoramica visuale delle interazioni chiave tra gli attori e il \textit{sistema}\textsubscript{\textit{G}}, facilitando la comprensione dei requisiti funzionali del \textit{sistema}\textsubscript{\textit{G}} e la comunicazione tra gli \textit{stakeholder}\textsubscript{\textit{G}} del progetto.
+
 Di seguito sono elencati i principali componenti di un diagramma dei casi d'uso:
+\pagebreak
 
 \begin{itemize}
-    \item \textbf{Attori} \\
+    \item \textbf{Attori} 
+    
     Gli attori sono le entità esterne al \textit{sistema}\textsubscript{\textit{G}} che interagiscono con esso e possono essere utenti umani, altri sistemi \textit{software}\textsubscript{\textit{G}} o componenti esterne. \\
     Gli attori sono rappresentati come "stickman" all'esterno del rettangolo che delinea il \textit{sistema}\textsubscript{\textit{G}}.
-    \begin{minipage}[t]{\linewidth}
+    \begin{minipage}[H]{\linewidth}
         \centering
-        \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/Attore.PNG}
+        \includegraphics[width=0.7\textwidth]{../Images/NormeDiProgetto/Attore.PNG}
         \captionof{figure}{Rappresentazione Attore}
     \end{minipage}
 
-    \item \textbf{Casi d'Uso} \\
+    \vspace{0.4cm}
+
+    \item \textbf{Casi d'Uso} 
+    
     I casi d'uso identificano le diverse funzionalità offerte dal \textit{sistema}\textsubscript{\textit{G}} con cui l'attore può interagire. \\
     Ogni caso d'uso viene rappresentato tramite una forma ovale contenente un \textit{ID}\textsubscript{\textit{G}} ed un titolo esplicativo.
-    \begin{minipage}[t]{\linewidth}
+    \begin{minipage}[H]{\linewidth}
         \centering
         \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/UC.PNG}
         \captionof{figure}{Rappresentazione caso d'uso}
     \end{minipage}
+    \pagebreak
 
-    \item \textbf{Sottocasi d'uso} \\
+    \item \textbf{Sottocasi d'uso}
+    
     Un sottocaso d'uso rappresenta una versione più dettagliata di un caso d'uso più generico, offrendo un livello di dettaglio più approfondito sulle funzionalità o sui particolari scenari di utilizzo rispetto al caso d'uso principale.
-    \begin{minipage}[t]{\linewidth}
+
+    \vspace{0.2cm}
+    
+    \begin{minipage}[H]{\linewidth}
         \centering
         \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/SottocasoD'Uso.PNG}
         \captionof{figure}{Rappresentazione sottocaso d'uso}
     \end{minipage}
 
-    \item \textbf{Sistema} \\
+    \vspace{0.4cm}
+
+    \item \textbf{Sistema}
+    
     Il \textit{sistema}\textsubscript{\textit{G}} viene rappresentato da un rettangolo e viene identificato con un titolo. All'interno del \textit{sistema}\textsubscript{\textit{G}} saranno collocati i casi d'uso, mentre al suo esterno gli attori.
-    \begin{minipage}[t]{\linewidth}
+    \begin{minipage}[H]{\linewidth}
         \centering
         \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/Sistema.PNG}
         \captionof{figure}{Rappresentazione sistema}
     \end{minipage}
+    \pagebreak
 
-    \item \textbf{Relazioni tra Attori e Casi d'Uso} \\
+    \item \textbf{Relazioni tra Attori e Casi d'Uso}
+    
     \begin{itemize}
         \item \textbf{Associazione} \\
         Le linee di associazione collegano gli attori ai casi d'uso corrispondenti, indicando quali attori sono coinvolti in una particolare interazione. Più precisamente, una linea di associazione collega un attore a un caso d'uso quando quell'attore è coinvolto nell'interazione descritta dal caso d'uso stesso. Questo legame rappresenta visivamente il ruolo dell'attore nell'utilizzo o nell'avvio di una funzione specifica offerta dal \textit{sistema}\textsubscript{\textit{G}}.
-        \begin{minipage}[t]{\linewidth}
+        
+        \begin{minipage}[H]{\linewidth}
             \centering
             \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/Associazione.PNG}
             \captionof{figure}{Rappresentazione associazione}
         \end{minipage}
     \end{itemize}
 
+    \vspace{0.4cm}
+
     \item \textbf{Relazioni tra attori}
     \begin{itemize}
         \item \textbf{Generalizzazione tra attori} \\
-        La generalizzazione tra attori rappresenta una relazione di ereditarietà, dove un attore specializzato (figlio) eredita comportamenti e caratteristiche da un attore base (genitore). \\
+        La generalizzazione tra attori rappresenta una relazione di ereditarietà, dove un attore specializzato (figlio) eredita comportamenti e caratteristiche da un attore base (genitore).
+
         Questo aiuta a organizzare gerarchicamente gli attori coinvolti nell'interazione con il \textit{sistema}\textsubscript{\textit{G}} nei diagrammi dei casi d'uso. \\
         Viene rappresentata con una linea solida e una freccia vuota che parte dall'attore figlio e arriva all'attore padre.
-        \begin{minipage}[t]{\linewidth}
+
+        \begin{minipage}[H]{\linewidth}
             \centering
             \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/GeneralizzazioneAttori.PNG}
             \captionof{figure}{Rappresentazione generalizzazione tra attori}
@@ -139,62 +178,86 @@ Di seguito sono elencati i principali componenti di un diagramma dei casi d'uso:
     \item \textbf{Relazioni tra casi d'uso} \\
     \begin{itemize}
         \item \textbf{Inclusione} \\
-        La relazione di inclusione indica che un caso d'uso (detto "includente") include l'esecuzione di un altro caso d'uso (detto "incluso"). \\
-        In pratica, quando un attore interagisce con il caso d'uso includente, il caso d'uso incluso viene eseguito come parte integrante del primo. Questo è utile per favorire il riutilizzo e per evitare duplicazione in diversi casi d'uso. \\
-        La relazione di inclusione viene rappresentata da una freccia tratteggiata che collega il caso d'uso incluso al caso d'uso che lo include. \\
+        La relazione di inclusione indica che un caso d'uso (detto "includente") include l'esecuzione di un altro caso d'uso (detto "incluso").
+
+        In pratica, quando un attore interagisce con il caso d'uso includente, il caso d'uso incluso viene eseguito come parte integrante del primo. Questo è utile per favorire il riutilizzo e per evitare duplicazione in diversi casi d'uso.
+
+        La relazione di inclusione viene rappresentata da una freccia tratteggiata che collega il caso d'uso incluso al caso d'uso che lo include.
+
         Esempio: Supponiamo che per un applicazione e-commerce ci sia un caso d'uso "Conferma ordine". Questo caso d'uso può includere il caso d'uso "Visualizza carrello". Dopo la conferma dell'ordine, l'utente viene automaticamente reindirizzato alla visualizzazione del carrello al fine di ottenere una panoramica completa dei contenuti dell'ordine.
-        \begin{minipage}[t]{\linewidth}
+
+        \vspace{1cm}
+
+        \begin{minipage}[H]{\linewidth}
             \centering
-            \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/Inclusione.PNG}
+            \includegraphics[width=0.7\textwidth]{../Images/NormeDiProgetto/Inclusione.PNG}
             \captionof{figure}{Rappresentazione inclusione}
         \end{minipage}
 
+        \pagebreak
+
         \item \textbf{Estensione} \\
-        La relazione di estensione indica che un caso d'uso (detto "estendente") può estendere il comportamento di un altro caso d'uso (detto "esteso") in determinate circostanze. In altre parole, l'esecuzione del caso d'uso estendente può essere estesa o arricchita dal caso d'uso esteso al verificarsi di determinate condizioni. \\
-        La relazione di estensione è rappresentata da una freccia tratteggiata che collega il caso d'uso estendente al caso d'uso esteso. \\
+        La relazione di estensione indica che un caso d'uso (detto "estendente") può estendere il comportamento di un altro caso d'uso (detto "esteso") in determinate circostanze. In altre parole, l'esecuzione del caso d'uso estendente può essere estesa o arricchita dal caso d'uso esteso al verificarsi di determinate condizioni.
+
+        La relazione di estensione è rappresentata da una freccia tratteggiata che collega il caso d'uso estendente al caso d'uso esteso.
+        
         Esempio: Considera un caso d'uso "Visualizzazione errore di autenticazione". Questo caso d'uso potrebbe estendere il caso d'uso "Autenticazione" se durante la fase di autenticazione si inseriscono username e/o password non validi. In questo modo, l'estensione permette di gestire situazioni alternative senza ingombrare lo scenario principale di un caso d'uso e permettendo di evitare duplicazione.
-        \begin{minipage}[t]{\linewidth}
+
+        \vspace{0.6cm}
+        
+        \begin{minipage}[H]{\linewidth}
             \centering
             \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/Estensione.PNG}
             \captionof{figure}{Rappresentazione estensione}
         \end{minipage}
+        \pagebreak
 
         \item \textbf{Generalizzazione casi d'uso} \\
-        La generalizzazione nei diagrammi dei casi d'uso rappresenta una relazione di ereditarietà tra casi d'uso, indicando che un caso d'uso più specifico eredita il comportamento da un caso d'uso più generico. \\
+        La generalizzazione nei diagrammi dei casi d'uso rappresenta una relazione di ereditarietà tra casi d'uso, indicando che un caso d'uso più specifico eredita il comportamento da un caso d'uso più generico.
+
         Questa relazione è simboleggiata da una linea con una freccia vuota che punta dal caso d'uso più specifico al caso d'uso più generico.
-        \begin{minipage}[t]{\linewidth}
+
+        \vspace{0.6cm}
+
+        \begin{minipage}[H]{\linewidth}
             \centering
             \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/GeneralizzazioneUC.PNG}
             \captionof{figure}{Rappresentazione generalizzazione}
         \end{minipage}
     \end{itemize}
-
 \end{itemize}
+
+\vspace{0.2cm}
 
 \paragraph{Requisiti}
 I requisiti di un prodotto \textit{software}\textsubscript{\textit{G}} sono specifiche dettagliate e documentate che delineano le funzionalità, le prestazioni, i vincoli e altri aspetti critici che il \textit{software}\textsubscript{\textit{G}} deve soddisfare. Questi requisiti fungono da guida per lo sviluppo, il testing e la valutazione del prodotto, assicurando che risponda alle esigenze degli utenti e agli obiettivi del progetto.
-Includono
+
+Includono:
+
 \begin{itemize}
     \item \textbf{Requisiti funzionali:} descrivono le funzionalità che il \textit{software}\textsubscript{\textit{G}} deve avere.
     \item \textbf{Requisiti non funzionali:} definiscono principalmente criteri di prestazione, qualità, sicurezza e vincoli del \textit{sistema}\textsubscript{\textit{G}}, ovvero caratteristiche che non riguardano direttamente le funzionalità specifiche del \textit{software}\textsubscript{\textit{G}}.
 \end{itemize}
-Una precisa definizione dei requisiti è fondamentale: devono risultare inequivocabili e rispondere pienamente alle attese del cliente o del \textit{proponente}\textsubscript{\textit{G}}.\\
+
+Una precisa definizione dei requisiti è fondamentale: devono risultare inequivocabili e rispondere pienamente alle attese del cliente o del \textit{proponente}\textsubscript{\textit{G}}.
+\pagebreak
+
 Ogni requisito è costituito da:
 \begin{enumerate}
     \item \textbf{Identificativo} nel formato:\\
-          \begin{center}
-              \textbf{R [Abbreviazione tipologia requisito] [Codice]}
-          \end{center}
-          con:
-          \begin{itemize}
-              \item \textbf{Abbreviazione tipologia requisito:}
-                    \begin{itemize}
-                        \item \textbf{RF:} requisito funzionale;
-                        \item \textbf{RQ:} requisito qualitativo;
-                        \item \textbf{RV:} requisito di vincolo;
-                    \end{itemize}
-              \item \textbf{Codice:} Identificativo progressivo all'interno della tipologia di requisito.
-          \end{itemize}
+    \begin{center}
+        \textbf{R [Abbreviazione tipologia requisito] [Codice]}
+    \end{center}
+    con:
+    \begin{itemize}
+        \item \textbf{Abbreviazione tipologia requisito:}
+            \begin{itemize}
+                \item \textbf{RF:} requisito funzionale;
+                \item \textbf{RQ:} requisito qualitativo;
+                \item \textbf{RV:} requisito di vincolo.
+            \end{itemize}
+        \item \textbf{Codice:} Identificativo progressivo all'interno della tipologia di requisito.
+    \end{itemize}
     \item \textbf{Importanza:}
           \begin{itemize}
               \item \textbf{Obbligatorio:} irrinunciabile per qualcuno degli \textit{stakeholder}\textsubscript{\textit{G}};
@@ -205,16 +268,22 @@ Ogni requisito è costituito da:
     \item \textbf{Fonte:} fonte del requisito (ex. Capitolato, Verbale interno/esterno);
     \item \textbf{Casi d'uso:} elenco casi d'uso associati.
 \end{enumerate}
+
+\vspace{0.3cm}
+
 \paragraph{Metriche}
 Le metriche nell'\textit{analisi dei requisiti}\textsubscript{\textit{G}} sono strumenti utilizzati per valutare, misurare e gestire diversi aspetti dei requisiti di un \textit{sistema}\textsubscript{\textit{G}} o di un progetto. Queste metriche aiutano a garantire che i requisiti siano completi, corretti, coerenti e comprensibili.
+
+\vspace{0.2cm}
+
 \begin{table}[H]
     \centering
-    \begin{tabular}{|C{3cm}|C{3cm}|C{4cm}|}
+    \begin{tabular}{|C{3cm}|L{4cm}|C{3cm}|}
     \hline
-    Metrica & Nome & Riferimento \\
+    \textbf{Metrica} & \centering{\textbf{Nome}} & \textbf{Riferimento} \\
     \hline \hline
-    M18PROS & Percentuale di Requisiti Obbligatori Soddisfatti &  \hyperlink{item:M18PROS}{M18PROS} \\
-    M19PRDS & Percentuale di Requisiti Desiderabili Soddisfatti &  \hyperlink{item:M19PRDS}{M19PRDS} \\
+    M18PROS & Percentuale di Requisiti Obbligatori Soddisfatti & \hyperlink{item:M18PROS}{M18PROS} \\
+    M19PRDS & Percentuale di Requisiti Desiderabili Soddisfatti & \hyperlink{item:M19PRDS}{M19PRDS} \\
     M20PRPS & Percentuale di Requisiti Opzionali & \hyperlink{item:M20PRPS}{M20PRPS} \\
     \hline
     \end{tabular}
@@ -229,26 +298,48 @@ Le metriche nell'\textit{analisi dei requisiti}\textsubscript{\textit{G}} sono s
 \subsubsection{Progettazione}
 
 \paragraph{Descrizione}
-Lo scopo primario dell'\textit{attività}\textsubscript{\textit{G}} di progettazione consiste nell'identificare una soluzione realizzativa ottimale che soddisfi appieno le esigenze di tutti gli \textit{stakeholder}\textsubscript{\textit{G}}, considerando i requisiti e le risorse disponibili. \\
-La progettazione risponde alla domanda chiave: 'Qual è il modo migliore per realizzare ciò di cui c'è bisogno?'. \\
-È cruciale definire l'\textit{architettura}\textsubscript{\textit{G}} del prodotto prima di avviare la fase di codifica, perseguendo correttezza per costruzione piuttosto che correttezza per correzione. Questo approccio permette di gestire in modo efficiente la complessità del prodotto, garantendo una struttura robusta e coesa durante l'intero processo di sviluppo. \\
+Lo scopo primario dell'\textit{attività}\textsubscript{\textit{G}} di progettazione consiste nell'identificare una soluzione realizzativa ottimale che soddisfi appieno le esigenze di tutti gli \textit{stakeholder}\textsubscript{\textit{G}}, considerando i requisiti e le risorse disponibili.
+
+\vspace{0.2cm}
+
+La progettazione risponde alla domanda chiave: 'Qual è il modo migliore per realizzare ciò di cui c'è bisogno?'.
+
+\vspace{0.2cm}
+
+È cruciale definire l'\textit{architettura}\textsubscript{\textit{G}} del prodotto prima di avviare la fase di codifica, perseguendo correttezza per costruzione piuttosto che correttezza per correzione. Questo approccio permette di gestire in modo efficiente la complessità del prodotto, garantendo una struttura robusta e coesa durante l'intero processo di sviluppo.
 
 \paragraph{Obiettivi}
-L'obiettivo principale è quindi quello di assicurare il soddisfacimento dei requisiti attraverso un \textit{sistema}\textsubscript{\textit{G}} di qualità delineato dall'\textit{architettura}\textsubscript{\textit{G}} del prodotto. Questo comporta:
+L'obiettivo principale è quindi quello di assicurare il soddisfacimento dei requisiti attraverso un \textit{sistema}\textsubscript{\textit{G}} di qualità delineato dall'\textit{architettura}\textsubscript{\textit{G}} del prodotto.
+
+Questo comporta:
 \begin{itemize}
     \item Identificare parti componibili conformi ai requisiti, dotate di specifiche chiare e coese, sviluppandole con risorse sostenibili e costi contenuti;
     \item Organizzare il \textit{sistema}\textsubscript{\textit{G}} in modo da agevolare adattamenti futuri;
     \item Gestire la complessità del \textit{sistema}\textsubscript{\textit{G}} attraverso una progettazione dettagliata, suddividendo il \textit{sistema}\textsubscript{\textit{G}} in unità architetturali per semplificare la codifica di ciascuna parte, rendendola facilmente gestibile, veloce e verificabile.
 \end{itemize}
-Inizialmente, il team di progettazione condurrà un'analisi approfondita per selezionare con attenzione le tecnologie più adatte, valutandone attentamente i punti di forza, le debolezze ed eventuali criticità. \\
+Inizialmente, il team di progettazione condurrà un'analisi approfondita per selezionare con attenzione le tecnologie più adatte, valutandone attentamente i punti di forza, le debolezze ed eventuali criticità.
+
+\vspace{0.2cm}
+
 Una volta individuate le tecnologie appropriate, si procede allo sviluppo di un'\textit{architettura}\textsubscript{\textit{G}} di alto livello per comprendere e delineare la struttura generale del prodotto, costituendo così una base di partenza per la realizzazione del \textit{PoC}\textsubscript{\textit{G}}.
-Questa \textit{architettura}\textsubscript{\textit{G}} fornisce una visione panoramica del \textit{sistema}\textsubscript{\textit{G}}, identificando i principali componenti, i flussi di dati e le interazioni tra di essi. Si presterà particolare attenzione a rendere il \textit{sistema}\textsubscript{\textit{G}} flessibile e adatto a potenziali modifiche future. \\
-Successivamente, si avvierà lo sviluppo di un Proof of Concept (\textit{PoC}\textsubscript{\textit{G}}), parte fondamentale della Technology Baseline, per valutare le decisioni prese riguardo all'\textit{architettura}\textsubscript{\textit{G}} e alle tecnologie adottate, nonché per verificarne l'aderenza agli obiettivi e alle specifiche del progetto. \\
+Questa \textit{architettura}\textsubscript{\textit{G}} fornisce una visione panoramica del \textit{sistema}\textsubscript{\textit{G}}, identificando i principali componenti, i flussi di dati e le interazioni tra di essi. Si presterà particolare attenzione a rendere il \textit{sistema}\textsubscript{\textit{G}} flessibile e adatto a potenziali modifiche future.
+
+\vspace{0.2cm}
+
+Successivamente, si avvierà lo sviluppo di un Proof of Concept (\textit{PoC}\textsubscript{\textit{G}}), parte fondamentale della Technology Baseline, per valutare le decisioni prese riguardo all'\textit{architettura}\textsubscript{\textit{G}} e alle tecnologie adottate, nonché per verificarne l'aderenza agli obiettivi e alle specifiche del progetto. 
+
+\vspace{0.2cm}
+
 In seguito allo sviluppo e ad un'attenta analisi del \textit{POC}\textsubscript{\textit{G}}, si procederà con iterazioni aggiuntive, apportando miglioramenti, aggiustamenti e aggiunte, fino a giungere a un design completo. Questo design sarà fondamentale per lo sviluppo dell'\textit{MVP}\textsubscript{\textit{G}} (Minimum Viable Product), che costituirà una versione essenziale e funzionale del prodotto e che sarà parte della Product Baseline.
 
 \paragraph{Documentazione}
-\textbf{Specifica tecnica} \\
+
+\vspace{0.2cm}
+
+\textbf{Specifica tecnica}
+
 Il documento descrive in modo approfondito il design definitivo del prodotto e fornisce istruzioni precise agli sviluppatori, guidandoli nella corretta implementazione della soluzione \textit{software}\textsubscript{\textit{G}} secondo i requisiti e le specifiche indicate. Ciò permette di ridurre la complessità e le ambiguità nel processo di sviluppo del \textit{software}\textsubscript{\textit{G}}, contribuendo a garantire che il prodotto finale sia allineato alle aspettative del cliente e funzioni in modo ottimale.
+
 Questo documento comprende diversi elementi cruciali: 
 \begin{itemize}
     \item \textbf{Tecnologie utilizzate}: specifica le tecnologie e le \textit{librerie}\textsubscript{\textit{G}} di terze parti integrate nel \textit{sistema}\textsubscript{\textit{G}};
@@ -294,11 +385,16 @@ Vantaggi:
 A supporto dell'\textit{attività}\textsubscript{\textit{G}} di progettazione verranno utlizzati i \textbf{Diagrammi delle classi}. \\
 
 \paragraph*{Diagrammi delle classi}
-Ciascun diagramma delle classi rappresenta le proprietà e le relazioni tra le varie componenti di un \textit{sistema}\textsubscript{\textit{G}}, offrendo una prospettiva statica e non a run time. \\
+Ciascun diagramma delle classi rappresenta le proprietà e le relazioni tra le varie componenti di un \textit{sistema}\textsubscript{\textit{G}}, offrendo una prospettiva statica e non a run time.
+
+\vspace{0.2cm}
+
 Le classi sono rappresentate graficamente sotto forma di rettangoli divisi in tre sezioni:
+
 \begin{enumerate}
     \item \textbf{Nome della classe}: identificativo della classe. \\
     È rappresentato in grassetto seguendo la convenzione PascalCase e deve esplicitare chiaramente la responsabilità della classe. Se la classe è astratta, il nome viene scritto in corsivo;
+    \pagebreak
     \item \textbf{Attributi}: ogni elemento sarà presentato in una riga separata, secondo il seguente formato: \\
     \begin{center}\texttt{Visibilità Nome: Tipo [Molteplicità] = Valore/i di Default}\end{center}
     \begin{itemize}
@@ -307,7 +403,7 @@ Le classi sono rappresentate graficamente sotto forma di rettangoli divisi in tr
             \item $-$ : visibilità privata;
             \item $+$ : visibilità pubblica;
             \item $\#$ : visibilità protetta;
-            \item $\sim$ : visibilità di package;
+            \item $\sim$ : visibilità di package.
         \end{itemize}
         \item \textbf{Nome}: rappresenta univocamente l'attributo. Dev'essere rappresentativo dell'attributo e deve seguire la notazione \texttt{nomeAttributo: tipo}. \\
         Qualora l'attributo fosse di tipo costante, allora il nome verrà scritto interamente in maiuscolo \texttt{NOMEATTRIBUTO: tipo};
@@ -316,6 +412,7 @@ Le classi sono rappresentate graficamente sotto forma di rettangoli divisi in tr
         Nel caso di un singolo elemento, la sua dichiarazione è opzionale;
         \item \textbf{Default}: ogni attributo può essere dichiarato con un valore di default.
     \end{itemize}
+    
     \item \textbf{Firme dei metodi}: descrivono il comportamento delle classi individuate. Ogni metodo occuperà una riga e seguiranno il formato: \\
     \begin{center} \texttt{Visibilità Nome (Parametri Formali): Tipo di Ritorno} \end{center}
     \begin{itemize}
@@ -326,15 +423,17 @@ Le classi sono rappresentate graficamente sotto forma di rettangoli divisi in tr
     \end{itemize}
 \end{enumerate}
 
-\vspace{15pt}
+\pagebreak
 
-I metodi getter, setter e i costruttori non vengono inclusi fra i metodi. \\
-I metodi astratti sono scritti in corsivo. \\
-I metodi statici sono sottolineati. \\
-L'assenza di attributi o metodi in una classe, determina una visualizzazione di campi vuoti nel diagramma delle classi. \\ 
+\paragraph*{Convenzioni sui metodi}
+\begin{itemize}
+    \item I metodi getter, setter e i costruttori non vengono inclusi fra i metodi;
+    \item I metodi astratti sono scritti in corsivo; 
+    \item I metodi statici sono sottolineati;
+    \item L'assenza di attributi o metodi in una classe, determina una visualizzazione di campi vuoti nel diagramma delle classi.
+\end{itemize}
 
-\vspace{15pt}
-
+\paragraph*{Relazioni tra le classi}
 I diagrammi delle classi sono collegati tra loro mediante frecce che delineano le rispettive relazioni di dipendenza. \\
 Qui di seguito, saranno delineate le rappresentazioni mediante frecce per le diverse relazioni: \\
 \begin{itemize}
@@ -346,7 +445,10 @@ Qui di seguito, saranno delineate le rappresentazioni mediante frecce per le div
         \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/ClassDiagram_Dipendenza.PNG}
         \caption{Diagramma delle classi di una relazione di Dipendenza.}
     \end{figure}
-    \item \textbf{Associazione}\\
+    \vspace{0.4cm}
+    
+    \item \textbf{Associazione}
+
     L'associazione tra due classi viene rappresentata tramite una linea continua e orientata. Questa connessione indica che la classe A contiene campi o istanze della classe B. \\
     Le molteplicità di occorrenza possono essere espresse tramite valori posizionati agli estremi della freccia:
     \begin{itemize}
@@ -361,15 +463,23 @@ Qui di seguito, saranno delineate le rappresentazioni mediante frecce per le div
         \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/ClassDiagram_Associazione.PNG}
         \caption{Diagramma delle classi di una relazione di Associazione.}
     \end{figure}
-    \item \textbf{Aggregazione} \\
-    Rappresentata con una freccia a diamante vuota. \\
+
+    \vspace{0.4cm}
+    
+    \item \textbf{Aggregazione}
+    
+    Rappresentata con una freccia a diamante vuota.
+
     Indica una relazione "parte di" (part of) in cui una classe è composta da diverse parti (altre classi), ma le parti possono esistere anche indipendentemente dalla classe principale. Nella figura la classe B è parte della classa A.
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/ClassDiagram_Aggregazione.PNG}
         \caption{Diagramma delle classi di una relazione di Aggregazione.}
     \end{figure}
-    \item \textbf{Composizione} \\
+    \pagebreak    
+
+    \item \textbf{Composizione}
+    
     Rappresentata con una freccia a diamante piena. È simile all'aggregazione, ma le parti (altre classi) sono strettamente dipendenti dalla classe principale e non possono esistere indipendentemente. \\
     Nella figura la classe B è parte della classe A ed esiste solo come parte di A.
     \begin{figure}[H]
@@ -377,7 +487,11 @@ Qui di seguito, saranno delineate le rappresentazioni mediante frecce per le div
         \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/ClassDiagram_Composizione.PNG}
         \caption{Diagramma delle classi di una relazione di Composizione.}
     \end{figure}
-    \item \textbf{Generalizzazione} \\
+
+    \vspace{0.4cm}
+
+    \item \textbf{Generalizzazione} 
+    
     Rappresentata con una freccia continua vuota. Rappresenta la relazione "is a" (è un) tra una classe genitore (superclasse) e una classe figlia (sottoclasse). La classe figlia eredita attributi e comportamenti dalla classe genitore. \\
     Equivale all'ereditarietà nei linguaggi di programmazione. \\
     Le proprietà della superclasse non si riportano nel diagramma della sottoclasse, a meno di override.
@@ -386,8 +500,13 @@ Qui di seguito, saranno delineate le rappresentazioni mediante frecce per le div
         \includegraphics[width=0.6\textwidth]{../Images/NormeDiProgetto/ClassDiagram_Generalizzazione.PNG}
         \caption{Diagramma delle classi di una relazione di Generalizzazione.}
     \end{figure}
-    \item \textbf{Interface Realization} \\
-    La relazione di "interface realization" indica che una classe fornisce l'implementazione dei metodi definiti in un'interfaccia specifica. Questa relazione è importante quando si desidera mostrare come una classe concreta soddisfi i requisiti di un'interfaccia specifica definendo e implementando i suoi metodi. \\
+
+    \pagebreak
+    
+    \item \textbf{Interface Realization}
+    
+    La relazione di "interface realization" indica che una classe fornisce l'implementazione dei metodi definiti in un'interfaccia specifica. Questa relazione è importante quando si desidera mostrare come una classe concreta soddisfi i requisiti di un'interfaccia specifica definendo e implementando i suoi metodi.
+
     Nella figura l'interfaccia A, rappresentata tramite un cerchio, viene implementata dalla classe B e questa relazione viene rappresentata graficamente con una linea da B ad A.
     \begin{figure}[H]
         \centering
@@ -398,20 +517,35 @@ Qui di seguito, saranno delineate le rappresentazioni mediante frecce per le div
 
 \paragraph{Design Pattern}
 I design \textit{pattern}\textsubscript{\textit{G}} costituiscono una risposta consolidata a problemi di progettazione che si presentano ciclicamente in determinati contesti. Questi modelli offrono un approccio di progettazione riusabile, garantendo qualità nella soluzione ed una rapida implementazione.
-L'adozione di un design \textit{pattern}\textsubscript{\textit{G}} avviene soprattutto quando una soluzione si è dimostrata efficace in un contesto specifico. Solitamente vengono fornite guide dettagliate sull'applicazione dei \textit{pattern}\textsubscript{\textit{G}}, delineando il loro utilizzo ottimale.
-Ogni design \textit{pattern}\textsubscript{\textit{G}} deve essere accompagnato da una rappresentazione grafica illustrativa del suo funzionamento, da una spiegazione testuale della sua logica e da una descrizione della sua utilità all'interno dell'\textit{architettura}\textsubscript{\textit{G}} complessiva. Questa documentazione svolge un ruolo chiave nel favorire una comprensione approfondita dell'\textit{integrazione}\textsubscript{\textit{G}} del design \textit{pattern}\textsubscript{\textit{G}} nell'\textit{architettura}\textsubscript{\textit{G}} generale e nella prevenzione di errori di progettazione.
+
+L'adozione di un design \textit{pattern}\textsubscript{\textit{G}} avviene soprattutto quando una soluzione si è dimostrata efficace in un contesto specifico.
+
+\vspace{0.2cm}
+
+Solitamente vengono fornite guide dettagliate sull'applicazione dei \textit{pattern}\textsubscript{\textit{G}}, delineando il loro utilizzo ottimale.
+Ogni design \textit{pattern}\textsubscript{\textit{G}} deve essere accompagnato da una rappresentazione grafica illustrativa del suo funzionamento, da una spiegazione testuale della sua logica e da una descrizione della sua utilità all'interno dell'\textit{architettura}\textsubscript{\textit{G}} complessiva. 
+
+\vspace{0.2cm}
+
+Questa documentazione svolge un ruolo chiave nel favorire una comprensione approfondita dell'\textit{integrazione}\textsubscript{\textit{G}} del design \textit{pattern}\textsubscript{\textit{G}} nell'\textit{architettura}\textsubscript{\textit{G}} generale e nella prevenzione di errori di progettazione.
 
 \paragraph{Test}
-Nell'ambito del processo di sviluppo, il testing riveste un ruolo fondamentale nell'assicurare la qualità del prodotto finale. Durante questa fase, si delineano i requisiti di testing, si definiscono i casi di \textit{test}\textsubscript{\textit{G}} e i criteri di accettazione, fungendo da strumenti per valutare il \textit{software}\textsubscript{\textit{G}}. \\
-Il suo obiettivo principale è individuare e risolvere eventuali problemi o errori presenti nel \textit{software}\textsubscript{\textit{G}} prima del rilascio del prodotto finale. In aggiunta, il processo di testing è essenziale per garantire che il \textit{software}\textsubscript{\textit{G}} soddisfi le specifiche e le aspettative del cliente. \\
+Nell'ambito del processo di sviluppo, il testing riveste un ruolo fondamentale nell'assicurare la qualità del prodotto finale. Durante questa fase, si delineano i requisiti di testing, si definiscono i casi di \textit{test}\textsubscript{\textit{G}} e i criteri di accettazione, fungendo da strumenti per valutare il \textit{software}\textsubscript{\textit{G}}.
+
+\vspace{0.2cm}
+
+Il suo obiettivo principale è individuare e risolvere eventuali problemi o errori presenti nel \textit{software}\textsubscript{\textit{G}} prima del rilascio del prodotto finale. In aggiunta, il processo di testing è essenziale per garantire che il \textit{software}\textsubscript{\textit{G}} soddisfi le specifiche e le aspettative del cliente.
+
+\vspace{0.2cm}
+
 I progettisti avranno il completo controllo di questa \textit{attività}\textsubscript{\textit{G}}, compresa la definizione dei \textit{test}\textsubscript{\textit{G}} da eseguire. Inoltre, nella sezione \ref{subsubsec:Testing}, si può trovare una descrizione dettagliata delle varie tipologie di \textit{test}\textsubscript{\textit{G}} e della terminologia da adottare, offrendo così un'ulteriore chiarezza su questa fase critica del processo di sviluppo del \textit{software}\textsubscript{\textit{G}}.
 
 \paragraph{Metriche}
 \begin{table}[H]
     \centering
-    \begin{tabular}{|C{3cm}|C{3cm}|C{4cm}|}
+    \begin{tabular}{|C{3cm}|C{4cm}|C{3cm}|}
     \hline
-    Metrica & Nome & Riferimento \\
+    \textbf{Metrica} & \centering{\textbf{Nome}} & \textbf{Riferimento} \\
     \hline \hline
     M25ATC & Accoppiamento tra classi (ATC) & \hyperlink{item:M25ATC}{M25ATC}\\
     M30PG & Profondità delle Gerarchie (PG) &  \hyperlink{item:M30PG}{M30PG}\\
@@ -443,7 +577,8 @@ Le seguenti norme sono state formalizzate prendendo spunto dal libro "Clean Code
 \begin{itemize}
     \item \textbf{Nomi significativi}: usare nomi che riflettano il significato e lo scopo delle variabili, funzioni e classi. Evitare abbreviazioni ambigue;
     \item \textbf{Indentazioni e formattazione consistente}: l'utilizzo di un tab per ciascun livello di annidamento è fondamentale per assicurare una struttura coerente del codice, migliorandone la comprensione e agevolandone la gestione;
-    \item \textbf{Lunghezza dei metodi}: la lunghezza ottimale dei metodi può variare a seconda del contesto e delle best practices di programmazione. Tuttavia, in generale, molti esperti consigliano che i metodi siano brevi e focalizzati su una singola responsabilità. Un principio comune è quello espresso da Robert C. Martin nel suo libro "Clean Code", che suggerisce che i metodi dovrebbero essere idealmente lunghi quanto basta per svolgere una singola operazione e non più lungo di quanto si possa visualizzare senza dover scorrere la pagina. \\
+    \item \textbf{Lunghezza dei metodi}: la lunghezza ottimale dei metodi può variare a seconda del contesto e delle best practices di programmazione. Tuttavia, in generale, molti esperti consigliano che i metodi siano brevi e focalizzati su una singola responsabilità. Un principio comune è quello espresso da Robert C. Martin nel suo libro "Clean Code", che suggerisce che i metodi dovrebbero essere idealmente lunghi quanto basta per svolgere una singola operazione e non più lungo di quanto si possa visualizzare senza dover scorrere la pagina. 
+    
     Questo favorisce:
     \begin{itemize}
         \item \textbf{Chiarezza};
@@ -457,17 +592,21 @@ Le seguenti norme sono state formalizzate prendendo spunto dal libro "Clean Code
     Evitare commenti superflui e non necessari: l'obiettivo è scrivere il codice in modo chiaro e autoesplicativo, riducendo la dipendenza da commenti esplicativi.
 \end{itemize}
 
+\vspace{0.1cm}
+
 \paragraph{Strumenti}
 \begin{itemize}
     \item \textbf{Visual Studio Code:} IDE utilizzato dal team di sviluppo per la codifica del prodotto \textit{software}\textsubscript{\textit{G}}.
 \end{itemize}
 
+\vspace{0.1cm}
+
 \paragraph{Metriche}
 \begin{table}[H]
     \centering
-    \begin{tabular}{|C{3cm}|C{3cm}|C{4cm}|}
+    \begin{tabular}{|C{3cm}|C{4cm}|C{3cm}|}
     \hline
-    Metrica & Nome & Riferimento \\
+    \textbf{Metrica} & \centering{\textbf{Nome}} & \textbf{Riferimento} \\
     \hline \hline
     M15SC & Statement Coverage (\textit{MSC}\textsubscript{\textit{G}}) &  \hyperlink{item:M15SC}{M15SC} \\
     M16BC & Branch Coverage (MBC) &  \hyperlink{item:M16BC}{M16BC} \\
@@ -481,8 +620,10 @@ Le seguenti norme sono state formalizzate prendendo spunto dal libro "Clean Code
     \caption{Metriche relative all'attività di codifica}
 \end{table}
 
+\pagebreak
 
 \subsubsection{Configurazione dell'ambiente di esecuzione}
+
 \paragraph{Docker}
 
 La scrittura dei file \textit{Docker}\textsubscript{\textit{G}} è considerata parte del processo di sviluppo del \textit{software}\textsubscript{\textit{G}}. \\
@@ -524,6 +665,7 @@ Le regole e le \textit{best practice}\textsubscript{\textit{G}} di codifica per 
         \item Usare variabili d'ambiente per configurazioni dinamiche.
         \item Fornire valori predefiniti opportuni per le variabili d'ambiente.
     \end{itemize}
+\pagebreak
 
 \item \textbf{Logging e monitoraggio:}
     \begin{itemize}

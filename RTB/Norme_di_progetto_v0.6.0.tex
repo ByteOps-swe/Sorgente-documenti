@@ -1,19 +1,14 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage[default]{raleway}
-\usepackage{titlesec, amsmath, comment, tabularx, makecell, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, hyperref}
+\usepackage{titlesec, amsmath, comment, tabularx, makecell, listings, setspace, array, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, ragged2e, float, todonotes, longtable, hyperref}
 \usepackage[hypcap=false]{caption}
-\usepackage{todonotes}
-\usepackage{amsmath}
-\usepackage{float}
-\usepackage{longtable}
-% \usepackage{tocloft}
-%\geometry{a4paper, left=2cm, right=2cm, top=2cm, bottom=2.5cm}
+
 \renewcommand{\headrulewidth}{0pt}
 
 \definecolor{linkcolor}{rgb}{1,0,1}
 
-% Definisci uno stile per i comandi git
+% ----------------------------- Definizione colori ---------------------------
 \definecolor{light-gray}{gray}{0.92}
 \definecolor{darkgreen}{rgb}{0.0, 0.5, 0.0}
 \definecolor{navyblue}{rgb}{0.0, 0.0, 0.8}
@@ -28,9 +23,7 @@
 % ----------------------------- Definizione tabella ---------------------------
 
 \newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
-
-%\setcellgapes{2ex} % Imposta l'altezza dell'header (2ex)
-
+\newcolumntype{L}[1]{>{\RaggedRight\arraybackslash}m{#1}}
 
 % ------------------------------Metadati indice ---------------------------------
 \title{\textbf{\fontsize{28}{6}\selectfont Indice}}
@@ -106,57 +99,58 @@
 
 % ------------------------- Changelog ----------------------------
 \section*{Registro delle modifiche}
-\begin{longtable}{|C{1.5cm}|C{2cm}|C{2cm}|C{2cm}|C{5cm}|}
+\begin{longtable}{|C{1.5cm}|C{2.1cm}|C{2cm}|C{2cm}|C{4.7cm}|}
     \hline
     \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Dettaglio} \\
     \hline \hline
     \endhead % Questo comando indica la fine dell'header ripetuto
     
     \label{Git_Action_Version}0.6.0
-    & 27/12/2023    & \makecell{D. Diotto}  & N. Preto & \makecell{Completata sezione\\ Metriche di qualità.} \\
+          & 27/12/2023    & \makecell{D. Diotto}  & N. Preto & \makecell{Completata sezione\\ Metriche di qualità.} \\
     \hline
-    0.5.1
-    & 22/12/2023    & \makecell{R. Smanio}  & A. Barutta & \makecell{Iniziale stesura\\ sezione Metriche\\ di qualità.}\\
+
+    0.5.1 & 22/12/2023    & \makecell{R. Smanio}  & A. Barutta & \makecell{Iniziale stesura\\ sezione Metriche\\ di qualità.}\\
     \hline
-    0.5.0
-    & 18/12/2023    & \makecell{R. Smanio}  & D. Diotto & \makecell{Completata sezione\\ Standard per\\ la qualità.}\\
+    
+    0.5.0 & 18/12/2023    & \makecell{R. Smanio}  & D. Diotto & \makecell{Completata sezione\\ Standard per\\ la qualità.}\\
     \hline
-    0.4.1
-    & 10/12/2023    & \makecell{R. Smanio} & N. Preto & \makecell{Prima stesura\\ sottosezioni di\\ Standard per la\\ qualità.} \\
+    
+    0.4.1 & 10/12/2023    & \makecell{R. Smanio} & N. Preto & \makecell{Prima stesura\\ sottosezioni di\\ Standard per la\\ qualità.} \\
     \hline
-    0.4.0
-    & 05/12/2023    & \makecell{L. Skenderi} & D. Diotto & \makecell{Completate sottosezioni\\ di Processi\\ organizzativi.} \\
+    
+    0.4.0 & 05/12/2023    & \makecell{L. Skenderi} & D. Diotto & \makecell{Completate sottosezioni\\ di Processi\\ organizzativi.} \\
     \hline
-    0.3.2             
-    & 04/12/2023    & \makecell{R. Smanio\\ E. Hysa} & D. Diotto & \makecell{Inizio stesura\\ Formazione e\\ aggiornamento Gestione\\ dei Processi.} \\
+    
+    0.3.2 & 04/12/2023    & \makecell{R. Smanio\\ E. Hysa} & D. Diotto & \makecell{Inizio stesura\\ Formazione e\\ aggiornamento Gestione\\ dei Processi.} \\
     \hline
-    0.3.1             
-    & 02/12/2023    & \makecell{L. Skenderi\\ E. Hysa} & D. Diotto & \makecell{Inizio stesura\\ Miglioramento e\\ Gestione dei Processi.} \\
+    
+    0.3.1 & 02/12/2023    & \makecell{L. Skenderi\\ E. Hysa} & D. Diotto & \makecell{Inizio stesura\\ Miglioramento e\\ Gestione dei Processi.} \\
     \hline
-    0.3.0             
-    & 01/12/2023    & \makecell{L. Skenderi\\ E. Hysa} & R. Smanio & \makecell{Completate sottosezioni\\ sezione Processi\\ di supporto.} \\
+    
+    0.3.0 & 01/12/2023    & \makecell{L. Skenderi\\ E. Hysa} & R. Smanio & \makecell{Completate sottosezioni\\ sezione Processi\\ di supporto.} \\
     \hline
-    0.2.3
-    & 24/11/2023    & \makecell{L. Skenderi\\R. Smanio} & D.Diotto & \makecell{Aggiornate sezioni Gestione\\ della configurazione e\\ Gestione della qualità.} \\
+    
+    0.2.3 & 24/11/2023    & \makecell{L. Skenderi\\R. Smanio} & D.Diotto & \makecell{Aggiornate sezioni Gestione\\ della configurazione e\\ Gestione della qualità.} \\
     \hline
-    0.2.2
-    & 22/11/2023    & \makecell{F.Pozza\\R. Smanio} & E. Hysa & \makecell{Iniziale stesura \\ Risoluzione dei problemi\\ delle configurazioni\\ e Gestione \\della qualità.} \\
+    
+    0.2.2 & 22/11/2023    & \makecell{F.Pozza\\R. Smanio} & E. Hysa & \makecell{Iniziale stesura \\ Risoluzione dei problemi\\ delle configurazioni\\ e Gestione \\della qualità.} \\
     \hline
-    0.2.1
-    & 20/11/2023    & \makecell{A. Barutta\\R. Smanio} & E. Hysa & \makecell{Iniziale stesura Gestione\\ delle configurazioni\\ e Joint Review.} \\
+    
+    0.2.1 & 20/11/2023    & \makecell{A. Barutta\\R. Smanio} & E. Hysa & \makecell{Iniziale stesura Gestione\\ delle configurazioni\\ e Joint Review.} \\
     \hline
-    0.2.0
-    & 15/11/2023    & \makecell{F. Pozza\\R. Smanio} & E. Hysa & \makecell{Completate Fornitura,\\ Sviluppo, Verifica e\\ Validazione.} \\
+    
+    0.2.0 & 15/11/2023    & \makecell{F. Pozza\\R. Smanio} & E. Hysa & \makecell{Completate Fornitura,\\ Sviluppo, Verifica e\\ Validazione.} \\
     \hline
-    0.1.2
-    & 10/11/2023    & \makecell{F. Pozza\\A. Barutta} & E. Hysa & \makecell{Aggiornate Fornitura, \\ Sviluppo e \\ inziata sezione Verifica.} \\
+    
+    0.1.2 & 10/11/2023    & \makecell{F. Pozza\\A. Barutta} & E. Hysa & \makecell{Aggiornate Fornitura, \\ Sviluppo e \\ inziata sezione Verifica.} \\
     \hline
-    0.1.1
-    & 07/11/2023    & \makecell{F. Pozza\\R. Smanio} & E. Hysa & \makecell{Inzio stesura Fornitura \\ e Sviluppo.} \\
+    
+    0.1.1 & 07/11/2023    & \makecell{F. Pozza\\R. Smanio} & E. Hysa & \makecell{Inzio stesura Fornitura \\ e Sviluppo.} \\
     \hline
-    0.1.0
-    & 05/11/2023    & \makecell{F. Pozza\\R. Smanio} & E. Hysa & \makecell{Sezione Documentazione,\\Introduzione.} \\
+    
+    0.1.0 & 05/11/2023    & \makecell{F. Pozza\\R. Smanio} & E. Hysa & \makecell{Sezione Documentazione,\\Introduzione.} \\
     \hline
+    
 \end{longtable}
 
 \pagebreak

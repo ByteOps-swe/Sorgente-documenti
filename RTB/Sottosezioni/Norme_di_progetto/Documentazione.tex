@@ -25,7 +25,9 @@ Per la composizione iniziale dei documenti richiesti per la candidatura, è stat
 Per tali ragioni si è presa la decisione di adottare un nuovo approccio.
 \end{comment}
 \subsubsection{Documentation as Code}\label{sec:DocumentationAscode}
-L'approccio che si intende adottare è quello di "Documentation as Code" (Documentazione come Codice) che consiste nel trattare la documentazione di un progetto \textit{software}\textsubscript{\textit{G}} allo stesso modo in cui si tratta il codice sorgente. Questo approccio è incentrato sull'utilizzo di pratiche e strumenti tipici dello sviluppo \textit{software}\textsubscript{\textit{G}} per creare, gestire e distribuire la documentazione.
+L'approccio che si intende adottare è quello di "Documentation as Code" (Documentazione come Codice) che consiste nel trattare la documentazione di un progetto \textit{software}\textsubscript{\textit{G}} allo stesso modo in cui si tratta il codice sorgente.
+
+Questo approccio è incentrato sull'utilizzo di pratiche e strumenti tipici dello sviluppo \textit{software}\textsubscript{\textit{G}} per creare, gestire e distribuire la documentazione.
 Alcuni aspetti chiave della "Documentation as Code" includono:
 \begin{itemize}
     \item \textbf{Versionamento};
@@ -39,7 +41,8 @@ Questo approccio porta diversi vantaggi, tra cui una maggiore coerenza, una migl
 
 \subsubsection{Sorgente documenti}
 Poiché i documenti vengono redatti in \LaTeX, per favorire una migliore collaborazione tra diversi autori, si è scelto di creare un file sorgente per ciascuna sezione e sottosezione di ogni documento. Questo approccio consente a ciascun autore di lavorare sulle singole sezioni o sottosezioni, evitando di apportare modifiche a parti del documento non pertinenti al proprio ambito. \\
-Infine, viene creato un file principale con il nome del documento, nel quale verranno collegati tutti i file delle varie sezioni e sottosezioni mediante l'uso del comando \verb|\input{Sezione.tex}| o, nel caso delle sottosezioni, \verb|\input{Sottosezione.tex}|. \\
+Infine, viene creato un file principale con il nome del documento, nel quale verranno collegati tutti i file delle varie sezioni e sottosezioni mediante l'uso del comando \verb|\input{Sezione.tex}| o, nel caso delle sottosezioni, \verb|\input{Sottosezione.tex}|.
+
 Nel caso dei verbali, essendo documenti composti da sezioni molto brevi, non si utilizza questo approccio.
 
 \subsubsection{Ciclo di vita dei documenti}
@@ -73,12 +76,13 @@ Il ciclo di vita dei documenti è una sequenza di stati e \textit{attività}\tex
 \subsubsection{Procedure correlate alla redazione di documenti}
 
 \paragraph{I redattori}
-Il redattore responsabile della redazione di un documento o di una sua sezione deve seguire lo stesso approccio richiesto per la codifica del \textit{software}\textsubscript{\textit{G}}, adottando il \textit{workflow}\textsubscript{\textit{G}} noto come \href{https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow}{"Feature Branch"}. \\
-
-\vspace{0.1cm}
+Il redattore responsabile della redazione di un documento o di una sua sezione deve seguire lo stesso approccio richiesto per la codifica del \textit{software}\textsubscript{\textit{G}}, adottando il \textit{workflow}\textsubscript{\textit{G}} noto come \href{https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow}{"Feature Branch"}.
 
 \paragraph*{\textbf{Caso redazione nuovo documento/sezione o modifica documento/sezione già verificato/a}}
 Dalla \textit{repository}\textsubscript{\textit{G}} \href{https://github.com/ByteOps-swe/Sorgente-documenti}{Sorgente-documenti} contenente i sorgenti \LaTeX, il redattore dovrà creare un nuovo \textit{branch}\textsubscript{\textit{G}} Git in locale e spostarsi su di esso mediante l'utilizzo del comando:
+
+\vspace{0.1cm}
+
 \begin{lstlisting}[style=code]
     git checkout main
     git checkout -b identificativoBranch
@@ -87,6 +91,8 @@ Dalla \textit{repository}\textsubscript{\textit{G}} \href{https://github.com/Byt
 Il nome del \textit{branch}\textsubscript{\textit{G}} destinato alla redazione o modifica del documento o di una sua sezione deve essere descrittivo al fine di consentire un'identificazione immediata e precisa del documento o della sezione su cui si sta lavorando. Pertanto, relativamente alla redazione dei documenti, devonono essere adottatate le specifiche \hyperlink{par:convezioninomenclaturabranchdocumenti}{\textit{\textbf{convenzioni per la nomenclatura dei branch}}}.
 
 A questo punto, dopo aver creato/modificato il documento o la sezione assegnata e avviato la stesura, affinché gli altri redattori possano continuare il lavoro, è necessario rendere il \textit{branch}\textsubscript{\textit{G}} accessibile anche nella \textit{repository}\textsubscript{\textit{G}} remota, seguendo i seguenti passaggi:
+
+\vspace{0.1cm}
 \begin{lstlisting}[style=code]
     git add .
     git commit -m "Descrizione del commit"
@@ -95,6 +101,8 @@ A questo punto, dopo aver creato/modificato il documento o la sezione assegnata 
 
 \paragraph*{\textbf{Caso modifica documento in stato di redazione}}
 Qualora il redattore intenda continuare la stesura di un documento (o sezione) iniziato da un altro redattore, sono necessari i comandi:
+
+\vspace{0.1cm}
 \begin{lstlisting}[style=code]
     git pull
     git checkout identificativoBranch
@@ -104,20 +112,20 @@ Qualora il redattore intenda continuare la stesura di un documento (o sezione) i
 Alla fine di una sessione di modifiche di un file, nel caso si desideri rendere accessibile ai membri il lavoro non ancora completato e, pertanto, non pronto alla verifica, è necessario assicurarsi di essere nel \textit{branch}\textsubscript{\textit{G}} corretto e successivamente:
 \begin{enumerate}
     \item Eseguire il push\textsubscript{\textit{G}}  delle modifiche fatte nel \textit{branch}\textsubscript{\textit{G}}
-          \begin{lstlisting}[style=code]
+    \vspace{0.1cm}
+    \begin{lstlisting}[style=code]
     git add .
     git commit -m "Descrizione del commit"
     git push origin identificativoBranch
-        \end{lstlisting}
+    \end{lstlisting}
 
     \item Nel caso di problemi con il punto 1:
-          \begin{lstlisting}[style=code]
-   git pull origin identificativoBranch
-        \end{lstlisting}
+    \vspace{0.1cm}
+    \begin{lstlisting}[style=code]
+    git pull origin identificativoBranch
+    \end{lstlisting}
     \item Risolvi i conflitti e ripeti punto 1.
 \end{enumerate}
-
-\vspace{0.3cm}
 
 \paragraph*{\textbf{Completamento attività di redazione}}
 Una volta terminata la redazione di un documento o di una sezione, ogni redattore deve:
@@ -207,7 +215,8 @@ In ogni pié di pagina deve essere presente:
 \label{sec:Verbali}
 I verbali assumono l'importante ruolo di costituire un registro ufficiale dei meeting, atto a riportare in maniera accurata gli argomenti trattati, le decisioni adottate, le azioni da intraprendere e le figure coinvolte.\\
 In particolare, è possibile distinguere tra verbali interni, destinati all'uso interno dell'organizzazione, e verbali esterni, che trovano applicazione quando vi sono terze parti coinvolte nelle discussioni o nelle decisioni documentate.\\
-La struttura dei verbali è la seguente: 
+
+La struttura dei verbali è la seguente:
 \begin{itemize}
     \item \textbf{Prima pagina} \\
         Oltre alle informazioni comuni a ogni documento vengono specificate:
@@ -240,7 +249,7 @@ La struttura dei verbali è la seguente:
         Nel caso di verbale esterno, in ultima pagina, deve essere presente la firma delle terze parti coinvolte, il luogo e la data.
 \end{itemize}
 
-Il template per i verbali è raggiungibile tramite \href{https://github.com/ByteOps-swe/Sorgente-documenti/tree/main/Documents/Verbali/Templates}{questo link}.
+Il template per i verbali è raggiungibile tramite il \href{https://github.com/ByteOps-swe/Sorgente-documenti/tree/main/Documents/Verbali/Templates}{seguente link}.
 
 \subsubsection{Regole tipografiche}
 \paragraph*{Documenti del progetto e nome dei file}\label{sec:NomeFile}
