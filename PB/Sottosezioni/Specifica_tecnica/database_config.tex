@@ -12,42 +12,19 @@ Le tipologie di sensori cui misurazioni si vogliono trattare nel progetto sono:
 
 La configurazione del database \textit{ClickHouse} è stata un elemento fondamentale nella progettazione, poiché un'adeguata impostazione consente prestazioni adeguate per un sistema orientato al tempo reale e in grado di gestire analisi su enormi quantità di dati.
 
-\vspace{0.1cm}
+\subsubsection{Tabella delle misurazioni per sensore generico}
 Le tabelle del database impiegate per registrare le misurazioni di ciascuna tipologia di sensore presentano una configurazione sostanzialmente simile, differenziandosi principalmente per il tipo di dato della colonna relativa alla misurazione e per il \textit{topic} di riferimento utilizzato per ottenere le misurazioni.
-
 Nello specifico per ogni sensore si avrà la seguente tabella Clickhouse:
-\begin{verbatim}
-    CREATE TABLE innovacity.<<tipologiaSensore>>_kafka (
-        ID_sensore String,
-        cella String,
-        value <<TipoDatoMisurazione>>,
-        timestamp DATETIME64,
-        latitude Float64,
-        longitude Float64
-    ) ENGINE = Kafka(
-        '<<IndirizzoServerKafka>>',
-        '<<topicTipologiaSensore>>',
-        '<<ConsumerGroupKafka>>',
-        '<<FormatoDatiTopicKafka>>'
-    );
-    \end{verbatim}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.6\textwidth]{../Images/SpecificaTecnica/sensorType_kafka.PNG}
+    \caption{Tabella sensore generico per il reperimento da kafka - ClickHouse}
+    \label{fig:sensorKafka}
+  \end{figure}
 
     La tabella è configurata con il motore di storage \textit{Kafka}, il che significa che i dati verranno letti da un \textit{topic Kafka}. 
 
-    I parametri esposti racchiusi da "<<>>"" variano per ogni tipolgia di sensore correlato alla misurazione e sono:
-    \begin{itemize}
-        \item \textbf{<<tipologiaSensore>>}: viene sostituito con la tipologia del sensore che effettua le misurazioni salvate nella tabella; (ex. temperatures)
-        \item \textbf{<<TipoDatoMisurazione>>}: viene sostituito con il tipo del dato che rappresenta la misurazione (ex. Float32, UInt8);
-        \item \textbf{<<IndirizzoServerKafka>>}: specifica l'indirizzo del server Kafka.
-        Nel nostro caso il server Kafka è in esecuzione su un container \textit{Docker} raggiungibile tramite l'indirizzo:
-         \textit{'kafka:9092'};
-        \item \textbf{<<topicTipologiaSensore>>}: specifica il nome del topic Kafka da cui leggere i dati (ex.temperature);
-        \item \textbf{<<ConsumerGroupKafka>>}: specifica il nome del consumer group Kafka che verrà utilizzato per leggere i messaggi dal topic \textit{Kafka} denominato 'temperature'.
-        Un consumer group in \textit{Kafka} è un gruppo di consumatori che lavorano insieme per consumare i messaggi da uno o più topic. Ogni messaggio inviato a un \textit{topic Kafka} può essere consumato da uno dei consumatori nel gruppo. I consumer all'interno di uno stesso gruppo condividono l'elaborazione dei messaggi all'interno dei topic: ogni messaggio viene elaborato da uno e un solo consumatore all'interno del gruppo. Nel nostro caso sarà sempre '\textit{CG\_ClikHouse\_1}' per indicare il servizio di salvataggio \textit{Clickhouse}.
-        \item \textbf{<<FormatoDatiTopicKafka>>}: specifica il formato dei dati nel \textit{topic Kafka}. Nel nostro caso, i dati sono nel formato JSONEachRow, che è un formato di serializzazione JSON di \textit{ClickHouse} che consente di scrivere o leggere record JSON separati da una riga. Quindi avremo che <<FormatoDatiTopicKafka>> = JSONEachRow.
-    \end{itemize}
-
-    Mentre i campi sono:
+    I campi sono:
     \begin{itemize}
         \item \textbf{ID\_sensore}: un campo di tipo \textit{String} che identifica univocamente il sensore che ha effettuato la misurazione;
         \item \textbf{cella}: un campo di tipo \textit{String} che rappresenta la cella della città in cui è stata effettuata la misurazione;
@@ -57,6 +34,20 @@ Nello specifico per ogni sensore si avrà la seguente tabella Clickhouse:
         \item \textbf{longitude}: un campo di tipo \textit{Float64} che rappresenta la longitudine del luogo dove è stata effettuata la misurazione.
     \end{itemize}
 
+    Mentre i parametri esposti racchiusi da parentesi graffe variano per ogni tipolgia di sensore correlato alla misurazione e sono:
+    \begin{itemize}
+        \item \textbf{tipologiaSensore}: viene sostituito con la tipologia del sensore che effettua le misurazioni salvate nella tabella; (ex. temperatures)
+        \item \textbf{TipoDatoMisurazione}: viene sostituito con il tipo del dato che rappresenta la misurazione (ex. Float32, UInt8);
+        \item \textbf{IndirizzoServerKafka}: specifica l'indirizzo del server Kafka.
+        Nel nostro caso il server Kafka è in esecuzione su un container \textit{Docker} raggiungibile tramite l'indirizzo:
+         \textit{'kafka:9092'};
+        \item \textbf{topicTipologiaSensore}: specifica il nome del topic Kafka da cui leggere i dati (ex.temperature);
+        \item \textbf{ConsumerGroupKafka}: specifica il nome del consumer group Kafka che verrà utilizzato per leggere i messaggi dal topic \textit{Kafka} denominato 'temperature'.
+        Un consumer group in \textit{Kafka} è un gruppo di consumatori che lavorano insieme per consumare i messaggi da uno o più topic. Ogni messaggio inviato a un \textit{topic Kafka} può essere consumato da uno dei consumatori nel gruppo. I consumer all'interno di uno stesso gruppo condividono l'elaborazione dei messaggi all'interno dei topic: ogni messaggio viene elaborato da uno e un solo consumatore all'interno del gruppo. Nel nostro caso sarà sempre '\textit{CG\_Clickhouse\_1}' per indicare il servizio di salvataggio \textit{Clickhouse}.
+        \item \textbf{FormatoDatiTopicKafka}: specifica il formato dei dati nel \textit{topic Kafka}. Nel nostro caso, i dati sono nel formato JSONEachRow, che è un formato di serializzazione JSON di \textit{ClickHouse} che consente di scrivere o leggere record JSON separati da una riga. Quindi avremo che <<FormatoDatiTopicKafka>> = JSONEachRow.
+    \end{itemize}
+
+    
 \subsection{Funzionalità Clickhouse utilizzate}
 \subsubsection{Materialized Views}
 Le Materialized Views in \textit{ClickHouse} sono un meccanismo potente per migliorare le prestazioni delle \textit{Query} e semplificare l'accesso ai dati. Funzionano mantenendo una copia fisica dei risultati di una \textit{Query} di selezione, che viene quindi memorizzata su disco. Questa copia è aggiornata periodicamente in base ai dati sottostanti.
@@ -114,74 +105,95 @@ Puoi definire una o più proiezioni per una tabella e durante l'analisi della \t
 
 \subsection{Misurazioni temperatura}
 Di seguito viene fornita la configurazione riguardante il salvataggio delle misurazioni di temperatura:
-
-\begin{verbatim}
-    CREATE TABLE innovacity.temperatures_kafka (
-        ID_sensore String,
-        cella String,
-        value Float32,
-        timestamp DATETIME64,
-        latitude Float64,
-        longitude Float64
-    ) ENGINE = Kafka(
-        'kafka:9092',
-        'temperature',
-        'CG_ClikHouse_1',
-        'JSONEachRow'
-    );
-    \end{verbatim}
+\paragraph{Tabella: temperatures\_kafka}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/temperatures_kafka.PNG}
+    \caption{Tabella temperatures\_kafka - ClickHouse}
+    \label{fig:temperaturesKafka}
+  \end{figure}
 
 Il dato è della misurazione è di tipo Float32, l'equivalente di float nel linguaggio \textit{C}.
 Il topic kafka per ottenere i dati è: \textit{temperature}.
 
 Considerando la possibilità di ricevere molteplici misurazioni dei dati di temperatura all'interno di un singolo secondo di tempo, si procede alla creazione della seguente tabella e alla materialized view correlata, il cui obiettivo è aggregare le misurazioni di temperatura per ridurle ad una singola misurazione per secondo.
 
-\begin{verbatim}
-    CREATE TABLE innovacity.temperatures
-    (
-        ID_sensore String,
-        cella String,
-        timestamp DateTime,
-        value AggregateFunction(avgState, Float32),
-        latitude Float64,
-        longitude Float64
-    )
-    ENGINE = AggregatingMergeTree
-    ORDER BY(timestamp, ID_sensore, cella,latitude,longitude,type);
-    
-    CREATE MATERIALIZED VIEW innovacity.mv_temperatures
-    TO innovacity.temperatures
-    AS SELECT
-        toStartOfSecond(timestamp) as timestamp ,
-        cella,
-        ID_sensore,
-        avgState(value) AS value,
-        latitude,
-        longitude
-        FROM innovacity.temperatures_kafka
-        GROUP BY (timestamp, ID_sensore, cella,type,longitude,latitude);
-    \end{verbatim}
+\paragraph{Tabella: temperatures}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/temperatures.PNG}
+    \caption{Tabella temperatures - ClickHouse}
+    \label{fig:temperatures}
+  \end{figure}
 
     Nello specifico la MATERIALIZED VIEW \textit{mv\_temperatures} ottiene i dati dalla tabella dei dati raccolti dal topic kafka,calcola la media dei delle misurazioni all'interno dello stesso secondo e le salva nella tabella \textit{temperatures}.
     Questa tramite il motore \textit{AggregatingMergeTree}, cui funzione viene definita in \ref*{sec:AggregatingMergeTree}, calcola incrementalmente la media delle misurazioni nel secondo.
 
     Lo stesso viene fatto per ottenere delle tabelle con i valori delle misurazioni aggregati tramite media per ottenere un dato per: minuto, ora, giorno e mese.
-    Le tabelle risultanti sono denominatate: \textbf{temperatures1m, temperatures1o, temperatures1g e temperatures1M}. Queste tabelle presentano la stessa struttura della tabella originale, differenziandosi solo per il tipo di dato del campo timestamp, che rispettivamente è: \textbf{DateTime, DateTime, Date32 e Date32}, e per la funzione utilizzata per calcolare il campo timestamp, che sono rispettivamente: \textbf{toStartOfMinute, toStartOfHour, toDate e toStartOfMonth}.
+    Le tabelle risultanti sono denominatate: \textbf{temperatures1m, temperatures1o, temperatures1g e temperatures1M}. Queste tabelle presentano la stessa struttura della tabella originale, differenziandosi solo per il tipo di dato del campo timestamp, che rispettivamente è: \textbf{DateTime, DateTime, Date32 e Date32}, per la funzione utilizzata per calcolare il campo timestamp, che sono rispettivamente: \textbf{toStartOfMinute, toStartOfHour, toDate e toStartOfMonth} e perchè non contengono i campi : \textbf{latitude} e \textbf{longitude}.
+    Il ragionamento alla base di questa decisione è che la posizione geografica del sensore è rilevante solo nella tabella delle aggregazioni per secondo. Questa tabella è utilizzata da servizi come \textit{Grafana} per recuperare e visualizzare l'ultima posizione del sensore su una mappa. D'altro canto, le tabelle con aggregazioni su periodi temporali più ampi (come minuti, ore, ecc.) non hanno bisogno di salvare la posizione del sensore, poiché sono utilizzate esclusivamente per analizzare il valore aggregato delle misurazioni.
+    In sintesi nelle tabelle che aggregano le misurazioni per minuto, ora o giorno, la posizione specifica del sensore in un dato istante diventa meno rilevante poiché queste tabelle rappresentano aggregazioni su periodi più lunghi. In queste situazioni, l'obiettivo principale è analizzare i valori aggregati delle misurazioni nel tempo. 
 
+    \paragraph{Tabella: temperatures1m}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/temperatures1m.PNG}
+        \caption{Tabella temperatures1m - ClickHouse}
+        \label{fig:temperatures1m}
+      \end{figure}
+      \paragraph{Tabella: temperatures1o}
+      \begin{figure}[H]
+          \centering
+          \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/temperatures1o.PNG}
+          \caption{Tabella temperatures1o - ClickHouse}
+          \label{fig:temperatures1o}
+        \end{figure}
+    \paragraph{Tabella: temperatures1g}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/temperatures1g.PNG}
+        \caption{Tabella temperatures1g - ClickHouse}
+        \label{fig:temperatures1g}
+        \end{figure}
+    \paragraph{Tabella: temperatures1M}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/temperatures1Mese.PNG}
+        \caption{Tabella temperatures1M - ClickHouse}
+        \label{fig:temperatures1M}
+        \end{figure}
+    
+    \paragraph{Projections per misurazioni di temperatura}
     Durante la fase di progettazione, è stata posta particolare attenzione all'utilizzo delle tabelle appena descritte e alle richieste che verranno formulate su di esse. È emerso che saranno frequenti le \textit{Query} che filtrano le misurazioni in base a due date specifiche.
     In aggiunta, considerando il requisito di suddividere la città in una serie di celle e specificare la cella di origine della misurazione, la filtrazione delle misurazioni per celle diventerà una richiesta effettuata con frequenza al database.
     Si è giunti quindi all'utilizzo delle \textit{PROJECTIONS}, descritte nella sezione \ref{sec:projections}.
 
-\begin{verbatim}
-    ALTER TABLE innovacity.temperatures1m ADD PROJECTION sensor_cell_projection1m (SELECT * ORDER BY cella,timestamp);
+    \begin{lstlisting}
+        --Projection per tabella temperatures
+        ALTER TABLE innovacity.temperatures ADD PROJECTION sensor_cell_projection (SELECT * ORDER BY cella, timestamp);
+        ALTER TABLE innovacity.temperatures MATERIALIZE PROJECTION sensor_cell_projection;
+    \end{lstlisting}
 
-    ALTER TABLE innovacity.temperatures1m MATERIALIZE PROJECTION sensor_cell_projection1m;
-\end{verbatim}
-    La proiezione ci permetterà di filtrare per \textit{cella} e \textit{timestamp} rapidamente, anche se nella tabella originale queste non spno definite come \textit{PRIMARY\_KEY}.
+    La proiezione ci permetterà di filtrare per \textit{cella} e \textit{timestamp} rapidamente, anche se nella tabella originale queste non sOno definite come \textit{PRIMARY\_KEY}.
 
     Vengono create delle \textit{PROJECTIONS} anche per le tabelle:  \textbf{temperatures1m, temperatures1o, temperatures1g}
     ma non per  \textbf{temperatures1M} in quanto anche a lungo andare la quantità di dati presente in essa non sarà massiva.
 
+    \begin{lstlisting}
+        --Projection per tabella temperatures1m
+        ALTER TABLE innovacity.temperatures1m ADD PROJECTION sensor_cell_projection1m (SELECT * ORDER BY cella,timestamp);
+        ALTER TABLE innovacity.temperatures1m MATERIALIZE PROJECTION sensor_cell_projection1m;
+
+        --Projection per tabella temperatures1o
+        ALTER TABLE innovacity.temperatures1o ADD PROJECTION sensor_cell_projection1o (SELECT * ORDER BY cella,timestamp);
+        ALTER TABLE innovacity.temperatures1o MATERIALIZE PROJECTION sensor_cell_projection1o;
+
+        --Projection per tabella temperatures1g
+        ALTER TABLE innovacity.temperatures1g ADD PROJECTION sensor_cell_projection1g (SELECT * ORDER BY cella,timestamp);
+        ALTER TABLE innovacity.temperatures1g MATERIALIZE PROJECTION sensor_cell_projection1g;
+    \end{lstlisting}
+
+    \paragraph{Analisi benefici delle Projections}
     L'aggiunta delle \textit{PROJECTIONS} ha portato risultati di estremo rilievo di seguito esposti.
     Prendendo una \textit{Query} tipo svolta per l'analisi da \textit{Grafana}:
     \begin{figure}[H]
