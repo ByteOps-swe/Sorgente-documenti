@@ -6,22 +6,22 @@ La versione utilizzata è: 3.6.1
 \subsubsection{Link download}
 \href{https://kafka.apache.org/downloads}{https://kafka.apache.org/downloads}
 
-\subsubsection*{Funzionalità e Vantaggi di Apache Kafka}
+\subsubsection{Funzionalità e Vantaggi di Apache Kafka}
 Le principali funzionalità e vantaggi di Apache Kafka includono:
 
 \begin{itemize}
-  \item \textbf{Pub-Sub Messaging:} Kafka utilizza un modello di messaggistica publish-subscribe, dove i produttori di dati inviano messaggi a un topic e i consumatori possono sottoscriversi a tali topic per ricevere i messaggi.
+  \item \textbf{Pub-Sub Messaging:} kafka utilizza un modello di messaggistica publish-subscribe, dove i produttori di dati inviano messaggi a un topic e i consumatori possono sottoscriversi a tali topic per ricevere i messaggi;
+  \item \textbf{Disaccoppiamento Produttore - Consumatore:}il disaccoppiamento avviene perché Produttori e Consumatori non devono essere a conoscenza l'uno dell'altro o interagire direttamente. Invece, interagiscono attraverso il broker Kafka, che funge da intermediario per la comunicazione;
+  \item \textbf{Architettura Distribuita:} kafka è progettato per essere distribuito su un cluster di nodi, consentendo una scalabilità orizzontale per gestire grandi volumi di dati e carichi di lavoro;
   
-  \item \textbf{Architettura Distribuita:} Kafka è progettato per essere distribuito su un cluster di nodi, consentendo una scalabilità orizzontale per gestire grandi volumi di dati e carichi di lavoro.
+  \item \textbf{Persistenza e Affidabilità:} Kafka conserva i dati in modo persistente su disco, garantendo la durabilità dei messaggi anche in caso di guasti hardware o arresti anomali. Questo assicura anche un alto livello di affidabilità;
   
-  \item \textbf{Persistenza e Affidabilità:} Kafka conserva i dati in modo persistente su disco, garantendo la durabilità dei messaggi anche in caso di guasti hardware o arresti anomali. Questo assicura anche un alto livello di affidabilità.
+  \item \textbf{Alta Disponibilità:} grazie alla sua architettura distribuita, Kafka offre alta disponibilità e tolleranza ai guasti, consentendo ai cluster di continuare a funzionare anche in presenza di nodi o componenti falliti;
   
-  \item \textbf{Alta Disponibilità:} Grazie alla sua architettura distribuita, Kafka offre alta disponibilità e tolleranza ai guasti, consentendo ai cluster di continuare a funzionare anche in presenza di nodi o componenti falliti.
-  
-  \item \textbf{Elaborazione degli Stream:} Kafka supporta anche l'elaborazione degli stream di dati in tempo reale tramite API come Kafka Streams e Kafka Connect, consentendo agli sviluppatori di scrivere applicazioni per l'analisi e l'elaborazione dei dati in tempo reale.
+  \item \textbf{Elaborazione degli Stream:} kafka supporta anche l'elaborazione degli stream di dati in tempo reale tramite API come Kafka Streams e Kafka Connect, consentendo agli sviluppatori di scrivere applicazioni per l'analisi e l'elaborazione dei dati in tempo reale.
 \end{itemize}
 
-\subsubsection*{Casi d'uso di Apache Kafka}
+\subsubsection{Casi d'uso di Apache Kafka}
 
 Apache Kafka è utilizzato in una vasta gamma di casi d'uso, tra cui:
 

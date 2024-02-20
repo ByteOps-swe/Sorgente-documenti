@@ -12,6 +12,61 @@ Le tipologie di sensori cui misurazioni si vogliono trattare nel progetto sono:
 
 La configurazione del database \textit{ClickHouse} è stata un elemento fondamentale nella progettazione, poiché un'adeguata impostazione consente prestazioni adeguate per un sistema orientato al tempo reale e in grado di gestire analisi su enormi quantità di dati.
 
+\subsubsection{Funzionalità Clickhouse utilizzate}
+\paragraph{Materialized Views}
+Le Materialized Views in \textit{ClickHouse} sono un meccanismo potente per migliorare le prestazioni delle \textit{Query} e semplificare l'accesso ai dati. Funzionano mantenendo una copia fisica dei risultati di una \textit{Query} di selezione, che viene quindi memorizzata su disco. Questa copia è aggiornata periodicamente in base ai dati sottostanti.
+
+\paragraph*{Utilizzi Principali}
+\begin{itemize}
+    \item \textbf{Calcolo aggregazioni e popolamento tabelle}:Spesso le delle materialized Views sono state utilizzate per calcolare aggregazioni su dati e quindi popolare altre tabelle con i risultati aggregati. Ad esempio, nel caso specifico in cui una Materialized View calcola la media delle temperature per ogni sensore ogni secondo, i risultati di questa vista possono essere utilizzati per popolare una tabella principale contenente i dati di temperatura aggregati, aggiornando i valori di temperatura medi per ogni sensore ogni secondo;
+    \item \textbf{Ottimizzazione delle Prestazioni}: memorizzando i risultati di una \textit{Query} complessa, le Materialized Views consentono di eseguire rapidamente le \textit{Query} successive senza dover ricalcolare i dati ogni volta. Ciò è particolarmente utile in applicazioni che richiedono interrogazioni frequenti su grandi volumi di dati;
+    \item \textbf{Aggregazioni Pre-Calcolate}: le Materialized Views possono essere utilizzate per pre-calcolare aggregazioni, come somme, medie o conteggi, sui dati sottostanti. Questo può migliorare notevolmente le prestazioni delle \textit{Query} che coinvolgono operazioni di aggregazione;
+    \item \textbf{Decomposizione delle \textit{Query} Complesse}: le Materialized Views consentono di decomporre \textit{Query} complesse in passaggi più semplici e riutilizzabili, migliorando la leggibilità del codice e semplificando lo sviluppo e la manutenzione delle \textit{Query}.
+\end{itemize}
+
+
+\paragraph{Funzione di aggregazione avgState}
+In \textit{ClickHouse}, avgState è una funzione di stato utilizzata all'interno di funzioni di aggregazione, come AggregateFunction, per calcolare la media dei valori durante l'elaborazione dei dati. Quando si utilizza avgState, ClickHouse mantiene lo stato intermedio necessario per calcolare la media dei valori inseriti. Questo stato intermedio include la somma cumulativa dei valori e il numero totale di valori inseriti.
+
+\paragraph{AggregatingMergeTree Engine} \label{sec:AggregatingMergeTree}
+Link alla documentazione: \href{https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/aggregatingmergetree}{https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/aggregatingmergetree}.\newline
+ Specificando questo motore su di una tabella Clickhouse, vengono sostituite tutte le righe con la stessa chiave primaria (o, più accuratamente, con la stessa chiave di ordinamento) con una singola riga all'interno di una parte di dati.
+ Le tabelle AggregatingMergeTree sono utilizzate per l'aggregazione incrementale dei dati, inclusa la creazione di viste materializzate aggregate.
+ I campi definiti con i seguenti tipi vengono incrementale elaborati.
+
+\paragraph{AggregateFunction}
+Link alla documentazione: \href{https://clickhouse.com/docs/en/sql-reference/data-types/aggregatefunction}{https://clickhouse.com/docs/en/sql-reference/data-types/aggregatefunction}.\newline
+Specifica un dato cui valore viene calcolato da una specifica funzione di aggregazione: 
+\begin{verbatim}
+    AggregateFunction(name, types_of_arguments…) 
+\end{verbatim}
+Una pratica comune per creare lo stato di una funzione di aggregazione è invocare la funzione di aggregazione aggiungendo il suffisso `-State` (ad esempio `avgState`). Per ottenere il risultato finale dell'aggregazione in un momento successivo, è essenziale utilizzare la medesima funzione di aggregazione, ma con l'aggiunta del suffisso `-Merge` (ad esempio `avgMerge` al momento della "select" del valore).
+\paragraph{SimpleAggregateFunction}
+Link alla documentazione: \href{https://clickhouse.com/docs/en/sql-reference/data-types/simpleaggregatefunction}{https://clickhouse.com/docs/en/sql-reference/data-types/simpleaggregatefunction}.\newline
+Il tipo di dato:
+\begin{verbatim}
+    SimpleAggregateFunction(name, types_of_arguments...)
+\end{verbatim}  memorizza il valore attuale della funzione di aggregazione, senza conservare l'intero stato come fa AggregateFunction.
+I valori del tipo di dato SimpleAggregateFunction(func, Type) vengono visualizzati e memorizzati nello stesso modo di Type, pertanto non è necessario applicare le funzioni con suffissi -Merge/-State.
+
+SimpleAggregateFunction offre prestazioni migliori rispetto a AggregateFunction con la stessa funzione di aggregazione ma non sono disponibili tutte le tipoligie di funzioni di aggregazione come il calcolo della media.
+
+
+    
+\paragraph{Projection}\label{sec:projections}
+Link alla documentazione: \href{https://clickhouse.com/docs/en/sql-reference/statements/alter/projection}{https://clickhouse.com/docs/en/sql-reference/statements/alter/projection}\newline
+Le proiezioni memorizzano i dati in un formato che ottimizza l'esecuzione delle \textit{Query}, questa caratteristica è utile per:
+
+\begin{itemize}
+    \item Eseguire \textit{Query} su una colonna che non fa parte della chiave primaria;
+    \item Pre-aggregare colonne, riducendo sia i calcoli che l'I/O.
+\end{itemize}
+
+Puoi definire una o più proiezioni per una tabella e durante l'analisi della \textit{Query} la proiezione con meno dati da esaminare sarà selezionata da ClickHouse senza modificare la \textit{Query} fornita dall'utente.
+
+\paragraph*{Utilizzo dello spazio su disco}
+\textbf{Attenzione:} le proiezioni creeranno internamente una nuova tabella nascosta, ciò significa che saranno necessari più I/O e spazio su disco. Ad esempio, se la proiezione ha definito una chiave primaria diversa, tutti i dati dalla tabella originale verranno duplicati.
+
 \subsubsection{Tabella delle misurazioni per sensore generico}
 Le tabelle del database impiegate per registrare le misurazioni di ciascuna tipologia di sensore presentano una configurazione sostanzialmente simile, differenziandosi principalmente per il tipo di dato della colonna relativa alla misurazione e per il \textit{topic} di riferimento utilizzato per ottenere le misurazioni.
 Nello specifico per ogni sensore si avrà la seguente tabella Clickhouse:
@@ -48,62 +103,7 @@ Nello specifico per ogni sensore si avrà la seguente tabella Clickhouse:
     \end{itemize}
 
     
-\subsection{Funzionalità Clickhouse utilizzate}
-\subsubsection{Materialized Views}
-Le Materialized Views in \textit{ClickHouse} sono un meccanismo potente per migliorare le prestazioni delle \textit{Query} e semplificare l'accesso ai dati. Funzionano mantenendo una copia fisica dei risultati di una \textit{Query} di selezione, che viene quindi memorizzata su disco. Questa copia è aggiornata periodicamente in base ai dati sottostanti.
-
-\paragraph*{Utilizzi Principali}
-\begin{itemize}
-    \item \textbf{Calcolo aggregazioni e popolamento tabelle}:Spesso le delle materialized Views sono state utilizzate per calcolare aggregazioni su dati e quindi popolare altre tabelle con i risultati aggregati. Ad esempio, nel caso specifico in cui una Materialized View calcola la media delle temperature per ogni sensore ogni secondo, i risultati di questa vista possono essere utilizzati per popolare una tabella principale contenente i dati di temperatura aggregati, aggiornando i valori di temperatura medi per ogni sensore ogni secondo;
-    \item \textbf{Ottimizzazione delle Prestazioni}: memorizzando i risultati di una \textit{Query} complessa, le Materialized Views consentono di eseguire rapidamente le \textit{Query} successive senza dover ricalcolare i dati ogni volta. Ciò è particolarmente utile in applicazioni che richiedono interrogazioni frequenti su grandi volumi di dati;
-    \item \textbf{Aggregazioni Pre-Calcolate}: le Materialized Views possono essere utilizzate per pre-calcolare aggregazioni, come somme, medie o conteggi, sui dati sottostanti. Questo può migliorare notevolmente le prestazioni delle \textit{Query} che coinvolgono operazioni di aggregazione;
-    \item \textbf{Decomposizione delle \textit{Query} Complesse}: le Materialized Views consentono di decomporre \textit{Query} complesse in passaggi più semplici e riutilizzabili, migliorando la leggibilità del codice e semplificando lo sviluppo e la manutenzione delle \textit{Query}.
-\end{itemize}
-
-
-\subsubsection{Funzione di aggregazione avgState}
-In \textit{ClickHouse}, avgState è una funzione di stato utilizzata all'interno di funzioni di aggregazione, come AggregateFunction, per calcolare la media dei valori durante l'elaborazione dei dati. Quando si utilizza avgState, ClickHouse mantiene lo stato intermedio necessario per calcolare la media dei valori inseriti. Questo stato intermedio include la somma cumulativa dei valori e il numero totale di valori inseriti.
-
-\subsubsection{AggregatingMergeTree Engine} \label{sec:AggregatingMergeTree}
-Link alla documentazione: \href{https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/aggregatingmergetree}{https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/aggregatingmergetree}.\newline
- Specificando questo motore su di una tabella Clickhouse, vengono sostituite tutte le righe con la stessa chiave primaria (o, più accuratamente, con la stessa chiave di ordinamento) con una singola riga all'interno di una parte di dati.
- Le tabelle AggregatingMergeTree sono utilizzate per l'aggregazione incrementale dei dati, inclusa la creazione di viste materializzate aggregate.
- I campi definiti con i seguenti tipi vengono incrementale elaborati.
-
-\paragraph{AggregateFunction}
-Link alla documentazione: \href{https://clickhouse.com/docs/en/sql-reference/data-types/aggregatefunction}{https://clickhouse.com/docs/en/sql-reference/data-types/aggregatefunction}.\newline
-Specifica un dato cui valore viene calcolato da una specifica funzione di aggregazione: 
-\begin{verbatim}
-    AggregateFunction(name, types_of_arguments…) 
-\end{verbatim}
-Una pratica comune per creare lo stato di una funzione di aggregazione è invocare la funzione di aggregazione aggiungendo il suffisso `-State` (ad esempio `avgState`). Per ottenere il risultato finale dell'aggregazione in un momento successivo, è essenziale utilizzare la medesima funzione di aggregazione, ma con l'aggiunta del suffisso `-Merge` (ad esempio `avgMerge` al momento della "select" del valore).
-\paragraph{SimpleAggregateFunction}
-Link alla documentazione: \href{https://clickhouse.com/docs/en/sql-reference/data-types/simpleaggregatefunction}{https://clickhouse.com/docs/en/sql-reference/data-types/simpleaggregatefunction}.\newline
-Il tipo di dato:
-\begin{verbatim}
-    SimpleAggregateFunction(name, types_of_arguments...)
-\end{verbatim}  memorizza il valore attuale della funzione di aggregazione, senza conservare l'intero stato come fa AggregateFunction.
-I valori del tipo di dato SimpleAggregateFunction(func, Type) vengono visualizzati e memorizzati nello stesso modo di Type, pertanto non è necessario applicare le funzioni con suffissi -Merge/-State.
-
-SimpleAggregateFunction offre prestazioni migliori rispetto a AggregateFunction con la stessa funzione di aggregazione ma non sono disponibili tutte le tipoligie di funzioni di aggregazione come il calcolo della media.
-
-
-    
-\subsubsection{Projection}\label{sec:projections}
-Link alla documentazione: \href{https://clickhouse.com/docs/en/sql-reference/statements/alter/projection}{https://clickhouse.com/docs/en/sql-reference/statements/alter/projection}\newline
-Le proiezioni memorizzano i dati in un formato che ottimizza l'esecuzione delle \textit{Query}, questa caratteristica è utile per:
-
-\begin{itemize}
-    \item Eseguire \textit{Query} su una colonna che non fa parte della chiave primaria;
-    \item Pre-aggregare colonne, riducendo sia i calcoli che l'I/O.
-\end{itemize}
-
-Puoi definire una o più proiezioni per una tabella e durante l'analisi della \textit{Query} la proiezione con meno dati da esaminare sarà selezionata da ClickHouse senza modificare la \textit{Query} fornita dall'utente.
-
-\paragraph*{Utilizzo dello spazio su disco}
-\textbf{Attenzione:} le proiezioni creeranno internamente una nuova tabella nascosta, ciò significa che saranno necessari più I/O e spazio su disco. Ad esempio, se la proiezione ha definito una chiave primaria diversa, tutti i dati dalla tabella originale verranno duplicati.
-
-\subsection{Misurazioni temperatura}
+\subsubsection{Misurazioni temperatura} \label{sec:tab_temperatures}
 Di seguito viene fornita la configurazione riguardante il salvataggio delle misurazioni di temperatura:
 \paragraph{Tabella: temperatures\_kafka}
 \begin{figure}[H]
@@ -113,7 +113,7 @@ Di seguito viene fornita la configurazione riguardante il salvataggio delle misu
     \label{fig:temperaturesKafka}
   \end{figure}
 
-Il dato è della misurazione è di tipo Float32, l'equivalente di float nel linguaggio \textit{C}.
+Il dato della misurazione è di tipo Float32, l'equivalente di float nel linguaggio \textit{C}.
 Il topic kafka per ottenere i dati è: \textit{temperature}.
 
 Considerando la possibilità di ricevere molteplici misurazioni dei dati di temperatura all'interno di un singolo secondo di tempo, si procede alla creazione della seguente tabella e alla materialized view correlata, il cui obiettivo è aggregare le misurazioni di temperatura per ridurle ad una singola misurazione per secondo.
@@ -163,7 +163,7 @@ Considerando la possibilità di ricevere molteplici misurazioni dei dati di temp
         \label{fig:temperatures1M}
         \end{figure}
     
-    \paragraph{Projections per misurazioni di temperatura}
+    \paragraph{Projections per misurazioni di temperatura} \label{sec:temp_projections}
     Durante la fase di progettazione, è stata posta particolare attenzione all'utilizzo delle tabelle appena descritte e alle richieste che verranno formulate su di esse. È emerso che saranno frequenti le \textit{Query} che filtrano le misurazioni in base a due date specifiche.
     In aggiunta, considerando il requisito di suddividere la città in una serie di celle e specificare la cella di origine della misurazione, la filtrazione delle misurazioni per celle diventerà una richiesta effettuata con frequenza al database.
     Si è giunti quindi all'utilizzo delle \textit{PROJECTIONS}, descritte nella sezione \ref{sec:projections}.
@@ -193,7 +193,7 @@ Considerando la possibilità di ricevere molteplici misurazioni dei dati di temp
         ALTER TABLE innovacity.temperatures1g MATERIALIZE PROJECTION sensor_cell_projection1g;
     \end{lstlisting}
 
-    \paragraph{Analisi benefici delle Projections}
+    \paragraph{Analisi benefici delle Projections}\label{sec:temp_projections_benefici}
     L'aggiunta delle \textit{PROJECTIONS} ha portato risultati di estremo rilievo di seguito esposti.
     Prendendo una \textit{Query} tipo svolta per l'analisi da \textit{Grafana}:
     \begin{figure}[H]
@@ -225,4 +225,74 @@ Inoltre tramite una \textit{Query} speciale è possibile visualizzare che la \te
     \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/ProjectionUsedByClickHouse.jpg}
     \caption{Uso della Projection}
     \label{fig:ProjectionsUsed}
-  \end{figure}   
+\end{figure}
+
+\subsubsection{Misurazioni umidità}
+Le considerazioni relative al salvataggio delle misurazioni di umidità coincidono con quelle espresse nella sezione \ref{sec:tab_temperatures} riguardo alle misurazioni di temperatura.
+\paragraph{Tabella: umidities\_kafka}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/temperatures.PNG}
+    \caption{Tabella umidities\_kafka - ClickHouse}
+    \label{fig:umidities_kafka}
+  \end{figure}
+Il dato della misurazione è di tipo Float32, l’equivalente di float nel linguaggio C. Il topic
+kafka per ottenere i dati è: \textbf{umidity}.
+\paragraph{Tabella: umidities}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/temperatures.PNG}
+    \caption{Tabella umidities - ClickHouse}
+    \label{fig:umidities}
+  \end{figure}
+\paragraph{Tabella: umidities1m}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/temperatures1m.PNG}
+        \caption{Tabella  umidities1m - ClickHouse}
+        \label{fig: umidities1m}
+      \end{figure}
+      \paragraph{Tabella:  umidities1o}
+      \begin{figure}[H]
+          \centering
+          \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/temperatures1o.PNG}
+          \caption{Tabella  umidities1o - ClickHouse}
+          \label{fig: umidities1o}
+        \end{figure}
+    \paragraph{Tabella:  umidities1g}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/temperatures1g.PNG}
+        \caption{Tabella  umidities1g - ClickHouse}
+        \label{fig: umidities1g}
+        \end{figure}
+    \paragraph{Tabella:  umidities1M}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/temperatures1Mese.PNG}
+        \caption{Tabella  umidities1M - ClickHouse}
+        \label{fig: umidities1M}
+        \end{figure}
+\paragraph{Projections per misurazioni di umidità} 
+Date le stesse considerazioni fatte nella sezione: \ref{sec:temp_projections} anche per le misurazioni di umidità si è deciso di adottare le \textit{PROJECTION}.
+I risultati dei benifiici perfettamente riconducibili a quelli per le misurazioni di temperatura alla sezione: \ref{sec:temp_projections_benefici}.
+
+Di seguito vengono fornite le configurazioni delle proiezioni sulle tabelle delle misurazioni di umidità:
+
+\begin{lstlisting}
+    --Projection per tabella umidities
+    ALTER TABLE innovacity.umidities ADD PROJECTION sensor_cell_projection (SELECT * ORDER BY cella,timestamp);
+    ALTER TABLE innovacity.umidities MATERIALIZE PROJECTION sensor_cell_projection;
+
+    --Projection per tabella umidities1m
+    ALTER TABLE innovacity.umidities1m ADD PROJECTION sensor_cell_projection1m (SELECT * ORDER BY cella,timestamp);
+    ALTER TABLE innovacity.umidities1m MATERIALIZE PROJECTION sensor_cell_projection1m;
+
+    --Projection per tabella umidities1o
+    ALTER TABLE innovacity.umidities1o ADD PROJECTION sensor_cell_projection1o (SELECT * ORDER BY cella,timestamp);
+    ALTER TABLE innovacity.umidities1o MATERIALIZE PROJECTION sensor_cell_projection1o;
+
+    --Projection per tabella umidities1g
+    ALTER TABLE innovacity.umidities1g ADD PROJECTION sensor_cell_projection1g (SELECT * ORDER BY cella,timestamp);
+    ALTER TABLE innovacity.umidities1g MATERIALIZE PROJECTION sensor_cell_projection1g;
+\end{lstlisting}

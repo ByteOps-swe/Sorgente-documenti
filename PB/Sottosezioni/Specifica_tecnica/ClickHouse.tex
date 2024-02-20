@@ -1,5 +1,5 @@
 \subsection{ClickHouse} \label{sec:clickHouse}
-ClickHouse è un database di analisi distribuito, progettato per l'analisi di grandi quantità di dati in tempo reale. È sviluppato da Yandex e viene utilizzato internamente per le proprie esigenze di analisi dei dati. ClickHouse è open source e offre prestazioni elevate per query analitiche su grandi volumi di dati.
+ClickHouse è un sistema di gestione di database (DBMS) di tipo column-oriented, progettato principalmente per l'analisi di grandi volumi di dati in tempo reale. È un progetto open-source sviluppato da Yandex, un motore di ricerca russo, ed è stato creato per rispondere alle esigenze di elaborazione analitica ad alte prestazioni.
 \subsubsection{Versione}
 La versione utilizzata è: 24.1.5.6
 \subsubsection{Link download}
@@ -7,6 +7,7 @@ La versione utilizzata è: 24.1.5.6
 
 \subsubsection*{Funzionalità e Vantaggi di ClickHouse}
 \begin{itemize}
+    \item \textbf{ Modello di dati column-oriented:} a differenza dei tradizionali DBMS che memorizzano i dati in modo row-oriented, dove le righe complete sono memorizzate in sequenza, ClickHouse memorizza i dati in modo column-oriented. Questo significa che i dati di ogni colonna sono memorizzati insieme, permettendo una maggiore compressione e velocità di query per le analisi che coinvolgono molte colonne;
     \item \textbf{Architettura Distribuita e scalabilità:} ClickHouse è progettato per funzionare in un ambiente distribuito, consentendo la scalabilità orizzontale per gestire grandi carichi di lavoro;
     \item \textbf{Compressione dei Dati:} utilizza algoritmi efficienti per ridurre lo spazio di archiviazione richiesto per i dati, riducendo i costi di archiviazione;
     \item \textbf{Alte Prestazioni:} ottimizzato per eseguire query analitiche su grandi volumi di dati in tempo reale, garantendo tempi di risposta bassi anche con carichi di lavoro elevati.
