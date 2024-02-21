@@ -28,7 +28,7 @@
 % ------------------------------Metadati indice --------------------------------
 \title{\textbf{\fontsize{28}{6}\selectfont Indice}}
 \author{\fontsize{14}{6}\selectfont ByteOps}
-\date{Mese Giorno, Anno}
+\date{Febbraio 16, 2024}
 
 
 % -----------------------------Creazione footer --------------------------------
@@ -134,29 +134,28 @@
 \flushleft
 
 \section{Revisione del periodo precedente}
-Nel periodo precedente abbiamo riesaminato il lavoro svolto nel POC per apportarvi miglioramenti e utilizzarlo come fondamento per lo sviluppo dell'MVP. \\
-Durante il meeting, nella fase di revisione di tale periodo, ci siamo dedicati all'analisi della struttura del database. In particolare, abbiamo discusso relativamente alla configurazione delle tabelle relative alle misurazioni trasmesse dai sensori, con particolare attenzione all'inclusione di dati "statici", come la posizione del sensore (latitudine e longitudine), in ciascuna tabella. È emerso che tale scelta comporta duplicazione dei dati e un utilizzo aggiuntivo di risorse di memoria. \\
-Tuttavia, rispetto a una configurazione delle tabelle che miri a evitare la ridondanza, è stato riconosciuto che questo approccio offre un vantaggio significativo in termini di riduzione del costo computazionale, soprattutto durante operazioni di join su ampi set di dati. In questa prospettiva, il costo computazionale risulta essere più impattante rispetto all'eventuale costo di memoria aggiuntiva derivante dalla duplicazione dei dati. \\
-È stato anche sollevato il punto che questa implementazione potrebbe rendere il database non conforme alla forma normale. Tuttavia, nel contesto di database non relazionali come quello adottato, tale caratteristica è considerata accettabile e non compromette l'efficienza complessiva del sistema.
+
+Durante il periodo intercorso dal precedente SAL, ci si è concentrati sulla revisione finale dei documenti e sulla preparazione della presentazione in vista della seconda fase della revisione RTB.
+Di conseguenza, non è stata condotta una revisione approfondita del periodo precedente con l'azienda proponente, poiché non sono state avviate nuove attività e non sono emerse questioni o dubbi rilevanti. \\
+La proponente è stata informata che il team ha ottenuto l'approvazione per avanzare con la seconda fase della revisione RTB. Inoltre, è stata condotta una breve discussione riguardo alle correzioni da apportare al documento \textit{Analisi dei Requisiti} in merito ai requisiti funzionali.
 
 \section{Ordine del giorno}
 
+    \subsection{Ridondanza database}
+    Si è discusso relativamente alla configurazione delle tabelle relative alle misurazioni trasmesse dai sensori, con particolare attenzione all'inclusione di dati "statici", come la posizione del sensore (latitudine e longitudine), in ciascuna tabella. È emerso che tale scelta comporta duplicazione dei dati e un utilizzo aggiuntivo di risorse di memoria. \\
+    Tuttavia, rispetto a una configurazione delle tabelle che miri a evitare la ridondanza, è stato riconosciuto che questo approccio offre un vantaggio significativo in termini di riduzione del costo computazionale, soprattutto durante operazioni di join su ampi set di dati. In questa prospettiva, il costo computazionale risulta essere più impattante rispetto all'eventuale costo di memoria aggiuntiva derivante dalla duplicazione dei dati. \\
+    È stato anche sollevato il punto che questa implementazione potrebbe rendere il database non conforme alla forma normale. Tuttavia, nel contesto di database non relazionali come quello adottato, tale caratteristica è considerata accettabile e non compromette l'efficienza complessiva del sistema.
+
+
     \subsection{Manuale Utente}
-    Procedura di installazione o no? 
-    A quanto pare no, basta il link di accesso, non è necessario specificare procedure di installazione (Docker, Git Clone, ecc...) in quanto non è di pertinenza dell'utente.
+    È stato valutato se fosse opportuno includere nel manuale utente le procedure di installazione relative all'ambiente in cui viene eseguita la piattaforma. Tuttavia, considerando che il manuale utente è destinato agli utenti finali, il cui obiettivo principale è quello di utilizzare la dashboard per analizzare e monitorare lo stato di salute della città, si è convenuto che non sia necessario includere le procedure di installazione. \\
+    Questa decisione semplifica l'utilizzo del manuale, focalizzandosi direttamente sull'obiettivo principale degli utenti finali senza aggiungere dettagli tecnici non pertinenti all'utente finale. \\
+    Il manuale utente includerà il link per accedere direttamente alla dashboard Grafana, insieme alle istruzioni necessarie per condurre in modo efficace le operazioni di analisi e monitoraggio.
 
     \subsection{Test di integrazione}
-    Come svolgere test di integrazione nel nostro contesto.
-    Come effettuare test di integrazione: automatizzare troppo complicato, test di unità solo sui sensori abbastanza inutili, test a mano relativamente a quello di integrazione. controlliamo che i dati scorrano tutta la catena, kafka, clickhouse e verifica visualizzazione dato a grafana.
-    
-    inviare set predeterminato di misurazioni così da indentificarle e verificare se proprio quelle misurazioni arrivano in Grafana     
+    Durante le discussioni, è stata sollevata la questione riguardante la realizzazione di test di integrazione automatizzati. Tuttavia, si è rilevato che eseguire test automatizzati per verificare la corretta visualizzazione dei dati provenienti dai sensori nella dashboard Grafana risulta essere troppo complesso. Di conseguenza, è stata presa la decisione di condurre manualmente questo tipo di test, generando un set predefinito di misurazioni dai sensori e verificando che tali misurazioni attraversino l'intera catena delle componenti architetturali fino a essere visualizzate correttamente nella dashboard di Grafana.
 
-\section{Niente richieste e chiarimenti?}
-Mettere tutto qua. Nella revisione del periodo precedente scrivere che per via della presentazione RTB non si è analizzato nulla, ma abbiamo parlato un po' dell'esito della RTB con Cardin. Discusso sulla problematica eseguita sui RQ non funz. che avrà priorità di essere risolta nell'immediato.
-Nell'ordine del giorno potremmo parlare delle attività future:
-revisione con Vardanega
-istanziare nell'immediato massive risorse per la progettazione del database clickhouse per sfruttare al meglio le funzionalità che offre.
-Parte della progettazione della simulazione dei sensori che rispetti i canoni della IS soprattutto della parte di invio dati alle fonti esterne. una volta generati i dati inviarli dove (a kafka). il metodo di invio utilizzando pattern come strategy per la scelta del dove scrivere e l'adapter per utilizzare varie librerie di kafka per inviare i dati a kafka. 
+% \section{Richieste e chiarimenti}
 
 
 % ------------------------ Firma Azienda ----------------------
