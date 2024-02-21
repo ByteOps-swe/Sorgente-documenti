@@ -164,13 +164,12 @@ Considerando la possibilità di ricevere molteplici misurazioni dei dati di temp
         \end{figure}
     
     \paragraph{Projections per misurazioni di temperatura} \label{sec:temp_projections}
-    Durante la fase di progettazione, è stata posta particolare attenzione all'utilizzo delle tabelle appena descritte e alle richieste che verranno formulate su di esse. È emerso che saranno frequenti le \textit{Query} che filtrano le misurazioni in base a due date specifiche.
-    In aggiunta, considerando il requisito di suddividere la città in una serie di celle e specificare la cella di origine della misurazione, la filtrazione delle misurazioni per celle diventerà una richiesta effettuata con frequenza al database.
+    Durante la fase di progettazione, è stata posta particolare attenzione all'utilizzo delle tabelle appena descritte e alle richieste che verranno formulate su di esse. È emerso, considerando il requisito di suddividere la città in una serie di celle e specificare la cella di origine della misurazione,che la filtrazione delle misurazioni per celle diventerà una richiesta effettuata con frequenza al database.
     Si è giunti quindi all'utilizzo delle \textit{PROJECTIONS}, descritte nella sezione \ref{sec:projections}.
 
     \begin{lstlisting}
         --Projection per tabella temperatures
-        ALTER TABLE innovacity.temperatures ADD PROJECTION sensor_cell_projection (SELECT * ORDER BY cella, timestamp);
+        ALTER TABLE innovacity.temperatures ADD PROJECTION sensor_cell_projection (SELECT * ORDER BY cella);
         ALTER TABLE innovacity.temperatures MATERIALIZE PROJECTION sensor_cell_projection;
     \end{lstlisting}
 
@@ -181,15 +180,15 @@ Considerando la possibilità di ricevere molteplici misurazioni dei dati di temp
 
     \begin{lstlisting}
         --Projection per tabella temperatures1m
-        ALTER TABLE innovacity.temperatures1m ADD PROJECTION sensor_cell_projection1m (SELECT * ORDER BY cella,timestamp);
+        ALTER TABLE innovacity.temperatures1m ADD PROJECTION sensor_cell_projection1m (SELECT * ORDER BY cella);
         ALTER TABLE innovacity.temperatures1m MATERIALIZE PROJECTION sensor_cell_projection1m;
 
         --Projection per tabella temperatures1o
-        ALTER TABLE innovacity.temperatures1o ADD PROJECTION sensor_cell_projection1o (SELECT * ORDER BY cella,timestamp);
+        ALTER TABLE innovacity.temperatures1o ADD PROJECTION sensor_cell_projection1o (SELECT * ORDER BY cella);
         ALTER TABLE innovacity.temperatures1o MATERIALIZE PROJECTION sensor_cell_projection1o;
 
         --Projection per tabella temperatures1g
-        ALTER TABLE innovacity.temperatures1g ADD PROJECTION sensor_cell_projection1g (SELECT * ORDER BY cella,timestamp);
+        ALTER TABLE innovacity.temperatures1g ADD PROJECTION sensor_cell_projection1g (SELECT * ORDER BY cella);
         ALTER TABLE innovacity.temperatures1g MATERIALIZE PROJECTION sensor_cell_projection1g;
     \end{lstlisting}
 
@@ -209,7 +208,7 @@ Considerando la possibilità di ricevere molteplici misurazioni dei dati di temp
         \caption{Query tipica risultato senza projections}
         \label{fig:ProjectionsQueryWthout}
       \end{figure}
-      ovvero sono state processate per ottenere il risultato della \textit{Query} 16,38 migliaia di righe.
+      ovvero sono state processate per ottenere il risultato della \textit{Query} \textbf{16,38 migliaia} di righe.
 
       Invece in seguito all'aggiunta delle \textit{PROJECTIONS}:
       \begin{figure}[H]
@@ -218,7 +217,7 @@ Considerando la possibilità di ricevere molteplici misurazioni dei dati di temp
         \caption{Query tipica risultato con projections}
         \label{fig:ProjectionsQueryWith}
       \end{figure}   
-  ovvero sono state processate per ottenere il risultato della \textit{Query} 8,19 migliaia di righe, circa la metà rispetto al risultato precedente consentendoci di apprezzare il miglioramento.
+  ovvero sono state processate per ottenere il risultato della \textit{Query} \textbf{8,19 migliaia} di righe, circa la metà rispetto al risultato precedente consentendoci di apprezzare il miglioramento.
 Inoltre tramite una \textit{Query} speciale è possibile visualizzare che la \textit{PROJECTIONS} è stata effettivamente utilizzata per ottenere il risultato della \textit{Query} in esame.
 \begin{figure}[H]
     \centering
@@ -227,6 +226,25 @@ Inoltre tramite una \textit{Query} speciale è possibile visualizzare che la \te
     \label{fig:ProjectionsUsed}
 \end{figure}
 
+Prendendo in esempio un altra \textit{Query} fatta dall'applicativo dove viene effettuata la media globale di \textbf{170 mila }misurazioni di temperatura si possono apprezzare i benifiici dell'utilizzo delle \textit{PROJECTIONS} e alla fine dell'immagine anche il suo effettivo utilizzo per il calcolo del risultato.
+Con l'utilizzo della \textit{PROJECTIONS} abbiamo:
+\paragraph{Tabella: umidities\_kafka}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/query2ProjectionsWith.jpg}
+    \caption{Query esempio Projection 2 - ClickHouse}
+    \label{fig:with2proj}
+  \end{figure}
+Ovvero il totale di righe processate per ottenere il risultato è di \textbf{49,95 migliaia} con \textbf{0,07 secondi} di tempo utilizzati.
+Si puo notare invece la differenza delle righe processate una volta rimossa la \textit{PROJECTIONS}:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/query2ProjectionsWithout.jpg}
+    \caption{Query esempio senza Projection 2 - ClickHouse}
+    \label{fig:without2proj}
+  \end{figure}
+
+ Il totale di righe processate per ottenere il risultato è ora di \textbf{170,09 migliaia}, ovvero la totalità delle righe presenti nella tabella, con \textbf{0,09 secondi} di tempo utilizzati.
 \subsubsection{Misurazioni umidità}
 Le considerazioni relative al salvataggio delle misurazioni di umidità coincidono con quelle espresse nella sezione \ref{sec:tab_temperatures} riguardo alle misurazioni di temperatura.
 \paragraph{Tabella: umidities\_kafka}

@@ -5,7 +5,7 @@ La versione utilizzata è: 24.1.5.6
 \subsubsection{Link download}
 \href{https://clickhouse.com/}{https://clickhouse.com/}
 
-\subsubsection*{Funzionalità e Vantaggi di ClickHouse}
+\subsubsection{Funzionalità e Vantaggi di ClickHouse}
 \begin{itemize}
     \item \textbf{ Modello di dati column-oriented:} a differenza dei tradizionali DBMS che memorizzano i dati in modo row-oriented, dove le righe complete sono memorizzate in sequenza, ClickHouse memorizza i dati in modo column-oriented. Questo significa che i dati di ogni colonna sono memorizzati insieme, permettendo una maggiore compressione e velocità di query per le analisi che coinvolgono molte colonne;
     \item \textbf{Architettura Distribuita e scalabilità:} ClickHouse è progettato per funzionare in un ambiente distribuito, consentendo la scalabilità orizzontale per gestire grandi carichi di lavoro;
@@ -16,7 +16,7 @@ La versione utilizzata è: 24.1.5.6
 \end{itemize}
 
 
-\subsubsection*{Casi d'Uso di ClickHouse}
+\subsubsection{Casi d'Uso di ClickHouse}
 ClickHouse è adatto per una vasta gamma di casi d'uso, tra cui:
 \begin{itemize}
     \item \textbf{Analisi dei Log:} clickHouse può essere utilizzato per analizzare i log di grandi dimensioni generati da server, applicazioni web e dispositivi IoT;
@@ -25,3 +25,17 @@ ClickHouse è adatto per una vasta gamma di casi d'uso, tra cui:
 \end{itemize}
 
 
+\subsubsection{Utilizzo nel progetto}
+Nel contesto del progetto, \textbf{ClickHouse} svolge una serie di ruoli cruciali per garantire l'efficacia e l'efficienza dell'analisi dei dati provenienti dai sensori IoT:
+
+\begin{itemize}
+  \item \textbf{Integrazione con Kafka}: \textbf{ClickHouse} viene utilizzato per recuperare in tempo reale i dati dal server Kafka, consentendo una continua acquisizione dei dati dai sensori IoT. Questa integrazione permette di assicurare che le informazioni più recenti siano immediatamente disponibili per l'analisi.
+  
+  \item \textbf{Organizzazione efficiente dei dati}: Grazie alla sua architettura columnar, \textbf{ClickHouse} è in grado di organizzare i dati in modo ottimale per l'analisi di grandi volumi di dati. La struttura columnar consente una compressione dei dati efficace e un accesso rapido alle informazioni, migliorando le prestazioni complessive del sistema.
+  
+  \item \textbf{Aggregazione rapida dei dati}: \textbf{ClickHouse} offre potenti funzionalità per eseguire operazioni di aggregazione sui dati in modo rapido e incrementale. Ciò significa che è possibile ottenere risposte rapide alle query di aggregazione anche su enormi quantità di dati, consentendo analisi in tempo quasi reale delle misurazioni dei sensori IoT.
+  
+  \item \textbf{Integrazione con Grafana}: I dati elaborati e aggregati da \textbf{ClickHouse} sono resi disponibili per il reperimento tramite Grafana. Grafana consente di creare dashboard interattive e report visivi basati sui dati dei sensori IoT, offrendo agli utenti un'interfaccia intuitiva per l'analisi e la visualizzazione dei dati.
+\end{itemize}
+
+In sintesi, \textbf{ClickHouse} funge da fulcro centrale nel processo di gestione, analisi e visualizzazione dei dati provenienti dai sensori IoT, garantendo un flusso di dati in tempo reale, un'organizzazione ottimale dei dati per l'analisi, un'aggregazione efficiente dei dati e l'integrazione con strumenti di visualizzazione come Grafana per consentire una comprensione approfondita e immediata dei dati raccolti.
