@@ -117,7 +117,7 @@
     \hline
     \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Dettaglio} \\
     \hline \hline
-    0.0.1 & 19/02/2024 & R. Smanio & A. Barutta & Redazione documento \\
+    0.0.1 & 19/02/2024 & R. Smanio & F. Pozza & Redazione documento \\
     \hline
 \end{tabular}
 \pagebreak
@@ -143,7 +143,7 @@ La proponente è stata informata che il team ha ottenuto l'approvazione per avan
 
     \subsection{Ridondanza database}
     Si è discusso relativamente alla configurazione delle tabelle relative alle misurazioni trasmesse dai sensori, con particolare attenzione all'inclusione di dati "statici", come la posizione del sensore (latitudine e longitudine), in ciascuna tabella. È emerso che tale scelta comporta duplicazione dei dati e un utilizzo aggiuntivo di risorse di memoria. \\
-    Tuttavia, rispetto a una configurazione delle tabelle che miri a evitare la ridondanza, è stato riconosciuto che questo approccio offre un vantaggio significativo in termini di riduzione del costo computazionale, soprattutto durante operazioni di join su ampi set di dati. In questa prospettiva, il costo computazionale risulta essere più impattante rispetto all'eventuale costo di memoria aggiuntiva derivante dalla duplicazione dei dati. \\
+    Tuttavia, rispetto ad una configurazione delle tabelle che miri a evitare la ridondanza, è stato riconosciuto che questo approccio offre un vantaggio significativo in termini di riduzione del costo computazionale, soprattutto durante operazioni di join su ampi set di dati. In questa prospettiva, il costo computazionale risulta essere più impattante rispetto all'eventuale costo di memoria aggiuntiva derivante dalla duplicazione dei dati. \\
     È stato anche sollevato il punto che questa implementazione potrebbe rendere il database non conforme alla forma normale. Tuttavia, nel contesto di database non relazionali come quello adottato, tale caratteristica è considerata accettabile e non compromette l'efficienza complessiva del sistema.
 
 
