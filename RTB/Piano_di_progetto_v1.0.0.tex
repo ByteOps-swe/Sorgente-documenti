@@ -39,8 +39,12 @@
     \textcolor[RGB]{120, 120, 120}{$\cdot$ Piano di progetto}
 }
 \rfoot{\thepage}
- 
-% --------------------------Modifica formato hyperlinks ------------------------
+
+% -------------------------- Definizione colori ------------------------
+\definecolor{darkgreen}{rgb}{0.0, 0.5, 0.0}
+\definecolor{navyblue}{rgb}{0.0, 0.0, 0.8}
+
+% -------------------------- Modifica formato hyperlinks ------------------------
 \hypersetup{
     colorlinks=true,
     linkcolor=darkgreen,
@@ -49,13 +53,6 @@
     pdftitle={Piano di progetto},
     pdfpagemode=FullScreen,
 }
-
-\definecolor{responsabile}{RGB}{0,102,204}
-\definecolor{amministratore}{RGB}{0,204,102}
-\definecolor{analista}{RGB}{255,165,0}
-\definecolor{progettista}{RGB}{255,0,0}
-\definecolor{programmatore}{RGB}{128,0,128}
-\definecolor{verificatore}{RGB}{255,192,203}
 
 \definecolor{responsabile}{RGB}{0,102,204}
 \definecolor{amministratore}{RGB}{0,204,102}
@@ -134,12 +131,9 @@
 \maketitle
 \thispagestyle{fancy}
 {
-        \hypersetup{linkcolor=black}
-        \tableofcontents
-}
-\setcounter{tocdepth}{4}
-{
     \hypersetup{linkcolor=black}
+    \tableofcontents
+    \setcounter{tocdepth}{4}
     \listoffigures % Indice delle figure
 }
 \setstretch{1.2}

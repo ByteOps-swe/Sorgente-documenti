@@ -12,6 +12,8 @@
 
 % Definisci uno stile per i comandi git
 \definecolor{light-gray}{gray}{0.92}
+\definecolor{darkgreen}{rgb}{0.0, 0.5, 0.0}
+\definecolor{navyblue}{rgb}{0.0, 0.0, 0.8}
 
 \lstdefinestyle{code}{
     frame=single,
@@ -24,9 +26,6 @@
 
 \newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
 \newcolumntype{L}[1]{>{\RaggedRight\arraybackslash}m{#1}}
-
-%\setcellgapes{2ex} % Imposta l'altezza dell'header (2ex)
-
 
 % ------------------------------Metadati indice --------------------------------
 \title{\textbf{\fontsize{28}{6}\selectfont Indice}}
@@ -48,8 +47,9 @@
 
 \hypersetup{
     colorlinks=true,
-    linkcolor=black,
-    filecolor=black,      
+    linkcolor=darkgreen,
+    urlcolor=navyblue,
+    filecolor=black,
     pdftitle={Piano di qualifica},
     pdfpagemode=FullScreen,
 }
@@ -101,7 +101,7 @@
 
 % ------------------------- Changelog ----------------------------
 \section*{Registro delle modifiche}
-\begin{longtable}{|C{1.5cm}|C{2cm}|C{2cm}|C{2cm}|C{5cm}|}
+\begin{longtable}{|C{1.5cm}|C{2.1cm}|C{2cm}|C{2cm}|C{5cm}|}
     \hline
     \textbf{Versione} & \textbf{Data}   & \textbf{Autore}                         & \textbf{Verificatore} & \textbf{Dettaglio} \\
     \hline \hline
@@ -121,7 +121,7 @@
     & 30/12/2023      & \makecell{E. Hysa}      & L. Skenderi & \makecell{Iniziale stesura\\Test di accettazione.} \\
     \hline
     0.2.1
-    & 29/12/2023      & \makecell{N. Preto, E. Hysa}      & L. Skenderi & \makecell{Iniziale stesura\\Test di sistema.} \\
+    & 29/12/2023      & \makecell{N. Preto}      & L. Skenderi & \makecell{Iniziale stesura\\Test di sistema.} \\
     \hline
     0.2.0
     & 27/12/2023      & \makecell{N. Preto}      & E. Hysa & \makecell{Correzione e\\riadattamenti della\\sezione degli obiettivi\\metrici.} \\
@@ -136,7 +136,7 @@
     & 05/12/2023      & \makecell{D. Diotto}      & R. Smanio & \makecell{Prima stesura sottosezione\\Qualità di processo,\\Qualità di Prodotto\\e Qualità per obiettivo.} \\
     \hline
     0.0.2
-    & 17/11/2023      & \makecell{A. Barutta}      & E. Hysa & \makecell{Finalizzata scrittura\\sottosezioni Finalità documento\\ e Glossario.} \\
+    & 17/11/2023      & \makecell{A. Barutta}      & E. Hysa & \makecell{Finalizzata scrittura\\sottosez. Finalità documento\\ e Glossario.} \\
     \hline
     0.0.1
     & 15/11/2023      & \makecell{A. Barutta}      & E. Hysa & \makecell{Iniziale scrittura sezione\\Introduzione.} \\
@@ -149,7 +149,10 @@
 \setstretch{1.5}
 \maketitle
 \thispagestyle{fancy}
-\tableofcontents
+{
+    \hypersetup{linkcolor=black}
+    \tableofcontents
+}
 \setstretch{1.2}
 \pagebreak
 
@@ -158,7 +161,7 @@
 \flushleft
 \input{Sezioni/Piano_di_qualifica/Introduzione.tex}
 
-\newcounter{metriccounter}
+\newcounter{metriccounter} 
 \setcounter{metriccounter}{1} 
 
 \input{Sezioni/Piano_di_qualifica/Obiettivi_metrici_di_qualità.tex}
