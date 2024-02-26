@@ -38,11 +38,11 @@
     
     %RF9
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio &  Il \textit{sistema}\textsubscript{\textit{G}} deve essere in grado di simulare almeno un \textit{sensore}\textsubscript{\textit{G}} per monitorare lo stato di riempimento dei diversi conferitori nelle isole ecologiche. L'indicazione fornita sarà un \textit{bit}\textsubscript{\textit{G}} binario, dove il valore 1 segnalerà che il contenitore è pieno.& Capitolato & \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio &  Il sistema deve essere in grado di simulare almeno un sensore per monitorare lo stato di riempimento dei diversi conferitori nelle isole ecologiche. L'indicazione fornita sarà una percentuale di riempimento dell'isola ecologica. & Capitolato & \\
     
     %RF10
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & Il \textit{sistema}\textsubscript{\textit{G}} deve includere la simulazione di almeno un \textit{sensore}\textsubscript{\textit{G}} per le colonnine di ricarica. Questi sensori indicheranno tramite un \textit{bit}\textsubscript{\textit{G}} binario se la colonnina è occupata (\textit{bit}\textsubscript{\textit{G}} 1) o libera (\textit{bit}\textsubscript{\textit{G}} 0).& Capitolato &  \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & Il \textit{sistema}\textsubscript{\textit{G}} deve includere la simulazione di almeno un \textit{sensore}\textsubscript{\textit{G}} per le colonnine di ricarica. Questi sensori indicheranno tramite un \textit{bit}\textsubscript{\textit{G}} binario se la colonnina è occupata (\textit{bit}\textsubscript{\textit{G}} 1) o libera (\textit{bit}\textsubscript{\textit{G}} 0).& Capitolato & \\
     
     %RF11
     \hline
@@ -296,6 +296,9 @@
     \hline
     \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & L'utente deve essere in grado di visualizzare l'unità di misura associata al \textit{sensore}\textsubscript{\textit{G}}.& Decisione interna & UC18.6 \\
     
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & La piattaforma deve poter ricevere più rilevazioni in parallelo. & Capitolato &  \\
+
     \hline
     
 \end{longtable}
