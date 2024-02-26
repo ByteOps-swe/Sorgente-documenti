@@ -1,59 +1,58 @@
 \subsection{Gestione della configurazione}
 \subsubsection{Introduzione}
-La gestione della configurazione del progetto è una \textit{attività}\textsubscript{\textit{G}} che norma il tracciamento e il controllo delle modifiche a documenti e prodotti del \textit{software}\textsubscript{\textit{G}} detti Configuration Item (CI).
+La gestione della configurazione del progetto è un processo che norma il tracciamento e il controllo delle modifiche a documenti e prodotti del \textit{software}\textsubscript{\textit{G}} detti Configuration Item (CI).
 
-La gestione della configurazione può essere applicata a qualunque categoria di documenti o di “artefatti” che svolga un ruolo nello sviluppo \textit{software}\textsubscript{\textit{G}}.
-Secondo lo \textit{standard}\textsubscript{\textit{G}} \textit{IEEE}\textsubscript{\textit{G}}, la gestione della configurazione del \textit{software}\textsubscript{\textit{G}} è un processo di identificazione, organizzazione e controllo delle modifiche apportate ai prodotti \textit{software}\textsubscript{\textit{G}} durante il loro ciclo di vita.
-Lo \textit{standard}\textsubscript{\textit{G}} \textit{IEEE}\textsubscript{\textit{G}} 828-2012 definisce la gestione della configurazione del \textit{software}\textsubscript{\textit{G}} come “un processo disciplinato per gestire l’evoluzione del \textit{software}\textsubscript{\textit{G}}”.
-\subsubsection{Numeri di versionamento}\label{sec:versionamento}
-La convenzione per identificare la versione di un documento è: X.Y.Z
-con :
+La gestione della configurazione viene applicata a qualunque categoria di “artefatti” coinvolti nel ciclo di vita del \textit{software}\textsubscript{\textit{G}}. \\
+Secondo lo \textit{standard}\textsubscript{\textit{G}} \href{https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf}{ISO/IEC 12207:1995}, la gestione della configurazione del \textit{software}\textsubscript{\textit{G}} è un processo di identificazione, organizzazione e controllo delle modifiche apportate ai prodotti \textit{software}\textsubscript{\textit{G}} durante il loro ciclo di vita. \\
+Lo \textit{standard}\textsubscript{\textit{G}} \href{https://standards.ieee.org/ieee/828/5367/}{IEEE 828-2012} definisce la gestione della configurazione del \textit{software}\textsubscript{\textit{G}} come “un processo disciplinato per gestire l’evoluzione del \textit{software}\textsubscript{\textit{G}}”.
+
+\subsubsection{Numeri di versionamento}\label{subsubsec:versionamento}
+La convenzione per identificare la versione di un documento è nel formato X.Y.Z con:
 \begin{itemize}
-    \item \textbf{X: }Viene incrementato al raggiungimento di \textit{RTB}\textsubscript{\textit{G}}, \textit{PB}\textsubscript{\textit{G}} ed eventualmente CA;
-    \item \textbf{Y: }Viene incrementato quando vengono apportate modifiche significative al documento, come cambiamenti strutturali, nuove sezioni importanti o modifiche sostanziali nel contenuto;
-    \item \textbf{Z: }Viene incrementato per modifiche minori o aggiornamenti al documento. Questi potrebbero includere correzioni di errori, miglioramenti marginali o l'aggiunta di nuovi contenuti meno rilevanti.
+    \item \textbf{X:} viene incrementato al raggiungimento di \textit{RTB}\textsubscript{\textit{G}}, \textit{PB}\textsubscript{\textit{G}} ed eventualmente CA;
+    \item \textbf{Y:} viene incrementato quando vengono apportate modifiche significative al documento, come cambiamenti strutturali, nuove sezioni importanti o modifiche sostanziali nel contenuto;
+    \item \textbf{Z:} viene incrementato per modifiche minori o aggiornamenti al documento. Questi potrebbero includere correzioni di errori, miglioramenti marginali o l'aggiunta di nuovi contenuti meno rilevanti.
 \end{itemize}
 
-L'incremento dei valori più significati  porta i meno significativi a zero. \\
+L'incremento dei valori più significativi porta i meno significativi a zero. Ad esempio, se in un documento nella versione 0.6.4 vengono effettuate modifiche significative e viene conseguentemente incrementato il valore Y, si passa alla versione 0.7.0 e non alla versione 0.7.4. \\
 Ogni variazione di versione deve essere presente nel registro delle modifiche.
 
-
 \subsubsection{Repository}
-Le \textit{repository}\textsubscript{\textit{G}} del team sono:
+Di seguito sono elencate le \textit{repository}\textsubscript{\textit{G}} del team ByteOps con i relativi riferimenti:
 \begin{itemize}
-    \item \href{https://github.com/ByteOps-swe/Sorgente-documenti}{Sorgente-documenti:} Repository per il versionamento, la gestione e lo sviluppo dei sorgenti della documentazione;
-    \item \href{https://github.com/ByteOps-swe/Documents}{Documents:} Repository destinata ai commintenti/proponenti dove vengono condivisi solo i PDF dei file sorgenti revisionati.
-    \item \href{https://github.com/ByteOps-swe/proof-of-concept}{proof-of-concept:} Repository destinata al \textit{POC}\textsubscript{\textit{G}}.
+    \item \href{https://github.com/ByteOps-swe/Sorgente-documenti}{Sorgente-documenti:} \textit{repository}\textsubscript{\textit{G}} per il versionamento, la gestione e lo sviluppo dei file sorgente relativi alla documentazione;
+    \item \href{https://github.com/ByteOps-swe/Documents}{Documents:} \textit{repository}\textsubscript{\textit{G}} destinata ai committenti/proponenti, dove vengono esclusivamente condivisi i file in formato PDF relativi alla documentazione, ottenuti dalla compilazione dei file sorgente presenti nella cartella "Sorgente-documenti";
+    \item \href{https://github.com/ByteOps-swe/proof-of-concept}{proof-of-concept:} \textit{repository}\textsubscript{\textit{G}} destinata al \textit{POC}\textsubscript{\textit{G}}.
 \end{itemize}
 \paragraph{Struttura repository}
 I \textit{repository}\textsubscript{\textit{G}} destinati alla documentazione sono organizzati come segue:
 \begin{itemize}
-    \item \textbf{Candidatura:} Contenente i documenti richiesti per la candidatura;
+    \item \textbf{Candidatura:} contenente i documenti richiesti per la candidatura;
           \begin{itemize}
-              \item \textbf{Verbali:} Contiene tutti i verbali redatti nel corso del periodo di candidatura, distinti tra verbali esterni e interni;
-              \item Lettera di presentazione;
-              \item Valutazione dei costi e assunzione impegni;
-              \item Valutazione dei capitolati.
+              \item \textbf{Verbali:} contiene tutti i verbali redatti nel corso del periodo di candidatura, distinti tra verbali esterni e interni;
+              \item \textbf{Lettera di presentazione};
+              \item \textbf{Valutazione dei costi e assunzione impegni};
+              \item \textbf{Valutazione dei capitolati}.
           \end{itemize}
-    \item \textbf{RTB:} Contenente i documenti richiesti per la revisione omonima;
+    \item \textbf{RTB:} contenente i documenti richiesti per la revisione omonima;
           \begin{itemize}
-              \item \textbf{Verbali:} Contiene tutti i verbali redatti nel corso del periodo della \textit{RTB}\textsubscript{\textit{G}}, distinti tra verbali esterni e interni;
-              \item Piano di Qualifica;
-              \item Piano di Progetto;
-              \item Analisi dei Requisiti;
-              \item Glossario;
-              \item Norme di Progetto.
+              \item \textbf{Verbali:} contiene tutti i verbali redatti nel corso del periodo della \textit{RTB}\textsubscript{\textit{G}}, distinti tra verbali esterni e interni;
+              \item \textbf{Piano di Qualifica};
+              \item \textbf{Piano di Progetto};
+              \item \textbf{Analisi dei Requisiti};
+              \item \textbf{Glossario};
+              \item \textbf{Norme di Progetto}.
           \end{itemize}
     \item \textbf{PB}.
 \end{itemize}
 
 
-\paragraph{Sincronizzazione e Branching}
-\textbf{Documentazione} \\
-Il processo operativo utilizzato per la redazione della documentazione, noto come "feature \textit{branch}\textsubscript{\textit{G}} \textit{workflow}\textsubscript{\textit{G}}", implica la creazione di un ramo dedicato per ciascun documento o sezione da elaborare.
-Tale metodologia permette una parallelizzazione agile dei lavori evitando sovrascritture indesiderate di altri lavori e permette l'adozione dei principi "Documentation as code". \\ % ~\ref{sec:DocumentationAsCode} 
+\hypertarget{subsubsec:sincronizzazione&branching}{\subsubsection{Sincronizzazione e Branching}}
+\paragraph{Documentazione}
+Il processo operativo utilizzato per la redazione della documentazione, noto come "\href{https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow}{Feature Branch workflow}", implica la creazione di un ramo dedicato per ciascun documento o sezione da elaborare.
+Tale metodologia permette una parallelizzazione agile dei lavori evitando sovrascritture indesiderate di altri lavori e permette l'adozione dei principi "Documentation as code" definiti nella \textit{sezione~\ref{sec:DocumentationAscode}}. \\ 
 
-\textbf{Convenzioni per la nomenclatura dei branch relativi alle attività di redazione o modifica di documenti} \\
+\paragraph*{\hypertarget{par:convezioninomenclaturabranchdocumenti}{\textbf{Convenzioni per la nomenclatura dei branch relativi alle attività di redazione o modifica di documenti}}}
 
 \begin{itemize}
     \item Il nome del \textit{branch}\textsubscript{\textit{G}} deve presentare l'identificativo del documento che si vuole redarre o modificare. \\
@@ -62,16 +61,16 @@ Tale metodologia permette una parallelizzazione agile dei lavori evitando sovras
 
 \begin{table}[H]
     \centering
-    \begin{tabular}{|c|c|}
+    \begin{tabular}{|C{4cm}|C{2cm}|}
         \hline
-        Documento & \textit{ID}\textsubscript{\textit{G}} \\
-        \hline
-        Verbale interno & VI \\
-        Verbale esterno & VE \\
-        Norme di Progetto & NdP \\
-        Piano di Qualifica & PdQ \\
-        Piano di Progetto & PdP \\ 
-        Analisi dei Requisiti & AdR \\
+        \textbf{Documento} & \textbf{ID} \\
+        \hline \hline
+        Verbale interno         & VI  \\
+        Verbale esterno         & VE  \\
+        Norme di Progetto       & NdP \\
+        Piano di Qualifica      & PdQ \\
+        Piano di Progetto       & PdP \\ 
+        Analisi dei Requisiti   & AdR \\
         \hline
     \end{tabular}
     \caption{ID per la nomenclatura dei branch relativi alla documentazione}
@@ -86,148 +85,172 @@ Tale metodologia permette una parallelizzazione agile dei lavori evitando sovras
     \texttt{IdDocumento\_ModNomeSezione} (ex. NdP\_ModDocumentazione).
 \end{itemize}
 
-\textbf{Sviluppo} \\
-Gitflow è lo stile di flusso di lavoro Git che utilizza il team ByteOps per lo sviluppo.
+\paragraph{Sviluppo}
+\href{https://www.atlassian.com/it/git/tutorials/comparing-workflows/gitflow-workflow}{Gitflow} è lo stile di flusso di lavoro Git che utilizza il team ByteOps per lo sviluppo.
 
 \paragraph*{Flusso generale di Gitflow}
 
 \begin{enumerate}
-    \item \textbf{Branch \texttt{develop}:} Viene creato a partire dal \textit{branch}\textsubscript{\textit{G}} principale (\texttt{main}). È il punto di partenza per lo sviluppo di nuove funzionalità;
+    \item \textbf{Branch \texttt{develop}:} viene creato a partire dal \textit{branch}\textsubscript{\textit{G}} principale (\texttt{main}). È il punto di partenza per lo sviluppo di nuove funzionalità;
 
-    \item \textbf{Branch \texttt{release}:} Creato da \texttt{develop}, questo \textit{branch}\textsubscript{\textit{G}} gestisce la preparazione del \textit{software}\textsubscript{\textit{G}} per un rilascio. Durante questa fase, sono consentite solo correzioni di bug e miglioramenti minori;
+    \item \textbf{Branch \texttt{release}:} creato da \texttt{develop}, questo \textit{branch}\textsubscript{\textit{G}} gestisce la preparazione del \textit{software}\textsubscript{\textit{G}} per un rilascio. Durante questa fase, sono consentite solo correzioni di bug e miglioramenti minori;
 
-    \item \textbf{Branch \texttt{feature}:} Creati da \texttt{develop}, sono utilizzati per lo sviluppo di nuove funzionalità o miglioramenti. 
+    \item \textbf{Branch \texttt{feature}:} creati da \texttt{develop}, sono utilizzati per lo sviluppo di nuove funzionalità o miglioramenti; 
 
-    \item \textbf{Merge di \texttt{feature} in \texttt{develop}:} Quando una funzionalità è completa, il \textit{branch}\textsubscript{\textit{G}} \texttt{feature} viene fuso nel \textit{branch}\textsubscript{\textit{G}} \texttt{develop};
+    \item \textbf{Merge di \texttt{feature} in \texttt{develop}:} quando una funzionalità è completa, il \textit{branch}\textsubscript{\textit{G}} \texttt{feature} viene "fuso" nel \textit{branch}\textsubscript{\textit{G}} \texttt{develop};
 
-    \item \textbf{Merge di \texttt{release} in \texttt{develop} e \texttt{main}:} Dopo il completamento del \textit{branch}\textsubscript{\textit{G}} \texttt{release}, viene unito sia in \texttt{develop} che in \texttt{main}, segnalando un nuovo rilascio stabile;
+    \item \textbf{Merge di \texttt{release} in \texttt{develop} e \texttt{main}:} dopo il completamento del \textit{branch}\textsubscript{\textit{G}} \texttt{release}, quest'ultimo viene unito sia in \texttt{develop} che in \texttt{main}, segnalando un nuovo rilascio stabile;
 
-    \item \textbf{Branch \texttt{hotfix}:} Creato da \texttt{main} in caso di problemi critici rilevati nell'ambiente di produzione;
+    \item \textbf{Branch \texttt{hotfix}:} creato da \texttt{main} in caso di problemi critici rilevati nell'ambiente di produzione;
 
-    \item \textbf{Merge di \texttt{hotfix} in \texttt{develop} e \texttt{main}:} Una volta risolto il problema, il \textit{branch}\textsubscript{\textit{G}} \texttt{hotfix} viene unito sia in \texttt{develop} che in \texttt{main} per garantire coerenza tra le versioni.
+    \item \textbf{Merge di \texttt{hotfix} in \texttt{develop} e \texttt{main}:} una volta risolto il problema, il \textit{branch}\textsubscript{\textit{G}} \texttt{hotfix} viene unito sia in \texttt{develop} che in \texttt{main} per garantire coerenza tra le versioni.
 \end{enumerate}
 
-\subsubsection*{Comandi di comodo}
-\paragraph*{Inizializzare Gitflow}
+\paragraph*{Comandi di comodo}
+\vspace{0.2cm}
+\begin{itemize}
+    \item Inizializzare Gitflow
+    \vspace{0.1cm}
+    \begin{lstlisting}[style=code]
+        git flow init
+    \end{lstlisting}
+    \item Sviluppo di una Nuova Funzionalità
+    \vspace{0.1cm}
+    \begin{lstlisting}[style=code]
+        git flow feature start nome_feature
+    \end{lstlisting}
+    \begin{lstlisting}[style=code]
+        git flow feature finish nome_feature
+    \end{lstlisting}
+    \pagebreak
+    \item Risoluzione di un bug
+    \vspace{0.1cm}
+    \begin{lstlisting}[style=code]
+        git flow hotfix start nome_hotfix
+    \end{lstlisting}
+    \begin{lstlisting}[style=code]
+        git flow hotfix finish nome_hotfix
+    \end{lstlisting}
+    \item Rilascio di una nuova versione
+    \vspace{0.1cm}
+    \begin{lstlisting}[style=code]
+        git flow release start X.X.X
+    \end{lstlisting}
+    \begin{lstlisting}[style=code]
+        git flow release finish X.X.X
+    \end{lstlisting}
+    \item Pubblicazione delle modifiche
+    \vspace{0.1cm}
+    \begin{lstlisting}[style=code]
+        git push origin develop
+        git push origin master
+        git push origin --tags
+    \end{lstlisting}
+    \begin{lstlisting}[style=code]
+        git push origin feature/nome_feature
+        git push origin hotfix/nome_hotfix
+        git push origin release/X.X.X
+    \end{lstlisting}
+\end{itemize}
 
-% Inizializzare Gitflow
-\begin{lstlisting}[style=code]
-    git flow init
-    \end{lstlisting}
-    
-    % Sviluppo di una Nuova Funzionalità
-    \paragraph*{Sviluppo di una Nuova Funzionalità}
-    
-    % Inizia una Feature
-    \begin{lstlisting}[style=code]
-    git flow feature start nome_feature
-    \end{lstlisting}
-    
-    % Lavora sul Codice
-    % Effettua le modifiche e i commit sulla \textit{branch}\textsubscript{\textit{G}} della feature.
-    
-    % Completa la Feature
-    \begin{lstlisting}[style=code]
-    git flow feature finish nome_feature
-    \end{lstlisting}
-    
-    % Risoluzione di Bug
-    \paragraph*{Risoluzione di Bug}
-    
-    % Inizia una Hotfix
-    \begin{lstlisting}[style=code]
-    git flow hotfix start nome_hotfix
-    \end{lstlisting}
-    
-    % Lavora sul Codice
-    % Effettua le modifiche e i commit sulla \textit{branch}\textsubscript{\textit{G}} del hotfix.
-    
-    % Completa il Hotfix
-    \begin{lstlisting}[style=code]
-    git flow hotfix finish nome_hotfix
-    \end{lstlisting}
-    
-    % Rilascio di una Nuova Versione
-    \paragraph*{Rilascio di una Nuova Versione}
-    
-    % Inizia una Release
-    \begin{lstlisting}[style=code]
-    git flow release start X.X.X
-    \end{lstlisting}
-    
-    % Lavora sul Codice
-    % Effettua eventuali aggiustamenti per la release e imposta il numero di versione nei file appropriati.
-    
-    % Completa la Release
-    \begin{lstlisting}[style=code]
-    git flow release finish X.X.X
-    \end{lstlisting}
-    
-    % Pubblicazione delle Modifiche
-    \paragraph*{Pubblicazione delle Modifiche}
-    
-    % Push delle Branch
-    \begin{lstlisting}[style=code]
-    git push origin develop
-    git push origin master
-    git push origin --tags
-    \end{lstlisting}
-    
-    % Push delle Feature/Hotfix/Release
-    \begin{lstlisting}[style=code]
-    git push origin feature/nome_feature
-    git push origin hotfix/nome_hotfix
-    git push origin release/X.X.X
-    \end{lstlisting}
+\paragraph{Pull Request}
+Dopo aver portato a termine le \textit{attività}\textsubscript{\textit{G}} nel proprio \textit{branch}\textsubscript{\textit{G}}, il responsabile del suo sviluppo è tenuto ad avviare una Pull Request per incorporare le modifiche effettuate nel ramo principale (main). La Pull Request viene approvata solo dopo che le modifiche sono state verificate sulla base di quanto descritto nella \textit{sezione~\ref{subsec:verifica}}.
+
+\hypertarget{par:creazionePR}{\paragraph*{Procedura per la creazione di Pull Request}}
+Per creare una Pull Request eseguire i seguenti passaggi:
+\begin{enumerate}
+    \item Accedere al \textit{repository}\textsubscript{\textit{G}} GitHub e cliccare sulla scheda "Pull requests";
+    \item Cliccare il pulsante "New Pull Request";
+    \item Selezionare il \textit{branch}\textsubscript{\textit{G}} di partenza ed il \textit{branch}\textsubscript{\textit{G}} target;
+    \item Cliccare il pulsante "Create Pull Request";
+    \item Aggiungere un titolo alla Pull Request;
+    \item Aggiungere una descrizione;
+    \item Selezionare i verificatori;
+    \item Come convenzione, l'assegnatario è colui che richiede la Pull Request;
+    \item Selezionare le \textit{label}\textsubscript{\textit{G}};
+    \item Selezionare il progetto;
+    \item Selezionare le \textit{milestone}\textsubscript{\textit{G}};
+    \item Clicca il pulsante "Create Pull Request";
+    \item Nel caso siano presenti conflitti seguire le istruzioni in \textit{Github}\textsubscript{\textit{G}} per rimuovere tali conflitti.
+\end{enumerate}
+
 \subsubsection{Controllo di configurazione}
 \paragraph{Change request (Richiesta di modifica)}
-Seguendo lo \textit{standard}\textsubscript{\textit{G}}  ISO/IEC 12207 per affrontare questo processo in modo strutturato le \textit{attività}\textsubscript{\textit{G}} sono:
+Seguendo lo \textit{standard}\textsubscript{\textit{G}} \href{https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf}{ISO/IEC 12207:1995} per affrontare questo processo in modo strutturato le \textit{attività}\textsubscript{\textit{G}} sono:
 \begin{enumerate}
-    \item \textbf{Identificazione e registrazione}: Le change request vengono identificate, registrate e documentate accuratamente. Questo include informazioni come la natura della modifica richiesta, l'urgenza, l'impatto sul \textit{sistema}\textsubscript{\textit{G}} esistente\\
-          L'identificazione avviene tramite la creazione di un \textit{issue}\textsubscript{\textit{G}} nell'ITS con \textit{label}\textsubscript{\textit{G}}: "Change request";
-    \item \textbf{Valutazione e analisi}: Le change request vengono valutate dal team per determinare la loro fattibilità, importanza e impatto sul progetto. Si analizzano i costi e i benefici associati all'implementazione della modifica;
-    \item \textbf{Approvazione o rifiuto}:Il responsabile valuta le informazioni raccolte e decide se approvare o respingere la change request. Questa decisione può essere basata su criteri come il budget, il tempo, le priorità degli \textit{stakeholder}\textsubscript{\textit{G}};
-    \item \textbf{Pianificazione delle modifiche}: Se una change request viene approvata, viene pianificata e integrata nel ciclo di sviluppo del \textit{software}\textsubscript{\textit{G}}. Questo può richiedere la rinegoziazione dei tempi di consegna, la revisione del piano di progetto, ecc;
-    \item \textbf{Implementazione delle modifiche}: Le modifiche vengono effettivamente implementate. Durante questo processo, è fondamentale mantenere una traccia accurata di ciò che viene fatto per consentire una corretta documentazione e, se necessario, la possibilità di un \textit{rollback}\textsubscript{\textit{G}};
-    \item \textbf{Verifica e validazione}: Le modifiche apportate vengono verificate per assicurarsi che abbiano raggiunto gli obiettivi previsti e non abbiano introdotto nuovi problemi o errori;
-    \item \textbf{Documentazione}: Tutti i passaggi del processo di gestione delle change request vengono documentati accuratamente per garantire la trasparenza e la tracciabilità. Questa documentazione è utile per futuri riferimenti e per l'apprendimento dalle modifiche apportate;
-    \item \textbf{Comunicazione agli interessati}: Durante tutto il processo, è importante comunicare in modo chiaro e tempestivo agli interessati, come il team di sviluppo, i clienti e altri \textit{stakeholder}\textsubscript{\textit{G}}, per mantenere la trasparenza e la fiducia.
+    \item \textbf{Identificazione e registrazione} \\
+    Le change request vengono identificate, registrate e documentate accuratamente. Questo include informazioni come la natura della modifica richiesta, l'urgenza e l'impatto sul \textit{sistema}\textsubscript{\textit{G}} esistente. \\
+    L'identificazione avviene tramite la creazione di una \textit{issue}\textsubscript{\textit{G}} nell'ITS con \textit{label}\textsubscript{\textit{G}}: "Change request";
+    \item \textbf{Valutazione e analisi} \\
+    Le change request vengono valutate dal team per determinare la loro fattibilità, importanza e impatto sul progetto. Si analizzano i costi e i benefici associati all'implementazione della modifica;
+    \item \textbf{Approvazione o rifiuto} \\
+    Il responsabile valuta le informazioni raccolte e decide se approvare o respingere la change request. Questa decisione può essere basata su criteri come il budget, il tempo, le priorità degli \textit{stakeholder}\textsubscript{\textit{G}};
+    \item \textbf{Pianificazione delle modifiche} \\
+    Se una change request viene approvata, viene pianificata e integrata nel ciclo di sviluppo del \textit{software}\textsubscript{\textit{G}}. Questo può richiedere, ad esempio, la rinegoziazione dei tempi di consegna e la revisione del piano di progetto;
+    \item \textbf{Implementazione delle modifiche} \\
+    Le modifiche vengono effettivamente implementate. Durante questo processo, è fondamentale mantenere una traccia accurata di ciò che viene fatto per consentire una corretta documentazione e, se necessario, la possibilità di un \textit{rollback}\textsubscript{\textit{G}};
+    \item \textbf{Verifica e validazione} \\
+    Le modifiche apportate vengono verificate per assicurarsi che abbiano raggiunto gli obiettivi previsti e non abbiano introdotto nuovi problemi o errori;
+    \item \textbf{Documentazione} \\
+    Tutti i passaggi del processo di gestione delle change request vengono documentati accuratamente per garantire la trasparenza e la tracciabilità. Questa documentazione è utile per futuri riferimenti e per l'apprendimento delle modifiche apportate;
+    \item \textbf{Comunicazione agli stakeholder} \\Durante tutto il processo è importante comunicare in modo chiaro e tempestivo con gli \textit{stakeholder}\textsubscript{\textit{G}}, per mantenere trasparenza e fiducia.
 \end{enumerate}
 
 \subsubsection{Configuration Status Accounting (Contabilità dello Stato di Configurazione)}
-Questo processo si occupa di registrare e tenere traccia dello stato di tutte le configurazioni di un \textit{sistema}\textsubscript{\textit{G}} \textit{software}\textsubscript{\textit{G}} durante il suo ciclo di vita.
-\begin{itemize}
-    \item \textbf{Registrazione delle configurazioni}: Registrazione delle informazioni dettagliate su ogni elemento di configurazione;
-          \begin{itemize}
-              \item  \textbf{Documentazione:} Le informazioni del CI sono presenti nella prima pagina di ciascuno.
-              \item  \textbf{Sviulppo:} Le informazioni del CI sono inserite come prime righe del file sotto forma di commento.
-          \end{itemize}
-    \item \textbf{Stato e cambiamenti}: Tenere traccia dello stato attuale di ciascun elemento di configurazione e di tutti i cambiamenti che avvengono nel corso del tempo. Ciò include le versioni attuali, le revisioni, le modifiche e le baselines;
-          \begin{itemize}
-              \item  \textbf{Registro delle modifiche:} Per monitorare lo stato di ciascun CI, si utilizza il registro delle modifiche incorporato in ognuno di essi;
-              \item  \textbf{Branching \& DashBoard:} Per visionare la presenza di lavori in atto su di un CI si utilizza a supporto la presenza di \textit{branch}\textsubscript{\textit{G}} attivi che lo riguardano e il posizionamento di \textit{issue}\textsubscript{\textit{G}} associate nella Dashboard di progetto.
-                    \begin{itemize}
-                        \item Ogni \textit{issue}\textsubscript{\textit{G}} è associato ad un CI tramite \textit{label}\textsubscript{\textit{G}}.  \label{sec:ticketing}
-                    \end{itemize}
-          \end{itemize}
-    \item \textbf{Supporto per la gestione delle change request}: Registra e documenta le modifiche apportate agli elementi di configurazione in risposta alle richieste di modifica.
-          \begin{itemize}
-              \item  \textbf{ITS:} Per supportare i change request viene utilizzato l'ITS di \textit{github}\textsubscript{\textit{G}}, l'identificazione avviene tramite la creazione di un \textit{issue}\textsubscript{\textit{G}} nell'ITS con \textit{label}\textsubscript{\textit{G}}: "Change request".
-          \end{itemize}
-\end{itemize}
-La Contabilità dello Stato di Configurazione è un processo fondamentale per mantenere la trasparenza e la tracciabilità nel ciclo di vita del \textit{software}\textsubscript{\textit{G}}, aiutando a gestire le configurazioni in modo coerente e a mantenere un registro accurato di tutte le \textit{attività}\textsubscript{\textit{G}} e le modifiche che coinvolgono gli elementi di configurazione.\\
-\vspace{0.2cm}
+La Contabilità dello Stato di Configurazione è un'\textit{attività}\textsubscript{\textit{G}} dedicata a registrare e monitorare lo stato di tutte le configurazioni di un \textit{sistema}\textsubscript{\textit{G}} \textit{software}\textsubscript{\textit{G}} durante il suo ciclo di vita.
 
-Ad esempio, l'aggiunta di un elemento di configurazione al ramo principale (main) lo designa come la versione più recente e revisionata, mentre le versioni (X.0.0) con X>=1 indicano l'appartenenza del suddetto elemento di configurazione alla baseline, con la medesima versione.
+Questo processo è cruciale per mantenere la trasparenza e la tracciabilità nel ciclo di vita del \textit{software}\textsubscript{\textit{G}}, aiutando a gestire le configurazioni in modo uniforme e a mantenere un registro accurato di tutte le \textit{attività}\textsubscript{\textit{G}} e le modifiche relative agli elementi di configurazione.\\
+
+\begin{itemize}
+    \item \hypertarget{item:registrazioneconfigurazioni}{\textit{\textbf{Registrazione delle configurazioni}}}: registrazione delle informazioni dettagliate su ogni Configuration Item;
+          \begin{itemize}
+              \item  \textbf{Documentazione:} le informazioni relative alla configurazione sono presenti nella prima pagina di ciascuno;
+              \item  \textbf{Sviluppo:} le informazioni relative alla configurazione sono inserite come prime righe di ciascun file sotto forma di commento.
+          \end{itemize}
+    \item \textbf{Stato e cambiamenti}: tenere traccia dello stato attuale di ciascun elemento di configurazione e di tutti i cambiamenti che avvengono nel corso del tempo. \\
+    Ciò include le versioni attuali, le revisioni, le modifiche e le baseline;
+        \begin{itemize}
+            \item \textbf{Registro delle modifiche:} per monitorare lo stato di ciascun Configuration Item si utilizza il registro delle modifiche incorporato in ognuno di essi, come specificato in \hyperlink{item:registrazioneconfigurazioni}{"\textit{registrazione delle configurazioni}"};
+            \item \textbf{Branching \& DashBoard:} per verificare se vi sono \textit{attività}\textsubscript{\textit{G}} in corso su un Configuration Item, è sufficiente controllare se ci sono \textit{branch}\textsubscript{\textit{G}} attivi correlati e, dato che ogni \textit{issue}\textsubscript{\textit{G}} è associata a un CI tramite \textit{label}\textsubscript{\textit{G}}, verificare le eventuali \textit{issue}\textsubscript{\textit{G}} contrassegnate come "In Progress" nella colonna corrispondente della Dashboard del progetto.
+        \end{itemize}
+    \item \textbf{Supporto per la gestione delle change request}: registra e documenta le modifiche apportate agli elementi di configurazione in risposta alle richieste di modifica. \\
+    Per gestire le richieste di modifica, si utilizza l'Issue Tracking System (ITS) di GitHub, creando una \textit{issue}\textsubscript{\textit{G}} contrassegnata con l'etichetta "Change request".
+\end{itemize}
+
+Per approfondimenti su come creare issues e associare labels a una \textit{issue}\textsubscript{\textit{G}}, consultare la sezione relativa al \hyperlink{par:ticketing}{\textit{Ticketing}}.
 
 \subsubsection{Release management and delivery}
-Dopo aver portato a termine le \textit{attività}\textsubscript{\textit{G}} nel proprio \textit{branch}\textsubscript{\textit{G}}, il responsabile del suo sviluppo è tenuto a avviare una richiesta di pull per incorporare le modifiche nel ramo principale. La richiesta di pull può essere accettata solo se la verifica ha esito positivo.
+Nello \textit{standard}\textsubscript{\textit{G}} \href{https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf}{ISO/IEC 12207:1995}, il processo "Release management and delivery" è definito come un processo che si occupa della pianificazione, del coordinamento e del controllo delle \textit{attività}\textsubscript{\textit{G}} necessarie per preparare e distribuire una versione di un prodotto \textit{software}\textsubscript{\textit{G}} per l'uso operativo.
+
+Questo processo comprende la gestione delle release, la distribuzione del \textit{software}\textsubscript{\textit{G}}, la preparazione della documentazione correlata e altre \textit{attività}\textsubscript{\textit{G}} correlate al rilascio e alla consegna del prodotto \textit{software}\textsubscript{\textit{G}}.
+
+\vspace{0.2cm}
+
+Il team ByteOps ha stabilito che la creazione di una release deve avvenire in relazione alle baseline stabilite per il progetto didattico, ovvero \textit{RTB}\textsubscript{\textit{G}} (Requirements and Technology Baseline), \textit{PB}\textsubscript{\textit{G}} (Product Baseline) ed eventualmente CA (Customer Acceptance). Questo processo inoltre deve essere attuato solo dopo una completa verifica e validazione del prodotto seguendo le procedure dettagliate nelle \textit{sezioni Verifica(~\ref{subsec:verifica})} e \textit{Validazione(~\ref{subsec:validazione})}.
+
+\vspace{0.2cm}
+
+In conformità con quanto definito nella \textit{sezione~\ref{subsubsec:versionamento}}, relativa al versionamento dei numeri, ogni nuova release comporta un incremento di 1 nell'elemento numerico X del formato X.Y.Z.
+
+\paragraph{Procedura per la creazione di una release}
+Per la creazione di una release eseguire la seguente procedura:
+\begin{itemize}
+    \item Accedi alla \textit{repository}\textsubscript{\textit{G}} GitHub;
+    \item Accedi alla sezione "Releases";
+    \item Clicca sul pulsante "Create a new release";
+    \item Clicca sul pulsante "Choose a tag" e selezionare il tag che identifica la versione della release. Nel caso il tag desiderato non fosse presente nella lista, è possibile crearne uno nuovo scrivendo la versione desiderata e cliccando sul pulsante "Create new tag". Per la corretta definizione della versione vedi la \textit{sezione~\ref{subsubsec:versionamento}} relativa ai numeri di versionamento;
+    \item Seleziona il \textit{branch}\textsubscript{\textit{G}} main come \textit{branch}\textsubscript{\textit{G}} target di cui si vuole creare una release;
+    \item Scegliere un titolo per la release. La convenzione adottata è quella di inserire come titolo il nome della baseline per la quale si vuole creare la release.
+    \item Scrivi una breve descrizione per la release;
+    \item Clicca "Publish release".
+\end{itemize}
+
+Dopo aver seguito la procedura, nella sezione "Releases" di GitHub sarà visibile la release appena creata e sarà possibile scaricare il file.zip relativo.
 
 \subsubsection{Strumenti}
-Le tecnologie adottata per la gestione dei \textit{configuration item}\textsubscript{\textit{G}} sono:
+Le tecnologie adottate per la gestione dei Configuration Item sono:
 \begin{itemize}
-    \item \textbf{Git}: Version Control System distribuito utilizzato per il versionamento dei CI;
-    \item \textbf{GitHub}: Piattaforma web che utilizza Git per il controllo di versione dei CI e per il Ticketing.
-          Utilizzata per la gestione dei change request tramite \textit{issue}\textsubscript{\textit{G}} e \textit{label}\textsubscript{\textit{G}} e per la contabilità dello stato di configurazione (Branching, posizionamento nella \textit{repository}\textsubscript{\textit{G}} e DashBoard di progetto).
+    \item \textbf{Git}: Version Control System distribuito utilizzato per il versionamento dei Configuration Item;
+    \item \textbf{GitHub}: \textit{piattaforma}\textsubscript{\textit{G}} web per il controllo di versione (tramite Git) dei Configuration Item e per il \hyperlink{par:ticketing}{\textit{Ticketing}}. È impiegata per gestire le richieste di modifica tramite \textit{issue}\textsubscript{\textit{G}} e \textit{label}\textsubscript{\textit{G}}, oltre che per la contabilità dello stato di configurazione.
 \end{itemize}
 
