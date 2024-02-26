@@ -1,4 +1,6 @@
 \subsection{Verso la Product Baseline}
+
+\subsubsection{Pianificazione}
 Periodo previsto: 16/01/2024-12/03/2024\\ 
 \vspace{0.2cm} 
 Periodo effettivo: (??)-(??)\\ 
@@ -11,7 +13,9 @@ Le fasi attuali, più lunghe e meno specifiche, saranno progressivamente convert
 
 \textbf{Obiettivo}: Nella fase successiva, il focus sarà sullo sviluppo dei Diagrammi delle Classi e di eventuali nuovi documenti. L'obiettivo primario sarà la realizzazione del prodotto effettivo partendo dal \textit{POC}\textsubscript{\textit{G}}, integrando le funzionalità non ancora implementate e migliorandolo nei punti più deboli della sua struttura.
 
-\subsubsection{Prima fase}
+\todo{da rivedere questa parte introduttiva}
+
+\paragraph{Prima fase}
 Intervallo temporale previsto: 16/01/2024-13/02/2024\\ 
 \vspace{0.2cm} 
 Durante la prima fase, l'attenzione sarà rivolta all'inizializzazione di possibili nuovi documenti per la \textit{PB}\textsubscript{\textit{G}}, in parallelo sarà affrontato lo studio dell'\textit{architettura}\textsubscript{\textit{G}} di \textit{sistema}\textsubscript{\textit{G}} e dei design \textit{pattern}\textsubscript{\textit{G}} più appropriati.
@@ -20,7 +24,7 @@ Durante la prima fase, l'attenzione sarà rivolta all'inizializzazione di possib
 
 I lavori continueranno sul \textit{Piano di Progetto}, sulla correzione dei documenti \textit{Analisi dei Requisiti}, \textit{Glossario} e \textit{Piano di Qualifica}. Si avvierà la realizzazione dei diagrammi di \textit{attività}\textsubscript{\textit{G}} e sequenze, dando anche inizio allo sviluppo della prima versione del prodotto basata sul \textit{PoC}\textsubscript{\textit{G}}.
 
-\subsubsection{Seconda fase}
+\paragraph{Seconda fase}
 Intervallo temporale previsto: 13/02/2024-12/03/2024
 \\ 
 \vspace{0.2cm} 
@@ -28,11 +32,143 @@ Durante la seconda fase del progetto, l'attenzione sarà rivolta all’avanzamen
 
 Si proseguirà con il perfezionamento del codice stesso, garantendo un costante miglioramento delle funzionalità e delle prestazioni del prodotto in fase di sviluppo.
 
-\subsubsection{Terza fase}
+\paragraph{Terza fase}
 Intervallo temporale previsto: 12/03/2024-25/03/2024\\ 
 \vspace{0.2cm} 
 Durante la terza fase del nostro progetto, l'attenzione sarà rivolta all'ultimazione delle nuove versioni del \textit{Piano di Qualifica}, delle \textit{Norme di Progetto}, del \textit{Glossario} e del \textit{Piano di Qualifica}, completando contemporaneamente i documenti specifici della revisione \textit{PB}\textsubscript{\textit{G}}.
 
 Sarà inoltre intensivamente testato il prodotto attraverso i \textit{test}\textsubscript{\textit{G}} e le metriche descritte all'interno del documento \textit{Piano di Qualifica} ed infine verrà creata la presentazione per la \textit{PB}\textsubscript{\textit{G}}.
 
+
+%---------------------OTTAVO PERIODO---------------------------------------
+
+\subsubsection{Ottavo periodo  16/02/2024 - 23/12/2024}
+\paragraph{Considerazioni} \todo{scrivila}
+    Nel corso del primo periodo, il nostro team ha dedicato risorse significative all'elaborazione e alla standardizzazione dei \textit{processi}\textsubscript{\textit{G}}, formalizzando tali linee guida nel documento \textit{Norme di Progetto}. In quest'ultimo, sono state dettagliatamente redatte le sezioni specificate nella tabella sottostante.
+
+    Durante il primo incontro con l'azienda, abbiamo definito obiettivi chiave da conseguire entro il prossimo \textit{SAL}\textsubscript{\textit{G}} fissato per il 24 novembre 2023, coincidente con l'avvio del prossimo periodo. Questo approccio ricalca la struttura dello sprint backlog del \textit{framework}\textsubscript{\textit{G}} Scrum. \\
+    Tra i molteplici obiettivi delineati, si evidenziano la realizzazione di almeno un simulatore di un \textit{sensore}\textsubscript{\textit{G}} in linguaggio \textit{Phyton}\textsubscript{\textit{G}}, il quale interagisca con un server \textit{Apache Kafka}\textsubscript{\textit{G}} mediante \textit{Docker}\textsubscript{\textit{G}}. Opzionalmente, si è prevista l'\textit{integrazione}\textsubscript{\textit{G}} con il \textit{database}\textsubscript{\textit{G}} \textit{ClickHouse}\textsubscript{\textit{G}}e per immagazzinare i dati dei simulatori. In parallelo, ci si è dedicati alla creazione di user story e casi d'uso correlati al capitolato.
+
+    È soddisfacente constatare che tutte le richieste avanzate dal \textit{proponente}\textsubscript{\textit{G}} sono state risolte entro i tempi concordati, includendo le richieste opzionali.
+
+    Parallelamente, durante questa fase, gli amministratori hanno investito risorse per automatizzare il processo di compilazione dei sorgenti \LaTeX, una volta caricati nella \textit{repository}\textsubscript{\textit{G}} condivisa. Inoltre, è stata implementata una procedura automatica di rinomina dei file PDF generati, inclusiva dell'indicazione della versione del documento.
+
+\paragraph{Gestione dei rischi} 
+
+\begin{itemize}
+    \item \textbf{Rischi attesi e verificati:}
+\begin{itemize}
+    \item \textbf{RT-1A-1} - Inesperienza nell'attività di progettazione \todo{non è una tecnologia}(\textit{(\ref{sec:rischioTec})})
+    \begin{itemize}
+        \item \textbf{Esito mitigazione:} 
+            l'autoapprendimento e la conoscenze dei singoli non si sono dimostrate adeguate per acquisire una conoscenza approfondita dell'ambiente \textit{Docker}\textsubscript{\textit{G}} nel breve periodo iniziale, portando all'utilizzo del \textit{sistema}\textsubscript{\textit{G}} senza una comprensione approfondita di ciascuna delle sue componenti e configurazioni. Di conseguenza, è stata formulata una richiesta al \textit{proponente}\textsubscript{\textit{G}} per la realizzazione di un corso di formazione specifico su \textit{Docker}\textsubscript{\textit{G}} seguendo le norme di mitigazione definite nella \textit{sezione~\ref{sec:rischioTec}};
+        
+        \item \textbf{Impatto:}
+            nessuna conseguenza significativa è stata riscontrata, poiché le avvertenze segnalate dalla \textit{proponente}\textsubscript{\textit{G}} riguardavano criticità di lieve entità relative alle best practices di \textit{Docker}\textsubscript{\textit{G}}. Le misure di mitigazione necessarie sono state tempestivamente implementate, e un incontro formativo è stato programmato per approfondire ulteriormente la questione.
+            Inoltre, al fine di conformarsi alle best practices dell'ambiente, è stata presa la decisione di regolamentare, nel documento \textit{Norme di Progetto}, la configurazione dell'ambiente \textit{Docker}\textsubscript{\textit{G}}.
+    \end{itemize}
+\end{itemize}
+\item \textbf{Rischi attesi ma non verificati:}
+ \begin{itemize}
+    \item \textbf{RO-2M-2} - Ritardo nel completamento delle \textit{attività}\textsubscript{\textit{G}} rispetto ai tempi previsti~(\ref{sec:ritAttivita});
+    \item \textbf{RP-2B-1} - Contrasti interni al gruppo~(\textit{\ref{subsubsec:contrastiInterni}}).
+\end{itemize}
+\item \textbf{Rischi non attesi ma verificati:}
+\begin{itemize}
+    \item Nessuno.
+\end{itemize}
+\end{itemize}
+
+\paragraph{Definizione ruoli}
+Per le \textit{attività}\textsubscript{\textit{G}} registrate nei costi, sono stati assegnati i seguenti ruoli: 
+
 \vspace{0.4cm}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|L{4cm}|L{2cm}|}
+        \hline
+        \textbf{Ruolo} & \textbf{Persona} \\
+        \hline
+        \hline
+        Responsabile (Re)   & E. Hysa \\
+        \hline
+        Amministratore (Am) & R. Smanio \\
+        \hline
+        Analisti (An)       & D. Diotto \\
+        \hline
+        Verificatore (Ve)   & F. Pozza \\
+                            & R. Smanio \\   
+        \hline
+        Programmatori (Pr)  & L. Skenderi \\
+                            & A. Barutta \\
+        \hline
+        Progettista (Pt)    & N. Preto \\
+                            & E. Hysa \\
+        \hline
+    \end{tabular}
+    \caption{Tabella dei ruoli assegnati - Ottavo periodo}
+    \label{tab:Ruoli_persone_1}
+    \end{table}
+
+\newpage
+\paragraph{Pianificazione attività divise per ruoli con consuntivo e preventivo orario e dei costi}
+
+\vspace{0.4cm}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=1.1\textwidth]{../Images/periodo8.PNG}
+    \caption{Ottavo periodo}
+    \label{fig:Ottavo_periodo}
+\end{figure}
+
+Al termine dell'ottavo periodo, l'ammontare totale del costo del progetto è \textbf{ 1317,50\euro\ }\todo{da modificare} e sono state completate il \textbf{100\%} delle \textit{attività}\textsubscript{\textit{G}} attese.
+Il preventivo a finire rimane invariato a \textbf{12565,00€} e non risulta necessaria una ripianificazione delle \textit{attività}\textsubscript{\textit{G}} future.
+\href{https://github.com/orgs/ByteOps-swe/projects/3/views/1?sortedBy%5Bdirection%5D=asc&sortedBy%5BcolumnId%5D=64182560}{Vai al Diagramma di Gantt.}
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[b]{0.70\textwidth}
+        \centering
+        \includegraphics[width=0.7\textwidth]{../Images/avanzamento8Periodo.png}
+        \caption{Avanzamento dei lavori RTB - Ottavo periodo}
+        \label{fig:Avanzamento_RTB_8}
+    \end{minipage}
+\end{figure}
+
+\paragraph{Preventivo orario}
+
+\begin{figure}[H] 
+    \centering
+    \includegraphics[width=0.9\textwidth]{../Images/preventivoOrario8Periodo.png}
+    \caption{Preventivo orario per membro - Ottavo periodo}
+    \label{fig:Preventivo_orario_8}
+\end{figure}
+
+\vspace{0.6cm}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{../Images/preventivoDivisioneRuoli8Periodo.png}
+    \caption{Istogramma preventivo della ripartizione oraria dei ruoli - Ottavo periodo}
+    \label{fig:Preventivo_ripartizione_oraria_8}
+\end{figure}
+
+\paragraph{Consuntivo orario}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../Images/consuntivoOrario8Periodo.png}
+    \caption{Consuntivo orario per membro - Ottavo periodo}
+    \label{fig:Constuntivo_orario_8}
+\end{figure}
+
+\vspace{0.6cm}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{../Images/consuntivoDivisioneRuoli1Periodo.png}
+    \caption{Istogramma consuntivo della ripartizione oraria dei ruoli - Ottavo periodo}
+    \label{fig:Consuntivo_ripartizione_oraria_8}
+\end{figure}
