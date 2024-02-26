@@ -135,31 +135,31 @@
 
 \section{Revisione del periodo precedente}
 
-Durante il periodo intercorso dal precedente SAL, ci si è concentrati sulla revisione finale dei documenti e sulla preparazione della presentazione in vista della seconda fase della revisione RTB.
-Di conseguenza, non è stata condotta una revisione approfondita del periodo precedente con l'azienda proponente, poiché non sono state avviate nuove attività e non sono emerse questioni o dubbi rilevanti. \\
-La proponente è stata informata che il team ha ottenuto l'approvazione per avanzare con la seconda fase della revisione RTB. Inoltre, è stata condotta una breve discussione riguardo alle correzioni da apportare al documento Analisi dei Requisiti in merito ai requisiti funzionali.
+Durante il periodo intercorso dal precedente \textit{SAL}\textsubscript{\textit{G}}, ci si è concentrati sulla revisione finale dei documenti e sulla preparazione della presentazione in vista della seconda fase della revisione \textit{RTB}\textsubscript{\textit{G}}.
+Di conseguenza, non è stata condotta una revisione approfondita del periodo precedente con l'azienda \textit{proponente}\textsubscript{\textit{G}}, poiché non sono state avviate nuove \textit{attività}\textsubscript{\textit{G}} e non sono emerse questioni o dubbi rilevanti. \\
+La \textit{proponente}\textsubscript{\textit{G}} è stata informata che il team ha ottenuto l'approvazione per avanzare con la seconda fase della revisione \textit{RTB}\textsubscript{\textit{G}}. Inoltre, è stata condotta una breve discussione riguardo alle correzioni da apportare al documento Analisi dei Requisiti in merito ai requisiti funzionali.
 
 \section{Ordine del giorno}
 
     \subsection{Ridondanza database}
-    Si è discusso relativamente alla configurazione delle tabelle relative alle misurazioni trasmesse dai sensori, con particolare attenzione all'inclusione di dati "statici", come la posizione del sensore (latitudine e longitudine), in ciascuna tabella. È emerso che tale scelta comporta duplicazione dei dati e un utilizzo aggiuntivo di risorse di memoria. \\
+    Si è discusso relativamente alla configurazione delle tabelle relative alle misurazioni trasmesse dai sensori, con particolare attenzione all'inclusione di dati "statici", come la posizione del \textit{sensore}\textsubscript{\textit{G}} (latitudine e longitudine), in ciascuna tabella. È emerso che tale scelta comporta duplicazione dei dati e un utilizzo aggiuntivo di risorse di memoria. \\
     Tuttavia, rispetto ad una configurazione delle tabelle che miri a evitare la ridondanza, è stato riconosciuto che questo approccio offre un vantaggio significativo in termini di riduzione del costo computazionale, soprattutto durante operazioni di join su ampi set di dati. In questa prospettiva, il costo computazionale risulta essere più impattante rispetto all'eventuale costo di memoria aggiuntiva derivante dalla duplicazione dei dati. \\
-    È stato anche sollevato il punto che questa implementazione potrebbe rendere il database non conforme alla forma normale. Tuttavia, nel contesto di database non relazionali come quello adottato, tale caratteristica è considerata accettabile e non compromette l'efficienza complessiva del sistema.
+    È stato anche sollevato il punto che questa implementazione potrebbe rendere il \textit{database}\textsubscript{\textit{G}} non conforme alla forma normale. Tuttavia, nel contesto di \textit{database}\textsubscript{\textit{G}} non relazionali come quello adottato, tale caratteristica è considerata accettabile e non compromette l'efficienza complessiva del \textit{sistema}\textsubscript{\textit{G}}.
 
 
     \subsection{Manuale Utente}
-    È stato valutato se fosse opportuno includere nel manuale utente le procedure di installazione relative all'ambiente in cui viene eseguita la piattaforma. Tuttavia, considerando che il manuale utente è destinato agli utenti finali, il cui obiettivo principale è quello di utilizzare la dashboard per analizzare e monitorare lo stato di salute della città, si è convenuto che non sia necessario includere le procedure di installazione. \\
+    È stato valutato se fosse opportuno includere nel manuale utente le procedure di installazione relative all'ambiente in cui viene eseguita la \textit{piattaforma}\textsubscript{\textit{G}}. Tuttavia, considerando che il manuale utente è destinato agli utenti finali, il cui obiettivo principale è quello di utilizzare la \textit{dashboard}\textsubscript{\textit{G}} per analizzare e monitorare lo stato di salute della città, si è convenuto che non sia necessario includere le procedure di installazione. \\
     Questa decisione semplifica l'utilizzo del manuale, focalizzandosi direttamente sull'obiettivo principale degli utenti finali senza aggiungere dettagli tecnici non pertinenti all'utente finale. \\
-    Il manuale utente includerà il link per accedere direttamente alla dashboard Grafana, insieme alle istruzioni necessarie per condurre in modo efficace le operazioni di analisi e monitoraggio.
+    Il manuale utente includerà il link per accedere direttamente alla \textit{dashboard}\textsubscript{\textit{G}} \textit{Grafana}\textsubscript{\textit{G}}, insieme alle istruzioni necessarie per condurre in modo efficace le operazioni di analisi e monitoraggio.
 
     \subsection{Test di integrazione}
-    Durante le discussioni, è stata sollevata la questione riguardante la realizzazione di test di integrazione automatizzati. Tuttavia, si è rilevato che eseguire test automatizzati per verificare la corretta visualizzazione dei dati provenienti dai sensori nella dashboard Grafana risulta essere troppo complesso. Di conseguenza, è stata presa la decisione di condurre manualmente questo tipo di test, generando un set predefinito di misurazioni dai sensori e verificando che tali misurazioni attraversino l'intera catena delle componenti architetturali fino a essere visualizzate correttamente nella dashboard di Grafana.
+    Durante le discussioni, è stata sollevata la questione riguardante la realizzazione di \textit{test}\textsubscript{\textit{G}} di \textit{integrazione}\textsubscript{\textit{G}} automatizzati. Tuttavia, si è rilevato che eseguire \textit{test}\textsubscript{\textit{G}} automatizzati per verificare la corretta visualizzazione dei dati provenienti dai sensori nella \textit{dashboard}\textsubscript{\textit{G}} \textit{Grafana}\textsubscript{\textit{G}} risulta essere troppo complesso. Di conseguenza, è stata presa la decisione di condurre manualmente questo tipo di \textit{test}\textsubscript{\textit{G}}, generando un set predefinito di misurazioni dai sensori e verificando che tali misurazioni attraversino l'intera catena delle componenti architetturali fino a essere visualizzate correttamente nella \textit{dashboard}\textsubscript{\textit{G}} di \textit{Grafana}\textsubscript{\textit{G}}.
 
 \section{Attività da svolgere}
     \begin{itemize}
-        \item Procedere con la progettazione del database Clickhouse adottando una configurazione che, ove necessario, minimizzi il costo computazionale delle operazioni onerose (come le join), anche a fronte di una potenziale ridondanza dei dati;
-        \item Iniziare la stesura del \textit{Manuale Utente} concentrandosi esclusivamente sui contenuti relativi all'utilizzo del software, senza includere alcuna procedura di installazione o configurazione riguardante l'ambiente di esecuzione della piattaforma;
-        \item Creare set di dati predefiniti per l'esecuzione manuale di test di integrazione e test end-to-end;
+        \item Procedere con la progettazione del \textit{database}\textsubscript{\textit{G}} \textit{Clickhouse}\textsubscript{\textit{G}} adottando una configurazione che, ove necessario, minimizzi il costo computazionale delle operazioni onerose (come le join), anche a fronte di una potenziale ridondanza dei dati;
+        \item Iniziare la stesura del \textit{Manuale Utente} concentrandosi esclusivamente sui contenuti relativi all'utilizzo del \textit{software}\textsubscript{\textit{G}}, senza includere alcuna procedura di installazione o configurazione riguardante l'ambiente di esecuzione della \textit{piattaforma}\textsubscript{\textit{G}};
+        \item Creare set di dati predefiniti per l'esecuzione manuale di \textit{test}\textsubscript{\textit{G}} di \textit{integrazione}\textsubscript{\textit{G}} e \textit{test}\textsubscript{\textit{G}} end-to-end;
         \item Redazione verbale esterno.
     \end{itemize}
 
