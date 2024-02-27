@@ -1,0 +1,171 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[absolute]{textpos}
+\usepackage[default]{raleway}
+\usepackage{titlesec, comment, tabularx, makecell, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, multirow, hyperref}
+\usepackage{colortbl}
+%\geometry{a4paper, left=2cm, right=2cm, top=2cm, bottom=2.5cm}
+\renewcommand{\headrulewidth}{0pt}
+
+% Definisci uno stile per i comandi git
+\definecolor{light-gray}{gray}{0.92}
+
+\lstdefinestyle{code}{
+    frame=single,
+    framesep=1mm,
+    rulecolor=\color{light-gray},
+    backgroundcolor=\color{light-gray},
+    basicstyle=\ttfamily,
+}
+
+% ----------------------------- Definizione tabella ---------------------------
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+%\setcellgapes{2ex} % Imposta l'altezza dell'header (2ex)
+
+
+% ------------------------------Metadati indice --------------------------------
+\title{\textbf{\fontsize{28}{6}\selectfont Indice}}
+\author{\fontsize{14}{6}\selectfont ByteOps}
+\date{Febbraio 23, 2024}
+
+
+% -----------------------------Creazione footer --------------------------------
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{
+    \parbox[c]{2cm}{\includegraphics[width=2cm]{../../../Images/logo.png}}
+    \textcolor[RGB]{120, 120, 120}{$\cdot$ Verbale Esterno}
+}
+\rfoot{\thepage}
+
+% --------------------------Modifica formato hyperlinks ------------------------
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    pdftitle={Verbale Esterno 23/02/2024},  %inserisci data verbale
+    pdfpagemode=FullScreen,
+}
+
+% ------------------------------- Valore sotto-paragrafi indice --------------------------------------
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\titleformat{\section}
+{\normalfont\huge\bfseries}{\thesection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsection}
+{\normalfont\Large\bfseries}{\thesubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsubsection}
+{\normalfont\large\bfseries}{\thesubsubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+% ------------------------------- Front Page ---------------------------------------
+
+\begin{document}
+
+% --------------------------Aggiunta firma finale ------------------------
+\begin{textblock*}{\textwidth}(0.85\textwidth, 1.16\textheight)
+    Il responsabile: Lisien Skenderi
+\end{textblock*}
+% ------------------------------------------------------------------------
+
+\pagestyle{fancy}
+\begin{center}
+\includegraphics[width = 0.7\textwidth]{../../../Images/logo.png} \\
+\vspace{0.2cm}
+\textcolor[RGB]{60, 60, 60}{\textit{ByteOps.swe@gmail.com}} \\
+\vspace{1cm}
+\fontsize{16}{6}\selectfont Verbale Esterno $\cdot$ Data: 23/02/2024 \\
+\vspace{0.5cm}
+\end{center}
+
+\section*{Informazioni documento}
+\def\arraystretch{1.2}
+\begin{tabular}{>{\raggedleft\arraybackslash}p{0.3\textwidth}|>{\raggedright\arraybackslash}p{0.6\textwidth}c}
+\hline
+\addlinespace
+\textbf{Luogo} & Google Meet \vspace{10pt} \\
+\textbf{Orario} & 16:30 - 17:00 \vspace{10pt} \\
+\textbf{Redattore} & N. Preto \vspace{10pt} \\
+\textbf{Verificatore} & E. Hysa \vspace{10pt} \\
+\textbf{Amministratore} & F. Pozza \vspace{10pt} \\
+\textbf{Destinatari} & T. Vardanega \\ & R. Cardin \vspace{10pt} \\
+\multirow[t]{7}{*}{\textbf{Partecipanti interni}} & A. Barutta \\ & E. Hysa \\ & R. Smanio \\ & D. Diotto \\ & F. Pozza \\ & L. Skenderi \\ & N. Preto \vspace{10pt} \\
+\multirow[t]{3}{*}{\textbf{Partecipanti esterni}} & A. Dorigo \\ 
+\end{tabular}
+\pagebreak 
+
+% ------------------------- Changelog ----------------------------
+
+\section*{Registro delle modifiche}
+
+\begin{tabular}{|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|}
+    \hline
+    \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Dettaglio} \\
+    \hline \hline
+    0.0.1 & 23/02/2024 & N. Preto & R. Smanio & Redazione documento \\
+    \hline
+\end{tabular}
+\pagebreak
+
+% ------------------------- Generazione automatica indice ----------------------
+\setstretch{1.5}
+\maketitle
+\thispagestyle{fancy}
+\tableofcontents
+\setstretch{1.2}
+\pagebreak
+
+% ------------------------ INIZIO DOCUMENTO ----------------------
+\flushleft
+
+\section{Revisione del periodo precedente}
+In data 20/02/2024 si è tenuto l'incontro di revisione \textit{RTB}\textsubscript{\textit{G}} con il Professor Vardanega, il quale ha espresso un giudizio positivo sul lavoro svolto fino a quel momento. \\
+Tuttavia, rispetto all'ultimo \textit{SAL}\textsubscript{\textit{G}}, non sono state avviate nuove attività a causa dei precedenti impegni accademici, come l'esame di Ingegneria del Software, che diversi membri del gruppo hanno dovuto affrontare il 22 febbraio. I componenti del team che non erano coinvolti nell'esame hanno continuato a lavorare sul progetto, iniziando l'implementazione delle correzioni indicate dal Professor Vardanega e conducendo sessioni di brainstorming per pianificare le future attività relative alla \textit{PB}\textsubscript{\textit{G}}.
+
+\section{Ordine del giorno}
+    \subsection{Ottimizzazione database e query}
+    Si è discusso sulle modalità per ottimizzare il \textit{database}\textsubscript{\textit{G}} e le query per migliorare le prestazioni del sistema. \\
+    È emerso che le materialized view attualmente adottate, sebbene potenzialmente utili in un contesto ipotetico con grandi volumi di dati, potrebbero risultare complesse da mantenere ed eccessivamente sofisticate per il nostro contesto specifico. \\
+    Di conseguenza, la \textit{Proponente}\textsubscript{\textit{G}} ha suggerito di valutare l'opportunità di utilizzare il database in modo più tradizionale e di effettuare le aggregazioni di dati tramite query, evitando così di dover calcolare le aggregazioni incrementalmente. Questo approccio potrebbe consentire di ottenere gli stessi risultati senza aggiungere eccessiva complessità alla configurazione del database. È stato inoltre stabilito che successivamente ai test di performance, verrà valutata l’opportunità di utilizzare o meno
+    funzionalità più avanzate.
+    \subsection{Pianificazione test da implementare}
+    Si sono analizzati possibili test da effettuare prestando particolare attenzione ai \textit{Test di integrazione}\textsubscript{\textit{G}} sul database e ai test sull'integrità dei dati. \\
+    Uno dei test pianificati riguarda la verifica della coerenza tra i dati generati dai \textit{sensori}\textsubscript{\textit{G}} e quelli memorizzati sia su \textit{Apache Kafka}\textsubscript{\textit{G}} che nel database \textit{Clickhouse}\textsubscript{\textit{G}}. Poiché non sono disponibili \textit{librerie}\textsubscript{\textit{G}} predefinite che consentano di eseguire compiti così specifici, l'azienda proponente ha suggerito lo sviluppo di una suite di test di confronto personalizzata. Questo strumento è essenziale per garantire l'integrità dei dati lungo l'intero percorso di trasmissione e memorizzazione.\\
+    Per quanto riguarda gli stress test, la decisione è stata quella di generare considerevoli volumi di dati al secondo, e successivamente verificare le prestazioni in seguito ad operazioni e query su tali dati. L'obiettivo è identificare il miglior approccio per la gestione ottimale del database in situazioni di elevato carico. 
+    \subsection{Verosimglianza delle misurazioni}
+    È stato trattato il quesito riguardante la necessità di rendere plausibili i dati generati, arrivando alla conclusione che l'attenzione dovrebbe essere rivolta alla correttezza dei dati piuttosto che alla loro verosimiglianza.\\
+    Poiché il focus del progetto non verte sulla simulazione di dati realistici, bensì sulla gestione di dati in un contesto di \textit{Big Data}\textsubscript{\textit{G}}, la verosimiglianza dei dati non costituisce un requisito fondamentale; al contrario, sarebbe addirittura interessante poter gestire dati non realistici al fine di testare la capacità del sistema nell'affrontare dati errati.
+\section{Attività da svolgere}
+    \begin{itemize}
+        \item Predisporre l'ambiente per essere nelle condizioni di effettuare le diverse tipologie di test;
+        \item Eseguire stress test sul database per valutare la sua efficienza;
+        \item Eseguire test di verifica sui dati per verificarne coerenza tra le varie componenti del sistema;
+        \item Sviluppo dello strumento di verifica della coerenza tra i dati in uscita ed in entrata tra le componenti del sistema;
+        \item Implementazione calcolo di punteggio della salute della città (opzionale).
+    \end{itemize}
+
+% ------------------------ Firma Azienda ----------------------
+\begin{textblock*}{\textwidth}(0.22\textwidth, 1.08\textheight)
+    Luogo e Data: Padova, 23/02/2024
+\end{textblock*}
+
+\begin{textblock*}{\textwidth}(0.90\textwidth, 1.08\textheight)
+        Firma referente Sync Lab:
+\end{textblock*}
+% -------------------------------------------------------------
+\end{document}
