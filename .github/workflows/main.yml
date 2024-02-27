@@ -208,7 +208,7 @@ jobs:
                   git commit -m "$new_name"
                 else
                   echo "No changes to commit"
-                  
+                fi
                 cd ..
               fi
             ) done
