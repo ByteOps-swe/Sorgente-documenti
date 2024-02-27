@@ -178,10 +178,12 @@ jobs:
             for path in Documents/**/*.pdf; do (
               echo "$path"
               if [[ $path != "Documents/**/*.pdf" ]]; then
-                dirname=$(dirname "$path")
-                dirname=${dirname#Documents/}
-                new_dirname="Output/$dirname"
-                dirname_no_under="${new_dirname//_/ }"
+                if [[ "$(basename "$path")" != "Lettera_*." ]]; then
+                  dirname=$(dirname "$path")
+                  dirname=${dirname#Documents/}
+                  new_dirname="Output/$dirname"
+                  dirname_no_under="${new_dirname//_/ }"
+                fi
 
                 name_old=$(basename "$path")
                 name_no_ext="${name_old%.*}"
@@ -206,8 +208,7 @@ jobs:
                   git commit -m "$new_name"
                 else
                   echo "No changes to commit"
-                fi
-                
+                  
                 cd ..
               fi
             ) done
