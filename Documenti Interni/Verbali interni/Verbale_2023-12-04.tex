@@ -1,0 +1,168 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[absolute]{textpos}
+\usepackage[default]{raleway}
+\usepackage{titlesec, comment, tabularx, makecell, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, hyperref}
+\usepackage{colortbl}
+%\geometry{a4paper, left=2cm, right=2cm, top=2cm, bottom=2.5cm}
+\renewcommand{\headrulewidth}{0pt}
+
+% Definisci uno stile per i comandi git
+\definecolor{light-gray}{gray}{0.92}
+
+\lstdefinestyle{code}{
+    frame=single,
+    framesep=1mm,
+    rulecolor=\color{light-gray},
+    backgroundcolor=\color{light-gray},
+    basicstyle=\ttfamily,
+} 
+
+% ----------------------------- Definizione tabella ---------------------------
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+%\setcellgapes{2ex} % Imposta l'altezza dell'header (2ex)
+
+
+% ------------------------------Metadati indice --------------------------------
+\title{\textbf{\fontsize{28}{6}\selectfont Indice}}
+\author{\fontsize{14}{6}\selectfont ByteOps}
+\date{Dicembre 4, 2023}
+
+% -----------------------------Creazione footer --------------------------------
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{
+    \parbox[c]{2cm}{\includegraphics[width=2cm]{../../Images/logo.png}}
+    \textcolor[RGB]{120, 120, 120}{$\cdot$ Verbale Interno}
+}
+\rfoot{\thepage}
+
+% --------------------------Modifica formato hyperlinks ------------------------
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    pdftitle={Verbale Interno 04/12/2023},  %inserisci data verbale
+    pdfpagemode=FullScreen,
+}
+
+% ------------------------------- Valore sotto-paragrafi indice --------------------------------------
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\titleformat{\section}
+{\normalfont\huge\bfseries}{\thesection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsection}
+{\normalfont\Large\bfseries}{\thesubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsubsection}
+{\normalfont\large\bfseries}{\thesubsubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+% ------------------------------- Front Page ---------------------------------------
+
+\begin{document}
+
+% --------------------------Aggiunta firma finale ------------------------
+\begin{textblock*}{\textwidth}(0.85\textwidth, 1.16\textheight)
+    Il responsabile: Lisien Skenderi
+\end{textblock*}
+% ------------------------------------------------------------------------
+
+\pagestyle{fancy}
+\begin{center}
+\includegraphics[width = 0.7\textwidth]{../../Images/logo.png} \\
+\vspace{0.2cm}
+\textcolor[RGB]{60, 60, 60}{\textit{ByteOps.swe@gmail.com}} \\
+\vspace{1cm}
+\fontsize{16}{6}\selectfont Verbale Interno $\cdot$ Data: 04/12/20232 \\
+\vspace{0.5cm}
+\end{center}
+
+\section*{Informazioni documento}
+\def\arraystretch{1.2}
+\begin{tabular}{>{\raggedleft\arraybackslash}p{0.2\textwidth}|>{\raggedright\arraybackslash}p{0.6\textwidth}c}
+\hline
+\addlinespace
+\textbf{Luogo} & Discord \vspace{10pt} \\
+\textbf{Orario} & 14:30 - 15:30 \vspace{10pt} \\
+\textbf{Redattore} & D. Diotto \vspace{10pt} \\
+\textbf{Verificatore} & R. Smanio \vspace{10pt} \\
+\textbf{Amministratore} & A. Barutta \vspace{10pt} \\
+\textbf{Destinatari} & T. Vardanega \\ & R. Cardin \vspace{10pt} \\
+\textbf{Partecipanti} & A. Barutta \\ & E. Hysa \\ & R. Smanio \\ & D. Diotto \\ & F. Pozza \\ & L. Skenderi \\ & N. Preto \vspace{10pt} \\
+\end{tabular}
+\pagebreak 
+
+% ------------------------- Changelog ----------------------------
+
+\section*{Registro delle modifiche}
+
+\begin{tabular}{|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|}
+    \hline
+    \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Dettaglio} \\
+    \hline \hline
+    0.0.1 & 04/12/2023 & Davide Diotto & Riccardo Smanio & Prima stesura.\\
+    \hline
+\end{tabular}
+\pagebreak
+
+% ------------------------- Generazione automatica indice ----------------------
+\setstretch{1.5}
+\maketitle
+\thispagestyle{fancy}
+\tableofcontents
+\setstretch{1.2}
+\pagebreak
+
+% ------------------------ INIZIO DOCUMENTO ----------------------
+\flushleft
+
+\section{Revisione del periodo precedente}
+Nel corso dell'incontro odierno, i primi minuti sono stati dedicati a una revisione dettagliata delle \textit{attività}\textsubscript{\textit{G}} svolte dal precedente incontro e delle modalità di realizzazione delle stesse. In particolare, i membri incaricati dello sviluppo del codice da presentare durante l'incontro \textit{SAL}\textsubscript{\textit{G}} di giovedì 07/12/2023 hanno presentato i progressi ottenuti, focalizzandosi sulle funzionalità implementate in \textit{Grafana}\textsubscript{\textit{G}}. Si è esaminata l'\textit{integrazione}\textsubscript{\textit{G}} di diversi tipi di grafici che offrono una rappresentazione visuale dei dati generati dai simulatori dei sensori. È stata, altresì, illustrata la nuova porzione di codice sviluppata con l'obiettivo di migliorare la verosimiglianza dei valori prodotti casualmente dai sensori. \\
+Successivamente alla presentazione del codice, si è avviata una discussione riguardante lo stato di avanzamento delle \textit{attività}\textsubscript{\textit{G}} relative alle \textit{issue}\textsubscript{\textit{G}} aperte nel \textit{repository}\textsubscript{\textit{G}} 'Documents' su Github a partire dall'ultimo incontro. Si è voluto approfondire lo stato di queste problematiche, valutando le azioni intraprese e identificando eventuali nuove prospettive per il loro completamento. 
+
+\section{Ordine del giorno}
+    \subsection{Modifica della sezione “Redazione” in "Norme di Progetto"}
+    Durante la riunione, si è svolta un'approfondita discussione riguardo alle modifiche necessarie per adeguare la sezione "Revisione" all'interno del documento delle Norme di Progetto. Tale necessità è emersa in seguito al recente processo di refactoring dei file sorgenti in \LaTeX. È stato riconosciuto l'importante correlazione tra le modifiche apportate e la necessità di mantenere la sezione "Revisione" allineata alle decisioni prese e alle attuali direzioni del progetto. L'obiettivo è garantire che questa sezione rifletta accuratamente le evoluzioni introdotte attraverso il refactoring, mantenendo coerenza e chiarezza nel documento. 
+    
+    \subsection{Inizio stesura metriche e piano di qualifica}
+    Durante la riunione, si è posto un'enfasi particolare sull'importanza di definire metriche adeguate per valutare il nostro progresso. È stato concordato di avviare la redazione del documento relativo al Piano di Qualifica. 
+
+    \subsection{Rotazione ruoli}
+    La rotazione dei ruoli è stato un altro tema importante trattato, infatti durante l'incontro li abbiamo sanciti. Coloro che avevano incertezze sulle responsabilità associate ai loro nuovi ruoli hanno avuto l'opportunità di porre domande e chiarire i dubbi con coloro che hanno già esperienza in quei ruoli. Questo approccio mira a garantire una transizione fluida e un'assunzione coerente delle responsabilità. 
+    
+    \subsection{Problemi sull'orario SAL 04/12/2023}
+     Oggetto di discussione è stato anche l'orario proposto da SyncLab per il prossimo incontro \textit{SAL}\textsubscript{\textit{G}} di Giovedì 07/12/2023. Alcuni membri del team hanno evidenziato problematiche personali e accademiche legate all'orario inizialmente proposto. Di conseguenza, si è concordato di comunicare all'azienda le difficoltà riscontrate e proporre un orario alternativo, cercando di garantire la partecipazione della maggioranza dei membri del team. 
+
+\section{Attività da svolgere}
+    \begin{center}
+        \begin{tabular}{|C{7cm}|C{1,5cm}|C{3cm}|}
+            \hline
+            \textbf{Titolo} & \textbf{\# Issue} & \textbf{Verificatore} \\
+            \hline\hline
+            Modifiche struttura "volumes" in docker-compose.yml & 36 & Nicola Preto \\
+            
+            Rimozione invio socket in "volumes" in docker-compose.yml & 37 & Nicola Preto\\
+            
+            Avvio client \textit{Clickhouse}\textsubscript{\textit{G}} tramite nome \textit{container}\textsubscript{\textit{G}} & 38 & Nicola Preto\\
+            
+            Modifica sezione Redazionein Norme di Progetto & 43 & Francesco Pozza\\
+            \hline
+        \end{tabular}
+    \end{center}
+
+\end{document}

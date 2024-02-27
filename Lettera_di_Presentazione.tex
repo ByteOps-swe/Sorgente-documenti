@@ -1,0 +1,110 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[default]{raleway}
+\usepackage{titlesec, array, eurosym, setspace, url, geometry, graphicx, xcolor, relsize, fancyhdr, booktabs, hyperref}
+%\geometry{a4paper, left=2cm, right=2cm, top=2cm, bottom=2.5cm}
+\renewcommand{\headrulewidth}{0pt}
+
+% ------------------------------Metadati indice --------------------------------
+\title{\textbf{\fontsize{30}{6}\selectfont Indice}}
+\author{\fontsize{14}{6}\selectfont ByteOps}
+\date{\today}
+
+% -----------------------------Creazione footer --------------------------------
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{
+    \parbox[c]{2cm}{\includegraphics[width=2cm]{Images/logo.png}}
+    \textcolor[RGB]{120, 120, 120}{$\cdot$ Lettera di Presentazione}
+}
+\rfoot{\thepage}
+
+% --------------------------Modifica formato hyperlinks ------------------------
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,    
+    urlcolor=blue,
+    pdftitle={Lettera di Presentazione}, % nome visualizzato in alto a sx nel programma 
+    pdfpagemode=FullScreen,
+}
+
+\begin{document}
+\pagestyle{fancy}
+\begin{center}
+\includegraphics[width = 0.7\textwidth]{Images/logo.png} \\
+\vspace{0.2cm}
+\textcolor[RGB]{60, 60, 60}{\textit{ByteOps.swe@gmail.com}} \\
+\vspace{1cm}
+\fontsize{16}{6}\selectfont Lettera di Presentazione\\
+\vspace{0.5cm}
+\end{center}
+
+\section*{Informazioni documento}
+\def\arraystretch{1.2}
+\begin{tabular}{>{\raggedleft\arraybackslash}p{0.2\textwidth}|>{\raggedright\arraybackslash}p{0.6\textwidth}c}
+\hline
+\addlinespace
+
+    \textbf{Data} & 24/10/2023 \vspace{10pt} \\
+    \textbf{Redattori} & A. Barutta \\ & R. Smanio \\ & N. Preto \vspace{10pt} \\
+    \textbf{Verificatori} & E. Hysa \\ & L. Skenderi \\ & D. Diotto \vspace{10pt} \\
+    \textbf{Amministratore} & F. Pozza \vspace{10pt} \\
+    \textbf{Destinatari} & T. Vardanega \\ & R. Cardin \vspace{10pt} \\
+\end{tabular}
+\pagebreak 
+
+% ------------------------------ Inizio Documento -------------------------------
+\flushleft
+
+Con la presente il gruppo ByteOps comunica l’intenzione di candidarsi alla realizzazione del capitolato C6 con titolo: \textbf{\textit{SyncCity: Smart city monitoring platform}}, proposto dall'azienda \mbox{\textbf{Sync Lab}}. 
+\vspace{0.5cm}
+
+La documentazione è disponibile al link:  \url{https://github.com/ByteOps-swe/Documents}
+dove si trovano: 
+\begin{itemize}
+    \item \textbf{Verbali interni}
+    \begin{itemize}
+        \item 17/10/2023
+        \item 18/10/2023
+        \item 23/10/2023
+        \item 27/10/2023
+    \end{itemize}
+
+    \item \textbf{Verbali esterni}
+    \begin{itemize}
+        \item 20/10/2023
+    \end{itemize}
+    \item \textbf{Preventivo costi e assunzione impegni}
+
+    \item \textbf{Analisi e valutazione dei singoli capitolati con motivazione delle scelte}
+\end{itemize}
+
+Nel documento “\textit{Preventivo Costi}” è presente il costo stimato del prodotto a 13\,.475.00\euro\ con data di consegna prevista 29/03/2024. 
+
+\vspace{0.5cm}
+Di seguito i membri del gruppo ByteOps: 
+\vspace{0.5cm}
+
+\begin{center}
+    
+\begin{tabular}{|c|c|}
+\hline
+    \textbf{Nominativo} & \textbf{Matricola} \\
+    \hline\hline
+    Andrea Barutta & 2042355 \\ \hline
+    Davide Diotto & 2042334 \\ \hline
+    Endi Hysa & 2046424 \\ \hline
+    Francesco Pozza & 1174610 \\ \hline
+    Nicola Preto & 2042371 \\ \hline
+    Lisien Skenderi & 2023461 \\ \hline
+    Riccardo Smanio & 1126491 \\ \hline
+
+\end{tabular}
+\end{center}
+\vspace{0.5cm}
+Cordiali saluti, \\
+\textit{ByteOps}.
+
+\end{document}

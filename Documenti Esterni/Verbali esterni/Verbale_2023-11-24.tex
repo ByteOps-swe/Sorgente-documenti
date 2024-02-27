@@ -1,0 +1,185 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[absolute]{textpos}
+\usepackage[default]{raleway}
+\usepackage{titlesec, comment, tabularx, makecell, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, hyperref}
+\usepackage{colortbl}
+%\geometry{a4paper, left=2cm, right=2cm, top=2cm, bottom=2.5cm}
+\renewcommand{\headrulewidth}{0pt}
+
+% Definisci uno stile per i comandi git
+\definecolor{light-gray}{gray}{0.92}
+
+\lstdefinestyle{code}{
+    frame=single,
+    framesep=1mm,
+    rulecolor=\color{light-gray},
+    backgroundcolor=\color{light-gray},
+    basicstyle=\ttfamily,
+}
+
+% ----------------------------- Definizione tabella ---------------------------
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+%\setcellgapes{2ex} % Imposta l'altezza dell'header (2ex)
+
+
+% ------------------------------Metadati indice --------------------------------
+\title{\textbf{\fontsize{28}{6}\selectfont Indice}}
+\author{\fontsize{14}{6}\selectfont ByteOps}
+\date{Novembre 24, 2023}
+
+
+% -----------------------------Creazione footer --------------------------------
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{
+    \parbox[c]{2cm}{\includegraphics[width=2cm]{../../Images/logo.png}}
+    \textcolor[RGB]{120, 120, 120}{$\cdot$ Verbale Esterno}
+}
+\rfoot{\thepage}
+
+% --------------------------Modifica formato hyperlinks ------------------------
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    pdftitle={Verbale Esterno 24/11/2023},  %inserisci data verbale
+    pdfpagemode=FullScreen,
+}
+
+% ------------------------------- Valore sotto-paragrafi indice --------------------------------------
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\titleformat{\section}
+{\normalfont\huge\bfseries}{\thesection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsection}
+{\normalfont\Large\bfseries}{\thesubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsubsection}
+{\normalfont\large\bfseries}{\thesubsubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+% ------------------------------- Front Page ---------------------------------------
+
+\begin{document}
+
+% --------------------------Aggiunta firma finale ------------------------
+\begin{textblock*}{\textwidth}(0.85\textwidth, 1.16\textheight)
+    Il responsabile: Francesco Pozza
+\end{textblock*}
+% ------------------------------------------------------------------------
+
+\pagestyle{fancy}
+\begin{center}
+\includegraphics[width = 0.7\textwidth]{../../Images/logo.png} \\
+\vspace{0.2cm}
+\textcolor[RGB]{60, 60, 60}{\textit{ByteOps.swe@gmail.com}} \\
+\vspace{1cm}
+\fontsize{16}{6}\selectfont Verbale Esterno $\cdot$ Data: 24/11/2023 \\
+\vspace{0.5cm}
+\end{center}
+
+\section*{Informazioni documento}
+\def\arraystretch{1.2}
+\begin{tabular}{>{\raggedleft\arraybackslash}p{0.2\textwidth}|>{\raggedright\arraybackslash}p{0.6\textwidth}c}
+\hline
+\addlinespace
+\textbf{Luogo} & Google Meet \vspace{10pt} \\
+\textbf{Orario} & 11:30 - 12:30 \vspace{10pt} \\
+\textbf{Redattore} & R.Smanio \vspace{10pt} \\
+\textbf{Verificatore} & E.Hysa \vspace{10pt} \\
+\textbf{Amministratore} & L.Skenderi \vspace{10pt} \\
+\textbf{Destinatari} & T. Vardanega \\ & R. Cardin \vspace{10pt} \\
+\textbf{Partecipanti} & A. Barutta \\ & E. Hysa \\ & R. Smanio \\ & D. Diotto \\ & F. Pozza \\ & L. Skenderi \\ & N. Preto \\ & A. Dorigo \\ & D. Zorzi \\ & F. Pallaro \vspace{10pt} \\
+\end{tabular}
+\pagebreak 
+
+% ------------------------- Changelog ----------------------------
+
+\section*{Registro delle modifiche}
+
+\begin{tabular}{|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|}
+    \hline
+    \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Dettaglio} \\
+    \hline \hline
+    0.0.1 & 24/11/2023 & R. Smanio & E. Hysa & Redazione documento. \\
+    \hline
+\end{tabular}
+\pagebreak
+
+% ------------------------- Generazione automatica indice ----------------------
+\setstretch{1.5}
+\maketitle
+\thispagestyle{fancy}
+\tableofcontents
+\setstretch{1.2}
+\pagebreak
+
+% ------------------------ INIZIO DOCUMENTO ----------------------
+\flushleft
+
+\section{Revisione del periodo precedente}
+Durante il periodo trascorso dal precedente \textit{SAL}\textsubscript{\textit{G}}, il gruppo si è concentrato sulla realizzazione degli obiettivi fissati dall'azienda \textit{proponente}\textsubscript{\textit{G}}. 
+Le \textit{attività}\textsubscript{\textit{G}} sono state condotte con efficienza, e le metodologie impiegate si sono dimostrate efficaci nel compimento di tali \textit{attività}\textsubscript{\textit{G}}. Di conseguenza tutte le \textit{attività}\textsubscript{\textit{G}} pianificate per il \textit{SAL}\textsubscript{\textit{G}} sono state completate e verificate e non si ritiene necessario applicare accorgimenti relativamente al \textit{way of working}\textsubscript{\textit{G}}. 
+
+\section{Ordine del giorno}
+\subsection{Confronto sul lavoro svolto}
+È stato presentato il lavoro svolto al \textit{proponente}\textsubscript{\textit{G}}, che dopo aver revisionato e approvato quanto fatto, ha fornito alcuni spunti su possibili migliorie da apportare al codice presentato, mettendo in discussione alcune delle nostre scelte. Nello specifico è stata analizzata la configurazione dei sensori, implementata in Python, linguaggio raccomandato dall’azienda che offre numerose \textit{librerie}\textsubscript{\textit{G}} esterne per il processo di generazione dei dati.  
+
+Si è posta poi particolare enfasi sull'importanza dell'indipendenza reciproca tra sensori, nonché sulla generazione dei dati basata su una distribuzione realistica della temperatura precedentemente registrata.  
+
+L'azienda consiglia di sfruttare le \textit{API}\textsubscript{\textit{G}} ufficiali per connettere Kafka con \textit{Clickhouse}\textsubscript{\textit{G}}, evidenziandone la maggiore stabilità e documentazione più approfondita.  
+
+In merito all'ambiente \textit{Docker}\textsubscript{\textit{G}}, si raccomanda l'utilizzo di immagini più aggiornate e mantenute di quelle scelte per garantire coerenza e affidabilità.  
+
+\subsection{Webinar su Docker}
+Viene proposta l'opportunità di partecipare a un webinar focalizzato su \textit{Docker}\textsubscript{\textit{G}}, organizzato dall'azienda \textit{proponente}\textsubscript{\textit{G}}. Questo evento mira a approfondire le competenze legate a questo strumento e si terrà in collaborazione con l'altro gruppo coinvolto nello stesso progetto.  
+La sessione è pianificata per mercoledì 29 dicembre alle ore 15:30. Durante questo incontro, sarà possibile porre domande per favorire una comprensione approfondita dell'argomento trattato. 
+
+\subsection{Presentazione dei casi d'uso}
+Nonostante siano ancora in fase di sviluppo, sono stati esaminati brevemente alcuni dei casi d'uso definiti finora, ottenendo un'approvazione preliminare.
+Tuttavia, poiché permane incertezza nella definizione di alcuni di essi, si è concordato di consultare il professor R. Cardin per ottenere indicazioni su come procedere.  
+Una volta completati, verrano nuovamente presentati all'azienda \textit{proponente}\textsubscript{\textit{G}} i casi d'uso per una revisione completa.  
+
+\subsection{Obiettivi del prossimo sprint}
+Per il prossimo sprint, l'obiettivo è realizzare una \textit{dashboard}\textsubscript{\textit{G}} preliminare in \textit{Grafana}\textsubscript{\textit{G}} con diversi \textit{widget}\textsubscript{\textit{G}} per visualizzare i dati provenienti dai sensori. Successivamente, si dovranno mettere in comunicazione \textit{Grafana}\textsubscript{\textit{G}} e ClickHouse per poter visualizzare i dati memorizzati nel \textit{database}\textsubscript{\textit{G}} direttamente all'interno della \textit{dashboard}\textsubscript{\textit{G}}.  
+
+\section{Richieste e chiarimenti}
+\begin{enumerate}
+    \item \textbf{Domanda riguardante una possibile estensione di Kafka nella rete}
+    
+    Durante l'incontro è stata sollevata una domanda riguardante l'inoltro dei dati generati a un server Kafka, al fine di consentire l'invio di dati simulati da diverse fonti. Tuttavia, la \textit{proponente}\textsubscript{\textit{G}} al momento sconsiglia questa implementazione a causa delle complessità di networking ad essa associate.  
+    Inoltre, viene dichiarato che questa funzionalità potrà essere presa in considerazione una volta completato il lavoro complessivo. 
+
+    \item \textbf{Approccio ai PoC da parte dell'azienda proponente}
+    
+    Sotto l'indicazione del Professor Vardanega, è stato chiesto all’azienda \textit{proponente}\textsubscript{\textit{G}} il loro approccio riguardo ai PoC. L'azienda ha chiarito di effettuare dei PoC principalmente per progetti di ampia portata oppure quando è necessario presentare una versione preliminare del prodotto al cliente. Inoltre, è stato precisato che i PoC possono essere di due tipologie: "usa e getta" o s"riutilizzabili". Nella prassi aziendale, prevale l'uso dei PoC del secondo tipo.  
+
+\end{enumerate}
+    
+    
+    
+% ------------------------ Firma Azienda ----------------------
+\begin{textblock*}{\textwidth}(0.35\textwidth, 1.08\textheight)
+    Padova, 24/11/2023
+\end{textblock*}
+
+\begin{textblock*}{\textwidth}(0.80\textwidth, 1.08\textheight)
+        Firma referente Sync Lab:
+\end{textblock*}
+% -------------------------------------------------------------
+\end{document}
