@@ -138,11 +138,11 @@ Le \textit{attività}\textsubscript{\textit{G}} sono state condotte con efficien
 
 \section{Ordine del giorno}
 \subsection{Confronto sul lavoro svolto}
-È stato presentato il lavoro svolto al \textit{proponente}\textsubscript{\textit{G}}, che dopo aver revisionato e approvato quanto fatto, ha fornito alcuni spunti su possibili migliorie da apportare al codice presentato, mettendo in discussione alcune delle nostre scelte. Nello specifico è stata analizzata la configurazione dei sensori, implementata in Python, linguaggio raccomandato dall’azienda che offre numerose \textit{librerie}\textsubscript{\textit{G}} esterne per il processo di generazione dei dati.  
+È stato presentato il lavoro svolto al \textit{proponente}\textsubscript{\textit{G}}, che dopo aver revisionato e approvato quanto fatto, ha fornito alcuni spunti su possibili migliorie da apportare al codice presentato, mettendo in discussione alcune delle nostre scelte. Nello specifico è stata analizzata la configurazione dei sensori, implementata in \textit{Python}\textsubscript{\textit{G}}, linguaggio raccomandato dall’azienda che offre numerose \textit{librerie}\textsubscript{\textit{G}} esterne per il processo di generazione dei dati.  
 
 Si è posta poi particolare enfasi sull'importanza dell'indipendenza reciproca tra sensori, nonché sulla generazione dei dati basata su una distribuzione realistica della temperatura precedentemente registrata.  
 
-L'azienda consiglia di sfruttare le \textit{API}\textsubscript{\textit{G}} ufficiali per connettere Kafka con \textit{Clickhouse}\textsubscript{\textit{G}}, evidenziandone la maggiore stabilità e documentazione più approfondita.  
+L'azienda consiglia di sfruttare le \textit{API}\textsubscript{\textit{G}} ufficiali per connettere \textit{Kafka}\textsubscript{\textit{G}} con \textit{Clickhouse}\textsubscript{\textit{G}}, evidenziandone la maggiore stabilità e documentazione più approfondita.  
 
 In merito all'ambiente \textit{Docker}\textsubscript{\textit{G}}, si raccomanda l'utilizzo di immagini più aggiornate e mantenute di quelle scelte per garantire coerenza e affidabilità.  
 
@@ -156,18 +156,18 @@ Tuttavia, poiché permane incertezza nella definizione di alcuni di essi, si è 
 Una volta completati, verrano nuovamente presentati all'azienda \textit{proponente}\textsubscript{\textit{G}} i casi d'uso per una revisione completa.  
 
 \subsection{Obiettivi del prossimo sprint}
-Per il prossimo sprint, l'obiettivo è realizzare una \textit{dashboard}\textsubscript{\textit{G}} preliminare in \textit{Grafana}\textsubscript{\textit{G}} con diversi \textit{widget}\textsubscript{\textit{G}} per visualizzare i dati provenienti dai sensori. Successivamente, si dovranno mettere in comunicazione \textit{Grafana}\textsubscript{\textit{G}} e ClickHouse per poter visualizzare i dati memorizzati nel \textit{database}\textsubscript{\textit{G}} direttamente all'interno della \textit{dashboard}\textsubscript{\textit{G}}.  
+Per il prossimo sprint, l'obiettivo è realizzare una \textit{dashboard}\textsubscript{\textit{G}} preliminare in \textit{Grafana}\textsubscript{\textit{G}} con diversi \textit{widget}\textsubscript{\textit{G}} per visualizzare i dati provenienti dai sensori. Successivamente, si dovranno mettere in comunicazione \textit{Grafana}\textsubscript{\textit{G}} e \textit{ClickHouse}\textsubscript{\textit{G}} per poter visualizzare i dati memorizzati nel \textit{database}\textsubscript{\textit{G}} direttamente all'interno della \textit{dashboard}\textsubscript{\textit{G}}.  
 
 \section{Richieste e chiarimenti}
 \begin{enumerate}
     \item \textbf{Domanda riguardante una possibile estensione di Kafka nella rete}
     
-    Durante l'incontro è stata sollevata una domanda riguardante l'inoltro dei dati generati a un server Kafka, al fine di consentire l'invio di dati simulati da diverse fonti. Tuttavia, la \textit{proponente}\textsubscript{\textit{G}} al momento sconsiglia questa implementazione a causa delle complessità di networking ad essa associate.  
+    Durante l'incontro è stata sollevata una domanda riguardante l'inoltro dei dati generati a un server \textit{Kafka}\textsubscript{\textit{G}}, al fine di consentire l'invio di dati simulati da diverse fonti. Tuttavia, la \textit{proponente}\textsubscript{\textit{G}} al momento sconsiglia questa implementazione a causa delle complessità di networking ad essa associate.  
     Inoltre, viene dichiarato che questa funzionalità potrà essere presa in considerazione una volta completato il lavoro complessivo. 
 
     \item \textbf{Approccio ai PoC da parte dell'azienda proponente}
     
-    Sotto l'indicazione del Professor Vardanega, è stato chiesto all’azienda \textit{proponente}\textsubscript{\textit{G}} il loro approccio riguardo ai PoC. L'azienda ha chiarito di effettuare dei PoC principalmente per progetti di ampia portata oppure quando è necessario presentare una versione preliminare del prodotto al cliente. Inoltre, è stato precisato che i PoC possono essere di due tipologie: "usa e getta" o s"riutilizzabili". Nella prassi aziendale, prevale l'uso dei PoC del secondo tipo.  
+    Sotto l'indicazione del Professor Vardanega, è stato chiesto all’azienda \textit{proponente}\textsubscript{\textit{G}} il loro approccio riguardo ai \textit{PoC}\textsubscript{\textit{G}}. L'azienda ha chiarito di effettuare dei \textit{PoC}\textsubscript{\textit{G}} principalmente per progetti di ampia portata oppure quando è necessario presentare una versione preliminare del prodotto al cliente. Inoltre, è stato precisato che i \textit{PoC}\textsubscript{\textit{G}} possono essere di due tipologie: "usa e getta" o s"riutilizzabili". Nella prassi aziendale, prevale l'uso dei \textit{PoC}\textsubscript{\textit{G}} del secondo tipo.  
 
 \end{enumerate}
     
