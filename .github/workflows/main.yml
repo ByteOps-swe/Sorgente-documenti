@@ -100,7 +100,7 @@ jobs:
               && [[ "$(basename "$path")" != "Verbale_Interno.tex" ]] \
               && [[ $path != */Sezioni/**.tex ]] \
               && [[ $path != */Sottosezioni/**.tex ]] \
-              && [[ $path != */Esterni/**.tex ]] \
+              && [[ $path != *Esterni/Verbali/**.tex ]] \
               && [[ $path != */Casi_uso/**.tex ]] \
               && [[ $path == *.tex ]]
             then
