@@ -177,7 +177,10 @@ jobs:
           if find "Documents" -type f -name "*.pdf" -print -quit 2>/dev/null; then
             for path in Documents/**/*.pdf; do (
               echo "$path"
-              ls
+              ls -la
+              cd ..
+              ls -la
+
               if [[ $path != "Documents/**/*.pdf" ]]; then
                 dirname=$(dirname "$path")
                 dirname=${dirname#Documents/}
