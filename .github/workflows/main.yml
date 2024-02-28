@@ -178,13 +178,18 @@ jobs:
             for path in Documents/**/*.pdf; do (
               echo "$path"
               if [[ $path != "Documents/**/*.pdf" ]]; then
-                if [[ "$(basename "$path")" != "Lettera_*." ]]; then
+                if [[ "$(basename "$path")" != "Lettera_"* ]]; then
                   dirname=$(dirname "$path")
                   dirname=${dirname#Documents/}
                   new_dirname="Output/$dirname"
                   dirname_no_under="${new_dirname//_/ }"
                   echo "sono dentro"
-                  echo "&dirname_no_under"
+                  echo "$dirname_no_under"
+                fi
+
+                if [ ! -d "$dirname_no_under" ]; then
+                  mkdir -p "${dirname_no_under}"
+                  echo "created: $dirname_no_under"
                 fi
 
                 name_old=$(basename "$path")
@@ -192,11 +197,6 @@ jobs:
                 name_no_under="${name_no_ext//_/ }"
                 name="${name_old//_/ }"
                 new_name="Aggiornato $name_no_under"
-
-                if [ ! -d "$dirname_no_under" ]; then
-                  mkdir -p "${dirname_no_under}"
-                  echo "created: $dirname_no_under"
-                fi
 
                 mv -f "$path" "${dirname_no_under}"
                 mv -f "$dirname_no_under"/"$name_old" "$dirname_no_under"/"$name"
