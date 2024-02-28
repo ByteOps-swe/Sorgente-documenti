@@ -183,6 +183,8 @@ jobs:
                   dirname=${dirname#Documents/}
                   new_dirname="Output/$dirname"
                   dirname_no_under="${new_dirname//_/ }"
+                  echo "sono dentro"
+                  echo "&dirname_no_under"
                 fi
 
                 name_old=$(basename "$path")
