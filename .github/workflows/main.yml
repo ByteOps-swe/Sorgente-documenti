@@ -179,7 +179,7 @@ jobs:
               echo "$path"
               if [[ $path != "Documents/**/*.pdf" ]]; then
                 # if [[ "$(basename "$path")" != "Lettera_"* ]]; then
-                  echo "$dirname"
+                  echo "dir: $dirname"
                   dirname=$(dirname "$path")
                   dirname=${dirname#Documents/}
                   new_dirname="Output/$dirname"
