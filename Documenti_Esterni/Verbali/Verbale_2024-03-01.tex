@@ -1,0 +1,160 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[absolute]{textpos}
+\usepackage[default]{raleway}
+\usepackage{titlesec, comment, tabularx, makecell, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, multirow, hyperref}
+\usepackage{colortbl}
+\renewcommand{\headrulewidth}{0pt}
+
+\definecolor{light-gray}{gray}{0.92}
+
+\lstdefinestyle{code}{
+    frame=single,
+    framesep=1mm,
+    rulecolor=\color{light-gray},
+    backgroundcolor=\color{light-gray},
+    basicstyle=\ttfamily,
+}
+
+% ----------------------------- Definizione tabella ---------------------------
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+% ------------------------------Metadati indice --------------------------------
+\title{\textbf{\fontsize{28}{6}\selectfont Indice}}
+\author{\fontsize{14}{6}\selectfont ByteOps}
+\date{Mese Giorno, Anno}
+
+
+% -----------------------------Creazione footer --------------------------------
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{
+    \parbox[c]{2cm}{\includegraphics[width=2cm]{../../Images/logo.png}}
+    \textcolor[RGB]{120, 120, 120}{$\cdot$ Verbale Esterno}
+}
+\rfoot{\thepage}
+
+% --------------------------Modifica formato hyperlinks ------------------------
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    pdftitle={Verbale Esterno 01/03/2024},  %inserisci data verbale
+    pdfpagemode=FullScreen,
+}
+
+% ------------------------------- Valore sotto-paragrafi indice --------------------------------------
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\titleformat{\section}
+{\normalfont\huge\bfseries}{\thesection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsection}
+{\normalfont\Large\bfseries}{\thesubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsubsection}
+{\normalfont\large\bfseries}{\thesubsubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+% ------------------------------- Front Page ---------------------------------------
+
+\begin{document}
+
+% --------------------------Aggiunta firma finale ------------------------
+\begin{textblock*}{\textwidth}(0.85\textwidth, 1.16\textheight)
+    Il responsabile: Nome Cognome
+\end{textblock*}
+% ------------------------------------------------------------------------
+
+\pagestyle{fancy}
+\begin{center}
+\includegraphics[width = 0.7\textwidth]{../../Images/logo.png} \\
+\vspace{0.2cm}
+\textcolor[RGB]{60, 60, 60}{\textit{ByteOps.swe@gmail.com}} \\
+\vspace{1cm}
+\fontsize{16}{6}\selectfont Verbale Esterno $\cdot$ Data: 01/03/2024 \\
+\vspace{0.5cm}
+\end{center}
+
+\section*{Informazioni documento}
+\def\arraystretch{1.2}
+\begin{tabular}{>{\raggedleft\arraybackslash}p{0.3\textwidth}|>{\raggedright\arraybackslash}p{0.6\textwidth}c}
+\hline
+\addlinespace
+\textbf{Luogo} & Google Meet \vspace{10pt} \\
+\textbf{Orario} & 16:30 - 17:15 \vspace{10pt} \\
+\textbf{Redattore} & F. Pozza \vspace{10pt} \\
+\textbf{Verificatore} & E. Hysa \vspace{10pt} \\
+\textbf{Amministratore} & F. Pozza \vspace{10pt} \\
+\textbf{Destinatari} & T. Vardanega \\ & R. Cardin \vspace{10pt} \\
+\multirow[t]{7}{*}{\textbf{Partecipanti interni}} & A. Barutta \\ & E. Hysa \\ & R. Smanio \\ & D. Diotto \\ & F. Pozza \\ & L. Skenderi \\ & N. Preto \vspace{10pt} \\
+\multirow[t]{3}{*}{\textbf{Partecipanti esterni}} & A. Dorigo \\ & D. Zorzi \\ & F. Pallaro \\ 
+\end{tabular}
+\pagebreak 
+
+% ------------------------- Changelog ----------------------------
+
+\section*{Registro delle modifiche}
+
+\begin{tabular}{|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|}
+    \hline
+    \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Dettaglio} \\
+    \hline \hline
+    0.0.1 & 02/03/2024 & F. Pozza & E. Hysa & Redazione documento \\
+    \hline
+\end{tabular}
+\pagebreak
+
+% ------------------------- Generazione automatica indice ----------------------
+\setstretch{1.5}
+\maketitle
+\thispagestyle{fancy}
+\tableofcontents
+\setstretch{1.2}
+\pagebreak
+
+% ------------------------ INIZIO DOCUMENTO ----------------------
+\flushleft
+
+\section{Revisione del periodo precedente}
+Durante la prima parte dell'incontro è stato presentato l'MVP per discutere con l'azienda lo stato di avanzamento e i cambiamenti apportati come discusso nel precedente SAL. La proponente si è dimostrata soddisfata del lavoro svolto e della velocità di progressione del progetto che si avvicina alla fase finale. 
+
+\section{Ordine del giorno}
+    \subsection{Perfezionamento grafici}
+        Durante la presentazione la proponente ci ha fornito alcuni feedback per rendere i grafici più leggibili, ad esempio è stato suggerito di inserire a fianco del titolo del widget l'unità di misura dei dati visualizzati all'interno del grafico stesso, in modo da esplicitare l'unità di misura una sola volta anzichè ripeterla per ogni valore nell'asse Y del grafico. 
+    \subsection{Design pattern}
+        Si è discusso sulle scelte effettuate dal gruppo per quanto riguardava i design pattern utilizzati nel prodotto presentato, in particolare il team richiedeva se fosse necessario o utile implementare pattern architetturali al di fuori di quelli utilizzati all'interno del producer per migliorare la progettazione attuale del prodotto. L'azienda ha ritenuto sufficienti i pattern utilizzati per la parte di simulazione dei dati e non necessaria l'aggiunta di ulteriori pattern nel resto della pipeline che porterebbero ad una sovra-ingegnerizzazione del sistema.  
+    \subsection{Integration Testing \textit{(TI)}}
+        Il team ha richiesto all'azienda consigli sulle modalità con cui poter eseguire \textit{Integration Testing} fra il producer ed il server Kafka, la discussione sorge dalle difficoltà riscontrate dal team che ha provato a realizzare questa tipologia di test provando varie modalità (in particolare con l'utilizzo della libreria Faust) ma senza successo.
+        
+        L'azienda si è resa disponible ad aiutarci a risolvere i problemi riscontrati in questa parte di \texit{TI} e ha suggerito una modalità diversa per quanto riguarda i \texit{TI} Kafka-Clickhouse creando una coda e una tabella separata dallo stream di dati visulizzato in grafana, ma identico ad esso in struttura e comportamento per poter eseguire test senza dover poi rimettere mano alle tabelle per eliminare i dati creati dai test.
+
+\section{Attività da svolgere}
+    \begin{itemize}
+        \item Miglioramento grafici attraverso l'aggiunta di unità di misura
+        \item Creazione coda e tabelle per Integration Test kafka-clickhouse
+        \item Risolvere problemi nei TI producer-kafka
+    \end{itemize}
+
+% ------------------------ Firma Azienda ----------------------
+\begin{textblock*}{\textwidth}(0.22\textwidth, 1.08\textheight)
+    Luogo e Data: Padova, 01/03/2024
+\end{textblock*}
+
+\begin{textblock*}{\textwidth}(0.90\textwidth, 1.08\textheight)
+        Firma referente Sync Lab:
+\end{textblock*}
+% -------------------------------------------------------------
+\end{document}
