@@ -2,8 +2,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage[absolute]{textpos}
 \usepackage[default]{raleway}
-\usepackage{titlesec, comment, tabularx, makecell, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, multirow, hyperref}
+\usepackage{titlesec, comment, tabularx, makecell, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, hyperref}
 \usepackage{colortbl}
+\usepackage{makecell}
 %\geometry{a4paper, left=2cm, right=2cm, top=2cm, bottom=2.5cm}
 \renewcommand{\headrulewidth}{0pt}
 
@@ -11,8 +12,8 @@
 \definecolor{light-gray}{gray}{0.92}
 
 \lstdefinestyle{code}{
-    frame=single,
-    framesep=1mm,
+    frame=single,  
+    framesep=1mm,  
     rulecolor=\color{light-gray},
     backgroundcolor=\color{light-gray},
     basicstyle=\ttfamily,
@@ -28,7 +29,7 @@
 % ------------------------------Metadati indice --------------------------------
 \title{\textbf{\fontsize{28}{6}\selectfont Indice}}
 \author{\fontsize{14}{6}\selectfont ByteOps}
-\date{Mese Giorno, Anno}
+\date{Ottobre 27, 2023}
 
 
 % -----------------------------Creazione footer --------------------------------
@@ -38,7 +39,7 @@
 \renewcommand{\footrulewidth}{0.4pt}
 \lfoot{
     \parbox[c]{2cm}{\includegraphics[width=2cm]{../../Images/logo.png}}
-    \textcolor[RGB]{120, 120, 120}{$\cdot$ Verbale Esterno}
+    \textcolor[RGB]{120, 120, 120}{$\cdot$ Verbale Interno}
 }
 \rfoot{\thepage}
 
@@ -48,7 +49,7 @@
     colorlinks=true,
     linkcolor=black,
     filecolor=black,      
-    pdftitle={Verbale Esterno dd/mm/yyyy},  %inserisci data verbale
+    pdftitle={Verbale 27-10-2023},
     pdfpagemode=FullScreen,
 }
 
@@ -79,7 +80,7 @@
 
 % --------------------------Aggiunta firma finale ------------------------
 \begin{textblock*}{\textwidth}(0.85\textwidth, 1.16\textheight)
-    Il responsabile: Nome Cognome
+    Il responsabile: Davide Diotto
 \end{textblock*}
 % ------------------------------------------------------------------------
 
@@ -89,38 +90,34 @@
 \vspace{0.2cm}
 \textcolor[RGB]{60, 60, 60}{\textit{ByteOps.swe@gmail.com}} \\
 \vspace{1cm}
-\fontsize{16}{6}\selectfont Verbale Esterno $\cdot$ Data: dd/mm/yyyy \\
+\fontsize{16}{6}\selectfont Verbale Interno $\cdot$ Data: 27/10/2023 \\
 \vspace{0.5cm}
 \end{center}
 
 \section*{Informazioni documento}
 \def\arraystretch{1.2}
-\begin{tabular}{>{\raggedleft\arraybackslash}p{0.3\textwidth}|>{\raggedright\arraybackslash}p{0.6\textwidth}c}
+\begin{tabular}{>{\raggedleft\arraybackslash}p{0.2\textwidth}|>{\raggedright\arraybackslash}p{0.6\textwidth}c}
 \hline
 \addlinespace
-\textbf{Luogo} & Luogo \vspace{10pt} \\
-\textbf{Orario} & hh:mm - hh:mm \vspace{10pt} \\
-\textbf{Redattore} & Nome \vspace{10pt} \\
-\textbf{Verificatore} & Nome \vspace{10pt} \\
-\textbf{Amministratore} & Nome \vspace{10pt} \\
-\textbf{Destinatari} & T. Vardanega \\ & R. Cardin \vspace{10pt} \\
-\multirow[t]{7}{*}{\textbf{Partecipanti interni}} & A. Barutta \\ & E. Hysa \\ & R. Smanio \\ & D. Diotto \\ & F. Pozza \\ & L. Skenderi \\ & N. Preto \vspace{10pt} \\
-\multirow[t]{3}{*}{\textbf{Partecipanti esterni}} & A. Dorigo \\ & D. Zorzi \\ & F. Pallaro \\ 
+    \textbf{Luogo} & Discord \vspace{10pt} \\
+    \textbf{Orario} & 9:30 - 11:00 \vspace{10pt} \\
+    \textbf{Redattori} & A. Barutta \\ & R. Smanio \\ & N. Preto \vspace{10pt} \\
+    \textbf{Verificatori} & E. Hysa \\ & L. Skenderi \\ & D. Diotto \vspace{10pt} \\
+    \textbf{Amministratore} & F. Pozza \vspace{10pt} \\
+    \textbf{Destinatari} & T. Vardanega \\ & R. Cardin \vspace{10pt} \\
+    \textbf{Partecipanti} & A. Barutta \\ & E. Hysa \\ & R. Smanio \\ & D. Diotto \\ & F. Pozza \\ & L. Skenderi \\ & N. Preto \vspace{10pt} \\
 \end{tabular}
 \pagebreak 
 
 % ------------------------- Changelog ----------------------------
 
 \section*{Registro delle modifiche}
-
-\begin{tabular}{|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|}
-    \hline
-    \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Dettaglio} \\
-    \hline \hline
-    0.0.1 & dd/mm/yyyy & Nome Cognome & Nome Cognome & Descrizione \\
-    \hline
-\end{tabular}
-\pagebreak
+\begin{tabular}{|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|} \hline
+\textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Dettaglio} \\
+\hline \hline
+0.0.2 & 07/11/2023 & A. Barutta & \makecell{E. Hysa\\L. Skenderi} & Nuovo template verbali \\ \hline
+0.0.1 & 27/10/2023 & \makecell{A. Barutta\\R. Smanio} & D. Diotto & Redazione documento\\ \hline
+\end{tabular} % \pagebreak
 
 % ------------------------- Generazione automatica indice ----------------------
 \setstretch{1.5}
@@ -134,29 +131,20 @@
 \flushleft
 
 \section{Revisione del periodo precedente}
+    Nel corso della revisione delle \textit{attività}\textsubscript{\textit{G}} completate e di quelle in corso, non sono emerse difficoltà o problematiche di rilievo. 
 
 \section{Ordine del giorno}
-    \subsection{Subsection 1}
-    \subsection{Subsection 2}
-    \subsection{Subsection 3}
+    
+    \subsection{Preparazione slide diario di bordo}
+        Sono state impostate le slide per i diari di bordo e si è discusso sui temi da trattare alla lezione “Diario di Bordo” di lunedi 30/10/2023. 
+    
+    \subsection{Revisione collettiva dei documenti redatti in \LaTeX}
+        I documenti redatti dai verificatori in \textit{Latex}\textsubscript{\textit{G}} sono stati esaminati congiuntamente e successivamente caricati nella \textit{repository}\textsubscript{\textit{G}} di gruppo. 
+    
+    \subsection{Consegna prevista}
+        È stata formalizzata la \textit{milestone}\textsubscript{\textit{G}} concernente l'assegnazione degli appalti, comprensiva delle relative responsabilità fino alla data stabilita. In seguito, saranno caricati nella \textit{repository}\textsubscript{\textit{G}} i documenti ufficialmente convalidati. 
 
 \section{Attività da svolgere}
-    \begin{itemize}
-        \item Attività 1
-        \item Attività 2
-        \item Attività 3
-    \end{itemize}
+    Non sono state definite nuove \textit{attività}\textsubscript{\textit{G}}. 
 
-\section{Richieste e chiarimenti} %commenta nel caso non ce ne siano
-
-
-% ------------------------ Firma Azienda ----------------------
-\begin{textblock*}{\textwidth}(0.22\textwidth, 1.08\textheight)
-    Luogo e Data: Padova, gg/mm/yy
-\end{textblock*}
-
-\begin{textblock*}{\textwidth}(0.90\textwidth, 1.08\textheight)
-        Firma referente Sync Lab:
-\end{textblock*}
-% -------------------------------------------------------------
 \end{document}
