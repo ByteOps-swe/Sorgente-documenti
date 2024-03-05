@@ -62,7 +62,7 @@ La convenzione utilizzata per la codifica dei rischi è presente in \textit{Norm
     \end{tabularx}
 \end{table}
 
-\subsubsection{Inesperienza nell'esecuzione di un'attività}
+\subsubsection{Inesperienza nell'esecuzione di un'attività} \label{sec:inexpAttività}
 \begin{table}[H]
     \centering
     \begin{tabularx}{\textwidth}{l>{\RaggedRight}X>{\RaggedRight}X>{\RaggedRight}X>{\RaggedRight}X}
@@ -116,7 +116,7 @@ La convenzione utilizzata per la codifica dei rischi è presente in \textit{Norm
     \end{tabularx}
 \end{table}
 
-\subsubsection{Problemi legati all'utilizzo di software di terze parti} \todo{completa}
+\subsubsection{Problemi legati all'utilizzo di software di terze parti} \label{sec:swThirdParts}
 \begin{table}[H]
     \centering
     \begin{tabularx}{\textwidth}{l>{\RaggedRight}X>{\RaggedRight}X>{\RaggedRight}X>{\RaggedRight}X}
@@ -125,10 +125,28 @@ La convenzione utilizzata per la codifica dei rischi è presente in \textit{Norm
     \textbf{Codice} & \textbf{Descrizione del rischio} & \textbf{Identificazione} & \textbf{Mitigazione} \\
     \midrule
     \addlinespace 
-    RT-3M-2 & 
-    È presente il rischio che alcuni file vengano persi a causa di malfunzionamenti hardware o errori umani.&
-    Il danneggiamento o l'eliminazione accidentale di file su cui i membri hanno lavorato che compromette il lavoro svolto su quei documenti.&
-    Adottare un \textit{sistema}\textsubscript{\textit{G}} di versionamento dei file fornisce ai membri del gruppo la capacità di tracciare e recuperare agevolmente versioni precedenti dei documenti, garantendo una robusta protezione contro modifiche indesiderate, danneggiamenti o eliminazioni accidentali.\\
+    RT-3A-3 & 
+    Poiché il prodotto si avvale di strumenti software di terze parti, è fondamentale considerare che i problemi o i malfunzionamenti associati a questi software non possono essere direttamente imputati al team. Tali problematiche potrebbero generare ritardi e costi aggiuntivi per la loro risoluzione o la sostituzione del software stesso. Inoltre, è plausibile che queste difficoltà possano influenzare negativamente la qualità e le funzionalità del prodotto finale. &
+    Per individuare i potenziali rischi nei software di terze parti, è essenziale monitorarne attentamente il funzionamento durante lo sviluppo e condurre ricerche nei bug tracking system relativi a tali software. Questo approccio proattivo consente di identificare tempestivamente eventuali problematiche e di valutarne l'impatto sul progetto, contribuendo così a garantire la stabilità e l'affidabilità del sistema finale.&
+    Per mitigare il rischio di malfunzionamenti nei software di terze parti, è consigliabile diversificare le opzioni e valutare alternative robuste. Inoltre, è importante mantenere i software aggiornati con le ultime patch di sicurezza e prestare attenzione alle recensioni e alle esperienze degli utenti. Infine, è utile avere un piano di ripristino rapido in caso di problemi, inclusa la possibilità di tornare rapidamente a versioni precedenti dei software se necessario. \\
+    \bottomrule
+    \addlinespace 
+    \end{tabularx}
+\end{table}
+
+\subsubsection{Basse prestazioni hardware} \label{sec:lowPrestazioniHW}
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\textwidth}{l>{\RaggedRight}X>{\RaggedRight}X>{\RaggedRight}X>{\RaggedRight}X}
+    \toprule
+    \rowcolor{gray!50}
+    \textbf{Codice} & \textbf{Descrizione del rischio} & \textbf{Identificazione} & \textbf{Mitigazione} \\
+    \midrule
+    \addlinespace 
+    RT-1M-4 & 
+    Le limitate risorse hardware dei PC personali dei membri del team potrebbero risultare insufficienti per condurre test approfonditi sul prodotto, considerando la sua natura nel contesto del Big Data. Questo potrebbe derivare dalla loro incapacità nel gestire un elevato numero di richieste di trasmissione ed elaborazione dei dati. &
+    Per identificare tempestivamente il rischio di basse prestazioni hardware, il team adotterà un approccio proattivo attraverso monitoraggio continuo delle prestazioni, feedback costante tra i membri del team e analisi accurata dei test eseguiti sul prodotto. Questa pratica ci consentirà di individuare rapidamente eventuali problemi e di intervenire prontamente per mitigare il rischio. &
+    Valutare la possibilità di ottimizzare il codice per ridurre il carico di lavoro sui PC personali. Eventualmente, potrebbe essere presa in considerazione la semplificazione delle funzionalità del progetto o l'adozione di strategie di test meno onerose, come la riduzione del set di dati utilizzato per i test Queste strategie potrebbero consentirci di gestire le limitazioni hardware senza investimenti aggiuntivi. \\
     \bottomrule
     \addlinespace 
     \end{tabularx}
