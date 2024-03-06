@@ -6,7 +6,7 @@ Essi vengono generati in risposta al superamento di una soglia di allarme predef
 Gli alert vengono mostrati in un riquadro dedicato nella dashboard principale, come mostrato nella sotto-sezione relativa alle tipologie dei grafici: \ref{subsec:tipologie_grafici}.\\
 
 \paragraph{Alert nei grafici}
-In alcuni pannelli è possibile vedere gli alert direttamente nei grafici. In particolare è possibile visualizzare gli alert nei "grafici a linee" come una linea tratteggiata verticale che indica il punto nel tempo in cui l'alert è stato attivato.\\
+In alcuni pannelli è possibile vedere gli alert direttamente nei grafici. In particolare è possibile visualizzare gli alert nei grafici a linee come una linea tratteggiata verticale che indica il punto nel tempo in cui l'alert è stato attivato.\\
 \begin{figure}[H]
     \centering
     \fbox{\includegraphics[width=12cm]{../Images/ManualeUtente/Light/panel_singolo_grafico.png}}
@@ -16,7 +16,7 @@ In alcuni pannelli è possibile vedere gli alert direttamente nei grafici. In pa
 Come si può notare dall'immagine sopra, in alto a sinistra è presente un'icona a forma di cuore che indica lo stato dell'alert del grafico. Può essere di tre tipi:
 
 \begin{itemize}
-    \item \textbf{Ok}: l'icona è verde e non è presente alcuna linea tratteggiata nel grafico;
+    \item \textbf{Ok}: l'icona rappresenta un cuore intero e non è presente alcuna linea tratteggiata nel grafico;
     \begin{figure}[H]
         \centering
         \fbox{\includegraphics[width=4cm]{../Images/ManualeUtente/Light/alert_pannello_cuore_ok.png}}
@@ -24,7 +24,8 @@ Come si può notare dall'immagine sopra, in alto a sinistra è presente un'icona
         \label{fig:my_label}
     \end{figure}
 
-    \item \textbf{Alert pending}: quando una condizione di attivazione dell'avviso è stata soddisfatta, ma il tempo di valutazione dell'avviso non è ancora trascorso.
+    \item \textbf{Alert pending}: \todo{Riformulare meglio}
+    quando una condizione di attivazione dell'avviso è stata soddisfatta, ma il tempo di valutazione dell'avviso non è ancora trascorso.
     \begin{figure}[H]
         \centering
         \fbox{\includegraphics[width=4cm]{../Images/ManualeUtente/Light/alert_pannello_cuore_pending.png}}
@@ -36,7 +37,7 @@ Come si può notare dall'immagine sopra, in alto a sinistra è presente un'icona
     \begin{figure}[H]
         \centering
         \fbox{\includegraphics[width=4cm]{../Images/ManualeUtente/Light/alert_pannello_cuore_alerting.png}}
-        \caption{Stato "ok" dell'alert}
+        \caption{Stato "alerting" dell'alert}
         \label{fig:my_label}
     \end{figure}
 \end{itemize}
