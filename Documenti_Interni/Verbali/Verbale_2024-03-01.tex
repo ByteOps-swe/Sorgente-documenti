@@ -1,0 +1,162 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[absolute]{textpos}
+\usepackage[default]{raleway}
+\usepackage{titlesec, comment, tabularx, makecell, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, multirow, hyperref}
+\usepackage{colortbl}
+%\geometry{a4paper, left=2cm, right=2cm, top=2cm, bottom=2.5cm}
+\renewcommand{\headrulewidth}{0pt}
+
+% Definisci uno stile per i comandi git
+\definecolor{light-gray}{gray}{0.92}
+
+\lstdefinestyle{code}{
+    frame=single,
+    framesep=1mm,
+    rulecolor=\color{light-gray},
+    backgroundcolor=\color{light-gray},
+    basicstyle=\ttfamily,
+}
+
+% ----------------------------- Definizione tabella ---------------------------
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+%\setcellgapes{2ex} % Imposta l'altezza dell'header (2ex)
+
+
+% ------------------------------Metadati indice --------------------------------
+\title{\textbf{\fontsize{28}{6}\selectfont Indice}}
+\author{\fontsize{14}{6}\selectfont ByteOps}
+\date{Marzo 01, 2024}
+
+
+% -----------------------------Creazione footer --------------------------------
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{
+    \parbox[c]{2cm}{\includegraphics[width=2cm]{../../Images/logo.png}}
+    \textcolor[RGB]{120, 120, 120}{$\cdot$ Verbale Interno}
+}
+\rfoot{\thepage}
+
+% --------------------------Modifica formato hyperlinks ------------------------
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    pdftitle={Verbale Interno 01/03/2024},  %inserisci data verbale
+    pdfpagemode=FullScreen,
+}
+
+% ------------------------------- Valore sotto-paragrafi indice --------------------------------------
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\titleformat{\section}
+{\normalfont\huge\bfseries}{\thesection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsection}
+{\normalfont\Large\bfseries}{\thesubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsubsection}
+{\normalfont\large\bfseries}{\thesubsubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+% ------------------------------- Front Page ---------------------------------------
+
+\begin{document}
+
+% --------------------------Aggiunta firma finale ------------------------
+\begin{textblock*}{\textwidth}(0.85\textwidth, 1.16\textheight)
+    Il responsabile: R. Smanio
+\end{textblock*}
+% ------------------------------------------------------------------------
+
+\pagestyle{fancy}
+\begin{center}
+\includegraphics[width = 0.7\textwidth]{../../Images/logo.png} \\
+\vspace{0.2cm}
+\textcolor[RGB]{60, 60, 60}{\textit{ByteOps.swe@gmail.com}} \\
+\vspace{1cm}
+\fontsize{16}{6}\selectfont Verbale Interno $\cdot$ Data: 01/03/2024 \\
+\vspace{0.5cm}
+\end{center}
+
+\section*{Informazioni documento}
+\def\arraystretch{1.2}
+\begin{tabular}{>{\raggedleft\arraybackslash}p{0.3\textwidth}|>{\raggedright\arraybackslash}p{0.6\textwidth}c}
+\hline
+\addlinespace
+\textbf{Luogo} & Discord \vspace{10pt} \\
+\textbf{Orario} & 17:30 - 18:15 \vspace{10pt} \\
+\textbf{Redattore} & N. Preto \vspace{10pt} \\
+\textbf{Verificatore} & A. Barutta \vspace{10pt} \\
+\textbf{Amministratore} & E. Hysa \vspace{10pt} \\
+\textbf{Destinatari} & T. Vardanega \\ & R. Cardin \vspace{10pt} \\
+\multirow[t]{7}{*}{\textbf{Partecipanti interni}} & A. Barutta \\ & E. Hysa \\ & R. Smanio \\ & D. Diotto \\ & F. Pozza \\ & L. Skenderi \\ & N. Preto \vspace{10pt} \\
+\end{tabular}
+\pagebreak 
+
+% ------------------------- Changelog ----------------------------
+
+\section*{Registro delle modifiche}
+
+\begin{tabular}{|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|}
+    \hline
+    \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Dettaglio} \\
+    \hline \hline
+    0.0.1 & 01/03/2024 & N. Preto & A. Barutta & Redazione documento \\
+    \hline
+\end{tabular}
+\pagebreak
+
+% ------------------------- Generazione automatica indice ----------------------
+\setstretch{1.5}
+\maketitle
+\thispagestyle{fancy}
+\tableofcontents
+\setstretch{1.2}
+\pagebreak
+
+% ------------------------ INIZIO DOCUMENTO ----------------------
+\flushleft
+
+\section{Revisione del periodo precedente}
+Dopo l'ultimo incontro del gruppo, è stato integrato con successo Faust nel prodotto software, rispondendo efficacemente alle criticità evidenziate dal Professor Cardin. Questo aggiornamento è stato cruciale per superare le sfide identificate e per garantire la qualità del prodotto finale, riducendo così eventuali problemi di accettazione. Successivamente all'integrazione di Faust, alcuni membri del team si sono dedicati allo sviluppo dei test, mentre altri hanno iniziato a redigere il Manuale Utente. Parallelamente, è stato dedicato impegno per migliorare la struttura e l'organizzazione del repository su GitHub, in linea con i suggerimenti del Professor Vardanega riguardo ai punti di attenzione nel lavoro. Inoltre, sono state apportate modifiche all'aspetto di alcuni pannelli nella dashboard di Grafana, aumentando così le funzionalità disponibili nel prodotto.
+
+\section{Ordine del giorno}
+    \subsection{Confronto riguardo i test sviluppati e in progetto}
+    All'inizio dell'incontro, il focus principale è stato rivolto ai test. Nei giorni precedenti, sono state riscontrate difficoltà nella creazione di vari test, principalmente a causa della complessità nell'utilizzo di alcuni strumenti di testing ancora non completamente maneggiabili per il team. Ciò ha portato a una rivalutazione dei test in fase di sviluppo e alla progettazione di nuove tipologie di test da esplorare, al fine di individuare soluzioni più efficaci. Inoltre, è stata data l'opportunità di discutere dei test con l'azienda proponente durante il meeting settimanale del SAL, tenutosi poco prima dell'incontro.
+    \subsection{Discussione sul livello di dettaglio del Manuale Utente}
+    Durante le discussioni interne, è emerso un altro aspetto significativo: la profondità delle descrizioni all'interno del Manuale Utente. Inizialmente, era stata considerata una visione più generale dei vari elementi del prodotto dai membri incaricati della stesura del documento. Tuttavia, dopo un'approfondita riflessione collettiva, si è convenuto che fosse opportuno approfondire ulteriormente le descrizioni al fine di favorire una comprensione più approfondita degli aspetti e dei dettagli meno immediati del prodotto. Questa decisione è stata presa per rendere il Manuale Utente più accessibile e utile per il lettore, fornendo informazioni dettagliate su tutti gli aspetti del prodotto, specialmente quelli che potrebbero non essere immediatamente intuitivi.
+    \subsection{Discussione riguardante il sistema di login}
+    Si è evidenziato un ulteriore punto di interesse riguardante il mantenimento del sistema di autenticazione implementato da Grafana tra gli utenti e la web app attualmente in fase di sviluppo. Dopo un'attenta valutazione delle varie opinioni espresse in merito, si è giunti alla conclusione che l'autenticazione rappresenta un elemento essenziale che dovrebbe essere preservato, in quanto garantisce un livello superiore di sicurezza. È da sottolineare che, nonostante sia richiesta una procedura di login, agli utenti, cioè le autorità locali, non sarà imposto di registrarsi direttamente su Grafana per accedere alla nostra web app. Al contrario, verranno fornite loro le credenziali di accesso, ossia nome utente e password, attraverso un canale affidabile gestito dal nostro gruppo.
+    \subsection{Ricontrollo documento Analisi dei Requisiti}
+    Infine, si è concordato sull'importanza di condurre una revisione aggiuntiva del documento di Analisi dei Requisiti. Questo passaggio risulta cruciale per garantire che le modifiche apportate alla dashboard, e di conseguenza al prodotto nel suo complesso, siano conformi ai requisiti stabiliti all'inizio del progetto. L'obiettivo primario è assicurare che il gruppo non abbia introdotto elementi superflui o deviazioni dalle specifiche inizialmente definite.
+
+    \section{Attività da svolgere}
+    \begin{center}
+        \begin{tabular}{|C{7cm}|C{1,5cm}|C{3cm}|}
+            \hline
+            \textbf{Titolo} & \textbf{\# Issue} & \textbf{Verificatore} \\
+            \hline\hline
+            Ricontrollo AdR dopo prima stesura MU & 97 & A. Barutta \\
+            \hline
+            Approfondimento paragrafi Manuale Utente & 96 & A. Barutta \\
+            \hline
+            Stesura test di unità sensori & 101 & R. Smanio \\
+            \hline
+        \end{tabular}
+    \end{center}
+\end{document}
