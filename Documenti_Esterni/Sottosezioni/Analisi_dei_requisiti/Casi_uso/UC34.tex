@@ -1,0 +1,21 @@
+\subsubsection{UC34 AUTENTICAZIONE}
+\begin{itemize}
+    \item \textbf{Attore principale:} Autorità locale;
+    \item \textbf{Precondizioni:}
+        \begin{itemize}
+            \item Il sistema è operativo, accessibile e l’autorità locale ha ricevuto le credenziali di accesso dall'amministratore.
+        \end{itemize}
+    \item \textbf{Postcondizioni:}
+        \begin{itemize}
+            \item L’autorità locale ha accesso alla dashboard principale.
+        \end{itemize}
+    \item \textbf{Scenario principale:}
+        \begin{enumerate}
+            \item L'autorità locale avvia l'applicazione web e viene presentata un'interfaccia di accesso che richiede l'inserimento del nome utente e della password;
+            \item L'autorità locale inserisce il proprio nome utente e la password, fornitogli per l’accesso, nei campi corrispondenti e procede con il tentativo di accesso;
+            \item Il sistema invia le credenziali di accesso a Grafana per la verifica;
+            \item Grafana verifica le credenziali fornite.
+        \end{enumerate}
+    \item \textbf{User story associata:} \\
+    Come Autorità Locale, devo poter accedere alla dashboard principale della web app per monitorare la situazione della città che amministro. Per fare ciò, inserirò il mio nome utente e la password forniti dall'amministratore attraverso i campi appositi. Se le credenziali inserite sono corrette, avrò accesso immediato alla dashboard; in caso contrario, verrà visualizzato un messaggio di errore ("Login failed. Invalid username or password") e mi sarà richiesto di reinserire le credenziali corrette.
+\end{itemize}
