@@ -79,7 +79,7 @@
 
 % --------------------------Aggiunta firma finale ------------------------
 \begin{textblock*}{\textwidth}(0.85\textwidth, 1.16\textheight)
-    Il responsabile: Lisien Skenderi
+    Il responsabile: L. Skenderi
 \end{textblock*}
 % ------------------------------------------------------------------------
 
@@ -133,9 +133,9 @@
 \flushleft
 
 \section{Revisione del periodo precedente}
-La seconda fase della revisione RTB con il professor Vardanega, svolta il 20/02/2024,  è stata completata con esito positivo. Successivamente, sono state apportate le correzioni indicate durante la revisione ai documenti, e sono state avviate le prime attività per preparare la Product Baseline. \\
-È stata condotta un'analisi approfondita per delineare il processo di progettazione del sistema e dei relativi test. Di conseguenza, è stata elaborata la struttura dei nuovi documenti, tra cui la Specifica Tecnica e il Manuale Utente, dei quali sono state redatte le sezioni introduttive. \\
-Durante lo svolgimento delle attività nel periodo precedente non sono state riscontrate difficoltà significative che richiedano un cambiamento nell'approccio di lavoro, in quanto sia le aspettative che le tempistiche sono state rispettate.
+La seconda fase della revisione RTB con il professor Vardanega, svolta il 20/02/2024,  è stata completata con esito positivo. Successivamente, sono state apportate le correzioni indicate durante la revisione ai documenti, e sono state avviate le prime attività in vista della Product Baseline. \\
+È stata condotta un'analisi approfondita per pianificare in modo adeguato le attività relative alla progettazione e al testing. Di conseguenza, è stata elaborata la struttura dei nuovi documenti, tra cui la Specifica Tecnica e il Manuale Utente, dei quali sono state redatte le sezioni introduttive. \\
+Durante lo svolgimento delle attività del periodo precedente non sono state riscontrate difficoltà significative che richiedano un cambiamento nell'approccio di lavoro, in quanto sia le aspettative che le tempistiche sono state rispettate.
 
 \section{Ordine del giorno}
     \subsection{Calcolo punteggio di salute}
@@ -147,11 +147,11 @@ Durante lo svolgimento delle attività nel periodo precedente non sono state ris
     In risposta alla richiesta della proponente di semplificare la struttura del database per evitare sovra-ingegnerizzazione e migliorare la manutenibilità, è stata presa la decisione di adottare un approccio più semplice. Questo ha comportato la creazione di una singola tabella contenente le varie misurazioni provenienti dai sensori, con eventuali aggregazioni dei dati effettuate al momento tramite query. Questa scelta è stata motivata dal fatto che, nel precedente approccio basato su materialized view e projection, venivano create tabelle separate per memorizzare gli aggregati delle misurazioni. Tuttavia, la proponente ha contestato tale approccio, sottolineando che nel contesto specifico non vi è la necessità di utilizzare tali funzionalità. Al contrario, l'adozione di tale approccio avrebbe comportato la creazione di nuove tabelle dedicate alle misurazioni aggregate soggette a costi di manutenzione potenzialmente elevati.
 
     \subsection{Progettazione e sviluppo dashboards Grafana}
-    Durante la riunione, è stata definita la struttura finale della dashboard Grafana. è stata presa la decisione di creare dashboard specifiche per le diverse tipologie di misurazioni, consentendo l'applicazione di filtri di vario genere all'interno di un ambiente dedicato. \\
+    Durante la riunione, è stata definita la struttura finale della dashboard Grafana. Oltre alla dashboard principale, è stata presa la decisione di creare una dashboard personalizzata che offre un'analisi dettagliata delle misurazioni di una tipologia specifica. Questa dashboard consente l'applicazione di diversi filtri all'interno di un ambiente dedicato, permettendo così un'analisi approfondita. \\
     Inoltre, si è optato per l'impiego di un plugin che consenta di posizionare le variabili accanto ai grafici, agevolando la selezione di sensori o celle specifiche per visualizzare le relative misurazioni in modo intuitivo e semplice. In seguito a ciò sono stati aggiornati alcuni dei casi d’uso presenti nel documento Analisi dei Requisiti.
 
     \subsection{Progettazione e sviluppo test}
-    Si è deciso di realizzare test di unità relativi ai simulatori dei sensori. Inoltre, si è pianificato di eseguire test di integrazione per verificare l'integrità delle misurazioni che passano attraverso Kafka, vengono eventualmente elaborate dallo script Faust, memorizzate in Clickhouse e visualizzate nella dashboard Grafana. A tal proposito, è stato deciso di sviluppare una suite di test automatizzati per garantire che il flusso di dati rimanga integro dall'inizio alla fine del processo, partendo dai sensori fino a Clickhouse. \\
+    Si è deciso di realizzare test di unità relativi ai simulatori dei sensori. Inoltre, si è pianificato di eseguire test di integrazione per verificare l'integrità delle misurazioni che passano attraverso Kafka, vengono eventualmente elaborate dallo script Faust, memorizzate in Clickhouse e visualizzate nella dashboard Grafana. A tal proposito, è stato deciso di sviluppare una suite di test automatizzati per garantire che il flusso di dati rimanga integro durante la trasmissione tra i vari componenti dell'architettura, partendo dai sensori fino a Clickhouse. \\
     Infine, è stata deciso di sviluppare stress test per valutare le prestazioni del sistema e verificarne la resilienza in condizioni di carico elevato.
 
 \section{Attività da svolgere}
