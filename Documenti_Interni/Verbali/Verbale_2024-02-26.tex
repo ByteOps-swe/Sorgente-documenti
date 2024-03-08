@@ -1,0 +1,174 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[absolute]{textpos}
+\usepackage[default]{raleway}
+\usepackage{titlesec, comment, tabularx, makecell, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, hyperref}
+\usepackage{colortbl}
+%\geometry{a4paper, left=2cm, right=2cm, top=2cm, bottom=2.5cm}
+\renewcommand{\headrulewidth}{0pt}
+
+% Definisci uno stile per i comandi git
+\definecolor{light-gray}{gray}{0.92}
+
+\lstdefinestyle{code}{
+    frame=single,
+    framesep=1mm,
+    rulecolor=\color{light-gray},
+    backgroundcolor=\color{light-gray},
+    basicstyle=\ttfamily,
+}
+
+% ----------------------------- Definizione tabella ---------------------------
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+%\setcellgapes{2ex} % Imposta l'altezza dell'header (2ex)
+
+
+% ------------------------------Metadati indice --------------------------------
+\title{\textbf{\fontsize{28}{6}\selectfont Indice}}
+\author{\fontsize{14}{6}\selectfont ByteOps}
+\date{Febbraio 26, 2024}
+
+
+% -----------------------------Creazione footer --------------------------------
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{
+    \parbox[c]{2cm}{\includegraphics[width=2cm]{../../Images/logo.png}}
+    \textcolor[RGB]{120, 120, 120}{$\cdot$ Verbale Interno}
+}
+\rfoot{\thepage}
+
+% --------------------------Modifica formato hyperlinks ------------------------
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    pdftitle={Verbale Interno 26/02/2024},  %inserisci data verbale
+    pdfpagemode=FullScreen,
+}
+
+% ------------------------------- Valore sotto-paragrafi indice --------------------------------------
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\titleformat{\section}
+{\normalfont\huge\bfseries}{\thesection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsection}
+{\normalfont\Large\bfseries}{\thesubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsubsection}
+{\normalfont\large\bfseries}{\thesubsubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+% ------------------------------- Front Page ---------------------------------------
+
+\begin{document}
+
+% --------------------------Aggiunta firma finale ------------------------
+\begin{textblock*}{\textwidth}(0.85\textwidth, 1.16\textheight)
+    Il responsabile: L. Skenderi
+\end{textblock*}
+% ------------------------------------------------------------------------
+
+\pagestyle{fancy}
+\begin{center}
+\includegraphics[width = 0.7\textwidth]{../../Images/logo.png} \\
+\vspace{0.2cm}
+\textcolor[RGB]{60, 60, 60}{\textit{ByteOps.swe@gmail.com}} \\
+\vspace{1cm}
+\fontsize{16}{6}\selectfont Verbale Interno $\cdot$ Data: 26/02/2024 \\
+\vspace{0.5cm}
+\end{center}
+
+\section*{Informazioni documento}
+\def\arraystretch{1.2}
+\begin{tabular}{>{\raggedleft\arraybackslash}p{0.2\textwidth}|>{\raggedright\arraybackslash}p{0.6\textwidth}c}
+\hline
+\addlinespace
+\textbf{Luogo} & Discord \vspace{10pt} \\
+\textbf{Orario} & 09:30 - 11:00 \vspace{10pt} \\
+\textbf{Redattore} & R. Smanio \vspace{10pt} \\
+\textbf{Verificatore} & E. Hysa \vspace{10pt} \\
+\textbf{Amministratore} & F. Pozza \vspace{10pt} \\
+\textbf{Destinatari} & T. Vardanega \\ & R. Cardin \vspace{10pt} \\
+\textbf{Partecipanti} & A. Barutta \\ & E. Hysa \\ & R. Smanio \\ & D. Diotto \\ & F. Pozza \\ & L. Skenderi \\ & N. Preto \vspace{10pt} \\
+\end{tabular}
+\pagebreak 
+
+% ------------------------- Changelog ----------------------------
+
+\section*{Registro delle modifiche}
+
+\begin{tabular}{|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|}
+    \hline
+    \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Dettaglio} \\
+    \hline \hline
+    0.0.1 & 26/02/2024 & R. Smanio & E. Hysa & Redazione documento \\
+    \hline
+\end{tabular}
+\pagebreak
+
+% ------------------------- Generazione automatica indice ----------------------
+\setstretch{1.5}
+\maketitle
+\thispagestyle{fancy}
+\tableofcontents
+\setstretch{1.2}
+\pagebreak
+
+% ------------------------ INIZIO DOCUMENTO ----------------------
+\flushleft
+
+\section{Revisione del periodo precedente}
+La seconda fase della revisione RTB con il professor Vardanega, svolta il 20/02/2024,  è stata completata con esito positivo. Successivamente, sono state apportate le correzioni indicate durante la revisione ai documenti, e sono state avviate le prime attività in vista della Product Baseline. \\
+È stata condotta un'analisi approfondita per pianificare in modo adeguato le attività relative alla progettazione e al testing. Di conseguenza, è stata elaborata la struttura dei nuovi documenti, tra cui la Specifica Tecnica e il Manuale Utente, dei quali sono state redatte le sezioni introduttive. \\
+Durante lo svolgimento delle attività del periodo precedente non sono state riscontrate difficoltà significative che richiedano un cambiamento nell'approccio di lavoro, in quanto sia le aspettative che le tempistiche sono state rispettate.
+
+\section{Ordine del giorno}
+    \subsection{Calcolo punteggio di salute}
+    Si è discusso sulle direttive da seguire per lo sviluppo della funzionalità del calcolo del punteggio di salute. Uno script Faust è incaricato di estrarre i dati da Kafka e di inviarli al modello per il calcolo del punteggio di salute. Il modello, attraverso un algoritmo dedicato, elabora i dati e genera il punteggio di salute corrispondente. Tale punteggio viene successivamente reinserito in Kafka e memorizzato in Clickhouse. \\
+    Il modello calcola il punteggio di salute per ciascuna cella urbana seguendo una procedura dettagliata. In primo luogo, per ogni misurazione effettuata, viene calcolata la distanza rispetto ad un valore ideale corrispondente. Successivamente, per ogni tipologia di misurazione, viene calcolata una media delle distanze. In particolare, viene calcolata la media delle distanze per la temperatura, per le polveri sottili e per l'umidità. Infine, queste medie vengono sommate per ottenere il punteggio di salute complessivo della cella. È importante notare che se una cella non dispone di determinati tipi di sensori, il punteggio di salute non viene incrementato per quei parametri. \\
+    In questo modo, è possibile ottenere il punteggio di salute dell'intera città sommando i punteggi di salute delle varie celle urbane o di una o più specifiche celle.
+
+    \subsection{Progettazione e sviluppo database}
+    In risposta alla richiesta della proponente di semplificare la struttura del database per evitare sovra-ingegnerizzazione e migliorare la manutenibilità, è stata presa la decisione di adottare un approccio più semplice. Questo ha comportato la creazione di una singola tabella contenente le varie misurazioni provenienti dai sensori, con eventuali aggregazioni dei dati effettuate al momento tramite query. Questa scelta è stata motivata dal fatto che, nel precedente approccio basato su materialized view e projection, venivano create tabelle separate per memorizzare gli aggregati delle misurazioni. Tuttavia, la proponente ha contestato tale approccio, sottolineando che nel contesto specifico non vi è la necessità di utilizzare tali funzionalità. Al contrario, l'adozione di tale approccio avrebbe comportato la creazione di nuove tabelle dedicate alle misurazioni aggregate soggette a costi di manutenzione potenzialmente elevati.
+
+    \subsection{Progettazione e sviluppo dashboards Grafana}
+    Durante la riunione, è stata definita la struttura finale della dashboard Grafana. Oltre alla dashboard principale, è stata presa la decisione di creare una dashboard personalizzata che offre un'analisi dettagliata delle misurazioni di una tipologia specifica. Questa dashboard consente l'applicazione di diversi filtri all'interno di un ambiente dedicato, permettendo così un'analisi approfondita. \\
+    Inoltre, si è optato per l'impiego di un plugin che consenta di posizionare le variabili accanto ai grafici, agevolando la selezione di sensori o celle specifiche per visualizzare le relative misurazioni in modo intuitivo e semplice. In seguito a ciò sono stati aggiornati alcuni dei casi d’uso presenti nel documento Analisi dei Requisiti.
+
+    \subsection{Progettazione e sviluppo test}
+    Si è deciso di realizzare test di unità relativi ai simulatori dei sensori. Inoltre, si è pianificato di eseguire test di integrazione per verificare l'integrità delle misurazioni che passano attraverso Kafka, vengono eventualmente elaborate dallo script Faust, memorizzate in Clickhouse e visualizzate nella dashboard Grafana. A tal proposito, è stato deciso di sviluppare una suite di test automatizzati per garantire che il flusso di dati rimanga integro durante la trasmissione tra i vari componenti dell'architettura, partendo dai sensori fino a Clickhouse. \\
+    Infine, è stata deciso di sviluppare stress test per valutare le prestazioni del sistema e verificarne la resilienza in condizioni di carico elevato.
+
+\section{Attività da svolgere}
+    \begin{center}
+        \begin{tabular}{|C{7cm}|C{1,5cm}|C{3cm}|}
+            \hline
+            \textbf{Titolo} & \textbf{\# Issue} & \textbf{Verificatore} \\
+            \hline\hline
+            Modificare struttura repository & 93 & L. Skenderi \\
+            Redazione verbale interno 26/02/2024 & 94 & E. Hysa \\
+            Stesura periodo 9 - PdP & 98 & N. Preto \\
+            Progettazione dashboard Grafana & 104 & E. Hysa \\
+            Implementazione calcolo punteggio salute & 105 & L. Skenderi \\
+            Progettazione database & 106 & N. Preto \\
+            Sviluppo database & 107 & A. Barutta \\
+            \hline
+        \end{tabular}
+    \end{center}
+
+\end{document}
