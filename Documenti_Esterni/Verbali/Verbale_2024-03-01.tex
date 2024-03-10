@@ -137,20 +137,16 @@ In conclusione, l'azienda proponente si è dimostrata soddisfatta del lavoro svo
     \subsection{Miglioramento dei grafici}
         Durante la presentazione della dashboard, la proponente ci ha fornito alcuni feedback per migliorare la leggibilità dei grafici. È emerso il suggerimento di includere, accanto al titolo del widget, l'unità di misura delle misurazioni rappresentate dal grafico. Questo permetterebbe di specificare l'unità di misura una sola volta, anziché ripeterla per ogni valore sull'asse delle ordinate, rendendo i grafici più chiari e facili da comprendere.
     \subsection{Design pattern}
-        \textcolor{red}{Non sono convinto che quanto scritto sotto sia corretto. Da far vedere ad Andrea!}
-
-        Si è discusso sulle scelte effettuate dal gruppo per quanto riguardava i design pattern utilizzati nel prodotto presentato, in particolare il team richiedeva se fosse necessario o utile implementare pattern architetturali al di fuori di quelli utilizzati all'interno del producer per migliorare la progettazione attuale del prodotto. L'azienda ha ritenuto sufficienti i pattern utilizzati per la parte di simulazione dei dati e non necessaria l'aggiunta di ulteriori pattern nel resto della pipeline che porterebbero ad una sovra-ingegnerizzazione del sistema.  
-    \subsection{Integration Testing \textit{(IT)}}
-        \textcolor{red}{Non sono convinto che quanto scritto sotto sia corretto. Da far vedere ad Andrea!}
-
-        Il team ha richiesto all'azienda consigli sulle modalità con cui poter eseguire \textit{Integration Testing} fra il producer ed il server Kafka, la discussione sorge dalle difficoltà riscontrate dal team che ha provato a realizzare questa tipologia di test provando varie modalità (in particolare con l'utilizzo della libreria Faust) ma senza successo. \\
-        L'azienda si è resa disponible ad aiutarci a risolvere i problemi riscontrati in questa parte di \textit{IT} e ha suggerito una modalità diversa per quanto riguarda gli \textit{IT} Kafka-Clickhouse creando una coda e una tabella separata dallo stream di dati visulizzato in grafana, ma identico ad esso in struttura e comportamento per poter eseguire test senza dover poi rimettere mano alle tabelle per eliminare i dati creati dai test.
+        Durante la discussione riguardante le scelte di design nel processo di progettazione dell'MVP, è emerso un dibattito sui design pattern adottati. Dopo un'attenta analisi dei pattern utilizzati, si è discusso sull'eventuale necessità di implementarne di ulteriori. La proponente ha espresso soddisfazione riguardo alla progettazione dei componenti e ai pattern adottati, e si è concordato sul fatto che non sia necessario introdurne di ulteriori.
+    \subsection{Integration Testing}
+        Il team ha richiesto all'azienda consulenza su come eseguire con successo i test di integrazione tra il producer e il server Kafka. La discussione è emersa a seguito delle difficoltà incontrate nel tentativo di realizzare tali test utilizzando diverse metodologie e strumenti senza ottenere risultati positivi. A tal proposito, la proponente si è offerta di assistere nella risoluzione dei problemi riscontrati. \\
+        Inoltre, per evitare di inquinare il server Kafka e il database con i dati di test, è stato proposto di creare una coda e una tabella specifiche, separate dal flusso di dati principale. È essenziale che sia la coda che la tabella dedicate ai test mantengano la stessa struttura e il medesimo comportamento dell'ambiente di produzione. Ciò consentirebbe l'esecuzione dei test senza la necessità di interventi manuali sulle tabelle del database e sulla coda per eliminare i dati generati durante le prove.
 
 \section{Attività da svolgere}
     \begin{itemize}
         \item Miglioramento grafici attraverso l'aggiunta di unità di misura;
-        \item Creazione coda e tabelle per Integration Test kafka-clickhouse;
-        \item Risolvere problemi nei TI producer-kafka.
+        \item Creazione coda e tabelle ad hoc per Integration Test Kafka-Clickhouse;
+        \item Avanzamento test di integrazione.
     \end{itemize}
 
 % ------------------------ Firma Azienda ----------------------
