@@ -280,18 +280,128 @@ Questo modulo si occupa della scrittura e/o invio di informazioni a diverse tipo
 Il modulo presenta un interfaccia \textit{Writer} che offre il metodo di scrittura \textit{write()} di oggetti di tipo \textit{Writable}.
 Questo metodo è implementato da diverse classi concrete che rappresentano i vari servizi a cui è possibile inviare le informazioni.
 Questo approccio implementa il design pattern \textit{Strategy} per la scrittura dei dati su diverse piattaforme/servizi e il design pattern \textit{Composite} per la gestione di più servizi a cui scrivere contemporaneamente in modo completamentemente indifferenziato dalla scrittura ad un singolo servizio.
-
-
+Nello specifico sono state implentate tre strategie di scrittura:la prima, (\textit{KafkaWriter}), atta a permettere al simulatore di inviare messaggi a Kafka,  la seconda (\textit{StdOutWriter}) atta a permettere di stampare i \textit{Writable}su terminale e la terza (\textit{ListWriter}) per il salvataggio su una lista degli oggetti \textit{Writable}.
 L'utilizzo del design pattern Composite e Strategy in questo caso ha diverse motivazioni:
 \begin{itemize}
     \item \textbf{Gestione uniforme dei servizi}: Il pattern Strategy consente di definire una famiglia di algoritmi, incapsularli e renderli intercambiabili. In questo caso, i servizi di scrittura sono trattati come algoritmi intercambiabili, consentendo di scrivere informazioni su diversi servizi senza dover conoscere i dettagli di implementazione di ciascuno.
     \item \textbf{Gestione gerarchica dei servizi}: Il pattern Composite consente di trattare gli oggetti singoli e le loro composizioni (gruppi di oggetti) allo stesso modo. Nel contesto del modulo, potrebbe esserci la necessità di gestire non solo singoli servizi, ma anche gruppi di servizi. Ad esempio, potrebbe essere utile inviare informazioni contemporaneamente a diversi servizi, come un database, un file di log e un servizio di notifica. Il Composite consente di comporre questi servizi in modo gerarchico e trattarli uniformemente.
 \end{itemize}
 
+\paragraph{Design pattern Object Adapter:}
+Nello specifico, la classe \textit{KafkaWriter} realizza la sua funzionalità attraverso l'utilizzo del design pattern \textit{Adapter}, nella sua variante \textit{Object Adapter}. Tale scelta è stata motivata dall'impiego della classe \textit{Producer} della libreria \textit{confluent\_kafka}, la quale potrebbe subire variazioni non controllabili da noi. Per garantire la capacità di rispondere prontamente a tali cambiamenti senza dover modificare la classe \textit{KafkaWriter} o altri parti di sistema, si è optato per l'utilizzo di questo pattern, trasferendo così la complessità derivante da tali modifiche proprio nell'adapter.
+Inoltre grazie all'interfaccia \textit{KafkaTarget}, si è garantita la possibilità di estendere il sistema con nuovi metodi di scrittura su Kafka o l'utilizzo di nuove librerie senza dover modificare la classe \textit{KafkaWriter} ma solamente aggiungendo una nuova classe adapter che implementi \textit{KafkaTarget}.
+
+
 
 \paragraph{Classi: metodi e attributi}
 
-
+\begin{itemize}
+    \item{\textbf{Interfaccia: \textit{Writable}}}
+    \begin{itemize}
+        \item\textbf{Metodi}: 
+        \begin{itemize}
+            \item \textbf{to\_json(): [public, abstract]} - Metodo astratto che deve essere implementato nelle sottoclassi per convertire l'oggetto in una stringa JSON.
+        \end{itemize}
+        \item\textbf{Note}:
+        \begin{itemize}
+            \item L'interfaccia \textit{Writable} definisce un insieme di metodi che una classe deve implementare perchè possa essere utilizzata dalle strategie di scrittura.
+        \end{itemize}
+    \end{itemize}
+    \item{\textbf{Interfaccia: \textit{Writer}}}
+     \begin{itemize}
+        \item \textbf{Metodi:}
+         \begin{itemize}
+            \item \textbf{write(to\_write: Writable): None [public, abstract]} - Metodo astratto che deve essere implementato nelle sottoclassi per scrivere un oggetto Writable.
+        \end{itemize}
+        \item\textbf{Note}:
+        \begin{itemize}
+            \item L'interfaccia \textit{Writer} definisce un insieme di metodi che una classe deve implementare perchè possa essere utilizzata come strategia di scrittura;
+            \item Rappresenta l'interfaccia "Component" del pattern \textit{Composite} che descrive le operazioni comuni sia agli elementi semplici che a quelli complessi dell'albero.
+        \end{itemize}
+    \end{itemize}
+    \item{\textbf{Classe: \textit{StdoutWriter}}}
+    \begin{itemize}
+    \item\textbf{Attributi}:
+        \begin{itemize}
+        \item \textbf{lock:threading.Lock [private]} - Lock per garantire l'accesso esclusivo alla stampa ed un esecuzione Thread safe.
+    \end{itemize}
+    \item \textbf{Metodi: }
+    \begin{itemize}
+        \item \textbf{write(to\_write: Writable): None [public]} - Stampa l'oggetto Writable come stringa JSON nella console;
+    \end{itemize}
+    \item\textbf{Note}:
+        \begin{itemize}
+            \item La classe è una strategia di scrittura del pattern \textit{Strategy} ma anche la componente "Leaf" del pattern \textit{Composite}, ovvero l'elemento base che non ha sottoelementi.
+        \end{itemize}
+    \end{itemize}
+    \item{\textbf{Classe: \textit{ListWriter}}}
+    \begin{itemize}
+    \item\textbf{Attributi}:
+        \begin{itemize}
+        \item \textbf{data\_list:list [private]} - Lista per memorizzare gli oggetti Writable.
+        \item \textbf{lock:threading.Lock [private]} - Lock per garantire l'accesso esclusivo alla lista ed un esecuzione Thread safe.
+    \end{itemize}
+    \item \textbf{Metodi: }
+    \begin{itemize}
+        \item \textbf{write(to\_write: Writable): None [public]} - Aggiunge l'oggetto Writable alla lista.
+        \item \textbf{get\_data\_list(): list [public]} - Restituisce la lista di oggetti Writable.
+    \end{itemize}
+    \item\textbf{Note}:
+        \begin{itemize}
+            \item La classe è una strategia di scrittura del pattern \textit{Strategy} ma anche la componente "Leaf" del pattern \textit{Composite}, ovvero l'elemento base che non ha sottoelementi.
+        \end{itemize}
+    \end{itemize}
+    \item{\textbf{Classe: \textit{KafkaWriter}}}
+    \begin{itemize}
+    \item\textbf{Attributi}:
+        \begin{itemize}
+        \item \textbf{lock:threading.Lock [private]} - Lock per garantire l'accesso esclusivo alla scrittura su Kafka ed un esecuzione Thread safe.
+        \item \textbf{kafka\_target:KafkaTarget [private]} - Riferimento ad un implementazione di KafkaTarget per effettuare l'effettiva scrittura in Kafka tramite librerie.
+    \end{itemize}
+    \item \textbf{Metodi: }
+    \begin{itemize}
+        \item \textbf{write(to\_write: Writable): None [public]} - Scrive l'oggetto Writable come stringa JSON su Kafka.
+    \end{itemize}
+    \item\textbf{Note}:
+        \begin{itemize}
+            \item La classe è una strategia di scrittura del pattern \textit{Strategy} ma anche la componente "Leaf" del pattern \textit{Composite}, ovvero l'elemento base che non ha sottoelementi.
+            \item La costruzione dell'oggetto KafkaWriter richiede un riferimento ad un oggetto che implementi l'interfaccia KafkaTarget.
+        \end{itemize}
+    \end{itemize}
+    \item{\textbf{Classe: \textit{CompositeWriter}}}
+    \begin{itemize}
+    \item\textbf{Attributi}:
+        \begin{itemize}
+        \item \textbf{writers:Writer* [protected]} - Lista di oggetti Writer.
+    \end{itemize}
+    \item \textbf{Metodi: }
+    \begin{itemize}
+        \item \textbf{add\_writer(writer: Writer): CompositeWriter [public]} - Aggiunge un oggetto Writer alla lista di writers.
+        \item \textbf{add\_kafkaConfluent\_writer(topic: str, host: str, port: int): CompositeWriter [public]} - Crea un KafkaWriter con un KafkaConfluentAdapter e lo aggiunge alla lista di writers.
+        \item \textbf{add\_stdOut\_writer(): CompositeWriter [public]} - Crea un StdoutWriter e lo aggiunge alla lista di writers.
+        \item \textbf{add\_list\_writer(writer\_list: ListWriter): CompositeWriter [public]} - Aggiunge un ListWriter alla lista di writers.
+        \item \textbf{remove\_writer(writer: Writer): None [public]} - Rimuove un Writer dalla lista di writers.
+        \item \textbf{write(to\_write: Writable): None [public]} - Chiama il metodo write su ogni Writer nella lista di writers passando come attributo il \textit{Writable} ricevuto.
+    \end{itemize}
+    \item\textbf{Note}:
+        \begin{itemize}
+            \item La classe è la componente "Composite" del pattern \textit{Composite}, ovvero l'elemento che può avere sottoelementi;
+            \item Dopo aver ricevuto una richiesta, il contenitore (detto compisite) delega il lavoro ai suoi sottoelementi:foglie o altri contenitori.
+        \end{itemize}
+    \end{itemize}
+    \item{\textbf{Interfaccia: \textit{KafkaTarget}}}
+    \begin{itemize}
+    \item \textbf{Metodi: }
+    \begin{itemize}
+        \item \textbf{write\_to\_kafka(data: str): None [public, abstract]} - Metodo astratto che deve essere implementato nelle sottoclassi per scrivere dati su Kafka.
+    \end{itemize}
+    \item\textbf{Note}:
+        \begin{itemize}
+            \item La classe è una interfaccia che fornisce un contratto per le operazioni di scrittura e invio a Kafka.
+            \item Rappresenta il componente Target del pattern \textit{Object Adapter}.
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
 \subsubsection{Modulo Threading/Scheduling}
 
 
