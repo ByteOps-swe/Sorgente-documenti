@@ -1,55 +1,61 @@
 \subsection{Configurazione Database}
-Si è optato per l'utilizzo di \textit{ClickHouse} per il salvataggio dei dati, le motivazioni sono descritte nella sezione \ref{sec:clickHouse}. In particolare, per ogni sensore dei quali si desidera memorizzare i dati, viene creata una tabella che acquisisce i dati dal relativo topic Kafka.
+Si è optato per l'utilizzo di ClickHouse per il salvataggio dei dati, le motivazioni sono descritte nella sezione \ref{sec:clickHouse}. In particolare, per ogni sensore dei quali si desidera memorizzare i dati, viene creata una tabella che acquisisce i dati dal relativo topic Kafka.
 Le tipologie di sensori cui misurazioni si vogliono trattare nel progetto sono:
 \begin{itemize}
     \item Sensori di temperatura;
     \item Sensori di umidità;
+    \item Sensori di rilevamento polveri sottili; 
     \item Sensori stato riempimento isole ecologiche;
     \item Sensori di stato occupazione colonnine di ricarica;
     \item Sensori di guasti elettrici;
     \item Sensori del livello dell'acqua.
 \end{itemize}
 
-La configurazione del database \textit{ClickHouse} è stata un elemento fondamentale nella progettazione, poiché un'adeguata impostazione consente prestazioni adeguate per un sistema orientato al tempo reale e in grado di gestire analisi su enormi quantità di dati.
+La configurazione del database ClickHouse è stata cruciale nella progettazione, poiché un'adeguata ottimizzazione consente di garantire prestazioni ottimali per un sistema orientato al tempo reale e in grado di gestire analisi su enormi volumi di dati.
+
 
 \subsubsection{Funzionalità Clickhouse utilizzate}
 \paragraph{Materialized Views}
-Le Materialized Views in \textit{ClickHouse} sono un meccanismo potente per migliorare le prestazioni delle \textit{Query} e semplificare l'accesso ai dati. Funzionano mantenendo una copia fisica dei risultati di una \textit{Query} di selezione, che viene quindi memorizzata su disco. Questa copia è aggiornata periodicamente in base ai dati sottostanti.
+Le Materialized Views in ClickHouse sono un meccanismo potente per migliorare le prestazioni delle query e semplificare l'accesso ai dati. Funzionano mantenendo una copia fisica dei risultati di una query di selezione, che viene quindi memorizzata su disco. Questa copia è aggiornata periodicamente in base ai dati sottostanti.
 
-\paragraph*{Utilizzi Principali}
+\paragraph*{Utilizzi Principali delle Materialized Views}
 \begin{itemize}
     \item \textbf{Calcolo aggregazioni e popolamento tabelle}:Spesso le delle materialized Views sono state utilizzate per calcolare aggregazioni su dati e quindi popolare altre tabelle con i risultati aggregati. Ad esempio, nel caso specifico in cui una Materialized View calcola la media delle temperature per ogni sensore ogni secondo, i risultati di questa vista possono essere utilizzati per popolare una tabella principale contenente i dati di temperatura aggregati, aggiornando i valori di temperatura medi per ogni sensore ogni secondo;
-    \item \textbf{Ottimizzazione delle Prestazioni}: memorizzando i risultati di una \textit{Query} complessa, le Materialized Views consentono di eseguire rapidamente le \textit{Query} successive senza dover ricalcolare i dati ogni volta. Ciò è particolarmente utile in applicazioni che richiedono interrogazioni frequenti su grandi volumi di dati;
-    \item \textbf{Aggregazioni Pre-Calcolate}: le Materialized Views possono essere utilizzate per pre-calcolare aggregazioni, come somme, medie o conteggi, sui dati sottostanti. Questo può migliorare notevolmente le prestazioni delle \textit{Query} che coinvolgono operazioni di aggregazione;
-    \item \textbf{Decomposizione delle \textit{Query} Complesse}: le Materialized Views consentono di decomporre \textit{Query} complesse in passaggi più semplici e riutilizzabili, migliorando la leggibilità del codice e semplificando lo sviluppo e la manutenzione delle \textit{Query}.
+    \item \textbf{Ottimizzazione delle Prestazioni}: memorizzando i risultati di una query complessa, le Materialized Views consentono di eseguire rapidamente le Query successive senza dover ricalcolare i dati ogni volta. Ciò è particolarmente utile in applicazioni che richiedono interrogazioni frequenti su grandi volumi di dati;
+    \item \textbf{Decomposizione delle \textit{Query} Complesse}: le Materialized Views consentono di decomporre query complesse in passaggi più semplici e riutilizzabili, migliorando la leggibilità del codice e semplificando lo sviluppo e la manutenzione delle query.
 \end{itemize}
 
 
-\paragraph{Funzione di aggregazione avgState}
-In \textit{ClickHouse}, avgState è una funzione di stato utilizzata all'interno di funzioni di aggregazione, come AggregateFunction, per calcolare la media dei valori durante l'elaborazione dei dati. Quando si utilizza avgState, ClickHouse mantiene lo stato intermedio necessario per calcolare la media dei valori inseriti. Questo stato intermedio include la somma cumulativa dei valori e il numero totale di valori inseriti.
 
-\paragraph{AggregatingMergeTree Engine} \label{sec:AggregatingMergeTree}
-Link alla documentazione: \href{https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/aggregatingmergetree}{https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/aggregatingmergetree}.\newline
- Specificando questo motore su di una tabella Clickhouse, vengono sostituite tutte le righe con la stessa chiave primaria (o, più accuratamente, con la stessa chiave di ordinamento) con una singola riga all'interno di una parte di dati.
- Le tabelle AggregatingMergeTree sono utilizzate per l'aggregazione incrementale dei dati, inclusa la creazione di viste materializzate aggregate.
- I campi definiti con i seguenti tipi vengono incrementale elaborati.
+\paragraph{MergeTree}\label{sec:MergeTree}
+Link alla documentazione: \href{https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree#mergetree}{ClickHouse - MergeTree}.\newline
+MergeTree è uno dei motori di tabella più potenti e utilizzati in ClickHouse, noto per la sua capacità di gestire e memorizzare grandi volumi di dati in modo efficiente. È una scelta ideale per applicazioni che richiedono l'archiviazione e l'analisi di dati cronologicamente ordinati, come i dati di log o di monitoraggio. L'architettura di MergeTree organizza i dati in parti, ciascuna contenente una serie di punti dati ordinati cronologicamente. Questa organizzazione ottimizzata consente di eseguire rapidamente le query che richiedono l'accesso a dati specifici all'interno di un intervallo di tempo definito, garantendo prestazioni elevate anche su grandi dataset. Oltre alla gestione efficiente dei dati, MergeTree supporta funzionalità avanzate come la compressione dei dati e la gestione automatica delle partizioni. Queste caratteristiche consentono di ottimizzare ulteriormente le prestazioni e la gestione complessiva dei dati, rendendo MergeTree una scelta affidabile per una vasta gamma di scenari di utilizzo in ClickHouse.
 
-\paragraph{AggregateFunction}
-Link alla documentazione: \href{https://clickhouse.com/docs/en/sql-reference/data-types/aggregatefunction}{https://clickhouse.com/docs/en/sql-reference/data-types/aggregatefunction}.\newline
-Specifica un dato cui valore viene calcolato da una specifica funzione di aggregazione: 
+
+
+\paragraph{Time To Live in ClickHouse} \label{sec:RollupTTL}
+Link alla documentazione: \href{https://clickhouse.com/docs/en/guides/developer/ttl#implementing-a-rollup}{ClickHouse - Implementing a Rollup}\newline
+In ClickHouse, la funzionalità TTL (Time To Live) è un elemento chiave per gestire grandi volumi di dati in modo efficiente e garantire la pulizia automatica di informazioni obsolete o non più rilevanti. \\
+Quando si specifica il motore Rollup per definire una tabella in ClickHouse, si abilita la creazione di tabelle che supportano il TTL. Questo consente di impostare un periodo temporale dopo il quale i dati saranno eliminati automaticamente dalla tabella. La struttura a Rollup organizza i dati in parti, ciascuna contenente una serie di punti dati ordinati cronologicamente. Il TTL può essere configurato per ciascuna parte dei dati, offrendo un controllo preciso sulla conservazione delle informazioni nel tempo. Questa flessibilità è particolarmente utile per applicazioni che richiedono la conservazione di dati storici per un periodo limitato, come ad esempio i dati di log o di monitoraggio. \newline
+Un esempio di come potrebbe può venire utilizzato il motore Rollup per il TTL in ClickHouse è il seguente:
 \begin{verbatim}
-    AggregateFunction(name, types_of_arguments…) 
+    TTL toDateTime(timestamp) + INTERVAL 1 MONTH
 \end{verbatim}
-Una pratica comune per creare lo stato di una funzione di aggregazione è invocare la funzione di aggregazione aggiungendo il suffisso `-State` (ad esempio `avgState`). Per ottenere il risultato finale dell'aggregazione in un momento successivo, è essenziale utilizzare la medesima funzione di aggregazione, ma con l'aggiunta del suffisso `-Merge` (ad esempio `avgMerge` al momento della "select" del valore).
-\paragraph{SimpleAggregateFunction}
-Link alla documentazione: \href{https://clickhouse.com/docs/en/sql-reference/data-types/simpleaggregatefunction}{https://clickhouse.com/docs/en/sql-reference/data-types/simpleaggregatefunction}.\newline
-Il tipo di dato:
-\begin{verbatim}
-    SimpleAggregateFunction(name, types_of_arguments...)
-\end{verbatim}  memorizza il valore attuale della funzione di aggregazione, senza conservare l'intero stato come fa AggregateFunction.
-I valori del tipo di dato SimpleAggregateFunction(func, Type) vengono visualizzati e memorizzati nello stesso modo di Type, pertanto non è necessario applicare le funzioni con suffissi -Merge/-State.
+L'uso del TTL di tipo Rollup in questo contesto è cruciale per garantire che la tabella rimanga efficiente e gestibile nel tempo, eliminando automaticamente i dati più vecchi e non più necessari dopo un periodo di tempo specificato. Questo aiuta a ottimizzare le prestazioni complessive del sistema e a gestire in modo efficiente i grandi volumi di dati accumulati nel tempo.
 
-SimpleAggregateFunction offre prestazioni migliori rispetto a AggregateFunction con la stessa funzione di aggregazione ma non sono disponibili tutte le tipoligie di funzioni di aggregazione come il calcolo della media.
+
+\paragraph{Partition}\label{sec:Partition}
+Link alla documentazione: \href{https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree#partition-by}{ClickHouse - Partitioning}.\\
+Le partizioni sono una funzionalità fondamentale di ClickHouse che consente di organizzare in modo efficiente e gestire grandi volumi di dati. Questa caratteristica permette di suddividere i dati in gruppi logici in base a criteri specifici, come il valore di una colonna o un intervallo di tempo. Grazie a questa organizzazione ottimizzata, le query che richiedono l'accesso a dati specifici all'interno di una partizione possono essere eseguite rapidamente, garantendo prestazioni elevate anche su dataset di grandi dimensioni.\\
+L'utilizzo delle partizioni nel nostro contesto viene giustificato dall'utilizzo di un TTL (Time To Live), infatti l'utilizzo combinato di queste due funzionalità consente:
+\begin{itemize}
+    \item Una gestione efficace dei dati nel tempo;
+    \item Migliori prestazioni del sistema;
+    \item Una semplificazione nella manutenzione del database.
+\end{itemize}
+Il partizionamento basato sul timestamp è una pratica comune in ClickHouse, poiché consente di organizzare i dati in partizioni in base al periodo temporale, ad esempio mensilmente. Questo approccio ottimizza l'archiviazione e facilita l'analisi dei dati di serie temporali, come le temperature o i log di eventi. Grazie a questa struttura, le query che coinvolgono dati all'interno di specifici intervalli temporali diventano più efficienti, consentendo un accesso rapido e una migliore analisi dei dati.
+
+
 
 
     
@@ -126,42 +132,7 @@ Considerando la possibilità di ricevere molteplici misurazioni dei dati di temp
     \label{fig:temperatures}
   \end{figure}
 
-    Nello specifico la MATERIALIZED VIEW \textit{mv\_temperatures} ottiene i dati dalla tabella dei dati raccolti dal topic kafka,calcola la media dei delle misurazioni all'interno dello stesso secondo e le salva nella tabella \textit{temperatures}.
-    Questa tramite il motore \textit{AggregatingMergeTree}, cui funzione viene definita in \ref*{sec:AggregatingMergeTree}, calcola incrementalmente la media delle misurazioni nel secondo.
-
-    Lo stesso viene fatto per ottenere delle tabelle con i valori delle misurazioni aggregati tramite media per ottenere un dato per: minuto, ora, giorno e mese.
-    Le tabelle risultanti sono denominatate: \textbf{temperatures1m, temperatures1o, temperatures1g e temperatures1M}. Queste tabelle presentano la stessa struttura della tabella originale, differenziandosi solo per il tipo di dato del campo timestamp, che rispettivamente è: \textbf{DateTime, DateTime, Date32 e Date32}, per la funzione utilizzata per calcolare il campo timestamp, che sono rispettivamente: \textbf{toStartOfMinute, toStartOfHour, toDate e toStartOfMonth} e perchè non contengono i campi : \textbf{latitude} e \textbf{longitude}.
-    Il ragionamento alla base di questa decisione è che la posizione geografica del sensore è rilevante solo nella tabella delle aggregazioni per secondo. Questa tabella è utilizzata da servizi come \textit{Grafana} per recuperare e visualizzare l'ultima posizione del sensore su una mappa. D'altro canto, le tabelle con aggregazioni su periodi temporali più ampi (come minuti, ore, ecc.) non hanno bisogno di salvare la posizione del sensore, poiché sono utilizzate esclusivamente per analizzare il valore aggregato delle misurazioni.
-    In sintesi nelle tabelle che aggregano le misurazioni per minuto, ora o giorno, la posizione specifica del sensore in un dato istante diventa meno rilevante poiché queste tabelle rappresentano aggregazioni su periodi più lunghi. In queste situazioni, l'obiettivo principale è analizzare i valori aggregati delle misurazioni nel tempo. 
-
-    \paragraph{Tabella: temperatures1m}
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/temperatures1m.PNG}
-        \caption{Tabella temperatures1m - ClickHouse}
-        \label{fig:temperatures1m}
-      \end{figure}
-      \paragraph{Tabella: temperatures1o}
-      \begin{figure}[H]
-          \centering
-          \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/temperatures1o.PNG}
-          \caption{Tabella temperatures1o - ClickHouse}
-          \label{fig:temperatures1o}
-        \end{figure}
-    \paragraph{Tabella: temperatures1g}
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/temperatures1g.PNG}
-        \caption{Tabella temperatures1g - ClickHouse}
-        \label{fig:temperatures1g}
-        \end{figure}
-    \paragraph{Tabella: temperatures1M}
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/temperatures1Mese.PNG}
-        \caption{Tabella temperatures1M - ClickHouse}
-        \label{fig:temperatures1M}
-        \end{figure}
+   
     
     \paragraph{Projections per misurazioni di temperatura} \label{sec:temp_projections}
     Durante la fase di progettazione, è stata posta particolare attenzione all'utilizzo delle tabelle appena descritte e alle richieste che verranno formulate su di esse. È emerso, considerando il requisito di suddividere la città in una serie di celle e specificare la cella di origine della misurazione,che la filtrazione delle misurazioni per celle diventerà una richiesta effettuata con frequenza al database.
@@ -175,8 +146,6 @@ Considerando la possibilità di ricevere molteplici misurazioni dei dati di temp
 
     La proiezione ci permetterà di filtrare per \textit{cella} e \textit{timestamp} rapidamente, anche se nella tabella originale queste non sOno definite come \textit{PRIMARY\_KEY}.
 
-    Vengono create delle \textit{PROJECTIONS} anche per le tabelle:  \textbf{temperatures1m, temperatures1o, temperatures1g}
-    ma non per  \textbf{temperatures1M} in quanto anche a lungo andare la quantità di dati presente in essa non sarà massiva.
 
     \begin{lstlisting}
         --Projection per tabella temperatures1m
@@ -263,11 +232,14 @@ kafka per ottenere i dati è: \textbf{umidity}.
     \caption{Tabella umidities - ClickHouse}
     \label{fig:umidities}
   \end{figure}
-\paragraph{Tabella: umidities1m}
+\paragraph{Tabella: umidities1m}        
+\todo{CAMBIA IMMAGINE}
+
     \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/temperatures1m.PNG}
         \caption{Tabella  umidities1m - ClickHouse}
+
         \label{fig: umidities1m}
       \end{figure}
       \paragraph{Tabella:  umidities1o}
