@@ -166,3 +166,129 @@ Il preventivo a finire rimane invariato a \textbf{12425,00\euro} e non risulta n
     \caption{Istogramma consuntivo della ripartizione oraria dei ruoli - Ottavo periodo}
     \label{fig:Consuntivo_ripartizione_oraria_8}
 \end{figure}
+
+%---------------------NONO PERIODO---------------------------------------
+
+\subsubsection{Nono periodo  23/02/2024 - 01/03/2024}
+
+\paragraph{Considerazioni}
+Durante il nono periodo, sono stati dedicati notevoli risorse alle attività di progettazione, sviluppo e testing relative al Minimum Viable Product (MVP). I progettisti e gli sviluppatori hanno completato le attività di progettazione e sviluppo delle dashboard in Grafana. Questo ha portato alla realizzazione di una dashboard principale, concepita per offrire una visione d'insieme dello stato di salute della città, e una dashboard secondaria, pensata per consentire un'analisi dettagliata delle misurazioni mediante l'applicazione di filtri personalizzati. \\
+In seguito al completamento delle dashboard, è stata avviata la redazione del \textit{Manuale Utente}. È importante notare che le sezioni del \textit{Manuale Utente} redatte nell'attuale periodo non sono state ancora verificate, ma tale verifica è stata pianificata per il periodo successivo, garantendo così una quantità adeguata di materiale da esaminare.
+Progettisti e programmatori, oltre alla realizzazione delle dashboard, hanno portato a termine la progettazione e lo sviluppo del database e si sono inoltre dedicati all'implementazione della funzionalità di calcolo del punteggio di salute utilizzando la libreria Faust. \\
+Per quanto riguarda il documento "\textit{Specifica Tecnica}", sono state completate le sezioni "Introduzione" e "Scelte Tecnologiche" ed è stata avviata la redazione della sezione relativa all'architettura del database. \\
+Nell'attuale periodo, l'amministratore si è dedicato alla modifica della struttura della repository, in risposta alle osservazioni ricevute dal Prof. Vardanega durante la revisione RTB. Grazie a quest'intervento, la repository è stata resa più semplice e intuitiva, soddisfacendo così le richieste di miglioramento. \\
+Parallelamente allo sviluppo delle componenti principali del sistema, sono stati avviati i test, con particolare attenzione allo sviluppo dei test di unità per i simulatori dei sensori e dei test di integrazione tra Python e Kafka e tra Python e Clickhouse.
+
+\paragraph{Gestione dei rischi} \todo{completa}
+
+\begin{itemize}
+    \item \textbf{Rischi attesi e verificati:}
+    \begin{itemize}
+        \item \textbf{RO-2A-4} - Inesperienza nell'\textit{attività}\textsubscript{\textit{G}} di testing (\textit{\ref{sec:inexpAttività}})
+        \begin{itemize}
+            \item \textbf{Esito della mitigazione}: Grazie all'implementazione di sessioni di formazione mirate e all'orientamento fornito dal professore durante il diario di bordo e dall'azienda proponente durante gli ultimi SAL, il nostro team ha gradualmente superato le difficoltà iniziali legate all'inesperienza nel testing. \\
+            Attraverso la pratica con la realizzazione di minimal working examples sia nel periodo precedente, che in quello attuale, le competenze del team nell'ambito del testing sono notevolmente cresciute. Inoltre, sono state effettuate sessioni di peer-review per favorire lo scambio di conoscenze e migliorare le competenze del team, con particolare attenzione all'integrazione tra Python e Kafka.
+            \item \textbf{Impatto}: Nonostante le iniziali difficoltà, l'attuazione delle strategie di mitigazione ha portato a un significativo miglioramento delle competenze del team nella realizzazione dei test. Questo ha aumentato notevolmente l'efficienza e l'efficacia nell'esecuzione dei test di integrazione e ha ridotto il rischio di errori durante lo sviluppo e il rilascio del software. Inoltre, il processo formativo, seppur dispendioso, ha avuto un impatto positivo sull'intero team, aumentando la consapevolezza e la capacità di affrontare sfide simili in futuro con maggiore sicurezza, velocità e competenza.
+        \end{itemize}
+    \end{itemize}
+\item \textbf{Rischi attesi ma non verificati:}
+    \begin{itemize}
+        \item \textbf{RO-2A-4} - Inesperienza nell'\textit{attività}\textsubscript{\textit{G}} di progettazione (\textit{\ref{sec:inexpAttività}}) \\
+        Il rischio previsto di rallentamenti a causa dell'inesperienza nell'attività di progettazione non si è verificato. \\
+        Le competenze acquisite attraverso la pratica effettuata nel periodo precedente grazie alla realizzazione di minimal working examples hanno agevolato la progettazione del database e del sistema di calcolo del punteggio di salute senza il riscontro di particolari difficoltà. Questo risultato evidenzia l'efficacia dell'approccio di formazione e pratica adottato dal team, sottolineando l'importanza dell'investimento continuo nello sviluppo delle competenze del team.
+    \end{itemize} 
+\item \textbf{Rischi non attesi ma verificati:}
+    \begin{itemize}
+        \item Nessuno
+    \end{itemize}
+\end{itemize}
+
+
+\paragraph{Definizione ruoli}
+Per le \textit{attività}\textsubscript{\textit{G}} registrate nei costi, sono stati assegnati i seguenti ruoli: 
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|L{4cm}|L{2cm}|}
+        \hline
+        \textbf{Ruolo} & \textbf{Persona} \\
+        \hline
+        \hline
+        Responsabile (Re)   & L. Skenderi \\
+        \hline
+        Amministratore (Am) & F. Pozza \\
+        \hline
+        Analisti (An)       & L. Skenderi \\
+        \hline
+        Verificatore (Ve)   & E. Hysa \\
+                            & N. Preto \\
+                            & A. Barutta \\
+                            & L.Skenderi \\   
+        \hline
+        Programmatori (Pr)  & R. Smanio \\
+                            & D. Diotto \\
+        \hline
+        Progettista (Pt)    & A. Barutta \\
+                            & F. Pozza \\
+        \hline
+    \end{tabular}
+    \caption{Tabella dei ruoli assegnati - Nono periodo}
+    \label{tab:Ruoli_persone_9}
+\end{table}
+
+\paragraph{Pianificazione attività divise per ruoli con consuntivo e preventivo orario e dei costi}
+
+\vspace{0.4cm}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=1.1\textwidth]{../Images/periodo9.PNG}
+    \caption{Nono periodo}
+    \label{fig:Nono_periodo}
+\end{figure}
+
+Al termine del nono periodo, l'ammontare totale del costo del progetto è di \textbf{8350 \euro} e sono state completate il \textbf{100\%} delle \textit{attività}\textsubscript{\textit{G}} attese.
+Il preventivo a finire rimane invariato a \textbf{12425,00\euro} e non risulta necessaria una ri-pianificazione delle \textit{attività}\textsubscript{\textit{G}} future.
+\href{https://github.com/orgs/ByteOps-swe/projects/3/views/1?sortedBy%5Bdirection%5D=asc&sortedBy%5BcolumnId%5D=64182560}{Vai al Diagramma di Gantt.}
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[b]{0.70\textwidth}
+        \centering
+        \includegraphics[width=0.7\textwidth]{../Images/avanzamento9Periodo.png}
+        \caption{Avanzamento dei lavori RTB - Nono periodo}
+        \label{fig:Avanzamento_RTB_9}
+    \end{minipage}
+\end{figure}
+
+\paragraph{Preventivo orario}
+
+\begin{figure}[H] 
+    \centering
+    \includegraphics[width=0.9\textwidth]{../Images/preventivoOrario9Periodo.png}
+    \caption{Preventivo orario per membro - Nono periodo}
+    \label{fig:Preventivo_orario_9}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{../Images/preventivoDivisioneRuoli9Periodo.png}
+    \caption{Istogramma preventivo della ripartizione oraria dei ruoli - Nono periodo}
+    \label{fig:Preventivo_ripartizione_oraria_9}
+\end{figure}
+
+\paragraph{Consuntivo orario}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../Images/consuntivoOrario9Periodo.png}
+    \caption{Consuntivo orario per membro - Nono periodo}
+    \label{fig:Constuntivo_orario_9}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{../Images/consuntivoDivisioneRuoli9Periodo.png}
+    \caption{Istogramma consuntivo della ripartizione oraria dei ruoli - Nono periodo}
+    \label{fig:Consuntivo_ripartizione_oraria_9}
+\end{figure}
