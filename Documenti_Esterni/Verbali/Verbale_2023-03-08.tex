@@ -129,7 +129,21 @@
 % ------------------------ INIZIO DOCUMENTO ----------------------
 \flushleft
 
+\section{Revisione del periodo precedente}
+Nella fase iniziale del meeting, all’azienda proponente sono stati illustrati i test svolti e l’ambiente di test in cui sono stati condotti. L’azienda ha manifestato soddisfazione per il lavoro svolto.
+\section{Ordine del giorno}
+    \subsection{Quesiti sui test di performance}
+        Durante la riunione, è emerso un dubbio riguardante i test di performance da sviluppare. Tale dubbio è sorto poiché, durante la revisione RTB, il professor R. Cardin ha evidenziato che i dati di alcuni test di performance rilevati non erano attendibili, in quanto tali test erano stati eseguiti in locale e non in un ambiente distribuito. La proponente ha suggerito di considerare nei test l’assunzione che non tengano conto delle latenze dovute alla connessione (le quali dipendono da vari fattori, come la regione, la velocità e la stabilità dell’ambiente cloud, nonché la distanza delle macchine on-premise). In alternativa, si consiglia di discutere la questione con il professor R. Cardin.
+    \subsection{Aggregazione dei dati}
+        Viene presentata una funzionalità che, dopo un periodo di tempo configurabile (impostato a 1 mese), non conserva più tutti i dati, ma invece salva un dato per ogni ora. Invece di memorizzare tutti i dati in una tabella, viene effettuata un’aggregazione dei dati. La proponente ha approvato questa funzionalità e la sua implementazione.
+    \subsection{Simulatori}
+        Viene presentata una funzionalità inserita all’interno dei sensori. All’interno di questi sensori, è presente un controllore che verifica se il dato generato è identico al dato inviato precedentemente. Nel caso in cui il dato sia identico, non viene trasmesso, al fine di ottimizzare l’utilizzo della memoria del database e inviare solo i cambiamenti di stato del sensore. La proponente ha approvato questa funzionalità e la sua implementazione.
 
+\section{Attività da svolgere}
+    \begin{itemize}
+        \item Implementare test di performance
+        \item Continuare con lo sviluppo dei test 
+\end{itemize}
 % ------------------------ Firma Azienda ----------------------
 \begin{textblock*}{\textwidth}(0.22\textwidth, 1.08\textheight)
     Luogo e Data: Padova, 08/03/2024
