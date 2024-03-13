@@ -1,0 +1,30 @@
+\subsection{Kafka}
+\subsubsection{Kafka topic}
+I topic in Kafka possono essere considerati come le tabelle di un database, utili per separare logicamente diversi tipi di messaggi o eventi che vengono inseriti nel sistema. Noi li utilizziamo per separare le diverse misurazioni dei sensori, quindi per ogni tipo di sensore è presente un topic dedicato. Ciò ci consente di creare all'interno di ClickHouse delle "tabelle consumatrici" che acquisiscono automaticamente i dati. Questo è possibile grazie alla separazione logica dei topic, che garantisce che tutti i messaggi all'interno di ciascun topic abbiano lo stesso formato.
+\subsection{Formato messaggi} \label{sec:formatoMessaggi}
+La struttura di un messaggio contenente le informazioni della misurazione è la seguente in formato Json:
+\begin{comment}
+    \begin{lstlisting}[language=json,firstnumber=1]
+    {
+      "timestamp": "AAAA-MM-DD HH:MM:SS.sss", 
+      "value": "Valore della misurazione",  
+      "type": "Tipologia Simulatore",
+      "latitude": "Latitudine",
+      "longitude": "Longitudine",
+      "ID_sensore": "ID sensore",
+      "cella": "Cella dove è presente il sensore"
+    }
+\end{lstlisting}
+\end{comment}
+
+
+Sebbene le misurazioni vengano divise in topic diversi a seconda della tipoligia di sensore che ha effettuato la misurazione si è comunque deciso di inviare e salvare il campo della tipoligia di misurazione per i seguenti motivi:
+\begin{itemize}
+    \item \textbf{Backup e ripristino dei dati:} Se per qualche motivo si dovesse perdere la struttura dei topic o occorre ripristinare i dati in un altro sistema, il campo type può aiutare a identificare il tipo di sensore che ha effettuato la misurazione, anche se i dati sono stati conservati insieme in un unico topic.
+    \item \textbf{Flessibilità futura:} 
+    \begin{itemize}
+        \item Potrebbero sorgere esigenze future che richiedono l'analisi dei dati provenienti da diversi tipi di sensori all'interno dello stesso topic. In questo caso, il campo type sarebbe utile per distinguere le misurazioni provenienti da sensori diversi;
+        \item includere il campo type potrebbe essere particolarmente utile se si prevede di supportare diverse unità di misura per una stessa tipologia di sensore in futuro. Ad esempio, potrebbe essere necessario gestire misurazioni di temperatura in gradi Celsius, Fahrenheit o Kelvin. In tal caso, includendo il campo type, si può associare ad ogni misurazione l'unità di misura corretta.
+    \end{itemize}
+\end{itemize}
+    

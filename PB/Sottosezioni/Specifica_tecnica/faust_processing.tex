@@ -1,0 +1,60 @@
+\subsection{Faust - Processing Layer}
+Per soddisfare il requisito opzionale del calcolo del punteggio di salute si è deciso di utilizzare Faust, una libreria una libreria Python per l'elaborazione di flussi di dati distribuiti, ispirata al modello di Kafka Streams.
+
+\subsubsection{Componenti Faust \& Processing Layer}
+\begin{itemize}
+    \item \textbf{Applicazione Faust:}
+    \begin{lstlisting}[style=code]
+        app = faust.App('innovacityHealthScore', broker='kafka://kafka:9092')
+    \end{lstlisting} 
+    \begin{itemize}
+        \item Crea un'istanza dell'applicazione Faust denominata "innovacityHealthScore".
+        \item Specifica il broker Kafka da utilizzare: kafka://kafka:9092 (hostname:porta).
+    \end{itemize}
+    \item \textbf{Topic:}
+    \begin{lstlisting}[style=code]
+        temperature_topic = "temperature"
+        humidity_topic = "humidity"
+        dustPm10_topic = "dust_PM10"
+        topic = app.topic(temperature_topic,humidity_topic,dustPm10_topic, value_type=FaustMeasurement)
+    \end{lstlisting}  
+    \begin{itemize}
+        \item Definisce tre topic Kafka(variabili di tipo stringa), da cui l'applicazione consumerà dati: temperature\_topic, humidity\_topic e dustPm10\_topic.
+        \item Nel caso si voglia aggiungere altri topic da cui consumare dati basterà aggiungerne prima del parametro value\_type.
+        \item Specifica il tipo di dato atteso come FaustMeasurement.
+    \end{itemize}
+    \item \textbf{Tipo di dato atteso:} Classe: FaustMeasurement
+    \begin{itemize}
+        \item È una classe che eredita da faust.Record.
+        \item faust.Record è una classe fornita dalla libreria Faust che semplifica la definizione di record per la rappresentazione dei dati in streaming.
+        \item Rappresenta una singola misurazione proveniente da un sensore. Viene usata nella applicazione Faust per definire il tipo di dati atteso nei topic Kafka.
+    \end{itemize}
+    \item \textbf{Modello per il calcolo del punteggio di salute:}:
+    \begin{itemize}
+        \item \textbf{Processore di misurazioni}: 
+        Tramite il pattern \textit{Object Adapter} e l'interfaccia \textit{Processor} l'app faust invia le misurazioni ottenute dai topic al modello per il calcolo del punteggio di salute che verrà adattato come \textit{Processor.}
+    \end{itemize}
+    \item \textbf{Agente di elaborazione}: 
+    \begin{lstlisting}[style=code]
+    @app.agent(topic)
+            async def process(measurements):
+                //Processor.process()
+    \end{lstlisting}  
+    \begin{itemize}
+        \item Definisce una funzione process come un agente Faust.
+        \item L'agente consumerà dati dal topic specificato in precedenza (tutti e tre in questo caso) e processerà le misurazioni tramite la funzione e un implementazione dell'interfaccia \textit{Processor}.
+        \item Questa funzione asincrona riceve ed invia ogni misurazione proveniente dai topic al processore definito in precedenza per il calcolo del punteggio di salute.
+    \end{itemize}
+    \item \textbf{Task aggiuntivo} (opzionale): 
+    \begin{lstlisting}[style=code]
+    //healthThread  = HealthCalculatorThread(HealthAlgorithm,Writers,interval_in_seconds)
+    @app.task()
+        async def startHealthScoreThread():
+            healthThread.start()
+        \end{lstlisting}  
+    \begin{itemize}
+        \item Definisce una funzione \textit{startHealthScoreThread} come un task Faust (opzionale in questo esempio).
+        \item I task sono eseguiti una sola volta all'avvio dell'applicazione.
+        \item In questo caso, il task avvia un thread per il calcolo del punteggio di salute che ad intervalli regolari calcola il punteggio di salute date le misurazioni ottenute dai topic di iscrizione e li invia/scrive ai servizi speciificati.
+    \end{itemize}
+\end{itemize}
