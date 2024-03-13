@@ -59,20 +59,27 @@
 \definecolor{programmatore}{RGB}{128,0,128}
 \definecolor{verificatore}{RGB}{255,192,203}
 
+\definecolor{light-gray}{gray}{0.92}
+\definecolor{bgcode}{RGB}{237, 237, 237}
+\definecolor{commentcolor}{RGB}{0, 153, 10}
+\definecolor{bordercolor}{RGB}{56, 56, 56}
+
 \lstset{
     language=SQL,
-    basicstyle=\color{white}\ttfamily,
-    backgroundcolor=\color{black},
+    basicstyle=\color{black},
+    backgroundcolor=\color{bgcode},
     keywordstyle=\color{blue},
-    commentstyle=\color{gray},
-    stringstyle=\color{green},
+    commentstyle=\color{commentcolor},
+    stringstyle=\color{red},
     numbers=left,
     numberstyle=\small,
-    numbersep=5pt,
+    numbersep=-5pt,
     tabsize=4,
     showspaces=false,
     showstringspaces=false,
-    breaklines=true
+    breaklines=true,
+    frame=single,
+    rulecolor=\color{bordercolor}
 }
 
 \begin{document}

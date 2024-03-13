@@ -1,3 +1,4 @@
+
 \subsection{Configurazione Database}
 Si è optato per l'utilizzo di ClickHouse per il salvataggio dei dati, le motivazioni sono descritte nella sezione \ref{sec:clickHouse}. In particolare, per ogni sensore dei quali si desidera memorizzare i dati, viene creata una tabella che acquisisce i dati dal relativo topic Kafka.
 Le tipologie di sensori cui misurazioni si vogliono trattare nel progetto sono:
@@ -73,7 +74,35 @@ Puoi definire una o più proiezioni per una tabella e durante l'analisi della \t
 \paragraph*{Utilizzo dello spazio su disco}
 \textbf{Attenzione:} le proiezioni creeranno internamente una nuova tabella nascosta, ciò significa che saranno necessari più I/O e spazio su disco. Ad esempio, se la proiezione ha definito una chiave primaria diversa, tutti i dati dalla tabella originale verranno duplicati.
 
-\subsubsection{Tabella delle misurazioni per sensore generico}
+\subsubsection{Integrazione tramite Kafka Engine in ClickHouse}
+ClickHouse supporta l'integrazione con Kafka tramite Kafka Engine, permettendo la lettura dei dati da un topic Kafka e il loro salvataggio in una tabella ClickHouse. Tale funzionalità riveste un'importanza notevole per applicazioni che richiedono l'elaborazione in tempo reale di dati provenienti da fonti esterne, una necessità frequente nel contesto del monitoraggio urbano. L'integrazione con Kafka consente l'acquisizione e la memorizzazione efficiente dei dati, garantendo prestazioni elevate anche su grandi volumi di dati.\\
+Kafka Engine è progettato per il recupero di dati una sola volta. Ciò significa che una volta che i dati vengono interrogati da una tabella Kafka, vengono considerati consumati dalla coda. Pertanto, non si dovrebbero mai selezionare dati direttamente da una tabella di Kafka Engine, ma utilizzare invece una vista materializzata. Una vista materializzata viene attivata una volta che i dati sono disponibili in una tabella di Kafka Engine. Automaticamente sposta i dati da una tabella Kafka a una tabella di tipo MergeTree o Distributed. Quindi, sono necessarie almeno 3 tabelle:
+\begin{itemize}
+  \item La tabella di origine del motore Kafka;
+  \item La tabella di destinazione (famiglia MergeTree o distribuita);
+  \item Vista materializzata per spostare i dati;
+\end{itemize}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.7\textwidth]{../Images/SpecificaTecnica/kafka_engine_architecture.png}
+  \caption{Architettura di Kafka Engine in ClickHouse}
+  \label{fig:sensorKafka}
+\end{figure}
+
+\subsubsection{Trasferimento dati tramite Materialized View}
+Una materialized view funge da ponte tra la fonte dei dati (Kafka Engine) e la destinazione dei dati (MergeTree). Quando nuovi dati vengono scritti nella tabella Kafka Engine, la materialized view viene attivata automaticamente.\\
+La materialized view esegue una query sulla tabella Kafka Engine per selezionare i dati più recenti. Una volta selezionati, questi dati vengono inseriti nella tabella di destinazione (ad esempio, una tabella MergeTree). Questo processo avviene in modo automatico e immediato, senza bisogno di intervento manuale.\\
+In pratica, la materialized view si assicura che la tabella di destinazione sia sempre aggiornata con i dati più recenti presenti nella tabella Kafka Engine. Questo offre numerosi vantaggi:
+\begin{itemize}
+  \item \textbf{Automatizzazione del processo}: Non è necessario eseguire manualmente operazioni di trasferimento dati da una tabella all'altra. La materialized view si occupa di tutto in modo automatico;
+  \item \textbf{Efficienza}: Il trasferimento dei dati avviene in tempo reale, garantendo che la tabella di destinazione sia sempre allineata con la fonte dei dati senza ritardi;
+  \item \textbf{Ottimizzazione delle risorse}: Il processo di trasferimento dei dati è gestito in modo efficiente, utilizzando al meglio le risorse disponibili e garantendo prestazioni elevate.
+\end{itemize}
+Nel contesto specifico, le materialized view sono responsabili di eseguire controlli sui dati, come ad esempio la verifica della loro correttezza ed affidabilità nel contesto di utilizzo, prima di inserirli nella tabella di destinazione. Questo processo assicura che i dati siano sempre affidabili e pronti per l'analisi, senza la necessità di ulteriori operazioni di pulizia o preparazione.\\
+Per esempio, nel caso dei dati di umidità raccolti da sensori in un'area urbana, la materialized view potrebbe eseguire controlli per assicurarsi che i valori rientrino all'interno di un intervallo plausibile e che non ci siano discrepanze improbabili. Ciò garantirebbe che i dati di umidità inseriti nella tabella di destinazione siano accurati e affidabili per l'analisi meteorologica o ambientale.
+
+
+\subsubsection{Tabella di origine di Kafka Engine per un sensore generico}
 Le tabelle del database impiegate per registrare le misurazioni di ciascuna tipologia di sensore presentano una configurazione sostanzialmente simile, differenziandosi principalmente per il tipo di dato della colonna relativa alla misurazione e per il \textit{topic} di riferimento utilizzato per ottenere le misurazioni.
 Nello specifico per ogni sensore si avrà la seguente tabella Clickhouse:
 \begin{figure}[H]
@@ -106,6 +135,7 @@ Nello specifico per ogni sensore si avrà la seguente tabella Clickhouse:
         \item \textbf{ConsumerGroupKafka}: specifica il nome del consumer group Kafka che verrà utilizzato per leggere i messaggi dal topic \textit{Kafka} denominato 'temperature'.
         Un consumer group in \textit{Kafka} è un gruppo di consumatori che lavorano insieme per consumare i messaggi da uno o più topic. Ogni messaggio inviato a un \textit{topic Kafka} può essere consumato da uno dei consumatori nel gruppo. I consumer all'interno di uno stesso gruppo condividono l'elaborazione dei messaggi all'interno dei topic: ogni messaggio viene elaborato da uno e un solo consumatore all'interno del gruppo. Nel nostro caso sarà sempre '\textit{CG\_Clickhouse\_1}' per indicare il servizio di salvataggio \textit{Clickhouse}.
         \item \textbf{FormatoDatiTopicKafka}: specifica il formato dei dati nel \textit{topic Kafka}. Nel nostro caso, i dati sono nel formato JSONEachRow, che è un formato di serializzazione JSON di \textit{ClickHouse} che consente di scrivere o leggere record JSON separati da una riga. Quindi avremo che <<FormatoDatiTopicKafka>> = JSONEachRow.
+        \item \textbf{KafkaSkipBrokenMessages}: specifica il numero di errori da tollerare durante il parsing dei messaggi, configurato a livello di tabella, rappresenta la quantità massima di errori accettabili che il sistema può gestire durante il processo di analisi dei messaggi. Questo parametro consente di regolare il livello di tolleranza agli errori a livello di tabella, offrendo la possibilità di controllare quanto il sistema debba essere flessibile nell'interpretazione dei dati.
     \end{itemize}
 
     
@@ -137,33 +167,30 @@ Considerando la possibilità di ricevere molteplici misurazioni dei dati di temp
     \paragraph{Projections per misurazioni di temperatura} \label{sec:temp_projections}
     Durante la fase di progettazione, è stata posta particolare attenzione all'utilizzo delle tabelle appena descritte e alle richieste che verranno formulate su di esse. È emerso, considerando il requisito di suddividere la città in una serie di celle e specificare la cella di origine della misurazione,che la filtrazione delle misurazioni per celle diventerà una richiesta effettuata con frequenza al database.
     Si è giunti quindi all'utilizzo delle \textit{PROJECTIONS}, descritte nella sezione \ref{sec:projections}.
-
-    \begin{lstlisting}
-        --Projection per tabella temperatures
-        ALTER TABLE innovacity.temperatures ADD PROJECTION sensor_cell_projection (SELECT * ORDER BY cella);
-        ALTER TABLE innovacity.temperatures MATERIALIZE PROJECTION sensor_cell_projection;
-    \end{lstlisting}
-
+    \vspace{0,3cm}
+    \begin{lstlisting}[caption={Esempio di proiezione e materializzazione in una tabella}, captionpos=b]
+      --Projection per tabella temperatures
+      ALTER TABLE innovacity.temperatures ADD PROJECTION tmp_sensor_cell_projection (SELECT * ORDER BY cella);
+      ALTER TABLE innovacity.temperatures MATERIALIZE PROJECTION tmp_sensor_cell_projection;
+  \end{lstlisting}
+    \vspace{0,3cm}
     La proiezione ci permetterà di filtrare per \textit{cella} e \textit{timestamp} rapidamente, anche se nella tabella originale queste non sOno definite come \textit{PRIMARY\_KEY}.
 
-
-    \begin{lstlisting}
-        --Projection per tabella temperatures1m
-        ALTER TABLE innovacity.temperatures1m ADD PROJECTION sensor_cell_projection1m (SELECT * ORDER BY cella);
-        ALTER TABLE innovacity.temperatures1m MATERIALIZE PROJECTION sensor_cell_projection1m;
-
-        --Projection per tabella temperatures1o
-        ALTER TABLE innovacity.temperatures1o ADD PROJECTION sensor_cell_projection1o (SELECT * ORDER BY cella);
-        ALTER TABLE innovacity.temperatures1o MATERIALIZE PROJECTION sensor_cell_projection1o;
-
-        --Projection per tabella temperatures1g
-        ALTER TABLE innovacity.temperatures1g ADD PROJECTION sensor_cell_projection1g (SELECT * ORDER BY cella);
-        ALTER TABLE innovacity.temperatures1g MATERIALIZE PROJECTION sensor_cell_projection1g;
-    \end{lstlisting}
 
     \paragraph{Analisi benefici delle Projections}\label{sec:temp_projections_benefici}
     L'aggiunta delle \textit{PROJECTIONS} ha portato risultati di estremo rilievo di seguito esposti.
     Prendendo una \textit{Query} tipo svolta per l'analisi da \textit{Grafana}:
+    
+    \begin{lstlisting}[caption={Query tipica - Grafana}, captionpos=b]
+      SELECT ID_sensore, avgMerge(value) AS value, timestamp
+      FROM innovacity.temperatures
+      WHERE (cella IN ('Arcella')) AND ((timestamp >= toDateTime64(1708338633507 / 1000, 3)) AND (timestamp <= toDateTime64(1708338933507 / 1000, 3) + INTERVAL 1 DAY))
+      GROUP BY timestamp, ID_sensore
+      HAVING (value >= -100) AND (value <= 100)
+
+      --Query id: 48635435-9b35-4727-b580-9e33a9db92d4
+    \end{lstlisting}
+
     \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/ProjectionQuery.jpg}
@@ -197,7 +224,7 @@ Inoltre tramite una \textit{Query} speciale è possibile visualizzare che la \te
 
 Prendendo in esempio un altra \textit{Query} fatta dall'applicativo dove viene effettuata la media globale di \textbf{170 mila }misurazioni di temperatura si possono apprezzare i benifiici dell'utilizzo delle \textit{PROJECTIONS} e alla fine dell'immagine anche il suo effettivo utilizzo per il calcolo del risultato.
 Con l'utilizzo della \textit{PROJECTIONS} abbiamo:
-\paragraph{Tabella: umidities\_kafka}
+\paragraph{Tabella: humidity\_kafka}
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/query2ProjectionsWith.jpg}
@@ -214,55 +241,26 @@ Si puo notare invece la differenza delle righe processate una volta rimossa la \
   \end{figure}
 
  Il totale di righe processate per ottenere il risultato è ora di \textbf{170,09 migliaia}, ovvero la totalità delle righe presenti nella tabella, con \textbf{0,09 secondi} di tempo utilizzati.
+
 \subsubsection{Misurazioni umidità}
 Le considerazioni relative al salvataggio delle misurazioni di umidità coincidono con quelle espresse nella sezione \ref{sec:tab_temperatures} riguardo alle misurazioni di temperatura.
-\paragraph{Tabella: umidities\_kafka}
+\paragraph{Tabella: humidity\_kafka}
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/temperatures.PNG}
-    \caption{Tabella umidities\_kafka - ClickHouse}
+    \caption{Tabella humidity\_kafka - ClickHouse}
     \label{fig:umidities_kafka}
   \end{figure}
 Il dato della misurazione è di tipo Float32, l’equivalente di float nel linguaggio C. Il topic
-kafka per ottenere i dati è: \textbf{umidity}.
+kafka per ottenere i dati è: \textbf{humidity}.
 \paragraph{Tabella: umidities}
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/temperatures.PNG}
-    \caption{Tabella umidities - ClickHouse}
+    \caption{Tabella humidity - ClickHouse}
     \label{fig:umidities}
   \end{figure}
-\paragraph{Tabella: umidities1m}        
-\todo{CAMBIA IMMAGINE}
 
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/temperatures1m.PNG}
-        \caption{Tabella  umidities1m - ClickHouse}
-
-        \label{fig: umidities1m}
-      \end{figure}
-      \paragraph{Tabella:  umidities1o}
-      \begin{figure}[H]
-          \centering
-          \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/temperatures1o.PNG}
-          \caption{Tabella  umidities1o - ClickHouse}
-          \label{fig: umidities1o}
-        \end{figure}
-    \paragraph{Tabella:  umidities1g}
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/temperatures1g.PNG}
-        \caption{Tabella  umidities1g - ClickHouse}
-        \label{fig: umidities1g}
-        \end{figure}
-    \paragraph{Tabella:  umidities1M}
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/temperatures1Mese.PNG}
-        \caption{Tabella  umidities1M - ClickHouse}
-        \label{fig: umidities1M}
-        \end{figure}
 \paragraph{Projections per misurazioni di umidità} 
 Date le stesse considerazioni fatte nella sezione: \ref{sec:temp_projections} anche per le misurazioni di umidità si è deciso di adottare le \textit{PROJECTION}.
 I risultati dei benifiici perfettamente riconducibili a quelli per le misurazioni di temperatura alla sezione: \ref{sec:temp_projections_benefici}.
@@ -270,19 +268,12 @@ I risultati dei benifiici perfettamente riconducibili a quelli per le misurazion
 Di seguito vengono fornite le configurazioni delle proiezioni sulle tabelle delle misurazioni di umidità:
 
 \begin{lstlisting}
-    --Projection per tabella umidities
-    ALTER TABLE innovacity.umidities ADD PROJECTION sensor_cell_projection (SELECT * ORDER BY cella,timestamp);
-    ALTER TABLE innovacity.umidities MATERIALIZE PROJECTION sensor_cell_projection;
-
-    --Projection per tabella umidities1m
-    ALTER TABLE innovacity.umidities1m ADD PROJECTION sensor_cell_projection1m (SELECT * ORDER BY cella,timestamp);
-    ALTER TABLE innovacity.umidities1m MATERIALIZE PROJECTION sensor_cell_projection1m;
-
-    --Projection per tabella umidities1o
-    ALTER TABLE innovacity.umidities1o ADD PROJECTION sensor_cell_projection1o (SELECT * ORDER BY cella,timestamp);
-    ALTER TABLE innovacity.umidities1o MATERIALIZE PROJECTION sensor_cell_projection1o;
-
-    --Projection per tabella umidities1g
-    ALTER TABLE innovacity.umidities1g ADD PROJECTION sensor_cell_projection1g (SELECT * ORDER BY cella,timestamp);
-    ALTER TABLE innovacity.umidities1g MATERIALIZE PROJECTION sensor_cell_projection1g;
+    --Projection per tabella humidity
+    ALTER TABLE innovacity.humidity ADD PROJECTION umd_sensor_cell_projection (SELECT * ORDER BY cella);
+    ALTER TABLE innovacity.humidity MATERIALIZE PROJECTION umd_sensor_cell_projection;
 \end{lstlisting}
+
+
+\subsubsection{Misurazioni polveri sottili}Le considerazioni relative al salvataggio delle misurazioni di polveri sottili coincidono con quelle espresse nella sezione \ref{sec:tab_temperatures} riguardo alle misurazioni di temperatura.
+
+
