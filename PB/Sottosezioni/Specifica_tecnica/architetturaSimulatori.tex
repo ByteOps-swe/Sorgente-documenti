@@ -10,7 +10,16 @@ Nei paragrafi successivi, verrà presentata l'architettura individuata mediante 
     \label{fig: fddf}
 \end{figure}
 Questo modulo si occupa della generazione di dati di misurazione per diverse tipologie di sensori.
-
+In particolare sono stati implementati simulatori per i seguenti tipi di sensori:
+\begin{itemize}
+    \item Sensori di temperatura;
+    \item Sensori di umidità;
+    \item Sensori di polveri sottili PM10;
+    \item Sensori di stato occupazione colonnine di ricarica;
+    \item Sensori di stato riempimento isole ecologica;
+    \item Sensori di presenza d'acqua;
+    \item Sensori di guasto elettrico.
+\end{itemize}
 \paragraph{Design pattern Template Method:}
 
 La classe astratta \textit{Simulator} implementa il design pattern \textit{Template Method}. Il metodo \textit{simulate()} fornisce lo scheletro dell'algoritmo per la generazione e la gestione delle misurazioni. Le classi concrete che estendono \textit{Simulator} implementano:
@@ -422,6 +431,11 @@ Inoltre grazie all'interfaccia \textit{KafkaTarget}, si è garantita la possibil
 
 \subsubsection{Modulo Threading/Scheduling}
 Questo modulo si propone di gestire la logica di pianificazione per il recupero dei dati dai simulatori dei sensori e di inviare/scrivere tali dati utilizzando gli "Writers". Funge da orchestratore per i due moduli appena descritti, offrendo la possibilità di configurare la frequenza di campionamento o il numero di misurazioni da eseguire. Inoltre, incorpora una logica di ottimizzazione, simile a quella impiegata dai microcontrollori dei sensori nella realtà, al fine di evitare la trasmissione di dati ridondanti, inviando solo i cambiamenti di stato dei sensori.
+
+\paragraph*{Dependecy Inversion principle}
+Il modulo è stato progettato per rispettare il principio di inversione delle dipendenze. Infatti, la classe \textit{SimulatorThreadPool} è stata progettata per essere indipendente dalla libreria di gestione dei thread utilizzata, consentendo di sostituire la libreria di gestione dei thread senza dover modificare il codice di \textit{SimulatorThreadPool}.
+Inoltre, i componenti del modulo sono progettati per essere indipendenti dai dettagli di implementazione dei simulatori e dei writers, consentendo di sostituire i simulatori e i writers senza dover modificare il codice.
+
 \paragraph{Design pattern Composite:}
 Come per il modulo di scrittura anche questo è sviluppato secondo il pattern Composite che permette di gestire un singolo Thread di esecuzione o un gruppo di Thread in modo uniforme.
 \paragraph{Design pattern Object Adapter:}
@@ -473,7 +487,7 @@ Un'altra implementazione del pattern \textit{Object Adapter} viene impiegata per
         \begin{itemize}
             \item La classe è un'implementazione concreta dell'interfaccia ComponentSimulatorThread, utilizzando un oggetto Simulator per generare dati a una certa frequenza e un oggetto Writer per scrivere i dati generati.
             \item Rappresenta il componente Leaf del pattern \textit{Composite}.
-            \item Se data\_to\_generate < 0 => Genera misurazioni all'infinito.
+            \item Se data\_to\_generate < 0 => Genera misurazioni finchè il thread non viene interroto dall'esterno.
             \item Sebbene i simulatori non siano considerati dalla proponente parte del prodotto, la logica di ottimizzazione per inviare solo i cambi di stato dei sensori viene implementata nella realtà IoT, quindi si è deciso di replicarla. Di conseguenza, è stata presa la decisione di replicarla. È importante notare che questa logica non è incorporata nel Simulatore del sensore, il quale ha unicamente il compito semantico di generare dati come un vero sensore. Invece, essa è implementata nel SimulatorThread, il quale agisce in modo simile a un microcontrollore, responsabile sia della gestione dell'intervallo di campionamento che della logica per l'invio delle misurazioni.
             \item Nel corso dello sviluppo futuro, potrebbe risultare vantaggioso considerare l'implementazione di un pattern \textit{Strategy} per gestire la strategia/criterio di invio dei dati, che possa distinguere tra un invio continuo e la trasmissione solo in caso di cambiamenti di stato. Tuttavia, al momento della decisione, si è optato per non includerlo al fine di evitare un'eccessiva complessità nell'architettura, nota come sovraingegnerizzazione. Tale scelta è stata dettata dalla volontà di mantenere un equilibrio tra la completezza del sistema e la sua semplicità, favorendo un'implementazione più diretta e immediata delle funzionalità richieste.
         \end{itemize}
