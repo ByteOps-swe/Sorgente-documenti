@@ -1,8 +1,10 @@
-\subsection{Faust - Processing Layer}
+\subsection{Faust - Processing Layer} \label{sec:faust}
 \subsubsection{Introduzione}
 \paragraph*{Premessa}
 
 Per soddisfare il requisito opzionale del calcolo del punteggio di salute, si è scelto di utilizzare Faust, una libreria Python ispirata al modello di Kafka Streams. Faust facilita l'elaborazione di flussi di dati distribuiti in tempo reale, rendendola ideale per questo caso d'uso.
+Offre un'interfaccia di alto livello che astrae le complessità di Kafka, rendendo la raccolta dati semplice e intuitiva.
+Inolltre Faust è progettato per essere scalabile e può essere utilizzato per gestire grandi volumi di dati.
 
 \paragraph*{Calcolo del Punteggio}
 Il punteggio di salute rappresenta un indicatore sintetico del benessere generale di una città, misurandolo in base a diversi aspetti chiave. In questo caso, le tre tipologie di misurazioni considerate sono:

@@ -12,6 +12,19 @@ Infine, per i servizi che espongono porte, come Kafka, ClickHouse e Grafana, è 
 Quando un container invia dati a un altro container tramite la rete Docker, i dati vengono incapsulati in pacchetti di rete utilizzando il protocollo TCP/IP. Questi pacchetti vengono quindi instradati attraverso la rete Docker, che si occupa di consegnarli al destinatario corretto.
 
 In sintesi, Docker fornisce un'infrastruttura di rete integrata che gestisce la comunicazione tra i container all'interno dello stesso ambiente di deployment, semplificando la configurazione e la gestione della comunicazione tra i diversi componenti del sistema.
+\begin{itemize}
+    \item \textbf{Comunicazione data feed Layer -> Streaming Layer}: Si utilizza libreria \textit{Confluent Kafka} per Python che offre un'API efficiente e flessibile per inviare dati dai simulatori dei sensori a specifici topic Kafka.
+    \item \textbf{Comunicazione Processing Layer -> Streaming Layer}: Si utilizza Faust come API di alto livello per Kafka. Faust offre un'API intuitiva e ben documentata per consumare dati da topic con flussi di dati in tempo reale.
+    Ulteriori informazioni in: \ref{sec:faust}
+    \item \textbf{Comunicazione Storage Layer -> Streaming Layer}: Per ottenere in tempo reale i dati dai topic kafka viene utilizzato l'engine kafka di Clickhouse. Ulteriori informazioni in: \ref{sec:kafka_engine}
+    \item \textbf{Comunicazione Data Visualization Layer-> Storage Layer}: Grafana si connette a Clickhouse per ottenere i dati da visualizzare in tempo reale tramite lo specifico plugin ClickHouse che permette l'utilizzo di un database Clickhouse come \textit{data source}.
+    Il plugin nasconde alcuni dettagli di implementazione sottostanti, come la gestione della connessione,protocolli di comunicazione e l'esecuzione delle query. Ulteriori informazioni in: \ref{sec:click_plugin}
+\end{itemize}
+    
+
+
+
+
 
     \subsubsection{Dipendenze tra i servizi}
 \begin{itemize}
