@@ -35,3 +35,55 @@ Sebbene le misurazioni vengano divise in topic diversi a seconda della tipoligia
     \end{itemize}
 \end{itemize}
     
+
+\subsubsection{Kafka patterns}
+\paragraph{Pattern di Pub/Sub}
+\begin{itemize}
+    \item \textbf{Descrizione:} Il pattern Pub/Sub (Publish/Subscribe) permette ai producer di inviare messaggi a topic e ai consumer di ricevere messaggi da tali topic.
+    \item \textbf{Funzione in Kafka:} Decoupling tra producer e consumer, favorendo la scalabilità e l'asincronia.
+    \item \textbf{Esempio:} Un sensore invia dati a Kafka come producer. I dati vengono pubblicati su un topic specifico, e più consumer, come un'applicazione di analisi in tempo reale e un sistema di archiviazione, si iscrivono al topic.
+\end{itemize}
+
+\paragraph{Partizionamento}
+\begin{itemize}
+    \item \textbf{Descrizione:} Distribuisce i messaggi su più partizioni all'interno di un topic per migliorare la scalabilità e le prestazioni.
+    \item \textbf{Funzione in Kafka:} Permette di distribuire il carico di lavoro su più broker e di aumentare la resilienza ai guasti.
+    \item \textbf{Esempio:} I dati di un sensore possono essere partizionati in base al tipo di sensore o alla posizione geografica.
+\end{itemize}
+
+\paragraph{Replicazione}
+\begin{itemize}
+    \item \textbf{Descrizione:} Duplica i dati su più broker per garantire la disponibilità e la tolleranza ai guasti.
+    \item \textbf{Funzione in Kafka:} I messaggi vengono replicati su un numero configurabile di broker per massimizzare la ridondanza.
+    \item \textbf{Esempio:} Se un broker fallisce, i dati sono ancora disponibili su altri broker.
+\end{itemize}
+
+
+
+\paragraph{Leader Election}
+\begin{itemize}
+    \item \textbf{Descrizione:} Algoritmo per eleggere un leader per ogni partizione, responsabile dell'ordinamento e della replica dei messaggi.
+    \item \textbf{Funzione in Kafka:} Garantisce la coerenza dei dati e la gestione efficiente delle partizioni.
+    \item \textbf{Esempio:} Un leader viene eletto per ogni partizione del topic, garantendo che solo un broker riceva e replichi i messaggi per quella partizione.
+\end{itemize}
+
+
+\paragraph{Log Compaction}
+\begin{itemize}
+    \item \textbf{Descrizione:} Rimuove i messaggi obsoleti da un topic per ottimizzare l'utilizzo dello storage.
+    \item \textbf{Funzione in Kafka:} Le vecchie versioni dei messaggi vengono eliminate dopo un periodo di tempo configurabile.
+    \item \textbf{Esempio:} I messaggi di sensore con valori vecchi possono essere compattati per risparmiare spazio di archiviazione.
+\end{itemize}
+
+\paragraph{Altri Pattern}
+Oltre a quelli sopra elencati, Kafka implementa altri pattern come:
+\begin{itemize}
+    \item \textbf{Consumer Group}: Raggruppamento di consumer che collaborano per ricevere messaggi da un topic.
+    \item \textbf{Coordinated Commit}: Meccanismo per garantire che tutti i consumer in un gruppo ricevano correttamente tutti i messaggi di una partizione.
+    \item \textbf{Rate Limiting}: Controllo del numero di messaggi che possono essere inviati o ricevuti da un topic in un determinato intervallo di tempo.
+    \item \textbf{Dead Letter Queue (DLQ)}: Coda speciale dove vengono inviati i messaggi che non possono essere elaborati correttamente.
+    \item \textbf{Monitoring \& Metrics}: Fornisce un'ampia gamma di metriche per monitorare le prestazioni e l'utilizzo del sistema.
+\end{itemize}
+
+\paragraph{Conclusione}
+L'utilizzo di questi design pattern rende Kafka una piattaforma di messaggistica robusta, scalabile e affidabile per una varietà di casi d'uso. L'implementazione di questi pattern permette di ottenere un'architettura efficiente e performante per l'elaborazione dati in streaming.

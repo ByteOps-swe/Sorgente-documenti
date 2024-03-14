@@ -1,0 +1,32 @@
+\subsection{Grafana}
+Grafana è un software open source per la visualizzazione e l'analisi dei dati. È progettato per funzionare con vari database di serie temporali, tra cui Clickhouse. Grafana offre un'interfaccia utente intuitiva e flessibile che consente di creare e condividere dashboard personalizzate per monitorare i dati in tempo reale. È ampiamente utilizzato per monitorare sistemi e applicazioni, nonché per analizzare e visualizzare dati in tempo reale.
+
+\subsubsection{ClickHouse data source plugin}
+\paragraph{Documentazione:} \href{https://grafana.com/grafana/plugins/grafana-clickhouse-datasource/}{https://grafana.com/grafana/plugins/grafana-clickhouse-datasource/}
+
+Questo plugin di grafana consente di connettersi a un'istanza di ClickHouse e di visualizzare i dati in tempo reale. È possibile eseguire query SQL personalizzate e visualizzare i risultati in forma di grafici, tabelle e pannelli personalizzati. Il plugin offre anche funzionalità di aggregazione e di calcolo dei dati, consentendo di analizzare e visualizzare i dati in modo flessibile e personalizzato.
+
+\paragraph{Data sources configuration}
+La configurazione del data source avviene tramite file \textit{yaml} che deve essere presente in \textit{grafana/provisioning/datasources}.
+Il protocollo di trasporto utilizzato è TLS ma puo essere modificato nel file appena citato grazie al parametro di configurazione: "protocol".
+
+\paragraph{Macro utilizzate}
+Per semplificare la sintassi e consentire operazioni dinamiche, come i filtri dell'intervallo di date, le queries al database Clickhouse possono contenere macro.
+Quelle utilizzate sono:
+\begin{itemize}
+    \item \textbf{\$\_\_timeFilter(columnName)}: Permette di effettuare il filtro temporale alla query per ottenere le sole misurazioni all'interno dell'intervallo di tempo selezionato dall'utente.
+    \item  \textbf{\$\_\_timeInterval(columnName)}: Permette di modificare il raggruppamento temporale delle misurazioni in automatico sulla base dell'ampiezza dell'intervallo temporale selezionato dall'utente.
+    In questo modo è possibile avere una visione ottimizzate delle misurazioni.
+\end{itemize}
+
+\subsubsection{Variabili Grafana}
+\paragraph{Variable Panel plugin}
+
+
+
+
+\subsubsection{Grafana alerts}
+
+
+\subsubsection{Altri plugin utilizzati}
+\paragraph{Orchestra Cities Map plugin}
