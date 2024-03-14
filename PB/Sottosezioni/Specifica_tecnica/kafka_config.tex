@@ -1,10 +1,9 @@
 \subsection{Kafka}
 \subsubsection{Kafka topic}
 I topic in Kafka possono essere considerati come le tabelle di un database, utili per separare logicamente diversi tipi di messaggi o eventi che vengono inseriti nel sistema. Noi li utilizziamo per separare le diverse misurazioni dei sensori, quindi per ogni tipo di sensore è presente un topic dedicato. Ciò ci consente di creare all'interno di ClickHouse delle "tabelle consumatrici" che acquisiscono automaticamente i dati. Questo è possibile grazie alla separazione logica dei topic, che garantisce che tutti i messaggi all'interno di ciascun topic abbiano lo stesso formato.
-\subsection{Formato messaggi} \label{sec:formatoMessaggi}
+\subsubsection{Formato messaggi} \label{sec:formatoMessaggi}
 La struttura di un messaggio contenente le informazioni della misurazione è la seguente in formato Json:
-\begin{comment}
-    \begin{lstlisting}[language=json,firstnumber=1]
+\begin{lstlisting}[style=code]
     {
       "timestamp": "AAAA-MM-DD HH:MM:SS.sss", 
       "value": "Valore della misurazione",  
@@ -12,10 +11,18 @@ La struttura di un messaggio contenente le informazioni della misurazione è la 
       "latitude": "Latitudine",
       "longitude": "Longitudine",
       "ID_sensore": "ID sensore",
-      "cella": "Cella dove è presente il sensore"
+      "cella": "Partizione della citt\`{a} dove \`{e} presente il sensore" 
+     }
+\end{lstlisting}
+Mentre la struttura di un messaggio contenente le informazioni di una misurazione del punteggio di salute è la seguente in formato Json:
+\begin{lstlisting}[style=code]
+    {
+      "timestamp": "AAAA-MM-DD HH:MM:SS.sss", 
+      "value": "Valore della misurazione",  
+      "type": "Tipologia Simulatore",
+      "cella": "Cella relativa al punteggio di salute"
     }
 \end{lstlisting}
-\end{comment}
 
 
 Sebbene le misurazioni vengano divise in topic diversi a seconda della tipoligia di sensore che ha effettuato la misurazione si è comunque deciso di inviare e salvare il campo della tipoligia di misurazione per i seguenti motivi:
