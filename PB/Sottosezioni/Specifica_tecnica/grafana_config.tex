@@ -1,16 +1,26 @@
 \subsection{Grafana}
 Grafana è un software open source per la visualizzazione e l'analisi dei dati. È progettato per funzionare con vari database di serie temporali, tra cui Clickhouse. Grafana offre un'interfaccia utente intuitiva e flessibile che consente di creare e condividere dashboard personalizzate per monitorare i dati in tempo reale. È ampiamente utilizzato per monitorare sistemi e applicazioni, nonché per analizzare e visualizzare dati in tempo reale.
 
+\subsection{Dashboards}
+Per soddisfare tutti i requisiti definiti in \textit{Analisi dei requisiti v2.0.0} sono state create due Dashboard:
+\begin{itemize}
+    \item \textbf{Dashboard Principale:} Questa dashboard fornisce una visualizzazione chiara e intuitiva delle misurazioni provenienti da tutti i sensori, di tutte le tipologie, distribuiti nell'area urbana. La dashboard include una mappa interattiva della città che mostra la posizione geografica di ciascun sensore e la relativa ultima misurazione. Inoltre, viene presentato il punteggio di salute della città o di celle specifiche.
+    \item \textbf{Dashboard dedicata:} Mostra le misurazioni di una specifica tipologia di sensore selezionata dall'utente in modo più dettagliato e permette di effettuare le attività di filtraggio e aggregazione definite in \textit{Analisi dei requisiti v2.0.0}.
+\end{itemize}
+
+
+
+
 \subsubsection{ClickHouse data source plugin} \label{sec:click_plugin}
 \paragraph{Documentazione:} \href{https://grafana.com/grafana/plugins/grafana-clickhouse-datasource/}{https://grafana.com/grafana/plugins/grafana-clickhouse-datasource/}
 
 Questo plugin di grafana consente di connettersi a un'istanza di ClickHouse e di visualizzare i dati in tempo reale. È possibile eseguire query SQL personalizzate e visualizzare i risultati in forma di grafici, tabelle e pannelli personalizzati. Il plugin offre anche funzionalità di aggregazione e di calcolo dei dati, consentendo di analizzare e visualizzare i dati in modo flessibile e personalizzato.
 
 \paragraph{Data sources configuration}
-La configurazione del data source avviene tramite file \textit{yaml} che deve essere presente in \textit{grafana/provisioning/datasources}.
+La configurazione del data source avviene tramite file \textit{yaml} che deve essere presente in \textit{"grafana/provisioning/datasources"}.
 Il protocollo di trasporto utilizzato è TLS ma puo essere modificato nel file appena citato grazie al parametro di configurazione: "protocol".
 
-\paragraph{Macro utilizzate}
+\paragraph{Macro utilizzate}\label{sec:macros}
 Per semplificare la sintassi e consentire operazioni dinamiche, come i filtri dell'intervallo di date, le queries al database Clickhouse possono contenere macro.
 Quelle utilizzate sono:
 \begin{itemize}
@@ -20,13 +30,105 @@ Quelle utilizzate sono:
 \end{itemize}
 
 \subsubsection{Variabili Grafana}
+\paragraph*{Documentazione:} \href{https://grafana.com/docs/grafana/latest/dashboards/variables/}{https://grafana.com/docs/grafana/latest/dashboards/variables/}
+
+
+ Le variabili in Grafana sono un potente strumento per rendere le dashboard dinamiche e interattive. Permettono di filtrare i dati visualizzati in base a valori scelti dall'utente, rendendo la dashboard più versatile e adattabile a differenti esigenze.
+\paragraph*{Utilizzo delle variabili nella dashboard principale:}
+Nella dashboard principale, le variabili sono:
+\begin{itemize}
+    \item \textbf{variabile \$cella}: per mostrare solo le misurazioni provenienti da determinate celle della città, 
+    \item \textbf{variabili \$<TipoSensore>\_sensors\_id}: per mostrare le misurazioni di determinati sensori di un certo tipo.
+\end{itemize}
+Queste variabili all'interno delle query al database permettono il filtraggio delle misurazioni sulla base di quanto selezionato dall'utente.
+Un esempio di query per la visualizzazione delle misurazioni time-series di temperatura è:
+\begin{lstlisting}[style=code]
+    SELECT    ID_sensore, avg(value) as value,
+              $__timeInterval(timestamp) as timestamp
+    FROM    innovacity.temperatures 
+    WHERE    $__timeFilter(timestamp) AND cella IN ($Cella) AND ID_sensore in (${tmp_sensors_id})
+    GROUP BY ID_sensore, timestamp;
+\end{lstlisting}
+
+La query esposta mostra anche l'utilizzo delle macro esposte in: \ref{sec:macros}
+\paragraph*{Utilizzo delle variabili nella dashboard dedicata:}
+Nella dashboard dedicata alla visualizzazione spefica delle misurazioni di una sola tipologia di sensori, le variabili sono:
+\begin{itemize}
+    \item \textbf{variabile \$cella}: per mostrare solo le misurazioni provenienti da determinate celle della città, 
+    \item \textbf{variabili \$<TipoSensore>\_sensors\_id}: per mostrare le misurazioni di determinati sensori di un certo tipo.
+    \item \textbf{variabili \$tabella}: per selezionare la tipoligia di sensore di cui si vuole visualizzare la dashboard dedicata e quindi la tabella del database da cui ricavare i dati.
+    \item \textbf{\$aggregazione}: variabile per selezionare l'intervallo temporale di aggregazione delle misurazioni
+    (Automatico, Secondo,Minuto,Ora,Giorno,Mese,Nessuno).
+    Nel caso della selezione della modalità "Automatico" si utilizzza l'intervallo temporale di aggregazione più opportuno sulla base dell'ampiezza dell'intervallo temporale selezionato dall'utente.
+    \item \textbf{\$Max\_value}: variabile ad input numerico per filtrare le misurazioni con valore al di sotto di quello indicato.
+    \item \textbf{\$Min\_value}: variabile ad input numerico per filtrare le misurazioni con valore al di sopra di quello indicato.
+\end{itemize}
 \paragraph{Variable Panel plugin}
-
-
-
+\textbf{Documentazione:} \href{https://volkovlabs.io/plugins/volkovlabs-variable-panel/}{https://volkovlabs.io/plugins/volkovlabs-variable-panel/}
+Il plugin permette di creare dei pannelli grafana che possono essere posizionati ovunque nella Dashboard e che consentono di selezionare i valori delle variabili.
+Inoltre permette la visualizzazione ad albero delle variabili utile nel nostro caso dove i sensori sono contenuti all'interno di celle della città.
 
 \subsubsection{Grafana alerts}
+\textbf{Documentazione}\href{https://grafana.com/docs/grafana/latest/alerting/}{https://grafana.com/docs/grafana/latest/alerting/}
 
+
+Grafana offre un sistema di alerting completo per monitorare i dati e inviare notifiche quando si verificano determinate condizioni. Le notifiche possono essere inviate tramite diversi canali, tra cui email, Slack, Telegram e Discord.
+
+\paragraph{Alert Rule}
+Per poter configurare un alert è necessario creare una regola di alert. La regola di alert viene impostata tramite query al data source e fa scattare l'alert quando la query restituisce un risultato che soddisfa le condizioni impostate.
+Gli alert impostati sono per:
+\begin{itemize}
+    \item Quando un sensore di temperatura registra una temperatura superiore ai 40°C;
+    \item Quando un sensore di polveri sottili supera i 50 microgrammi al metro cubo;
+    \item Quando un sensore di guasti elettrici rileva un guasto.
+\end{itemize}
+
+Gli alert attraversano 3 stati:
+\begin{itemize}
+    \item \textbf{Pending:} indica che un alert è stato attivato, ma la sua valutazione non è ancora stata completata.
+                            Quando si è in questo stato è perchè il valore della query di alert è stato valutato e risulta essere vero ma la configurazione della regola di allerta ha impostato che l'allerta deve essere attiva per un certo periodo di tempo prima di essere considerata vera e quindi inviare la notifica.
+\item \textbf{Firing:}  indica che un alert è stato attivato e la sua valutazione ha confermato che la condizione di alert è soddisfatta per il periodo impostato nella regola e quindi viene inviata la notifica ai canali impostati.
+\item \textbf{OK:} indica che un alert è stato disattivato e la sua valutazione ha confermato che la condizione di alert non è più soddisfatta.
+
+Le regole di allerta sono impostabili tramite l'interfaccia grafica di Grafana e vengono esportate in formato \textit{yaml} ed inserite in "/provisioning/alerting".
+                            
+\end{itemize}
+
+\paragraph{Configurazione il canale di notifica}
+Per configurare i canali di notifica è necessario andare in "Alerting" e selezionare "Notification channels" dall'interfaccia grafica di Grafana.
+
+Per il progetto è stato scelto Discord come unico canale di notifica.
+Per configurare il canale di notifica è necessario:
+\begin{itemize}
+    \item Seleziona Discord come canale di notifica.
+    \item Inserisci il webhook URL del tuo canale Discord.
+    \item Personalizza il messaggio di notifica.
+\end{itemize}
+
+Anche le impostazioni di configurazione del canale di notifica sono esportabili in formato \textit{yaml} e vengono inserite in "/provisioning/alerting".
+
+\paragraph{Notification policies}
+Le norme di notifica negli Alert di Grafana sono un modo potente per gestire l'invio degli alert a diversi canali di notifica.
+
+Per una spiegazione dettagliata della configurazione si rimanda alla documentazione ufficiale di Grafana: \href{https://grafana.com/docs/grafana/latest/alerting/alerting-rules/create-notification-policy/}{https://grafana.com/docs/grafana/latest/alerting/alerting-rules/create-notification-policy/}
+
+Anche le impostazioni delle notification policies sono esportabili in formato \textit{yaml} e vengono inserite in "/provisioning/alerting".
 
 \subsubsection{Altri plugin utilizzati}
 \paragraph{Orchestra Cities Map plugin}
+\textbf{Documentazione:} \href{https://grafana.com/grafana/plugins/orchestracities-map-panel/}{https://grafana.com/grafana/plugins/orchestracities-map-panel/}
+
+Il plugin Orchestra Cities Map per Grafana estende il pannello Geomap di Grafana con diverse funzionalità avanzate per la visualizzazione di dati geolocalizzati su mappe:
+
+Funzionalità principali:
+\begin{itemize}
+    \item \textbf{Supporto per GeoJSON}: Permette di visualizzare dati geoJSON su mappe, come shapefile di città, regioni o stati.
+    \item \textbf{Icone personalizzate}: Puoi utilizzare icone personalizzate per rappresentare diversi tipi di dati sui punti mappa.
+    \item \textbf{Popup informativi}: Mostra popup con informazioni dettagliate quando si clicca su un punto mappa.
+    \item \textbf{Strati multipli}: Permette di creare più strati sovrapposti per visualizzare diversi set di dati sulla stessa mappa.
+    \item \textbf{Filtraggio e ricerca}: Puoi filtrare i punti mappa in base a diversi criteri, come proprietà dei dati o valori delle metriche.
+    \item \textbf{Colorazione dei punti}: Puoi colorare i punti mappa in base a valori di metriche o ad altri criteri.
+    \item \textbf{Legende personalizzate}: Puoi creare legende personalizzate per spiegare il significato dei colori e delle icone utilizzati nella mappa.
+\end{itemize}
+
+Viene utilizzato per poter visualizzare in modo diverse le icone dei diversi tipi di sensori dislocati nella città oltre che l'ultima misurazione effettuata ovvero lo stato attuale del sensore.
