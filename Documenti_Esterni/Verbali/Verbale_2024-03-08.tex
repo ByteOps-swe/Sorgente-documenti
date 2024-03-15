@@ -131,7 +131,7 @@
 
 \section{Revisione del periodo precedente}
 Durante la fase iniziale del meeting, il team ha illustrato all'azienda proponente i test di unità e di integrazione realizzati nel periodo precedente. \\
-In merito a cià, la proponente ha espresso completa soddisfazione per il lavoro svolto, apprezzando la qualità e l'efficacia delle attività di test condotte dal team.
+In merito a ciò, la proponente ha espresso completa soddisfazione per il lavoro svolto, apprezzando la qualità e l'efficacia delle attività di test condotte dal team.
 
 \section{Ordine del giorno}
     \subsection{Attendibilità test di performance}
@@ -146,12 +146,12 @@ In merito a cià, la proponente ha espresso completa soddisfazione per il lavoro
         Durante la discussione è stata sollevata l'idea di fare in modo che i simulatori dei sensori trasmettano esclusivamente i cambiamenti di stato. In merito a ciò, la proponente ha spiegato che nei sensori reali non simulati è presente un controllore interno che verifica se il dato da trasmettere coincide con quello precedentemente trasmesso. In caso di identità tra i dati, il sensore non invia nuovamente l'informazione al fine di ottimizzare l'utilizzo della memoria del database e trasmettere solo i cambiamenti di stato. \\
         La proponente ha mostrato pieno supporto a questa funzionalità e alla sua implementazione in modo tale da simulare un ambiente il più realistico possibile.
 
-        
-
-\section{Attività da svolgere} \todo{da aggiungere le cose relative ai sensori e al database discusse nelle sez. 2.2 e 2.3?}
+\section{Attività da svolgere}
     \begin{itemize}
         \item Implementare test di performance;
-        \item Continuare con lo sviluppo dei test di unità e di integrazione.
+        \item Continuare con lo sviluppo dei test di unità e di integrazione;
+        \item Completare l'implementazione della funzionalità di trasmissione dei dati dai sensori solo al verificarsi di un cambiamento di stato (e.g. se il sensore di temperatura registra un valore identico al precedente, il dato non viene inviato a Kafka; viceversa, se la misurazione è diversa dalla precedente, il dato viene trasmesso);
+        \item Terminare implementazione di aggregazione dati (in caso di misurazioni non recenti) per ottimizzazione spazio database.
 \end{itemize}
 % ------------------------ Firma Azienda ----------------------
 \begin{textblock*}{\textwidth}(0.22\textwidth, 1.08\textheight)
