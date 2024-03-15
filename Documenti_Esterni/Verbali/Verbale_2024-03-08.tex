@@ -1,0 +1,165 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[absolute]{textpos}
+\usepackage[default]{raleway}
+\usepackage{titlesec, comment, tabularx, makecell, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, multirow, hyperref}
+\usepackage{colortbl}
+\usepackage{todonotes}
+\renewcommand{\headrulewidth}{0pt}
+
+\definecolor{light-gray}{gray}{0.92}
+
+\lstdefinestyle{code}{
+    frame=single,
+    framesep=1mm,
+    rulecolor=\color{light-gray},
+    backgroundcolor=\color{light-gray},
+    basicstyle=\ttfamily,
+}
+
+% ----------------------------- Definizione tabella ---------------------------
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+% ------------------------------Metadati indice --------------------------------
+\title{\textbf{\fontsize{28}{6}\selectfont Indice}}
+\author{\fontsize{14}{6}\selectfont ByteOps}
+\date{Marzo 8, 2024}
+
+
+% -----------------------------Creazione footer --------------------------------
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{
+    \parbox[c]{2cm}{\includegraphics[width=2cm]{../../Images/logo.png}}
+    \textcolor[RGB]{120, 120, 120}{$\cdot$ Verbale Esterno}
+}
+\rfoot{\thepage}
+
+% --------------------------Modifica formato hyperlinks ------------------------
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    pdftitle={Verbale Esterno 08/03/2024},  %inserisci data verbale
+    pdfpagemode=FullScreen,
+}
+
+% ------------------------------- Valore sotto-paragrafi indice --------------------------------------
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\titleformat{\section}
+{\normalfont\huge\bfseries}{\thesection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsection}
+{\normalfont\Large\bfseries}{\thesubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsubsection}
+{\normalfont\large\bfseries}{\thesubsubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+% ------------------------------- Front Page ---------------------------------------
+
+\begin{document}
+
+% --------------------------Aggiunta firma finale ------------------------
+\begin{textblock*}{\textwidth}(0.85\textwidth, 1.16\textheight)
+    Il responsabile: R. Smanio
+\end{textblock*}
+% ------------------------------------------------------------------------
+
+\pagestyle{fancy}
+\begin{center}
+\includegraphics[width = 0.7\textwidth]{../../Images/logo.png} \\
+\vspace{0.2cm}
+\textcolor[RGB]{60, 60, 60}{\textit{ByteOps.swe@gmail.com}} \\
+\vspace{1cm}
+\fontsize{16}{6}\selectfont Verbale Esterno $\cdot$ Data: 08/03/2024 \\
+\vspace{0.5cm}
+\end{center}
+
+\section*{Informazioni documento}
+\def\arraystretch{1.2}
+\begin{tabular}{>{\raggedleft\arraybackslash}p{0.3\textwidth}|>{\raggedright\arraybackslash}p{0.6\textwidth}c}
+\hline
+\addlinespace
+\textbf{Luogo} & Google Meet \vspace{10pt} \\
+\textbf{Orario} & 16:30 - 17:00 \vspace{10pt} \\
+\textbf{Redattore} & E. Hysa \vspace{10pt} \\
+\textbf{Verificatore} & A. Barutta \vspace{10pt} \\
+\textbf{Amministratore} & E. Hysa \vspace{10pt} \\
+\textbf{Destinatari} & T. Vardanega \\ & R. Cardin \vspace{10pt} \\
+\multirow[t]{7}{*}{\textbf{Partecipanti interni}} & A. Barutta \\ & E. Hysa \\ & R. Smanio \\ & D. Diotto \\ & F. Pozza \\ & L. Skenderi \\ & N. Preto \vspace{10pt} \\
+\multirow[t]{3}{*}{\textbf{Partecipanti esterni}} & A. Dorigo \\ & D. Zorzi \\ & F. Pallaro \\ 
+\end{tabular}
+\pagebreak 
+
+% ------------------------- Changelog ----------------------------
+
+\section*{Registro delle modifiche}
+
+\begin{tabular}{|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|}
+    \hline
+    \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Dettaglio} \\
+    \hline \hline
+    0.0.1 & 08/03/2024 & E. Hysa & A. Barutta & Redazione documento \\
+    \hline
+\end{tabular}
+\pagebreak
+
+% ------------------------- Generazione automatica indice ----------------------
+\setstretch{1.5}
+\maketitle
+\thispagestyle{fancy}
+\tableofcontents
+\setstretch{1.2}
+\pagebreak
+
+% ------------------------ INIZIO DOCUMENTO ----------------------
+\flushleft
+
+\section{Revisione del periodo precedente}
+Durante la fase iniziale del meeting, il team ha illustrato all'azienda proponente i test di unità e di integrazione realizzati nel periodo precedente. \\
+In merito a ciò, la proponente ha espresso completa soddisfazione per il lavoro svolto, apprezzando la qualità e l'efficacia delle attività di test condotte dal team.
+
+\section{Ordine del giorno}
+    \subsection{Attendibilità test di performance}
+        Durante la riunione, è emerso un dubbio riguardante l'attendibilità dei test di performance da sviluppare. Tale dubbio è sorto poiché, durante la revisione RTB, il professor R. Cardin ha evidenziato che i dati di alcuni test di performance rilevati non erano attendibili, in quanto tali test erano stati eseguiti in locale e non in un ambiente distribuito. \\
+        Data l'impossibilità del team di replicare un ambiente distribuito, la proponente ha proposto di specificare che i test non considerino le latenze causate dalla connessione. Tali latenze possono dipendere da diversi fattori, come la regione, la velocità e la stabilità dell'ambiente cloud, oltre alla distanza delle macchine on-premise. In alternativa, si consiglia di discutere la questione con il professor R. Cardin.
+
+    \subsection{Ottimizzazione spazio tramite aggregazione dei dati}
+        Si è discusso sulla possibilità di implementare una funzionalità volta a ottimizzare lo spazio di memorizzazione nel database. Tale funzionalità prevede che, dopo un periodo di tempo configurabile (impostato a 1 mese), non tutti i dati vengano più conservati integralmente nel database. Piuttosto, viene salvato un dato aggregato per ogni ora. Questo approccio permette di ridurre lo spazio di memorizzazione utilizzato, poiché anziché conservare tutti i dati in una tabella, vengono memorizzate aggregazioni dei dati, garantendo al contempo la capacità di analizzare misurazioni anche molto datate. \\
+        In seguito a tale discussione, la proponente ha approvato la scelta di implementare questa funzionalità.
+
+    \subsection{Ottimizzazione trasmissione misurazioni}
+        Durante la discussione è stata sollevata l'idea di fare in modo che i simulatori dei sensori trasmettano esclusivamente i cambiamenti di stato. In merito a ciò, la proponente ha spiegato che nei sensori reali non simulati è presente un controllore interno che verifica se il dato da trasmettere coincide con quello precedentemente trasmesso. In caso di identità tra i dati, il sensore non invia nuovamente l'informazione al fine di ottimizzare l'utilizzo della memoria del database e trasmettere solo i cambiamenti di stato. \\
+        La proponente ha mostrato pieno supporto a questa funzionalità e alla sua implementazione in modo tale da simulare un ambiente il più realistico possibile.
+
+\section{Attività da svolgere}
+    \begin{itemize}
+        \item Implementare test di performance;
+        \item Continuare con lo sviluppo dei test di unità e di integrazione;
+        \item Completare l'implementazione della funzionalità di trasmissione dei dati dai sensori solo al verificarsi di un cambiamento di stato (e.g. se il sensore di temperatura registra un valore identico al precedente, il dato non viene inviato a Kafka; viceversa, se la misurazione è diversa dalla precedente, il dato viene trasmesso);
+        \item Terminare implementazione di aggregazione dati (in caso di misurazioni non recenti) per ottimizzazione spazio database.
+\end{itemize}
+% ------------------------ Firma Azienda ----------------------
+\begin{textblock*}{\textwidth}(0.22\textwidth, 1.08\textheight)
+    Luogo e Data: Padova, 08/03/2024
+\end{textblock*}
+
+\begin{textblock*}{\textwidth}(0.90\textwidth, 1.08\textheight)
+        Firma referente Sync Lab:
+\end{textblock*}
+% -------------------------------------------------------------
+\end{document}
