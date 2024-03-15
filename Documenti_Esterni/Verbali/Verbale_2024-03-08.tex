@@ -142,7 +142,7 @@ In merito a ciò, la proponente ha espresso completa soddisfazione per il lavoro
         Si è discusso sulla possibilità di implementare una funzionalità volta a ottimizzare lo spazio di memorizzazione nel database. Tale funzionalità prevede che, dopo un periodo di tempo configurabile (impostato a 1 mese), non tutti i dati vengano più conservati integralmente nel database. Piuttosto, viene salvato un dato aggregato per ogni ora. Questo approccio permette di ridurre lo spazio di memorizzazione utilizzato, poiché anziché conservare tutti i dati in una tabella, vengono memorizzate aggregazioni dei dati, garantendo al contempo la capacità di analizzare misurazioni anche molto datate. \\
         In seguito a tale discussione, la proponente ha approvato la scelta di implementare questa funzionalità.
 
-    \subsection{Trasmissione dei cambiamenti di stato}
+    \subsection{Ottimizzazione trasmissione misurazioni}
         Durante la discussione è stata sollevata l'idea di fare in modo che i simulatori dei sensori trasmettano esclusivamente i cambiamenti di stato. In merito a ciò, la proponente ha spiegato che nei sensori reali non simulati è presente un controllore interno che verifica se il dato da trasmettere coincide con quello precedentemente trasmesso. In caso di identità tra i dati, il sensore non invia nuovamente l'informazione al fine di ottimizzare l'utilizzo della memoria del database e trasmettere solo i cambiamenti di stato. \\
         La proponente ha mostrato pieno supporto a questa funzionalità e alla sua implementazione in modo tale da simulare un ambiente il più realistico possibile.
 
