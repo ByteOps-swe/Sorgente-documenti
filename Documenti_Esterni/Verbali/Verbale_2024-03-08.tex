@@ -24,7 +24,7 @@
 % ------------------------------Metadati indice --------------------------------
 \title{\textbf{\fontsize{28}{6}\selectfont Indice}}
 \author{\fontsize{14}{6}\selectfont ByteOps}
-\date{Marzo 1, 2024}
+\date{Marzo 8, 2024}
 
 
 % -----------------------------Creazione footer --------------------------------
@@ -44,7 +44,7 @@
     colorlinks=true,
     linkcolor=black,
     filecolor=black,      
-    pdftitle={Verbale Esterno 01/03/2024},  %inserisci data verbale
+    pdftitle={Verbale Esterno 08/03/2024},  %inserisci data verbale
     pdfpagemode=FullScreen,
 }
 
@@ -85,7 +85,7 @@
 \vspace{0.2cm}
 \textcolor[RGB]{60, 60, 60}{\textit{ByteOps.swe@gmail.com}} \\
 \vspace{1cm}
-\fontsize{16}{6}\selectfont Verbale Esterno $\cdot$ Data: 01/03/2024 \\
+\fontsize{16}{6}\selectfont Verbale Esterno $\cdot$ Data: 08/03/2024 \\
 \vspace{0.5cm}
 \end{center}
 
@@ -130,19 +130,28 @@
 \flushleft
 
 \section{Revisione del periodo precedente}
-Nella fase iniziale del meeting, all’azienda proponente sono stati illustrati i test svolti e l’ambiente di test in cui sono stati condotti. L’azienda ha manifestato soddisfazione per il lavoro svolto.
-\section{Ordine del giorno}
-    \subsection{Quesiti sui test di performance}
-        Durante la riunione, è emerso un dubbio riguardante i test di performance da sviluppare. Tale dubbio è sorto poiché, durante la revisione RTB, il professor R. Cardin ha evidenziato che i dati di alcuni test di performance rilevati non erano attendibili, in quanto tali test erano stati eseguiti in locale e non in un ambiente distribuito. La proponente ha suggerito di considerare nei test l’assunzione che non tengano conto delle latenze dovute alla connessione (le quali dipendono da vari fattori, come la regione, la velocità e la stabilità dell’ambiente cloud, nonché la distanza delle macchine on-premise). In alternativa, si consiglia di discutere la questione con il professor R. Cardin.
-    \subsection{Aggregazione dei dati}
-        Viene presentata una funzionalità che, dopo un periodo di tempo configurabile (impostato a 1 mese), non conserva più tutti i dati, ma invece salva un dato per ogni ora. Invece di memorizzare tutti i dati in una tabella, viene effettuata un’aggregazione dei dati. La proponente ha approvato questa funzionalità e la sua implementazione.
-    \subsection{Simulatori}
-        Viene presentata una funzionalità inserita all’interno dei sensori. All’interno di questi sensori, è presente un controllore che verifica se il dato generato è identico al dato inviato precedentemente. Nel caso in cui il dato sia identico, non viene trasmesso, al fine di ottimizzare l’utilizzo della memoria del database e inviare solo i cambiamenti di stato del sensore. La proponente ha approvato questa funzionalità e la sua implementazione.
+Durante la fase iniziale del meeting, il team ha illustrato all'azienda proponente i test di unità e di integrazione realizzati nel periodo precedente. \\
+In merito a cià, la proponente ha espresso completa soddisfazione per il lavoro svolto, apprezzando la qualità e l'efficacia delle attività di test condotte dal team.
 
-\section{Attività da svolgere}
+\section{Ordine del giorno}
+    \subsection{Attendibilità test di performance}
+        Durante la riunione, è emerso un dubbio riguardante l'attendibilità dei test di performance da sviluppare. Tale dubbio è sorto poiché, durante la revisione RTB, il professor R. Cardin ha evidenziato che i dati di alcuni test di performance rilevati non erano attendibili, in quanto tali test erano stati eseguiti in locale e non in un ambiente distribuito. \\
+        Data l'impossibilità del team di replicare un ambiente distribuito, la proponente ha proposto di specificare che i test non considerino le latenze causate dalla connessione. Tali latenze possono dipendere da diversi fattori, come la regione, la velocità e la stabilità dell'ambiente cloud, oltre alla distanza delle macchine on-premise. In alternativa, si consiglia di discutere la questione con il professor R. Cardin.
+
+    \subsection{Ottimizzazione spazio tramite aggregazione dei dati}
+        Si è discusso sulla possibilità di implementare una funzionalità volta a ottimizzare lo spazio di memorizzazione nel database. Tale funzionalità prevede che, dopo un periodo di tempo configurabile (impostato a 1 mese), non tutti i dati vengano più conservati integralmente nel database. Piuttosto, viene salvato un dato aggregato per ogni ora. Questo approccio permette di ridurre lo spazio di memorizzazione utilizzato, poiché anziché conservare tutti i dati in una tabella, vengono memorizzate aggregazioni dei dati, garantendo al contempo la capacità di analizzare misurazioni anche molto datate. \\
+        In seguito a tale discussione, la proponente ha approvato la scelta di implementare questa funzionalità.
+
+    \subsection{Trasmissione dei cambiamenti di stato}
+        Durante la discussione è stata sollevata l'idea di fare in modo che i simulatori dei sensori trasmettano esclusivamente i cambiamenti di stato. In merito a ciò, la proponente ha spiegato che nei sensori reali non simulati è presente un controllore interno che verifica se il dato da trasmettere coincide con quello precedentemente trasmesso. In caso di identità tra i dati, il sensore non invia nuovamente l'informazione al fine di ottimizzare l'utilizzo della memoria del database e trasmettere solo i cambiamenti di stato. \\
+        La proponente ha mostrato pieno supporto a questa funzionalità e alla sua implementazione in modo tale da simulare un ambiente il più realistico possibile.
+
+        
+
+\section{Attività da svolgere} \todo{da aggiungere le cose relative ai sensori e al database discusse nelle sez. 2.2 e 2.3?}
     \begin{itemize}
-        \item Implementare test di performance
-        \item Continuare con lo sviluppo dei test 
+        \item Implementare test di performance;
+        \item Continuare con lo sviluppo dei test di unità e di integrazione.
 \end{itemize}
 % ------------------------ Firma Azienda ----------------------
 \begin{textblock*}{\textwidth}(0.22\textwidth, 1.08\textheight)
