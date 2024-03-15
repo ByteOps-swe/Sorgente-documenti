@@ -130,28 +130,28 @@
 \flushleft
 
 \section{Revisione del periodo precedente}
-Durante la fase iniziale del meeting, il team ha illustrato all'azienda proponente i test di unità e di integrazione realizzati nel periodo precedente. \\
-In merito a ciò, la proponente ha espresso completa soddisfazione per il lavoro svolto, apprezzando la qualità e l'efficacia delle attività di test condotte dal team.
+Durante la fase iniziale del meeting, il team ha illustrato all'azienda \textit{proponente}\textsubscript{\textit{G}} i \textit{test}\textsubscript{\textit{G}} di unità e di \textit{integrazione}\textsubscript{\textit{G}} realizzati nel periodo precedente. \\
+In merito a ciò, la \textit{proponente}\textsubscript{\textit{G}} ha espresso completa soddisfazione per il lavoro svolto, apprezzando la qualità e l'efficacia delle \textit{attività}\textsubscript{\textit{G}} di \textit{test}\textsubscript{\textit{G}} condotte dal team.
 
 \section{Ordine del giorno}
     \subsection{Attendibilità test di performance}
-        Durante la riunione, è emerso un dubbio riguardante l'attendibilità dei test di performance da sviluppare. Tale dubbio è sorto poiché, durante la revisione RTB, il professor R. Cardin ha evidenziato che i dati di alcuni test di performance rilevati non erano attendibili, in quanto tali test erano stati eseguiti in locale e non in un ambiente distribuito. \\
-        Data l'impossibilità del team di replicare un ambiente distribuito, la proponente ha proposto di specificare che i test non considerino le latenze causate dalla connessione. Tali latenze possono dipendere da diversi fattori, come la regione, la velocità e la stabilità dell'ambiente cloud, oltre alla distanza delle macchine on-premise. In alternativa, si consiglia di discutere la questione con il professor R. Cardin.
+        Durante la riunione, è emerso un dubbio riguardante l'attendibilità dei \textit{test}\textsubscript{\textit{G}} di performance da sviluppare. Tale dubbio è sorto poiché, durante la revisione \textit{RTB}\textsubscript{\textit{G}}, il professor R. Cardin ha evidenziato che i dati di alcuni \textit{test}\textsubscript{\textit{G}} di performance rilevati non erano attendibili, in quanto tali \textit{test}\textsubscript{\textit{G}} erano stati eseguiti in locale e non in un ambiente distribuito. \\
+        Data l'impossibilità del team di replicare un ambiente distribuito, la \textit{proponente}\textsubscript{\textit{G}} ha proposto di specificare che i \textit{test}\textsubscript{\textit{G}} non considerino le latenze causate dalla connessione. Tali latenze possono dipendere da diversi fattori, come la regione, la velocità e la stabilità dell'ambiente cloud, oltre alla distanza delle macchine on-premise. In alternativa, si consiglia di discutere la questione con il professor R. Cardin.
 
     \subsection{Ottimizzazione spazio tramite aggregazione dei dati}
-        Si è discusso sulla possibilità di implementare una funzionalità volta a ottimizzare lo spazio di memorizzazione nel database. Tale funzionalità prevede che, dopo un periodo di tempo configurabile (impostato a 1 mese), non tutti i dati vengano più conservati integralmente nel database. Piuttosto, viene salvato un dato aggregato per ogni ora. Questo approccio permette di ridurre lo spazio di memorizzazione utilizzato, poiché anziché conservare tutti i dati in una tabella, vengono memorizzate aggregazioni dei dati, garantendo al contempo la capacità di analizzare misurazioni anche molto datate. \\
-        In seguito a tale discussione, la proponente ha approvato la scelta di implementare questa funzionalità.
+        Si è discusso sulla possibilità di implementare una funzionalità volta a ottimizzare lo spazio di memorizzazione nel \textit{database}\textsubscript{\textit{G}}. Tale funzionalità prevede che, dopo un periodo di tempo configurabile (impostato a 1 mese), non tutti i dati vengano più conservati integralmente nel \textit{database}\textsubscript{\textit{G}}. Piuttosto, viene salvato un dato aggregato per ogni ora. Questo approccio permette di ridurre lo spazio di memorizzazione utilizzato, poiché anziché conservare tutti i dati in una tabella, vengono memorizzate aggregazioni dei dati, garantendo al contempo la capacità di analizzare misurazioni anche molto datate. \\
+        In seguito a tale discussione, la \textit{proponente}\textsubscript{\textit{G}} ha approvato la scelta di implementare questa funzionalità.
 
     \subsection{Ottimizzazione trasmissione misurazioni}
-        Durante la discussione è stata sollevata l'idea di fare in modo che i simulatori dei sensori trasmettano esclusivamente i cambiamenti di stato. In merito a ciò, la proponente ha spiegato che nei sensori reali non simulati è presente un controllore interno che verifica se il dato da trasmettere coincide con quello precedentemente trasmesso. In caso di identità tra i dati, il sensore non invia nuovamente l'informazione al fine di ottimizzare l'utilizzo della memoria del database e trasmettere solo i cambiamenti di stato. \\
-        La proponente ha mostrato pieno supporto a questa funzionalità e alla sua implementazione in modo tale da simulare un ambiente il più realistico possibile.
+        Durante la discussione è stata sollevata l'idea di fare in modo che i simulatori dei sensori trasmettano esclusivamente i cambiamenti di stato. In merito a ciò, la \textit{proponente}\textsubscript{\textit{G}} ha spiegato che nei sensori reali non simulati è presente un controllore interno che verifica se il dato da trasmettere coincide con quello precedentemente trasmesso. In caso di identità tra i dati, il \textit{sensore}\textsubscript{\textit{G}} non invia nuovamente l'informazione al fine di ottimizzare l'utilizzo della memoria del \textit{database}\textsubscript{\textit{G}} e trasmettere solo i cambiamenti di stato. \\
+        La \textit{proponente}\textsubscript{\textit{G}} ha mostrato pieno supporto a questa funzionalità e alla sua implementazione in modo tale da simulare un ambiente il più realistico possibile.
 
 \section{Attività da svolgere}
     \begin{itemize}
-        \item Implementare test di performance;
-        \item Continuare con lo sviluppo dei test di unità e di integrazione;
-        \item Completare l'implementazione della funzionalità di trasmissione dei dati dai sensori solo al verificarsi di un cambiamento di stato (e.g. se il sensore di temperatura registra un valore identico al precedente, il dato non viene inviato a Kafka; viceversa, se la misurazione è diversa dalla precedente, il dato viene trasmesso);
-        \item Terminare implementazione di aggregazione dati (in caso di misurazioni non recenti) per ottimizzazione spazio database.
+        \item Implementare \textit{test}\textsubscript{\textit{G}} di performance;
+        \item Continuare con lo sviluppo dei \textit{test}\textsubscript{\textit{G}} di unità e di \textit{integrazione}\textsubscript{\textit{G}};
+        \item Completare l'implementazione della funzionalità di trasmissione dei dati dai sensori solo al verificarsi di un cambiamento di stato (e.g. se il \textit{sensore}\textsubscript{\textit{G}} di temperatura registra un valore identico al precedente, il dato non viene inviato a \textit{Kafka}\textsubscript{\textit{G}}; viceversa, se la misurazione è diversa dalla precedente, il dato viene trasmesso);
+        \item Terminare implementazione di aggregazione dati (in caso di misurazioni non recenti) per ottimizzazione spazio \textit{database}\textsubscript{\textit{G}}.
 \end{itemize}
 % ------------------------ Firma Azienda ----------------------
 \begin{textblock*}{\textwidth}(0.22\textwidth, 1.08\textheight)
