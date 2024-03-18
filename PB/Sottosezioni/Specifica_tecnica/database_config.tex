@@ -70,6 +70,65 @@ Le proiezioni memorizzano i dati in un formato che ottimizza l'esecuzione delle 
 \end{itemize}
 
 Puoi definire una o più proiezioni per una tabella e durante l'analisi della \textit{Query} la proiezione con meno dati da esaminare sarà selezionata da ClickHouse senza modificare la \textit{Query} fornita dall'utente.
+\\
+In generale l'introduzione delle PROJECTIONS produce risultati di notevole importanza, come illustrato di seguito. Consideriamo una tipica query eseguita per l'analisi tramite Grafana:
+    
+    \begin{lstlisting}[caption={Query tipica - Grafana}, captionpos=b]
+      SELECT ID_sensore, avgMerge(value) AS value, timestamp
+      FROM innovacity.temperatures
+      WHERE (cella IN ('Arcella')) AND ((timestamp >= toDateTime64(1708338633507 / 1000, 3)) AND (timestamp <= toDateTime64(1708338933507 / 1000, 3) + INTERVAL 1 DAY))
+      GROUP BY timestamp, ID_sensore
+      HAVING (value >= -100) AND (value <= 100)
+
+      --Query id: 48635435-9b35-4727-b580-9e33a9db92d4
+    \end{lstlisting}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/ProjectionQuery.jpg}
+        \caption{Query tipica - Grafana}
+        \label{fig:ProjectionsQuery}
+      \end{figure}
+      Senza l'utilizzo delle PROJECTIONS, il risultato ottenuto è il seguente:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.9\textwidth]{../Images/SpecificaTecnica/SenzaProectionResult.jpg}
+        \caption{Query tipica risultato senza projections}
+        \label{fig:ProjectionsQueryWthout}
+      \end{figure}
+      ovvero sono state processate per ottenere il risultato della query \textbf{16,38} migliaia di righe. Invece in seguito all’aggiunta delle PROJECTIONS:
+
+      \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.9\textwidth]{../Images/SpecificaTecnica/ConProjectionRisultato.jpg}
+        \caption{Query tipica risultato con projections}
+        \label{fig:ProjectionsQueryWith}
+      \end{figure}   
+  Sono state elaborate approssimativamente 8,19 migliaia di righe per ottenere il risultato della query, circa la metà rispetto al conteggio precedente, evidenziando un miglioramento significativo. Inoltre, mediante un'interrogazione specifica è possibile confermare che le PROJECTIONS sono state effettivamente impiegate per generare il risultato della query in questione.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/ProjectionUsedByClickHouse.jpg}
+    \caption{Uso della Projection}
+    \label{fig:ProjectionsUsed}
+\end{figure}
+
+Considerando un'altra query eseguita dall'applicativo, che calcola la media globale di \textbf{170.000} misurazioni di temperatura, è possibile riconoscere i benefici derivanti dall'utilizzo delle PROJECTIONS. Alla conclusione dell'analisi, è evidente anche il loro effettivo impiego nel calcolo del risultato. Grazie all'adozione delle PROJECTIONS, si ottiene:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/query2ProjectionsWith.jpg}
+    \caption{Query esempio Projection 2 - ClickHouse}
+    \label{fig:with2proj}
+  \end{figure}
+Ovvero il totale di righe processate per ottenere il risultato è di \textbf{49,95 migliaia} con \textbf{0,07 secondi} di tempo utilizzati.
+Si puo notare invece la differenza delle righe processate una volta rimossa la \textit{PROJECTIONS}:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/query2ProjectionsWithout.jpg}
+    \caption{Query esempio senza Projection 2 - ClickHouse}
+    \label{fig:without2proj}
+  \end{figure}
+
+ Il totale di righe processate per ottenere il risultato è ora di \textbf{170,09 migliaia}, ovvero la totalità delle righe presenti nella tabella, con \textbf{0,09 secondi} di tempo utilizzati.
 
 \paragraph*{Utilizzo dello spazio su disco}
 \textbf{Attenzione:} le proiezioni creeranno internamente una nuova tabella nascosta, ciò significa che saranno necessari più I/O e spazio su disco. Ad esempio, se la proiezione ha definito una chiave primaria diversa, tutti i dati dalla tabella originale verranno duplicati.
@@ -89,7 +148,7 @@ Kafka Engine è progettato per il recupero di dati una sola volta. Ciò signific
   \label{fig:sensorKafka}
 \end{figure}
 
-\subsubsection{Trasferimento dati tramite Materialized View}
+\subsubsection{Trasferimento dati tramite Materialized View} \label{sec:materializedView}
 Una materialized view funge da ponte tra la fonte dei dati (Kafka Engine) e la destinazione dei dati (MergeTree). Quando nuovi dati vengono scritti nella tabella Kafka Engine, la materialized view viene attivata automaticamente.\\
 La materialized view esegue una query sulla tabella Kafka Engine per selezionare i dati più recenti. Una volta selezionati, questi dati vengono inseriti nella tabella di destinazione (ad esempio, una tabella MergeTree). Questo processo avviene in modo automatico e immediato, senza bisogno di intervento manuale.\\
 In pratica, la materialized view si assicura che la tabella di destinazione sia sempre aggiornata con i dati più recenti presenti nella tabella Kafka Engine. Questo offre numerosi vantaggi:
@@ -139,34 +198,20 @@ Nello specifico per ogni sensore si avrà la seguente tabella Clickhouse:
     \end{itemize}
 
     
-\subsubsection{Misurazioni temperatura} \label{sec:tab_temperatures}
-Di seguito viene fornita la configurazione riguardante il salvataggio delle misurazioni di temperatura:
-\paragraph{Tabella: temperatures\_kafka}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/temperatures_kafka.PNG}
-    \caption{Tabella temperatures\_kafka - ClickHouse}
-    \label{fig:temperaturesKafka}
-  \end{figure}
-
-Il dato della misurazione è di tipo Float32, l'equivalente di float nel linguaggio \textit{C}.
-Il topic kafka per ottenere i dati è: \textit{temperature}.
-
-Considerando la possibilità di ricevere molteplici misurazioni dei dati di temperatura all'interno di un singolo secondo di tempo, si procede alla creazione della seguente tabella e alla materialized view correlata, il cui obiettivo è aggregare le misurazioni di temperatura per ridurle ad una singola misurazione per secondo.
-
-\paragraph{Tabella: temperatures}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/temperatures.PNG}
-    \caption{Tabella temperatures - ClickHouse}
-    \label{fig:temperatures}
-  \end{figure}
-
-   
+    \subsubsection{Misurazioni temperatura} \label{sec:tab_temperatures}
+    Di seguito viene presentata una configurazione dettagliata per l'archiviazione delle misurazioni di temperatura. Tale configurazione si applica alla tabella 'temperatures\_kafka', progettata per acquisire dati da un topic Kafka. La tabella è strutturata per includere l'ID del sensore (String), la posizione della cella (String), il valore della temperatura misurato (Float32), il timestamp della misurazione (DATETIME64), la latitudine (Float64) e la longitudine (Float64) del sensore. Ogni campo è definito con un tipo di dato specifico al fine di garantire la precisione e l'integrità dei dati.
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/temperatures.png}
+        \caption{Tabella temperatures\_kafka e temperatures}
+        \label{fig:temperatures}
+      \end{figure}
+    
+    La tabella 'temperatures\_kafka' è essenziale nel contesto dell'architettura dei dati, poiché funge da tramite tra un topic Kafka e il sistema di gestione dei dati ClickHouse. Questa tabella agisce come un'interfaccia di origine, trasformando i flussi di dati provenienti dal topic Kafka in un formato comprensibile per ClickHouse. Successivamente, una Materialized View, in questo caso 'mv\_temperatures', opera su questa tabella per trasferire i dati ottenuti verso la tabella di destinazione 'temperatures' come spiegato in \ref{sec:materializedView}.
     
     \paragraph{Projections per misurazioni di temperatura} \label{sec:temp_projections}
-    Durante la fase di progettazione, è stata posta particolare attenzione all'utilizzo delle tabelle appena descritte e alle richieste che verranno formulate su di esse. È emerso, considerando il requisito di suddividere la città in una serie di celle e specificare la cella di origine della misurazione,che la filtrazione delle misurazioni per celle diventerà una richiesta effettuata con frequenza al database.
-    Si è giunti quindi all'utilizzo delle \textit{PROJECTIONS}, descritte nella sezione \ref{sec:projections}.
+    Durante la fase di progettazione, è stata dedicata particolare attenzione all'utilizzo delle tabelle precedentemente descritte e alle richieste che verranno formulate su di esse. È emerso che, considerando il requisito di suddividere la città in una serie di celle e specificare la cella di origine della misurazione, la filtrazione delle misurazioni per celle diventerà una richiesta frequente al database. Di conseguenza, si è optato per l'utilizzo delle PROJECTIONS, le quali sono dettagliatamente descritte nella sezione \ref{sec:projections}.
     \vspace{0,3cm}
     \begin{lstlisting}[caption={Esempio di proiezione e materializzazione in una tabella}, captionpos=b]
       --Projection per tabella temperatures
@@ -174,98 +219,21 @@ Considerando la possibilità di ricevere molteplici misurazioni dei dati di temp
       ALTER TABLE innovacity.temperatures MATERIALIZE PROJECTION tmp_sensor_cell_projection;
   \end{lstlisting}
     \vspace{0,3cm}
-    La proiezione ci permetterà di filtrare per \textit{cella} e \textit{timestamp} rapidamente, anche se nella tabella originale queste non sOno definite come \textit{PRIMARY\_KEY}.
-
-
-    \paragraph{Analisi benefici delle Projections}\label{sec:temp_projections_benefici}
-    L'aggiunta delle \textit{PROJECTIONS} ha portato risultati di estremo rilievo di seguito esposti.
-    Prendendo una \textit{Query} tipo svolta per l'analisi da \textit{Grafana}:
-    
-    \begin{lstlisting}[caption={Query tipica - Grafana}, captionpos=b]
-      SELECT ID_sensore, avgMerge(value) AS value, timestamp
-      FROM innovacity.temperatures
-      WHERE (cella IN ('Arcella')) AND ((timestamp >= toDateTime64(1708338633507 / 1000, 3)) AND (timestamp <= toDateTime64(1708338933507 / 1000, 3) + INTERVAL 1 DAY))
-      GROUP BY timestamp, ID_sensore
-      HAVING (value >= -100) AND (value <= 100)
-
-      --Query id: 48635435-9b35-4727-b580-9e33a9db92d4
-    \end{lstlisting}
-
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/ProjectionQuery.jpg}
-        \caption{Query tipica - Grafana}
-        \label{fig:ProjectionsQuery}
-      \end{figure}
-    senza l'utilizzo delle \textit{PROJECTIONS} il risultato è:
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.9\textwidth]{../Images/SpecificaTecnica/SenzaProectionResult.jpg}
-        \caption{Query tipica risultato senza projections}
-        \label{fig:ProjectionsQueryWthout}
-      \end{figure}
-      ovvero sono state processate per ottenere il risultato della \textit{Query} \textbf{16,38 migliaia} di righe.
-
-      Invece in seguito all'aggiunta delle \textit{PROJECTIONS}:
-      \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.9\textwidth]{../Images/SpecificaTecnica/ConProjectionRisultato.jpg}
-        \caption{Query tipica risultato con projections}
-        \label{fig:ProjectionsQueryWith}
-      \end{figure}   
-  ovvero sono state processate per ottenere il risultato della \textit{Query} \textbf{8,19 migliaia} di righe, circa la metà rispetto al risultato precedente consentendoci di apprezzare il miglioramento.
-Inoltre tramite una \textit{Query} speciale è possibile visualizzare che la \textit{PROJECTIONS} è stata effettivamente utilizzata per ottenere il risultato della \textit{Query} in esame.
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/ProjectionUsedByClickHouse.jpg}
-    \caption{Uso della Projection}
-    \label{fig:ProjectionsUsed}
-\end{figure}
-
-Prendendo in esempio un altra \textit{Query} fatta dall'applicativo dove viene effettuata la media globale di \textbf{170 mila }misurazioni di temperatura si possono apprezzare i benifiici dell'utilizzo delle \textit{PROJECTIONS} e alla fine dell'immagine anche il suo effettivo utilizzo per il calcolo del risultato.
-Con l'utilizzo della \textit{PROJECTIONS} abbiamo:
-\paragraph{Tabella: humidity\_kafka}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/query2ProjectionsWith.jpg}
-    \caption{Query esempio Projection 2 - ClickHouse}
-    \label{fig:with2proj}
-  \end{figure}
-Ovvero il totale di righe processate per ottenere il risultato è di \textbf{49,95 migliaia} con \textbf{0,07 secondi} di tempo utilizzati.
-Si puo notare invece la differenza delle righe processate una volta rimossa la \textit{PROJECTIONS}:
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/query2ProjectionsWithout.jpg}
-    \caption{Query esempio senza Projection 2 - ClickHouse}
-    \label{fig:without2proj}
-  \end{figure}
-
- Il totale di righe processate per ottenere il risultato è ora di \textbf{170,09 migliaia}, ovvero la totalità delle righe presenti nella tabella, con \textbf{0,09 secondi} di tempo utilizzati.
+    La proiezione ci consentirà di effettuare rapidamente filtraggi basati sulle celle, anche se tale attributo non è definito come \textit{PRIMARY\_KEY} nella tabella originale.
 
 \subsubsection{Misurazioni umidità}
-Le considerazioni relative al salvataggio delle misurazioni di umidità coincidono con quelle espresse nella sezione \ref{sec:tab_temperatures} riguardo alle misurazioni di temperatura.
-\paragraph{Tabella: humidity\_kafka}
+Le considerazioni relative al salvataggio delle misurazioni di umidità coincidono con quelle espresse nella sezione \ref{sec:temp_projections} riguardo alle misurazioni di temperatura.
+In questa situazione, dove le misure riguardano l’umidità, la tabella di destinazione ClickHouse è nominata ‘humidity’:
+
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/temperatures.PNG}
-    \caption{Tabella humidity\_kafka - ClickHouse}
-    \label{fig:umidities_kafka}
-  \end{figure}
-Il dato della misurazione è di tipo Float32, l’equivalente di float nel linguaggio C. Il topic
-kafka per ottenere i dati è: \textbf{humidity}.
-\paragraph{Tabella: umidities}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/temperatures.PNG}
-    \caption{Tabella humidity - ClickHouse}
+    \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/humidity.png}
+    \caption{Tabella humidity\_kafka e humidity}
     \label{fig:umidities}
   \end{figure}
 
 \paragraph{Projections per misurazioni di umidità} 
-Date le stesse considerazioni fatte nella sezione: \ref{sec:temp_projections} anche per le misurazioni di umidità si è deciso di adottare le \textit{PROJECTION}.
-I risultati dei benifiici perfettamente riconducibili a quelli per le misurazioni di temperatura alla sezione: \ref{sec:temp_projections_benefici}.
-
-Di seguito vengono fornite le configurazioni delle proiezioni sulle tabelle delle misurazioni di umidità:
+Dopo aver considerato le stesse argomentazioni presentate nella sezione \ref{sec:tab_temperatures} riguardanti le misurazioni di temperatura, abbiamo deciso di estendere l'utilizzo delle PROJECTION anche alle misurazioni di umidità. I vantaggi ottenuti risultano essere simili a quelli evidenziati per le misurazioni di temperatura, come descritto nella stessa sezione. A seguire, vengono illustrate le configurazioni delle PROJECTION relative alle tabelle delle misurazioni di umidità:
 
 \begin{lstlisting}
     --Projection per tabella humidity
@@ -274,6 +242,96 @@ Di seguito vengono fornite le configurazioni delle proiezioni sulle tabelle dell
 \end{lstlisting}
 
 
-\subsubsection{Misurazioni polveri sottili}Le considerazioni relative al salvataggio delle misurazioni di polveri sottili coincidono con quelle espresse nella sezione \ref{sec:tab_temperatures} riguardo alle misurazioni di temperatura.
+\subsubsection{Misurazioni di polveri sottili}Le considerazioni concernenti l'archiviazione delle misurazioni di polveri sottili corrispondono a quelle espresse nella sezione \ref{sec:temp_projections} in merito alle misurazioni di temperatura.
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/dust_PM10.png}
+    \caption{Tabella dustPM10\_kafka e dustPM10}
+    \label{fig:umidities}
+  \end{figure}
 
+\paragraph{Projections per misurazioni di polveri sottili} 
+Dopo aver considerato le stesse argomentazioni presentate nella sezione \ref{sec:tab_temperatures} riguardanti le misurazioni di temperatura, abbiamo deciso di estendere l'utilizzo delle PROJECTION anche alle misurazioni di polveri sottili. I vantaggi ottenuti risultano essere simili a quelli evidenziati per le misurazioni di temperatura, come descritto nella stessa sezione. A seguire, vengono illustrate le configurazioni delle PROJECTION relative alle tabelle delle misurazioni di polveri sottili:
+
+\begin{lstlisting}
+  --Projection per tabella dust_PM10
+  ALTER TABLE innovacity.dust_PM10 ADD PROJECTION dust_sensor_cell_projection (SELECT * ORDER BY cella);
+  ALTER TABLE innovacity.dust_PM10 MATERIALIZE PROJECTION dust_sensor_cell_projection;
+\end{lstlisting}
+
+\subsubsection{Misurazioni guasti elettrici} \label{sec:tab_guasti}
+Segue una dettagliata configurazione per l'archiviazione delle misurazioni relative ai guasti elettrici, applicabile alla tabella 'electricalFault\_kafka' progettata per acquisire dati dal topic Kafka. La struttura della tabella include l'ID del sensore (String), la posizione della cella (String), il valore misurato (UInt8), il timestamp della misurazione (DATETIME64), la latitudine (Float64) e la longitudine (Float64) del sensore, ciascuno definito con un tipo di dato specifico per garantire la precisione e l'integrità dei dati.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/electricalFault.png}
+    \caption{Tabella electricalFault\_kafka e electricalFault}
+    \label{fig:umidities}
+  \end{figure}
+
+Le considerazioni concernenti l'archiviazione delle misurazioni di guasti elettrici corrispondono a quelle espresse nella sezione \ref{sec:temp_projections} in merito alle misurazioni di temperatura.
+
+\paragraph{Projections per misurazioni di guasti elettrici} 
+Dopo aver considerato le stesse argomentazioni presentate nella sezione \ref{sec:tab_temperatures} riguardanti le misurazioni di temperatura, abbiamo deciso di estendere l'utilizzo delle PROJECTION anche alle misurazioni di guasti elettrici. I vantaggi ottenuti risultano essere simili a quelli evidenziati per le misurazioni di temperatura, come descritto nella stessa sezione. A seguire, vengono illustrate le configurazioni delle PROJECTION relative alle tabelle delle misurazioni di guasti elettrici:
+
+\begin{lstlisting}
+  --Projection per tabella electricalFault
+  ALTER TABLE innovacity.electricalFault ADD PROJECTION elctF_sensor_cell_projection (SELECT * ORDER BY cella);
+  ALTER TABLE innovacity.electricalFault MATERIALIZE PROJECTION elctF_sensor_cell_projection;
+\end{lstlisting}
+
+\subsubsection{Misurazioni stazioni di ricarica} Le considerazioni concernenti l'archiviazione delle misurazioni delle stazioni di ricarica corrispondono a quelle espresse nella sezione \ref{sec:tab_guasti} in merito alle misurazioni guasti elettrici.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/chargingStations.png}
+    \caption{Tabella chargingStation\_kafka e chargingStation}
+    \label{fig:umidities}
+  \end{figure}
+
+\paragraph{Projections per misurazioni delle stazioni di ricarica}
+Dopo aver considerato le stesse argomentazioni presentate nella sezione \ref{sec:tab_temperatures} riguardanti le misurazioni di temperatura, abbiamo deciso di estendere l'utilizzo delle PROJECTION anche alle misurazioni delle stazioni di ricarica. I vantaggi ottenuti risultano essere simili a quelli evidenziati per le misurazioni di temperatura, come descritto nella stessa sezione. A seguire, vengono illustrate le configurazioni delle PROJECTION relative alle tabelle delle misurazioni delle stazioni di ricarica:
+
+\begin{lstlisting}
+  --Projection per tabella chargingStations
+  ALTER TABLE innovacity.chargingStations ADD PROJECTION chS_sensor_cell_projection (SELECT * ORDER BY cella);
+  ALTER TABLE innovacity.chargingStations MATERIALIZE PROJECTION chS_sensor_cell_projection;
+\end{lstlisting}
+
+\subsubsection{Misurazioni isole ecologiche}
+Le considerazioni concernenti l'archiviazione delle misurazioni delle isole ecologiche corrispondono a quelle espresse nella sezione \ref{sec:tab_temperatures} in merito alle misurazioni di temperatura.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/ecoIslands.png}
+  \caption{Tabella ecoIslands\_kafka e ecoIslands}
+  \label{fig:umidities}
+\end{figure}
+
+\paragraph{Projections per misurazioni delle isole ecologiche} 
+Dopo aver considerato le stesse argomentazioni presentate nella sezione \ref{sec:tab_temperatures} riguardanti le misurazioni di temperatura, abbiamo deciso di estendere l'utilizzo delle PROJECTION anche alle misurazioni delle isole ecologiche. I vantaggi ottenuti risultano essere simili a quelli evidenziati per le misurazioni di temperatura, come descritto nella stessa sezione. A seguire, vengono illustrate le configurazioni delle PROJECTION relative alle tabelle delle misurazioni delle isole ecologiche:
+
+\begin{lstlisting}
+  --Projection per tabella ecoIslands
+  ALTER TABLE innovacity.ecoIslands ADD PROJECTION umd_sensor_cell_projection (SELECT * ORDER BY cella);
+  ALTER TABLE innovacity.ecoIslands MATERIALIZE PROJECTION umd_sensor_cell_projection;
+\end{lstlisting}
+
+\subsubsection{Misurazioni sensori livello dell’acqua}
+Le considerazioni concernenti l'archiviazione delle misurazioni dei sensori di livello dell'acqua corrispondono a quelle espresse nella sezione \ref{sec:tab_guasti} in merito alle misurazioni guasti elettrici.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/waterPresence.png}
+  \caption{Tabella waterPresence\_kafka e waterPresence}
+  \label{fig:umidities}
+\end{figure}
+
+\paragraph{Projections per misurazioni del livello dell'acqua} 
+Dopo aver considerato le stesse argomentazioni presentate nella sezione \ref{sec:tab_temperatures} riguardanti le misurazioni di temperatura, abbiamo deciso di estendere l'utilizzo delle PROJECTION anche alle misurazioni del livello d'acqua. I vantaggi ottenuti risultano essere simili a quelli evidenziati per le misurazioni di temperatura, come descritto nella stessa sezione. A seguire, vengono illustrate le configurazioni delle PROJECTION relative alle tabelle delle misurazioni del livello d'acqua:
+\begin{lstlisting}
+  --Projection per tabella waterPresence
+  ALTER TABLE innovacity.waterPresence ADD PROJECTION waPr_sensor_cell_projection (SELECT * ORDER BY cella);
+  ALTER TABLE innovacity.waterPresence MATERIALIZE PROJECTION waPr_sensor_cell_projection;
+\end{lstlisting}
