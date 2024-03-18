@@ -1,0 +1,32 @@
+\subsection{Comunicazione tra i componenti}
+Nel contesto di Docker, la comunicazione tra i container avviene tramite la rete Docker interna, che è una rete virtuale creata automaticamente da Docker per i servizi all'interno di uno stesso file Compose o di un ambiente Docker. Questa rete consente ai container di comunicare tra loro utilizzando i nomi dei servizi come hostnames.
+
+Quando un container viene avviato, Docker assegna un hostname basato sul nome del servizio definito nel file Compose. Ad esempio, nel file Compose fornito, il servizio Kafka ha il nome "kafka" e il servizio ClickHouse ha il nome "clickhouse". Questi nomi sono utilizzati all'interno dei container stessi per identificare gli altri servizi. Quando un container desidera comunicare con un altro container sulla stessa rete Docker, può semplicemente utilizzare il nome del servizio come hostname.
+
+Inoltre, Docker offre una funzionalità chiamata "Discovery", che consente ai container di scoprire automaticamente gli altri container sulla stessa rete Docker senza dover conoscere esplicitamente i loro indirizzi IP. Questo semplifica la configurazione e la gestione della comunicazione tra i container.
+
+È anche possibile specificare dipendenze tra i servizi utilizzando l'attributo "depends\_on" nel file Compose. Questo assicura che un servizio venga avviato solo dopo che i servizi di cui dipende sono stati avviati e sono nella condizione desiderata.
+
+Infine, per i servizi che espongono porte, come Kafka, ClickHouse e Grafana, è possibile mappare le porte del container su porte del sistema host utilizzando l'attributo "ports" nel file Compose. Questo consente ad altri componenti esterni al Docker network di comunicare con i container attraverso le porte esposte.
+
+Quando un container invia dati a un altro container tramite la rete Docker, i dati vengono incapsulati in pacchetti di rete utilizzando il protocollo TCP/IP. Questi pacchetti vengono quindi instradati attraverso la rete Docker, che si occupa di consegnarli al destinatario corretto.
+
+In sintesi, Docker fornisce un'infrastruttura di rete integrata che gestisce la comunicazione tra i container all'interno dello stesso ambiente di deployment, semplificando la configurazione e la gestione della comunicazione tra i diversi componenti del sistema.
+\begin{itemize}
+    \item \textbf{Comunicazione data feed Layer -> Streaming Layer}: Si utilizza libreria \textit{Confluent Kafka} per Python che offre un'API efficiente e flessibile per inviare dati dai simulatori dei sensori a specifici topic Kafka.
+    \item \textbf{Comunicazione Processing Layer -> Streaming Layer}: Si utilizza Faust come interfaccia di alto livello per la comunicazione con Kafka. Faust offre un'interfaccia intuitiva e ben documentata per consumare dati da topic con flussi di dati in tempo reale.
+    Ulteriori informazioni in: \ref{sec:faust}
+    \item \textbf{Comunicazione Storage Layer -> Streaming Layer}: Per ottenere in tempo reale i dati dai topic kafka viene utilizzato l'engine kafka di Clickhouse. Ulteriori informazioni in: \ref{sec:kafka_engine}
+    \item \textbf{Comunicazione Data Visualization Layer-> Storage Layer}: Grafana si connette a Clickhouse per ottenere i dati da visualizzare in tempo reale tramite lo specifico plugin ClickHouse che permette l'utilizzo di un database Clickhouse come \textit{data source}.
+    Il plugin nasconde alcuni dettagli di implementazione sottostanti, come la gestione della connessione,protocolli di comunicazione e l'esecuzione delle query. Ulteriori informazioni in: \ref{sec:click_plugin}
+\end{itemize}
+    
+\subsubsection{Dipendenze tra i servizi}
+\begin{itemize}
+    \item \textbf{Clickhouse -> kafka}: Il servizio ClickHouse dipende dal servizio Kafka. Questo assicura che il servizio ClickHouse venga avviato solo dopo che il servizio Kafka è stato avviato e è nella condizione desiderata.
+
+    \item \textbf{Simulators -> kafka}: Il servizio Simulators dipende dal servizio Kafka. Questo assicura che il servizio Simulators venga avviato solo dopo che il servizio Kafka è stato avviato e è nella condizione desiderata.
+    
+    \item \textbf{ Faust app -> kafka}: Il servizio Processor dipende dal servizio Kafka. Questo assicura che il servizio Processor venga avviato solo dopo che il servizio Kafka è stato avviato e è nella condizione desiderata.
+\end{itemize}
+

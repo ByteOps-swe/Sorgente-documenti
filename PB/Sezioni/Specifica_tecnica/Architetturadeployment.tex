@@ -1,0 +1,48 @@
+\section{Architettura di deployment}
+L'architettura di deployment, detta anche "architettura di rilascio", rappresenta la struttura e la configurazione di un sistema software in fase di esecuzione. Essa definisce come i componenti software, i dati e le risorse di rete sono distribuiti e interconnessi nell'ambiente di produzione.
+
+\subsection{Architettura a microservizi}
+La decisione di adottare un'architettura a microservizi è stata motivata dalla necessità di creare una struttura modulare e scalabile. L'applicazione è stata suddivisa in una suite di microservizi, ciascuno dei quali può essere sviluppato, modificato, deployato e scalato indipendentemente dagli altri. Docker rappresenta uno standard de facto per sistemi composti da microservizi, offrendo un ambiente uniforme e semplice da gestire.
+
+L'architettura a microservizi si rivela una scelta solida nell'ambito dell'IoT, poiché si prevede che le diverse parti del sistema evolveranno in maniera indipendente nel tempo e poiché la scalabilità e l'isolamento dei guasti sono un aspetto critico. Questa scelta garantisce maggiore flessibilità e prestazioni ottimizzate mediante un utilizzo accurato delle risorse disponibili.
+
+Infatti, nel contesto dell'architettura a microservizi, si presenta l'opportunità di assegnare risorse specifiche a ciascun servizio, il che permette loro di scalare in modo differenziato in base alle necessità. Questo è particolarmente vantaggioso in scenari in cui i servizi potrebbero essere sottoscritti a specifici topic e argomenti all'interno di un sistema di streaming come Kafka.
+
+L'allocazione di risorse individualizzate consente ai servizi di adattarsi dinamicamente alla loro attività e al volume di dati con cui devono interagire. Ad esempio, un servizio che riceve un alto flusso di dati da un particolare topic potrebbe richiedere una maggiore capacità di calcolo e di memorizzazione rispetto a un altro servizio che gestisce un carico meno intenso.
+
+Inoltre, questa flessibilità nell'allocazione delle risorse consente di ottimizzare l'efficienza complessiva del sistema, garantendo che le risorse siano allocate in modo proporzionale alla richiesta effettiva dei servizi. Ciò contribuisce a migliorare le prestazioni complessive del sistema e a garantire una gestione ottimale delle risorse disponibili.
+\subsection{Il container deployment}
+Docker è un software open source sviluppato in Go che facilita il deployment di sistemi software all'interno di container. Questi container contengono l'applicativo stesso e tutte le sue dipendenze, consentendo un'esecuzione flessibile in qualsiasi ambiente. Docker offre un'infrastruttura di deployment leggera e portatile, che consente di distribuire facilmente applicazioni in ambienti di sviluppo, test e produzione.
+
+Per implementare l'intero stack tecnologico e i layer di elaborazione dati in streaming, è stato configurato un ambiente Docker a microservizi che simula la divisione e la distribuzione dei layer e dei componenti. In particolare, sono stati creati container per:
+\begin{itemize}
+    \item \textbf{Data feed}:
+    \begin{itemize}
+        \item \textbf{Simulators}: Esegue i \textbf{simulatori di sensori} per la raccolta dei dati.
+        \item  Non espone porte all’esterno.
+    \end{itemize} 
+    \item \textbf{Streaming layer}:
+    \begin{itemize}
+        \item Esegue \textbf{Apache Kafka} per la gestione del flusso di dati in tempo reale.
+        \item Accessibile agli altri container tramite l'indirizzo \textit{\textbf{kafka:9092}}.
+        \item Permette l'invio e il recupero di messaggi attraverso librerie e framework appositi.
+    \end{itemize} 
+    \item \textbf{Processing layer}:
+    \begin{itemize}
+        \item Esegue l'app \textbf{Faust} per il processing e il calcolo del punteggio di salute.
+        \item Non espone porte all'esterno.
+    \end{itemize}
+    \item \textbf{Storage layer}:
+    \begin{itemize}
+        \item Esegue \textbf{Clickhouse} per lo storage delle misurazioni.
+        \item La banca dati è accessibile agli altri container tramite l'indirizzo \textit{\textbf{clickhouse:8123}}.
+    \end{itemize}
+    \item \textbf{Data Visualization Layer}:
+    \begin{itemize}
+        \item Esegue \textbf{Grafana} come interfaccia utente per la visualizzazione dei dati.
+        \item Espone la porta 3000 all'esterno per permettere l'accesso al servizio di dashboarding.
+    \end{itemize}
+\end{itemize}
+Questa struttura permette una distribuzione modulare e scalabile del sistema, semplificando la gestione e la manutenzione dei componenti e consentendo una rapida scalabilità in risposta alle esigenze emergenti. Grazie all'uso di Docker, si garantisce coerenza e riproducibilità dell'ambiente di esecuzione, semplificando il deployment e garantendo maggiore affidabilità nell'ambiente di produzione nonchè la possibilità di attribuire le risorse necessarie ad ogni servizio in modo mirato.
+
+\input{Sottosezioni/Specifica_tecnica/comunicazioneComponenti.tex}
