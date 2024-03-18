@@ -3,12 +3,7 @@
 \usepackage[default]{raleway}
 \usepackage[table]{xcolor}
 \usepackage[utf8]{inputenc}
-\usepackage{booktabs} 
-\usepackage{ragged2e}
-\usepackage{bera}% optional: just to have a nice mono-spaced font
-\usepackage{subcaption}
-\usepackage{pgf-pie, multirow, longtable, tikz, titlesec, comment, tabularx, makecell, float, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, hyperref, eurosym, todonotes}
-%\geometry{a4paper, left=2cm, right=2cm, top=2cm, bottom=2.5cm}
+\usepackage{pgf-pie, multirow, longtable, ragged2e, bera, subcaption, tikz, titlesec, comment, tabularx, makecell, float, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, hyperref, eurosym, todonotes}
 
 \renewcommand{\headrulewidth}{0pt}
 
@@ -45,13 +40,6 @@
       {[}{{{\color{delim}{[}}}}{1}
       {]}{{{\color{delim}{]}}}}{1},
 }
-
-
-
-\definecolor{linkcolor}{rgb}{1,0,1}
-
-% Definisci uno stile per i comandi git
-\definecolor{light-gray}{gray}{0.92}
 
 \lstdefinestyle{code}{
     frame=single,
@@ -103,13 +91,7 @@
 \definecolor{programmatore}{RGB}{128,0,128}
 \definecolor{verificatore}{RGB}{255,192,203}
 
-\definecolor{responsabile}{RGB}{0,102,204}
-\definecolor{amministratore}{RGB}{0,204,102}
-\definecolor{analista}{RGB}{255,165,0}
-\definecolor{progettista}{RGB}{255,0,0}
-\definecolor{programmatore}{RGB}{128,0,128}
-\definecolor{verificatore}{RGB}{255,192,203}
-
+\definecolor{linkcolor}{rgb}{1,0,1}
 \definecolor{light-gray}{gray}{0.92}
 \definecolor{bgcode}{RGB}{237, 237, 237}
 \definecolor{commentcolor}{RGB}{0, 153, 10}
@@ -149,16 +131,16 @@
 \begin{tabular}{>{\raggedleft\arraybackslash}p{0.2\textwidth}|>{\raggedright\arraybackslash}p{0.6\textwidth}c}
     \hline
     \addlinespace
-    \textbf{Redattori}    & A. Barutta\\ & R. Smanio\\ & L. Skenderi\\ & F. Pozza\\ & D. Diotto \\ & N. Preto \vspace{10pt} \\
-    \textbf{Verificatori} & E. Hysa\\ & A. Barutta\\ & D. Diotto\\ & L. Skenderi\\ & R. Smanio\\ & F. Pozza \vspace{10pt} \\
-    \textbf{Destinatari}  & ByteOps\\ & T. Vardanega   \\ & R. Cardin \vspace{10pt} \\
+    \textbf{Redattori}    & A. Barutta \\ & R. Smanio \\ & L. Skenderi \\ & F. Pozza \\ & D. Diotto \\ & N. Preto \vspace{10pt} \\
+    \textbf{Verificatori} & E. Hysa \\ & A. Barutta \\ & D. Diotto \\ & L. Skenderi \\ & R. Smanio \\ & F. Pozza \vspace{10pt} \\
+    \textbf{Destinatari}  & ByteOps \\ & T. Vardanega \\ & R. Cardin \vspace{10pt}  \\
 \end{tabular}
 \pagebreak
 
 % ------------------------- Changelog ----------------------------
 \begin{tabular}{|C{1.5cm}|C{2.1cm}|C{2cm}|C{2cm}|C{4.5cm}|}
     \hline 
-    \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Dettaglio}            \\
+    \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Dettaglio} \\
     \hline
     \label{Git_Action_Version} 0.0.1 & 01/02/2024 & D. Diotto & L.Skenderi & Impostazione sezioni \\ 
     \hline 
@@ -172,7 +154,7 @@
 \thispagestyle{fancy}
 \tableofcontents
 \setcounter{tocdepth}{4}
-\listoffigures % Indice delle figure
+\listoffigures
 \setstretch{1.2}
 \pagebreak
 
@@ -183,9 +165,7 @@
 \input{Sezioni/Specifica_tecnica/Introduzione.tex}
 \input{Sezioni/Specifica_tecnica/Tecnologie.tex}
 \input{Sezioni/Specifica_tecnica/Architettura.tex}
-\input{Sezioni/Specifica_tecnica/Architetturadeployment.tex}
-
-\input{Sezioni/Specifica_tecnica/tabellaRequisiti.tex}
-
+\input{Sezioni/Specifica_tecnica/Architettura_deployment.tex}
+\input{Sezioni/Specifica_tecnica/Tabella_requisiti.tex}
 
 \end{document}

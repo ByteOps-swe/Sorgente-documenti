@@ -145,7 +145,7 @@ Kafka Engine è progettato per il recupero di dati una sola volta. Ciò signific
   \centering
   \includegraphics[width=.7\textwidth]{../Images/SpecificaTecnica/kafka_engine_architecture.png}
   \caption{Architettura di Kafka Engine in ClickHouse}
-  \label{fig:sensorKafka}
+  \label{fig:Architettura_kafka_engine}
 \end{figure}
 
 \subsubsection{Trasferimento dati tramite Materialized View} \label{sec:materializedView}
@@ -168,7 +168,7 @@ Nello specifico per ogni sensore si avrà la seguente tabella Clickhouse:
     \centering
     \includegraphics[width=.6\textwidth]{../Images/SpecificaTecnica/sensorType_kafka.PNG}
     \caption{Tabella sensore generico per il reperimento da kafka - ClickHouse}
-    \label{fig:sensorKafka}
+    \label{fig:Reperimento_kafka_clickhouse}
   \end{figure}
 
     La tabella è configurata con il motore di storage \textit{Kafka}, il che significa che i dati verranno letti da un \textit{topic Kafka}. 
@@ -229,7 +229,7 @@ In questa situazione, dove le misure riguardano l’umidità, la tabella di dest
     \centering
     \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/humidity.png}
     \caption{Tabella humidity\_kafka e humidity}
-    \label{fig:umidities}
+    \label{fig:humidity_tables}
   \end{figure}
 
 \paragraph{Projections per misurazioni di umidità} 
@@ -248,7 +248,7 @@ Dopo aver considerato le stesse argomentazioni presentate nella sezione \ref{sec
     \centering
     \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/dust_PM10.png}
     \caption{Tabella dustPM10\_kafka e dustPM10}
-    \label{fig:umidities}
+    \label{fig:dust_table}
   \end{figure}
 
 \paragraph{Projections per misurazioni di polveri sottili} 
@@ -267,7 +267,7 @@ Segue una dettagliata configurazione per l'archiviazione delle misurazioni relat
     \centering
     \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/electricalFault.png}
     \caption{Tabella electricalFault\_kafka e electricalFault}
-    \label{fig:umidities}
+    \label{fig:electricalFault_tables}
   \end{figure}
 
 Le considerazioni concernenti l'archiviazione delle misurazioni di guasti elettrici corrispondono a quelle espresse nella sezione \ref{sec:temp_projections} in merito alle misurazioni di temperatura.
@@ -287,7 +287,7 @@ Dopo aver considerato le stesse argomentazioni presentate nella sezione \ref{sec
     \centering
     \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/chargingStations.png}
     \caption{Tabella chargingStation\_kafka e chargingStation}
-    \label{fig:umidities}
+    \label{fig:chargingStation_tables}
   \end{figure}
 
 \paragraph{Projections per misurazioni delle stazioni di ricarica}
@@ -306,7 +306,7 @@ Le considerazioni concernenti l'archiviazione delle misurazioni delle isole ecol
   \centering
   \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/ecoIslands.png}
   \caption{Tabella ecoIslands\_kafka e ecoIslands}
-  \label{fig:umidities}
+  \label{fig:ecoIslands_tables}
 \end{figure}
 
 \paragraph{Projections per misurazioni delle isole ecologiche} 
@@ -325,7 +325,7 @@ Le considerazioni concernenti l'archiviazione delle misurazioni dei sensori di l
   \centering
   \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/waterPresence.png}
   \caption{Tabella waterPresence\_kafka e waterPresence}
-  \label{fig:umidities}
+  \label{fig:waterPresence_tables}
 \end{figure}
 
 \paragraph{Projections per misurazioni del livello dell'acqua} 
