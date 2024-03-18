@@ -1,0 +1,173 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[absolute]{textpos}
+\usepackage[default]{raleway}
+\usepackage{titlesec, comment, tabularx, makecell, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, multirow, hyperref, todonotes}
+\usepackage{colortbl}
+%\geometry{a4paper, left=2cm, right=2cm, top=2cm, bottom=2.5cm}
+\renewcommand{\headrulewidth}{0pt}
+
+% Definisci uno stile per i comandi git
+\definecolor{light-gray}{gray}{0.92}
+
+\lstdefinestyle{code}{
+    frame=single,
+    framesep=1mm,
+    rulecolor=\color{light-gray},
+    backgroundcolor=\color{light-gray},
+    basicstyle=\ttfamily,
+}
+
+% ----------------------------- Definizione tabella ---------------------------
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+%\setcellgapes{2ex} % Imposta l'altezza dell'header (2ex)
+
+
+% ------------------------------Metadati indice --------------------------------
+\title{\textbf{\fontsize{28}{6}\selectfont Indice}}
+\author{\fontsize{14}{6}\selectfont ByteOps}
+\date{Marzo 05, 2024}
+
+
+% -----------------------------Creazione footer --------------------------------
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{
+    \parbox[c]{2cm}{\includegraphics[width=2cm]{../../Images/logo.png}}
+    \textcolor[RGB]{120, 120, 120}{$\cdot$ Verbale Interno}
+}
+\rfoot{\thepage}
+
+% --------------------------Modifica formato hyperlinks ------------------------
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    pdftitle={Verbale Interno 05/03/2024},  %inserisci data verbale
+    pdfpagemode=FullScreen,
+}
+
+% ------------------------------- Valore sotto-paragrafi indice --------------------------------------
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\titleformat{\section}
+{\normalfont\huge\bfseries}{\thesection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsection}
+{\normalfont\Large\bfseries}{\thesubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsubsection}
+{\normalfont\large\bfseries}{\thesubsubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+% ------------------------------- Front Page ---------------------------------------
+
+\begin{document}
+
+% --------------------------Aggiunta firma finale ------------------------
+\begin{textblock*}{\textwidth}(0.85\textwidth, 1.16\textheight)
+    Il responsabile: R. Smanio
+\end{textblock*}
+% ------------------------------------------------------------------------
+
+\pagestyle{fancy}
+\begin{center}
+\includegraphics[width = 0.7\textwidth]{../../Images/logo.png} \\
+\vspace{0.2cm}
+\textcolor[RGB]{60, 60, 60}{\textit{ByteOps.swe@gmail.com}} \\
+\vspace{1cm}
+\fontsize{16}{6}\selectfont Verbale Interno $\cdot$ Data: 05/03/2024 \\
+\vspace{0.5cm}
+\end{center}
+
+\section*{Informazioni documento}
+\def\arraystretch{1.2}
+\begin{tabular}{>{\raggedleft\arraybackslash}p{0.3\textwidth}|>{\raggedright\arraybackslash}p{0.6\textwidth}c}
+\hline
+\addlinespace
+\textbf{Luogo} & Discord \vspace{10pt} \\
+\textbf{Orario} & 17:30 - 18:30 \vspace{10pt} \\
+\textbf{Redattore} & N. Preto \vspace{10pt} \\
+\textbf{Verificatore} & A. Barutta \vspace{10pt} \\
+\textbf{Amministratore} & E. Hysa \vspace{10pt} \\
+\textbf{Destinatari} & T. Vardanega \\ & R. Cardin \vspace{10pt} \\
+\multirow[t]{7}{*}{\textbf{Partecipanti interni}} & A. Barutta \\ & E. Hysa \\ & R. Smanio \\ & D. Diotto \\ & F. Pozza \\ & L. Skenderi \\ & N. Preto \vspace{10pt} \\
+\end{tabular}
+\pagebreak 
+
+% ------------------------- Changelog ----------------------------
+
+\section*{Registro delle modifiche}
+
+\begin{tabular}{|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|}
+    \hline
+    \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Dettaglio} \\
+    \hline \hline
+    0.0.1 & 05/03/2024 & N. Preto & A. Barutta & Redazione documento \\
+    \hline
+\end{tabular}
+\pagebreak
+
+% ------------------------- Generazione automatica indice ----------------------
+\setstretch{1.5}
+\maketitle
+\thispagestyle{fancy}
+\tableofcontents
+\setstretch{1.2}
+\pagebreak
+
+% ------------------------ INIZIO DOCUMENTO ----------------------
+\flushleft
+
+\section{Revisione del periodo precedente}
+Dopo l'ultimo incontro, il gruppo ha proseguito con il lavoro sulle attività pianificate. In particolare, sono stati sviluppati nuovi test di unità per i sensori e di integrazione tra Kafka, Python e ClickHouse, come previsto durante l'incontro precedente. Inoltre, è stata completata la redazione della sezione relativa al decimo periodo del Piano di Progetto, e il lavoro sulla stesura del Manuale Utente è proseguito.
+
+\section{Ordine del giorno}
+    \subsection{Notifiche Grafana su Discord}
+    Durante la riunione, il gruppo ha esaminato la possibilità di configurare notifiche da Grafana su Discord al fine di essere tempestivamente informato su eventuali problemi o anomalie rilevate dal sistema. Dopo aver valutato la fattibilità di questa funzionalità e aver confermato la possibilità di implementarla, è stata presa la decisione di procedere con la sua realizzazione.\\
+    Nel corso dell'incontro, sono stati definiti i dettagli tecnici e le modalità di implementazione di questa funzionalità. In particolare, sono stati concordati il template delle notifiche e le modalità di ricezione delle stesse tramite il server Discord del gruppo.
+
+    \subsection{Time-To-Live ClickHouse}
+    Durante le discussioni interne, è emersa la necessità di implementare un meccanismo di Time-To-Live (TTL) per i dati memorizzati in ClickHouse.\\
+    La decisione di implementare il TTL è stata presa per gestire in modo efficiente grandi volumi di dati e garantire la pulizia automatica di informazioni obsolete o non più rilevanti. Tale scelta è stata motivata dalla natura dei dati trattati nel sistema, che comprendono dati cronologicamente ordinati come i log o i dati di monitoraggio. Sfruttando il motore Rollup, è stato possibile configurare il TTL per eliminare automaticamente i dati più vecchi dopo un periodo specificato, mantenendo così la tabella efficiente e gestibile nel tempo.\\
+    Questa strategia mira a ottimizzare le prestazioni complessive del sistema e a gestire in modo efficiente i grandi volumi di dati accumulati nel tempo, contribuendo al successo e alla scalabilità del progetto.    
+
+    \subsection{Continuous Integration}
+    Durante le discussioni interne sul processo di sviluppo software, abbiamo riconosciuto i vantaggi significativi derivanti dall'implementazione della Continuous Integration (CI) nel nostro progetto. La decisione di adottare la CI è stata motivata dalla necessità di garantire un flusso di sviluppo fluido e affidabile, soprattutto considerando l'integrazione dei test automatizzati.\\
+    La CI ci offre la possibilità di integrare regolarmente il codice nel repository condiviso e di eseguire automaticamente una serie di test, tra cui test di unità, test di integrazione e test end-to-end. Questo approccio ci consente di individuare e risolvere tempestivamente eventuali problemi di integrazione, riducendo al minimo il rischio di errori e garantendo che il codice rimanga sempre funzionante.\\
+    Inoltre, l'automazione dei test all'interno del processo CI contribuisce a migliorare la qualità del software, poiché consente di identificare e correggere rapidamente eventuali difetti introdotti dalle nuove modifiche. Questa pratica non solo ottimizza le prestazioni complessive del sistema, ma favorisce anche una maggiore collaborazione tra i membri del team, promuovendo una cultura di sviluppo condiviso e feedback costante.\\
+    In definitiva, la scelta di utilizzare la CI è stata guidata dalla volontà di garantire un processo di sviluppo efficiente, affidabile e di alta qualità.
+
+    \section{Attività da svolgere}
+    \begin{center}
+        \begin{tabular}{|C{7cm}|C{1,5cm}|C{3cm}|}
+            \hline
+            \textbf{Titolo} & \textbf{\# Issue} & \textbf{Verificatore} \\
+            \hline
+            \hline
+            Implementazione sistema di notifiche Grafana su Discord & N. & A. Barutta \\
+            \hline
+            Implementazione TTL in ClickHouse & N. & A. Barutta \\
+            \hline
+            Implementazione della Continuous Integration & N. & N. Preto \\
+            \hline
+            Stesura periodo 11 - PdP & N. & A. Barutta \\
+            \hline
+        \end{tabular}
+    \end{center}
+    \todo{Aggiungi, controlla issue e numeri}
+
+\end{document}
