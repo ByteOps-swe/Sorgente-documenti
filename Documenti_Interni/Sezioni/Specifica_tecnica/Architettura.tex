@@ -1,10 +1,10 @@
 \section{Architettura di sistema}
 \subsection{Architettura di implementazione}
-Il sistema richiede la capacità di elaborare dati provenienti da diverse fonti in tempo reale e di fornire una visualizzazione immediata e continua di tali dati, permettendo di monitorarne gli andamenti e di rilevare eventuali anomalie. 
-Per tale scopo, l'architettura di sistema adottata è la \textit{$\kappa$-architecture}.
+Il \textit{sistema}\textsubscript{\textit{G}} richiede la capacità di elaborare dati provenienti da diverse fonti in tempo reale e di fornire una visualizzazione immediata e continua di tali dati, permettendo di monitorarne gli andamenti e di rilevare eventuali anomalie. 
+Per tale scopo, l'\textit{architettura}\textsubscript{\textit{G}} di \textit{sistema}\textsubscript{\textit{G}} adottata è la \textit{$\kappa$-architecture}.
 
 \subsubsection{$\kappa$-architecture}
-L'architettura Kappa è un modello di elaborazione dati in streaming che offre un'alternativa all'architettura Lambda. Il suo obiettivo principale è unificare l'elaborazione in tempo reale e batch (per i dati storici) all'interno di un unico stack tecnologico.
+L'\textit{architettura}\textsubscript{\textit{G}} Kappa è un modello di elaborazione dati in streaming che offre un'alternativa all'\textit{architettura}\textsubscript{\textit{G}} Lambda. Il suo obiettivo principale è unificare l'elaborazione in tempo reale e batch (per i dati storici) all'interno di un unico \textit{stack tecnologico}\textsubscript{\textit{G}}.
 \paragraph{Vantaggi}
 \begin{itemize}
     \item Semplice da implementare e gestire, costi di manutenzione ridotti;
@@ -25,15 +25,15 @@ L'architettura Kappa è un modello di elaborazione dati in streaming che offre u
 
 \begin{itemize}
     \item \textbf{Data feed}:Le sorgenti dati sono costituite da sensori IoT dislocati sul territorio cittadino. Questi sensori sono in grado di inviare, ad intervalli regolari, messaggi contenenti misurazioni allo streaming layer;
-    \item \textbf{Streaming layer}:Lo streaming layer gestisce i dati in arrivo in tempo reale, per poi archiviarli sistematicamente nello storage layer. Lo streaming Layer è composto da:
+    \item \textbf{Streaming layer}:Lo streaming layer gestisce i dati in arrivo in tempo reale, per poi archiviarli sistematicamente nello \textit{storage}\textsubscript{\textit{G}} layer. Lo streaming Layer è composto da:
     \begin{itemize}
-        \item \textbf{Apache Kafka}: Kafka è un sistema di messaggistica distribuito che consente di pubblicare, sottoscrivere e archiviare messaggi in tempo reale. Kafka è utilizzato per ricevere i dati dai sensori IoT e renderli disponibili per l'elaborazione in tempo reale e batch.
+        \item \textbf{Apache Kafka}: \textit{Kafka}\textsubscript{\textit{G}} è un \textit{sistema}\textsubscript{\textit{G}} di messaggistica distribuito che consente di pubblicare, sottoscrivere e archiviare messaggi in tempo reale. \textit{Kafka}\textsubscript{\textit{G}} è utilizzato per ricevere i dati dai sensori IoT e renderli disponibili per l'elaborazione in tempo reale e batch.
         \item \textbf{Clickhouse Kafka table engine}:consumatore che legge i
-        dati dal server Kafka per persisterli nello storage layer.
+        dati dal server \textit{Kafka}\textsubscript{\textit{G}} per persisterli nello \textit{storage}\textsubscript{\textit{G}} layer.
     \end{itemize}
-    \item \textbf{Processing Layer:} Il processing Layer è costituito da Faust che consuma i dati dallo streaming layer e li processa in tempo reale. Faust è un framework Python che consente di scrivere applicazioni di streaming in tempo reale. Faust è utilizzato per elaborare i dati in arrivo tramite un modello per il calcolo del punteggio di salute che poi viene reso nuovamente disponibili allo streaming layer.
-    \item \textbf{Storage layer}:Lo storage layer è costituito da un database column-oriented, ClickHouse, che archivia i dati in arrivo dallo streaming layer. Questi dati sono disponibili per l'analisi e la visualizzazione in tempo reale e batch.
-    \item \textbf{Data Visualization Layer}: composto da Grafana, si occupa della visualizzazione dei dati elaborati ottenuti dallo storage layer e della gestione delle notifiche in caso di anomalie rilevate.
+    \item \textbf{Processing Layer:} Il processing Layer è costituito da Faust che consuma i dati dallo streaming layer e li processa in tempo reale. Faust è un \textit{framework}\textsubscript{\textit{G}} \textit{Python}\textsubscript{\textit{G}} che consente di scrivere applicazioni di streaming in tempo reale. Faust è utilizzato per elaborare i dati in arrivo tramite un modello per il calcolo del punteggio di salute che poi viene reso nuovamente disponibili allo streaming layer.
+    \item \textbf{Storage layer}:Lo \textit{storage}\textsubscript{\textit{G}} layer è costituito da un \textit{database}\textsubscript{\textit{G}} column-oriented, \textit{ClickHouse}\textsubscript{\textit{G}}, che archivia i dati in arrivo dallo streaming layer. Questi dati sono disponibili per l'analisi e la visualizzazione in tempo reale e batch.
+    \item \textbf{Data Visualization Layer}: composto da \textit{Grafana}\textsubscript{\textit{G}}, si occupa della visualizzazione dei dati elaborati ottenuti dallo \textit{storage}\textsubscript{\textit{G}} layer e della gestione delle notifiche in caso di anomalie rilevate.
 \end{itemize}
 \input{Sottosezioni/Specifica_tecnica/Architettura_simulatori.tex}
 \input{Sottosezioni/Specifica_tecnica/Kafka_config.tex}
