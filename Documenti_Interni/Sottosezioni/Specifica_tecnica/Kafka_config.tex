@@ -2,7 +2,7 @@
 \subsubsection{Kafka topic}
 I topic in Kafka possono essere considerati come le tabelle di un database, utili per separare logicamente diversi tipi di messaggi o eventi che vengono inseriti nel sistema. Noi li utilizziamo per separare le diverse misurazioni dei sensori, quindi per ogni tipo di sensore è presente un topic dedicato. Ciò ci consente di creare all'interno di ClickHouse delle "tabelle consumatrici" che acquisiscono automaticamente i dati. Questo è possibile grazie alla separazione logica dei topic, che garantisce che tutti i messaggi all'interno di ciascun topic abbiano lo stesso formato.
 \subsubsection{Formato messaggi} \label{sec:formatoMessaggi}
-La struttura di un messaggio contenente le informazioni della misurazione è la seguente in formato Json:
+La struttura di un messaggio contenente le informazioni della misurazione è la seguente in formato Json e rispetta il contratto definito nello Schema Registry, vedi sez.\ref{sec:schema_registry}, in particolare \ref{sec:schema_registry_sez_schema}:
 \begin{lstlisting}[style=code]
     {
       "timestamp": "AAAA-MM-DD HH:MM:SS.sss", 
