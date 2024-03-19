@@ -1,4 +1,5 @@
-\subsection{Comunicazione tra i componenti}
+\begin{comment}
+    \subsection{Comunicazione tra i componenti}
 Nel contesto di Docker, la comunicazione tra i container avviene tramite la rete Docker interna, che è una rete virtuale creata automaticamente da Docker per i servizi all'interno di uno stesso file Compose o di un ambiente Docker. Questa rete consente ai container di comunicare tra loro utilizzando i nomi dei servizi come hostnames.
 
 Quando un container viene avviato, Docker assegna un hostname basato sul nome del servizio definito nel file Compose. Ad esempio, nel file Compose fornito, il servizio Kafka ha il nome "kafka" e il servizio ClickHouse ha il nome "clickhouse". Questi nomi sono utilizzati all'interno dei container stessi per identificare gli altri servizi. Quando un container desidera comunicare con un altro container sulla stessa rete Docker, può semplicemente utilizzare il nome del servizio come hostname.
@@ -20,6 +21,8 @@ In sintesi, Docker fornisce un'infrastruttura di rete integrata che gestisce la 
     \item \textbf{Comunicazione Data Visualization Layer-> Storage Layer}: Grafana si connette a Clickhouse per ottenere i dati da visualizzare in tempo reale tramite lo specifico plugin ClickHouse che permette l'utilizzo di un database Clickhouse come \textit{data source}.
     Il plugin nasconde alcuni dettagli di implementazione sottostanti, come la gestione della connessione,protocolli di comunicazione e l'esecuzione delle query. Ulteriori informazioni in: \ref{sec:click_plugin}
 \end{itemize}
+
+
     
 \subsubsection{Dipendenze tra i servizi}
 \begin{itemize}
@@ -30,3 +33,4 @@ In sintesi, Docker fornisce un'infrastruttura di rete integrata che gestisce la 
     \item \textbf{ Faust app -> kafka}: Il servizio Processor dipende dal servizio Kafka. Questo assicura che il servizio Processor venga avviato solo dopo che il servizio Kafka è stato avviato e è nella condizione desiderata.
 \end{itemize}
 
+\end{comment}

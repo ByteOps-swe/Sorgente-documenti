@@ -284,6 +284,7 @@ Il pattern Factory incapsula la creazione concreta dei sensori, consentendo al c
 \end{figure}
 
 Questo modulo si occupa della scrittura e/o invio di informazioni a diverse tipologie di servizi e vuole essere completamentemente indipendendente e non influenzato dal modulo della simulazione dei sensori cosi da poter consentire un suo riutilizzo.
+Per quanto riguarda la scrittura in Kafka, l'impiego della connessione allo Schema Registry (vedi Sezione \ref{sec:schema_registry}) consente la convalida del formato del messaggio prima della sua scrittura nei topic Kafka. Questa pratica permette di ridurre il carico di rete nel caso di messaggi malformati, consentendo un filtraggio "alla fonte".
 
 \paragraph{Design pattern Strategy + Composite:}
 Il modulo presenta un interfaccia \textit{Writer} che offre il metodo di scrittura \textit{write()} di oggetti di tipo \textit{Writable}.
