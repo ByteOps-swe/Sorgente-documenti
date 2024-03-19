@@ -416,15 +416,18 @@ Inoltre grazie all'interfaccia \textit{KafkaTarget}, si è garantita la possibil
         \begin{itemize}
         \item \textbf{topic:str [private]} - Il topic su cui scrivere in Kafka.
         \item \textbf{producer:Producer [private]} - Il producer Kafka per inviare messaggi.
+        \item \textbf{schema\_registry\_client:CachedSchemaRegistryClient [private]} - Consente di interagire con Confluent Schema Registry in modo efficiente, memorizza in cache gli schemi recuperati da Schema Registry, riducendo le chiamate di rete e migliorando la velocità di accesso agli schemi.
     \end{itemize}
     \item \textbf{Metodi: }
     \begin{itemize}
-        \item \textbf{write\_to\_kafka(data: str): None [public]} - Scrive i dati su Kafka.
+        \item \textbf{write\_to\_kafka(data: str): None [public]} - Scrive i dati su Kafka dopo averli validati rispetto allo schema registrato per il topic di destinazione.
     \item\textbf{Note}:
         \begin{itemize}
             \item La classe è un'implementazione concreta dell'interfaccia KafkaTarget, utilizzando la libreria confluent-kafka per interagire con Kafka;
             \item Rappresenta il componente "Adapter" del pattern \textit{Object Adapter}.
             \item Il Producer kafka rappresenta la componente "service" del pattern \textit{Object Adapter}.
+            \item Prima di inviare il messaggio  (ovvero la misurazione) controlla che sia nel formato/schema corretto per il topic di destinazione evintando cosi sovraccarico inutile di rete.
+            \item Nel caso in cui il formato del messaggio sia scorretto questo viene scartato.
         \end{itemize}
     \end{itemize}
 \end{itemize}
