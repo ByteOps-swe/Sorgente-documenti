@@ -172,7 +172,8 @@ Il preventivo a finire rimane invariato a \textbf{12425,00\euro} e non risulta n
 \subsubsection{Nono periodo  23/02/2024 - 01/03/2024}
 
 \paragraph{Considerazioni}
-Durante il nono periodo, sono stati dedicati notevoli risorse alle \textit{attività}\textsubscript{\textit{G}} di progettazione, sviluppo e testing relative al Minimum Viable Product (\textit{MVP}\textsubscript{\textit{G}}). I progettisti e gli sviluppatori hanno completato le \textit{attività}\textsubscript{\textit{G}} di progettazione e sviluppo delle \textit{dashboard}\textsubscript{\textit{G}} in \textit{Grafana}\textsubscript{\textit{G}}. Questo ha portato alla realizzazione di una \textit{dashboard}\textsubscript{\textit{G}} principale, concepita per offrire una visione d'insieme dello stato di salute della città, e una \textit{dashboard}\textsubscript{\textit{G}} secondaria, pensata per consentire un'analisi dettagliata delle misurazioni mediante l'applicazione di filtri personalizzati. \\
+Durante il nono periodo, sono state dedicate notevoli risorse alle \textit{attività}\textsubscript{\textit{G}} di progettazione, sviluppo e testing relative al Minimum Viable Product (\textit{MVP}\textsubscript{\textit{G}}). \\
+I progettisti e gli sviluppatori hanno completato le \textit{attività}\textsubscript{\textit{G}} di progettazione e sviluppo delle \textit{dashboard}\textsubscript{\textit{G}} in \textit{Grafana}\textsubscript{\textit{G}}. Questo ha portato alla realizzazione di una \textit{dashboard}\textsubscript{\textit{G}} principale, concepita per offrire una visione d'insieme dello stato di salute della città, e una \textit{dashboard}\textsubscript{\textit{G}} secondaria, pensata per consentire un'analisi dettagliata delle misurazioni mediante l'applicazione di filtri personalizzati. \\
 In seguito al completamento delle \textit{dashboard}\textsubscript{\textit{G}}, è stata avviata la redazione del \textit{Manuale Utente}. È importante notare che le sezioni del \textit{Manuale Utente} redatte nell'attuale periodo non sono state ancora verificate, ma tale verifica è stata pianificata per il periodo successivo, garantendo così una quantità adeguata di materiale da esaminare.
 Progettisti e programmatori, oltre alla realizzazione delle \textit{dashboard}\textsubscript{\textit{G}}, hanno portato a termine la progettazione e lo sviluppo del \textit{database}\textsubscript{\textit{G}} e si sono inoltre dedicati all'implementazione della funzionalità di calcolo del punteggio di salute utilizzando la libreria Faust. \\
 Per quanto riguarda il documento "\textit{Specifica Tecnica}", sono state completate le sezioni "Introduzione" e "Scelte Tecnologiche" ed è stata avviata la redazione della sezione relativa all'\textit{architettura}\textsubscript{\textit{G}} del \textit{database}\textsubscript{\textit{G}}. \\
@@ -302,7 +303,7 @@ Durante il decimo periodo, il team si è dedicato principalmente allo sviluppo d
 L'Amministratore ha apportato importanti miglioramenti alla pagina GitHub.io, rendendo la presentazione dei documenti e degli artefatti del progetto più intuitiva, seguendo i consigli del Prof. Vardanega emersi durante la revisione \textit{RTB}\textsubscript{\textit{G}}. Inoltre, si è occupato dell'automatizzazione dei \textit{test}\textsubscript{\textit{G}} configurando la pipeline CI per garantire la solidità del processo di \textit{integrazione}\textsubscript{\textit{G}} continua. \\
 Il team di progettisti e programmatori ha collaborato per configurare e implementare la funzionalità Time to Live (TTL) nel \textit{database}\textsubscript{\textit{G}} \textit{Clickhouse}\textsubscript{\textit{G}}. Questa funzionalità consente di risparmiare notevolmente spazio di archiviazione, eliminando automaticamente le misurazioni precedenti a un periodo stabilito. Nel nostro caso, questo periodo è di un mese. Tuttavia, anziché eliminare direttamente le misurazioni, prima della loro rimozione definitiva, viene calcolata una media di tali misurazioni per ogni ora. In questo modo, invece di mantenere in memoria tutte le misurazioni meno recenti, viene conservata una sola misurazione aggregata per ogni intervallo orario. Questo approccio assicura un significativo risparmio di spazio di archiviazione nel \textit{database}\textsubscript{\textit{G}}, garantendo al contempo la preservazione di una sintesi delle misurazioni meno recenti, la quale consente l'analisi dei dati anche relativi a periodi molto remoti. \\
 I progettisti hanno anche completato la sezione relativa al \textit{database}\textsubscript{\textit{G}} nel documento \textit{Specifica Tecnica} e hanno lavorato attivamente alla progettazione dei \textit{test}\textsubscript{\textit{G}} di unità, di \textit{integrazione}\textsubscript{\textit{G}} e di \textit{sistema}\textsubscript{\textit{G}} per garantire la solidità e l'affidabilità del prodotto. \\
-I programmatori hanno implementato filtri per gestire le misurazioni corrotte, migliorando così la stabilità e l'integrità dei dati. Inoltre, hanno aggiunto l'indicazione dell'unità di misura nei grafici sulla \textit{dashboard}\textsubscript{\textit{G}} e apportato miglioramenti grafici per ottimizzare l'esperienza utente. Inoltre, è stato sviluppato un \textit{sistema}\textsubscript{\textit{G}} per ricevere le notifiche di allerta su \textit{Discord}\textsubscript{\textit{G}} ed è stato completato il \textit{Manuale Utente}. \\
+I programmatori hanno implementato filtri per gestire le misurazioni corrotte, migliorando così la stabilità e l'integrità dei dati. Inoltre, hanno aggiunto l'indicazione dell'unità di misura nei grafici sulla \textit{dashboard}\textsubscript{\textit{G}} e apportato miglioramenti grafici per ottimizzare l'esperienza utente. Inoltre, è in corso lo sviluppo di un \textit{sistema}\textsubscript{\textit{G}} per ricevere le notifiche di allerta su \textit{Discord}\textsubscript{\textit{G}} ed è stato completato il \textit{Manuale Utente}. \\
 I verificatori hanno svolto un ruolo cruciale nella garanzia della qualità del \textit{software}\textsubscript{\textit{G}}, sviluppando \textit{test}\textsubscript{\textit{G}} sul calcolo del punteggio di salute, \textit{test}\textsubscript{\textit{G}} di \textit{integrazione}\textsubscript{\textit{G}} per verificare l'integrità del flusso dei dati tra \textit{Python}\textsubscript{\textit{G}} e \textit{Kafka}\textsubscript{\textit{G}}, \textit{test}\textsubscript{\textit{G}} sulla gestione dei malfunzionamenti e \textit{test}\textsubscript{\textit{G}} di carico e performance. Si sono anche occupati della verifica del \textit{Manuale Utente} per garantirne chiarezza e usabilità per gli utenti finali. \\
 Infine, il Responsabile ha coordinato le \textit{attività}\textsubscript{\textit{G}} del team, assicurandosi che il lavoro svolto fosse in linea con gli obiettivi prefissati. Ha redatto il resoconto del periodo e ha validato il Manuale Utente per assicurare il rispetto degli \textit{standard}\textsubscript{\textit{G}} di qualità richiesti.
 
@@ -421,4 +422,135 @@ Il preventivo a finire rimane invariato a \textbf{12425,00\euro} e non risulta n
     \includegraphics[width=0.6\textwidth]{../Images/consuntivoDivisioneRuoli10Periodo.png}
     \caption{Istogramma consuntivo della ripartizione oraria dei ruoli - Decimo periodo}
     \label{fig:Consuntivo_ripartizione_oraria_10}
+\end{figure}
+
+%---------------------UNDICESIMO PERIODO---------------------------------------
+
+\subsubsection{Undicesimo periodo  08/03/2024 - 15/03/2024}
+
+\paragraph{Considerazioni}
+Durante l'ultimo periodo, il team ha compiuto importanti progressi e ha raggiunto obiettivi significativi nell'avanzamento del progetto.
+Gli analisti hanno completato il documento "\textit{Analisi dei Requisiti v.2.0.0}", fornendo una base solida per la comprensione dei requisiti del progetto. \\
+Il Responsabile si è occupato della redazione del 11-esimo periodo del Piano di Progetto e nel coordinamento del team durante questo periodo. \\
+I progettisti,  dopo aver definito dettagliatamente l'architettura di implementazione e di deployment, si sono occupati della redazione delle rispettive sezioni nel documento “\textit{Specifica Tecnica}”. In aggiunta, hanno curato la stesura della sezione "Requisiti soddisfatti" e hanno realizzato dettagliati diagrammi UML per tutte le classi. Questo lavoro ha fornito una guida chiara e dettagliata per la comprensione dell'architettura del sistema, fondamentale per un avanzamento coerente e ben orientato dello sviluppo del progetto. \\
+L'amministratore ha introdotto miglioramenti significative nella repository, tra cui il completamento della pagina github.io e l'inserimento di badge GitHub e della pipeline CI nel file README.md. 
+Queste azioni hanno notevolmente migliorato l'esposizione della repository, rendendo la presentazione dei documenti e degli artefatti più accessibile e intuitiva per tutti i membri del team e per gli utenti esterni. L'inserimento dei badge relativi ai test ha fornito una trasparenza aggiuntiva sullo stato del progetto, permettendo a tutti di valutare rapidamente l'affidabilità del codice e l'esito dei test effettuati. Tale trasparenza non solo favorisce una migliore comprensione del lavoro svolto, ma anche una maggiore fiducia nella qualità complessiva del software in sviluppo. \\
+I programmatori si sono occupati dell’ottimizzazione del codice seguendo le migliori pratiche di sviluppo del software, garantendo la sua robustezza e sicurezza per semplificare l'attività di analisi statica da parte dei verificatori. Inoltre, è stato reso thread-safe per gestire efficacemente i processi concorrenti. Sono stati apportati miglioramenti grafici per migliorare l'esperienza utente sulla dashboard e il sistema di notifica tramite Discord è stato implementato con successo. \\
+I verificatori hanno svolto un ruolo cruciale nel garantire la qualità del software, completando tutti i test necessari, inclusi quelli di unità, integrazione, sistema, carico e performance. \\
+In conclusione, il team ha dimostrato un impegno costante, una collaborazione efficace e un'attenzione scrupolosa ai dettagli durante questo periodo. Questi fattori hanno contribuito in modo significativo a stabilire una base solida per il proseguimento del progetto verso la sua conclusione. L'accento posto sulla qualità del risultato finale è stato un punto focale in ogni fase del lavoro, garantendo che il prodotto finale risponda in modo adeguato alle aspettative e ai requisiti del cliente.
+
+
+\paragraph{Gestione dei rischi}
+
+\begin{itemize}
+    \item \textbf{Rischi attesi e verificati:}
+        \begin{itemize}
+            \item \textbf{RP-2B-1} - Divergenze nella redazione del documento \textit{Specifica Tecnica}~(\textit{\ref{subsubsec:contrastiInterni}}).
+            \begin{itemize}
+                \item \textbf{Esito mitigazione}: durante la redazione del documento \textit{Specifica Tecnica}, il team ha riscontrato divergenze riguardanti la struttura e i contenuti di alcune sezioni. Per affrontare questa situazione, il Responsabile ha organizzato una votazione per concordare su una struttura comune e risolvere le divergenze.
+                \item \textbf{Impatto}: grazie alla votazione guidata dal Responsabile, le divergenze sono state risolte in modo efficace, garantendo coerenza e coesione nel documento. Ciò ha permesso al team di proseguire senza ritardi nella redazione e ha assicurato la qualità complessiva della \textit{Specifica Tecnica}.
+            \end{itemize}
+            
+        \end{itemize}
+    \item \textbf{Rischi attesi ma non verificati:}
+        \begin{itemize}
+            \item \textbf{RP-3M-2} - Assenza per ferie del membro dell'azienda \textit{proponente}\textsubscript{\textit{G}} specializzato nelle tecnologie~(\textit{\ref{subsubsec:contattiProponente}})
+                \begin{itemize}
+                    \item \textbf{Esito mitigazione}: come evidenziato nella precedente fase, l'impatto di questo rischio è stato attenuato grazie alle adeguate precauzioni adottate. In particolare, non si sono manifestati dubbi o domande riguardanti potenziali problemi con le tecnologie utilizzate.
+                    \item \textbf{Impatto}: 
+                    le misure preventive adottate hanno limitato l'impatto del rischio sul progetto.
+                \end{itemize}
+        \end{itemize}
+    \item \textbf{Rischi non attesi ma verificati:}
+        \begin{itemize}
+            \item Nessuno
+        \end{itemize}
+\end{itemize}
+
+
+\paragraph{Definizione ruoli}
+Per le \textit{attività}\textsubscript{\textit{G}} registrate nei costi, sono stati assegnati i seguenti ruoli: 
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|L{4cm}|L{2cm}|}
+        \hline
+        \textbf{Ruolo} & \textbf{Persona} \\
+        \hline
+        \hline
+        Responsabile (Re)   & D. Diotto \\
+        \hline
+        Amministratore (Am) & N. Preto \\
+        \hline
+        Analisti (An)       & E. Hysa \\
+        \hline
+        Verificatore (Ve)   & D. Diotto \\
+                            & A. Barutta \\ 
+        \hline
+        Programmatori (Pr)  & L. Skenderi \\
+                            & F. Pozza \\
+        \hline
+        Progettista (Pt)    & R. Smanio \\
+                            & E. Hysa \\
+        \hline
+    \end{tabular}
+    \caption{Tabella dei ruoli assegnati - Undicesimo periodo}
+    \label{tab:Ruoli_persone_11}
+\end{table}
+
+\paragraph{Pianificazione attività divise per ruoli con consuntivo e preventivo orario e dei costi}
+
+\vspace{0.4cm}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=0.9\textwidth]{../Images/periodo11.PNG}
+    \caption{Undicesimo periodo}
+    \label{fig:Undicesimo_periodo}
+\end{figure}
+
+Al termine del decimo periodo, l'ammontare totale del costo del progetto è di \textbf{11785 \euro} e sono state completate il \textbf{100\%} delle \textit{attività}\textsubscript{\textit{G}} attese.
+Il preventivo a finire rimane invariato a \textbf{12425,00\euro} e non risulta necessaria una ri-pianificazione delle \textit{attività}\textsubscript{\textit{G}} future.
+\href{https://github.com/orgs/ByteOps-swe/projects/3/views/1?sortedBy%5Bdirection%5D=asc&sortedBy%5BcolumnId%5D=64182560}{Vai al Diagramma di Gantt.}
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[b]{0.70\textwidth}
+        \centering
+        \includegraphics[width=0.7\textwidth]{../Images/avanzamento11Periodo.png}
+        \caption{Avanzamento dei lavori RTB - Undicesimo periodo}
+        \label{fig:Avanzamento_RTB_11}
+    \end{minipage}
+\end{figure}
+
+\paragraph{Preventivo orario}
+
+\begin{figure}[H] 
+    \centering
+    \includegraphics[width=0.9\textwidth]{../Images/preventivoOrario11Periodo.png}
+    \caption{Preventivo orario per membro - Undicesimo periodo}
+    \label{fig:Preventivo_orario_11}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{../Images/preventivoDivisioneRuoli11Periodo.png}
+    \caption{Istogramma preventivo della ripartizione oraria dei ruoli - Undicesimo periodo}
+    \label{fig:Preventivo_ripartizione_oraria_11}
+\end{figure}
+
+\paragraph{Consuntivo orario}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../Images/consuntivoOrario11Periodo.png}
+    \caption{Consuntivo orario per membro - Undicesimo periodo}
+    \label{fig:Constuntivo_orario_11}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{../Images/consuntivoDivisioneRuoli11Periodo.png}
+    \caption{Istogramma consuntivo della ripartizione oraria dei ruoli - Undicesimo periodo}
+    \label{fig:Consuntivo_ripartizione_oraria_11}
 \end{figure}
