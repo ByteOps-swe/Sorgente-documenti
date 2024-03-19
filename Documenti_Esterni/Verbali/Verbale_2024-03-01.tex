@@ -1,0 +1,161 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[absolute]{textpos}
+\usepackage[default]{raleway}
+\usepackage{titlesec, comment, tabularx, makecell, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, multirow, hyperref}
+\usepackage{colortbl}
+\usepackage{todonotes}
+\renewcommand{\headrulewidth}{0pt}
+
+\definecolor{light-gray}{gray}{0.92}
+
+\lstdefinestyle{code}{
+    frame=single,
+    framesep=1mm,
+    rulecolor=\color{light-gray},
+    backgroundcolor=\color{light-gray},
+    basicstyle=\ttfamily,
+}
+
+% ----------------------------- Definizione tabella ---------------------------
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+% ------------------------------Metadati indice --------------------------------
+\title{\textbf{\fontsize{28}{6}\selectfont Indice}}
+\author{\fontsize{14}{6}\selectfont ByteOps}
+\date{Marzo 1, 2024}
+
+
+% -----------------------------Creazione footer --------------------------------
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{
+    \parbox[c]{2cm}{\includegraphics[width=2cm]{../../Images/logo.png}}
+    \textcolor[RGB]{120, 120, 120}{$\cdot$ Verbale Esterno}
+}
+\rfoot{\thepage}
+
+% --------------------------Modifica formato hyperlinks ------------------------
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    pdftitle={Verbale Esterno 01/03/2024},  %inserisci data verbale
+    pdfpagemode=FullScreen,
+}
+
+% ------------------------------- Valore sotto-paragrafi indice --------------------------------------
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\titleformat{\section}
+{\normalfont\huge\bfseries}{\thesection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsection}
+{\normalfont\Large\bfseries}{\thesubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsubsection}
+{\normalfont\large\bfseries}{\thesubsubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+% ------------------------------- Front Page ---------------------------------------
+
+\begin{document}
+
+% --------------------------Aggiunta firma finale ------------------------
+\begin{textblock*}{\textwidth}(0.85\textwidth, 1.16\textheight)
+    Il responsabile: L. Skenderi
+\end{textblock*}
+% ------------------------------------------------------------------------
+
+\pagestyle{fancy}
+\begin{center}
+\includegraphics[width = 0.7\textwidth]{../../Images/logo.png} \\
+\vspace{0.2cm}
+\textcolor[RGB]{60, 60, 60}{\textit{ByteOps.swe@gmail.com}} \\
+\vspace{1cm}
+\fontsize{16}{6}\selectfont Verbale Esterno $\cdot$ Data: 01/03/2024 \\
+\vspace{0.5cm}
+\end{center}
+
+\section*{Informazioni documento}
+\def\arraystretch{1.2}
+\begin{tabular}{>{\raggedleft\arraybackslash}p{0.3\textwidth}|>{\raggedright\arraybackslash}p{0.6\textwidth}c}
+\hline
+\addlinespace
+\textbf{Luogo} & Google Meet \vspace{10pt} \\
+\textbf{Orario} & 16:30 - 17:15 \vspace{10pt} \\
+\textbf{Redattore} & F. Pozza \vspace{10pt} \\
+\textbf{Verificatore} & E. Hysa \vspace{10pt} \\
+\textbf{Amministratore} & F. Pozza \vspace{10pt} \\
+\textbf{Destinatari} & T. Vardanega \\ & R. Cardin \vspace{10pt} \\
+\multirow[t]{7}{*}{\textbf{Partecipanti interni}} & A. Barutta \\ & E. Hysa \\ & R. Smanio \\ & D. Diotto \\ & F. Pozza \\ & L. Skenderi \\ & N. Preto \vspace{10pt} \\
+\multirow[t]{3}{*}{\textbf{Partecipanti esterni}} & A. Dorigo \\ & D. Zorzi \\ & F. Pallaro \\ 
+\end{tabular}
+\pagebreak 
+
+% ------------------------- Changelog ----------------------------
+
+\section*{Registro delle modifiche}
+
+\begin{tabular}{|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|}
+    \hline
+    \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Dettaglio} \\
+    \hline \hline
+    0.0.1 & 02/03/2024 & F. Pozza & E. Hysa & Redazione documento \\
+    \hline
+\end{tabular}
+\pagebreak
+
+% ------------------------- Generazione automatica indice ----------------------
+\setstretch{1.5}
+\maketitle
+\thispagestyle{fancy}
+\tableofcontents
+\setstretch{1.2}
+\pagebreak
+
+% ------------------------ INIZIO DOCUMENTO ----------------------
+\flushleft
+
+\section{Revisione del periodo precedente}
+Durante la prima parte del meeting, è stato presentato all'azienda \textit{proponente}\textsubscript{\textit{G}} l'\textit{MVP}\textsubscript{\textit{G}} per discutere dello stato di avanzamento e delle modifiche apportate rispetto al precedente \textit{SAL}\textsubscript{\textit{G}}. È stata illustrata la nuova struttura del \textit{database}\textsubscript{\textit{G}}, semplificata su suggerimento dell'azienda stessa per garantire una maggiore manutenibilità rispetto alla configurazione precedente. Inoltre, è stata esaminata in dettaglio la \textit{dashboard}\textsubscript{\textit{G}} definitiva per l'\textit{MVP}\textsubscript{\textit{G}} e tutte le sue varie funzionalità. \\
+In conclusione, l'azienda \textit{proponente}\textsubscript{\textit{G}} si è dimostrata soddisfatta del lavoro svolto e della velocità di progressione, dovuta soprattutto alla qualità del proof of concept, che ha fornito una solida base di partenza per l'\textit{MVP}\textsubscript{\textit{G}}.
+
+\section{Ordine del giorno}
+    \subsection{Miglioramento dei grafici}
+        Durante la presentazione della \textit{dashboard}\textsubscript{\textit{G}}, la \textit{proponente}\textsubscript{\textit{G}} ci ha fornito alcuni feedback per migliorare la leggibilità dei grafici. È emerso il suggerimento di includere, accanto al titolo del \textit{widget}\textsubscript{\textit{G}}, l'unità di misura delle misurazioni rappresentate dal grafico. Questo permetterebbe di specificare l'unità di misura una sola volta, anziché ripeterla per ogni valore sull'asse delle ordinate, rendendo i grafici più chiari e facili da comprendere.
+    \subsection{Design pattern}
+        Durante la discussione riguardante le scelte di design nel processo di progettazione dell'\textit{MVP}\textsubscript{\textit{G}}, è emerso un dibattito sui design \textit{pattern}\textsubscript{\textit{G}} adottati. Dopo un'attenta analisi dei \textit{pattern}\textsubscript{\textit{G}} utilizzati, si è discusso sull'eventuale necessità di implementarne di ulteriori. La \textit{proponente}\textsubscript{\textit{G}} ha espresso soddisfazione riguardo alla progettazione dei componenti e ai \textit{pattern}\textsubscript{\textit{G}} adottati, e si è concordato sul fatto che non sia necessario introdurne di ulteriori.
+    \subsection{Integration Testing}
+        Il team ha richiesto all'azienda consulenza su come eseguire con successo i \textit{test}\textsubscript{\textit{G}} di \textit{integrazione}\textsubscript{\textit{G}} tra il producer e il server \textit{Kafka}\textsubscript{\textit{G}}. La discussione è emersa a seguito delle difficoltà incontrate nel tentativo di realizzare tali \textit{test}\textsubscript{\textit{G}} utilizzando diverse metodologie e strumenti senza ottenere risultati positivi. A tal proposito, la \textit{proponente}\textsubscript{\textit{G}} si è offerta di assistere nella risoluzione dei problemi riscontrati. \\
+        Inoltre, per evitare di inquinare il server \textit{Kafka}\textsubscript{\textit{G}} e il \textit{database}\textsubscript{\textit{G}} con i dati di \textit{test}\textsubscript{\textit{G}}, è stato proposto di creare una coda e una tabella specifiche, separate dal flusso di dati principale. È essenziale che sia la coda che la tabella dedicate ai \textit{test}\textsubscript{\textit{G}} mantengano la stessa struttura e il medesimo comportamento dell'ambiente di produzione. Ciò consentirebbe l'esecuzione dei \textit{test}\textsubscript{\textit{G}} senza la necessità di interventi manuali sulle tabelle del \textit{database}\textsubscript{\textit{G}} e sulla coda per eliminare i dati generati durante le prove.
+
+\section{Attività da svolgere}
+    \begin{itemize}
+        \item Miglioramento grafici attraverso l'aggiunta di unità di misura;
+        \item Creazione coda e tabelle ad hoc per Integration Test \textit{Kafka}\textsubscript{\textit{G}}-\textit{Clickhouse}\textsubscript{\textit{G}};
+        \item Avanzamento \textit{test}\textsubscript{\textit{G}} di \textit{integrazione}\textsubscript{\textit{G}}.
+    \end{itemize}
+
+% ------------------------ Firma Azienda ----------------------
+\begin{textblock*}{\textwidth}(0.22\textwidth, 1.08\textheight)
+    Luogo e Data: Padova, 01/03/2024
+\end{textblock*}
+
+\begin{textblock*}{\textwidth}(0.90\textwidth, 1.08\textheight)
+        Firma referente Sync Lab:
+\end{textblock*}
+% -------------------------------------------------------------
+\end{document}

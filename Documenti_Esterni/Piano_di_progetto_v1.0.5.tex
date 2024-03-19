@@ -1,0 +1,167 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[default]{raleway}
+\usepackage[table]{xcolor}
+\usepackage{booktabs} 
+\usepackage{ragged2e}
+\usepackage{subcaption}
+\usepackage{pgf-pie, multirow, longtable, tikz, titlesec, comment, tabularx, makecell, float, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, eurosym, hyperref}
+\usepackage{todonotes}
+%\geometry{a4paper, left=2cm, right=2cm, top=2cm, bottom=2.5cm}
+
+\renewcommand{\headrulewidth}{0pt}
+
+% ----------------------------- Definizione colori ---------------------------
+\definecolor{darkgreen}{rgb}{0.0, 0.5, 0.0}
+\definecolor{navyblue}{rgb}{0.0, 0.0, 0.8}
+
+% ----------------------------- Definizione tabella ---------------------------
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+\newcolumntype{L}[1]{>{\RaggedRight\arraybackslash}m{#1}}
+
+% ------------------------------Metadati indice -------------------------------
+
+\titleformat{\paragraph}[hang]{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}{0pt}{0.6cm plus 0.1cm minus 0.05cm}{0.15cm plus 0.1cm minus 0.02cm}
+
+% ------------------------------Metadati indice -------------------------------
+\title{\textbf{\fontsize{30}{6}\selectfont Indice}}
+\author{\fontsize{14}{6}\selectfont ByteOps}
+\date{}
+
+% -----------------------------Creazione footer --------------------------------
+\pagestyle{fancy} 
+\fancyhf{}
+\renewcommand{\footrulewidth}{0.4pt} 
+\lfoot{ 
+    \parbox[c]{2cm}{\includegraphics[width=2cm]{../Images/logo.png}}
+    \textcolor[RGB]{120, 120, 120}{$\cdot$ Piano di progetto}
+}
+\rfoot{\thepage}
+
+% -------------------------- Definizione colori ------------------------
+\definecolor{darkgreen}{rgb}{0.0, 0.5, 0.0}
+\definecolor{navyblue}{rgb}{0.0, 0.0, 0.8}
+
+% -------------------------- Modifica formato hyperlinks ------------------------
+\hypersetup{
+    colorlinks=true,
+    linkcolor=darkgreen,
+    urlcolor=navyblue,  
+    filecolor=black,      
+    pdftitle={Piano di progetto},
+    pdfpagemode=FullScreen,
+}
+
+\definecolor{responsabile}{RGB}{0,102,204}
+\definecolor{amministratore}{RGB}{0,204,102}
+\definecolor{analista}{RGB}{255,165,0}
+\definecolor{progettista}{RGB}{255,0,0}
+\definecolor{programmatore}{RGB}{128,0,128}
+\definecolor{verificatore}{RGB}{255,192,203}
+
+\begin{document}
+\pagestyle{fancy}
+\begin{center}
+    \includegraphics[width = 0.7\textwidth]{../Images/logo.png} \\
+    \vspace{0.2cm}
+    \textcolor[RGB]{60, 60, 60}{\textit{ByteOps.swe@gmail.com}} \\
+    \vspace{1cm}
+    \fontsize{16}{6}\selectfont Piano di progetto \\
+    \vspace{0.5cm}
+\end{center}
+
+\section*{Informazioni documento}
+\def\arraystretch{1.2}
+\begin{tabular}{>{\raggedleft\arraybackslash}p{0.2\textwidth}|>{\raggedright\arraybackslash}p{0.6\textwidth}c}
+    \hline
+    \addlinespace
+    \textbf{Redattori}    & A. Barutta\\ & R. Smanio\\ & L. Skenderi\\ & F. Pozza\\ & D. Diotto \\ & N. Preto \vspace{10pt} \\
+    \textbf{Verificatori} & E. Hysa\\ & A. Barutta\\ & D. Diotto\\ & L. Skenderi\\ & R. Smanio\\ & F. Pozza \vspace{10pt} \\
+    \textbf{Destinatari}  & ByteOps\\ & T. Vardanega \\ & R. Cardin \vspace{10pt} \\
+\end{tabular}
+\pagebreak
+
+% ------------------------- Changelog ----------------------------
+\begin{tabular}{|C{1.5cm}|C{2.1cm}|C{2cm}|C{2cm}|C{4.5cm}|}
+    \hline 
+    \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Dettaglio}            \\
+    \hline
+    \label{Git_Action_Version} 1.0.5 & 15/03/2024 & D. Diotto & A. Barutta & Verso la PB - Undicesimo periodo. \\ 
+    \hline
+    1.0.4 & 08/03/2024 & R. Smanio & A. Barutta & Verso la PB - Decimo periodo. \\ 
+    \hline
+    1.0.3 & 01/03/2024 & L. Skenderi & N. Preto & Verso la PB - Nono periodo. \\ 
+    \hline
+    1.0.2 & 23/02/2024 & E. Hysa & R. Smanio & Verso la PB - Ottavo periodo. \\ 
+    \hline
+    1.0.1 & 16/02/2024 & A. Barutta & F. Pozza & Tra RTB e PB - Settimo periodo. \\ 
+    \hline
+    1.0.0 & 01/02/2024 & D. Diotto & L. Skenderi & RTB - Riepilogo RTB, Revisione preventivo costi. \\ 
+    \hline
+    0.2.6 & 01/02/2024 & D. Diotto & L. Skenderi & RTB - Sesto periodo. \\  
+    \hline
+    0.2.5 & 15/01/2024 & D. Diotto & F. Pozza & RTB - Quinto periodo. \\
+    \hline
+    0.2.4 & 07/01/2024 & N. Preto & L. Skenderi & RTB - Quarto periodo. \\
+    \hline
+    0.2.3 & 21/12/2023 & R. Smanio & A. Barutta & RTB - Terzo periodo. \\
+    \hline
+    0.2.2 & 08/12/2023 & L. Skenderi & D. Diotto & RTB - Secondo periodo. \\
+    \hline
+    0.2.1 & 24/11/2023 & F. Pozza & D. Diotto & RTB - Primo periodo. \\
+    \hline
+    0.2.0 & 10/11/2023 & L. Skenderi & E. Hysa & Aggiunte sez. pianificazione, preventivo e consuntivo. \\
+    \hline
+    0.1.4 & 9/11/2023 & L. Skenderi & E. Hysa & Aggiunta stima costi di Novembre.  \\
+    \hline
+    0.1.3 & 8/11/2023 & A. Barutta & R. Smanio & Aggiunta stima costi di Ottobre.  \\
+    \hline
+    0.1.2 & 8/11/2023 & A. Barutta & E. Hysa & Aggiunto calendario.\\
+    \hline
+    0.1.1 & 07/11/2023 & L. Skenderi & E. Hysa & Aggiunti nuovi rischi attesi. \\
+    \hline
+    0.1.0 & 06/11/2023 & L. Skenderi & E. Hysa & Aggiornamento sezione Analisi dei rischi. \\
+    \hline 
+    0.0.3 & 05/11/2023 & A. Barutta & E. Hysa & Prima scrittura sezione Analisi dei rischi.\\
+    \hline 
+    0.0.2 & 04/11/2023 & A. Barutta & E. Hysa & Scrittura sezione Introduzione.\\
+    \hline 
+    0.0.1 & 03/11/2023 & A. Barutta & E. Hysa & Prima impostazione documento.\\
+    \hline 
+\end{tabular}
+
+\pagebreak
+
+% ------------------------- Generazione automatica indice ----------------------
+\setstretch{1.5}
+\maketitle
+\thispagestyle{fancy}
+{
+    \hypersetup{linkcolor=black}
+    \tableofcontents
+    \setcounter{tocdepth}{4}
+    \listoffigures % Indice delle figure
+}
+\setstretch{1.2}
+\pagebreak
+
+% ---------------------------- Inizio documento -------------------------------
+
+\flushleft
+
+\input{Sezioni/Piano_di_progetto/Introduzione.tex}
+
+\input{Sezioni/Piano_di_progetto/Analisi_dei_rischi.tex}
+
+\input{Sezioni/Piano_di_progetto/Calendario_del_progetto.tex}
+
+\input{Sezioni/Piano_di_progetto/Stima_dei_costi_realizzazione.tex}
+
+\input{Sezioni/Piano_di_progetto/Pianificazione_preventivo_consuntivo.tex}
+
+\input{Sezioni/Piano_di_progetto/RetrospettivaGenerale.tex}
+
+
+\end{document}

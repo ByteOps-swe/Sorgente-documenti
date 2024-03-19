@@ -1,0 +1,190 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[absolute]{textpos}
+\usepackage[default]{raleway}
+\usepackage{titlesec, comment, eurosym, tabularx, makecell, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, hyperref}
+\usepackage{colortbl}
+\renewcommand{\headrulewidth}{0pt}
+
+% Definisci uno stile per i comandi git
+\definecolor{light-gray}{gray}{0.92}
+\definecolor{darkgreen}{rgb}{0.0, 0.5, 0.0}
+\definecolor{navyblue}{rgb}{0.0, 0.0, 0.8}
+
+\lstdefinestyle{code}{
+    frame=single,
+    framesep=1mm,
+    rulecolor=\color{light-gray},
+    backgroundcolor=\color{light-gray},
+    basicstyle=\ttfamily,
+}
+ 
+% ----------------------------- Definizione tabella ---------------------------
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+% ------------------------------Metadati indice --------------------------------
+\title{\textbf{\fontsize{28}{6}\selectfont Indice}}
+\author{\fontsize{14}{6}\selectfont ByteOps}
+\date{Gennaio 08, 2024}
+ 
+
+% -----------------------------Creazione footer --------------------------------
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{
+    \parbox[c]{2cm}{\includegraphics[width=2cm]{Images/logo.png}}
+    \textcolor[RGB]{120, 120, 120}{$\cdot$ Candidatura RTB}
+}
+\rfoot{\thepage}
+
+% --------------------------Modifica formato hyperlinks ------------------------
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=darkgreen,
+    urlcolor=navyblue,
+    filecolor=black,      
+    pdftitle={Candidatura RTB},  %inserisci data verbale
+    pdfpagemode=FullScreen,
+}
+
+% ------------------------------- Valore sotto-paragrafi indice --------------------------------------
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\titleformat{\section}
+{\normalfont\huge\bfseries}{\thesection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsection}
+{\normalfont\Large\bfseries}{\thesubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsubsection}
+{\normalfont\large\bfseries}{\thesubsubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+% ------------------------------- Front Page ---------------------------------------
+
+\begin{document}
+
+% --------------------------Aggiunta firma finale ------------------------
+\begin{textblock*}{\textwidth}(0.85\textwidth, 1.16\textheight)
+    Il responsabile: Andrea Barutta
+\end{textblock*}
+% ------------------------------------------------------------------------
+
+\pagestyle{fancy}
+\begin{center}
+\includegraphics[width = 0.7\textwidth]{Images/logo.png} \\
+\vspace{0.2cm}
+\textcolor[RGB]{60, 60, 60}{\textit{ByteOps.swe@gmail.com}} \\
+\vspace{1cm}
+\fontsize{16}{6}\selectfont Candidatura RTB \\
+\vspace{0.5cm}
+\end{center}
+
+\section*{Informazioni documento}
+\def\arraystretch{1.2}
+\begin{tabular}{>{\raggedleft\arraybackslash}p{0.2\textwidth}|>{\raggedright\arraybackslash}p{0.6\textwidth}c}
+\hline
+\addlinespace
+\textbf{Data} & 08/02/2024 \vspace{10pt} \\
+\textbf{Redattore} & A. Barutta \vspace{10pt} \\
+\textbf{Verificatore} & F. Pozza \vspace{10pt} \\
+\textbf{Amministratore} & E. Hysa \vspace{10pt} \\
+\textbf{Destinatari} & T. Vardanega \\ & R. Cardin \vspace{10pt} \\
+\end{tabular}
+\pagebreak 
+
+% ------------------------- Generazione automatica indice ----------------------
+\setstretch{1.5}
+\maketitle
+\thispagestyle{fancy}
+{
+    \hypersetup{linkcolor=black}
+    \tableofcontents
+}
+\setstretch{1.2}
+\pagebreak
+
+% ------------------------ INIZIO DOCUMENTO ----------------------
+\flushleft
+
+\section{Introduzione}
+Con la presente lettera di candidatura il gruppo \textit{ByteOps} comunica ufficialmente la volontà di richiedere un colloquio per la revisione \textit{RTB}\textsubscript{\textit{G}} \textit{(Requirements and Technology Baseline)} riguardante il progetto \textit{InnovaCity: A smart city monitoring platform} svolto sotto l'attenta supervisione dell'azienda \textbf{SyncLab}.
+
+\section{Documenti}
+Tutta la documentazione riguardante il lavoro svolto è reperibile nella \textit{repository}\textsubscript{\textit{G}} pubblica del team \textit{ByteOps} accedendo al sito attraverso il seguente link:
+
+\begin{center}
+    \href{https://byteops-swe.github.io}{https://byteops-swe.github.io}
+\end{center}
+
+Nello specifico è presente una release 1.0 \textit{RTB}\textsubscript{\textit{G}} nella quale saranno disponibili:
+\vspace{0.2cm}
+
+\textbf{Documenti esterni:}
+\begin{itemize}
+    \item Analisi dei requisiti \textit{v1.0.0};
+    \item Piano di progetto \textit{v1.0.0};
+    \item Piano di qualifica \textit{v1.0.0};
+    \item Verbali esterni.
+\end{itemize}
+\vspace{0.2cm}
+
+\textbf{Documenti interni:}
+\begin{itemize}
+    \item Norme di progetto \textit{v1.0.0};
+    \item Glossario \textit{v1.0.0};
+    \item Verbali interni.
+\end{itemize}
+
+\section{Revisione consegna}
+Alla luce dei ritardi dovuti agli impegni accademici personali dei membri del team occorsi durante il sesto periodo, dopo un'attenta analisi di gruppo sul lavoro svolto e una programmazione del lavoro da svolgere nell'immediato futuro, è stata aggiornata la data prevista di realizzazione della \textit{PB}\textsubscript{\textit{G}} \textit{(Product Baseline)}, che passa quindi dal preventivato \textbf{12/03/2024} al \textbf{25/03/2024}.
+
+Al contempo il PaF \textit{(Preventivo a Finire)} alla luce dell'esperienza maturata e la conseguente ripartizione delle ore per ruolo necessarie, viene aggiornato dai precedenti \textit{12.565,00\euro\ } ad \textit{12.465,00\euro }.
+
+\section{Il Team}
+Di seguito vengono elencati i membri del gruppo ByteOps:
+
+\vspace{1cm}
+
+\begin{center}
+    \begin{tabular}{|C{4cm}|C{2cm}|}
+    \hline
+        \textbf{Nominativo} & \textbf{Matricola} \\
+        \hline\hline
+        Andrea Barutta  & 2042355 \\
+        \hline
+        Davide Diotto   & 2042334 \\ 
+        \hline
+        Endi Hysa       & 2046424 \\ 
+        \hline
+        Francesco Pozza & 1174610 \\ 
+        \hline
+        Nicola Preto    & 2042371 \\ 
+        \hline
+        Lisien Skenderi & 2023461 \\ 
+        \hline
+        Riccardo Smanio & 1126491 \\ 
+        \hline
+    \end{tabular}
+\end{center}
+
+\vspace{1cm}
+Nell'attesa di una sua risposta le rivolgiamo cordiali saluti,
+
+\vspace{0.3cm}
+
+\textit{ByteOps}.
+
+\end{document}

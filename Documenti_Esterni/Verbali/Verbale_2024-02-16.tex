@@ -1,0 +1,179 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[absolute]{textpos}
+\usepackage[default]{raleway}
+\usepackage{titlesec, comment, tabularx, makecell, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, hyperref, multirow}
+\usepackage{colortbl}
+%\geometry{a4paper, left=2cm, right=2cm, top=2cm, bottom=2.5cm}
+\renewcommand{\headrulewidth}{0pt}
+
+% Definisci uno stile per i comandi git
+\definecolor{light-gray}{gray}{0.92}
+
+\lstdefinestyle{code}{
+    frame=single,
+    framesep=1mm,
+    rulecolor=\color{light-gray},
+    backgroundcolor=\color{light-gray},
+    basicstyle=\ttfamily,
+}
+
+% ----------------------------- Definizione tabella ---------------------------
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+%\setcellgapes{2ex} % Imposta l'altezza dell'header (2ex)
+
+
+% ------------------------------Metadati indice --------------------------------
+\title{\textbf{\fontsize{28}{6}\selectfont Indice}}
+\author{\fontsize{14}{6}\selectfont ByteOps}
+\date{Febbraio 16, 2024}
+
+
+% -----------------------------Creazione footer --------------------------------
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{
+    \parbox[c]{2cm}{\includegraphics[width=2cm]{../../Images/logo.png}}
+    \textcolor[RGB]{120, 120, 120}{$\cdot$ Verbale Esterno}
+}
+\rfoot{\thepage}
+
+% --------------------------Modifica formato hyperlinks ------------------------
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    pdftitle={Verbale Esterno 16/02/2024},  %inserisci data verbale
+    pdfpagemode=FullScreen,
+}
+
+% ------------------------------- Valore sotto-paragrafi indice --------------------------------------
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\titleformat{\section}
+{\normalfont\huge\bfseries}{\thesection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsection}
+{\normalfont\Large\bfseries}{\thesubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsubsection}
+{\normalfont\large\bfseries}{\thesubsubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+% ------------------------------- Front Page ---------------------------------------
+
+\begin{document}
+
+% --------------------------Aggiunta firma finale ------------------------
+\begin{textblock*}{\textwidth}(0.85\textwidth, 1.16\textheight)
+    Il responsabile: Endy Hysa
+\end{textblock*}
+% ------------------------------------------------------------------------
+
+\pagestyle{fancy}
+\begin{center}
+\includegraphics[width = 0.7\textwidth]{../../Images/logo.png} \\
+\vspace{0.2cm}
+\textcolor[RGB]{60, 60, 60}{\textit{ByteOps.swe@gmail.com}} \\
+\vspace{1cm}
+\fontsize{16}{6}\selectfont Verbale Esterno $\cdot$ Data: 16/02/2024 \\
+\vspace{0.5cm}
+\end{center}
+
+\section*{Informazioni documento}
+\def\arraystretch{1.2}
+\begin{tabular}{>{\raggedleft\arraybackslash}p{0.3\textwidth}|>{\raggedright\arraybackslash}p{0.6\textwidth}c}
+\hline
+\addlinespace
+\textbf{Luogo} & Google Meet \vspace{10pt} \\
+\textbf{Orario} & 16:15 - 17:15 \vspace{10pt} \\
+\textbf{Redattore} & R. Smanio \vspace{10pt} \\
+\textbf{Verificatore} & F. Pozza \vspace{10pt} \\
+\textbf{Amministratore} & R. Smanio \vspace{10pt} \\
+\textbf{Destinatari} & T. Vardanega \\ & R. Cardin \vspace{10pt} \\
+\multirow[t]{7}{*}{\textbf{Partecipanti interni}} & A. Barutta \\ & E. Hysa \\ & R. Smanio \\ & D. Diotto \\ & F. Pozza \\ & L. Skenderi \\ & N. Preto \vspace{10pt} \\
+\multirow[t]{3}{*}{\textbf{Partecipanti esterni}} & A. Dorigo \\ & D. Zorzi \\ & F. Pallaro \\ 
+\end{tabular}
+\pagebreak 
+
+% ------------------------- Changelog ----------------------------
+
+\section*{Registro delle modifiche}
+
+\begin{tabular}{|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|}
+    \hline
+    \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Dettaglio} \\
+    \hline \hline
+    0.0.1 & 19/02/2024 & R. Smanio & F. Pozza & Redazione documento \\
+    \hline
+\end{tabular}
+\pagebreak
+
+% ------------------------- Generazione automatica indice ----------------------
+\setstretch{1.5}
+\maketitle
+\thispagestyle{fancy}
+\tableofcontents
+\setstretch{1.2}
+\pagebreak
+
+% ------------------------ INIZIO DOCUMENTO ----------------------
+\flushleft
+
+\section{Revisione del periodo precedente}
+
+Durante il periodo intercorso dal precedente \textit{SAL}\textsubscript{\textit{G}}, ci si è concentrati sulla revisione finale dei documenti e sulla preparazione della presentazione in vista della seconda fase della revisione \textit{RTB}\textsubscript{\textit{G}}.
+Di conseguenza, non è stata condotta una revisione approfondita del periodo precedente con l'azienda \textit{proponente}\textsubscript{\textit{G}}, poiché non sono state avviate nuove \textit{attività}\textsubscript{\textit{G}} e non sono emerse questioni o dubbi rilevanti. \\
+La \textit{proponente}\textsubscript{\textit{G}} è stata informata che il team ha ottenuto l'approvazione per avanzare con la seconda fase della revisione \textit{RTB}\textsubscript{\textit{G}}. Inoltre, è stata condotta una breve discussione riguardo alle correzioni da apportare al documento Analisi dei Requisiti in merito ai requisiti funzionali.
+
+\section{Ordine del giorno}
+
+    \subsection{Ridondanza database}
+    Si è discusso relativamente alla configurazione delle tabelle relative alle misurazioni trasmesse dai sensori, con particolare attenzione all'inclusione di dati "statici", come la posizione del \textit{sensore}\textsubscript{\textit{G}} (latitudine e longitudine), in ciascuna tabella. È emerso che tale scelta comporta duplicazione dei dati e un utilizzo aggiuntivo di risorse di memoria. \\
+    Tuttavia, rispetto ad una configurazione delle tabelle che miri a evitare la ridondanza, è stato riconosciuto che questo approccio offre un vantaggio significativo in termini di riduzione del costo computazionale, soprattutto durante operazioni di join su ampi set di dati. In questa prospettiva, il costo computazionale risulta essere più impattante rispetto all'eventuale costo di memoria aggiuntiva derivante dalla duplicazione dei dati. \\
+    È stato anche sollevato il punto che questa implementazione potrebbe rendere il \textit{database}\textsubscript{\textit{G}} non conforme alla forma normale. Tuttavia, nel contesto di \textit{database}\textsubscript{\textit{G}} non relazionali come quello adottato, tale caratteristica è considerata accettabile e non compromette l'efficienza complessiva del \textit{sistema}\textsubscript{\textit{G}}.
+
+
+    \subsection{Manuale Utente}
+    È stato valutato se fosse opportuno includere nel manuale utente le procedure di installazione relative all'ambiente in cui viene eseguita la \textit{piattaforma}\textsubscript{\textit{G}}. Tuttavia, considerando che il manuale utente è destinato agli utenti finali, il cui obiettivo principale è quello di utilizzare la \textit{dashboard}\textsubscript{\textit{G}} per analizzare e monitorare lo stato di salute della città, si è convenuto che non sia necessario includere le procedure di installazione. \\
+    Questa decisione semplifica l'utilizzo del manuale, focalizzandosi direttamente sull'obiettivo principale degli utenti finali senza aggiungere dettagli tecnici non pertinenti all'utente finale. \\
+    Il manuale utente includerà il link per accedere direttamente alla \textit{dashboard}\textsubscript{\textit{G}} \textit{Grafana}\textsubscript{\textit{G}}, insieme alle istruzioni necessarie per condurre in modo efficace le operazioni di analisi e monitoraggio.
+
+    \subsection{Test di integrazione}
+    Durante le discussioni, è stata sollevata la questione riguardante la realizzazione di \textit{test}\textsubscript{\textit{G}} di \textit{integrazione}\textsubscript{\textit{G}} automatizzati. Tuttavia, si è rilevato che eseguire \textit{test}\textsubscript{\textit{G}} automatizzati per verificare la corretta visualizzazione dei dati provenienti dai sensori nella \textit{dashboard}\textsubscript{\textit{G}} \textit{Grafana}\textsubscript{\textit{G}} risulta essere troppo complesso. Di conseguenza, è stata presa la decisione di condurre manualmente questo tipo di \textit{test}\textsubscript{\textit{G}}, generando un set predefinito di misurazioni dai sensori e verificando che tali misurazioni attraversino l'intera catena delle componenti architetturali fino a essere visualizzate correttamente nella \textit{dashboard}\textsubscript{\textit{G}} di \textit{Grafana}\textsubscript{\textit{G}}.
+
+\section{Attività da svolgere}
+    \begin{itemize}
+        \item Procedere con la progettazione del \textit{database}\textsubscript{\textit{G}} \textit{Clickhouse}\textsubscript{\textit{G}} adottando una configurazione che, ove necessario, minimizzi il costo computazionale delle operazioni onerose (come le join), anche a fronte di una potenziale ridondanza dei dati;
+        \item Iniziare la stesura del \textit{Manuale Utente} concentrandosi esclusivamente sui contenuti relativi all'utilizzo del \textit{software}\textsubscript{\textit{G}}, senza includere alcuna procedura di installazione o configurazione riguardante l'ambiente di esecuzione della \textit{piattaforma}\textsubscript{\textit{G}};
+        \item Creare set di dati predefiniti per l'esecuzione manuale di \textit{test}\textsubscript{\textit{G}} di \textit{integrazione}\textsubscript{\textit{G}} e \textit{test}\textsubscript{\textit{G}} end-to-end;
+        \item Redazione verbale esterno.
+    \end{itemize}
+
+
+% \section{Richieste e chiarimenti}
+
+
+% ------------------------ Firma Azienda ----------------------
+\begin{textblock*}{\textwidth}(0.22\textwidth, 1.08\textheight)
+    Luogo e Data: Padova, 16/02/24
+\end{textblock*}
+
+\begin{textblock*}{\textwidth}(0.90\textwidth, 1.08\textheight)
+        Firma referente Sync Lab:
+\end{textblock*}
+% -------------------------------------------------------------
+\end{document}

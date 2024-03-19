@@ -1,0 +1,61 @@
+\subsection{Qualità di processo}
+
+\begin{longtable}{|C{1.9cm}|L{4cm}|L{4cm}|L{2.2cm}|L{2.1cm}|}
+\hline
+\textbf{Metrica} & \centering{\textbf{Nome}} & \centering{\textbf{Descrizione}} & \textbf{Valore di\linebreak accettazione} & {\textbf{Valore \linebreak preferibile}} \\
+\hline \hline
+
+\textbf{M\arabic{metriccounter}PMS} & Percentuale di metriche soddisfatte & Misura che valuta quante metriche che sono state definite sono state effettivamente adottate e soddisfatte. & $\geq 80\%$ & $100\%$ \\
+\hline
+
+\stepcounter{metriccounter}
+\textbf{M\arabic{metriccounter}EAC} & Estimated at completion &  Misura il costo realizzativo stimato per terminare il progetto.  & $\pm 5\%$ rispetto al preventivo& Pari al preventivo \\
+\hline
+
+\stepcounter{metriccounter}\textbf{M\arabic{metriccounter}CPI} & Cost performance index & Misura il rapporto tra il valore del lavoro effettivamente svolto ed il costo reale del lavoro fino al periodo di riferimento. & $\pm 10\%$ & $0\%$ \\
+\hline
+
+\stepcounter{metriccounter}\textbf{M\arabic{metriccounter}BV} & Budget variance & Misura la differenza percentuale di budget tra quanto previsto nella pianificazione di un periodo e l’effettiva realizzazione. & $\geq -10\%$ & $0\%$ \\
+\hline
+
+\stepcounter{metriccounter}\textbf{M\arabic{metriccounter}AC} & Actual cost & Misura i costi effettivamente sostenuti dall’inizio del progetto fino all’attualità. & $\geq 0 $ & $ \leq$ \textit{EAC}\textsubscript{\textit{G}}  \\
+\hline
+
+\stepcounter{metriccounter}\textbf{M\arabic{metriccounter}SV} & Schedule variance & Indica in percentuale quanto si è in anticipo o in ritardo con le \textit{attività}\textsubscript{\textit{G}} pianificate. & $\geq -10\%$ & $0\%$ \\
+\hline
+
+\stepcounter{metriccounter}\textbf{M\arabic{metriccounter}EV} & Earned value & Valore del lavoro effettivamente svolto fino a quel periodo. & $\geq 0 $ & $\leq$ \textit{EAC}\textsubscript{\textit{G}} \\
+\hline
+
+\stepcounter{metriccounter}\textbf{M\arabic{metriccounter}PV} & Planned value & Stima la somma dei costi realizzativi delle \textit{attività}\textsubscript{\textit{G}} imminenti periodo per periodo. & $\geq 0 $ & $ \leq$ BAC \\
+\hline
+
+\stepcounter{metriccounter}\textbf{M\arabic{metriccounter}ETC} & Estimate to complete & Stima i costi realizzativi fino alla fine del progetto. & $\geq 0 $ & $ \leq$ \textit{EAC}\textsubscript{\textit{G}} \\
+\hline
+
+\stepcounter{metriccounter}\stepcounter{metriccounter}\textbf{M\arabic{metriccounter}RNP} & Rischi non previsti & Misura il numero di rischi non previsti nel corso del progetto. & $\leq 5$ & $0$ \\
+\hline
+
+\stepcounter{metriccounter}\textbf{M\arabic{metriccounter}VR} & Variazione dei requisiti & Misura la variazione dei requisiti durante il progetto. & $\leq 3$ & $0$ \\
+\hline
+
+\stepcounter{metriccounter}\textbf{M\arabic{metriccounter}PCTS} & Percentuale di casi di \textit{test}\textsubscript{\textit{G}} superati & Percentuale di casi di \textit{test}\textsubscript{\textit{G}} superati. & $\geq 80\%$ & $100\%$ \\
+\hline
+
+\stepcounter{metriccounter}\textbf{M\arabic{metriccounter}PCTF} & Percentuale di casi di \textit{test}\textsubscript{\textit{G}} falliti & Percentuale di casi di \textit{test}\textsubscript{\textit{G}} falliti. & $\leq 20\%$ & $0\%$ \\
+\hline
+
+\stepcounter{metriccounter}\textbf{M\arabic{metriccounter}SC} & Statement coverage & Metrica di copertura del codice che indica la percentuale degli statement del codice coperti dai \textit{test}\textsubscript{\textit{G}}. & $\geq 80\%$ & $100\%$ \\
+\hline
+
+\stepcounter{metriccounter}\textbf{M\arabic{metriccounter}BC} & Branch coverage & Metrica di copertura del codice che indica la percentuale dei rami decisionali del codice coperti dai \textit{test}\textsubscript{\textit{G}}. & $\geq 80\%$ & $100\%$ \\
+\hline
+
+\stepcounter{metriccounter}\textbf{M\arabic{metriccounter}CNC} & Condition coverage & Metrica di copertura del codice che indica la percentuale di condizioni logiche nel codice sorgente che sono state eseguite durante i \textit{test}\textsubscript{\textit{G}}. & $\geq 80\%$ & $100\%$ \\
+\hline
+
+\caption{Metriche per la qualità dei processi}
+\label{tab:qualità_processo_progetto}
+\end{longtable}
+
+\pagebreak

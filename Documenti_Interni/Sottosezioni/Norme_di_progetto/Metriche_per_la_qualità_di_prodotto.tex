@@ -1,0 +1,230 @@
+\subsection{Metriche per la qualità di prodotto}
+\begin{itemize}
+    
+    \vspace{0.4cm}
+    \item \hypertarget{item:M18PROS}{\textbf{Metrica M18PROS:}}
+    \vspace{0.2cm}
+    
+    \begin{minipage}[H]{0.9\textwidth}
+        \begin{itemize}
+            \item \textbf{Nome:} Percentuale di Requisiti Obbligatori Soddisfatti (PROS);
+            \item \textbf{Descrizione:} Metrica che valuta quanto del lavoro svolto durante lo sviluppo corrisponda ai requisiti essenziali o obbligatori definiti in fase di \textit{analisi dei requisiti}\textsubscript{\textit{G}};
+            \item \textbf{Formula:} $\frac{requisiti \ obbligatori \ soddisfatti}{requisiti \ obbligatori \ totali}\times 100$
+            \item \textbf{Caratteristica di qualità:} Funzionalità.
+        \end{itemize}
+    \end{minipage}
+
+    \vspace{0.4cm}
+    \item \hypertarget{item:M19PRDS}{\textbf{Metrica M19PRDS:}}
+    \vspace{0.2cm}
+    
+    \begin{minipage}[H]{0.9\textwidth}
+        \begin{itemize}
+            \item \textbf{Nome:} Percentuale di Requisiti Desiderati Soddisfatti (PRDS);
+            \item \textbf{Descrizione:} Metrica usata per valutare quanti di quei requisiti, che se integrati arricchirebbero l'esperienza dell'utente o fornirebbero vantaggi aggiuntivi non strettamente necessari, sono stati implementati o soddisfatti nel prodotto;
+            \item \textbf{Formula:} $\frac{requisiti \ desiderabili \ soddisfatti}{requisiti \ desiderabili \ totali}\times 100$
+            \item \textbf{Caratteristica di qualità:} Funzionalità.
+        \end{itemize}
+    \end{minipage}
+
+    \vspace{0.4cm}
+    \item \hypertarget{item:M20PRPS}{\textbf{Metrica M20PRPS:}}
+    \vspace{0.2cm}
+    
+    \begin{minipage}[H]{0.9\textwidth}
+        \begin{itemize}
+            \item \textbf{Nome:} Percentuale di Requisiti oPzionali Soddisfatti (PRPS);
+            \item \textbf{Descrizione:} Metrica per valutare quanti dei requisiti aggiuntivi, non essenziali o di bassa priorità, sono stati implementati o soddisfatti nel prodotto;
+            \item \textbf{Formula:} $\frac{requisiti \ opzionali \ soddisfatti}{requisiti \ opzionali \ totali}\times 100$
+            \item \textbf{Caratteristica di qualità:} Funzionalità.
+        \end{itemize}
+    \end{minipage}
+
+    \vspace{0.4cm}
+    \item \hypertarget{item:M21IF}{\textbf{Metrica M21IF:}}
+    \vspace{0.2cm}
+
+    \begin{minipage}[H]{0.9\textwidth}
+        \begin{itemize}
+            \item \textbf{Nome:} Implementazione delle Funzionalità (IF);
+            \item \textbf{Descrizione:} Misura qual è la quantità di funzionalità pianificate che sono state implementate;
+            \item \textbf{Formula:}$(1 - \frac{F_{NL}}{F_L}) \times 100$
+            \item \textbf{Caratteristica di qualità:} Funzionalità.
+        \end{itemize}
+    \end{minipage}
+
+    \vspace{0.4cm}
+    \item \hypertarget{item:M22CO}{\textbf{Metrica M22CO:}}
+    \vspace{0.2cm}
+    
+        \begin{itemize}
+            \item \textbf{Nome:} Correttezza Ortografica (CO);
+            \item \textbf{Descrizione:} Rappresenta il numero di errori grammaticali ed ortografici all'interno di un documento;
+            \item \textbf{Caratteristica di qualità:} Affidabilità.
+        \end{itemize}
+
+    \vspace{0.4cm}
+    \item \hypertarget{item:M23IG}{\textbf{Metrica M23IG:}}
+    \vspace{0.2cm}
+    
+    \begin{itemize}
+        \item \textbf{Nome:} Indice Gulpease (MIG);
+        \item \textbf{Descrizione:} Indice di leggibilità di un testo tarato sulla lingua italiana, che utilizza la lunghezza delle parole in lettere anziché in sillabe, semplificandone il calcolo automatico;
+        \item \textbf{Formula:} $IG = 89 + \frac{300 \cdot N_f - 10 \cdot N_l}{N_p}$
+        \item \textbf{Dove:}
+            \begin{itemize}
+                \item $N_f$: numero di frasi;
+                \item $N_l$: numero di lettere;
+                \item $N_p$: numero di parole.
+            \end{itemize}
+        \item I risultati sono compresi tra 0 e 100, dove il valore "100" indica la leggibilità più alta e "0" la leggibilità più bassa. In generale risulta che i testi con un indice:
+            \begin{itemize}
+                \item $< 80$: sono difficili da leggere per chi ha la licenza elementare;
+                \item $< 60$: sono difficili da leggere per chi ha la licenza media;
+                \item $< 40$: sono difficili da leggere per chi ha un diploma superiore.
+            \end{itemize}
+        \item \textbf{Caratteristica di qualità:} Affidabilità.
+    \end{itemize}
+
+    \vspace{0.4cm}
+    \item \hypertarget{item:M23IG}{\textbf{Metrica M24DE:}}
+    \vspace{0.2cm}
+        
+    \begin{minipage}[H]{0.9\textwidth}
+        \begin{itemize}
+            \item \textbf{Nome:} Densità degli Errori (DE);
+            \item \textbf{Descrizione:} Misura la percentuale di errori presenti nel prodotto rispetto al totale del codice;
+            \item \textbf{Formula:} $DE = \frac{numero \ di \ errori}{totale \ delle \ linee \ di \ codice} \times 100$
+            \item \textbf{Caratteristica di qualità:} Affidabilità.
+        \end{itemize}
+    \end{minipage}
+
+
+    \vspace{0.4cm}
+    \item \hypertarget{item:M25ATC}{\textbf{Metrica M25ATC:}}
+    \vspace{0.2cm}
+        
+    \begin{minipage}[H]{0.9\textwidth}
+        \begin{itemize}
+            \item \textbf{Nome:} Accoppiamento tra Classi (ATC);
+            \item \textbf{Descrizione:} Misura il livello di accoppiamento tra le classi del \textit{sistema}\textsubscript{\textit{G}};
+            \item \textbf{Caratteristica di qualità:} Manutenibilità.
+        \end{itemize}
+    \end{minipage}
+
+    \vspace{0.4cm}
+    \item \hypertarget{item:M26MCCM}{\textbf{Metrica M26MCCM}}
+    \vspace{0.2cm}
+    
+    \begin{minipage}[H]{0.9\textwidth}
+        \begin{itemize}
+            \item \textbf{Nome:} Complessità Ciclomatica per Metodo (\textit{MCCM}\textsubscript{\textit{G}});
+            \item \textbf{Descrizione:} Misura il numero di cammini linearmente indipendenti attraverso il grafo di controllo di flusso del metodo;
+            \item \textbf{Formula:} $\textit{MCCM}\textsubscript{\textit{G}} = e - n + 2$
+            \item \textbf{Dove:}
+                \begin{itemize}
+                    \item \textit{e}: Numero di archi del grafo del flusso di esecuzione del metodo;
+                    \item \textit{n}: Numero di vertici del grafo del flusso di esecuzione del metodo.
+                \end{itemize}
+            \item \textbf{Caratteristica di qualità:} Manutenibilità.
+        \end{itemize}
+    \end{minipage}
+
+    \pagebreak
+    \item \hypertarget{item:M27PM}{\textbf{Metrica M27PM:}}
+    \vspace{0.2cm}
+    
+    \begin{minipage}[H]{0.9\textwidth}
+        \begin{itemize}
+            \item \textbf{Nome:} Parametri per Metodo (PM);
+            \item \textbf{Descrizione:} Numero massimo di parametri per metodo;
+            \item \textbf{Caratteristica di qualità:} Manutenibilità.
+        \end{itemize}
+    \end{minipage}
+
+    \vspace{0.4cm}
+    \item \hypertarget{item:M28APC}{\textbf{Metrica M28APC:}}
+    \vspace{0.2cm}
+    
+    \begin{minipage}[H]{0.9\textwidth}
+        \begin{itemize}
+            \item \textbf{Nome:} Attributi Per Classe (APC);
+            \item \textbf{Descrizione:} Misura il numero massimo di attributi per classe;
+            \item \textbf{Caratteristica di qualità:} Manutenibilità.
+        \end{itemize} 
+    \end{minipage}
+
+    \vspace{0.4cm}
+    \item \hypertarget{item:M29LCM}{\textbf{Metrica M29LCM:}}
+    \vspace{0.2cm}
+        
+    \begin{minipage}[H]{0.9\textwidth}
+        \begin{itemize}
+            \item \textbf{Nome:} Linee di Codice per Metodo (LCM);
+            \item \textbf{Descrizione:} Limite massimo di linee di codice per metodo;
+            \item \textbf{Caratteristica di qualità:} Manutenibilità.
+        \end{itemize}
+    \end{minipage} 
+
+    \vspace{0.4cm}
+    \item \hypertarget{item:M30PG}{\textbf{Metrica M30PG:}}
+    \vspace{0.2cm}
+        
+    \begin{minipage}[H]{0.9\textwidth}
+        \begin{itemize}
+            \item \textbf{Nome:} Profondità delle Gerarchie (PG);
+            \item \textbf{Descrizione:} Metrica che misura il numero di livelli tra una classe base (super-classe) e le sue sotto-classi (classi derivate);
+            \item \textbf{Caratteristica di qualità:} Manutenibilità.
+        \end{itemize} 
+    \end{minipage}
+
+    \vspace{0.4cm}
+    \item \hypertarget{item:M31TMR}{\textbf{Metrica M31TMR:}}
+    \vspace{0.2cm}
+    
+    \begin{minipage}[H]{0.9\textwidth}
+        \begin{itemize}
+            \item \textbf{Nome:} Tempo Medio di Risposta (TMR);
+            \item \textbf{Descrizione:} Metrica che misura quanto è efficiente e reattivo un \textit{sistema}\textsubscript{\textit{G}} \textit{software}\textsubscript{\textit{G}};
+            \item \textbf{Formula:}$\frac{somma \ dei \ tempi \ di \ risposta}{numero \ totale \ di \ misurazioni}$
+            \item \textbf{Caratteristica di qualità:} Efficienza.
+        \end{itemize}
+    \end{minipage}  
+
+    \pagebreak
+    \item \hypertarget{item:M32FU}{\textbf{Metrica M32FU:}}
+    \vspace{0.2cm}
+        
+    \begin{minipage}[H]{0.9\textwidth}
+        \begin{itemize}
+            \item \textbf{Nome:} Facilità di Utilizzo (FU);
+            \item \textbf{Descrizione:} Metrica che misura l'usabilità di un \textit{sistema}\textsubscript{\textit{G}} \textit{software}\textsubscript{\textit{G}};
+            \item \textbf{Caratteristica di qualità:} Usabilità.
+        \end{itemize}
+    \end{minipage}
+
+    \vspace{0.4cm}
+    \item \hypertarget{item:M33TA}{\textbf{Metrica M33TA:}}
+    \vspace{0.2cm}
+        
+    \begin{minipage}[H]{0.9\textwidth}
+        \begin{itemize}
+            \item \textbf{Nome:} Tempo di Apprendimento (TA);
+            \item \textbf{Descrizione:} Misura il tempo massimo richiesto per apprendere l'utilizzo del prodotto;
+            \item \textbf{Caratteristica di qualità:} Usabilità.
+        \end{itemize}
+    \end{minipage}
+
+    \vspace{0.4cm}
+    \item \hypertarget{item:M34VBS}{\textbf{Metrica M34VBS:}}
+    \vspace{0.2cm}
+        
+    \begin{minipage}[H]{0.9\textwidth}
+        \begin{itemize}
+            \item \textbf{Nome:} Versioni dei Browser Supportate (VBS);
+            \item \textbf{Descrizione:} Metrica che misura la percentuale delle versioni di browser supportate rispetto al totale delle versioni disponibili;
+            \item \textbf{Caratteristica di qualità:} Portabilità.
+        \end{itemize}
+    \end{minipage}
+
+\end{itemize}
