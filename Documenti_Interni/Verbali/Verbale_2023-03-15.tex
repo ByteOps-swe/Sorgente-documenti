@@ -133,15 +133,25 @@
 \flushleft
 
 \section{Revisione del periodo precedente}
-Dallo scorso incontro, è stato integrato con successo un sistema di Continuos Integration nel prodotto software, indicando varie metriche di qualità del codice nella repository Github dedicata all'MVP. È stata anche implementata la funzionalità di notifiche nel caso all'interno della dashboard Grafana, vi siano dei dati che creano delle criticità, di modo che l'utente possa essere informato e agire di conseguenza.
-
+Dal momento dell’ultimo incontro, le attività programmate sono state completate con successo. In particolare, è stato implementato un sistema di notifiche Grafana-Discord, progettato per informare l’utente in modo tempestivo su eventuali problemi o anomalie rilevate nel sistema.
+In aggiunta, è stato introdotto un meccanismo di Time-To-Live (TTL) per i dati archiviati in Clickhouse. Questo meccanismo permette una gestione efficace di grandi volumi di dati e consente una pulizia automatica di dati obsoleti o non più pertinenti. Infine, è stata adottata la pratica della Continuous Integration. Questo approccio garantisce un processo di sviluppo efficiente, affidabile e di alta qualità.
 \section{Ordine del giorno}
 \subsection{Schema registry}
 All’inizio dell’incontro, il gruppo ha discusso l’implementazione dello Schema Registry. Questo componente fornisce un repository centralizzato per la gestione e la validazione degli schemi utilizzati nei messaggi dei topic Kafka. La sua importanza risiede nella capacità di garantire coerenza e compatibilità dei dati man mano che gli schemi evolvono.
 L’utilizzo dello Schema Registry offre numerosi vantaggi. Innanzitutto, valida i dati provenienti dai sensori, assicurando che siano conformi agli schemi attesi. Inoltre, contribuisce a mantenere la coerenza tra i dati nuovi e quelli già presenti nel sistema. Grazie al versionamento degli schemi, è possibile gestire le modifiche nel tempo senza compromettere l’integrità dei dati. Infine, semplifica le pipeline dati, riducendo il rischio di problemi di compatibilità o perdita di informazioni.
 In sintesi, lo Schema Registry è uno strumento fondamentale per garantire la qualità e l’affidabilità dei dati all’interno del sistema e per queste motivazioni, si è deciso di integrare questo componente nel sistema.
-\subsection{Proposta dalla proponente}
+\subsection{Proposta della proponente}
 Durante il SAL con la proponente, è stata avanzata la proposta di organizzare un incontro presso la loro sede per l’approvazione dell’MVP. Successivamente, durante una discussione tenuta dopo il SAL, il gruppo ha deliberato di accettare tale proposta e ha comunicato alla proponente la disponibilità a partecipare all’incontro. Tuttavia, la data e l’orario specifici per questo incontro devono ancora essere concordati con la proponente. 
 \section{Attività da svolgere}
+\begin{center}
+    \begin{tabular}{|C{7cm}|C{1,5cm}|C{3cm}|}
+        \hline
+        \textbf{Titolo} & \textbf{\# Issue} & \textbf{Verificatore} \\
+        \hline
+        \hline
+        Implementazione Schema Registry & 114 & A. Barutta \\
+        \hline
+    \end{tabular}
+\end{center}
 
 \end{document}
