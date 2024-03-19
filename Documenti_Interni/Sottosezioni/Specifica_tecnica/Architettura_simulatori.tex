@@ -5,7 +5,7 @@ Nei paragrafi successivi, verrà presentata l'\textit{architettura}\textsubscrip
 \subsubsection{Modulo simulatori sensori}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/simulatoriSensori.PNG}
+    \includegraphics[width=1.1\textwidth]{../Images/SpecificaTecnica/simulatoriSensori.PNG}
     \caption{Modulo simulatori sensori - Innovacity}
     \label{fig: Modulo_simulatori_sensori}
 \end{figure}
@@ -272,12 +272,13 @@ Il \textit{pattern}\textsubscript{\textit{G}} Factory incapsula la creazione con
 \end{itemize}
 \end{itemize}
 
-\subsubsection{Modulo Writers} \ref*{sec:writersModule}
+\subsubsection{Modulo Writers} \label{sec:writersModule}
+
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/simulatoriSensori.PNG}
+    \includegraphics[width=1.1\textwidth]{../Images/SpecificaTecnica/writerModule.PNG}
     \caption{Modulo writers - Innovacity}
-    \label{fig: fdsd}
+    \label{fig: writersModule}
 \end{figure}
 
 Questo modulo si occupa della scrittura e/o invio di informazioni a diverse tipologie di servizi e vuole essere completamentemente indipendendente e non influenzato dal modulo della simulazione dei sensori cosi da poter consentire un suo riutilizzo.
@@ -431,6 +432,12 @@ Inoltre grazie all'interfaccia \textit{KafkaTarget}, si è garantita la possibil
 \end{itemize}
 
 \subsubsection{Modulo Threading/Scheduling}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.1\textwidth]{../Images/SpecificaTecnica/simulatorThread.PNG}
+    \caption{Modulo Modulo Threading/Scheduling simulatori sensori - Innovacity}
+    \label{fig: Modulo_simulatori_sensori_thread}
+\end{figure}
 Questo modulo si propone di gestire la logica di pianificazione per il recupero dei dati dai simulatori dei sensori e di inviare/scrivere tali dati utilizzando gli "Writers". Funge da orchestratore per i due moduli appena descritti, offrendo la possibilità di configurare la frequenza di campionamento o il numero di misurazioni da eseguire. Inoltre, incorpora una logica di ottimizzazione, simile a quella impiegata dai microcontrollori dei sensori nella realtà, al fine di evitare la trasmissione di dati ridondanti, inviando solo i cambiamenti di stato dei sensori.
 
 \paragraph*{Dependecy Inversion principle}
