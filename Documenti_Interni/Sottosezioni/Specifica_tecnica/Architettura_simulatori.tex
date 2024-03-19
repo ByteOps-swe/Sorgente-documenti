@@ -6,8 +6,8 @@ Nei paragrafi successivi, verrà presentata l'architettura individuata mediante 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/simulatoriSensori.PNG}
-    \caption{Modulo simulatori sensori - innovacity}
-    \label{fig: fddf}
+    \caption{Modulo simulatori sensori - Innovacity}
+    \label{fig: Modulo_simulatori_sensori}
 \end{figure}
 Questo modulo si occupa della generazione di dati di misurazione per diverse tipologie di sensori.
 In particolare sono stati implementati simulatori per i seguenti tipi di sensori:
@@ -63,7 +63,7 @@ Il pattern Factory incapsula la creazione concreta dei sensori, consentendo al c
             \begin{itemize}
                 \item \textbf{ID\_sensor:str [private]} - Identificatore univoco del sensore.
                 \item \textbf{cella\_sensore:str [private]} - Identificatore della cella del sensore.
-                \item \textbf{coordinate:Coordinate [private]} - Coordinate geografiche del sensore.
+                \item \textbf{coordinate:coordinate [private]} - Coordinate geografiche del sensore.
                 \item \textbf{misurazione: T [protected]} - Misurazione corrente del sensore.
                 \item \textbf{type:str [private]} - Tipo di sensore.
             \end{itemize}
@@ -227,19 +227,19 @@ Il pattern Factory incapsula la creazione concreta dei sensori, consentendo al c
     \begin{itemize}
         \item   \textbf{Attributi}: 
     \begin{itemize}
-        \item \textbf{timestamp:datetime [private]} - Timestamp della misurazione.
-        \item \textbf{value:T [private]} - Valore della misurazione.
-        \item \textbf{type:str [private]} - Tipo della misurazione.
-        \item \textbf{coordinates:Coordinate [private]} - Coordinate della misurazione.
-        \item \textbf{ID\_sensore:str [private]} - ID del sensore che ha effettuato la misurazione.
-        \item \textbf{cella:str [private]} - Cella in cui è stata effettuata la misurazione.
+        \item \textbf{timestamp: datetime [private]} - Timestamp della misurazione.
+        \item \textbf{value: T [private]} - Valore della misurazione.
+        \item \textbf{type: str [private]} - Tipo della misurazione.
+        \item \textbf{coordinates: coordinate [private]} - Coordinate della misurazione.
+        \item \textbf{ID\_sensore: str [private]} - ID del sensore che ha effettuato la misurazione.
+        \item \textbf{cella: str [private]} - Cella in cui è stata effettuata la misurazione.
     \end{itemize}
     \item   \textbf{Metodi}: 
     \begin{itemize}
         \item \textbf{\_\_eq\_\_(other:Misurazione):bool [public]} - Ridefinizione dell'operatore di uguaglianza per confrontare due oggetti Misurazione.
     \end{itemize}
 \end{itemize}
-    \item{\textbf{Classe: \textit{Coordinate}}}
+    \item{\textbf{Classe: \textit{coordinate}}}
     \begin{itemize}
         \item    \textbf{Attributi}: 
     \begin{itemize}
@@ -248,7 +248,7 @@ Il pattern Factory incapsula la creazione concreta dei sensori, consentendo al c
     \end{itemize}
     \item     \textbf{Metodi}: 
     \begin{itemize}
-        \item \textbf{\_\_eq\_\_(other:Coordinate):bool [public]} - Ridefinizione dell'operatore di uguaglianza per confrontare due oggetti Coordinate.
+        \item \textbf{\_\_eq\_\_(other:coordinate):bool [public]} - Ridefinizione dell'operatore di uguaglianza per confrontare due oggetti Coordinate.
     \end{itemize}
 \end{itemize}
     \item{\textbf{Classe: \textit{SensorFactory}}}
@@ -272,14 +272,11 @@ Il pattern Factory incapsula la creazione concreta dei sensori, consentendo al c
 \end{itemize}
 \end{itemize}
 
-
-
-
 \subsubsection{Modulo Writers} \ref*{sec:writersModule}
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/simulatoriSensori.PNG}
-    \caption{Modulo writers - innovacity}
+    \caption{Modulo writers - Innovacity}
     \label{fig: fdsd}
 \end{figure}
 

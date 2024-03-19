@@ -90,7 +90,7 @@ Il calcolo del punteggio avviene in due fasi:
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/simulatoriSensori.PNG}
-    \caption{Modulo simulatori sensori - innovacity}
+    \caption{Modulo simulatori sensori - Innovacity}
     \label{fig: fddf}
 \end{figure}
 
@@ -133,7 +133,7 @@ Inoltre, un'implementazione del pattern \textit{Strategy} è presente anche negl
     \begin{itemize}
     \item\textbf{Attributi}:
         \begin{itemize}
-        \item \textbf{listaMisurazioni:ListaMisurazioni [private]} - Una lista di oggetti Misurazione.
+        \item \textbf{lista\_misurazioni:lista\_misurazioni [private]} - Una lista di oggetti Misurazione.
         \item \textbf{lock:threading.Lock [private]} - Un oggetto lock per gestire l'accesso concorrente alla lista di misurazioni.
     \end{itemize}
     \item \textbf{Metodi: }
@@ -164,9 +164,9 @@ Inoltre, un'implementazione del pattern \textit{Strategy} è presente anche negl
     \item \textbf{Metodi: }
     \begin{itemize}
         \item \textbf{generate\_new\_health\_score(): List[MisurazioneSalute] [public]} - Genera e restituisce una nuova lista di punteggi di salute, uno per ogni cella della città di cui sono state fornite misurazioni.
-        \item \textbf{calcola\_incremento\_tmp(cella: str, listaMisurazioni): int [private]} - Calcola e restituisce l'incremento della temperatura.
-        \item \textbf{calcola\_incremento\_umd(cella: str, listaMisurazioni): int [private]} - Calcola e restituisce l'incremento dell'umidità.
-        \item \textbf{calcola\_incremento\_dstPm10(cella: str, listaMisurazioni): int [private]} - Calcola e restituisce l'incremento della polvere PM10.
+        \item \textbf{calcola\_incremento\_tmp(cella: str, lista\_misurazioni): int [private]} - Calcola e restituisce l'incremento della temperatura.
+        \item \textbf{calcola\_incremento\_umd(cella: str, lista\_misurazioni): int [private]} - Calcola e restituisce l'incremento dell'umidità.
+        \item \textbf{calcola\_incremento\_dstPm10(cella: str, lista\_misurazioni): int [private]} - Calcola e restituisce l'incremento della polvere PM10.
     \end{itemize}
     \item\textbf{Note}:
         \begin{itemize}
@@ -181,7 +181,7 @@ Inoltre, un'implementazione del pattern \textit{Strategy} è presente anche negl
         \item \textbf{timestamp:datetime [private]} - Timestamp della misurazione.
         \item \textbf{value:T [private]} - Valore della misurazione.
         \item \textbf{type:str [private]} - Tipo della misurazione.
-        \item \textbf{coordinates:Coordinate [private]} - Coordinate della misurazione.
+        \item \textbf{coordinates:coordinate [private]} - Coordinate della misurazione.
         \item \textbf{ID\_sensore:str [private]} - ID del sensore che ha effettuato la misurazione.
         \item \textbf{cella:str [private]} - Cella in cui è stata effettuata la misurazione.
     \end{itemize}
@@ -190,7 +190,7 @@ Inoltre, un'implementazione del pattern \textit{Strategy} è presente anche negl
         \item \textbf{\_\_eq\_\_(other:Misurazione):bool [public]} - Ridefinizione dell'operatore di uguaglianza per confrontare due oggetti Misurazione.
     \end{itemize}
 \end{itemize}
-    \item\textbf{Classe: \textit{Coordinate}}
+    \item\textbf{Classe: \textit{coordinate}}
     \begin{itemize}
         \item    \textbf{Attributi}: 
     \begin{itemize}
@@ -199,7 +199,7 @@ Inoltre, un'implementazione del pattern \textit{Strategy} è presente anche negl
     \end{itemize}
     \item     \textbf{Metodi}: 
     \begin{itemize}
-        \item \textbf{\_\_eq\_\_(other:Coordinate):bool [public]} - Ridefinizione dell'operatore di uguaglianza per confrontare due oggetti Coordinate.
+        \item \textbf{\_\_eq\_\_(other:coordinate):bool [public]} - Ridefinizione dell'operatore di uguaglianza per confrontare due oggetti Coordinate.
     \end{itemize}
 \end{itemize}
 \item\textbf{Classe: \textit{MisurazioneSalute}}
@@ -216,7 +216,7 @@ Inoltre, un'implementazione del pattern \textit{Strategy} è presente anche negl
             \item La classe rappresenta una misurazione di salute. Contiene informazioni sul timestamp, il valore (ovvero il punteggio di salute calcolato), il tipo della misurazione e la cella relativa alla misurazione.
         \end{itemize}
     \end{itemize}
-    \item\textbf{Classe: \textit{ListaMisurazioni}}
+    \item\textbf{Classe: \textit{lista\_misurazioni}}
     \begin{itemize}
     \item\textbf{Attributi}:
         \begin{itemize}
@@ -326,7 +326,7 @@ Tutte le informazioni sono già state esposte in: \ref*{sec:writersModule}.
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/simulatoriSensori.PNG}
-    \caption{Modulo simulatori sensori - innovacity}
+    \caption{Modulo simulatori sensori - Innovacity}
     \label{fig: fddf}
 \end{figure}
 
