@@ -1,40 +1,40 @@
 \subsubsection{Apache Kafka}
 
-Apache Kafka è una piattaforma open-source di streaming distribuito sviluppata da Apache Software Foundation. È progettata per la gestione di flussi di dati in tempo reale in modo scalabile, affidabile e efficiente. Kafka è utilizzato ampiamente nell'ambito del data streaming e del data integration in molte applicazioni moderne.
+\textit{Apache Kafka}\textsubscript{\textit{G}} è una \textit{piattaforma}\textsubscript{\textit{G}} \textit{open-source}\textsubscript{\textit{G}} di streaming distribuito sviluppata da Apache \textit{Software}\textsubscript{\textit{G}} Foundation. È progettata per la gestione di flussi di dati in tempo reale in modo scalabile, affidabile e efficiente. \textit{Kafka}\textsubscript{\textit{G}} è utilizzato ampiamente nell'ambito del data streaming e del data integration in molte applicazioni moderne.
 \paragraph{Versione}
 La versione utilizzata è: 3.7.0
 \paragraph{Link download}
 \href{https://kafka.apache.org/downloads}{https://kafka.apache.org/downloads}
 
 \paragraph{Funzionalità e Vantaggi di Apache Kafka}
-Le principali funzionalità e vantaggi di Apache Kafka includono:
+Le principali funzionalità e vantaggi di \textit{Apache Kafka}\textsubscript{\textit{G}} includono:
 
 \begin{itemize}
-  \item \textbf{Pub-Sub Messaging:} kafka utilizza un modello di messaggistica publish-subscribe, dove i produttori di dati inviano messaggi a un topic e i consumatori possono sottoscriversi a tali topic per ricevere i messaggi;
-  \item \textbf{Disaccoppiamento Produttore - Consumatore:}il disaccoppiamento avviene perché Produttori e Consumatori non devono essere a conoscenza l'uno dell'altro o interagire direttamente. Invece, interagiscono attraverso il broker Kafka, che funge da intermediario per la comunicazione;
-  \item \textbf{Architettura Distribuita:} kafka è progettato per essere distribuito su un cluster di nodi, consentendo una scalabilità orizzontale per gestire grandi volumi di dati e carichi di lavoro;
+  \item \textbf{Pub-Sub Messaging:} \textit{kafka}\textsubscript{\textit{G}} utilizza un modello di messaggistica publish-subscribe, dove i produttori di dati inviano messaggi a un topic e i consumatori possono sottoscriversi a tali topic per ricevere i messaggi;
+  \item \textbf{Disaccoppiamento Produttore - Consumatore:}il disaccoppiamento avviene perché Produttori e Consumatori non devono essere a conoscenza l'uno dell'altro o interagire direttamente. Invece, interagiscono attraverso il \textit{broker}\textsubscript{\textit{G}} \textit{Kafka}\textsubscript{\textit{G}}, che funge da intermediario per la comunicazione;
+  \item \textbf{Architettura Distribuita:} \textit{kafka}\textsubscript{\textit{G}} è progettato per essere distribuito su un cluster di nodi, consentendo una scalabilità orizzontale per gestire grandi volumi di dati e carichi di lavoro;
   
-  \item \textbf{Persistenza e Affidabilità:} Kafka conserva i dati in modo persistente su disco, garantendo la durabilità dei messaggi anche in caso di guasti hardware o arresti anomali. Questo assicura anche un alto livello di affidabilità;
+  \item \textbf{Persistenza e Affidabilità:} \textit{Kafka}\textsubscript{\textit{G}} conserva i dati in modo persistente su disco, garantendo la durabilità dei messaggi anche in caso di guasti hardware o arresti anomali. Questo assicura anche un alto livello di affidabilità;
   
-  \item \textbf{Alta Disponibilità:} grazie alla sua architettura distribuita, Kafka offre alta disponibilità e tolleranza ai guasti, consentendo ai cluster di continuare a funzionare anche in presenza di nodi o componenti falliti;
+  \item \textbf{Alta Disponibilità:} grazie alla sua \textit{architettura}\textsubscript{\textit{G}} distribuita, \textit{Kafka}\textsubscript{\textit{G}} offre alta disponibilità e tolleranza ai guasti, consentendo ai cluster di continuare a funzionare anche in presenza di nodi o componenti falliti;
   
-  \item \textbf{Elaborazione degli Stream:} kafka supporta anche l'elaborazione degli stream di dati in tempo reale tramite API come Kafka Streams e Kafka Connect, consentendo agli sviluppatori di scrivere applicazioni per l'analisi e l'elaborazione dei dati in tempo reale.
+  \item \textbf{Elaborazione degli Stream:} \textit{kafka}\textsubscript{\textit{G}} supporta anche l'elaborazione degli \textit{stream}\textsubscript{\textit{G}} di dati in tempo reale tramite \textit{API}\textsubscript{\textit{G}} come \textit{Kafka}\textsubscript{\textit{G}} Streams e \textit{Kafka}\textsubscript{\textit{G}} Connect, consentendo agli sviluppatori di scrivere applicazioni per l'analisi e l'elaborazione dei dati in tempo reale.
 \end{itemize}
 
 \paragraph{Casi d'uso di Apache Kafka}
 
-Apache Kafka è utilizzato in una vasta gamma di casi d'uso, tra cui:
+\textit{Apache Kafka}\textsubscript{\textit{G}} è utilizzato in una vasta gamma di casi d'uso, tra cui:
 
 \begin{itemize}
-  \item \textbf{Data Integration:} Kafka viene utilizzato per integrare dati provenienti da diverse fonti e sistemi, consentendo lo scambio di dati in tempo reale tra applicazioni e sistemi eterogenei.
+  \item \textbf{Data Integration:} \textit{Kafka}\textsubscript{\textit{G}} viene utilizzato per integrare dati provenienti da diverse fonti e sistemi, consentendo lo scambio di dati in tempo reale tra applicazioni e sistemi eterogenei.
   
-  \item \textbf{Streaming di Eventi:} Molte applicazioni moderne, come le applicazioni IoT (Internet of Things) e le applicazioni di monitoraggio in tempo reale, utilizzano Kafka per il streaming di eventi in tempo reale e l'analisi dei dati.
+  \item \textbf{Streaming di Eventi:} Molte applicazioni moderne, come le applicazioni IoT (Internet of Things) e le applicazioni di monitoraggio in tempo reale, utilizzano \textit{Kafka}\textsubscript{\textit{G}} per il streaming di eventi in tempo reale e l'analisi dei dati.
   
-  \item \textbf{Analisi dei Log:} Kafka è spesso utilizzato per l'analisi dei log di sistema e applicativi in tempo reale, consentendo il monitoraggio delle prestazioni, la rilevazione degli errori e l'analisi dei pattern di utilizzo.
+  \item \textbf{Analisi dei Log:} \textit{Kafka}\textsubscript{\textit{G}} è spesso utilizzato per l'analisi dei \textit{log}\textsubscript{\textit{G}} di \textit{sistema}\textsubscript{\textit{G}} e applicativi in tempo reale, consentendo il monitoraggio delle prestazioni, la rilevazione degli errori e l'analisi dei \textit{pattern}\textsubscript{\textit{G}} di utilizzo.
   
-  \item \textbf{Elaborazione di Big Data:} Kafka è integrato con tecnologie di big data come Apache Hadoop e Apache Spark, consentendo l'elaborazione di grandi volumi di dati in tempo reale.
+  \item \textbf{Elaborazione di Big Data:} \textit{Kafka}\textsubscript{\textit{G}} è integrato con tecnologie di \textit{big data}\textsubscript{\textit{G}} come Apache Hadoop e Apache Spark, consentendo l'elaborazione di grandi volumi di dati in tempo reale.
   
-  \item \textbf{Messaggistica Real-time:} Kafka è ampiamente utilizzato per la messaggistica real-time in applicazioni di social media, e-commerce e finanziarie, dove la velocità e l'affidabilità della messaggistica sono cruciali.
+  \item \textbf{Messaggistica Real-time:} \textit{Kafka}\textsubscript{\textit{G}} è ampiamente utilizzato per la messaggistica real-time in applicazioni di social media, e-commerce e finanziarie, dove la velocità e l'affidabilità della messaggistica sono cruciali.
 \end{itemize}
 
 \paragraph{Utilizzo nel progetto}
@@ -42,7 +42,7 @@ Apache Kafka è utilizzato in una vasta gamma di casi d'uso, tra cui:
 
 \paragraph*{Consumatori di dati:}
 \begin{itemize}
-  \item \textbf{\textit{ClickHouse:}} \textit{Kafka} invia i dati ai consumatori, inclusi i database come \textit{ClickHouse}, dove i dati vengono salvati per l'analisi e l'archiviazione a lungo termine.
+  \item \textbf{\textit{ClickHouse:}} \textit{Kafka} invia i dati ai consumatori, inclusi i \textit{database}\textsubscript{\textit{G}} come \textit{ClickHouse}, dove i dati vengono salvati per l'analisi e l'archiviazione a lungo termine.
   \item \textbf{\textit{Faust:}} Per soddisfare il requisito opzionale del calcolo del punteggio di salute, \textit{kafka} rende disponibili i dati in tempo reale ad una app di Faust per il processing il quale calcoli il punteggio attraverso una funzione di aggregazione complessa e renda  disponbile il risultato in una coda dedicata \textit{kafka} ai servizi interessati.
 \end{itemize}
 

@@ -1,12 +1,12 @@
 \section{Architettura di deployment}
 %dubbio che sia corretto
 \begin{comment}
-    L'architettura di deployment, detta anche "architettura di rilascio", rappresenta la struttura e la configurazione di un sistema software in fase di esecuzione. Essa definisce come i componenti software, i dati e le risorse di rete sono distribuiti e interconnessi nell'ambiente di produzione.
+    L'\textit{architettura}\textsubscript{\textit{G}} di deployment, detta anche "\textit{architettura}\textsubscript{\textit{G}} di rilascio", rappresenta la struttura e la configurazione di un \textit{sistema}\textsubscript{\textit{G}} \textit{software}\textsubscript{\textit{G}} in fase di esecuzione. Essa definisce come i componenti \textit{software}\textsubscript{\textit{G}}, i dati e le risorse di \textit{rete}\textsubscript{\textit{G}} sono distribuiti e interconnessi nell'ambiente di produzione.
 \end{comment}
 
 
 \subsection{Architettura a microservizi nel IoT}
-l modello di architettura dei microservizi è emerso come alternativa alle architetture e alle applicazioni monolitiche, difficili da mantenere ed evolvere a causa dell'elevato accoppiamento tra i loro componenti. Un'architettura a microservizi si basa sul concetto di costruire un'applicazione come un insieme di piccoli servizi interconnessi, che comunicano attraverso protocolli leggeri. Ogni servizio è progettato per svolgere una funzione specifica e può essere sviluppato, testato, deployato e scalato in modo indipendente dagli altri servizi. Questo approccio consente di ottenere una maggiore flessibilità, scalabilità e resilienza rispetto alle architetture monolitiche, consentendo inoltre di adattarsi meglio ai cambiamenti e alle esigenze del business.
+l modello di \textit{architettura}\textsubscript{\textit{G}} dei microservizi è emerso come alternativa alle architetture e alle applicazioni monolitiche, difficili da mantenere ed evolvere a causa dell'elevato accoppiamento tra i loro componenti. Un'\textit{architettura}\textsubscript{\textit{G}} a microservizi si basa sul concetto di costruire un'applicazione come un insieme di piccoli servizi interconnessi, che comunicano attraverso protocolli leggeri. Ogni \textit{servizio}\textsubscript{\textit{G}} è progettato per svolgere una funzione specifica e può essere sviluppato, testato, deployato e scalato in modo indipendente dagli altri servizi. Questo approccio consente di ottenere una maggiore flessibilità, scalabilità e resilienza rispetto alle architetture monolitiche, consentendo inoltre di adattarsi meglio ai cambiamenti e alle esigenze del business.
 Tutti i microservizi di un’applicazione risultano essere completamente separati
 tra di loro, e possono essere compilati ed implementati in modo indipendente.
 gli altri.
@@ -22,11 +22,11 @@ computazionali ai vari microservizi dell’applicazione, andando a bilanciare le
 tra i diversi componenti.
 
 
-Tuttavia, l’architettura a microservizi introduce anche nuove difficoltà. Essendo un sistema composto da più componenti è necessario scegliere e configurare
+Tuttavia, l’\textit{architettura}\textsubscript{\textit{G}} a microservizi introduce anche nuove difficoltà. Essendo un \textit{sistema}\textsubscript{\textit{G}} composto da più componenti è necessario scegliere e configurare
 attentamente le connessioni tra i vari microservizi, talvolta anche introducendo
 meccanismi di sicurezza. Inoltre, la fase di testing diventa molto più complicata
 rispetto a quella nelle applicazioni monolitiche. Occorre ricordare che un errore in
-una parte dell’architettura potrebbe causare un errore in un componente a vari
+una parte dell’\textit{architettura}\textsubscript{\textit{G}} potrebbe causare un errore in un componente a vari
 passi di distanza, a seconda del modo in cui i servizi sono strutturati per supportarsi
 a vicenda.
 Anche la fase iniziale di installazione dell’applicazione risulta essere più critica.
@@ -34,57 +34,57 @@ Per semplificare il deployment, occorre innanzitutto investire notevolmente in
 soluzioni di automazione. La complessità dei microservizi renderebbe il deployment
 manuale estremamente difficile.
 È proprio la natura distribuita di queste applicazioni che rende più complessa
-la loro gestione e analisi. In questo tipo di architettura, ad una singola richiesta
-corrisponde un lungo percorso all’interno della rete dei microservizi. Se si dovesse
+la loro gestione e analisi. In questo tipo di \textit{architettura}\textsubscript{\textit{G}}, ad una singola richiesta
+corrisponde un lungo percorso all’interno della \textit{rete}\textsubscript{\textit{G}} dei microservizi. Se si dovesse
 riscontare un eventuale errore o bug, risulta quindi complicato andare ad identificare
 quale tra le varie componenti coinvolte ha riportato dei malfunzionamenti. Per
 questo motivo è diventato sempre più importante lo sviluppo di piattaforme di
 monitoraggio, che sono in grado di tracciare tutte le comunicazioni effettuate e
 controllare il corretto funzionamento dei singoli microservizi.
 \paragraph*{Perchè l'architettura a microservizi?}
-La decisione di adottare un'architettura a microservizi è stata motivata dalla necessità di creare una struttura modulare e scalabile. L'applicazione è stata suddivisa in una suite di microservizi, ciascuno dei quali può essere sviluppato, modificato, deployato e scalato indipendentemente dagli altri.
+La decisione di adottare un'\textit{architettura}\textsubscript{\textit{G}} a microservizi è stata motivata dalla necessità di creare una struttura modulare e scalabile. L'applicazione è stata suddivisa in una suite di microservizi, ciascuno dei quali può essere sviluppato, modificato, deployato e scalato indipendentemente dagli altri.
 
-L'architettura a microservizi si rivela una scelta solida nell'ambito dell'IoT, poiché si prevede che le diverse parti del sistema evolveranno in maniera indipendente nel tempo e poiché la scalabilità e l'isolamento dei guasti sono un aspetto critico. Questa scelta garantisce maggiore flessibilità e prestazioni ottimizzate mediante un utilizzo accurato delle risorse disponibili.
+L'\textit{architettura}\textsubscript{\textit{G}} a microservizi si rivela una scelta solida nell'ambito dell'IoT, poiché si prevede che le diverse parti del \textit{sistema}\textsubscript{\textit{G}} evolveranno in maniera indipendente nel tempo e poiché la scalabilità e l'isolamento dei guasti sono un aspetto critico. Questa scelta garantisce maggiore flessibilità e prestazioni ottimizzate mediante un utilizzo accurato delle risorse disponibili.
 
-Infatti, nel contesto dell'architettura a microservizi, si presenta l'opportunità di assegnare risorse specifiche a ciascun servizio, il che permette loro di scalare in modo differenziato in base alle necessità. Questo è particolarmente vantaggioso in scenari in cui i servizi potrebbero essere sottoscritti a specifici topic e argomenti all'interno di un sistema di streaming come Kafka.
+Infatti, nel contesto dell'\textit{architettura}\textsubscript{\textit{G}} a microservizi, si presenta l'opportunità di assegnare risorse specifiche a ciascun \textit{servizio}\textsubscript{\textit{G}}, il che permette loro di scalare in modo differenziato in base alle necessità. Questo è particolarmente vantaggioso in scenari in cui i servizi potrebbero essere sottoscritti a specifici topic e argomenti all'interno di un \textit{sistema}\textsubscript{\textit{G}} di streaming come \textit{Kafka}\textsubscript{\textit{G}}.
 
-L'allocazione di risorse individualizzate consente ai servizi di adattarsi dinamicamente alla loro attività e al volume di dati con cui devono interagire. Ad esempio, un servizio che riceve un alto flusso di dati da un particolare topic potrebbe richiedere una maggiore capacità di calcolo e di memorizzazione rispetto a un altro servizio che gestisce un carico meno intenso.
+L'allocazione di risorse individualizzate consente ai servizi di adattarsi dinamicamente alla loro \textit{attività}\textsubscript{\textit{G}} e al volume di dati con cui devono interagire. Ad esempio, un \textit{servizio}\textsubscript{\textit{G}} che riceve un alto flusso di dati da un particolare topic potrebbe richiedere una maggiore capacità di calcolo e di memorizzazione rispetto a un altro \textit{servizio}\textsubscript{\textit{G}} che gestisce un carico meno intenso.
 
-Inoltre, questa flessibilità nell'allocazione delle risorse consente di ottimizzare l'efficienza complessiva del sistema, garantendo che le risorse siano allocate in modo proporzionale alla richiesta effettiva dei servizi. Ciò contribuisce a migliorare le prestazioni complessive del sistema e a garantire una gestione ottimale delle risorse disponibili.
+Inoltre, questa flessibilità nell'allocazione delle risorse consente di ottimizzare l'efficienza complessiva del \textit{sistema}\textsubscript{\textit{G}}, garantendo che le risorse siano allocate in modo proporzionale alla richiesta effettiva dei servizi. Ciò contribuisce a migliorare le prestazioni complessive del \textit{sistema}\textsubscript{\textit{G}} e a garantire una gestione ottimale delle risorse disponibili.
 
 \subsection{Messaggistica nei scenari IoT}
-Nelle città intelligenti, dove vengono ricevuti grandi quantità di eventi, abbiamo bisogno di una componente software che faciliti le comunicazioni e la gestione dei dati di input. In tale ambito è utile utilizzare un broker di messaggi. I broker di messaggi consentono di mantenere completamente disaccoppiati l'origine e la destinazione dei messaggi attraverso l'implementazione di un meccanismo di comunicazione asincrono. Consentono inoltre di archiviare i messaggi nel broker finché non possono essere elaborati dal componente di destinazione, nonché da altre funzionalità di gestione. Ogni broker, infatti, offre una serie di funzionalità per la comunicazione, sia attraverso code di messaggi standard, sia attraverso un meccanismo di pubblicazione/sottoscrizione che fa uso di topic; questi sono i due modelli più utilizzati. Tra i vantaggi derivanti dall'utilizzo delle code di messaggi possiamo citare la loro capacità di implementare un algoritmo di bilanciamento del carico. Nel caso degli argomenti dei messaggi, ogni messaggio pubblicato può essere elaborato da tutti i consumatori iscritti a quell'argomento.
+Nelle città intelligenti, dove vengono ricevuti grandi quantità di eventi, abbiamo bisogno di una componente \textit{software}\textsubscript{\textit{G}} che faciliti le comunicazioni e la gestione dei dati di input. In tale ambito è utile utilizzare un \textit{broker}\textsubscript{\textit{G}} di messaggi. I \textit{broker}\textsubscript{\textit{G}} di messaggi consentono di mantenere completamente disaccoppiati l'origine e la destinazione dei messaggi attraverso l'implementazione di un meccanismo di comunicazione asincrono. Consentono inoltre di archiviare i messaggi nel \textit{broker}\textsubscript{\textit{G}} finché non possono essere elaborati dal componente di destinazione, nonché da altre funzionalità di gestione. Ogni \textit{broker}\textsubscript{\textit{G}}, infatti, offre una serie di funzionalità per la comunicazione, sia attraverso code di messaggi \textit{standard}\textsubscript{\textit{G}}, sia attraverso un meccanismo di pubblicazione/sottoscrizione che fa uso di topic; questi sono i due modelli più utilizzati. Tra i vantaggi derivanti dall'utilizzo delle code di messaggi possiamo citare la loro capacità di implementare un algoritmo di bilanciamento del carico. Nel caso degli argomenti dei messaggi, ogni messaggio pubblicato può essere elaborato da tutti i consumatori iscritti a quell'argomento.
 
 \paragraph{Apache Kafka e Schema Registry}
-Come gia esposto in precedenza, per la gestione dei dati in streaming è stato scelto Apache Kafka, un sistema di messaggistica distribuito che offre un'architettura a bassa latenza e ad alta affidabilità. Kafka è stato progettato per gestire flussi di dati in tempo reale e per garantire la scalabilità e la tolleranza ai guasti. Inoltre, offre un'API di alto livello per la gestione dei flussi di dati, consentendo di scrivere applicazioni che possono elaborare i dati in tempo reale. Queste caratteristiche lo rendono particolarmente adatto per l'elaborazione dei dati in tempo reale nei contesti IoT, in cui è necessario gestire grandi quantità di dati provenienti da diverse fonti e garantire una bassa latenza e un'elevata affidabilità.
+Come gia esposto in precedenza, per la gestione dei dati in streaming è stato scelto \textit{Apache Kafka}\textsubscript{\textit{G}}, un \textit{sistema}\textsubscript{\textit{G}} di messaggistica distribuito che offre un'\textit{architettura}\textsubscript{\textit{G}} a bassa latenza e ad alta affidabilità. \textit{Kafka}\textsubscript{\textit{G}} è stato progettato per gestire flussi di dati in tempo reale e per garantire la scalabilità e la tolleranza ai guasti. Inoltre, offre un'\textit{API}\textsubscript{\textit{G}} di alto livello per la gestione dei flussi di dati, consentendo di scrivere applicazioni che possono elaborare i dati in tempo reale. Queste caratteristiche lo rendono particolarmente adatto per l'elaborazione dei dati in tempo reale nei contesti IoT, in cui è necessario gestire grandi quantità di dati provenienti da diverse fonti e garantire una bassa latenza e un'elevata affidabilità.
 
 Inoltre l'utlizzo dello Schema Registry permette la definizioni di contratti su cui fanno affidamento produttori e consumatori di dati, garantendo la compatibilità tra le diverse versioni dei messaggi e la corretta interpretazione dei dati da parte dei consumatori. Questo è particolarmente utile in scenari in cui i dati vengono prodotti e consumati da diverse applicazioni e componenti, garantendo che i dati siano correttamente interpretati e che le applicazioni siano in grado di elaborarli in modo coerente.
 
 
 \subsection{Il container deployment}
 Con la tecnica della virtualizzazione leggera, viene implementato un livello di
-isolamento a livello software offerto dal sistema
-operativo stesso. Nascono così i container, delle unità standard di software che includo il
+isolamento a livello \textit{software}\textsubscript{\textit{G}} offerto dal \textit{sistema}\textsubscript{\textit{G}}
+operativo stesso. Nascono così i \textit{container}\textsubscript{\textit{G}}, delle unità \textit{standard}\textsubscript{\textit{G}} di \textit{software}\textsubscript{\textit{G}} che includo il
 codice e tutte le sue dipendenze cosicché l’applicazione possa girare velocemente e
 in maniera affidabile da un computer ad un altro.
 Un progetto completamente open source che ancora oggi continua a perfezionare
-la struttura dei container è Docker. Docker implementa un nuovo livello di
+la struttura dei \textit{container}\textsubscript{\textit{G}} è \textit{Docker}\textsubscript{\textit{G}}. \textit{Docker}\textsubscript{\textit{G}} implementa un nuovo livello di
 astrazione all’interno del sistemo operativo, introducendo una semplicissima gestione
-dei container.
-Docker ha anche sviluppato quelle che sono chiamate Docker Images, ovvero dei
-pacchetti eseguibili di software, leggeri ed indipendenti, che includono tutto ciò di
+dei \textit{container}\textsubscript{\textit{G}}.
+\textit{Docker}\textsubscript{\textit{G}} ha anche sviluppato quelle che sono chiamate \textit{Docker}\textsubscript{\textit{G}} Images, ovvero dei
+pacchetti eseguibili di \textit{software}\textsubscript{\textit{G}}, leggeri ed indipendenti, che includono tutto ciò di
 cui ha bisogno l’applicazione per essere eseguita correttamente: codice, runtime,
-tools di sistema, librerie di sistema e impostazioni. I Docker Image diventano
-container una volta eseguiti dalla Docker Engine, una piattaforma che consente alle applicazioni containerizzate di essere eseguite ovunque in modo coerente su
-qualsiasi infrastruttura, eliminando il problema dalle dipendenze software.
-Al giorno d’oggi i Docker Container sono la soluzione migliore per gestire più
+tools di \textit{sistema}\textsubscript{\textit{G}}, \textit{librerie}\textsubscript{\textit{G}} di \textit{sistema}\textsubscript{\textit{G}} e impostazioni. I \textit{Docker}\textsubscript{\textit{G}} Image diventano
+\textit{container}\textsubscript{\textit{G}} una volta eseguiti dalla \textit{Docker}\textsubscript{\textit{G}} Engine, una \textit{piattaforma}\textsubscript{\textit{G}} che consente alle applicazioni containerizzate di essere eseguite ovunque in modo coerente su
+qualsiasi infrastruttura, eliminando il problema dalle dipendenze \textit{software}\textsubscript{\textit{G}}.
+Al giorno d’oggi i \textit{Docker}\textsubscript{\textit{G}} Container sono la soluzione migliore per gestire più
 applicazioni su uno stesso server contemporaneamente, poiché non richiedono un
-sistema operativo per applicazione. Inoltre, condividendo il kernel del sistema
+\textit{sistema}\textsubscript{\textit{G}} operativo per applicazione. Inoltre, condividendo il kernel del \textit{sistema}\textsubscript{\textit{G}}
 operativo su cui sono in esecuzione risultano estremamente leggeri e molto più
 veloci delle macchine virtuali.
 
 
-Per implementare l'intero stack tecnologico e i layer di elaborazione dati in streaming, è stato configurato un ambiente Docker a microservizi che simula la divisione e la distribuzione dei layer e dei servizi. In particolare, sono stati creati container per:
+Per implementare l'intero \textit{stack tecnologico}\textsubscript{\textit{G}} e i layer di elaborazione dati in streaming, è stato configurato un ambiente \textit{Docker}\textsubscript{\textit{G}} a microservizi che simula la divisione e la distribuzione dei layer e dei servizi. In particolare, sono stati creati \textit{container}\textsubscript{\textit{G}} per:
 \begin{itemize}
     \item \textbf{Data feed (Fonti di dati:)}:
     \begin{itemize}
@@ -95,21 +95,21 @@ Per implementare l'intero stack tecnologico e i layer di elaborazione dati in st
     \item \textbf{Streaming layer}:
     \begin{itemize}
         \item Esegue \textbf{Apache Kafka} per la gestione del flusso di dati in tempo reale.
-        \item Accessibile agli altri container tramite l'indirizzo \textit{\textbf{kafka:9092}}.
-        \item Kafka facilita la comunicazione asincrona e disaccoppiata tra i microservizi.
+        \item Accessibile agli altri \textit{container}\textsubscript{\textit{G}} tramite l'indirizzo \textit{\textbf{kafka:9092}}.
+        \item \textit{Kafka}\textsubscript{\textit{G}} facilita la comunicazione asincrona e disaccoppiata tra i microservizi.
         \item Permette ai microservizi di comunicare in modo indipendente dalla loro posizione, tecnologia o linguaggio di programmazione.
         \item Promuove la scalabilità e l'elasticità dei microservizi, consentendo loro di comunicare in modo efficiente anche in caso di aumento del carico.
-        \item \textbf{Zookeper \& Schema Registry:} Vengono eseguiti anche due differenti container per l'esecuzione di zookeper e Schema Registry:
+        \item \textbf{Zookeper \& Schema Registry:} Vengono eseguiti anche due differenti \textit{container}\textsubscript{\textit{G}} per l'esecuzione di zookeper e Schema Registry:
             \begin{itemize}
-                \item \textbf{Zookeper}: Esegue il servizio di coordinamento per Kafka.
+                \item \textbf{Zookeper}: Esegue il \textit{servizio}\textsubscript{\textit{G}} di coordinamento per \textit{Kafka}\textsubscript{\textit{G}}.
                 \begin{itemize}
-                    \item Esegue il servizio di coordinamento per Kafka, memorizzazione e controllo degli schemi.
-                    \item Espone la porta 2181 all'esterno per permettere l'accesso al servizio di coordinamento.
+                    \item Esegue il \textit{servizio}\textsubscript{\textit{G}} di coordinamento per \textit{Kafka}\textsubscript{\textit{G}}, memorizzazione e controllo degli schemi.
+                    \item Espone la porta 2181 all'esterno per permettere l'accesso al \textit{servizio}\textsubscript{\textit{G}} di coordinamento.
                 \end{itemize}
                 \item \textbf{Schema Registry}:
                 \begin{itemize}
-                    \item Esegue il servizio di registrazione degli schemi per Kafka.
-                    \item Espone la porta 8081 all'esterno per permettere l'accesso al servizio di registrazione degli schemi.
+                    \item Esegue il \textit{servizio}\textsubscript{\textit{G}} di registrazione degli schemi per \textit{Kafka}\textsubscript{\textit{G}}.
+                    \item Espone la porta 8081 all'esterno per permettere l'accesso al \textit{servizio}\textsubscript{\textit{G}} di registrazione degli schemi.
                 \end{itemize}
             \end{itemize}
     \end{itemize} 
@@ -120,15 +120,15 @@ Per implementare l'intero stack tecnologico e i layer di elaborazione dati in st
     \end{itemize}
     \item \textbf{Storage layer}:
     \begin{itemize}
-        \item Esegue \textbf{Clickhouse} per lo storage delle misurazioni.
-        \item La banca dati è accessibile agli altri container tramite l'indirizzo \textit{\textbf{clickhouse:8123}}.
+        \item Esegue \textbf{Clickhouse} per lo \textit{storage}\textsubscript{\textit{G}} delle misurazioni.
+        \item La banca dati è accessibile agli altri \textit{container}\textsubscript{\textit{G}} tramite l'indirizzo \textit{\textbf{clickhouse:8123}}.
     \end{itemize}
     \item \textbf{Data Visualization Layer}:
     \begin{itemize}
         \item Esegue \textbf{Grafana} come interfaccia utente per la visualizzazione dei dati.
-        \item Espone la porta 3000 all'esterno per permettere l'accesso al servizio di dashboarding.
+        \item Espone la porta 3000 all'esterno per permettere l'accesso al \textit{servizio}\textsubscript{\textit{G}} di dashboarding.
     \end{itemize}
 \end{itemize}
-Questa struttura permette una distribuzione modulare e scalabile del sistema, semplificando la gestione e la manutenzione dei componenti e consentendo una rapida scalabilità in risposta alle esigenze emergenti. Grazie all'uso di Docker, si garantisce coerenza e riproducibilità dell'ambiente di esecuzione, semplificando il deployment e garantendo maggiore affidabilità nell'ambiente di produzione nonchè la possibilità di attribuire le risorse necessarie ad ogni servizio in modo mirato.
+Questa struttura permette una distribuzione modulare e scalabile del \textit{sistema}\textsubscript{\textit{G}}, semplificando la gestione e la manutenzione dei componenti e consentendo una rapida scalabilità in risposta alle esigenze emergenti. Grazie all'uso di \textit{Docker}\textsubscript{\textit{G}}, si garantisce coerenza e riproducibilità dell'ambiente di esecuzione, semplificando il deployment e garantendo maggiore affidabilità nell'ambiente di produzione nonchè la possibilità di attribuire le risorse necessarie ad ogni \textit{servizio}\textsubscript{\textit{G}} in modo mirato.
 
 \input{Sottosezioni/Specifica_tecnica/Comunicazione_componenti.tex}
