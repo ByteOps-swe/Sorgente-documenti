@@ -83,15 +83,16 @@ Il calcolo del punteggio avviene in due fasi:
         \end{lstlisting}  
     \begin{itemize}
         \item Definisce una funzione eseguita una sola volta all'avvio dell'applicazione.
+        \item Nel nostro progetto, viene chiamato il metodo start() del thread adibito all'ottenimento e scrittura periodico dei punteggi di salute.
     \end{itemize}
 \end{itemize}
 
 \subsubsection{Modello per il calcolo del punteggio di salute}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/simulatoriSensori.PNG}
-    \caption{Modulo simulatori sensori - Innovacity}
-    \label{fig: fddf}
+    \includegraphics[width=1.1\textwidth]{../Images/SpecificaTecnica/healthModel.PNG}
+    \caption{Modello per il calcolo del punteggio di salute - Innovacity}
+    \label{fig: healthModello}
 \end{figure}
 
 Il processo per il calcolo del punteggio di salute riceve le letture dei sensori attraverso gli agenti di elaborazione dell'applicazione Faust, i quali sono in ascolto sui topic \textit{Kafka}\textsubscript{\textit{G}} relativi alle misurazioni di temperatura, umidità e polveri sottili PM10. Ad intervalli regolari, il \textit{sistema}\textsubscript{\textit{G}} calcola il punteggio di salute della città basandosi su tali misurazioni. Una volta effettuato il calcolo, il risultato è reso disponibile in un topic \textit{Kafka}\textsubscript{\textit{G}} dedicato.
@@ -316,6 +317,12 @@ Inoltre, un'implementazione del \textit{pattern}\textsubscript{\textit{G}} \text
 \end{itemize}
 
 \subsubsection{Modulo Writer}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/writerModule.PNG}
+    \caption{Modulo Writer - Innovacity}
+    \label{fig: healthModelloWriter}
+\end{figure}
 Il modulo Writer è lo stesso di quello descritto in \ref*{sec:writersModule} e viene nella sua totalità riutilizzato per la scrittura dei punteggi di salute calcolati.
 Non viene riportata la strategia di scrittura su di una lista poichè non ne è stato ritenuto necessario l'utilizzo.
 
@@ -325,9 +332,9 @@ Tutte le informazioni sono già state esposte in: \ref*{sec:writersModule}.
 \subsubsection{Modulo Threading/Scheduling}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/simulatoriSensori.PNG}
-    \caption{Modulo simulatori sensori - Innovacity}
-    \label{fig: fddf}
+    \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/healthThreading.PNG}
+    \caption{Modulo Threading/Scheduling health Model - Innovacity}
+    \label{fig: threadHealth}
 \end{figure}
 
 Questo modulo si occupa di integrare la logica di Scheduling e Threading per il calcolo periodico del punteggio di salute della città e quella di scrittura/invio di \textit{Writable}. In particolare, fornisce un'implementazione di un thread che, a intervalli regolari, richiama il calcolo del punteggio di salute della città. Successivamente, utilizzando il modulo "Writer", adatta le misurazioni di salute ottenute all'interfaccia per renderle un oggetto che implementa \textit{Writable}. Pertanto, questo modulo è utilizzatore del modello per il calcolo del punteggio di salute e del modulo di Writer.
@@ -369,6 +376,12 @@ In sostanza, seguendo il principio di Inversione delle Dipendenze, il modulo di 
 \end{itemize}
 
 \subsubsection{Modulo Processing}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/processorFaust.PNG}
+    \caption{Modulo Processing - Innovacity}
+    \label{fig: processHealth}
+\end{figure}
 Per garantire un'interfaccia uniforme per i metodi di elaborazione dei dati provenienti da \textit{Kafka}\textsubscript{\textit{G}} tramite Faust e per stabilire un canale di comunicazione con il modello per il calcolo del punteggio di salute, viene sviluppato il modulo di Processing. Questo modulo offre l'interfaccia target denominata \textit{Processor}, e un adapter a \textit{Processor} per l'invio delle misurazioni al modello per il calcolo del punteggio di salute, denominato \textit{HealthModelProcessorAdapter}.
 
 \paragraph*{Design Pattern Object Adapter}
