@@ -1,15 +1,52 @@
 \section{Tecnologie}
 In questa sezione vengono definiti gli strumenti e le tecnologie impiegati per lo sviluppo e l'implementazione del software relativo al progetto InnovaCity. Si procederà quindi con la descrizione delle tecnologie e dei linguaggi di programmazione utilizzati, delle librerie e dei framework necessari, nonché delle infrastrutture richieste. L'obiettivo principale è garantire che il software sia sviluppato utilizzando le tecnologie più appropriate e selezionando le opzioni ottimali in termini di efficienza, sicurezza e affidabilità.
 
-\paragraph*{Ambiente di sviluppo}
-Per lo sviluppo del progetto sono stati utilizzati container Docker per garantire un ambiente di sviluppo consistente e riproducibile. Di seguito sono elencate le immagini Docker utilizzate:
+\paragraph*{Ambiente Docker}
+Per lo sviluppo,test e rilascio del progetto sono stati utilizzati container Docker per garantire un ambienti consistenti e riproducibili. Di seguito sono elencate le immagini Docker utilizzate:
 
 \begin{itemize}
-  \item \textbf{Python:} \href{https://hub.docker.com/_/python}{Python:3.9}
-  \item \textbf{Apache Kafka:} \href{https://hub.docker.com/layers/bitnami/kafka/latest/images/sha256-4894d89d28f8e06a7d8a064efdc2dc9cb61dd205721c61296b6d033ad4824a91?context=explore}{bitnami/kafka:latest}
-  \item \textbf{ClickHouse:} 
+  \item \textbf{Simulators - Python:} 
+  \begin{itemize}
+    \item \textbf{Image:}\href{https://hub.docker.com/_/python}{Python:3.9}
+    \item \textbf{Ambiete:} [develop,production]
+  \end{itemize}
+  \item \textbf{Apache Kafka} 
+ \begin{itemize}
+    \item \textbf{Image:}\href{https://hub.docker.com/layers/bitnami/kafka/latest/images/sha256-4894d89d28f8e06a7d8a064efdc2dc9cb61dd205721c61296b6d033ad4824a91?context=explore}{bitnami/kafka:latest}
+    \item \textbf{Ambiete:} [develop,production,testing]
+  \end{itemize}
+  \item \textbf{Apache Kafka UI} 
+ \begin{itemize}
+    \item \textbf{Image:}
+    \item \textbf{Ambiete:} [develop]
+  \end{itemize}
+  \item \textbf{Schema registry} 
+ \begin{itemize}
+    \item \textbf{Image:}
+    \item \textbf{Ambiete:} [develop,production,testing]
+  \end{itemize}
+  \item \textbf{Schema registry UI} 
+ \begin{itemize}
+    \item \textbf{Image:}
+    \item \textbf{Ambiete:} [develop]
+  \end{itemize}
+  \item \textbf{Faust processing - Python} 
+ \begin{itemize}
+    \item \textbf{Image:}
+    \item \textbf{Ambiete:} [develop,production,testing]
+  \end{itemize}
+  \item \textbf{ClickHouse} 
+  \begin{itemize}
+    \item \textbf{Image:}
+    \item \textbf{Ambiete:} [develop,production,testing]
+  \end{itemize}
   \item \textbf{Grafana:} 
+  \begin{itemize}
+    \item \textbf{Image:}
+    \item \textbf{Ambiete:} [develop,production]
+  \end{itemize}
 \end{itemize}
+
 \subsection{Linguaggi e formato dati}
 \input{Sottosezioni/Specifica_tecnica/Python.tex}
 \input{Sottosezioni/Specifica_tecnica/SQL.tex}
@@ -19,7 +56,9 @@ Per lo sviluppo del progetto sono stati utilizzati container Docker per garantir
 
 \subsection{Database e servizi}
 \input{Sottosezioni/Specifica_tecnica/Kafka.tex}
-\input{Sottosezioni/Specifica_tecnica/Clickhouse.tex}
+\input{Sottosezioni/Specifica_tecnica/schemaRegistry.tex}
+\input{Sottosezioni/Specifica_tecnica/zookeper.tex}
+\input{Sottosezioni/Specifica_tecnica/ClickHouse.tex}
 \input{Sottosezioni/Specifica_tecnica/Grafana.tex}
 
 
