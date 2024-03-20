@@ -562,11 +562,12 @@ Il preventivo a finire rimane invariato a \textbf{12425,00\euro} e non risulta n
 \paragraph{Considerazioni}
 Relativamente al dodicesimo periodo, i principali obiettivi programmati consistono nell'avanzamento della redazione di \textit{Specifica Tecnica}, che si avvicina alla fase conclusiva, e nell'allocazione di risorse significative per migliorare la robustezza e l'affidabilità del sistema.
 
-Il responsabile ha svolto un ruolo cruciale nel coordinare il team e nella redazione dell'attuale periodo nel documento "Piano di Progetto".
+Il responsabile ha svolto un ruolo cruciale nel coordinare il team e nella redazione dettagliata dell'attuale periodo all'interno del documento "\textit{Piano di Progetto}".
 
-I progettisti si sono occupati della redazione del documento \textit{Specifica Tecnica}. Nello specifico sono state redatte le sezioni "Schema Registry", "Database Configuration", "Faust", "Architettura Simulatori", "Kafka" e "Grafana". Questo sottolinea il loro ruolo centrale nella definizione dell'architettura e delle specifiche tecniche fondamentali per la comprensione e il design del prodotto.
+I progettisti si sono occupati della redazione del documento \textit{Specifica Tecnica}. Nello specifico sono state redatte le sezioni "Schema Registry", "Database Configuration", "Faust", "Architettura Simulatori", "Kafka" e "Grafana". Questo sottolinea il loro ruolo centrale nella definizione dell'architettura e delle specifiche tecniche, fondamentali per la comprensione e per lo sviluppo del prodotto.
 
 L'amministratore ha configurato l'ambiente containerizzato per garantire l'operatività ottimale e l'integrazione corretta dello Schema Registry e di Zookeeper, contribuendo così a garantire la robustezza e la resilienza del sistema.
+
 I programmatori si sono dedicati all'implementazione dello Schema Registry e all'integrazione di quest’ultimo con lo script Python utilizzato per scrivere nei topic Kafka, al fine di validare il formato dei messaggi direttamente alla fonte. Questo approccio assicura che i messaggi siano validati prima di essere inviati al topic Kafka, evitando così un sovraccarico di rete inutile.
 
 Lo Schema Registry svolge un ruolo cruciale nel mantenere la coerenza e l'integrità dei dati, consentendo una gestione centralizzata degli schemi utilizzati all'interno dell'ecosistema dei dati. Questa implementazione e la relativa validazione sono fondamentali per garantire che i messaggi trasmessi siano conformi agli standard definiti, prevenendo l'inserimento di dati errati o incompatibili nel sistema, e aumentando l'affidabilità complessiva del sistema.
@@ -583,17 +584,17 @@ In conclusione, è importante sottolineare che ogni richiesta formulata dall’a
         \end{itemize}
     \item \textbf{Rischi attesi ma non verificati:}
         \begin{itemize}
-            \item \textbf{RP-2B-1} - Contrasti interni al gruppo~(\textit{\ref{subsubsec:contrastiInterni}}) \\
-            Si è prevista la possibilità di contrasti interni al gruppo dovuti al notevole numero di sezioni da redigere. In particolare, si temeva che potessero sorgere divergenze riguardo cosa includere in ciascuna sezione e su come presentare le informazioni. Tuttavia, questa eventualità non si è concretizzata durante il periodo preso in esame. Il team è stato in grado di collaborare in modo efficace e coeso, mantenendo un'armonia nell'approccio alla redazione delle sezioni, il che ha contribuito positivamente al progresso complessivo della redazione del documento.
-            \item \textbf{RT-1A-1} - Difficoltà nell’implementazione dello Schema Registry~(\textit{\ref{sec:rischioTec}}) \\
-            Inizialmente, erano previste difficoltà nell'implementazione dello Schema Registry, in quanto rappresentava una nuova funzionalità decisa all'ultimo momento per migliorare la robustezza del sistema. Era ragionevole aspettarsi complicazioni date le limitate tempistiche disponibili per l'implementazione di tale funzionalità. Tuttavia, non si sono verificati ostacoli significativi, e si è proceduto senza intoppi, raggiungendo gli obiettivi prefissati con successo.
+            \item \textbf{RP-2B-1} - Contrasti interni al gruppo~(\S\textit{\ref{subsubsec:contrastiInterni}}) \\
+            Era prevista la possibilità di contrasti interni al gruppo dovuti al notevole numero di sezioni da redigere. In particolare, si temeva che potessero sorgere divergenze riguardo la struttura delle varie sezioni e la modalità di presentazione delle informazioni. Tuttavia, questa eventualità non si è concretizzata poiché il team è stato in grado di collaborare in modo efficace e coeso, mantenendo un'armonia nell'approccio alla redazione delle sezioni, il che ha contribuito positivamente al progresso complessivo della redazione del documento.
+            \item \textbf{RT-1A-1} - Difficoltà nell’implementazione dello Schema Registry~(\S\textit{\ref{sec:rischioTec}}) \\
+            L'implementazione dello Schema Registry si presentava inizialmente complessa, essendo una funzionalità introdotta in extremis per rafforzare la robustezza del sistema. Inoltre, la ristrettezza dei tempi a disposizione alimentava ragionevolmente dubbi sulla sua fattibilità. Tuttavia, non si sono verificati ostacoli significativi, e si è proceduto senza intoppi, raggiungendo gli obiettivi prefissati con successo.
         \end{itemize}
     \item \textbf{Rischi non attesi ma verificati:}
         \begin{itemize}
-            \item \textbf{RO-1A-1} - Assenza di un componente del team per 3 giorni~(\textit{\ref{sec:ImpPersonali}})
+            \item \textbf{RO-1A-1} - Assenza di un componente del team per 3 giorni~(\S\textit{\ref{sec:ImpPersonali}})
                 \begin{itemize}
-                    \item \textbf{Esito mitigazione}: L'assenza di uno dei membri del team non si è rivelata problematica in quanto il resto del team è stato in grado di gestire efficacemente le responsabilità del membro assente durante il periodo di malattia. La comunicazione fluida e le misure di mitigazione adottate hanno permesso di mantenere il progresso del progetto senza intoppi significativi.
-                    \item \textbf{Impatto}: L'assenza temporanea del membro del team non ha avuto un impatto significativo sullo sviluppo del progetto, poiché il lavoro è proseguito senza interruzioni e gli obiettivi sono stati raggiunti nei tempi previsti.
+                    \item \textbf{Esito mitigazione}: L'assenza di uno dei membri del team non si è rivelata problematica in quanto il resto del team è stato in grado di gestire efficacemente le responsabilità del membro assente durante il periodo di assenza. Grazie all'intervento tempestivo del responsabile, che ha riassegnato i compiti del membro assente in modo efficace, il team è riuscito a raggiungere gli obiettivi prefissati senza rallentamenti.
+                    \item \textbf{Impatto}: L'assenza temporanea del membro del team non ha avuto un impatto significativo sullo sviluppo del progetto, poiché le attività sono proseguite senza interruzioni e gli obiettivi sono stati raggiunti nei tempi previsti.
                 \end{itemize}
         \end{itemize}
 \end{itemize}
