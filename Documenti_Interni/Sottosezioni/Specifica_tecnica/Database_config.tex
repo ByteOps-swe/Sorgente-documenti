@@ -1,6 +1,6 @@
 
 \subsection{Configurazione Database}
-Si è optato per l'utilizzo di ClickHouse per il salvataggio dei dati, le motivazioni sono descritte nella sezione \ref{sec:clickHouse}. In particolare, per ogni sensore dei quali si desidera memorizzare i dati, viene creata una tabella che acquisisce i dati dal relativo topic Kafka.
+Si è optato per l'utilizzo di ClickHouse per il salvataggio dei dati, le motivazioni sono descritte nella sezione \ref{sec:clickHouse}. In particolare, per ogni sensore dei quali si desidera memorizzare i dati, viene creata una tabella che acquisisce i dati dal relativo topic Kafka e una tabella della famiglia MergeTree che permette la loro persistenza.
 Le tipologie di sensori cui misurazioni si vogliono trattare nel progetto sono:
 \begin{itemize}
     \item Sensori di temperatura;
@@ -9,10 +9,10 @@ Le tipologie di sensori cui misurazioni si vogliono trattare nel progetto sono:
     \item Sensori stato riempimento isole ecologiche;
     \item Sensori di stato occupazione colonnine di ricarica;
     \item Sensori di guasti elettrici;
-    \item Sensori del livello dell'acqua.
+    \item Sensori di presenza dell'acqua.
 \end{itemize}
 
-La configurazione del database ClickHouse è stata cruciale nella progettazione, poiché un'adeguata ottimizzazione consente di garantire prestazioni ottimali per un sistema orientato al tempo reale e in grado di gestire analisi su enormi volumi di dati.
+La progettazione del database ClickHouse è cruciale, poiché un'adeguata ottimizzazione consente di garantire prestazioni ottimali per un sistema orientato al tempo reale e in grado di gestire analisi su enormi volumi di dati.
 
 
 \subsubsection{Funzionalità Clickhouse utilizzate}
@@ -27,7 +27,7 @@ Le Materialized Views in ClickHouse sono un meccanismo potente per migliorare le
     \item \textbf{Decomposizione delle \textit{Query} Complesse}: le Materialized Views consentono di decomporre query complesse in passaggi più semplici e riutilizzabili, migliorando la leggibilità del codice e semplificando lo sviluppo e la manutenzione delle query.
 \end{itemize}
 
-Nel progetto le materialized view sono fondamentali per spostare automaticamente i dati da Kafka alla tabella di destinazione.
+Nel progetto le materialized view sono fondamentali per spostare automaticamente i dati dai topic Kafka alle tabelle di destinazione.
 \begin{figure}[H]
   \centering
   \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/enginePipeline.jpg}
@@ -54,14 +54,23 @@ L'uso del TTL di tipo Rollup in questo contesto è cruciale per garantire che la
 
 \paragraph{Partition}\label{sec:Partition}
 Link alla documentazione: \href{https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree#partition-by}{ClickHouse - Partitioning} (Consultato 25/03/2024).\\
-Le partizioni sono una funzionalità fondamentale di ClickHouse che consente di organizzare in modo efficiente e gestire grandi volumi di dati. Questa caratteristica permette di suddividere i dati in gruppi logici in base a criteri specifici, come il valore di una colonna o un intervallo di tempo. Grazie a questa organizzazione ottimizzata, le query che richiedono l'accesso a dati specifici all'interno di una partizione possono essere eseguite rapidamente, garantendo prestazioni elevate anche su dataset di grandi dimensioni.\\
+Le partizioni sono una funzionalità fondamentale di ClickHouse che consente di organizzare in modo efficiente e gestire grandi volumi di dati. Questa funzionalità permette di suddividere i dati in gruppi logici in base a criteri specifici, come il valore di una colonna o un intervallo di tempo. Grazie a questa organizzazione ottimizzata, le query che richiedono l'accesso a dati specifici all'interno di una partizione possono essere eseguite rapidamente, garantendo prestazioni elevate anche su dataset di grandi dimensioni.\\
+
+Le partizioni rappresentano uno strumento particolarmente utile quando si lavora con dati di serie temporali. La decisione sull'utilizzo del partizionamento dovrebbe derivare da una serie di considerazioni chiave:
+\begin{itemize}
+  \item \textbf{Interrogazione singola:} È previsto che le query siano principalmente focalizzate su una singola partizione? Ad esempio, se le interrogazioni tendono a riguardare risultati entro un periodo specifico come un giorno o un mese, sarebbe vantaggioso partizionare i dati in base a tali periodi temporali.
+  \item \textbf{Scadenza dei dati (TTL):} Si desidera applicare una politica di Time-To-Live (TTL) ai dati, in modo che una volta che una partizione raggiunge una certa età, venga applicata un'azione specifica su di essa?
+\end{itemize}
+
+Spesso si consiglia di mantenere il numero di partizioni al di sotto di circa 100. Anche se è tecnicamente possibile utilizzare fino a 1000 partizioni, tale approccio potrebbe non essere ottimale e potrebbe influenzare le prestazioni del sistema, inclusi tempi di avvio, tempi di inserimento/query e l'utilizzo di memoria. Questo è dovuto all'impatto che un elevato numero di partizioni può avere sul file system e sulle dimensioni dell'indice, con conseguente aumento della complessità gestionale e dei carichi di lavoro.
+
 L'utilizzo delle partizioni nel nostro contesto viene giustificato dall'utilizzo di un TTL (Time To Live), infatti l'utilizzo combinato di queste due funzionalità consente:
 \begin{itemize}
     \item Una gestione efficace dei dati nel tempo;
     \item Migliori prestazioni del sistema;
     \item Una semplificazione nella manutenzione del database.
 \end{itemize}
-Il partizionamento basato sul timestamp è una pratica comune in ClickHouse, poiché consente di organizzare i dati in partizioni in base al periodo temporale, ad esempio mensilmente. Questo approccio ottimizza l'archiviazione e facilita l'analisi dei dati di serie temporali, come le temperature o i log di eventi. Grazie a questa struttura, le query che coinvolgono dati all'interno di specifici intervalli temporali diventano più efficienti, consentendo un accesso rapido e una migliore analisi dei dati.
+Il partizionamento basato sul timestamp,come detto, è una pratica comune in ClickHouse, poiché consente di organizzare i dati in partizioni in base al periodo temporale, ad esempio mensilmente. Questo approccio ottimizza l'archiviazione e facilita l'analisi dei dati di serie temporali, come le temperature o i log di eventi. Grazie a questa struttura, le query che coinvolgono dati all'interno di specifici intervalli temporali diventano più efficienti, consentendo un accesso rapido e una migliore analisi dei dati.
 
 
 
@@ -168,8 +177,8 @@ Nel contesto specifico, le materialized view sono responsabili di eseguire contr
 Per esempio, nel caso dei dati di umidità raccolti da sensori in un'area urbana, la materialized view potrebbe eseguire controlli per assicurarsi che i valori rientrino all'interno di un intervallo plausibile e che non ci siano discrepanze improbabili. Ciò garantirebbe che i dati di umidità inseriti nella tabella di destinazione siano accurati e affidabili per l'analisi meteorologica o ambientale.
 
 
-\subsubsection{Tabella di origine di Kafka Engine per un sensore generico}
-Le tabelle del database impiegate per registrare le misurazioni di ciascuna tipologia di sensore presentano una configurazione sostanzialmente simile, differenziandosi principalmente per il tipo di dato della colonna relativa alla misurazione e per il \textit{topic} di riferimento utilizzato per ottenere le misurazioni.
+\subsubsection{Tabella Kafka Engine per un sensore generico}
+Le tabelle del database impiegate per ottenere le misurazioni di ciascuna tipologia di sensore dai topic kafka presentano una configurazione sostanzialmente simile, differenziandosi principalmente per il tipo di dato della colonna relativa alla misurazione e per il \textit{topic} di riferimento utilizzato per ottenere le misurazioni.
 Nello specifico per ogni sensore si avrà la seguente tabella Clickhouse:
 \begin{figure}[H]
     \centering
@@ -219,10 +228,13 @@ Nello specifico per ogni sensore si avrà la seguente tabella Clickhouse:
         Nel nostro caso l'impostazione di default è quella richiesta.
     \end{itemize}
 
-    
+   %_____________________________________________________________________________
+ 
     \subsubsection{Misurazioni temperatura} \label{sec:tab_temperatures}
-    Di seguito viene presentata una configurazione dettagliata per l'archiviazione delle misurazioni di temperatura. Tale configurazione si applica alla tabella 'temperatures\_kafka', progettata per acquisire dati da un topic Kafka. La tabella è strutturata per includere l'ID del sensore (String), la posizione della cella (String), il valore della temperatura misurato (Float32), il timestamp della misurazione (DATETIME64), la latitudine (Float64) e la longitudine (Float64) del sensore. Ogni campo è definito con un tipo di dato specifico al fine di garantire la precisione e l'integrità dei dati.
-    
+    Di seguito viene presentata una configurazione dettagliata per l'archiviazione delle misurazioni di temperatura. Tale configurazione, progettata per acquisire dati da un topic Kafka permette la persistenza delle misurazioni di temperatura che include l'ID del sensore (String), la cella della città da cui proviene la misurazione(String), la temperatura misurata (Float32), il timestamp della misurazione (DATETIME64), la latitudine (Float64) e la longitudine (Float64) del sensore. La tabella di destinazione è denominata 'temperatures' e utilizza il motore di storage MergeTree, che è ottimizzato per l'archiviazione e l'analisi di dati cronologicamente ordinati in append-only (I nuovi dati vengono sempre aggiunti alla fine della tabella e i dati esistenti non vengono modificati). Questa scelta è giustificata dal fatto che le misurazioni di temperatura sono tipicamente ordinate cronologicamente e richiedono l'accesso a dati specifici all'interno di un intervallo di tempo definito.
+    Da osservare che l'attributo presente nel messaggio JSON : "\textit{type}" viene ignorato, poichè non necessario in una tabella dedicata alle sole misurazioni di temperatura. Ciò accade grazie al valore di deault dell'impostazione \textit{input\_format\_skip\_unknown\_fields} della tabella con motore kakfa.
+    Vengono definite come \textit{PRIMARY KEY} le colonne \textit{ID\_sensore} e \textit{timestamp} per garantire l'unicità delle misurazioni e la possibilità di effettuare ricerche efficienti.
+
     \begin{figure}[H]
         \centering
         \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/temperatures.png}
@@ -230,23 +242,38 @@ Nello specifico per ogni sensore si avrà la seguente tabella Clickhouse:
         \label{fig:temperatures}
       \end{figure}
     
-    La tabella 'temperatures\_kafka' è essenziale nel contesto dell'architettura dei dati, poiché funge da tramite tra un topic Kafka e il sistema di gestione dei dati ClickHouse. Questa tabella agisce come un'interfaccia di origine, trasformando i flussi di dati provenienti dal topic Kafka in un formato comprensibile per ClickHouse. Successivamente, una Materialized View, in questo caso 'mv\_temperatures', opera su questa tabella per trasferire i dati ottenuti verso la tabella di destinazione 'temperatures' come spiegato in \ref{sec:materializedView}.
+    La tabella 'temperatures\_kafka' come spiegato in precedenza funge da tramite tra il topic Kafka relativo alle misurazioni di temperatura e il sistema di gestione dei dati ClickHouse. Questa tabella agisce come un'interfaccia trasformando i flussi di dati provenienti dal topic Kafka in un formato comprensibile per ClickHouse. Successivamente, una Materialized View, in questo caso 'mv\_temperatures', opera su questa tabella per trasferire i dati ottenuti verso la tabella di destinazione 'temperatures' della famiglia MergeTree come spiegato in \ref{sec:materializedView}.
     
-    \paragraph{Projections per misurazioni di temperatura} \label{sec:temp_projections}
-    Durante la fase di progettazione, è stata dedicata particolare attenzione all'utilizzo delle tabelle precedentemente descritte e alle richieste che verranno formulate su di esse. È emerso che, considerando il requisito di suddividere la città in una serie di celle e specificare la cella di origine della misurazione, la filtrazione delle misurazioni per celle diventerà una richiesta frequente al database. Di conseguenza, si è optato per l'utilizzo delle PROJECTIONS, le quali sono dettagliatamente descritte nella sezione \ref{sec:projections}.
-    \vspace{0,3cm}
-    \begin{lstlisting}[caption={Esempio di proiezione e materializzazione in una tabella}, captionpos=b]
-      --Projection per tabella temperatures
-      ALTER TABLE innovacity.temperatures ADD PROJECTION tmp_sensor_cell_projection (SELECT * ORDER BY cella);
-      ALTER TABLE innovacity.temperatures MATERIALIZE PROJECTION tmp_sensor_cell_projection;
+\paragraph{Projections per misurazioni di temperatura} \label{sec:temp_projections}
+Durante la fase di progettazione, è stata dedicata particolare attenzione all'utilizzo delle tabelle precedentemente descritte e alle richieste che verranno formulate su di esse. È emerso che, considerando il requisito di suddividere la città in una serie di celle e specificare la cella di origine della misurazione, la filtrazione delle misurazioni per celle diventerà una richiesta frequente al database. Di conseguenza, si è optato per l'utilizzo delle PROJECTIONS per ottimizzare il filtering su tale campo, le quali sono dettagliatamente descritte nella sezione \ref{sec:projections}.
+\vspace{0,3cm}
+\begin{lstlisting}[caption={implementazione PROJECTION tabella temperatures}, captionpos=b]
+  --Projection per tabella temperatures
+  ALTER TABLE innovacity.temperatures ADD PROJECTION tmp_sensor_cell_projection (SELECT * ORDER BY cella);
+  ALTER TABLE innovacity.temperatures MATERIALIZE PROJECTION tmp_sensor_cell_projection;
+\end{lstlisting}
+\vspace{0,3cm}
+La proiezione ci consentirà di effettuare rapidamente filtraggi basati sulle celle, anche se tale attributo non è definito come \textit{PRIMARY\_KEY} nella tabella originale.
+      
+  \paragraph{TTL per misurazioni di temperatura} \label{sec:temp_projections}
+  L'implementazione del Time to Live (TTL) di Rollup per le misurazioni di temperatura deve permettere di salvare un solo dato aggregato per ora e per sensore dopo che è trascorso più di un mese dal timestamp della misurazione.
+  \begin{lstlisting}[caption={implementazione TTL tabella temperatures}, captionpos=b]
+    TTL toDateTime(timestamp) + INTERVAL 1 MONTH
+      GROUP BY ID_sensore,toStartOfHour(timestamp)
+      SET
+          value = avg(value);
   \end{lstlisting}
-    \vspace{0,3cm}
-    La proiezione ci consentirà di effettuare rapidamente filtraggi basati sulle celle, anche se tale attributo non è definito come \textit{PRIMARY\_KEY} nella tabella originale.
+
+\paragraph*{Partition per misurazioni di temperatura}\label{sec:temp_part}
+La tabella è partizionata per anno e mese in base al valore della colonna timestamp. Ciò significa che i dati vengono archiviati in parti separate per ogni combinazione di anno e mese. Questo approccio consente di organizzare i dati in modo efficiente e di eseguire query su intervalli temporali specifici in modo rapido ed efficiente. Inoltre, il partizionamento per anno e mese consente di applicare il TTL in modo selettivo.
+La scelta sull'utilizzo delle Partition e sulla relativa configurazione è stata dettata dalle considerazioni esposte in \ref{sec:Partition}.
+
+%_____________________________________________________________________________
 
 \subsubsection{Misurazioni umidità}
 Le considerazioni relative al salvataggio delle misurazioni di umidità coincidono con quelle espresse nella sezione \ref{sec:temp_projections} riguardo alle misurazioni di temperatura.
 In questa situazione, dove le misure riguardano l’umidità, la tabella di destinazione ClickHouse è nominata ‘humidity’:
-
+Il tipo della colonna \textit{value} è \textit{Float32} poichè il valore dell'umidità è in percentuale, compreso tra 0 e 100. Le altre colonne sono identiche a quelle della tabella 'temperatures' e sono definite con lo stesso tipo di dato per garantire la precisione e l'integrità dei dati.
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/humidity.png}
@@ -263,9 +290,14 @@ Dopo aver considerato le stesse argomentazioni presentate nella sezione \ref{sec
     ALTER TABLE innovacity.humidity MATERIALIZE PROJECTION umd_sensor_cell_projection;
 \end{lstlisting}
 
+\paragraph{Partition \& TTL per misurazioni di umidità}
+La configurazione riguardante il partizionamento e il TTL per le misurazioni di umidità corrisponde a quella descritta nella sezione \ref{sec:temp_projections} e \ref{sec:temp_part} in merito alle misurazioni di temperatura.
+%_____________________________________________________________________________
 
-\subsubsection{Misurazioni di polveri sottili}Le considerazioni concernenti l'archiviazione delle misurazioni di polveri sottili corrispondono a quelle espresse nella sezione \ref{sec:temp_projections} in merito alle misurazioni di temperatura.
-
+\subsubsection{Misurazioni di polveri sottili}
+Le considerazioni concernenti l'archiviazione delle misurazioni di polveri sottili corrispondono a quelle espresse nella sezione \ref{sec:tab_temperatures} in merito alle misurazioni di temperatura.
+Il tipo della colonna \textit{value} è \textit{Float32} poichè il valore delle polveri sottili è espresso in microgrammi per metro cubo (µg/m³), un valore compreso tra 0 e 1000. La tabella di destinazione ClickHouse è nominata ‘dustPM10’:
+Le altre colonne sono identiche a quelle della tabella 'temperatures' e sono definite con lo stesso tipo di dato per garantire la precisione e l'integrità dei dati.
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/dust_PM10.png}
@@ -282,47 +314,11 @@ Dopo aver considerato le stesse argomentazioni presentate nella sezione \ref{sec
   ALTER TABLE innovacity.dust_PM10 MATERIALIZE PROJECTION dust_sensor_cell_projection;
 \end{lstlisting}
 
-\subsubsection{Misurazioni guasti elettrici} \label{sec:tab_guasti}
-Segue una dettagliata configurazione per l'archiviazione delle misurazioni relative ai guasti elettrici, applicabile alla tabella 'electricalFault\_kafka' progettata per acquisire dati dal topic Kafka. La struttura della tabella include l'ID del sensore (String), la posizione della cella (String), il valore misurato (UInt8), il timestamp della misurazione (DATETIME64), la latitudine (Float64) e la longitudine (Float64) del sensore, ciascuno definito con un tipo di dato specifico per garantire la precisione e l'integrità dei dati.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/electricalFault.png}
-    \caption{Tabella electricalFault\_kafka e electricalFault}
-    \label{fig:electricalFault_tables}
-  \end{figure}
-
-Le considerazioni concernenti l'archiviazione delle misurazioni di guasti elettrici corrispondono a quelle espresse nella sezione \ref{sec:temp_projections} in merito alle misurazioni di temperatura.
-
-\paragraph{Projections per misurazioni di guasti elettrici} 
-Dopo aver considerato le stesse argomentazioni presentate nella sezione \ref{sec:tab_temperatures} riguardanti le misurazioni di temperatura, abbiamo deciso di estendere l'utilizzo delle PROJECTION anche alle misurazioni di guasti elettrici. I vantaggi ottenuti risultano essere simili a quelli evidenziati per le misurazioni di temperatura, come descritto nella stessa sezione. A seguire, vengono illustrate le configurazioni delle PROJECTION relative alle tabelle delle misurazioni di guasti elettrici:
-
-\begin{lstlisting}
-  --Projection per tabella electricalFault
-  ALTER TABLE innovacity.electricalFault ADD PROJECTION elctF_sensor_cell_projection (SELECT * ORDER BY cella);
-  ALTER TABLE innovacity.electricalFault MATERIALIZE PROJECTION elctF_sensor_cell_projection;
-\end{lstlisting}
-
-\subsubsection{Misurazioni stazioni di ricarica} Le considerazioni concernenti l'archiviazione delle misurazioni delle stazioni di ricarica corrispondono a quelle espresse nella sezione \ref{sec:tab_guasti} in merito alle misurazioni guasti elettrici.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/chargingStations.png}
-    \caption{Tabella chargingStation\_kafka e chargingStation}
-    \label{fig:chargingStation_tables}
-  \end{figure}
-
-\paragraph{Projections per misurazioni delle stazioni di ricarica}
-Dopo aver considerato le stesse argomentazioni presentate nella sezione \ref{sec:tab_temperatures} riguardanti le misurazioni di temperatura, abbiamo deciso di estendere l'utilizzo delle PROJECTION anche alle misurazioni delle stazioni di ricarica. I vantaggi ottenuti risultano essere simili a quelli evidenziati per le misurazioni di temperatura, come descritto nella stessa sezione. A seguire, vengono illustrate le configurazioni delle PROJECTION relative alle tabelle delle misurazioni delle stazioni di ricarica:
-
-\begin{lstlisting}
-  --Projection per tabella chargingStations
-  ALTER TABLE innovacity.chargingStations ADD PROJECTION chS_sensor_cell_projection (SELECT * ORDER BY cella);
-  ALTER TABLE innovacity.chargingStations MATERIALIZE PROJECTION chS_sensor_cell_projection;
-\end{lstlisting}
-
+\paragraph{Partition \& TTL per misurazioni di polveri sottili}
+La configurazione riguardante il partizionamento e il TTL per le misurazioni di umidità corrisponde a quella descritta nella sezione \ref{sec:temp_projections} e \ref{sec:temp_part} in merito alle misurazioni di temperatura.
+%_____________________________________________________________________________
 \subsubsection{Misurazioni isole ecologiche}
-Le considerazioni concernenti l'archiviazione delle misurazioni delle isole ecologiche corrispondono a quelle espresse nella sezione \ref{sec:tab_temperatures} in merito alle misurazioni di temperatura.
+Le considerazioni concernenti l'archiviazione delle misurazioni delle isole ecologiche corrispondono a quelle espresse nella sezione \ref{sec:tab_temperatures} in merito alle misurazioni di temperatura. Il tipo della colonna \textit{value} è \textit{Float32} poichè il valore della misurazione riguarda la percentuale di riempimento, compreso tra 0 e 100. Le altre colonne sono identiche a quelle della tabella 'temperatures' e sono definite con lo stesso tipo di dato per garantire la precisione e l'integrità dei dati.
 
 \begin{figure}[H]
   \centering
@@ -340,8 +336,46 @@ Dopo aver considerato le stesse argomentazioni presentate nella sezione \ref{sec
   ALTER TABLE innovacity.ecoIslands MATERIALIZE PROJECTION umd_sensor_cell_projection;
 \end{lstlisting}
 
-\subsubsection{Misurazioni sensori livello dell’acqua}
-Le considerazioni concernenti l'archiviazione delle misurazioni dei sensori di livello dell'acqua corrispondono a quelle espresse nella sezione \ref{sec:tab_guasti} in merito alle misurazioni guasti elettrici.
+\paragraph{Partition \& TTL per misurazioni di umidità}
+La configurazione riguardante il partizionamento e il TTL per le misurazioni di umidità corrisponde a quella descritta nella sezione \ref{sec:temp_projections} e \ref{sec:temp_part} in merito alle misurazioni di temperatura.
+
+%_____________________________________________________________________________
+
+\subsubsection{Misurazioni guasti elettrici} \label{sec:tab_guasti}
+Le considerazioni concernenti l'archiviazione delle misurazioni dei guasti elettrici corrispondono a quelle espresse nella sezione \ref{sec:tab_temperatures} in merito alle misurazioni di temperatura.
+Il tipo della colonna \textit{value} è \textit{UInt8} poichè il valore delle misurazioni dei guasti elettrici è binario, 0 (guasto rilevato) oppure 1 (guasto non rilevato). La tabella di destinazione ClickHouse è nominata ‘electricalFault’:
+Le altre colonne sono identiche a quelle della tabella 'temperatures' e sono definite con lo stesso tipo di dato per garantire la precisione e l'integrità dei dati.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/electricalFault.png}
+    \caption{Tabella electricalFault\_kafka e electricalFault}
+    \label{fig:electricalFault_tables}
+  \end{figure}
+
+
+\paragraph{Considerazioni su Projection,Partition e TTL per misurazioni di guasti elettrici} 
+Le proiezioni per questo tipo di misurazione non offrono la stessa utilità rispetto a quelle relative alla temperatura, dove spesso si eseguono analisi temporali su ampi periodi e grandi volumi di dati filtrati per cella.
+
+In questo contesto di misurazione, le operazioni di selezione sulla tabella si concentrano sul recupero dell'ultimo valore registrato.
+
+La creazione di una proiezione per questa tabella comporterebbe solo un sovraccarico di calcolo, IO e spazio su disco utilizzato, senza un reale vantaggio in termini di prestazioni o funzionalità.
+
+Inoltre non si verificano le condizioni che giustifichino l'utilizzo del partizionamento (esposte in {sec:Partition}) e del Time-To-Live (TTL),  in quanto non avrebbe senso aggregare misurazioni di questo genere dopo un certo periodo di tempo che porterebbero a misurazioni prive di valore informativo o senza significato.
+%_____________________________________________________________________________
+
+\subsubsection{Misurazioni stazioni di ricarica} Le considerazioni concernenti l'archiviazione delle misurazioni delle stazioni di ricarica corrispondono a quelle espresse nella sezione \ref{sec:tab_guasti} in merito alle misurazioni guasti elettrici. Il tipo della colonna \textit{value} è \textit{UInt8} poichè il valore delle misurazioni delle stazioni di ricarica è binario, 0 (stazione di ricarica non occupata) oppure 1 (stazione di ricarica occupata). La tabella di destinazione ClickHouse è nominata ‘chargingStation’:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/chargingStations.png}
+    \caption{Tabella chargingStation\_kafka e chargingStation}
+    \label{fig:chargingStation_tables}
+  \end{figure}
+%_____________________________________________________________________________
+
+\subsubsection{Misurazioni sensori di rilevameno dell’acqua}
+Le considerazioni concernenti l'archiviazione delle misurazioni dei sensori di livello dell'acqua corrispondono a quelle espresse nella sezione \ref{sec:tab_guasti} in merito alle misurazioni guasti elettrici. Il tipo della colonna \textit{value} è \textit{UInt8} poichè il valore delle misurazioni dei sensori di livello dell'acqua è binario, 0 (acqua non rilevata) oppure 1 (acqua rilevata). La tabella di destinazione ClickHouse è nominata ‘waterPresence’:
 
 \begin{figure}[H]
   \centering
@@ -350,10 +384,4 @@ Le considerazioni concernenti l'archiviazione delle misurazioni dei sensori di l
   \label{fig:waterPresence_tables}
 \end{figure}
 
-\paragraph{Projections per misurazioni del livello dell'acqua} 
-Dopo aver considerato le stesse argomentazioni presentate nella sezione \ref{sec:tab_temperatures} riguardanti le misurazioni di temperatura, abbiamo deciso di estendere l'utilizzo delle PROJECTION anche alle misurazioni del livello d'acqua. I vantaggi ottenuti risultano essere simili a quelli evidenziati per le misurazioni di temperatura, come descritto nella stessa sezione. A seguire, vengono illustrate le configurazioni delle PROJECTION relative alle tabelle delle misurazioni del livello d'acqua:
-\begin{lstlisting}
-  --Projection per tabella waterPresence
-  ALTER TABLE innovacity.waterPresence ADD PROJECTION waPr_sensor_cell_projection (SELECT * ORDER BY cella);
-  ALTER TABLE innovacity.waterPresence MATERIALIZE PROJECTION waPr_sensor_cell_projection;
-\end{lstlisting}
+%_____________________________________________________________________________
