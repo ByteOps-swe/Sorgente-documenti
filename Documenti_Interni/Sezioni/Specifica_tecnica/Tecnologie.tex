@@ -1,49 +1,73 @@
 \section{Tecnologie}
 In questa sezione vengono definiti gli strumenti e le tecnologie impiegati per lo sviluppo e l'implementazione del software relativo al progetto InnovaCity. Si procederà quindi con la descrizione delle tecnologie e dei linguaggi di programmazione utilizzati, delle librerie e dei framework necessari, nonché delle infrastrutture richieste. L'obiettivo principale è garantire che il software sia sviluppato utilizzando le tecnologie più appropriate e selezionando le opzioni ottimali in termini di efficienza, sicurezza e affidabilità.
+\subsubsection*{Premessa}
+Per lo sviluppo,test e rilascio del progetto sono stati utilizzati container Docker per garantire ambienti consistenti e riproducibili.
+\begin{itemize}
+  \item \textbf{Ambiente di sviluppo:}
+    \begin{itemize}
+      \item È l'ambiente dove i software developer scrivono, testano e modificano il codice sorgente.
+      \item Può includere strumenti di debug e monitoraggio per facilitare lo sviluppo e la correzione di errori.
+      \item Non è accessibile agli utenti finali.
+    \end{itemize}
+    \item \textbf{Ambiente di test:}
+    \begin{itemize}
+      \item Simula l'ambiente di produzione, replicando l'hardware, il software e le configurazioni reali.
+      \item Viene utilizzato per testare il software in modo completo e realistico prima del rilascio in produzione.
+      \item I test possono essere automatizzati o manuali e includono test di funzionalità, integrazione, sicurezza e prestazioni.
+    \end{itemize}
+    \item \textbf{Ambiente di produzione:}
+    \begin{itemize}
+      \item È l'ambiente finale dove il software viene rilasciato e utilizzato dagli utenti finali.
+      \item essere stabile, sicuro e performante per garantire un'esperienza utente ottimale.
+      \item modifiche al software in produzione sono controllate rigorosamente per minimizzare i rischi di errori o downtime.
+    \end{itemize}
+\end{itemize}
 
-\paragraph*{Ambiente Docker}
-Per lo sviluppo,test e rilascio del progetto sono stati utilizzati container Docker per garantire un ambienti consistenti e riproducibili. Di seguito sono elencate le immagini Docker utilizzate:
 
+
+\paragraph*{Ambiente docker}
+
+Di seguito sono elencate le immagini Docker utilizzate:
 \begin{itemize}
   \item \textbf{Simulators - Python:} 
   \begin{itemize}
     \item \textbf{Image:}\href{https://hub.docker.com/_/python}{Python:3.9}
-    \item \textbf{Ambiete:} [develop,production]
+    \item \textbf{Ambiente:} [develop,production]
   \end{itemize}
   \item \textbf{Apache Kafka} 
  \begin{itemize}
     \item \textbf{Image:}\href{https://hub.docker.com/layers/bitnami/kafka/latest/images/sha256-4894d89d28f8e06a7d8a064efdc2dc9cb61dd205721c61296b6d033ad4824a91?context=explore}{bitnami/kafka:latest}
-    \item \textbf{Ambiete:} [develop,production,testing]
+    \item \textbf{Ambiente:} [develop,production,testing]
   \end{itemize}
   \item \textbf{Apache Kafka UI} 
  \begin{itemize}
     \item \textbf{Image:}
-    \item \textbf{Ambiete:} [develop]
+    \item \textbf{Ambiente:} [develop]
   \end{itemize}
   \item \textbf{Schema registry} 
  \begin{itemize}
     \item \textbf{Image:}
-    \item \textbf{Ambiete:} [develop,production,testing]
+    \item \textbf{Ambiente:} [develop,production,testing]
   \end{itemize}
   \item \textbf{Schema registry UI} 
  \begin{itemize}
     \item \textbf{Image:}
-    \item \textbf{Ambiete:} [develop]
+    \item \textbf{Ambiente:} [develop]
   \end{itemize}
   \item \textbf{Faust processing - Python} 
  \begin{itemize}
     \item \textbf{Image:}
-    \item \textbf{Ambiete:} [develop,production,testing]
+    \item \textbf{Ambiente:} [develop,production,testing]
   \end{itemize}
   \item \textbf{ClickHouse} 
   \begin{itemize}
     \item \textbf{Image:}
-    \item \textbf{Ambiete:} [develop,production,testing]
+    \item \textbf{Ambiente:} [develop,production,testing]
   \end{itemize}
   \item \textbf{Grafana:} 
   \begin{itemize}
     \item \textbf{Image:}
-    \item \textbf{Ambiete:} [develop,production]
+    \item \textbf{Ambiente:} [develop,production]
   \end{itemize}
 \end{itemize}
 
