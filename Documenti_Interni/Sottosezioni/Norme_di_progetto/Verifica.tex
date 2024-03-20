@@ -268,6 +268,48 @@ Ogni \textit{test}\textsubscript{\textit{G}} potrà assumere uno dei seguenti st
         il \textit{test}\textsubscript{\textit{G}} ha riportato esito negativo (Non Superato).
 \end{itemize}
 
+\paragraph{Continuous Integration}
+L'integrazione continua (CI) è una pratica di sviluppo software che automatizza l'integrazione frequente del codice sorgente da parte degli sviluppatori. Invece di attendere il completamento di grandi porzioni di lavoro o addirittura il rilascio finale, gli sviluppatori integrano il loro codice in un ramo principale condiviso più volte al giorno, solitamente dopo aver completato piccole modifiche.
+
+\vspace{0.2cm}
+
+Il processo di CI, che nell nostro progetto è implementato per la repo di MVP, è innescato dalla creazione di un Pull Request, quando uno dei programmatori vuole integrare le modifiche fatte con il ramo principale della repo. Tale Pull Request viene effettuato una volta che il programmatore ha finito di completare:
+
+\begin{itemize}
+    \item \textbf{Implementazione di Feature}
+    \item \textbf{Creazione di Test}
+    \item \textbf{Refactoring}
+    \item \textbf{Risoluzione di Bug}
+\end{itemize}
+
+Con la creazione di un Pull Request, abbiamo l'innesco di un applicazione di GitHub, chiamato Codacy, che esegua test di tipo statici. Tale applicazione da il risultato con buon esito, nella pagina della Pull Request, se le modifiche fatte non hanno introdotto codice non conforme alle regole di analisi statica(qua non sapevo cosa mettere). Se l'applicazione da un esito di fallimento, il programmatore deve cambiare le modifiche finché il codice passa l'analisi statica.
+
+\vspace{0.2cm}
+
+Una volta la conclusione della Pull Request con successo, tramite i workflow di GitHub, il codice viene presso e inizia la parte di build del MVP. In questa parte tramite il commando di
+\begin{lstlisting}[style=code]
+    docker compose up
+\end{lstlisting}
+viene effettuato il pull da DockerHub di tutti i immagini necessari per costruire tutto in componenti di MVP.
+
+\vspace{0.2cm}
+
+Una volta la costruzione della MVP avviene con successo inizia la parte di testing statica e dinamica. Usando un profilo di testing per tutti i componenti a parte di Grafana, che fa parte della Data Visualization Layer. Prima di tutto, iniziano i test statici usando Pylint. L'esito di tali test viene preso e poi tramite un script scritto in python viene messo nella file README.md usando un badge di GitHub creato manualmente.
+
+\vspace{0.2cm}
+
+Una volta finiti i test statici iniziano i test dinamici che sono:
+
+\begin{itemize}
+    \item \textbf{Test di Unita}
+    \item \textbf{Test di Integrazione}
+    \item \textbf{Test di Sistema}
+\end{itemize}
+
+Dopo la conclusione dei test viene riportato il code coverage in un file chiamato coverage.xml. Questo file viene preso da i GitHub action come \href{https://github.com/marketplace/actions/coveralls-github-action}{Coverallas} e \href{https://github.com/marketplace/actions/codecov}{Codecov}
+che poi aggiornano i rispettati badge di GitHub nella file README.md.
+
+
 \hypertarget{subsubsec:strumentiVerifica}{\subsubsection{Strumenti}}
 \begin{itemize}
     \item \textbf{Spell checker:} 
