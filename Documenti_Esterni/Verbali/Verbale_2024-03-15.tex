@@ -1,0 +1,163 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[absolute]{textpos}
+\usepackage[default]{raleway}
+\usepackage{titlesec, comment, tabularx, makecell, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, multirow, hyperref, todonotes}
+\usepackage{colortbl}
+\usepackage{todonotes}
+\renewcommand{\headrulewidth}{0pt}
+
+\definecolor{light-gray}{gray}{0.92}
+
+\lstdefinestyle{code}{
+    frame=single,
+    framesep=1mm,
+    rulecolor=\color{light-gray},
+    backgroundcolor=\color{light-gray},
+    basicstyle=\ttfamily,
+}
+
+% ----------------------------- Definizione tabella ---------------------------
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+% ------------------------------Metadati indice --------------------------------
+\title{\textbf{\fontsize{28}{6}\selectfont Indice}}
+\author{\fontsize{14}{6}\selectfont ByteOps}
+\date{Marzo 15, 2024}
+
+
+% -----------------------------Creazione footer --------------------------------
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{
+    \parbox[c]{2cm}{\includegraphics[width=2cm]{../../Images/logo.png}}
+    \textcolor[RGB]{120, 120, 120}{$\cdot$ Verbale Esterno}
+}
+\rfoot{\thepage}
+
+% --------------------------Modifica formato hyperlinks ------------------------
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    pdftitle={Verbale Esterno 15/03/2024},  %inserisci data verbale
+    pdfpagemode=FullScreen,
+}
+
+% ------------------------------- Valore sotto-paragrafi indice --------------------------------------
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\titleformat{\section}
+{\normalfont\huge\bfseries}{\thesection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsection}
+{\normalfont\Large\bfseries}{\thesubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsubsection}
+{\normalfont\large\bfseries}{\thesubsubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+% ------------------------------- Front Page ---------------------------------------
+
+\begin{document}
+
+% --------------------------Aggiunta firma finale ------------------------
+\begin{textblock*}{\textwidth}(0.85\textwidth, 1.16\textheight)
+    Il responsabile: A. Barutta
+\end{textblock*}
+% ------------------------------------------------------------------------
+
+\pagestyle{fancy}
+\begin{center}
+\includegraphics[width = 0.7\textwidth]{../../Images/logo.png} \\
+\vspace{0.2cm}
+\textcolor[RGB]{60, 60, 60}{\textit{ByteOps.swe@gmail.com}} \\
+\vspace{1cm}
+\fontsize{16}{6}\selectfont Verbale Esterno $\cdot$ Data: 15/03/2024 \\
+\vspace{0.5cm}
+\end{center}
+
+\section*{Informazioni documento}
+\def\arraystretch{1.2}
+\begin{tabular}{>{\raggedleft\arraybackslash}p{0.3\textwidth}|>{\raggedright\arraybackslash}p{0.6\textwidth}c}
+\hline
+\addlinespace
+\textbf{Luogo} & Google Meet \vspace{10pt} \\
+\textbf{Orario} & 16:30 - 17:00 \vspace{10pt} \\
+\textbf{Redattore} & D. Diotto \vspace{10pt} \\
+\textbf{Verificatore} & A. Barutta \vspace{10pt} \\
+\textbf{Amministratore} & R. Smanio \vspace{10pt} \\
+\textbf{Destinatari} & T. Vardanega \\ & R. Cardin \vspace{10pt} \\
+\multirow[t]{7}{*}{\textbf{Partecipanti interni}} & A. Barutta \\ & E. Hysa \\ & R. Smanio \\ & D. Diotto \\ & F. Pozza \\ & L. Skenderi \\ & N. Preto \vspace{10pt} \\
+\multirow[t]{3}{*}{\textbf{Partecipanti esterni}} & A. Dorigo \\ & D. Zorzi \\ & F. Pallaro \\ 
+\end{tabular}
+\pagebreak 
+
+% ------------------------- Changelog ----------------------------
+
+\section*{Registro delle modifiche}
+
+\begin{tabular}{|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|}
+    \hline
+    \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Dettaglio} \\
+    \hline \hline
+    0.0.1 & 15/03/2024 & D. Diotto & A. Barutta & Redazione documento \\
+    \hline
+\end{tabular}
+\pagebreak
+
+% ------------------------- Generazione automatica indice ----------------------
+\setstretch{1.5}
+\maketitle
+\thispagestyle{fancy}
+\tableofcontents
+\setstretch{1.2}
+\pagebreak
+
+% ------------------------ INIZIO DOCUMENTO ----------------------
+\flushleft
+
+\section{Revisione del periodo precedente}
+In apertura di incontro, è stata informata l'azienda \textit{proponente}\textsubscript{\textit{G}} che l'\textit{MVP}\textsubscript{\textit{G}} non ha subito modifiche sostanziali rispetto al periodo precedente. Lo stato del prodotto è infatti già completo e definitivo, come illustrato all'azienda \textit{proponente}\textsubscript{\textit{G}} nel precedente \textit{SAL}\textsubscript{\textit{G}}. \\
+È stato inoltre comunicato l'avanzamento del documento "\textit{Specifica Tecnica}" e la finalizzazione di tutti i \textit{test}\textsubscript{\textit{G}}. Relativamente a tali \textit{attività}\textsubscript{\textit{G}} non sono emersi problemi e non sono state riscontrate difficoltà.
+
+\section{Ordine del giorno}
+
+    \subsection{Parentesi su Docker e sulle unità di deploy}
+    Durante la discussione, il gruppo ha sollevato il dubbio se fosse appropriato parlare di deploy in \textit{Docker}\textsubscript{\textit{G}}. \\
+    La \textit{proponente}\textsubscript{\textit{G}} ha confermato che è del tutto possibile e sensato utilizzare \textit{Docker}\textsubscript{\textit{G}} anche per scopi di deploy. \\
+    \textit{Docker}\textsubscript{\textit{G}} è infatti una soluzione efficace e ampiamente utilizzata per distribuire applicazioni in modo efficiente e scalabile. In combinazione con strumenti di orchestrazione come Kubernetes, \textit{Docker}\textsubscript{\textit{G}} permette di creare un ambiente di sviluppo e produzione altamente efficiente e scalabile. 
+
+    \subsection{Organizzazione validazione MVP}
+    Durante l'incontro è stato esposto il desiderio del gruppo di completare il progetto entro i tempi previsti. È stato inoltre deciso di organizzare un incontro il giorno 22/03/2024 per la validazione da parte della \textit{proponente}\textsubscript{\textit{G}} del Minimum Viable Product (\textit{MVP}\textsubscript{\textit{G}}). \\
+    Le modalità di svolgimento dell'incontro devono ancora essere definite, tuttavia entrambe le parti hanno manifestato la volontà di svolgere l'incontro in presenza, qualora le condizioni lo consentano.
+
+\section{Attività da svolgere}
+    \begin{itemize}
+        \item Organizzare l'incontro per la validazione del \textit{MVP}\textsubscript{\textit{G}};
+        \item Completare la documentazione relativa al progetto;
+        \item Revisione e correzione del codice;
+        \item Revisione e correzione della documentazione.
+\end{itemize}
+% ------------------------ Firma Azienda ----------------------
+\begin{textblock*}{\textwidth}(0.22\textwidth, 1.08\textheight)
+    Luogo e Data: Padova, 15/03/2024
+\end{textblock*}
+
+\begin{textblock*}{\textwidth}(0.90\textwidth, 1.08\textheight)
+        Firma referente Sync Lab:
+\end{textblock*}
+% -------------------------------------------------------------
+\end{document}
