@@ -1,0 +1,51 @@
+\subsection{Test di unità}
+
+\begin{longtable}{|C{1.9cm}|L{5.5cm}|C{2cm}|}
+    \hline
+    \textbf{Codice Test} & \centering{\textbf{Descrizione}} & \textbf{Stato Test} \\
+    \hline \hline
+    
+    TU01 & Verificare che l'istanza della classe $\textit{adapter\_misurazione}$ restituisca un output JSON previsto.  & S \\
+    \hline
+
+    TU02 & Verificare che la classe \textit{Coordinate} venga istanziata correttamente.  & S \\
+    \hline
+
+    TU03 & Verificare l'incremento senza nuove misurazioni della classe \textit{DUSTPM10\_Incrementer} & S \\
+    \hline
+
+    TU04 & Verificare l'incremento con una solo misurazione della classe \textit{DUSTPM10\_Incrementer} & S \\
+    \hline
+
+    TU05 & Verificare l'incremento con più misurazioni della classe  \textit{DUSTPM10\_Incrementer} & S \\
+    \hline
+
+    TU06 & Verificare che venga generato il punteggio di salute date le misurazioni & S \\
+    \hline
+
+    TU07 & Verificare che il punteggio di salute cambi ad ogni misurazione rilevata & S \\
+    \hline
+
+    TU08 & Verificare che il \textit{stop} della classe \textit{health\_calculator\_thread} funzioni correttamente & S \\
+    \hline
+
+    TU09 & Verificare che l'incremento senza nuove misurazioni della classe \textit{humidity\_incrementer} & S \\
+    \hline
+
+    TU10 & Verificare l'incremento con una misurazione all'interno della soglia,  della classe \textit{humidity\_incrementer} & S \\
+    \hline
+
+    TU11 & Verificare l'incremento con una misurazione sotto la soglia,  della classe \textit{humidity\_incrementer} & S \\
+    \hline
+
+    TU12 & Verificare l'incremento con una misurazione sopra la soglia,  della classe \textit{humidity\_incrementer} & S \\
+    \hline
+
+    TU13 & Verificare che la classe \textit{Misurazione} venga istanziata correttamente & S \\
+    \hline
+
+    TU14 & Verificare l'incremento della classe \textit{temperature\_incrementer} & S \\
+    \hline
+
+    \caption{Tabella test di unità}
+\end{longtable}
