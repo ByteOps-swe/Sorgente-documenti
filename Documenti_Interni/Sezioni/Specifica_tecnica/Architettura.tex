@@ -24,7 +24,7 @@ L'\textit{architettura}\textsubscript{\textit{G}} Kappa è un modello di elabora
 \end{figure}
 
 \begin{itemize}
-    \item \textbf{Data feed}:Le sorgenti dati sono costituite da sensori IoT dislocati sul territorio cittadino. Questi sensori sono in grado di inviare, ad intervalli regolari, messaggi contenenti misurazioni allo streaming layer;
+    \item \textbf{Data source}:Le sorgenti dati sono costituite da sensori IoT dislocati sul territorio cittadino. Questi sensori sono in grado di inviare, ad intervalli regolari, messaggi contenenti misurazioni allo streaming layer;
     \item \textbf{Streaming layer}:Lo streaming layer gestisce i dati in arrivo in tempo reale, per poi archiviarli sistematicamente nello \textit{storage}\textsubscript{\textit{G}} layer. Lo streaming Layer è composto da:
     \begin{itemize}
         \item \textbf{Apache Kafka}: \textit{Kafka}\textsubscript{\textit{G}} è un \textit{sistema}\textsubscript{\textit{G}} di messaggistica distribuito che consente di pubblicare, sottoscrivere e archiviare messaggi in tempo reale. \textit{Kafka}\textsubscript{\textit{G}} è utilizzato per ricevere i dati dai sensori IoT e renderli disponibili per l'elaborazione in tempo reale e batch.

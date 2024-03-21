@@ -31,7 +31,8 @@ Per soddisfare tutti i requisiti definiti in \textit{Analisi dei requisiti v2.0.
 
 
 \subsubsection{ClickHouse data source plugin} \label{sec:click_plugin}
-\paragraph{Documentazione:} \href{https://grafana.com/grafana/plugins/grafana-clickhouse-datasource/}{https://grafana.com/grafana/plugins/grafana-clickhouse-datasource/}
+\paragraph{Documentazione:}
+\href{https://grafana.com/grafana/plugins/grafana-clickhouse-datasource/}{https://grafana.com/grafana/plugins/grafana-clickhouse-datasource/}
 
 Questo plugin di grafana consente di connettersi a un'istanza di ClickHouse e di visualizzare i dati in tempo reale. È possibile eseguire query SQL personalizzate e visualizzare i risultati in forma di grafici, tabelle e pannelli personalizzati. Il plugin offre anche funzionalità di aggregazione e di calcolo dei dati, consentendo di analizzare e visualizzare i dati in modo flessibile e personalizzato.
 
@@ -49,15 +50,16 @@ Quelle utilizzate sono:
 \end{itemize}
 
 \subsubsection{Variabili Grafana}
-\paragraph*{Documentazione:} \href{https://grafana.com/docs/grafana/latest/dashboards/variables/}{https://grafana.com/docs/grafana/latest/dashboards/variables/}
+\paragraph*{Documentazione:}
+ \href{https://grafana.com/docs/grafana/latest/dashboards/variables/}{https://grafana.com/docs/grafana/latest/dashboards/variables/}
 
 
  Le variabili in Grafana sono un potente strumento per rendere le dashboard dinamiche e interattive. Permettono di filtrare i dati visualizzati in base a valori scelti dall'utente, rendendo la dashboard più versatile e adattabile a differenti esigenze.
 \paragraph*{Utilizzo delle variabili nella dashboard principale:}
 Nella dashboard principale, le variabili sono:
 \begin{itemize}
-    \item \textbf{variabile \$cella}: per mostrare solo le misurazioni provenienti da determinate celle della città, 
-    \item \textbf{variabili \$<TipoSensore>\_sensors\_id}: per mostrare le misurazioni di determinati sensori di un certo tipo.
+    \item \textbf{variabile (\$cella)}: per mostrare solo le misurazioni provenienti da determinate celle della città, 
+    \item \textbf{variabili (\$<TipoSensore>\_sensors\_id)}: per mostrare le misurazioni di determinati sensori di un certo tipo.
 \end{itemize}
 Queste variabili all'interno delle query al database permettono il filtraggio delle misurazioni sulla base di quanto selezionato dall'utente.
 Un esempio di query per la visualizzazione delle misurazioni time-series di temperatura è:
@@ -73,22 +75,27 @@ La query esposta mostra anche l'utilizzo delle macro esposte in: \ref{sec:macros
 \paragraph*{Utilizzo delle variabili nella dashboard dedicata:}
 Nella dashboard dedicata alla visualizzazione spefica delle misurazioni di una sola tipologia di sensori, le variabili sono:
 \begin{itemize}
-    \item \textbf{variabile \$cella}: per mostrare solo le misurazioni provenienti da determinate celle della città, 
-    \item \textbf{variabili \$<TipoSensore>\_sensors\_id}: per mostrare le misurazioni di determinati sensori di un certo tipo.
-    \item \textbf{variabili \$tabella}: per selezionare la tipoligia di sensore di cui si vuole visualizzare la dashboard dedicata e quindi la tabella del database da cui ricavare i dati.
-    \item \textbf{\$aggregazione}: variabile per selezionare l'intervallo temporale di aggregazione delle misurazioni
+    \item \textbf{variabile (\$cella)}: per mostrare solo le misurazioni provenienti da determinate celle della città, 
+    \item \textbf{variabili (\$<TipoSensore>\_sensors\_id)}: per mostrare le misurazioni di determinati sensori di un certo tipo.
+    \item \textbf{variabili (\$tabella)}: per selezionare la tipoligia di sensore di cui si vuole visualizzare la dashboard dedicata e quindi la tabella del database da cui ricavare i dati.
+    \item \textbf{(\$aggregazione)}: variabile per selezionare l'intervallo temporale di aggregazione delle misurazioni
     (Automatico, Secondo,Minuto,Ora,Giorno,Mese,Nessuno).
     Nel caso della selezione della modalità "Automatico" si utilizzza l'intervallo temporale di aggregazione più opportuno sulla base dell'ampiezza dell'intervallo temporale selezionato dall'utente.
-    \item \textbf{\$Max\_value}: variabile ad input numerico per filtrare le misurazioni con valore al di sotto di quello indicato.
-    \item \textbf{\$Min\_value}: variabile ad input numerico per filtrare le misurazioni con valore al di sopra di quello indicato.
+    \item \textbf{(\$Max\_value)}: variabile ad input numerico per filtrare le misurazioni con valore al di sotto di quello indicato.
+    \item \textbf{(\$Min\_value)}: variabile ad input numerico per filtrare le misurazioni con valore al di sopra di quello indicato.
 \end{itemize}
 \paragraph{Variable Panel plugin}
-\textbf{Documentazione:} \href{https://volkovlabs.io/plugins/volkovlabs-variable-panel/}{https://volkovlabs.io/plugins/volkovlabs-variable-panel/}
+\textbf{Documentazione:}
+\href{https://volkovlabs.io/plugins/volkovlabs-variable-panel/}{https://volkovlabs.io/plugins/volkovlabs-variable-panel/}
+
+
 Il plugin permette di creare dei pannelli grafana che possono essere posizionati ovunque nella Dashboard e che consentono di selezionare i valori delle variabili.
 Inoltre permette la visualizzazione ad albero delle variabili utile nel nostro caso dove i sensori sono contenuti all'interno di celle della città.
 
 \subsubsection{Grafana alerts}
-\textbf{Documentazione}\href{https://grafana.com/docs/grafana/latest/alerting/}{https://grafana.com/docs/grafana/latest/alerting/}
+\textbf{Documentazione}
+
+\href{https://grafana.com/docs/grafana/latest/alerting/}{https://grafana.com/docs/grafana/latest/alerting/}
 
 
 Grafana offre un sistema di alerting completo per monitorare i dati e inviare notifiche quando si verificano determinate condizioni. Le notifiche possono essere inviate tramite diversi canali, tra cui email, Slack, Telegram e Discord.
@@ -97,7 +104,7 @@ Grafana offre un sistema di alerting completo per monitorare i dati e inviare no
 Per poter configurare un alert è necessario creare una regola di alert. La regola di alert viene impostata tramite query al data source e fa scattare l'alert quando la query restituisce un risultato che soddisfa le condizioni impostate.
 Gli alert impostati sono per:
 \begin{itemize}
-    \item Quando un sensore di temperatura registra una temperatura superiore ai 40°C;
+    \item Quando un sensore di temperatura registra una temperatura superiore ai 40°C o inferiore ai -10°C;
     \item Quando un sensore di polveri sottili supera i 50 microgrammi al metro cubo;
     \item Quando un sensore di guasti elettrici rileva un guasto.
 \end{itemize}
@@ -120,11 +127,19 @@ Per il progetto è stato scelto Discord come unico canale di notifica.
 Per configurare il canale di notifica è necessario:
 \begin{itemize}
     \item Seleziona Discord come canale di notifica.
+    \item Configurazione Server Discord "Innovacity":
+    \begin{itemize}
+        \item Il server discord è stato creato ed è raggiungibile tramite l'indirizzo: \href{https://discord.gg/cCp9qxK7}{https://discord.gg/cCp9qxK7}
+        \item Per ottenerre il webhook URL del canale Discord andare in : \textit{Impostazioni server/Integrazioni} e seleziona "visualizza webhook".
+    \end{itemize}
     \item Inserisci il webhook URL del tuo canale Discord.
     \item Personalizza il messaggio di notifica.
+    
 \end{itemize}
 
 Anche le impostazioni di configurazione del canale di notifica sono esportabili in formato \textit{yaml} e vengono inserite in "/provisioning/alerting".
+
+
 
 \paragraph{Notification policies}
 Le norme di notifica negli Alert di Grafana sono un modo potente per gestire l'invio degli alert a diversi canali di notifica.
@@ -135,7 +150,9 @@ Anche le impostazioni delle notification policies sono esportabili in formato \t
 
 \subsubsection{Altri plugin utilizzati}
 \paragraph{Orchestra Cities Map plugin}
-\textbf{Documentazione:} \href{https://grafana.com/grafana/plugins/orchestracities-map-panel/}{https://grafana.com/grafana/plugins/orchestracities-map-panel/}
+\textbf{Documentazione:}
+
+\href{https://grafana.com/grafana/plugins/orchestracities-map-panel/}{https://grafana.com/grafana/plugins/orchestracities-map-panel/}
 
 Il plugin Orchestra Cities Map per Grafana estende il pannello Geomap di Grafana con diverse funzionalità avanzate per la visualizzazione di dati geolocalizzati su mappe:
 
