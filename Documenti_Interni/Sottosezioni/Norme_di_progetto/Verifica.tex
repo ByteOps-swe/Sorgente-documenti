@@ -269,11 +269,11 @@ Ogni \textit{test}\textsubscript{\textit{G}} potrà assumere uno dei seguenti st
 \end{itemize}
 
 \paragraph{Continuous Integration}
-L'integrazione continua (CI) è una pratica di sviluppo software che automatizza l'integrazione frequente del codice sorgente da parte degli sviluppatori. Invece di attendere il completamento di grandi porzioni di lavoro o addirittura il rilascio finale, gli sviluppatori integrano il loro codice in un ramo principale condiviso più volte al giorno, solitamente dopo aver completato piccole modifiche.
+L'\textit{integrazione}\textsubscript{\textit{G}} continua (CI) è una pratica di sviluppo \textit{software}\textsubscript{\textit{G}} che automatizza l'\textit{integrazione}\textsubscript{\textit{G}} frequente del codice sorgente da parte degli sviluppatori. Invece di attendere il completamento di grandi porzioni di lavoro o addirittura il rilascio finale, gli sviluppatori integrano il loro codice in un ramo principale condiviso più volte al giorno, solitamente dopo aver completato piccole modifiche.
 
 \vspace{0.2cm}
 
-Il processo di CI, che nel nostro progetto è implementato per la repo di MVP, è innescato dalla creazione di un Pull Request, quando uno dei programmatori vuole integrare le modifiche fatte con il ramo principale della repo. Tale Pull Request viene effettuata una volta che il programmatore ha finito di completare:
+Il processo di CI, che nel nostro progetto è implementato per la repo di \textit{MVP}\textsubscript{\textit{G}}, è innescato dalla creazione di un Pull Request, quando uno dei programmatori vuole integrare le modifiche fatte con il ramo principale della repo. Tale Pull Request viene effettuata una volta che il programmatore ha finito di completare:
 
 \begin{itemize}
     \item \textbf{Implementazione di Feature};
@@ -282,24 +282,24 @@ Il processo di CI, che nel nostro progetto è implementato per la repo di MVP, �
     \item \textbf{Risoluzione di Bug}.
 \end{itemize}
 
-Con la creazione di una Pull Request, avviene l'innesco di un applicazione di GitHub, chiamata Codacy, che esegue test di tipo statico. Tale applicazione da esito positivo, nella pagina della Pull Request, se le modifiche fatte non hanno introdotto codice non conforme alle regole di analisi statica definite. Se l'applicazione da un esito di fallimento, il programmatore deve cambiare le modifiche finché il codice passa l'analisi statica.
+Con la creazione di una Pull Request, avviene l'innesco di un applicazione di GitHub, chiamata Codacy, che esegue \textit{test}\textsubscript{\textit{G}} di tipo statico. Tale applicazione da esito positivo, nella pagina della Pull Request, se le modifiche fatte non hanno introdotto codice non conforme alle regole di analisi statica definite. Se l'applicazione da un esito di fallimento, il programmatore deve cambiare le modifiche finché il codice passa l'analisi statica.
 
 \vspace{0.2cm}
 
-Alla conclusione della Codacy, tramite i workflow di GitHub, il codice del prodotto viene ottenuto e inizia la parte di build del prodotto. Tramite il comando:
+Alla conclusione della Codacy, tramite i \textit{workflow}\textsubscript{\textit{G}} di GitHub, il codice del prodotto viene ottenuto e inizia la parte di build del prodotto. Tramite il comando:
 \begin{lstlisting}[style=code]
-    docker compose up
+    \textit{docker}\textsubscript{\textit{G}} compose up
 \end{lstlisting}
 viene effettuato il pull da DockerHub di tutte le immagini necessarie per costruire tutti in componenti del prodotto necessari al testing.
 
 \vspace{0.2cm}
 
-Una volta conclusa la costruzione dell prodotto con successo inizia la parte di testing statica e dinamica grazie al profilo di testing dell'ambiente Docker. Prima di tutto, iniziano i test statici usando Pylint. L'esito di tali test viene esposto nel file \textit{README.md} usando un badge di GitHub che mostra un punteggio compreso tra 0 e 10 rappresentante la qualita del codice.
+Una volta conclusa la costruzione dell prodotto con successo inizia la parte di testing statica e dinamica grazie al profilo di testing dell'ambiente \textit{Docker}\textsubscript{\textit{G}}. Prima di tutto, iniziano i \textit{test}\textsubscript{\textit{G}} statici usando Pylint. L'esito di tali \textit{test}\textsubscript{\textit{G}} viene esposto nel file \textit{README.md} usando un badge di GitHub che mostra un punteggio compreso tra 0 e 10 rappresentante la qualita del codice.
 
 
 \vspace{0.2cm}
 
-Una volta finiti i test statici iniziano i test dinamici che sono:
+Una volta finiti i \textit{test}\textsubscript{\textit{G}} statici iniziano i \textit{test}\textsubscript{\textit{G}} dinamici che sono:
 
 \begin{itemize}
     \item \textbf{Test di Unita};
@@ -307,11 +307,11 @@ Una volta finiti i test statici iniziano i test dinamici che sono:
     \item \textbf{Test di Sistema}.
 \end{itemize}
 
-Se almeno uno dei test fallisce, allora il workflow si ferma con stato di fallimento, manda una notifica all programmatore che ha creato la Pull Request e chiude la Pull Request. Se tutti i test vengono eseguiti con successo, sarà possibile apportare le modifiche fatte nel ramo principale.
+Se almeno uno dei \textit{test}\textsubscript{\textit{G}} fallisce, allora il \textit{workflow}\textsubscript{\textit{G}} si ferma con stato di fallimento, manda una notifica all programmatore che ha creato la Pull Request e chiude la Pull Request. Se tutti i \textit{test}\textsubscript{\textit{G}} vengono eseguiti con successo, sarà possibile apportare le modifiche fatte nel ramo principale.
 
 \vspace{0.2cm}
 
-Alla conclusione dei test viene riportato il code coverage in un file chiamato coverage.xml. Questo file grazie a GitHub action viene elaborato e i risultati vengono trasformati in badge di GitHub esposti nel file \textit{README.md} della repository.
+Alla conclusione dei \textit{test}\textsubscript{\textit{G}} viene riportato il code coverage in un file chiamato coverage.xml. Questo file grazie a GitHub action viene elaborato e i risultati vengono trasformati in badge di GitHub esposti nel file \textit{README.md} della \textit{repository}\textsubscript{\textit{G}}.
 
 \hypertarget{subsubsec:strumentiVerifica}{\subsubsection{Strumenti}}
 \begin{itemize}
@@ -319,8 +319,8 @@ Alla conclusione dei test viene riportato il code coverage in un file chiamato c
         controllo ortografico integrato nell’ambiente di lavoro;
     \item \textbf{Modulo "Pytest" Python:} libreria \textit{standard}\textsubscript{\textit{G}} che offre una serie di funzionalità per creare, organizzare e eseguire \textit{test}\textsubscript{\textit{G}} di unità in modo efficace e automatizzato;
     \item \textbf{Modulo "Unittest" Python:} libreria \textit{standard}\textsubscript{\textit{G}} che offre una serie di funzionalità per creare, organizzare e eseguire \textit{test}\textsubscript{\textit{G}} di unità;
-    \item \textbf{Modulo "Pylint" Python:} libreria open source che analizza il codice sorgente Python per identificare potenziali errori, bug e cattive abitudini di programmazione;
-    \item \textbf{Applicazione GitHub \href{https://github.com/marketplace/codacy}{Codacy}:} servizio che verifica il codice tramite l'analisi statica;
-    \item \textbf{\href{https://github.com/marketplace/actions/coveralls-github-action}{Coverallas}:} servizio che traccia e mostra il code coverage;
-    \item \textbf{\href{https://github.com/marketplace/actions/codecov}{Codecov}:} servizio che traccia e mostra il code coverage;
+    \item \textbf{Modulo "Pylint" Python:} libreria open source che analizza il codice sorgente \textit{Python}\textsubscript{\textit{G}} per identificare potenziali errori, bug e cattive abitudini di programmazione;
+    \item \textbf{Applicazione GitHub \href{https://github.com/marketplace/codacy}{Codacy}:} \textit{servizio}\textsubscript{\textit{G}} che verifica il codice tramite l'analisi statica;
+    \item \textbf{\href{https://github.com/marketplace/actions/coveralls-github-action}{Coverallas}:} \textit{servizio}\textsubscript{\textit{G}} che traccia e mostra il code coverage;
+    \item \textbf{\href{https://github.com/marketplace/actions/codecov}{Codecov}:} \textit{servizio}\textsubscript{\textit{G}} che traccia e mostra il code coverage;
 \end{itemize}
