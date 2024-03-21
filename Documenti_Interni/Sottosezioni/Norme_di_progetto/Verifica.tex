@@ -282,19 +282,20 @@ Il processo di CI, che nel nostro progetto è implementato per la repo di MVP, �
     \item \textbf{Risoluzione di Bug}.
 \end{itemize}
 
-Con la creazione di una Pull Request, avviene l'innesco di un applicazione di GitHub, chiamato Codacy, che esegue test di tipo statico. Tale applicazione da esito positivo, nella pagina della Pull Request, se le modifiche fatte non hanno introdotto codice non conforme alle regole di analisi statica definite. Se l'applicazione da un esito di fallimento, il programmatore deve cambiare le modifiche finché il codice passa l'analisi statica.
+Con la creazione di una Pull Request, avviene l'innesco di un applicazione di GitHub, chiamata Codacy, che esegue test di tipo statico. Tale applicazione da esito positivo, nella pagina della Pull Request, se le modifiche fatte non hanno introdotto codice non conforme alle regole di analisi statica definite. Se l'applicazione da un esito di fallimento, il programmatore deve cambiare le modifiche finché il codice passa l'analisi statica.
 
 \vspace{0.2cm}
 
-Alla conclusione della Codacy, tramite i workflow di GitHub, il codice del prodotto viene ottenuto e inizia la parte di build del prodotto. In questa parte, tramite il commando:
+Alla conclusione della Codacy, tramite i workflow di GitHub, il codice del prodotto viene ottenuto e inizia la parte di build del prodotto. Tramite il comando:
 \begin{lstlisting}[style=code]
     docker compose up
 \end{lstlisting}
-viene effettuato il pull da DockerHub di tutte le immagini necessarie per costruire tutti in componenti del prodotto.
+viene effettuato il pull da DockerHub di tutte le immagini necessarie per costruire tutti in componenti del prodotto necessari al testing.
 
 \vspace{0.2cm}
 
-Una volta conclusa la costruzione dell prodotto con successo inizia la parte di testing statica e dinamica grazie ad un profilo di testing dell'ambiente Docker. Prima di tutto, iniziano i test statici usando Pylint. L'esito di tali test viene nel file \textit{README.md} usando un badge di GitHub.
+Una volta conclusa la costruzione dell prodotto con successo inizia la parte di testing statica e dinamica grazie al profilo di testing dell'ambiente Docker. Prima di tutto, iniziano i test statici usando Pylint. L'esito di tali test viene esposto nel file \textit{README.md} usando un badge di GitHub che mostra un punteggio compreso tra 0 e 10 rappresentante la qualita del codice.
+
 
 \vspace{0.2cm}
 
@@ -306,19 +307,18 @@ Una volta finiti i test statici iniziano i test dinamici che sono:
     \item \textbf{Test di Sistema}.
 \end{itemize}
 
-Se almeno uno dei test fallisce, allora il workflow ferma con stato di fallimento, manda una notifica all programmatore che ha creato la Pull Request e alla fine chiude la Pull Request. Se tutti i test passano con successo, si possono portare le modifiche fatte nel ramo principale.
+Se almeno uno dei test fallisce, allora il workflow si ferma con stato di fallimento, manda una notifica all programmatore che ha creato la Pull Request e chiude la Pull Request. Se tutti i test vengono eseguiti con successo, sarà possibile apportare le modifiche fatte nel ramo principale.
 
 \vspace{0.2cm}
 
-Alla conclusione dei test viene riportato il code coverage in un file chiamato coverage.xml. Questo file grazie a GitHub action viene ottenuto e i risultati vengono trasformati in badge di GitHub che vengono aggiunti nel file \textit{README.md}.
-che poi aggiornano i rispettati badge di GitHub nella file README.md.
-
+Alla conclusione dei test viene riportato il code coverage in un file chiamato coverage.xml. Questo file grazie a GitHub action viene elaborato e i risultati vengono trasformati in badge di GitHub esposti nel file \textit{README.md} della repository.
 
 \hypertarget{subsubsec:strumentiVerifica}{\subsubsection{Strumenti}}
 \begin{itemize}
     \item \textbf{Spell checker:} 
         controllo ortografico integrato nell’ambiente di lavoro;
     \item \textbf{Modulo "Pytest" Python:} libreria \textit{standard}\textsubscript{\textit{G}} che offre una serie di funzionalità per creare, organizzare e eseguire \textit{test}\textsubscript{\textit{G}} di unità in modo efficace e automatizzato;
+    \item \textbf{Modulo "Unittest" Python:} libreria \textit{standard}\textsubscript{\textit{G}} che offre una serie di funzionalità per creare, organizzare e eseguire \textit{test}\textsubscript{\textit{G}} di unità;
     \item \textbf{Modulo "Pylint" Python:} libreria open source che analizza il codice sorgente Python per identificare potenziali errori, bug e cattive abitudini di programmazione;
     \item \textbf{Applicazione GitHub \href{https://github.com/marketplace/codacy}{Codacy}:} servizio che verifica il codice tramite l'analisi statica;
     \item \textbf{\href{https://github.com/marketplace/actions/coveralls-github-action}{Coverallas}:} servizio che traccia e mostra il code coverage;
