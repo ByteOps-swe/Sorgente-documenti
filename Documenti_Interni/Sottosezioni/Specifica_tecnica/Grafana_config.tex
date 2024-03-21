@@ -1,6 +1,25 @@
 \subsection{Grafana}
 Grafana è un software open source per la visualizzazione e l'analisi dei dati. È progettato per funzionare con vari database di serie temporali, tra cui Clickhouse. Grafana offre un'interfaccia utente intuitiva e flessibile che consente di creare e condividere dashboard personalizzate per monitorare i dati in tempo reale. È ampiamente utilizzato per monitorare sistemi e applicazioni, nonché per analizzare e visualizzare dati in tempo reale.
 
+\subsubsection{Utenti}
+L'accesso a Grafana è vincolato a due utenze e non permette uteriori registrazioni per l'accesso alla piattaforma di monitoraggio.
+\begin{itemize}
+    \item \textbf{Amministratore:} 
+    \begin{itemize}
+        \item Accesso riservato all'amministratore di sistema per permettere manutenzione e modifiche alle impostazioni sensibili della piattaforma.
+        \item Non accessibile in produzione.
+    \end{itemize}
+    
+    \item \textbf{User:} 
+    \begin{itemize}
+        \item Accesso riservato alle autorità locali per la visualizzazione e l'analisi dei dati.
+        \begin{itemize}
+            \item \textbf{Username:} user
+            \item \textbf{Password:} user
+        \end{itemize} 
+    \end{itemize}
+\end{itemize}
+
 \subsection{Dashboards}
 Per soddisfare tutti i requisiti definiti in \textit{Analisi dei requisiti v2.0.0} sono state create due Dashboard:
 \begin{itemize}
