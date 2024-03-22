@@ -133,24 +133,30 @@
 \flushleft
 
 \section{Revisione del periodo precedente}
-Dopo l'ultimo incontro, il gruppo ha proseguito con il lavoro sulle attività pianificate. In particolare, sono stati sviluppati nuovi test di unità per i sensori e di integrazione tra Kafka, Python e ClickHouse, come previsto durante l'incontro precedente. Inoltre, è stata completata la redazione della sezione relativa al decimo periodo del Piano di Progetto, e il lavoro sulla stesura del Manuale Utente è proseguito.
+Dopo l'ultimo incontro, il gruppo ha proseguito con il lavoro sulle attività pianificate. In particolare, sono stati sviluppati nuovi test di unità per i sensori e si è proceduto con lo sviluppo dei test di integrazione tra Kafka, Python e ClickHouse, come previsto durante l'incontro precedente. \\
+Inoltre, per quanto riguarda la redazione dei documenti, è stata completata la redazione della sezione relativa al decimo periodo del \textit{Piano di Progetto}, e si è proseguito con la stesura del \textit{Manuale Utente}. \\
+In conclusione, le attività pianificate nell'ultimo incontro sono attualmente in esecuzione secondo i tempi previsti in quanto non sono emersi dubbi o difficoltà durante il loro svolgimento.
 
 \section{Ordine del giorno}
-L'incontro odierno è stato convocato in via straordinaria al fine di coordinare le ultime attività prima della conclusione del progetto. Data l'importanza di questo momento cruciale, abbiamo ritenuto necessario riunirci per garantire un'efficace sincronizzazione delle azioni rimanenti e assicurare il completamento del progetto secondo gli standard e i tempi previsti.
+L'incontro odierno è stato convocato in via straordinaria al fine di coordinare le ultime attività prima della conclusione del progetto. \\
+Data l'importanza di questo momento cruciale, è stato ritenuto necessario convocare una riunione al fine di garantire un'efficace sincronizzazione delle azioni rimanenti e garantire il completamento del progetto conformemente agli standard di qualità definiti e nei tempi previsti.
 
     \subsection{Notifiche Grafana su Discord}
-    Durante la riunione, il gruppo ha esaminato la possibilità di configurare notifiche da Grafana su Discord al fine di informare tempestivamente gli utenti su eventuali problemi o anomalie rilevate dal sistema. Dopo aver valutato la fattibilità di questa funzionalità e aver confermato la possibilità di implementarla, è stata presa la decisione di procedere con la sua realizzazione.\\
-    Nel corso dell'incontro, sono stati definiti inoltre i dettagli tecnici e le modalità di implementazione di questa funzionalità. In particolare, sono stati concordate la struttura delle notifiche e le modalità di ricezione delle stesse tramite il server Discord del gruppo.
+    Durante la riunione, il gruppo ha esaminato la possibilità di inviare le notifiche da Grafana su Discord al fine di informare tempestivamente gli utenti su eventuali problemi o anomalie rilevate dal sistema. \\
+    Dopo aver valutato la fattibilità di questa funzionalità e aver confermato la possibilità di implementarla, è stata presa la decisione di procedere con la sua realizzazione.\\
+    Nel corso dell'incontro, sono stati definiti inoltre i dettagli tecnici e le modalità di implementazione di questa funzionalità. In particolare, si è definito il formato delle notifiche e le modalità di ricezione delle stesse tramite il server Discord dedicato.
 
     \subsection{Time-To-Live ClickHouse}
-    Durante le discussioni interne, è emersa la necessità di implementare un meccanismo di Time-To-Live (TTL) per i dati memorizzati in ClickHouse.\\
-    La decisione di implementare il TTL è stata presa per gestire in modo efficiente grandi volumi di dati e garantire la pulizia automatica di informazioni obsolete o non più rilevanti. Tale scelta è stata motivata dalla natura dei dati trattati nel sistema, che comprendono dati cronologicamente ordinati come i dati di monitoraggio. Sfruttando il motore Rollup, è stato possibile configurare il TTL per eliminare automaticamente i dati più vecchi dopo un periodo specificato, mantenendo così la tabella efficiente e gestibile nel tempo.\\
-    Questa strategia mira a ottimizzare le prestazioni complessive del sistema e a gestire in modo efficiente i grandi volumi di dati accumulati nel tempo, contribuendo al successo e alla scalabilità del progetto.    
+    Si è discusso sulla possibilità di implementare la funzionalità Time-To-Live (TTL) per gestire in modo efficiente i dati memorizzati nel database ClickHouse.\\
+    La decisione di implementare tale funzionalità è stata presa per gestire in modo efficiente grandi volumi di dati e garantire la pulizia automatica di informazioni obsolete o non più rilevanti. \\
+    Sfruttando il motore Rollup, è stato possibile configurare l'eliminazione automatica dei dati meno recenti, specificando l'intervallo temporale a partire dal quale questi vengono rimossi. Ciò assicura l'efficienza delle operazioni nel database e favorisce una maggiore manutenibilità. Tuttavia, al fine di preservare la capacità di analizzare le misurazioni meno recenti, prima di procedere alla loro rimozione, viene effettuata un'operazione di aggregazione che consiste nel calcolare la media oraria delle misurazioni e memorizzare nel database solamente un singolo dato per ogni ora.\\
+    Questa strategia mira a ottimizzare le prestazioni complessive del sistema e a gestire in modo efficiente i grandi volumi di dati accumulati nel tempo.
 
     \subsection{Continuous Integration}
-    Durante l'incontro, abbiamo riconosciuto i vantaggi significativi derivanti dall'implementazione della Continuous Integration (CI) nel nostro progetto. La decisione di adottare la CI è stata motivata dalla necessità di garantire un flusso di sviluppo fluido e affidabile, soprattutto considerando l'integrazione dei test automatizzati.\\
-    La CI ci offre la possibilità di integrare regolarmente il codice nel repository condiviso e di eseguire automaticamente una serie di test, tra cui test di unità, test di integrazione e test end-to-end. Questo approccio ci consente di individuare e risolvere tempestivamente eventuali problemi, riducendo al minimo il rischio di errori e garantendo che il codice rimanga sempre funzionante.\\
-    Inoltre, l'automazione dei test all'interno del processo CI contribuisce a migliorare la qualità del software, poiché consente di identificare e correggere rapidamente eventuali difetti introdotti dalle nuove modifiche. Questa pratica non solo ottimizza le prestazioni complessive del sistema, ma favorisce anche una maggiore collaborazione tra i membri del team, promuovendo una cultura di sviluppo condiviso e feedback costante.\\
+    Durante l'incontro, si sono analizzati i vantaggi derivanti dall'implementazione della Continuous Integration (CI). \\
+    La decisione di adottare la CI è stata motivata dalla necessità di garantire un flusso di sviluppo fluido e affidabile, soprattutto considerando l'integrazione dei test automatizzati.\\
+    La CI offre la possibilità di integrare regolarmente il codice nel repository condiviso e di eseguire automaticamente una serie di test, tra cui test di unità, test di integrazione e test end-to-end. Questo approccio ci consente di individuare e risolvere tempestivamente eventuali problemi, riducendo al minimo il rischio di errori e garantendo che il codice rimanga sempre funzionante.\\
+    Inoltre, l'automazione dei test all'interno del processo di CI contribuisce a migliorare la qualità del software, poiché consente di identificare e correggere rapidamente eventuali difetti introdotti dalle nuove modifiche. Questa pratica non solo garantisce la correttezza e la qualità del software, ma favorisce anche una maggiore collaborazione tra i membri del team, promuovendo una cultura di sviluppo condiviso e feedback costante.\\
     In definitiva, la scelta di utilizzare la CI è stata guidata dalla volontà di garantire un processo di sviluppo efficiente, affidabile e di alta qualità.
 
     \section{Attività da svolgere}
@@ -166,7 +172,7 @@ L'incontro odierno è stato convocato in via straordinaria al fine di coordinare
             \hline
             Implementazione della Continuous Integration & 113 & R. Smanio \\
             \hline
-            Implementazione Calcolo punteggio di salute & 105 & R. Smanio\\
+            Implementazione calcolo punteggio di salute & 105 & R. Smanio\\
             \hline
         \end{tabular}
     \end{center}
