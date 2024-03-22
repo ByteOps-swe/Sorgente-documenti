@@ -95,6 +95,24 @@ La dashboard principale presenta una suddivisione in "righe" comprimibili. Di se
 \end{enumerate}
 
 
+\paragraph*{Dashboard dedicata - Progettazione in dettaglio}
+La dashboard dedicata è suddivisa in due sezioni: la prima posta nella parte superiore della dashboard è dedicata alle variabili di input per la selezione dei sensori e delle celle da analizzare, mentre la seconda posta nella parte inferiore della dashboard è dedicata alla visualizzazione delle misurazioni dei sensori selezionati.\\
+Di seguito vengono esposti i dettagli relativi alla progettazione della selezione delle variabili di input:
+\begin{enumerate}
+    \item Nome pannello variabili: \textbf{Selezione cella}: Permette di selezionare le celle della città da analizzare;
+    \item Nome pannello variabili: \textbf{Tipologia misurazioni}: Permette di selezionare la tipologia di sensori da analizzare;
+    \item Nome pannello variabili: \textbf{Seleziona i sensori fronte}: Permette di selezionare i sensori da analizzare della tipologia e della cella selezionata;
+    \item Nome pannello variabili: \textbf{Aggregazione temporale}: Permette di selezionare l'intervallo temporale di aggregazione delle misurazioni;
+    \item Nome pannello variabili: \textbf{Misurazine minima}: Permette di selezionare il valore minimo delle misurazioni da visualizzare;
+    \item Nome pannello variabili: \textbf{Misurazione massima}: Permette di selezionare il valore massimo delle misurazioni da visualizzare.
+\end{enumerate}
+Di seguito vengono esposti i dettagli relativi alla progettazione della visualizzazione delle misurazioni dei sensori selezionati:
+\begin{enumerate}
+    \item Nome pannello: \textbf{Grafico a linee}: 
+    Visualizzazione delle misurazioni tramite un grafico a linee time-series. Le misurazioni sono mostrate in base ai parametri specificati dall'utente per la selezione delle celle, dei sensori, della tipologia delle misurazioni e dell'aggregazione temporale.
+    \item Nome pannello: \textbf{Tabella misurazioni}: 
+    Visualizzazione delle misurazioni in forma tabellare. Come nel pannello precedente, le misurazioni sono mostrate in base ai parametri specificati dall'utente per la selezione delle celle, dei sensori, della tipologia delle misurazioni e dell'aggregazione temporale.
+\end{enumerate}
 
 \subsubsection{ClickHouse data source plugin} \label{sec:click_plugin}
 \paragraph{Documentazione:}
