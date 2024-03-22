@@ -597,3 +597,12 @@ Un'altra implementazione del pattern \textit{Object Adapter} viene impiegata per
 \end{itemize}
 
 
+\subsubsection{Progettazione - Panoramica UML }
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.1\textwidth]{../Images/SpecificaTecnica/progettazioneCompSimulatori.PNG}
+    \caption{Panoramica progettazione simulatori sensori UML - Innovacity}
+    \label{fig: panor_sim}
+\end{figure}
+L'immagina vuole mostrare sinteticamente la struttura dei moduli \textit{Simulatori}, \textit{Writers} e \textit{Threading/Scheduling} e le relazioni tra le classi principali di questi moduli. In particolare, si evidenzia la presenza del pattern \textit{Composite} per la gestione di più servizi di scrittura e di più thread di esecuzione, il pattern \textit{Strategy} per la scrittura su diversi servizi e il pattern \textit{Object Adapter} per adattare le ThreadPool di Python e gli oggetti Misurazione ai Writer. 
+Viene riportato solo il sensore di temperatura come implementazione concreta di \textit{simulator} in quanto le altre implementazioni sono analoghe nel loro dominio.
