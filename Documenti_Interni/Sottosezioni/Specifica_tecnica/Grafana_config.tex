@@ -20,13 +20,79 @@ L'accesso a Grafana è vincolato a due utenze e non permette uteriori registrazi
     \end{itemize}
 \end{itemize}
 
-\subsection{Dashboards}
+\subsubsection{Dashboards}
 Per soddisfare tutti i requisiti definiti in \textit{Analisi dei requisiti v2.0.0} sono state create due Dashboard:
 \begin{itemize}
     \item \textbf{Dashboard Principale:} Questa dashboard fornisce una visualizzazione chiara e intuitiva delle misurazioni provenienti da tutti i sensori, di tutte le tipologie, distribuiti nell'area urbana. La dashboard include una mappa interattiva della città che mostra la posizione geografica di ciascun sensore e la relativa ultima misurazione. Inoltre, viene presentato il punteggio di salute della città o di celle specifiche.
     \item \textbf{Dashboard dedicata:} Mostra le misurazioni di una specifica tipologia di sensore selezionata dall'utente in modo più dettagliato e permette di effettuare le attività di filtraggio e aggregazione definite in \textit{Analisi dei requisiti v2.0.0}.
 \end{itemize}
 
+
+
+\paragraph*{Dashboard Principale - Progettazione in dettaglio}
+La dashboard principale presenta una suddivisione in "righe" comprimibili. Di seguito viene esposto per ogni riga cosa deve essere visualizzato nell'ordine dato dall'enumerazione, \textbf{ l'intervallo di tempo scelto dall'utente tramite interfaccia di default Grafana verrà chiamato \textit{UserInterval}}
+\begin{enumerate}
+    \item Titolo riga: \textbf{City manager}
+    \begin{enumerate}
+        \item Pannello per la scelta delle celle della città cui si intende visualizzare le misurazioni;
+        \item Mappa interattiva della città, presenta i sensori interni alle celle selezionate
+        \item Pannello per la visualizzazione del punteggio di salute relativo alla celle selezionate;
+        \item Pannello per la visualizzazione dello stato degli alert relativi alle celle selezionate.
+    \end{enumerate}
+    \item Titolo riga: \textbf{Temperatura}
+    \begin{enumerate}
+        \item Pannello per la scelta dei sensori di temperatura da analizzare, (vengono proposti per la scelta solo i sensori interni alle celle selezionate per l'analisi);
+        \textbf{Verrà chiamato \textit{tmps} l'insieme dei sensori di temperatura scelti nel pannello appena esposto e presenti nelle celle selezionate nel pannello apposito.}
+        \item Pannello con vista time-series delle misurazioni di temperatura, vengono presentati le misurazioni dei sensori \textit{tmps} in \textit{UserInterval}
+        \item Pannello con vista della media delle misurazioni dei sensori \textit{tmps} in \textit{UserInterval}.
+    \end{enumerate}
+    \item Titolo riga: \textbf{Umidità}
+    \begin{enumerate}
+        \item Pannello per la scelta dei sensori di umidità da analizzare, (vengono proposti per la scelta solo i sensori interni alle celle selezionate per l'analisi);
+        \textbf{Verrà chiamato \textit{umids} l'insieme dei sensori di umidità scelti nel pannello appena esposto e presenti nelle celle selezionate nel pannello apposito.}
+        \item Pannello con vista time-series delle misurazioni di umidità, vengono presentati le misurazioni dei sensori \textit{umids} in \textit{UserInterval}
+        \item Pannello con vista della media delle misurazioni dei sensori \textit{umids} in \textit{UserInterval}.
+    \end{enumerate}
+    \item Titolo riga: \textbf{Polveri sottili}
+    \begin{enumerate}
+        \item Pannello per la scelta dei sensori di polveri sottili da analizzare, (vengono proposti per la scelta solo i sensori interni alle celle selezionate per l'analisi);
+        \textbf{Verrà chiamato \textit{pm\_sensors} l'insieme dei sensori di polveri sottili scelti nel pannello appena esposto e presenti nelle celle selezionate nel pannello apposito.}
+        \item Pannello con vista time-series delle misurazioni di polveri sottili, vengono presentati le misurazioni dei sensori \textit{pm\_sensors} in \textit{UserInterval};
+        \item Pannello con vista della media delle misurazioni dei sensori \textit{pm\_sensors} in \textit{UserInterval}.
+    \end{enumerate}
+    \item Titolo riga: \textbf{Isole ecologiche}
+    \begin{enumerate}
+        \item Pannello per la scelta delle isole ecologiche da analizzare, (vengono proposte per la scelta solo le isole ecologiche interne alle celle selezionate per l'analisi);
+        \textbf{Verrà chiamato \textit{islands} l'insieme delle isole ecologiche scelte nel pannello appena esposto.}
+        \item Pannello con vista time-series delle misurazioni delle isole ecologiche, vengono presentate le misurazioni delle isole ecologiche \textit{islands} in \textit{UserInterval}
+        \item Pannello con vista della media delle misurazioni delle isole ecologiche \textit{islands} in \textit{UserInterval}.
+    \end{enumerate}
+\item Titolo riga: \textbf{Colonnine di ricarica}
+\begin{enumerate}
+    \item Pannello per la scelta delle colonnine di ricarica da analizzare, (vengono proposte per la scelta solo le  colonnine di ricarica interne alle celle selezionate per l'analisi);
+    \textbf{Verrà chiamato \textit{chsSt} l'insieme delle  colonnine di ricarica scelte nel pannello appena esposto.}
+    \item Pannello con vista sul numero di colonnine di ricarica libere in \textit{chsSt} considerato l'ultima misurazione in
+    \textit{UserInterval} 
+    \item Pannello con vista sul numero di colonnine di ricarica occupate in \textit{chsSt} considerato l'ultima misurazione in \textit{UserInterval} 
+    \item Pannello con vista tabellare delle ultime misurazioni in \textit{UserInterval} delle colonnine di ricarica in \textit{chsSt}.
+\end{enumerate}
+\item Titolo riga: \textbf{Guasti elettrici}
+\begin{enumerate}
+    \item Pannello per la scelta dei sensori di guasti elettrici da analizzare, (vengono proposti per la scelta solo i sensori di guasti elettrici interni alle celle selezionate per l'analisi);
+    \textbf{Verrà chiamato \textit{GstEl} l'insieme dei sensori di guasti elettrici scelti nel pannello appena esposto.}
+    \item Pannello con vista sul numero di sensori che hanno rilevato anomalie in \textit{GstEl} considerato l'ultima misurazione in \textit{UserInterval} 
+    \item Pannello con vista sul numero di sensori che non  hanno rilevato anomalie in \textit{GstEl} considerato l'ultima misurazione in \textit{UserInterval} 
+    \item Pannello con vista tabellare delle ultime misurazioni in \textit{UserInterval} dei sensori \textit{GstEl}.
+\end{enumerate}
+\item Titolo riga: \textbf{Sensori di presenza dell'acqua}
+\begin{enumerate}
+\item Pannello per la selezione dei sensori di presenza dell'acqua da analizzare (vengono proposti solo i sensori di presenza dell'acqua interni alle celle selezionate per l'analisi);
+\textbf{Verrà chiamato \textit{PresAcq} l'insieme dei sensori di presenza dell'acqua scelti nel pannello appena esposto.}
+\item Pannello con vista sul numero di sensori che hanno rilevato acqua in \textit{PresAcq} considerando l'ultima misurazione nell'intervallo temporale definito dall'utente (\textit{UserInterval}).
+\item Pannello con vista sul numero di sensori che non hanno rilevato acqua in \textit{PresAcq} considerando l'ultima misurazione nell'intervallo temporale definito dall'utente (\textit{UserInterval}).
+\item Pannello con vista tabellare delle ultime misurazioni nell'intervallo (\textit{UserInterval}) dei sensori \textit{PresAcq}.
+\end{enumerate}
+\end{enumerate}
 
 
 
