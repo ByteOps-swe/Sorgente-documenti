@@ -4,7 +4,12 @@
 
 Per soddisfare il requisito opzionale del calcolo del punteggio di salute, si è scelto di utilizzare Faust, una libreria \textit{Python}\textsubscript{\textit{G}} ispirata al modello di \textit{Kafka}\textsubscript{\textit{G}} Streams. Faust facilita l'elaborazione di flussi di dati distribuiti in tempo reale, rendendola ideale per questo caso d'uso.
 Offre un'interfaccia di alto livello che astrae le complessità di \textit{Kafka}\textsubscript{\textit{G}}, rendendo la raccolta dati semplice e intuitiva.
-Inolltre Faust è progettato per essere scalabile e può essere utilizzato per gestire grandi volumi di dati.
+Inoltre Faust è progettato per essere scalabile e può essere utilizzato per gestire grandi volumi di dati.
+
+\paragraph*{Faust \& Schema Registry} 
+Faust deserializza i messaggi dei topic in conformità allo schema definito nello Schema Registry. Qualora si riscontrino messaggi non conformi, essi vengono eliminati. I messaggi validi vengono successivamente processati e instradati verso un topic dedicato all'interno di Kafka.
+
+La gestione della connessione allo Schema Registry è integrata in Faust. Dopo aver fornito l'indirizzo dello Schema Registry nella configurazione dell'applicazione Faust, Faust stesso si occupa di validare i messaggi in base allo schema registrato per il relativo topic.
 
 \paragraph*{Calcolo del Punteggio}
 Il punteggio di salute rappresenta un indicatore sintetico del benessere generale di una città, misurandolo in base a diversi aspetti chiave. In questo caso, le tre tipologie di misurazioni considerate sono:
@@ -33,25 +38,26 @@ Il calcolo del punteggio avviene in due fasi:
 \begin{itemize}
     \item \textbf{Applicazione Faust:}
     \begin{lstlisting}[style=code]
-        faust.App(<nome_app>, \textit{broker}\textsubscript{\textit{G}}=<broker_kafka>)
+        faust.App(<nome_app>, broker=<broker_kafka>)
     \end{lstlisting} 
     \begin{itemize}
         \item Un'applicazione Faust è un \textit{programma}\textsubscript{\textit{G}} \textit{Python}\textsubscript{\textit{G}} che elabora flussi di dati in tempo reale da \textit{Kafka}\textsubscript{\textit{G}}.
-        \item \textbf{nome\_app}: Identifica l'applicazione.
+        \item \textbf{nome\_app}: Identifica l'applicazione, coincide con il \textit{ConsumerGroup} di Kafka.
         \item \textbf{broker\_kafka}: Indirizzo del \textit{broker}\textsubscript{\textit{G}} \textit{Kafka}\textsubscript{\textit{G}} (hostname:porta).
+        \item Importante configurare l'applicazione con l'indirizzo dello Schema Registry per garantire a la validazione e deserializzazione dei messaggi.
     \end{itemize}
     \item \textbf{Topic:}
     \begin{lstlisting}[style=code]
         app.topic(<nome_topic>, value_type=<tipo_dato>)
     \end{lstlisting}  
     \begin{itemize}
-        \item \textbf{nome\_topic}: Nome del topic \textit{Kafka}\textsubscript{\textit{G}}.
+        \item \textbf{nome\_topic}: Nome del topic \textit{Kafka}\textsubscript{\textit{G}} a cui iscrivere l'app Faust.
         \item \textbf{tipo\_dato:} Classe che rappresenta il tipo di dato del topic (es. FaustMeasurement).
-        \item Nel caso si voglia aggiungere altri topic da cui consumare dati basterà aggiungerne prima del parametro value\_type.
+        \item Nel caso si voglia aggiungere altri topic da cui consumare dati basterà aggiungerne prima del parametro value\_type separati da virgole.
     \end{itemize}
     \item \textbf{Tipo di dato atteso:}
      \begin{lstlisting}[style=code]
-        class FaustMeasurement(faust.Record)
+        class FaustMeasurement(faust.Record, serializer='json')
     \end{lstlisting}  
     \begin{itemize}
         \item È una classe che eredita da \textbf{faust.Record}.
@@ -87,6 +93,21 @@ Il calcolo del punteggio avviene in due fasi:
     \end{itemize}
 \end{itemize}
 
+\subsubsection{Processing layer Data-flow}
+Di seguito esposto il flusso dei dati per il calcolo del punteggio di salute.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{../Images/SpecificaTecnica/faustFlow.png}
+    \caption{Faust Data-flow}
+    \label{fig: FaustDataflow}
+\end{figure}
+In breve:
+\begin{enumerate}
+    \item Faust ottiene le misurazioni dai topic;
+    \item Tramite una porta di accesso le fornisce al modello per il calcolo del punteggio;
+    \item Quando l'applicazione Faust viene avviata questa avvia anche un Thread che periodicamente ottiene i punteggi di salute calcolati sulla base delle misurazioni ottenute da Faust e tramite il modulo Writer li invia al topic kafka dedicato.
+\end{enumerate}
 \subsubsection{Modello per il calcolo del punteggio di salute}
 \begin{figure}[H]
     \centering

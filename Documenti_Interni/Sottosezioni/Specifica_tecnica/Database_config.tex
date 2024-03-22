@@ -11,7 +11,7 @@ Le tipologie di sensori cui misurazioni si vogliono trattare nel progetto sono:
     \item Sensori di guasti elettrici;
     \item Sensori di presenza dell'acqua.
 \end{itemize}
-
+Oltre alla misurazioni dei sensori, si è deciso di memorizzare anche i punteggi di salute delle celle calcolati. Questi punteggi vengono calcolati in base alle misurazioni dei sensori e vengono memorizzati in una tabella apposita.
 La progettazione del database ClickHouse è cruciale, poiché un'adeguata ottimizzazione consente di garantire prestazioni ottimali per un sistema orientato al tempo reale e in grado di gestire analisi su enormi volumi di dati.
 
 
@@ -438,3 +438,23 @@ Le considerazioni concernenti l'archiviazione delle misurazioni dei sensori di l
 \end{figure}
 
 %_____________________________________________________________________________
+
+\subsubsection{Punteggi di salute}
+Viene create anche una tabella dedicata alla persistenza dei punteggi di salute nel tempo calcolati per ogni cella della città. La tabella di destinazione ClickHouse è nominata ‘HealthScores’, i campi sono: cella (String), value (Float32), timestamp(DATETIME64).
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/healthScore.png}
+  \caption{Tabella HealthScore\_kafka e HealthScore}
+  \label{fig:HealthScore_tables}
+\end{figure}
+
+\paragraph(Time to Live)
+La tabella dedicata alle misurazioni di salute include la configurazione di un TTL (Time-to-Live) che consente l'aggregazione dei dati dopo un mese dal timestamp della "misurazione" in una singola "misurazione" per cella e per ora. Questo approccio consente di ridurre l'utilizzo dello spazio di archiviazione e accelerare il tempo di interrogazione, mantenendo comunque un livello di dettaglio adeguato per le analisi.
+
+
+
+
+
+
