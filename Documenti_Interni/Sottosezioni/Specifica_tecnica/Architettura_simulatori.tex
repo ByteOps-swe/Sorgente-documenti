@@ -20,13 +20,55 @@ In particolare sono stati implementati simulatori per i seguenti tipi di sensori
     \item Sensori di presenza d'acqua;
     \item Sensori di guasto elettrico.
 \end{itemize}
-\paragraph{Design pattern Template Method:}
+\paragraph{Design pattern Template Method:} \label{sec:templateSIM}
 
-La classe astratta \textit{Simulator} implementa il design pattern \textit{Template Method}. Il metodo \textit{simulate()} fornisce lo scheletro dell'algoritmo per la generazione e la gestione delle misurazioni. Le classi concrete che estendono \textit{Simulator} implementano:
+La classe astratta \textit{Simulator} implementa il design pattern \textit{Template Method}. Il metodo \textit{simulate()} fornisce lo scheletro dell'algoritmo per la generazione delle misurazioni e non può essere ridefinito nelle implementatazioni. Le classi che estendono \textit{Simulator} implementano:
 \begin{itemize}
-    \item \textbf{Metodo \textit{generate\_measure()}}: per la generazione semi randomica della misurazione associata al tipo di sensore;
-    \item \textbf{Metodo \textit{filter()}}: per la logica di filtrazione di misurazioni errate o non attendibili (ad esempio, negative, fuori range o consecutive troppo distanti). Il metodo \textit{filter()} offre un'implementazione di default che lascia passare ogni misurazione senza modifiche.
-\end{itemize}
+    \item \textbf{Metodo \textit{generate\_measure()}}: per la generazione semi-randomica della misurazione associata al tipo di sensore, di fatto non è richiesta una generazione di misurazioni realistiche dal prodotto, ma per poter avere una visualizzazione finale delle misurazioni non altalenanti ogni misurazione viene generata sulla base di quella precedente con una variazione limitata;
+    \item \textbf{Metodo \textit{adapt()} - "hook method"}: L'implementazione di default non modifica in alcun modo la misurazione generata. Può essere ridefinito per implementare la logica di adattamento della misurazione.
+    Ad esempio:
+    \begin{itemize}
+        \item Per i sensori di polveri sottili PM10, la misurazione può essere adattata cambiando il valore dell'unità di misura µg/m³ in mg/m³ senza modifcare la logica di generazione in generate\_measure().
+        \item Per i sensori di umidità, la misurazione può essere adattata cambiando il valore dell'unità di misura da \% a g/m³ senza modifcare la logica di generazione in generate\_measure().
+        \item Per i sensori di temperatura, la misurazione può essere adattata cambiando il valore dell'unità di misura da °C a Fahrenheit  senza modifcare la logica di generazione in generate\_measure().
+        \begin{itemize}
+            \item Fahrenheit = (Celsius × 9/5) + 32
+        \end{itemize}
+        \item Questo apre le porte alla possibilità di creare per una stessa tipoligia di sensore diverse implementazioni che generano misurazioni con unità di misura diverse senza dover mettere mano alla logica di generazione che dichiara l'unità di misura generata di default, semplicemente estendendo la classe e ridefinendo il metodo \textit{adapt()}.
+        
+    \end{itemize}
+    \item Per garantire il rispetto del \textbf{Liskov Substitution Principle (LSP)} \textit{"Objects of a superclass should be replaceable with objects of its subtypes without altering the program's correctness."}:
+        \begin{itemize}
+            \item Il metodo \textit{adapt()} si limita a convertire le misurazioni senza alterare il comportamento generale del metodo \textit{simulate()} e senza modificare il tipo della misurazione generata da \textit{generate\_measure()};
+            \item Il metodo \textit{generate\_measure()} viene reso \textit{final} nelle concretizzazioni di \textit{Simulator} impedendo la ridefinizione del comportamento.
+        \end{itemize}
+
+
+        In generale le postcondizioni sono piu forti nelle classi derivate, mentre non variano le precondizioni garantendo il rispetto di \textit{LSP}. Ad esempio:
+
+        \begin{itemize}
+            \item In \textit{simulator}:
+            \begin{itemize}
+                \item La postcondizione del metodo \textit{simulate()} in simulator è la generazione di un oggetto di tipo misurazione;
+                \item La postcondizione del metodo \textit{generate\_measure} è la generazione del valore della misurazione.
+                \item La postcondizione del metodo \textit{adapt()} è la possibilità di convertire il valore della misurazione.
+            \end{itemize}
+            \item In \textit{TemperatureSimulator}:
+            \begin{itemize}
+                \item La postcondizione del metodo \textit{simulate()} in TemperatureSimulator è la generazione di una misurazione di temperatura.
+                \item La postcondizione del metodo \textit{generate\_measure} è la generazione del valore di una misurazione di temperatura.
+                \item La postcondizione del metodo \textit{adapt()} è la possibilità di convertire il valore della misurazione ad un altra unità di misura (Kelvin, Fahrenheit).
+            \end{itemize}
+            \item In un ipotetico \textit{TemperatureSimulatorFahrenheit}, che eredita da \textit{TemperatureSimulator}:
+            \begin{itemize}
+                \item la postcondizione del metodo \textit{simulate()} è la generazione di una misurazione di temperatura in Fahrenheit.
+                \item La postcondizione del metodo \textit{generate\_measure} rimane invariata.
+                \item La postcondizione del metodo \textit{adapt()} è di convertire il valore della misurazione a Fahrenheit.
+            \end{itemize}
+        \end{itemize}
+ \end{itemize}
+
+Al termine delle operazioni di generazione e adattamento, il metodo \textit{simulate()} crea restituisce un oggetto di tipo \textit{misurazione}.
 
 Il design pattern \textit{Template Method} è stato scelto per:
 \begin{itemize}
@@ -35,7 +77,7 @@ Il design pattern \textit{Template Method} è stato scelto per:
     \item Ridurre la duplicazione del codice.
 \end{itemize}
 
-Una volta ottenuto lo stato del sensore, esso viene inserito in un oggetto di tipo \textit{Misurazione}. Questo oggetto contiene informazioni di contesto come:
+Come già esposto, una volta ottenuto lo stato del sensore, esso viene inserito in un oggetto di tipo \textit{Misurazione}. Questo oggetto contiene informazioni di contesto come:
 \begin{itemize}
     \item Identificativo del sensore;
     \item Cella della città in cui è presente;
@@ -73,17 +115,19 @@ Il pattern Factory incapsula la creazione concreta dei sensori, consentendo al c
                 Si basa sul design pattern Template Method:
                 \begin{enumerate}
                     \item     Chiama generate\_measure() per generare un valore di misurazione.
-                    \item     Verifica con filter() se la misurazione è valida (ripete la generazione finché non lo è).
+                    \item     Chiama adapt() per effettuare adattamenti se necessari.
                     \item     Restituisce un oggetto Misurazione con data e ora corrente, valore misurato, tipo di sensore, coordinate e identificativo del sensore.
                 \end{enumerate}
                 \item \textbf{generate\_measure():None [protected]} - Metodo astratto da implementare nelle classi concrete per generare un valore di misurazione semi-casuale coerente con la tipolgia di sensore da salvare nell'attributo \textit{misurazione}.
-                \item \textbf{filter():bool [protected]} - Metodo di filtro per la validazione della misurazione (implementazione di default che accetta sempre la misurazione). Può essere ridefinito nelle classi concrete per implementare la logica di filtraggio.
+                \item \textbf{adapt():void [protected]} - Fornisce implementazione di default che non modifica in alcun modo la misurazione generata. Può essere ridefinito per implementare la logica di adattamento della misurazione come conversioni di unità di misura.
             \end{itemize}
             \item \textbf{Note}:
             \begin{itemize}
-                \item La classe Simulator è astratta e definisce il comportamento generale della simulazione della misurazione.
+                \item La classe Simulator è astratta e definisce il comportamento generale della simulazione della misurazione, Pattern \textit{Template method}.
                 \item Le classi concrete che ereditano da Simulator devono implementare il metodo astratto generate\_measure().
-                \item Il metodo filter() può essere ridefinito nelle classi concrete per implementare la logica di validazione specifica del sensore.
+                \item Il metodo adapt() può essere ridefinito nelle classi concrete per implementare conversioni o adattamenti necessari.
+                \item Il metodo simulate() è final e non può essere ridefinito.
+                \item Spiegazioni esaustive sono state presentate in: \ref{sec:templateSIM}
             \end{itemize}
         \end{itemize}
         
@@ -118,13 +162,13 @@ Il pattern Factory incapsula la creazione concreta dei sensori, consentendo al c
     \end{itemize}
     \item\textbf{Metodi}: 
     \begin{itemize}
-        \item \textbf{generate\_measure():None [protected]} - Genera una misurazione di temperatura semi-casuale e aggiorna la misurazione corrente.
+        \item \textbf{generate\_measure():None [protected,final]} - Genera una misurazione di temperatura in gradi Celsius semi-casuale e aggiorna e aggiorna lo stato interno con il valore della misurazione corrente.
     \end{itemize}
     \item\textbf{Note}:
     \begin{itemize}
         \item La classe TemperatureSimulator è una classe concreta che eredita dalla classe astratta Simulator.
         \item Il costruttore genera automaticamente un ID sensore univoco per ogni istanza.
-    \end{itemize}
+        \item Dichiara di generare misurazioni di temperatura in con unità di default (Gradi Celsius), possibili classi derivate possono convertire, tramite il metodo \textit{adapt()}, il valore ad altre unità (Kelvin,Fahrenheit) senza dover modificare la logica di generazione.    \end{itemize}
 \end{itemize}
     \item{\textbf{Classe: \textit{HumiditySimulator}}}
     \begin{itemize}
@@ -134,12 +178,13 @@ Il pattern Factory incapsula la creazione concreta dei sensori, consentendo al c
     \end{itemize}
     \item \textbf{Metodi}: 
     \begin{itemize}
-        \item \textbf{generate\_measure():None [protected]} - Genera una misurazione di umidità semi-casuale e aggiorna la misurazione corrente.
+        \item \textbf{generate\_measure():None [protected,final]} - Genera una misurazione di umidità percentuale semi-casuale e aggiorna e aggiorna lo stato interno con il valore della misurazione corrente.
     \end{itemize}
     \item \textbf{Note}:
     \begin{itemize}
         \item La classe HumiditySimulator è una classe concreta che eredita dalla classe astratta Simulator.
         \item Il costruttore genera automaticamente un ID sensore univoco per ogni istanza.
+        \item Dichiara di generare misurazioni di umidità in con unità di default (Percentuale), possibili classi derivate possono convertire, tramite il metodo \textit{adapt()}, il valore ad altre unità (g/m³) senza dover modificare la logica di generazione.
     \end{itemize}
 \end{itemize}
     \item{\textbf{Classe: \textit{ChargingStationSimulator}}}
@@ -150,7 +195,7 @@ Il pattern Factory incapsula la creazione concreta dei sensori, consentendo al c
     \end{itemize}
     \item  \textbf{Metodi}:
     \begin{itemize}
-        \item \textbf{generate\_measure():None [protected]} - Genera lo stato della colonnina di ricarica (Occupato: True, Libero: False) basata su una probabilità di transizione.
+        \item \textbf{generate\_measure():None [protected,final]} - Genera lo stato della colonnina di ricarica (Occupato: True, Libero: False) basata su una probabilità di transizione e aggiorna lo stato interno con il valore della misurazione corrente.
     \end{itemize}
     \item   \textbf{Note}:
     \begin{itemize}
@@ -167,12 +212,13 @@ Il pattern Factory incapsula la creazione concreta dei sensori, consentendo al c
     \end{itemize}
     \item    \textbf{Metodi}: 
     \begin{itemize}
-        \item \textbf{generate\_measure():None [protected]} - Genera una variazione di polvere PM10 semi-casuale e aggiorna la misurazione corrente.
+        \item \textbf{generate\_measure():None [protected,final]} - Genera una variazione di polvere PM10 semi-casuale e aggiorna e aggiorna lo stato interno con il valore della misurazione corrente.
     \end{itemize}
     \item    \textbf{Note}:
     \begin{itemize}
         \item La classe DustPM10Simulator è una classe concreta che eredita dalla classe astratta Simulator.
         \item Il costruttore genera automaticamente un ID sensore univoco per ogni istanza.
+        \item Dichiara di generare misurazioni di polvere PM10 in con unità di default (µg/m³), possibili classi derivate possono convertire, tramite il metodo \textit{adapt()}, il valore ad altre unità (mg/m³) senza dover modificare la logica di generazione.
     \end{itemize}
 \end{itemize}
     \item{\textbf{Classe: \textit{ElectricalFaultSimulator}}}
@@ -183,7 +229,7 @@ Il pattern Factory incapsula la creazione concreta dei sensori, consentendo al c
     \end{itemize}
     \item   \textbf{Metodi}: 
     \begin{itemize}
-        \item \textbf{generate\_measure():None [protected]} - Genera lo stato di una centralina elettrica (Guasto verificato: True, Operativa: False) basata sulla probabilità di guasto.
+        \item \textbf{generate\_measure():None [protected,final]} - Genera lo stato di una centralina elettrica (Guasto verificato: True, Operativa: False) basata sulla probabilità di guasto e aggiorna lo stato interno con il valore della misurazione corrente.
     \end{itemize}
     \item   \textbf{Note}:
     \begin{itemize}
@@ -199,7 +245,7 @@ Il pattern Factory incapsula la creazione concreta dei sensori, consentendo al c
     \end{itemize}
     \item    \textbf{Metodi}: 
     \begin{itemize}
-        \item \textbf{generate\_measure():None [protected]} - Genera una misurazione della percentuale di riempimento di un isola ecologica.
+        \item \textbf{generate\_measure():None [protected,final]} - Genera una misurazione della percentuale di riempimento di un isola ecologica e aggiorna lo stato interno con il valore della misurazione corrente.
     \end{itemize}
     \item    \textbf{Note}:
     \begin{itemize}
@@ -215,7 +261,7 @@ Il pattern Factory incapsula la creazione concreta dei sensori, consentendo al c
     \end{itemize}
     \item    \textbf{Metodi}: 
     \begin{itemize}
-        \item \textbf{generate\_measure():None [protected]} - Genera una misurazione basata sulla soglia di presenza dell'acqua (Acqua rilevata: True, Acqua non rilevata:False).
+        \item \textbf{generate\_measure():None [protected,final]} - Genera una misurazione basata sulla soglia di presenza dell'acqua (Acqua rilevata: True, Acqua non rilevata:False) e aggiorna lo stato interno con il valore della misurazione corrente.
     \end{itemize}
     \item    \textbf{Note}:
     \begin{itemize}
