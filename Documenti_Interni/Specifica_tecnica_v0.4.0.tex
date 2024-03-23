@@ -49,6 +49,11 @@
     basicstyle=\ttfamily,
 }
 
+% ----------------------------- Definizione colori ---------------------------
+\definecolor{light-gray}{gray}{0.92}
+\definecolor{darkgreen}{rgb}{0.0, 0.5, 0.0}
+\definecolor{navyblue}{rgb}{0.0, 0.0, 0.8}
+
 
 % ----------------------------- Definizione tabella ---------------------------
 
@@ -78,7 +83,8 @@
 % --------------------------Modifica formato hyperlinks ------------------------
 \hypersetup{
     colorlinks=true,
-    linkcolor=black,
+    linkcolor=darkgreen,
+    urlcolor=navyblue,
     filecolor=black,      
     pdftitle={Specifica tecnica},
     pdfpagemode=FullScreen,
@@ -178,9 +184,12 @@
 \setstretch{1.5}
 \maketitle
 \thispagestyle{fancy}
-\tableofcontents
-\setcounter{tocdepth}{4}
-\listoffigures
+{
+    \hypersetup{linkcolor=black}
+    \tableofcontents
+    \setcounter{tocdepth}{4}
+    \listoffigures
+}
 \setstretch{1.2}
 \pagebreak
 
