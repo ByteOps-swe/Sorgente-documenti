@@ -431,10 +431,10 @@ Inoltre grazie all'interfaccia \textit{KafkaTarget}, si è garantita la possibil
     \item \textbf{Metodi: }
     \begin{itemize}
         \item \textbf{add\_writer(writer: Writer): CompositeWriter [public]} - Aggiunge un oggetto Writer alla lista di writers.
-        \item \textbf{add\_kafkaConfluent\_writer(topic: str, host: str, port: int): CompositeWriter [public]} - Crea un KafkaWriter con un KafkaConfluentAdapter e lo aggiunge alla lista di writers.
-        \item \textbf{add\_stdOut\_writer(): CompositeWriter [public]} - Crea un StdoutWriter e lo aggiunge alla lista di writers.
-        \item \textbf{add\_list\_writer(writer\_list: ListWriter): CompositeWriter [public]} - Aggiunge un ListWriter alla lista di writers.
-        \item \textbf{remove\_writer(writer: Writer): None [public]} - Rimuove un Writer dalla lista di writers.
+        \item \textbf{add\_kafkaConfluent\_writer(topic: str, host: str, port: int): CompositeWriter [public]} - Crea un KafkaWriter con un KafkaConfluentAdapter e lo aggiunge alla lista di writers. Ritorna se stesso per permettere operazione concatenate.
+        \item \textbf{add\_stdOut\_writer(): CompositeWriter [public]} - Crea un StdoutWriter e lo aggiunge alla lista di writers. Ritorna se stesso per permettere operazione concatenate.
+        \item \textbf{add\_list\_writer(writer\_list: ListWriter): CompositeWriter [public]} - Aggiunge un ListWriter alla lista di writers. Ritorna se stesso per permettere operazione concatenate.
+        \item \textbf{remove\_writer(writer: Writer): CompositeWriter [public]} - Rimuove un Writer dalla lista di writers.  Ritorna se stesso per permettere operazione concatenate.
         \item \textbf{write(to\_write: Writable): None [public]} - Chiama il metodo write su ogni Writer nella lista di writers passando come attributo il \textit{Writable} ricevuto.
     \end{itemize}
     \item\textbf{Note}:
