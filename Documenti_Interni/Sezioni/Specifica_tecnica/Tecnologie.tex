@@ -5,8 +5,10 @@ Si procederà quindi con la descrizione delle tecnologie e dei linguaggi di prog
 
 L'obiettivo principale è garantire che il software sia sviluppato utilizzando le tecnologie più appropriate e selezionando le opzioni ottimali in termini di efficienza, sicurezza e affidabilità.
 
-\subsubsection*{Premessa}
+\subsection{Docker}
 Per lo sviluppo, il testing e il rilascio del prodotto sono stati utilizzati container Docker in modo tale da garantire ambienti consistenti e riproducibili.
+
+\subsubsection{Ambienti}
 \begin{itemize}
   \item \textbf{Ambiente di sviluppo:}
     \begin{itemize}
@@ -28,18 +30,16 @@ Per lo sviluppo, il testing e il rilascio del prodotto sono stati utilizzati con
     \end{itemize}
 \end{itemize}
 
-
-
-\paragraph*{Ambiente docker}
+\subsubsection{Docker images}
 
 Di seguito sono elencate le immagini Docker utilizzate:
 
 \begin{itemize}
 
-  \item \textbf{Simulators - Python:} 
+  \item \textbf{Simulators - Python} 
     \begin{itemize}
       \item \textbf{Image:} Python:3.9;
-      \item \textbf{Riferimento:} \url{https://hub.docker.com/_/python};
+      \item \textbf{Riferimento:} \url{https://hub.docker.com/_/python}~(consultato: 19/03/2024);
       \item \textbf{Ambiente:}
         \begin{itemize}
           \item Develop;
@@ -47,10 +47,10 @@ Di seguito sono elencate le immagini Docker utilizzate:
         \end{itemize}
     \end{itemize}
 
-  \item \textbf{Apache Kafka} 
+  \item \textbf{Broker - Apache Kafka} 
     \begin{itemize}
       \item \textbf{Image:} bitnami/kafka:latest;
-      \item \textbf{Riferimento:} \url{https://hub.docker.com/layers/bitnami/kafka/latest/images/sha256-4894d89d28f8e06a7d8a064efdc2dc9cb61dd205721c61296b6d033ad4824a91?context=explore};
+      \item \textbf{Riferimento:} \url{https://hub.docker.com/layers/bitnami/kafka/latest/images/sha256-4894d89d28f8e06a7d8a064efdc2dc9cb61dd205721c61296b6d033ad4824a91?context=explore}~(consultato: 19/03/2024);
       \item \textbf{Ambiente:}
         \begin{itemize}
           \item Develop;
@@ -115,7 +115,7 @@ Di seguito sono elencate le immagini Docker utilizzate:
         \end{itemize}
     \end{itemize}
 
-  \item \textbf{Grafana:} 
+  \item \textbf{Grafana} 
     \begin{itemize}
       \item \textbf{Image:}
       \item \textbf{Riferimento:}
