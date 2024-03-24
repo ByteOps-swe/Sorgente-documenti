@@ -30,7 +30,7 @@ Per soddisfare tutti i requisiti definiti in \textit{Analisi dei requisiti v2.0.
 
 
 \paragraph*{Dashboard Principale - Progettazione in dettaglio}
-La dashboard principale presenta una suddivisione in "righe" comprimibili. Di seguito viene esposto per ogni riga cosa deve essere visualizzato nell'ordine dato dall'enumerazione, \textbf{ l'intervallo di tempo scelto dall'utente tramite interfaccia di default Grafana verrà chiamato \textit{UserInterval}}
+La dashboard principale è suddivisa in righe comprimibili. Di seguito, vengono elencate le informazioni da visualizzare per ciascuna riga, nell’ordine dall'enumerazione, \textbf{ l'intervallo di tempo scelto dall'utente tramite interfaccia di default Grafana verrà chiamato \textit{UserInterval}.}
 \begin{enumerate}
     \item Titolo riga: \textbf{City manager}
     \begin{enumerate}
@@ -96,22 +96,20 @@ La dashboard principale presenta una suddivisione in "righe" comprimibili. Di se
 
 
 \paragraph*{Dashboard dedicata - Progettazione in dettaglio}
-La dashboard dedicata è suddivisa in due sezioni: la prima posta nella parte superiore della dashboard è dedicata alle variabili di input per la selezione dei sensori e delle celle da analizzare, mentre la seconda posta nella parte inferiore della dashboard è dedicata alla visualizzazione delle misurazioni dei sensori selezionati.\\
+La dashboard dedicata è suddivisa in due sezioni: la prima posta nella parte superiore della dashboard è dedicata ai pannelli per le variabili di input, mentre la seconda posta nella parte inferiore della dashboard è dedicata alla visualizzazione delle misurazioni dei sensori secondo le impostazioni selezionate.\\
 Di seguito vengono esposti i dettagli relativi alla progettazione della selezione delle variabili di input:
 \begin{enumerate}
-    \item Nome pannello variabili: \textbf{Selezione cella}: Permette di selezionare le celle della città da analizzare;
-    \item Nome pannello variabili: \textbf{Tipologia misurazioni}: Permette di selezionare la tipologia di sensori da analizzare;
-    \item Nome pannello variabili: \textbf{Seleziona i sensori fronte}: Permette di selezionare i sensori da analizzare della tipologia e della cella selezionata;
-    \item Nome pannello variabili: \textbf{Aggregazione temporale}: Permette di selezionare l'intervallo temporale di aggregazione delle misurazioni;
-    \item Nome pannello variabili: \textbf{Misurazine minima}: Permette di selezionare il valore minimo delle misurazioni da visualizzare;
-    \item Nome pannello variabili: \textbf{Misurazione massima}: Permette di selezionare il valore massimo delle misurazioni da visualizzare.
+    \item Nome pannello: \textbf{Selezione cella}: Permette di selezionare le celle della città da analizzare;
+    \item Nome pannello: \textbf{Tipologia misurazioni}: Permette di selezionare la tipologia di sensori da analizzare;
+    \item Nome pannello variabili: \textbf{Seleziona i sensori}: Permette di selezionare i sensori da analizzare della tipologia e della cella selezionata;
+    \item Nome pannello: \textbf{Aggregazione temporale}: Permette di selezionare l'intervallo temporale di aggregazione delle misurazioni:{Automatico, Secondo, Minuto, Ora, Giorno, Mese, Nessuno}. Maggiori dettagli in \ref{sec:var_dedicate};
+    \item Nome pannello: \textbf{Misurazine minima}: Permette di selezionare il valore minimo delle misurazioni da visualizzare;
+    \item Nome pannello: \textbf{Misurazione massima}: Permette di selezionare il valore massimo delle misurazioni da visualizzare.
 \end{enumerate}
-Di seguito vengono esposti i dettagli relativi alla progettazione della visualizzazione delle misurazioni dei sensori selezionati:
+Di seguito vengono esposti i dettagli relativi alla progettazione della visualizzazione delle misurazioni secondo le variabili selezionate:
 \begin{enumerate}
-    \item Nome pannello: \textbf{Grafico a linee}: 
-    Visualizzazione delle misurazioni tramite un grafico a linee time-series. Le misurazioni sono mostrate in base ai parametri specificati dall'utente per la selezione delle celle, dei sensori, della tipologia delle misurazioni e dell'aggregazione temporale.
-    \item Nome pannello: \textbf{Tabella misurazioni}: 
-    Visualizzazione delle misurazioni in forma tabellare. Come nel pannello precedente, le misurazioni sono mostrate in base ai parametri specificati dall'utente per la selezione delle celle, dei sensori, della tipologia delle misurazioni e dell'aggregazione temporale.
+    \item Nome pannello: \textbf{Grafico a linee}: Visualizzazione delle misurazioni avviene attraverso un grafico a linee time-series. Le misurazioni sono mostrate in base ai parametri specificati dall’utente. In particolare, le misurazioni esposte si basano sulla selezione delle celle, dei sensori, della tipologia delle misurazioni, dell’aggregazione temporale e della misurazione massima e minima definita dall’utente;
+    \item Nome pannello: \textbf{Tabella misurazioni}: Visualizzazione delle misurazioni in forma tabellare. Come nel pannello precedente, le misurazioni sono mostrate in base ai parametri specificati dall'utente.
 \end{enumerate}
 
 \subsubsection{ClickHouse data source plugin} \label{sec:click_plugin}
@@ -156,7 +154,7 @@ Un esempio di query per la visualizzazione delle misurazioni time-series di temp
 \end{lstlisting}
 
 La query esposta mostra anche l'utilizzo delle macro esposte in: \ref{sec:macros}
-\paragraph*{Utilizzo delle variabili nella dashboard dedicata:}
+\paragraph*{Utilizzo delle variabili nella dashboard dedicata:} \label{sec:var_dedicate}
 Nella dashboard dedicata alla visualizzazione spefica delle misurazioni di una sola tipologia di sensori, le variabili sono:
 \begin{itemize}
     \item \textbf{variabile (\$cella)}: per mostrare solo le misurazioni provenienti da determinate celle della città, 
