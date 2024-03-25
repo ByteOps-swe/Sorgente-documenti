@@ -112,7 +112,7 @@ In breve:
 \begin{figure}[H]
     \centering
     \includegraphics[width=1.1\textwidth]{../Images/SpecificaTecnica/healthModel.PNG}
-    \caption{Modello per il calcolo del punteggio di salute - Innovacity}
+    \caption{Modello per il calcolo del punteggio di salute - InnovaCity}
     \label{fig: healthModello}
 \end{figure}
 
@@ -341,7 +341,7 @@ Inoltre, un'implementazione del \textit{pattern}\textsubscript{\textit{G}} \text
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/writerModule.PNG}
-    \caption{Modulo Writer - Innovacity}
+    \caption{Modulo Writer - InnovaCity}
     \label{fig: healthModelloWriter}
 \end{figure}
 Il modulo Writer è lo stesso di quello descritto in \ref*{sec:writersModule} e viene nella sua totalità riutilizzato per la scrittura dei punteggi di salute calcolati.
@@ -354,7 +354,7 @@ Tutte le informazioni sono già state esposte in: \ref*{sec:writersModule}.
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/healthThreading.PNG}
-    \caption{Modulo Threading/Scheduling health Model - Innovacity}
+    \caption{Modulo Threading/Scheduling health Model - InnovaCity}
     \label{fig: threadHealth}
 \end{figure}
 
@@ -400,7 +400,7 @@ In sostanza, seguendo il principio di Inversione delle Dipendenze, il modulo di 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/processorFaust.PNG}
-    \caption{Modulo Processing - Innovacity}
+    \caption{Modulo Processing - InnovaCity}
     \label{fig: processHealth}
 \end{figure}
 Per garantire un'interfaccia uniforme per i metodi di elaborazione dei dati provenienti da \textit{Kafka}\textsubscript{\textit{G}} tramite Faust e per stabilire un canale di comunicazione con il modello per il calcolo del punteggio di salute, viene sviluppato il modulo di Processing. Questo modulo offre l'interfaccia target denominata \textit{Processor}, e un adapter a \textit{Processor} per l'invio delle misurazioni al modello per il calcolo del punteggio di salute, denominato \textit{HealthModelProcessorAdapter}.

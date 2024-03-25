@@ -1,7 +1,14 @@
 \subsubsection{Python}
 Linguaggio di programmazione ad alto livello, interpretato e multi-paradigma.
-\paragraph{Versione}
-La versione utilizzata è: 3.9
+
+\textbf{Versione} : 3.9.
+
+\paragraph{Utilizzo nel progetto} 
+\begin{itemize}
+    \item Creazione delle simulazioni dei sensori, incluse le logiche di scrittura e invio dei dati registrati;
+    \item Modello per il calcolo del punteggio di salute della città;
+    \item Testing.
+\end{itemize}
 
 \paragraph{Librerie o framework}
 
@@ -9,46 +16,45 @@ La versione utilizzata è: 3.9
     \item \textbf{Confluent Kafka}
     \begin{itemize}
         \item \textbf{Documentazione:} \url{https://developer.confluent.io/get-started/python/}~(consultato: 19/03/2024);
-        \item \textbf{Versione:} 2.3.0
-        \item Libreria Python che fornisce un insieme completo di strumenti per agevolare la produzione e il consumo di messaggi da Apache Kafka. \todo{è corretto quanto scritto qui?}
+        \item \textbf{Versione:} 2.3.0;
+        \item Libreria Python che fornisce un insieme completo di strumenti per agevolare la produzione e il consumo di messaggi da Apache Kafka.
     \end{itemize}
     
     \item \textbf{Faust}
     \begin{itemize}
         \item \textbf{Documentazione:} \url{https://faust.readthedocs.io/en/latest/}~(consultato: 19/03/2024);
-        \item \textbf{Versione:} 1.10.4
-        \item Framework Python per la creazione di applicazioni di \todo{data streaming o streaming?}streaming in tempo reale, con particolare enfasi sull'elaborazione di eventi e dati in tempo reale. Fornisce un'API dichiarativa e funzionale per definire i flussi di dati e le trasformazioni, consentendo agli sviluppatori di scrivere facilmente applicazioni scalabili e affidabili per il trattamento di grandi volumi di dati in tempo reale. \\
-        Faust si integra nativamente con Apache Kafka e offre funzionalità avanzate come il bilanciamento del carico, la gestione dello stato, la gestione delle query, e la tolleranza ai guasti, rendendolo una scelta potente per lo sviluppo di sistemi di \todo{data streaming?} streaming complessi e robusti.
+        \item \textbf{Versione:} 1.10.4;
+        \item Framework Python per la creazione di applicazioni di data streaming in tempo reale. Fornisce un'API dichiarativa e funzionale per definire i flussi di dati e le trasformazioni, consentendo agli sviluppatori di scrivere facilmente applicazioni scalabili e affidabili per il trattamento di grandi volumi di dati in tempo reale.
+        
+        Faust si integra nativamente con Apache Kafka e offre funzionalità avanzate come il bilanciamento del carico, la gestione dello stato, la gestione delle query, e la tolleranza ai guasti, rendendolo una scelta ottimale per lo sviluppo di sistemi di data streaming complessi e robusti.
     \end{itemize}
     
     \item \textbf{Pytest}
     \begin{itemize}
         \item \textbf{Documentazione:} \url{https://docs.pytest.org/en/7.1.x/contents.html}~(consultato: 19/03/2024);
-        \item \textbf{Versione:} 8.0.2
-        \item Framework di testing per Python, noto per la sua semplicità e potenza. Consente agli sviluppatori di scrivere test chiari e concisi utilizzando una sintassi intuitiva e flessibile. \\
-        Pytest supporta una vasta gamma di funzionalità, tra cui test di unità, integrazione e accettazione, parametrizzazione dei test e gestione delle fixture. \\
+        \item \textbf{Versione:} 8.0.2;
+        \item Framework di testing per Python, noto per la sua semplicità. Consente agli sviluppatori di scrivere test chiari e concisi utilizzando una sintassi intuitiva e flessibile.
+        
+        Pytest supporta una vasta gamma di funzionalità, tra cui test di unità, integrazione e accettazione, parametrizzazione dei test e gestione delle fixture.
+
         Merita menzione anche l'utilizzo di \textit{Pytest-asyncio} per testare codice asincrono e \textit{Pytest-cov} per la copertura del codice.
     \end{itemize}
     
     \item \textbf{Pylint}
     \begin{itemize}
         \item \textbf{Documentazione:} \url{https://pylint.readthedocs.io/en/stable/}~(consultato: 19/03/2024);
-        \item \textbf{Versione:} 3.1.0
-        \item Strumento di analisi statica per il linguaggio di programmazione Python. Esamina il codice sorgente per individuare potenziali errori, conformità alle linee guida stilistiche e altre possibili fonti di bug nel codice Python. Inoltre, valuta anche la qualità del codice in termini di buone pratiche di programmazione e convenzioni. \\
-        Pylint fornisce un punteggio di qualità del codice e suggerimenti per migliorare la leggibilità, la manutenibilità e la correttezza del codice Python.
+        \item \textbf{Versione:} 3.1.0;
+        \item Strumento di analisi statica per il linguaggio di programmazione Python. Esamina il codice sorgente per individuare potenziali errori, conformità alle linee guida stilistiche e altre possibili fonti di bug nel codice Python. Inoltre, valuta anche la qualità del codice in termini di \textit{good practice} di programmazione.
+        
+        Pylint fornisce un punteggio di qualità del codice e suggerimenti per migliorare la leggibilità, la manutenibilità, sicurezza e la correttezza del codice Python.
     \end{itemize}
     
     \item \textbf{Clickhouse-connect}
     \begin{itemize}
         \item \textbf{Documentazione:} \url{https://clickhouse.com/docs/en/integrations/python}~(consultato: 19/03/2024);
-        \item \textbf{Versione:} 1.10.4
-        \item ClickHouse Connect viene utilizzata nei test e consiste in una libreria open source sviluppata per semplificare l'interazione con il database ClickHouse tramite il linguaggio di programmazione Python. Essenzialmente, fornisce un'interfaccia per comunicare con ClickHouse, consentendo agli sviluppatori di eseguire query, inserire dati e gestire altri aspetti dell'interazione con il database in modo efficiente e conveniente.
+        \item \textbf{Versione:} 0.7.2;
+        \item ClickHouse Connect è una libreria open source sviluppata per semplificare l'interazione con il database ClickHouse tramite il linguaggio di programmazione Python, viene utilizzata nei test.
+        
+        Essa fornisce un'interfaccia per comunicare con ClickHouse, consentendo agli sviluppatori di eseguire query, inserire dati e gestire altri aspetti dell'interazione con il database in modo efficiente e conveniente.
     \end{itemize}
 \end{itemize}
-
-\paragraph{Utilizzo nel progetto} \todo{non si capisce bene che è relativo a Python, sembra sia relativo ad una libreria/framework}
-\begin{itemize}
-    \item Creazione di simulazioni dei sensori e dei microcontrollori, incluse le logiche di scrittura e invio dei dati registrati.
-    \item Modello per il calcolo del punteggio di salute della città;
-    \item Testing.
-    \end{itemize}

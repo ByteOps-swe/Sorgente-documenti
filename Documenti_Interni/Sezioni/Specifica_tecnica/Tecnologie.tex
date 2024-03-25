@@ -3,7 +3,7 @@ In questa sezione sono definiti gli strumenti e le tecnologie impiegati per lo s
 
 Si procederà quindi con la descrizione delle tecnologie e dei linguaggi di programmazione utilizzati, delle librerie e dei framework necessari, nonché delle infrastrutture richieste.
 
-L'obiettivo principale è garantire che il software sia sviluppato utilizzando le tecnologie più appropriate e selezionando le opzioni ottimali in termini di efficienza, sicurezza e affidabilità.
+L'obiettivo principale è garantire che il software sia sviluppato utilizzando le tecnologie più appropriate in termini di efficienza, sicurezza e affidabilità.
 
 \subsection{Docker}
 Per lo sviluppo, il testing e il rilascio del prodotto sono stati utilizzati container Docker in modo tale da garantire ambienti consistenti e riproducibili.
@@ -20,7 +20,7 @@ Per lo sviluppo, il testing e il rilascio del prodotto sono stati utilizzati con
     \begin{itemize}
       \item Simula l'ambiente di produzione;
       \item Viene utilizzato per testare il software in modo completo e realistico prima del rilascio in produzione;
-      \item I test possono essere automatizzati o manuali e includono test di unità, integrazione, sicurezza e prestazioni.
+      \item I test vengono eseguiti automaticamente tramite Github workflow oppure manualmente in locale tramite profilo di testing docker e includono test di unità, integrazione, sistema (sicurezza, carico e prestazioni).
     \end{itemize}
     \item \textbf{Ambiente di produzione:}
     \begin{itemize}
@@ -38,8 +38,8 @@ Di seguito sono elencate le immagini Docker utilizzate:
 
   \item \textbf{Simulators - Python} 
     \begin{itemize}
-      \item \textbf{Image:} Python:3.9;
-      \item \textbf{Riferimento:} \url{https://hub.docker.com/_/python}~(consultato: 19/03/2024);
+      \item \textbf{Image:} Python: 3.9;
+      \item \textbf{Riferimento:} \url{https://hub.docker.com/layers/library/python/3.9/images/sha256-1023bd4c5e0e6b7f4f612b034627826d91ec78ae0439313450ec30c0ad60c908?context=explore}~(consultato: 19/03/2024);
       \item \textbf{Ambiente:}
         \begin{itemize}
           \item Develop;
@@ -49,8 +49,20 @@ Di seguito sono elencate le immagini Docker utilizzate:
 
   \item \textbf{Broker - Apache Kafka} 
     \begin{itemize}
-      \item \textbf{Image:} bitnami/kafka:latest;
-      \item \textbf{Riferimento:} \url{https://hub.docker.com/layers/bitnami/kafka/latest/images/sha256-4894d89d28f8e06a7d8a064efdc2dc9cb61dd205721c61296b6d033ad4824a91?context=explore}~(consultato: 19/03/2024);
+      \item \textbf{Image:} confluentinc/cp-kafka: 7.6.0;
+      \item \textbf{Riferimento:} \url{https://hub.docker.com/layers/confluentinc/cp-kafka/7.6.0/images/sha256-8fc15a671986983b83beecae14e013a91adcd3999f687de8b6b8153fd47e8f67?context=explore}~(consultato: 19/03/2024);
+      \item \textbf{Ambiente:}
+        \begin{itemize}
+          \item Develop;
+          \item Production;
+          \item Testing;
+        \end{itemize}
+    \end{itemize}
+
+  \item \textbf{Zookeeper} 
+    \begin{itemize}
+      \item \textbf{Image:} confluentinc/cp-zookeeper: 7.6.0;
+      \item \textbf{Riferimento:} \url{https://hub.docker.com/layers/confluentinc/cp-zookeeper/7.6.0/images/sha256-6a0822643ceb4725db4f24bf2d228eee39bb5ade88f586449d87263cbc81bc97?context=explore}~(consultato: 19/03/2024);
       \item \textbf{Ambiente:}
         \begin{itemize}
           \item Develop;
@@ -61,8 +73,8 @@ Di seguito sono elencate le immagini Docker utilizzate:
 
   \item \textbf{Apache Kafka UI} 
     \begin{itemize}
-      \item \textbf{Image:}
-      \item \textbf{Riferimento:}
+      \item \textbf{Image:} provectuslabs/kafka-ui: 53a6553765a806eda9905c43bfcfe09da6812035;
+      \item \textbf{Riferimento:} \url{https://hub.docker.com/layers/provectuslabs/kafka-ui/53a6553765a806eda9905c43bfcfe09da6812035/images/sha256-633606ca07677d1c4b9405c5df1b6f0087aa75b36528a17eed142d06f65d0881?context=explore}~(consultato: 19/03/2024);
       \item \textbf{Ambiente:}
         \begin{itemize}
           \item Develop.
@@ -71,8 +83,8 @@ Di seguito sono elencate le immagini Docker utilizzate:
 
   \item \textbf{Schema registry} 
     \begin{itemize}
-      \item \textbf{Image:}
-      \item \textbf{Riferimento:}
+      \item \textbf{Image:} confluentinc/cp-schema-registry: 7.6.0;
+      \item \textbf{Riferimento:} \url{https://hub.docker.com/layers/confluentinc/cp-schema-registry/7.6.0/images/sha256-7cea5369377b52823d3101dd22073a235a501256f6f140c66d2111224803af0b?context=explore}~(consultato: 19/03/2024);
       \item \textbf{Ambiente:}
         \begin{itemize}
           \item Develop;
@@ -83,8 +95,8 @@ Di seguito sono elencate le immagini Docker utilizzate:
 
   \item \textbf{Schema registry UI} 
     \begin{itemize}
-      \item \textbf{Image:}
-      \item \textbf{Riferimento:}
+      \item \textbf{Image:} landoop/schema-registry-ui: latest;
+      \item \textbf{Riferimento:} \url{https://hub.docker.com/layers/landoop/schema-registry-ui/latest/images/sha256-c8b7baf7c53224eaa066937410adae388384e3f7c6f26296ba6a98cc5880f866?context=explore}~(consultato: 19/03/2024);
       \item \textbf{Ambiente:}
         \begin{itemize}
           \item Develop.
@@ -93,8 +105,8 @@ Di seguito sono elencate le immagini Docker utilizzate:
 
   \item \textbf{Faust processing - Python} 
     \begin{itemize}
-      \item \textbf{Image:}
-      \item \textbf{Riferimento:}
+      \item \textbf{Image:} Python: 3.9;
+      \item \textbf{Riferimento:} \url{https://hub.docker.com/layers/library/python/3.9/images/sha256-1023bd4c5e0e6b7f4f612b034627826d91ec78ae0439313450ec30c0ad60c908?context=explore}~(consultato: 19/03/2024);
       \item \textbf{Ambiente:}
         \begin{itemize}
           \item Develop;
@@ -105,8 +117,8 @@ Di seguito sono elencate le immagini Docker utilizzate:
 
   \item \textbf{ClickHouse} 
     \begin{itemize}
-      \item \textbf{Image:}
-      \item \textbf{Riferimento:}
+      \item \textbf{Image:} clickhouse/clickhouse-server: 24.2.1.2248;
+      \item \textbf{Riferimento:} \url{https://hub.docker.com/layers/clickhouse/clickhouse-server/24.2.1.2248/images/sha256-a5921f08bc3ab230e20db5970698b300279b29a353620e62729325fa8d1dc601?context=explore}~(consultato: 19/03/2024);
       \item \textbf{Ambiente:}
         \begin{itemize}
           \item Develop;
@@ -117,8 +129,8 @@ Di seguito sono elencate le immagini Docker utilizzate:
 
   \item \textbf{Grafana} 
     \begin{itemize}
-      \item \textbf{Image:}
-      \item \textbf{Riferimento:}
+      \item \textbf{Image:} grafana/grafana-oss: 10.4.0;
+      \item \textbf{Riferimento:} \url{https://hub.docker.com/layers/grafana/grafana-oss/10.4.0/images/sha256-c7ae30e06ee76656f4faf37df1f0d0dfb6941a706b66800a7b289a304d31d771?context=explore}~(consultato: 19/03/2024);
       \item \textbf{Ambiente:}
         \begin{itemize}
           \item Develop;
@@ -130,14 +142,13 @@ Di seguito sono elencate le immagini Docker utilizzate:
 \subsection{Linguaggi e formato dati}
 \input{Sottosezioni/Specifica_tecnica/Python.tex}
 \input{Sottosezioni/Specifica_tecnica/SQL.tex}
-
 \input{Sottosezioni/Specifica_tecnica/Json.tex}
 \input{Sottosezioni/Specifica_tecnica/Yaml.tex}
 
 \subsection{Database e servizi}
 \input{Sottosezioni/Specifica_tecnica/Kafka.tex}
-\input{Sottosezioni/Specifica_tecnica/schemaRegistry.tex}
-\input{Sottosezioni/Specifica_tecnica/zookeper.tex}
+\input{Sottosezioni/Specifica_tecnica/Schema_registry.tex}
+\input{Sottosezioni/Specifica_tecnica/Zookeper.tex}
 \input{Sottosezioni/Specifica_tecnica/ClickHouse.tex}
 \input{Sottosezioni/Specifica_tecnica/Grafana.tex}
 

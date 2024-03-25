@@ -6,7 +6,7 @@ Nei paragrafi successivi, verrà presentata l'architettura individuata mediante 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1.1\textwidth]{../Images/SpecificaTecnica/simulatoriSensori.PNG}
-    \caption{Modulo simulatori sensori - Innovacity}
+    \caption{Modulo simulatori sensori - InnovaCity}
     \label{fig: Modulo_simulatori_sensori}
 \end{figure}
 Questo modulo si occupa della generazione di dati di misurazione per diverse tipologie di sensori.
@@ -323,7 +323,7 @@ Il pattern Factory incapsula la creazione concreta dei sensori, consentendo al c
 \begin{figure}[H]
     \centering
     \includegraphics[width=1.1\textwidth]{../Images/SpecificaTecnica/writerModule.PNG}
-    \caption{Modulo writers - Innovacity}
+    \caption{Modulo writers - InnovaCity}
     \label{fig: writersModule}
 \end{figure}
 
@@ -482,7 +482,7 @@ Inoltre grazie all'interfaccia \textit{KafkaTarget}, si è garantita la possibil
 \begin{figure}[H]
     \centering
     \includegraphics[width=1.1\textwidth]{../Images/SpecificaTecnica/simulatorThread.PNG}
-    \caption{Modulo Modulo Threading/Scheduling simulatori sensori - Innovacity}
+    \caption{Modulo Modulo Threading/Scheduling simulatori sensori - InnovaCity}
     \label{fig: Modulo_simulatori_sensori_thread}
 \end{figure}
 Questo modulo si propone di gestire la logica di pianificazione per il recupero dei dati dai simulatori dei sensori e di inviare/scrivere tali dati utilizzando gli "Writers". Funge da orchestratore per i due moduli appena descritti, offrendo la possibilità di configurare la frequenza di campionamento o il numero di misurazioni da eseguire. Inoltre, incorpora una logica di ottimizzazione, simile a quella impiegata dai microcontrollori dei sensori nella realtà, al fine di evitare la trasmissione di dati ridondanti, inviando solo i cambiamenti di stato dei sensori.
@@ -643,7 +643,7 @@ Un'altra implementazione del pattern \textit{Object Adapter} viene impiegata per
 \begin{figure}[H]
     \centering
     \includegraphics[width=1.1\textwidth]{../Images/SpecificaTecnica/progettazioneCompSimulatori.PNG}
-    \caption{Panoramica progettazione simulatori sensori UML - Innovacity}
+    \caption{Panoramica progettazione simulatori sensori UML - InnovaCity}
     \label{fig: panor_sim}
 \end{figure}
 L'immagina vuole mostrare sinteticamente la struttura dei moduli \textit{Simulatori}, \textit{Writers} e \textit{Threading/Scheduling} e le relazioni tra le classi principali di questi moduli. In particolare, si evidenzia la presenza del pattern \textit{Composite} per la gestione di più servizi di scrittura e di più thread di esecuzione, il pattern \textit{Strategy} per la scrittura su diversi servizi e il pattern \textit{Object Adapter} per adattare le ThreadPool di Python e gli oggetti Misurazione ai Writer. 
