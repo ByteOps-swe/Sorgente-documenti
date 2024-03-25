@@ -1,0 +1,165 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[absolute]{textpos}
+\usepackage[default]{raleway}
+\usepackage{titlesec, comment, tabularx, makecell, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, multirow, todonotes, hyperref}
+\usepackage{colortbl}
+%\geometry{a4paper, left=2cm, right=2cm, top=2cm, bottom=2.5cm}
+\renewcommand{\headrulewidth}{0pt}
+
+% Definisci uno stile per i comandi git
+\definecolor{light-gray}{gray}{0.92}
+
+\lstdefinestyle{code}{
+    frame=single,
+    framesep=1mm,
+    rulecolor=\color{light-gray},
+    backgroundcolor=\color{light-gray},
+    basicstyle=\ttfamily,
+}
+
+% ----------------------------- Definizione tabella ---------------------------
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+%\setcellgapes{2ex} % Imposta l'altezza dell'header (2ex)
+
+
+% ------------------------------Metadati indice --------------------------------
+\title{\textbf{\fontsize{28}{6}\selectfont Indice}}
+\author{\fontsize{14}{6}\selectfont ByteOps}
+\date{Marzo 15, 2024}
+
+
+% -----------------------------Creazione footer --------------------------------
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{
+    \parbox[c]{2cm}{\includegraphics[width=2cm]{../../Images/logo.png}}
+    \textcolor[RGB]{120, 120, 120}{$\cdot$ Verbale Interno}
+}
+\rfoot{\thepage}
+
+% --------------------------Modifica formato hyperlinks ------------------------
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    pdftitle={Verbale Interno 15/03/2024},  %inserisci data verbale
+    pdfpagemode=FullScreen,
+}
+
+% ------------------------------- Valore sotto-paragrafi indice --------------------------------------
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\titleformat{\section}
+{\normalfont\huge\bfseries}{\thesection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsection}
+{\normalfont\Large\bfseries}{\thesubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsubsection}
+{\normalfont\large\bfseries}{\thesubsubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+% ------------------------------- Front Page ---------------------------------------
+
+\begin{document}
+
+% --------------------------Aggiunta firma finale ------------------------
+\begin{textblock*}{\textwidth}(0.85\textwidth, 1.16\textheight)
+    Il responsabile: D. Diotto
+\end{textblock*}
+% ------------------------------------------------------------------------
+
+\pagestyle{fancy}
+\begin{center}
+\includegraphics[width = 0.7\textwidth]{../../Images/logo.png} \\
+\vspace{0.2cm}
+\textcolor[RGB]{60, 60, 60}{\textit{ByteOps.swe@gmail.com}} \\
+\vspace{1cm}
+\fontsize{16}{6}\selectfont Verbale Interno $\cdot$ Data: 15/03/2024 \\
+\vspace{0.5cm}
+\end{center}
+
+\section*{Informazioni documento}
+\def\arraystretch{1.2}
+\begin{tabular}{>{\raggedleft\arraybackslash}p{0.3\textwidth}|>{\raggedright\arraybackslash}p{0.6\textwidth}c}
+\hline
+\addlinespace
+\textbf{Luogo} & Discord \vspace{10pt} \\
+\textbf{Orario} & 17:30 - 18:30 \vspace{10pt} \\
+\textbf{Redattore} & E. Hysa \vspace{10pt} \\
+\textbf{Verificatore} & A. Barutta \vspace{10pt} \\
+\textbf{Amministratore} & N. Preto \vspace{10pt} \\
+\textbf{Destinatari} & T. Vardanega \\ & R. Cardin \vspace{10pt} \\
+\multirow[t]{7}{*}{\textbf{Partecipanti}} & A. Barutta \\ & E. Hysa \\ & R. Smanio \\ & D. Diotto \\ & F. Pozza \\ & L. Skenderi \\ & N. Preto \vspace{10pt} \\
+\end{tabular}
+\pagebreak 
+
+% ------------------------- Changelog ----------------------------
+
+\section*{Registro delle modifiche}
+
+\begin{tabular}{|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|}
+    \hline
+    \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Dettaglio} \\
+    \hline \hline
+    0.0.1 & 15/03/2024 & E. Hysa & A. Barutta & Redazione documento \\
+    \hline
+\end{tabular}
+\pagebreak
+
+% ------------------------- Generazione automatica indice ----------------------
+\setstretch{1.5}
+\maketitle
+\thispagestyle{fancy}
+\tableofcontents
+\setstretch{1.2}
+\pagebreak
+
+% ------------------------ INIZIO DOCUMENTO ----------------------
+\flushleft
+
+\section{Revisione del periodo precedente}
+Dal momento dell’ultimo incontro, le attività pianificate sono state completate con successo e nei tempi previsti. In particolare, è stato implementato un sistema di notifiche Grafana-Discord, progettato per informare l’utente in modo tempestivo su eventuali problemi o anomalie rilevate nel sistema. \\
+In aggiunta, è stato introdotta la funzionalità Time-To-Live (TTL) per i dati archiviati in Clickhouse. Questa funzionalità permette una gestione efficace di grandi volumi di dati e consente una pulizia automatica di dati obsoleti, non più pertinenti o troppo remoti. \\
+Infine, è stata adottata la pratica della Continuous Integration attraverso Github Actions. Questo approccio assicura un processo di sviluppo efficiente, affidabile e di alta qualità, garantendo che ogni nuova modifica apportata non provochi anomalie nel codice preesistente.
+
+\section{Ordine del giorno}
+\subsection{Schema registry}
+All’inizio dell’incontro, il gruppo ha discusso relativamente all’implementazione dello Schema Registry. Questo componente fornisce un nodo centralizzato per la gestione e la validazione degli schemi utilizzati nei messaggi dei topic Kafka. La sua importanza risiede nella capacità di garantire coerenza e compatibilità dei dati man mano che gli schemi evolvono. \\
+L’utilizzo dello Schema Registry offre numerosi vantaggi. Innanzitutto, valida i dati provenienti dai sensori, assicurando che siano conformi agli schemi attesi ed evitando di introdurre nel topic Kafka messaggi in un formato errato. Inoltre, contribuisce a mantenere la coerenza tra i dati nuovi e quelli già presenti nel sistema. Grazie al versionamento degli schemi, è possibile gestire le modifiche nel tempo senza compromettere l’integrità dei dati. Infine, semplifica le pipeline dati, riducendo il rischio di problemi di compatibilità o perdita di informazioni.
+In sintesi, lo Schema Registry è uno strumento fondamentale per garantire la qualità e l’affidabilità dei dati all’interno del sistema e per queste motivazioni, si è deciso di integrare questo componente nel sistema.
+
+\subsection{Proposta incontro con la proponente}
+Durante il SAL con la proponente, è stata avanzata la proposta di organizzare un incontro presso la loro sede per l’approvazione dell’MVP. Successivamente, durante una discussione tenuta dopo il SAL, il gruppo ha deliberato di accettare tale proposta e ha comunicato alla proponente la disponibilità a partecipare all’incontro. Tuttavia, la data e l’orario specifici per questo incontro devono ancora essere concordati con la proponente. 
+
+\section{Attività da svolgere}
+\begin{center}
+    \begin{tabular}{|C{7cm}|C{1,5cm}|C{3cm}|}
+        \hline
+        \textbf{Titolo} & \textbf{\# Issue} & \textbf{Verificatore} \\
+        \hline
+        \hline
+        Implementazione Schema Registry & 114 & A. Barutta \\
+        \hline
+        Redazione periodo \#12 - PdP & 115 & E. Hysa \\
+        \hline
+        Redazione verbale esterno 15/03/2024 & 116 & A. Barutta \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\end{document}
