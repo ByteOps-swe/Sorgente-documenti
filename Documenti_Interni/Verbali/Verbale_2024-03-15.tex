@@ -2,7 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[absolute]{textpos}
 \usepackage[default]{raleway}
-\usepackage{titlesec, comment, tabularx, makecell, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, multirow, hyperref}
+\usepackage{titlesec, comment, tabularx, makecell, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, multirow, todonotes, hyperref}
 \usepackage{colortbl}
 %\geometry{a4paper, left=2cm, right=2cm, top=2cm, bottom=2.5cm}
 \renewcommand{\headrulewidth}{0pt}
@@ -104,7 +104,7 @@
 \textbf{Verificatore} & A. Barutta \vspace{10pt} \\
 \textbf{Amministratore} & N. Preto \vspace{10pt} \\
 \textbf{Destinatari} & T. Vardanega \\ & R. Cardin \vspace{10pt} \\
-\multirow[t]{7}{*}{\textbf{Partecipanti interni}} & A. Barutta \\ & E. Hysa \\ & R. Smanio \\ & D. Diotto \\ & F. Pozza \\ & L. Skenderi \\ & N. Preto \vspace{10pt} \\
+\multirow[t]{7}{*}{\textbf{Partecipanti}} & A. Barutta \\ & E. Hysa \\ & R. Smanio \\ & D. Diotto \\ & F. Pozza \\ & L. Skenderi \\ & N. Preto \vspace{10pt} \\
 \end{tabular}
 \pagebreak 
 
@@ -133,15 +133,19 @@
 \flushleft
 
 \section{Revisione del periodo precedente}
-Dal momento dell’ultimo incontro, le attività programmate sono state completate con successo. In particolare, è stato implementato un sistema di notifiche Grafana-Discord, progettato per informare l’utente in modo tempestivo su eventuali problemi o anomalie rilevate nel sistema.
-In aggiunta, è stato introdotto un meccanismo di Time-To-Live (TTL) per i dati archiviati in Clickhouse. Questo meccanismo permette una gestione efficace di grandi volumi di dati e consente una pulizia automatica di dati obsoleti o non più pertinenti. Infine, è stata adottata la pratica della Continuous Integration. Questo approccio garantisce un processo di sviluppo efficiente, affidabile e di alta qualità.
+Dal momento dell’ultimo incontro, le attività pianificate sono state completate con successo e nei tempi previsti. In particolare, è stato implementato un sistema di notifiche Grafana-Discord, progettato per informare l’utente in modo tempestivo su eventuali problemi o anomalie rilevate nel sistema. \\
+In aggiunta, è stato introdotta la funzionalità Time-To-Live (TTL) per i dati archiviati in Clickhouse. Questa funzionalità permette una gestione efficace di grandi volumi di dati e consente una pulizia automatica di dati obsoleti, non più pertinenti o troppo remoti. \\
+Infine, è stata adottata la pratica della Continuous Integration attraverso Github Actions. Questo approccio assicura un processo di sviluppo efficiente, affidabile e di alta qualità, garantendo che ogni nuova modifica apportata non provochi anomalie nel codice preesistente.
+
 \section{Ordine del giorno}
 \subsection{Schema registry}
-All’inizio dell’incontro, il gruppo ha discusso l’implementazione dello Schema Registry. Questo componente fornisce un repository centralizzato per la gestione e la validazione degli schemi utilizzati nei messaggi dei topic Kafka. La sua importanza risiede nella capacità di garantire coerenza e compatibilità dei dati man mano che gli schemi evolvono.
-L’utilizzo dello Schema Registry offre numerosi vantaggi. Innanzitutto, valida i dati provenienti dai sensori, assicurando che siano conformi agli schemi attesi. Inoltre, contribuisce a mantenere la coerenza tra i dati nuovi e quelli già presenti nel sistema. Grazie al versionamento degli schemi, è possibile gestire le modifiche nel tempo senza compromettere l’integrità dei dati. Infine, semplifica le pipeline dati, riducendo il rischio di problemi di compatibilità o perdita di informazioni.
+All’inizio dell’incontro, il gruppo ha discusso relativamente all’implementazione dello Schema Registry. Questo componente fornisce un nodo centralizzato per la gestione e la validazione degli schemi utilizzati nei messaggi dei topic Kafka. La sua importanza risiede nella capacità di garantire coerenza e compatibilità dei dati man mano che gli schemi evolvono. \\
+L’utilizzo dello Schema Registry offre numerosi vantaggi. Innanzitutto, valida i dati provenienti dai sensori, assicurando che siano conformi agli schemi attesi ed evitando di introdurre nel topic Kafka messaggi in un formato errato. Inoltre, contribuisce a mantenere la coerenza tra i dati nuovi e quelli già presenti nel sistema. Grazie al versionamento degli schemi, è possibile gestire le modifiche nel tempo senza compromettere l’integrità dei dati. Infine, semplifica le pipeline dati, riducendo il rischio di problemi di compatibilità o perdita di informazioni.
 In sintesi, lo Schema Registry è uno strumento fondamentale per garantire la qualità e l’affidabilità dei dati all’interno del sistema e per queste motivazioni, si è deciso di integrare questo componente nel sistema.
-\subsection{Proposta della proponente}
+
+\subsection{Proposta incontro con la proponente}
 Durante il SAL con la proponente, è stata avanzata la proposta di organizzare un incontro presso la loro sede per l’approvazione dell’MVP. Successivamente, durante una discussione tenuta dopo il SAL, il gruppo ha deliberato di accettare tale proposta e ha comunicato alla proponente la disponibilità a partecipare all’incontro. Tuttavia, la data e l’orario specifici per questo incontro devono ancora essere concordati con la proponente. 
+
 \section{Attività da svolgere}
 \begin{center}
     \begin{tabular}{|C{7cm}|C{1,5cm}|C{3cm}|}
@@ -150,6 +154,10 @@ Durante il SAL con la proponente, è stata avanzata la proposta di organizzare u
         \hline
         \hline
         Implementazione Schema Registry & 114 & A. Barutta \\
+        \hline
+        Redazione periodo \#12 - PdP & 115 & E. Hysa \\
+        \hline
+        Redazione verbale esterno 15/03/2024 & 116 & A. Barutta \\
         \hline
     \end{tabular}
 \end{center}
