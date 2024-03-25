@@ -1,7 +1,10 @@
 \subsection{Architettura dei simulatori} \label{sec:architettura_simulatori}
-Nonostante i simulatori non siano ufficialmente considerati parte integrante del prodotto dalla proponente, il nostro team ha scelto di dedicare alcune risorse alla progettazione di questa componente nell'ambito del progetto didattico. Inoltre, abbiamo deciso di implementare e tenere conto delle possibili logiche dei microcontrollori associati ai sensori IoT, che possono effettuare operazioni per rendere più efficiente l'intero sistema.
+Nonostante i simulatori non siano ufficialmente considerati come parte fondamentale del prodotto dalla proponente, ma necessari solamente per dimostrare il corretto funzionamento del sistema, il nostro team ha comunque scelto di dedicare alcune risorse alla progettazione di questa componente nell'ambito del progetto didattico.
 
-Nei paragrafi successivi, verrà presentata l'architettura individuata mediante l'utilizzo di diagrammi delle classi e relative descrizioni rapide. Inoltre, saranno motivate le scelte dei design pattern individuati e le decisioni progettuali rilevanti. Successivamente, per ogni classe, saranno illustrati metodi e attributi.
+Inoltre, abbiamo deciso di implementare e tenere conto delle possibili logiche dei microcontrollori associati ai sensori IoT, che possono effettuare operazioni per rendere più efficiente l'intero sistema.
+
+Nei paragrafi successivi, verrà presentata l'architettura individuata mediante l'utilizzo di diagrammi delle classi e relative descrizioni. Inoltre, saranno motivate le scelte dei design pattern individuati e le decisioni progettuali rilevanti. Successivamente, per ogni classe, saranno illustrati metodi e attributi.
+
 \subsubsection{Modulo simulatori sensori}
 \begin{figure}[H]
     \centering
@@ -9,97 +12,114 @@ Nei paragrafi successivi, verrà presentata l'architettura individuata mediante 
     \caption{Modulo simulatori sensori - InnovaCity}
     \label{fig: Modulo_simulatori_sensori}
 \end{figure}
-Questo modulo si occupa della generazione di dati di misurazione per diverse tipologie di sensori.
+Questo modulo si occupa della generazione di dati per diverse tipologie di sensori.
 In particolare sono stati implementati simulatori per i seguenti tipi di sensori:
 \begin{itemize}
     \item Sensori di temperatura;
     \item Sensori di umidità;
     \item Sensori di polveri sottili PM10;
     \item Sensori di stato occupazione colonnine di ricarica;
-    \item Sensori di stato riempimento isole ecologica;
+    \item Sensori di stato riempimento isole ecologiche;
     \item Sensori di presenza d'acqua;
     \item Sensori di guasto elettrico.
 \end{itemize}
-\paragraph{Design pattern Template Method:} \label{sec:templateSIM}
+\paragraph{Design pattern Template Method} \label{sec:templateSIM}
 
-La classe astratta \textit{Simulator} implementa il design pattern \textit{Template Method}. Il metodo \textit{simulate()} fornisce lo scheletro dell'algoritmo per la generazione delle misurazioni e non può essere ridefinito nelle implementatazioni. Le classi che estendono \textit{Simulator} implementano:
+La classe astratta \textit{simulator} implementa il design pattern \textit{Template Method}. Il metodo \textit{simulate()} fornisce lo scheletro dell'algoritmo per la generazione delle misurazioni e non può essere ridefinito nelle implementatazioni. Le classi che estendono \textit{simulator} implementano i metodi:
 \begin{itemize}
-    \item \textbf{Metodo \textit{generate\_measure()}}: per la generazione semi-randomica della misurazione associata al tipo di sensore, di fatto non è richiesta una generazione di misurazioni realistiche dal prodotto, ma per poter avere una visualizzazione finale delle misurazioni non altalenanti ogni misurazione viene generata sulla base di quella precedente con una variazione limitata;
-    \item \textbf{Metodo \textit{adapt()} - "hook method"}: L'implementazione di default non modifica in alcun modo la misurazione generata. Può essere ridefinito per implementare la logica di adattamento della misurazione.
+    \item \textbf{\textit{generate\_measure()}:} Per la generazione semi-randomica della misurazione associata al tipo di sensore, di fatto non è richiesta una generazione di misurazioni realistiche dal prodotto, ma per poter avere una visualizzazione finale delle misurazioni non altalenanti ogni misurazione viene generata sulla base di quella precedente con una variazione limitata;
+    \item 
+    \item \textbf{\textit{adapt()} - "hook method":} L'implementazione di default non modifica in alcun modo la misurazione generata. Può essere ridefinito per implementare la logica di adattamento della misurazione.
+    
     Ad esempio:
     \begin{itemize}
-        \item Per i sensori di polveri sottili PM10, la misurazione può essere adattata cambiando il valore dell'unità di misura µg/m³ in mg/m³ senza modifcare la logica di generazione in generate\_measure().
-        \item Per i sensori di umidità, la misurazione può essere adattata cambiando il valore dell'unità di misura da \% a g/m³ senza modifcare la logica di generazione in generate\_measure().
-        \item Per i sensori di temperatura, la misurazione può essere adattata cambiando il valore dell'unità di misura da °C a Fahrenheit  senza modifcare la logica di generazione in generate\_measure().
-        \begin{itemize}
-            \item Fahrenheit = (Celsius × 9/5) + 32
-        \end{itemize}
-        \item Questo apre le porte alla possibilità di creare per una stessa tipoligia di sensore diverse implementazioni che generano misurazioni con unità di misura diverse senza dover mettere mano alla logica di generazione che dichiara l'unità di misura generata di default, semplicemente estendendo la classe e ridefinendo il metodo \textit{adapt()}.
+        \item Per i sensori di polveri sottili PM10, la misurazione può essere adattata cambiando il valore dell'unità di misura µg/m³ in mg/m³ senza modifcare la logica di generazione in \textit{generate\_measure()};
+        
+        \item Per i sensori di temperatura, la misurazione può essere adattata cambiando il valore dell'unità di misura da °C a Fahrenheit  senza modifcare la logica di generazione in \textit{generate\_measure()};
+        
+        ~•~ Fahrenheit = (Celsius × 9/5) + 32
+ 
+        \item Questo apre le porte alla possibilità di creare per una stessa tipoligia di sensore diverse implementazioni, che generano misurazioni con unità di misura diverse, senza dover modificare la logica di generazione che dichiara l'unità di misura generata di default, ma semplicemente estendendo la classe e ridefinendo il metodo \textit{adapt()} inserendo la formula di trasformazione.
         
     \end{itemize}
     \item Per garantire il rispetto del \textbf{Liskov Substitution Principle (LSP)} \textit{"Objects of a superclass should be replaceable with objects of its subtypes without altering the program's correctness."}:
+    \begin{itemize}
+        \item Il metodo \textit{adapt()} si limita a convertire le misurazioni senza alterare il comportamento generale del metodo \textit{simulate()} e senza modificare il tipo della misurazione generata da \textit{generate\_measure()};
+        
+        \item Il metodo \textit{generate\_measure()} viene reso \textbf{final} nelle concretizzazioni di \textit{simulator} impedendo la ridefinizione del comportamento.
+    \end{itemize}
+
+    In generale le postcondizioni sono piu forti nelle classi derivate, mentre non variano le precondizioni garantendo il rispetto di \textit{LSP}.
+    
+    Ad esempio:
+
+    \begin{itemize}
+        \item In \textit{simulator}:
+
         \begin{itemize}
-            \item Il metodo \textit{adapt()} si limita a convertire le misurazioni senza alterare il comportamento generale del metodo \textit{simulate()} e senza modificare il tipo della misurazione generata da \textit{generate\_measure()};
-            \item Il metodo \textit{generate\_measure()} viene reso \textit{final} nelle concretizzazioni di \textit{Simulator} impedendo la ridefinizione del comportamento.
+            \item La postcondizione del metodo \textit{simulate()} in simulator è la generazione di un oggetto di tipo \textit{misurazione};
+            
+            \item La postcondizione del metodo \textit{generate\_measure} è la generazione del valore della misurazione.
+            
+            \item La postcondizione del metodo \textit{adapt()} è la possibilità di convertire il valore della misurazione.
         \end{itemize}
 
-
-        In generale le postcondizioni sono piu forti nelle classi derivate, mentre non variano le precondizioni garantendo il rispetto di \textit{LSP}. Ad esempio:
-
+        \item In \textit{temperature\_simulator}, che eredita da \textit{simulator}:
         \begin{itemize}
-            \item In \textit{simulator}:
-            \begin{itemize}
-                \item La postcondizione del metodo \textit{simulate()} in simulator è la generazione di un oggetto di tipo misurazione;
-                \item La postcondizione del metodo \textit{generate\_measure} è la generazione del valore della misurazione.
-                \item La postcondizione del metodo \textit{adapt()} è la possibilità di convertire il valore della misurazione.
-            \end{itemize}
-            \item In \textit{TemperatureSimulator}:
-            \begin{itemize}
-                \item La postcondizione del metodo \textit{simulate()} in TemperatureSimulator è la generazione di una misurazione di temperatura.
-                \item La postcondizione del metodo \textit{generate\_measure} è la generazione del valore di una misurazione di temperatura.
-                \item La postcondizione del metodo \textit{adapt()} è la possibilità di convertire il valore della misurazione ad un altra unità di misura (Kelvin, Fahrenheit).
-            \end{itemize}
-            \item In un ipotetico \textit{TemperatureSimulatorFahrenheit}, che eredita da \textit{TemperatureSimulator}:
-            \begin{itemize}
-                \item la postcondizione del metodo \textit{simulate()} è la generazione di una misurazione di temperatura in Fahrenheit.
-                \item La postcondizione del metodo \textit{generate\_measure} rimane invariata.
-                \item La postcondizione del metodo \textit{adapt()} è di convertire il valore della misurazione a Fahrenheit.
-            \end{itemize}
+            \item La postcondizione del metodo \textit{simulate()} è la generazione di un oggetto di tipo \textit{misurazione} di temperatura;
+            
+            \item La postcondizione del metodo \textit{generate\_measure} è la generazione del valore di una misurazione di temperatura;
+            
+            \item La postcondizione del metodo \textit{adapt()} è la possibilità di convertire il valore della misurazione ad un altra unità di misura (Kelvin, Fahrenheit).
         \end{itemize}
- \end{itemize}
 
-Al termine delle operazioni di generazione e adattamento, il metodo \textit{simulate()} crea restituisce un oggetto di tipo \textit{misurazione}.
+        \item In una possibile estensione futura \textit{temperature\_simulator\_fahrenheit}, che eredita da \textit{temperature\_simulator}:
+        \begin{itemize}
+            \item La postcondizione del metodo \textit{simulate()} è la generazione di un oggetto di tipo \textit{misurazione} di temperatura espresso in gradi Fahrenheit;
+            
+            \item La postcondizione del metodo \textit{generate\_measure} rimane invariata;
+            
+            \item La postcondizione del metodo \textit{adapt()} è di convertire il valore della misurazione dall'unità di misura di default a Fahrenheit.
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+Al termine delle operazioni di generazione e adattamento, il metodo \textit{simulate()} crea e restituisce un oggetto di tipo \textit{misurazione}.
 
 Il design pattern \textit{Template Method} è stato scelto per:
 \begin{itemize}
-    \item Permettere una facile estensione del sistema con nuovi tipi di sensori che dovranno unicamente implementare la loro logica di generazione delle misurazioni e di filtering se necessario;
+    \item Permettere una facile estensione del sistema con nuovi tipi di sensori che dovranno unicamente implementare la loro logica di generazione delle misurazioni e di adapting se necessario;
+    
     \item Standardizzare i passi per la generazione delle misurazioni, garantendo coerenza e manutenibilità del codice;
+    
     \item Ridurre la duplicazione del codice.
 \end{itemize}
 
-Come già esposto, una volta ottenuto lo stato del sensore, esso viene inserito in un oggetto di tipo \textit{Misurazione}. Questo oggetto contiene informazioni di contesto come:
+Come già esposto, una volta ottenuto lo stato del sensore, esso viene inserito in un oggetto di tipo \textit{misurazione}. Questo oggetto contiene informazioni di contesto come:
 \begin{itemize}
     \item Identificativo del sensore;
-    \item Cella della città in cui è presente;
+    \item Cella della città in cui è presente il sensore;
     \item Timestamp della misurazione;
     \item Valore della misurazione;
     \item Coordinate;
     \item Tipologia di misurazione.
 \end{itemize}
-L'oggetto \textit{Misurazione} viene poi ritornato al chiamante che si occuperà di inviarlo al server \textit{Kafka}.
-Un oggetto di tipo \textit{Simulator} verrà assegnato ad ogni \textit{SimulatorThread} che chiamerà ad intervalli regolari il metodo \textit{simulate()} ottenendo appunto la misurazione che invierà al server \textit{Kafka} tramite un modulo apposito e indipendendente.
 
-\paragraph{Design pattern Factory:}
-SensorFactory implementa il design pattern \textit{Factory} per la creazione di simulatori dei sensori.
-Il pattern FACTORY è un pattern di tipo “Creazionale” secondo la classificazione della GoF.
+L'oggetto \textit{misurazione} viene poi ritornato al chiamante che si occuperà di inviarlo al server Kafka.
+Un oggetto di tipo \textit{simulator} infatti, verrà assegnato ad ogni \textit{simulator\_thread}. Esso chiamerà ad intervalli regolari il metodo \textit{simulate()} ottenendo appunto la misurazione che invierà poi al server Kafka tramite un modulo apposito e indipendendente.
+
+\paragraph{Design pattern Factory}
+sensor\_factory implementa il design pattern \textit{Factory} per la creazione di simulatori dei sensori.
+Il pattern \textit{Factory} è un pattern di tipo “Creazionale” secondo la classificazione della GoF.
+
 I pattern di tipo creazionali si occupano della costruzione delle simulazioni dei sensori e delle problematiche che si possono originare, astraggono il processo di creazione degli oggetti, nascondono i dettagli della creazione e rendono i sistemi indipendenti da come gli oggetti sono creati e composti.
-Il pattern Factory incapsula la creazione concreta dei sensori, consentendo al client
+
+Il pattern \textit{Factory} incapsula la creazione concreta dei sensori, consentendo al client
 (l’utilizzatore) di non conoscere i dettagli.
 
-
-\paragraph{Classi: metodi e attributi}
+\paragraph{Classi, interfacce metodi e attributi:}
 \begin{itemize}
-    \item {\textbf{Classe astratta: \textit{Simulator}}}
+    \item {\textbf{Classe astratta: \textit{simulator}}}
         \begin{itemize}
             \item \textbf{Attributi}: 
             \begin{itemize}
@@ -114,9 +134,9 @@ Il pattern Factory incapsula la creazione concreta dei sensori, consentendo al c
                 \item \textbf{simulate():Misurazione [public]} - Metodo principale per simulare la generazione di una misurazione.
                 Si basa sul design pattern Template Method:
                 \begin{enumerate}
-                    \item     Chiama generate\_measure() per generare un valore di misurazione.
-                    \item     Chiama adapt() per effettuare adattamenti se necessari.
-                    \item     Restituisce un oggetto Misurazione con data e ora corrente, valore misurato, tipo di sensore, coordinate e identificativo del sensore.
+                    \item Chiama generate\_measure() per generare un valore di misurazione.
+                    \item Chiama adapt() per effettuare adattamenti se necessari.
+                    \item Restituisce un oggetto Misurazione con data e ora corrente, valore misurato, tipo di sensore, coordinate e identificativo del sensore.
                 \end{enumerate}
                 \item \textbf{generate\_measure():None [protected]} - Metodo astratto da implementare nelle classi concrete per generare un valore di misurazione semi-casuale coerente con la tipolgia di sensore da salvare nell'attributo \textit{misurazione}.
                 \item \textbf{adapt():void [protected]} - Fornisce implementazione di default che non modifica in alcun modo la misurazione generata. Può essere ridefinito per implementare la logica di adattamento della misurazione come conversioni di unità di misura.
@@ -269,7 +289,7 @@ Il pattern Factory incapsula la creazione concreta dei sensori, consentendo al c
         \item Il costruttore genera automaticamente un ID sensore univoco per ogni istanza.
     \end{itemize}
 \end{itemize}
-    \item{\textbf{Classe: \textit{Misurazione}}}
+    \item{\textbf{Classe: \textit{misurazione}}}
     \begin{itemize}
         \item   \textbf{Attributi}: 
     \begin{itemize}
@@ -297,7 +317,7 @@ Il pattern Factory incapsula la creazione concreta dei sensori, consentendo al c
         \item \textbf{\_\_eq\_\_(other:coordinate):bool [public]} - Ridefinizione dell'operatore di uguaglianza per confrontare due oggetti Coordinate.
     \end{itemize}
 \end{itemize}
-    \item{\textbf{Classe: \textit{SensorFactory}}}
+    \item{\textbf{Classe: \textit{sensor\_factory}}}
     \begin{itemize}
         \item    \textbf{Metodi}: 
 \begin{itemize}
@@ -497,7 +517,7 @@ Come per il modulo di scrittura anche questo è sviluppato secondo il pattern Co
 Inoltre, considerando l'impiego di più thread per un esecuzione parallela, per delegare l'orchestrazione delle operazioni, si è fatto ricorso alle ThreadPool. Al fine di evitare modifiche dirette al codice di \textit{SimulatorThreadPool}, è stato adottato il pattern \textit{Object Adapter} per adattare la ThreadPool di Python a un'interfaccia comune con cui \textit{SimulatorThreadPool} possa interagire. Questo approccio consente di modificare la logica o la libreria utilizzata per la gestione dei thread senza richiedere modifiche al codice di \textit{SimulatorThreadPool}, ma semplicemente aggiungendo una nuova classe adapter che implementi \textit{ThreadPoolTarget}.
 
 
-Un'altra implementazione del pattern \textit{Object Adapter} viene impiegata per adattare gli oggetti \textit{Misurazione} del modulo \textit{Simulatori} agli oggetti \textit{Writable} del modulo \textit{Writers}. La classe \textit{AdapterMisurazione}, implementando l'interfaccia \textit{Writable}, fornisce un'implementazione del metodo \textit{to\_json()} che consente di convertire un oggetto \textit{Misurazione} nel formato JSON, compatibile e riconosciuto da Kafka.
+Un'altra implementazione del pattern \textit{Object Adapter} viene impiegata per adattare gli oggetti \textit{misurazione} del modulo \textit{Simulatori} agli oggetti \textit{Writable} del modulo \textit{Writers}. La classe \textit{AdapterMisurazione}, implementando l'interfaccia \textit{Writable}, fornisce un'implementazione del metodo \textit{to\_json()} che consente di convertire un oggetto \textit{misurazione} nel formato JSON, compatibile e riconosciuto da Kafka.
 \ref*{sec:formatoMessaggi}
 
 
@@ -520,7 +540,7 @@ Un'altra implementazione del pattern \textit{Object Adapter} viene impiegata per
             \item L'utilizzatore dei simulatori può lavorare allo stesso modo con elementi semplici (Singoli Thread) o complessi dell'albero (Insiemi di Thread in forma di albero).
         \end{itemize}
     \end{itemize}
-    \item{\textbf{Classe: \textit{SimulatorThread}}}
+    \item{\textbf{Classe: \textit{simulator\_thread}}}
     \begin{itemize}
         \item\textbf{Attributi}:
         \begin{itemize}

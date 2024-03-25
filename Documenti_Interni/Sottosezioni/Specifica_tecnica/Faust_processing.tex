@@ -2,8 +2,8 @@
 \subsubsection{Introduzione}
 \paragraph*{Premessa} 
 
-Per soddisfare il requisito opzionale del calcolo del punteggio di salute, si è scelto di utilizzare Faust, una libreria \textit{Python}\textsubscript{\textit{G}} ispirata al modello di \textit{Kafka}\textsubscript{\textit{G}} Streams. Faust facilita l'elaborazione di flussi di dati distribuiti in tempo reale, rendendola ideale per questo caso d'uso.
-Offre un'interfaccia di alto livello che astrae le complessità di \textit{Kafka}\textsubscript{\textit{G}}, rendendo la raccolta dati semplice e intuitiva.
+Per soddisfare il requisito opzionale del calcolo del punteggio di salute, si è scelto di utilizzare Faust, una libreria \textit{Python}\textsubscript{\textit{G}} ispirata al modello di Kafka\textsubscript{\textit{G}} Streams. Faust facilita l'elaborazione di flussi di dati distribuiti in tempo reale, rendendola ideale per questo caso d'uso.
+Offre un'interfaccia di alto livello che astrae le complessità di Kafka\textsubscript{\textit{G}}, rendendo la raccolta dati semplice e intuitiva.
 Inoltre Faust è progettato per essere scalabile e può essere utilizzato per gestire grandi volumi di dati.
 
 \paragraph*{Faust \& Schema Registry} 
@@ -41,9 +41,9 @@ Il calcolo del punteggio avviene in due fasi:
         faust.App(<nome_app>, broker=<broker_kafka>)
     \end{lstlisting} 
     \begin{itemize}
-        \item Un'applicazione Faust è un \textit{programma}\textsubscript{\textit{G}} \textit{Python}\textsubscript{\textit{G}} che elabora flussi di dati in tempo reale da \textit{Kafka}\textsubscript{\textit{G}}.
+        \item Un'applicazione Faust è un \textit{programma}\textsubscript{\textit{G}} \textit{Python}\textsubscript{\textit{G}} che elabora flussi di dati in tempo reale da Kafka\textsubscript{\textit{G}}.
         \item \textbf{nome\_app}: Identifica l'applicazione, coincide con il \textit{ConsumerGroup} di Kafka.
-        \item \textbf{broker\_kafka}: Indirizzo del \textit{broker}\textsubscript{\textit{G}} \textit{Kafka}\textsubscript{\textit{G}} (hostname:porta).
+        \item \textbf{broker\_kafka}: Indirizzo del \textit{broker}\textsubscript{\textit{G}} Kafka\textsubscript{\textit{G}} (hostname:porta).
         \item Importante configurare l'applicazione con l'indirizzo dello Schema Registry per garantire a la validazione e deserializzazione dei messaggi.
     \end{itemize}
     \item \textbf{Topic:}
@@ -51,7 +51,7 @@ Il calcolo del punteggio avviene in due fasi:
         app.topic(<nome_topic>, value_type=<tipo_dato>)
     \end{lstlisting}  
     \begin{itemize}
-        \item \textbf{nome\_topic}: Nome del topic \textit{Kafka}\textsubscript{\textit{G}} a cui iscrivere l'app Faust.
+        \item \textbf{nome\_topic}: Nome del topic Kafka\textsubscript{\textit{G}} a cui iscrivere l'app Faust.
         \item \textbf{tipo\_dato:} Classe che rappresenta il tipo di dato del topic (es. FaustMeasurement).
         \item Nel caso si voglia aggiungere altri topic da cui consumare dati basterà aggiungerne prima del parametro value\_type separati da virgole.
     \end{itemize}
@@ -62,7 +62,7 @@ Il calcolo del punteggio avviene in due fasi:
     \begin{itemize}
         \item È una classe che eredita da \textbf{faust.Record}.
         \item \textbf{faust.Record} è una classe fornita dalla libreria Faust che semplifica la definizione di record per la rappresentazione dei dati in streaming.
-        \item Rappresenta una singola misurazione proveniente da un \textit{sensore}\textsubscript{\textit{G}}. Viene usata nella applicazione Faust per definire il tipo di dati atteso nei topic \textit{Kafka}\textsubscript{\textit{G}}.
+        \item Rappresenta una singola misurazione proveniente da un \textit{sensore}\textsubscript{\textit{G}}. Viene usata nella applicazione Faust per definire il tipo di dati atteso nei topic Kafka\textsubscript{\textit{G}}.
     \end{itemize}
     \item \textbf{Modello per il calcolo del punteggio di salute:}:
     \begin{itemize}
@@ -116,7 +116,7 @@ In breve:
     \label{fig: healthModello}
 \end{figure}
 
-Il processo per il calcolo del punteggio di salute riceve le letture dei sensori attraverso gli agenti di elaborazione dell'applicazione Faust, i quali sono in ascolto sui topic \textit{Kafka}\textsubscript{\textit{G}} relativi alle misurazioni di temperatura, umidità e polveri sottili PM10. Ad intervalli regolari, il \textit{sistema}\textsubscript{\textit{G}} calcola il punteggio di salute della città basandosi su tali misurazioni. Una volta effettuato il calcolo, il risultato è reso disponibile in un topic \textit{Kafka}\textsubscript{\textit{G}} dedicato.
+Il processo per il calcolo del punteggio di salute riceve le letture dei sensori attraverso gli agenti di elaborazione dell'applicazione Faust, i quali sono in ascolto sui topic Kafka\textsubscript{\textit{G}} relativi alle misurazioni di temperatura, umidità e polveri sottili PM10. Ad intervalli regolari, il \textit{sistema}\textsubscript{\textit{G}} calcola il punteggio di salute della città basandosi su tali misurazioni. Una volta effettuato il calcolo, il risultato è reso disponibile in un topic Kafka\textsubscript{\textit{G}} dedicato.
 Il modello che racchiude la logica per il calcolo, richiamato a intervalli regolari, è quello attualmente preso in esame.
 
 In sintesi, il modello:
@@ -196,7 +196,7 @@ Inoltre, un'implementazione del \textit{pattern}\textsubscript{\textit{G}} \text
             \item Questa classe rappresenta il vero cervello del calcolo del punteggio di salute in quanto utilizzatore di tutti gli incrementatori e delle misurazioni bufferizzate per creare una strategia di calcolo.
         \end{itemize}
     \end{itemize}
-    \item\textbf{Classe: \textit{Misurazione}}
+    \item\textbf{Classe: \textit{misurazione}}
     \begin{itemize}
         \item   \textbf{Attributi}: 
     \begin{itemize}
@@ -362,7 +362,7 @@ Questo modulo si occupa di integrare la logica di Scheduling e Threading per il 
 In sintesi, il modulo:
     \begin{enumerate}
         \item Richiama l'algoritmo per calcolo del punteggio di salute della città a intervalli regolari;
-        \item Scrive il risultato ottenuto sul topic \textit{Kafka}\textsubscript{\textit{G}} dedicato.
+        \item Scrive il risultato ottenuto sul topic Kafka\textsubscript{\textit{G}} dedicato.
     \end{enumerate}
 
 \paragraph*{Dependecy Inversion principle}
@@ -403,7 +403,7 @@ In sostanza, seguendo il principio di Inversione delle Dipendenze, il modulo di 
     \caption{Modulo Processing - InnovaCity}
     \label{fig: processHealth}
 \end{figure}
-Per garantire un'interfaccia uniforme per i metodi di elaborazione dei dati provenienti da \textit{Kafka}\textsubscript{\textit{G}} tramite Faust e per stabilire un canale di comunicazione con il modello per il calcolo del punteggio di salute, viene sviluppato il modulo di Processing. Questo modulo offre l'interfaccia target denominata \textit{Processor}, e un adapter a \textit{Processor} per l'invio delle misurazioni al modello per il calcolo del punteggio di salute, denominato \textit{HealthModelProcessorAdapter}.
+Per garantire un'interfaccia uniforme per i metodi di elaborazione dei dati provenienti da Kafka\textsubscript{\textit{G}} tramite Faust e per stabilire un canale di comunicazione con il modello per il calcolo del punteggio di salute, viene sviluppato il modulo di Processing. Questo modulo offre l'interfaccia target denominata \textit{Processor}, e un adapter a \textit{Processor} per l'invio delle misurazioni al modello per il calcolo del punteggio di salute, denominato \textit{HealthModelProcessorAdapter}.
 
 \paragraph*{Design Pattern Object Adapter}
 Nel contesto dell'applicazione Faust, all'interno del ruolo svolto dagli agenti, ogni volta che una misurazione viene ricevuta, viene invocato il metodo \textit{process\_measure()} dell'implementazione dell'interfaccia \textit{Processor}, denominata \textit{HealthModelProcessorAdapter}. In particolare, \textit{HealthModelProcessorAdapter} adatta la classe astratta \textit{HealthModelBuffer}, che rappresenta un buffer di misurazioni utilizzato per eseguire il calcolo periodico del punteggio di salute della città, all'interfaccia \textit{Processor}.
@@ -421,7 +421,7 @@ Questo \textit{pattern}\textsubscript{\textit{G}} consente di incapsulare le log
         \begin{itemize}
             \item  Le sottoclassi devono implementare il metodo astratto \textit{process()} definendo la propria operazione da effettuare su ogni misurazione ricevuta dai topic di iscrizione.
             \item Rappresenta la componente "Target" del \textit{pattern}\textsubscript{\textit{G}} \textit{Object Adapter}.
-            \item L'interfaccia è stata progettata per garantire un'interfaccia uniforme per i metodi di elaborazione dei dati provenienti da \textit{Kafka}\textsubscript{\textit{G}} tramite Faust.
+            \item L'interfaccia è stata progettata per garantire un'interfaccia uniforme per i metodi di elaborazione dei dati provenienti da Kafka\textsubscript{\textit{G}} tramite Faust.
             \item Rappresenta un contratto per l'elaborazione di misurazioni.
             \item Gli agenti in ascolto sul topic utilizzeranno un implementatazione di \textit{Processor} per effettuare l'elaborazione delle misurazioni ottenute.
         \end{itemize}
@@ -441,10 +441,10 @@ Questo \textit{pattern}\textsubscript{\textit{G}} consente di incapsulare le log
     \item\textbf{Note}:
         \begin{itemize}
             \item La classe \textit{FaustMeasurement} definita utilizzando \textit{faust.Record} rappresenta un singolo record di misurazione proveniente da un \textit{sensore}\textsubscript{\textit{G}} in un'applicazione Faust basata su \textit{Python}\textsubscript{\textit{G}}
-            \item Faust si occupa automaticamente della conversione dei dati in formato JSON in base agli attributi definiti, facilitando la trasmissione e la ricezione dei dati nei topic \textit{Kafka}\textsubscript{\textit{G}}.
+            \item Faust si occupa automaticamente della conversione dei dati in formato JSON in base agli attributi definiti, facilitando la trasmissione e la ricezione dei dati nei topic Kafka\textsubscript{\textit{G}}.
             \item È possibile definire la validazione dei dati in ingresso per garantire l'integrità e la coerenza delle misurazioni.
             \item \textbf{In sintesi}:
-            Questa classe viene utilizzata in un'applicazione Faust per definire il tipo di dati atteso nei topic \textit{Kafka}\textsubscript{\textit{G}}. I dati provenienti dai sensori, contenenti timestamp, valore, tipo, coordinate geografiche, identificativo del \textit{sensore}\textsubscript{\textit{G}} e eventuale cella di appartenenza, verranno convertiti in oggetti di tipo FaustMeasurement prima di essere elaborati dall'applicazione.
+            Questa classe viene utilizzata in un'applicazione Faust per definire il tipo di dati atteso nei topic Kafka\textsubscript{\textit{G}}. I dati provenienti dai sensori, contenenti timestamp, valore, tipo, coordinate geografiche, identificativo del \textit{sensore}\textsubscript{\textit{G}} e eventuale cella di appartenenza, verranno convertiti in oggetti di tipo FaustMeasurement prima di essere elaborati dall'applicazione.
         \end{itemize}
     \end{itemize}
     \item{\textbf{Classe: \textit{HealthModelProcessorAdapter}}}
