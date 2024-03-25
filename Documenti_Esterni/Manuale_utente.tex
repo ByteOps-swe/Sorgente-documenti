@@ -38,7 +38,8 @@
 % --------------------------Modifica formato hyperlinks ------------------------
 \hypersetup{
     colorlinks=true,
-    linkcolor=black,
+    linkcolor=darkgreen,
+    urlcolor=navyblue,
     filecolor=black,      
     pdftitle={Manuale utente},
     pdfpagemode=FullScreen,
@@ -57,6 +58,10 @@
 \definecolor{progettista}{RGB}{255,0,0}
 \definecolor{programmatore}{RGB}{128,0,128}
 \definecolor{verificatore}{RGB}{255,192,203}
+
+\definecolor{darkgreen}{rgb}{0.0, 0.5, 0.0}
+\definecolor{navyblue}{rgb}{0.0, 0.0, 0.8}
+
 
 \begin{document}
 \pagestyle{fancy}
@@ -114,10 +119,13 @@
 \setstretch{1.5}
 \maketitle
 \thispagestyle{fancy}
-\tableofcontents
-\setcounter{tocdepth}{4}
-\listoffigures % Indice delle figure
-\listoftables % Indice delle tabelle
+{
+    \hypersetup{linkcolor=black}
+    \tableofcontents
+    \setcounter{tocdepth}{4}
+    \listoffigures
+    \listoftables 
+}
 \setstretch{1.2}
 \pagebreak
 
