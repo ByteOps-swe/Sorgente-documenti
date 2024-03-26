@@ -375,11 +375,11 @@ L'utilizzo del design pattern Composite e Strategy in questo caso ha diverse mot
 \begin{enumerate}
     \item \textit{kafka\_writer}, atta a permettere al simulatore di inviare messaggi a Kafka;
     \item \textit{std\_out\_writer}, atta a permettere di stampare i \textit{writable} su terminale;
-    \item \textit{list\_writer} per il salvataggio su una lista degli oggetti di tipo \textit{writable}.
+    \item \textit{list\_writer}, per il salvataggio su una lista degli oggetti di tipo \textit{writable}.
 \end{enumerate}
 L'utilizzo dei design pattern Composite e Strategy in questo caso ha diverse motivazioni:
 \begin{itemize}
-    \item \textbf{Gestione uniforme dei servizi}: Il pattern Strategy consente di definire una famiglia di algoritmi, incapsularli e renderli intercambiabili. In questo caso, i servizi di scrittura sono trattati come algoritmi intercambiabili, consentendo di scrivere informazioni su diversi servizi senza dover conoscere i dettagli di implementazione di ciascuno.
+    \item \textbf{Gestione uniforme dei servizi}: Il pattern Strategy consente di definire una famiglia di algoritmi, incapsularli e renderli intercambiabili. In questo caso, i servizi di scrittura sono trattati come algoritmi intercambiabili, consentendo di scrivere informazioni su diversi servizi senza dover conoscere i dettagli di implementazione di ciascuno;
     \item \textbf{Gestione gerarchica dei servizi}: Il pattern Composite consente di trattare gli oggetti singoli e le loro composizioni (gruppi di oggetti) allo stesso modo. \\
     Nel contesto del modulo, potrebbe esserci la necessità di gestire non solo singoli servizi, ma anche gruppi di servizi. Ad esempio, potrebbe essere utile inviare informazioni al servizio Kafka e contemporaneamente stamparle nel terminale e memorizzarle in un'apposita lista per il testing. Il Composite consente di comporre questi servizi in modo gerarchico e trattarli uniformemente.
 \end{itemize}
@@ -404,7 +404,7 @@ Inoltre grazie all'interfaccia \textit{kafka\_target}, si è garantita la possib
     \end{itemize}
     \item{\textbf{Interfaccia: \textit{writer}}}
      \begin{itemize}
-        \item \textbf{Metodi:}
+        \item \textbf{Metodi}:
          \begin{itemize}
             \item \textbf{write(to\_write: writable): None [public, abstract]} - Metodo astratto che deve essere implementato nelle sottoclassi per scrivere un oggetto writable.
         \end{itemize}
@@ -420,13 +420,13 @@ Inoltre grazie all'interfaccia \textit{kafka\_target}, si è garantita la possib
         \begin{itemize}
         \item \textbf{writers: writer [private]} - Lista di oggetti \textit{writer}.
     \end{itemize}
-    \item \textbf{Metodi: }
+    \item \textbf{Metodi}:
     \begin{itemize}
-        \item \textbf{add\_writer(writer: writer ): composite\_writer [public]} - Aggiunge un oggetto che implementa \textit{writer} alla lista writers.
-        \item \textbf{add\_kafka\_confluent\_writer(topic: string, host: string, port: int, schema\_registry\_url: string): composite\_writer [public]} - Crea un \textit{kafka\_writer} con un \textit{kafka\_confluent\_adapter} e lo aggiunge alla lista writers. Ritorna se stesso per permettere operazione concatenate.
-        \item \textbf{add\_std\_out\_writer(): composite\_writer [public]} - Crea un \textit{std\_out\_writer} e lo aggiunge alla lista writers. Ritorna se stesso per permettere operazione concatenate.
-        \item \textbf{add\_list\_writer(writer\_list: list\_writer): composite\_writer [public]} - Aggiunge un \textit{list\_writer} alla lista writers. Ritorna se stesso per permettere operazione concatenate.
-        \item \textbf{remove\_writer(writer: writer): composite\_writer [public]} - Rimuove un \textit{writer} dalla lista writers.  Ritorna se stesso per permettere operazione concatenate.
+        \item \textbf{add\_writer(writer: writer ): composite\_writer [public]} - Aggiunge un oggetto che implementa \textit{writer} alla lista writers;
+        \item \textbf{add\_kafka\_confluent\_writer(topic: string, host: string, port: int, schema\_registry\_url: string): composite\_writer [public]} - Crea un \textit{kafka\_writer} con un \textit{kafka\_confluent\_adapter} e lo aggiunge alla lista writers. Ritorna se stesso per permettere operazione concatenate;
+        \item \textbf{add\_std\_out\_writer(): composite\_writer [public]} - Crea un \textit{std\_out\_writer} e lo aggiunge alla lista writers. Ritorna se stesso per permettere operazione concatenate;
+        \item \textbf{add\_list\_writer(writer\_list: list\_writer): composite\_writer [public]} - Aggiunge un \textit{list\_writer} alla lista writers. Ritorna se stesso per permettere operazione concatenate;
+        \item \textbf{remove\_writer(writer: writer): composite\_writer [public]} - Rimuove un \textit{writer} dalla lista writers.  Ritorna se stesso per permettere operazione concatenate;
         \item \textbf{write(to\_write: writable): \textit{composite\_writer} [public]} - Chiama il metodo write su ogni writer nella lista writers passando come attributo il \textit{writable} ricevuto.
     \end{itemize}
     \item\textbf{Note}:
@@ -441,7 +441,7 @@ Inoltre grazie all'interfaccia \textit{kafka\_target}, si è garantita la possib
         \begin{itemize}
         \item \textbf{lock:threading.Lock [private]} - Lock per garantire l'accesso esclusivo alla stampa ed un esecuzione Thread safe.
     \end{itemize}
-    \item \textbf{Metodi: }
+    \item \textbf{Metodi};
     \begin{itemize}
         \item \textbf{write(to\_write: writable): None [public]} - Stampa l'oggetto writable come stringa JSON nella console;
     \end{itemize}
@@ -454,12 +454,12 @@ Inoltre grazie all'interfaccia \textit{kafka\_target}, si è garantita la possib
     \begin{itemize}
     \item\textbf{Attributi}:
         \begin{itemize}
-        \item \textbf{data\_list:list [private]} - Lista per memorizzare gli oggetti writable.
+        \item \textbf{data\_list:list [private]} - Lista per memorizzare gli oggetti writable;
         \item \textbf{lock:threading.Lock [private]} - Lock per garantire l'accesso esclusivo alla lista ed un esecuzione Thread safe.
     \end{itemize}
-    \item \textbf{Metodi: }
+    \item \textbf{Metodi}:
     \begin{itemize}
-        \item \textbf{write(to\_write: writable): None [public]} - Aggiunge l'oggetto writable alla lista.
+        \item \textbf{write(to\_write: writable): None [public]} - Aggiunge l'oggetto writable alla lista;
         \item \textbf{get\_data\_list(): list [public]} - Restituisce la lista di oggetti writable.
     \end{itemize}
     \item\textbf{Note}:
@@ -471,28 +471,28 @@ Inoltre grazie all'interfaccia \textit{kafka\_target}, si è garantita la possib
     \begin{itemize}
     \item\textbf{Attributi}:
         \begin{itemize}
-        \item \textbf{lock:threading.Lock [private]} - Lock per garantire l'accesso esclusivo alla scrittura su Kafka ed un esecuzione Thread safe.
+        \item \textbf{lock:threading.Lock [private]} - Lock per garantire l'accesso esclusivo alla scrittura su Kafka ed un esecuzione Thread safe;
         \item \textbf{kafka\_target:kafka\_target [private]} - Riferimento ad un implementazione di kafka\_target per effettuare l'effettiva scrittura in Kafka tramite librerie.
     \end{itemize}
-    \item \textbf{Metodi: }
+    \item \textbf{Metodi}:
     \begin{itemize}
         \item \textbf{write(to\_write: writable): None [public]} - Scrive l'oggetto \textit{writable} come stringa JSON su Kafka.
     \end{itemize}
     \item\textbf{Note}:
         \begin{itemize}
-            \item La classe è una strategia di scrittura del pattern \textit{Strategy} ma anche la componente "Leaf" del pattern \textit{Composite}, ovvero l'elemento base che non ha sottoelementi.
+            \item La classe è una strategia di scrittura del pattern \textit{Strategy} ma anche la componente "Leaf" del pattern \textit{Composite}, ovvero l'elemento base che non ha sottoelementi;
             \item La costruzione dell'oggetto \textit{kafka\_writer} richiede un riferimento ad un oggetto che implementi l'interfaccia kafka\_target.
         \end{itemize}
     \end{itemize}
     \item{\textbf{Interfaccia: kafka\_target}}
     \begin{itemize}
-        \item \textbf{Metodi: }
+        \item \textbf{Metodi}:
         \begin{itemize}
             \item \textbf{write\_to\_kafka(data: string): None [public, abstract]} - Metodo astratto che deve essere implementato nelle sottoclassi per scrivere dati su Kafka.
         \end{itemize}
         \item\textbf{Note}:
         \begin{itemize}
-            \item La classe è una interfaccia che fornisce un contratto per le operazioni di scrittura/invio a topic Kafka.
+            \item La classe è una interfaccia che fornisce un contratto per le operazioni di scrittura/invio a topic Kafka;
             \item Rappresenta il componente Target del pattern \textit{Object Adapter}.
         \end{itemize}
     \end{itemize}
@@ -505,7 +505,7 @@ Inoltre grazie all'interfaccia \textit{kafka\_target}, si è garantita la possib
             \item \textbf{schema\_registry:CachedSchemaRegistryClient [private]} - Consente di interagire con Confluent Schema Registry in modo efficiente, memorizza in cache gli schemi recuperati da Schema Registry, riducendo le chiamate di rete e migliorando la velocità di accesso agli schemi.
         \end{itemize}
     \end{itemize}
-    \item \textbf{Metodi: }
+    \item \textbf{Metodi}:
     \begin{itemize}
         \item \textbf{write\_to\_kafka(data: string): None [public]} - Scrive i dati su Kafka dopo averli validati rispetto allo schema registrato per il topic di destinazione.
     \item\textbf{Note}:
