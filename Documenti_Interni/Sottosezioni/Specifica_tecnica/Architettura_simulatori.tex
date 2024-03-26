@@ -364,11 +364,12 @@ Questo modulo si occupa della scrittura e/o invio di informazioni a diverse tipo
 Per quanto riguarda la scrittura in Kafka, l'impiego della connessione allo Schema Registry (vedi sezione \S\ref{sec:schema_registry}) consente la convalida del formato del messaggio prima della sua scrittura nei topic Kafka. Questa pratica permette di ridurre il carico di rete nel caso di messaggi malformati, consentendo un filtraggio "alla fonte".
 
 \paragraph{Design pattern Strategy + Composite:}
-Il modulo presenta un'interfaccia \textit{component\_writer} che offre il metodo di scrittura \textit{write()} di istanze di \textit{writable}.
-L'interfaccia \textit{component\_writer} viene estesa dall'interfaccia \textit{writer\_strategy}.
-Il metodo \textit{write()} è implementato da diverse classi concrete che implementano \textit{writer\_strategy} e che rappresentano i vari servizi a cui è possibile inviare le informazioni.
-Questo approccio implementa il design pattern \textit{Strategy} per la scrittura dei dati su diverse piattaforme/servizi. Viene inoltre utilizzato il design pattern \textit{Composite} per la scrittura su uno o più servizi in modo completamente indifferenziato, grazie alla classe \textit{composite\_writer} che implementa la classe \textit{component\_writer}. \\
-Nello specifico sono state implementate tre strategie di scrittura: 
+Il modulo presenta un'interfaccia \textit{writer} che offre il metodo di scrittura \textit{write()} di oggetti che implementano \textit{writable}.
+Questo metodo è implementato da diverse classi concrete che rappresentano i vari servizi a cui è possibile inviare le informazioni.
+L'approccio adottato implementa il design pattern \textit{Strategy} per la scrittura/invio dei dati su diverse piattaforme/servizi e il design pattern \textit{Composite} per la scrittura ad uno o più servizi in modo uniforme.
+Nello specifico sono state implentate tre strategie di scrittura: la prima, (\textit{kafka\_writer}), atta a permettere al simulatore di inviare messaggi a topic Kafka,  la seconda (\textit{std\_out\_writer}) atta a permettere di stampare gli \textit{writable} su terminale e la terza (\textit{list\_writer}) per il salvataggio su una lista degli \textit{writable}.
+L'utilizzo del design pattern Composite e Strategy in questo caso ha diverse motivazioni:
+
 \begin{enumerate}
     \item \textit{kafka\_writer}, atta a permettere al simulatore di inviare messaggi a Kafka;
     \item \textit{std\_out\_writer}, atta a permettere di stampare i \textit{writable} su terminale;
@@ -399,7 +400,7 @@ Inoltre grazie all'interfaccia \textit{kafka\_target}, si è garantita la possib
             \item L'interfaccia \textit{writable} definisce un insieme di metodi che una classe deve implementare perchè possa essere utilizzata dalle strategie di scrittura.
         \end{itemize}
     \end{itemize}
-    \item{\textbf{Interfaccia: \textit{component\_writer}}}
+    \item{\textbf{Interfaccia: \textit{writer}}}
      \begin{itemize}
         \item \textbf{Metodi:}
          \begin{itemize}
@@ -407,37 +408,29 @@ Inoltre grazie all'interfaccia \textit{kafka\_target}, si è garantita la possib
         \end{itemize}
         \item\textbf{Note}:
         \begin{itemize}
-            \item Rappresenta l'interfaccia "\textit{component}" del pattern \textit{Composite} che descrive le operazioni comuni sia agli elementi semplici che a quelli complessi dell'albero.
+            \item L'interfaccia \textit{writer} definisce il metodo che una classe deve implementare perchè possa essere utilizzata come strategia di scrittura. Rappresenta il componente "\textit{strategy}" del pattern "\textit{Strategy}";
+            \item Rappresenta l'interfaccia "\textit{Component}" del pattern \textit{Composite} che descrive le operazioni comuni sia agli elementi semplici che a quelli complessi dell'albero.
         \end{itemize}
     \end{itemize}
     \item{\textbf{Classe: \textit{composite\_writer}}}
     \begin{itemize}
     \item\textbf{Attributi}:
         \begin{itemize}
-        \item \textbf{writers: component\_writer [private]} - Lista di oggetti \textit{component\_writer}.
+        \item \textbf{writers: writer [private]} - Lista di oggetti \textit{writer}.
     \end{itemize}
     \item \textbf{Metodi: }
     \begin{itemize}
-        \item \textbf{add\_writer(writer: ): composite\_writer [public]} - Aggiunge un oggetto \textit{component\_writer} alla lista writers.
+        \item \textbf{add\_writer(writer: ): composite\_writer [public]} - Aggiunge un oggetto che implementa \textit{writer} alla lista writers.
         \item \textbf{add\_kafka\_confluent\_writer(topic: string, host: string, port: int, schema\_registry\_url: string): composite\_writer [public]} - Crea un \textit{kafka\_writer} con un \textit{kafka\_confluent\_adapter} e lo aggiunge alla lista writers. Ritorna se stesso per permettere operazione concatenate.
         \item \textbf{add\_stdOut\_writer(): composite\_writer [public]} - Crea un \textit{std\_out\_writer} e lo aggiunge alla lista writers. Ritorna se stesso per permettere operazione concatenate.
         \item \textbf{add\_list\_writer(writer\_list: list\_writer): composite\_writer [public]} - Aggiunge un \textit{list\_writer} alla lista writers. Ritorna se stesso per permettere operazione concatenate.
-        \item \textbf{remove\_writer(writer: component\_writer): composite\_writer [public]} - Rimuove un \textit{component\_writer} dalla lista writers.  Ritorna se stesso per permettere operazione concatenate.
+        \item \textbf{remove\_writer(writer: writer): composite\_writer [public]} - Rimuove un \textit{writer} dalla lista writers.  Ritorna se stesso per permettere operazione concatenate.
         \item \textbf{write(to\_write: writable): \textit{composite\_writer} [public]} - Chiama il metodo write su ogni writer nella lista writers passando come attributo il \textit{writable} ricevuto.
     \end{itemize}
     \item\textbf{Note}:
         \begin{itemize}
             \item La classe è la componente "Composite" del pattern \textit{Composite}, ovvero l'elemento che può avere sottoelementi;
             \item Dopo aver ricevuto una richiesta, il contenitore (detto composite) delega il lavoro ai suoi sottoelementi: foglie o altri contenitori.
-        \end{itemize}
-    \end{itemize}
-    \item{\textbf{Interfaccia: \textit{writer\_strategy}}}
-    \begin{itemize}
-        \item\textbf{Note}:
-        \begin{itemize}
-            \item L'interfaccia \textit{writer\_strategy} estende \textit{component\_writer} e rappresenta il componente "strategy" del pattern "Strategy";
-            \item Le istanze della classi che estendono \textit{writer\_strategy} rappresentano le componenti "Leaf" del pattern \textit{Composite}; 
-            \item Il metodo che dichiara per eseguire una strategia di scrittura è quello ereditato da \textit{component\_writer}, ma non implementato. Tale metodo è "\textit{write()}.
         \end{itemize}
     \end{itemize}
     \item{\textbf{Classe: \textit{std\_out\_writer}}}
@@ -486,7 +479,7 @@ Inoltre grazie all'interfaccia \textit{kafka\_target}, si è garantita la possib
     \item\textbf{Note}:
         \begin{itemize}
             \item La classe è una strategia di scrittura del pattern \textit{Strategy} ma anche la componente "Leaf" del pattern \textit{Composite}, ovvero l'elemento base che non ha sottoelementi.
-            \item La costruzione dell'oggetto KafkaWriter richiede un riferimento ad un oggetto che implementi l'interfaccia kafka\_target.
+            \item La costruzione dell'oggetto \textit{kafka\_writer} richiede un riferimento ad un oggetto che implementi l'interfaccia kafka\_target.
         \end{itemize}
     \end{itemize}
     \item{\textbf{Interfaccia: kafka\_target}}
@@ -536,6 +529,9 @@ Questo modulo si propone di gestire la logica di pianificazione per il recupero 
 \paragraph*{Dependecy Inversion principle}
 Il modulo è stato progettato per rispettare il principio di inversione delle dipendenze. Infatti, la classe \textit{simulator\_thread\_pool} è stata progettata per essere indipendente dalla libreria di gestione dei thread utilizzata, consentendo di sostituirla senza dover modificare il codice di \textit{simulator\_thread\_pool}.
 Inoltre, i componenti del modulo sono progettati per essere indipendenti dai dettagli di implementazione dei simulatori e degli "writers", consentendo di sostituire i simulatori e gli "writers" senza dover modificare il codice.
+In sintesi, i moduli di alto livello (Modulo Writer e simulatori) non dipendono da moduli di basso livello che incorporano funzioni di utilità.(Modulo Threading)
+Sia i moduli di alto livello che quelli di basso livello dipendono da astrazioni (interfacce o classi astratte).
+
 
 \paragraph{Design pattern Composite:}
 Come per il modulo di scrittura anche questo è sviluppato secondo il pattern Composite che permette di gestire un singolo Thread di esecuzione o un gruppo di Thread in modo uniforme.
@@ -573,7 +569,7 @@ Un'altra implementazione del pattern \textit{Object Adapter} viene impiegata per
             \item \textbf{frequency:float [private]} - La frequenza con cui generare i dati.
             \item \textbf{is\_running:bool [private]} - Flag per controllare se il thread è in esecuzione.
             \item \textbf{data\_to\_generate:int [private]} - Il numero di dati da generare.
-            \item \textbf{writers:component\_writer [private]} - L'oggetto implementazione di \textit{component\_writer} per scrivere i dati generati. (Singolo o albero - Composite pattern)
+            \item \textbf{writers:writer [private]} - L'oggetto implementazione di \textit{writer} per scrivere i dati generati. (Singolo o albero - Composite pattern)
         \end{itemize}
         \item \textbf{Metodi: }
         \begin{itemize}
