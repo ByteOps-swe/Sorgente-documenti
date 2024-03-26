@@ -516,6 +516,9 @@ Questo modulo si propone di gestire la logica di pianificazione per il recupero 
 \paragraph*{Dependecy Inversion principle}
 Il modulo è stato progettato per rispettare il principio di inversione delle dipendenze. Infatti, la classe \textit{simulator\_thread\_pool} è stata progettata per essere indipendente dalla libreria di gestione dei thread utilizzata, consentendo di sostituirla senza dover modificare il codice di \textit{simulator\_thread\_pool}.
 Inoltre, i componenti del modulo sono progettati per essere indipendenti dai dettagli di implementazione dei simulatori e degli "writers", consentendo di sostituire i simulatori e gli "writers" senza dover modificare il codice.
+In sintesi, i moduli di alto livello (Modulo Writer e simulatori) non dipendono da moduli di basso livello che incorporano funzioni di utilità.(Modulo Threading)
+Sia i moduli di alto livello che quelli di basso livello dipendono da astrazioni (interfacce o classi astratte).
+
 
 \paragraph{Design pattern Composite:}
 Come per il modulo di scrittura anche questo è sviluppato secondo il pattern Composite che permette di gestire un singolo Thread di esecuzione o un gruppo di Thread in modo uniforme.
