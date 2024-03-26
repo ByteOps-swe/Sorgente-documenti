@@ -554,8 +554,8 @@ Un'altra implementazione del pattern \textit{Object Adapter} viene impiegata per
     \begin{itemize}
         \item \textbf{Metodi:}
         \begin{itemize}
-            \item \textbf{run(): None [public, abstract]} - Metodo astratto che deve essere implementato nelle sottoclassi per definire il comportamento del thread quando viene avviato.
-            \item \textbf{task(): None [public, abstract]} - Metodo astratto che deve essere implementato nelle sottoclassi per definire il compito specifico che il thread deve eseguire.
+            \item \textbf{run(): None [public, abstract]} - Metodo astratto che deve essere implementato nelle sottoclassi per definire il comportamento del thread quando viene avviato;
+            \item \textbf{task(): None [public, abstract]} - Metodo astratto che deve essere implementato nelle sottoclassi per definire il compito specifico che il thread deve eseguire;
             \item \textbf{stop(): None [public, abstract]} - Metodo astratto che deve essere implementato nelle sottoclassi per definire come fermare il thread.
         \end{itemize}
         \item\textbf{Note}:
@@ -574,14 +574,15 @@ Un'altra implementazione del pattern \textit{Object Adapter} viene impiegata per
             \item \textbf{frequency: float [private]} - La frequenza con cui generare i dati;
             \item \textbf{is\_running: bool [private]} - Flag per controllare se il thread è in esecuzione;
             \item \textbf{data\_to\_generate: int [private]} - Il numero di dati da generare;
-            \item \textbf{writers:writer [private]} - L'oggetto implementazione di \textit{writer} per scrivere i dati generati. (Singolo o albero - Composite pattern)
+            \item \textbf{writers: writer [private]} - L'oggetto implementazione di \textit{writer} per scrivere i dati generati. (Singolo o albero - Composite pattern)
         \end{itemize}
-        \item \textbf{Metodi: }
+
+        \item \textbf{Metodi:}
         \begin{itemize}
-            \item \textbf{run(): None [public]} - Avvia il thread del simulatore.
+            \item \textbf{run(): None [public]} - Avvia il thread del simulatore;
             \item \textbf{task(): None [public]} - Definisce il compito specifico che il thread deve eseguire, contiene la logica per generare il numero di misurazioni richieste con l'intervallo specificato alla costruzione.
-            Inoltre evita l'invio di misurazioni consecutive uguali cosi da ridurre il carico scartando dati ridondanti e deducibili inviando agli \textit{"Writers"} solo i cambi di stato del sensore da cui acquisisce la misurazione.
-            All'interno del metodo, la misurazione restituita dal simulatore, viene adattata ad un oggetto \textit{writable} tramite \textit{adapter\_misurazione} ed inviata agli \textit{"Writers"}.
+            Inoltre evita l'invio di misurazioni consecutive uguali cosi da ridurre il carico scartando dati ridondanti e deducibili inviando ai \textit{Writers} solo i cambi di stato del sensore da cui acquisisce la misurazione.
+            All'interno del metodo, la misurazione restituita dal simulatore, viene adattata ad un oggetto \textit{writable} tramite \textit{adapter\_misurazione} ed inviata ai \textit{Writers};
             \item \textbf{stop(): None [public]} - Ferma il thread del simulatore.
         \end{itemize}
         \item\textbf{Note}:
@@ -589,104 +590,112 @@ Un'altra implementazione del pattern \textit{Object Adapter} viene impiegata per
             \item La classe è un'implementazione concreta dell'interfaccia \textit{component\_simulator\_thread};
             \item Utilizza un oggetto \textit{\textit{simulator}} per generare dati a una certa frequenza e un oggetto che implementa\textit{component\_writer} per scrivere i dati generati;
             \item Rappresenta il componente Leaf del pattern \textit{Composite};
-            \item Se data\_to\_generate < 0 => Genera misurazioni finchè il thread non viene interroto dall'esterno.
-            \item Sebbene i simulatori non siano considerati dalla proponente parte del prodotto, la logica di ottimizzazione per inviare solo i cambi di stato dei sensori viene implementata nella realtà IoT. Di conseguenza, è stata presa la decisione di replicarla. È importante notare che questa logica non è incorporata nel Simulatore del sensore, il quale ha unicamente il compito semantico di generare dati come un vero sensore. Invece, essa è implementata in \textit{simulator\_thread}, il quale agisce in modo simile a un microcontrollore, responsabile sia della gestione dell'intervallo di campionamento che della logica per l'invio delle misurazioni;
+            \item Se \textit{data\_to\_generate} < 0, allora genera misurazioni finchè il thread non viene interroto dall'esterno;
+            \item Sebbene i simulatori non siano considerati dalla proponente parte del prodotto, la logica di ottimizzazione per inviare solo i cambi di stato dei sensori viene implementata nella realtà IoT.
+            
+            Di conseguenza, è stata presa la decisione di replicarla. È importante notare che questa logica non è incorporata nel simulatore del sensore, il quale ha unicamente il compito semantico di generare dati come un vero sensore. Invece, essa è implementata in \textit{simulator\_thread}, il quale agisce in modo simile a un microcontrollore, responsabile sia della gestione dell'intervallo di campionamento che della logica per l'invio delle misurazioni;
             \item Nel corso dello sviluppo futuro, potrebbe risultare vantaggioso considerare l'implementazione di un pattern \textit{Strategy} per gestire la strategia/criterio di invio dei dati, che possa distinguere tra un invio continuo e la trasmissione solo in caso di cambiamenti di stato. Tuttavia, al momento della decisione, si è optato per non includerlo al fine di evitare un'eccessiva complessità nell'architettura, nota come sovraingegnerizzazione. Tale scelta è stata dettata dalla volontà di mantenere un equilibrio tra la completezza del sistema e la sua semplicità, favorendo un'implementazione più diretta e immediata delle funzionalità richieste.
         \end{itemize}
     \end{itemize}
+
     \item{\textbf{Classe: \textit{adapter\_misurazione}}}
     \begin{itemize}
         \item\textbf{Attributi}:
         \begin{itemize}
-            \item \textbf{misurazione:\textit{misurazione} [private]} - L'oggetto \textit{misurazione} da adattare.
+            \item \textbf{misurazione: \textit{misurazione} [private]} - L'oggetto \textit{misurazione} da adattare.
         \end{itemize}
         \item \textbf{Metodi: }
         \begin{itemize}
-            \item \textbf{to\_json(): string [public]} - Converte l'oggetto \textit{misurazione} in una stringa JSON conforme a quanto definito in \ref{sec:formatoMessaggi}.
-            \item \textbf{from\_json(json\_data: dict): Misurazione [staticmethod, public]} - Crea un oggetto \textit{misurazione} da un dizionario JSON.
+            \item \textbf{to\_json(): string [public]} - Converte l'oggetto \textit{misurazione} in una stringa JSON conforme a quanto definito in \ref{sec:formatoMessaggi};
+            \item \textbf{from\_json(json\_data: dict): misurazione [staticmethod, public]} - Crea un oggetto \textit{misurazione} da un dizionario JSON.
         \end{itemize}
         \item\textbf{Note}:
         \begin{itemize}
             \item La classe è un'implementazione concreta dell'interfaccia \textit{writable}. Fornisce metodi per convertire un oggetto \textit{misurazione} in un formato JSON e viceversa;
-            \item Rappresenta la come componente "Adapter" del pattern \textit{Object Adapter}.
+            \item Rappresenta la componente "Adapter" del pattern \textit{Object Adapter}.
         \end{itemize}
     \end{itemize}
+
     \item{\textbf{Classe: \textit{composite\_simulator\_thread}}}
     \begin{itemize}
         \item\textbf{Attributi}:
         \begin{itemize}
-            \item \textbf{simulator\_executor:simulator\_thread\_pool [private]} - L'executor per gestire l'esecuzione di più Thread dei simulatori.
+            \item \textbf{simulator\_executor: simulator\_thread\_pool [private]} - L'executor per gestire l'esecuzione di più thread dei simulatori.
         \end{itemize}
         \item \textbf{Metodi: }
         \begin{itemize}
-            \item \textbf{add\_simulator(simulator: \textit{simulator}, writers: component\_writer, frequency: float, data\_to\_generate: int): SimulatorExecutorFactory [public]} - Aggiunge un simulatore all'executor.
-            \item \textbf{add\_simulator\_thread(thread\_simulator: component\_simulator\_thread): SimulatorExecutorFactory [public]} - Aggiunge un \textit{simulator\_thread} all'executor.
-            \item \textbf{run(): None [public]} - Avvia tutti i \textit{simulator\_thread} nell'executor.
-            \item \textbf{stop(): None [public]} - Ferma tutti i \textit{simulator\_thread} nell'executor.
+            \item \textbf{add\_simulator(simulator: simulator, writers: component\_writer, frequency: float, data\_to\_generate: int): composite\_simulator\_thread [public]} - Aggiunge un simulatore all'executor;
+            \item \textbf{add\_simulator\_thread(thread\_simulator: component\_simulator\_thread): composite\_simulator\_thread [public]} - Aggiunge un \textit{simulator\_thread} all'executor;
+            \item \textbf{run(): None [public]} - Avvia tutti i \textit{simulator\_thread} nell'executor;
+            \item \textbf{stop(): None [public]} - Ferma tutti i \textit{simulator\_thread} nell'executor;
             \item \textbf{task(): None [public]} - Avvia tutti i \textit{simulator\_thread} nell'executor.
         \end{itemize}
         \item\textbf{Note}:
         \begin{itemize}
-            \item La classe è un'implementazione concreta dell'interfaccia \textit{component\_simulator\_thread}, utilizzando un oggetto \textit{simulator\_thread\_pool} per gestire l'esecuzione di vari simulatori;
+            \item La classe è un'implementazione concreta dell'interfaccia \textit{component\_simulator\_thread}, utilizza un oggetto \textit{simulator\_thread\_pool} per gestire l'esecuzione di vari simulatori;
             \item Rappresenta il componente "Composite" del pattern \textit{Composite}.
+            \item Utilizzando il metodo \textit{run()} viene creato un nuovo thread che permette di eseguire la funzione \textit{task()} in modo sincrono.
+            \item Utilizzando il metodo \textit{task()} direttamente non è possibile avere un'esecuzione asincrona. La funzione \textit{task()} viene eseguita sul thread chiamante, bloccando l'esecuzione del codice fino al termine della sua esecuzione. Questa funzione viene utilizzata dalle ThreadPool che creano dei thread per l'esecuzione asincrona delle task.
         \end{itemize}
     \end{itemize}
+
     \item{\textbf{Classe: \textit{simulator\_thread\_pool}}}
     \begin{itemize}
-        \item\textbf{Attributi}:
+        \item\textbf{Attributi:}
         \begin{itemize}
-            \item \textbf{simulators:List[component\_simulator\_thread] [private]} - La lista dei \textit{component\_simulator\_thread} da eseguire. (Singoli Thread o alberi di Thread)
-            \item \textbf{thread\_pool\_adapter:thread\_pool\_target [private]} - Thread pool per gestire l'esecuzione parallela dei simulatori.
+            \item \textbf{simulators: List[component\_simulator\_thread] [private]} - La lista dei \textit{component\_simulator\_thread} da eseguire (Singoli thread o alberi di thread);
+            \item \textbf{thread\_pool\_adapter: thread\_pool\_target [private]} - Thread pool per gestire l'esecuzione parallela dei simulatori.
         \end{itemize}
-        \item \textbf{Metodi: }
+        \item \textbf{Metodi:}
         \begin{itemize}
-            \item \textbf{run\_all(): None [public]} - Avvia tutti i simulatori nel thread pool, utilizzando l'interfaccia fornita da \textit{thread\_pool\_target} per l'esecuzione controllata di attività in parallelo.
-            Per farlo utilizza il metodo \textit{map()} di \textit{thread\_pool\_target} per mappare la funzione statica \textit{start\_simulator()} per ogni \textit{component\_simulator\_thread} in \textit{simulators};
+            \item \textbf{run\_all(): None [public]} - Avvia tutti i simulatori nella thread pool, utilizzando l'interfaccia fornita da \textit{thread\_pool\_target} per l'esecuzione controllata di attività in parallelo.
+            Per farlo viene utilizzato il metodo \textit{map()} di \textit{thread\_pool\_target} per mappare la funzione statica \textit{start\_simulator()} su ogni \textit{component\_simulator\_thread} in \textit{simulators};
             \item \textbf{stop\_all(): None [public]} - Ferma tutti i simulatori nel thread pool, utilizzando l'interfaccia fornita da \textit{thread\_pool\_target} per l'esecuzione controllata di attività in parallelo.
-            Per farlo utilizza il metodo \textit{map()} di \textit{thread\_pool\_target} per mappare la funzione statica \textit{stop\_simulator()} per ogni \textit{component\_simulator\_thread} in \textit{simulators};
-            \item \textbf{append\_simulator(simulator: component\_simulator\_thread): None [public]} - Aggiunge un \textit{component\_simulator\_thread} al thread pool.
-            \item \textbf{start\_simulator(simulator: component\_simulator\_thread): None [private,static]} - Avvia un \textit{component\_simulator\_thread}.
-            \item \textbf{stop\_simulator(simulator: component\_simulator\_thread): None [private,static]} - Ferma un \textit{component\_simulator\_thread}.
+            Per farlo utilizza il metodo \textit{map()} di \textit{thread\_pool\_target} per mappare la funzione statica \textit{stop\_simulator()} su ogni \textit{component\_simulator\_thread} in \textit{simulators};
+            \item \textbf{append\_simulator(simulator: component\_simulator\_thread): None [public]} - Aggiunge un \textit{component\_simulator\_thread} alla threadpool;
+            \item \textbf{start\_simulator(simulator: component\_simulator\_thread): None [private, static]} - Avvia un \textit{component\_simulator\_thread};
+            \item \textbf{stop\_simulator(simulator: component\_simulator\_thread): None [private, static]} - Ferma un \textit{component\_simulator\_thread}.
         \end{itemize}
         \item\textbf{Note}:
         \begin{itemize}
-            \item La classe gestisce un pool di thread per l'esecuzione di vari simulatori, utilizzando un oggetto che implementa\textit{thread\_pool\_target} per gestire l'esecuzione dei simulatori;
+            \item La classe gestisce una pool di thread per l'esecuzione di vari simulatori, utilizzando un oggetto che implementa \textit{thread\_pool\_target} per gestire l'esecuzione dei simulatori;
             \item I metodi \textit{run\_all()} e \textit{stop\_all()} utilizzano l'interfaccia fornita da \textit{thread\_pool\_target} per mappare rispettivamente la funzione statica \textit{start\_simulator()} e \textit{stop\_simulator()} per ogni \textit{component\_simulator\_thread} in \textit{simulators};
-            \item Grazie all'utilizzo di \textit{thread\_pool\_target} è possibile estendere il sistema con nuovi metodi di esecuzione controllata di attività in parallelo o l'utilizzo di nuove librerie senza dover modificare la classe \textit{simulator\_thread\_pool} ma solamente aggiungendo una nuova classe adapter che implementi \textit{thread\_pool\_target}.
+            \item Grazie all'utilizzo di \textit{thread\_pool\_target} è possibile estendere il sistema con nuovi metodi o utilizzare nuove librerie senza dover modificare la classe \textit{simulator\_thread\_pool}, ma solamente aggiungendo una nuova classe adapter che implementi \textit{thread\_pool\_target}.
         \end{itemize}
     \end{itemize}
+
     \item{\textbf{Interfaccia: \textit{thread\_pool\_target}}}
     \begin{itemize}
-        \item\textbf{Metodi: }
+        \item\textbf{Metodi:}
         \begin{itemize}
-            \item \textbf{map(func, iterable): [abstractmethod]} - Un metodo astratto che deve essere implementato nelle implementazioni. Questo metodo applica la funzione `func` a ogni elemento nell'`iterable`.
+            \item \textbf{map(func, iterable): [abstractmethod]} - Un metodo astratto che deve essere implementato nelle classi derivate. Questo metodo applica la funzione \textit{func} a ogni elemento nell'\textit{iterable}.
         \end{itemize}
         \item\textbf{Note}:
         \begin{itemize}
             \item L'interfaccia rappresenta la componente "Target" del pattern \textit{Object Adapter} fornendo un contratto per le operazioni di esecuzione controllata di attività in parallelo.
         \end{itemize}
     \end{itemize}
+
     \item{\textbf{Classe: \textit{thred\_pool\_executor\_adapter}}}
     \begin{itemize}
-        \item\textbf{Attributi}:
+        \item\textbf{Attributi:}
         \begin{itemize}
-            \item \textbf{executor:concurrent.futures.ThreadPoolExecutor [private]} - L'executor della thread pool per gestire l'esecuzione dei thread dalla libreria \textit{concurrent.futures}. 
+            \item \textbf{executor: concurrent.futures.ThreadPoolExecutor [private]} - L'executor della thread pool per gestire l'esecuzione dei thread dalla libreria \textit{concurrent.futures}. 
         \end{itemize}
-        \item \textbf{Metodi: }
+        \item \textbf{Metodi:}
         \begin{itemize}
-            \item \textbf{map(func, iterable): [public]} - Applica la funzione `func` a ogni elemento nell' `iterable` utilizzando l'executor del thread pool (\textit{executor}).
+            \item \textbf{map(func, iterable): [public]} - Applica la funzione \textit{func} a ogni elemento nell'\textit{iterable} utilizzando l'executor del thread pool (\textit{executor}).
         \end{itemize}
         \item\textbf{Note}:
         \begin{itemize}
-            \item La classe è un'implementazione concreta dell'interfaccia \textit{thread\_pool\_target}, utilizzando un oggetto \textit{concurrent.futures.ThreadPoolExecutor} per gestire l'esecuzione dei thread.
-            \item Rappresenta il componente "Adapter" del pattern \textit{Object Adapter}.
-            \item Adatta l'oggetto ThreadPoolExecutor dalla libreria \textit{concurrent.futures}
+            \item La classe è un'implementazione concreta dell'interfaccia \textit{thread\_pool\_target}, utilizzando un oggetto \textit{concurrent.futures.ThreadPoolExecutor} per gestire l'esecuzione dei thread;
+            \item Rappresenta il componente "Adapter" del pattern \textit{Object Adapter};
+            \item Adatta l'oggetto ThreadPoolExecutor dalla libreria \textit{concurrent.futures};
             \item Al momento della costruzione deve essere fornito il parametro intero "workers" ovvero
             Il numero massimo di thread che è possibile utilizzare per eseguire le task indicate.
         \end{itemize}
     \end{itemize}
 \end{itemize}
-
 
 \subsubsection{Progettazione - Panoramica UML }
 \begin{figure}[H]
@@ -695,5 +704,8 @@ Un'altra implementazione del pattern \textit{Object Adapter} viene impiegata per
     \caption{Panoramica progettazione simulatori sensori UML - InnovaCity}
     \label{fig: panor_sim}
 \end{figure}
-L'immagina vuole mostrare sinteticamente la struttura dei moduli \textit{Simulatori}, \textit{Writers} e \textit{Threading/Scheduling} e le relazioni tra le classi principali di questi moduli. In particolare, si evidenzia la presenza del pattern \textit{Composite} per la gestione di più servizi di scrittura e di più thread di esecuzione, il pattern \textit{Strategy} per la scrittura su diversi servizi e il pattern \textit{Object Adapter} per adattare le ThreadPool di Python e gli oggetti Misurazione ai writer. 
-Viene riportato solo il sensore di temperatura come implementazione concreta di \textit{simulator} in quanto le altre implementazioni sono analoghe nel loro dominio.
+L'immagine vuole mostrare sinteticamente la struttura dei moduli Simulatori, Writers e Threading/Scheduling e le relazioni tra le classi principali di questi moduli.
+
+In particolare, si evidenzia la presenza del pattern \textit{Composite} per la gestione di più servizi di scrittura e di più thread di esecuzione, il pattern \textit{Strategy} per la scrittura su diversi servizi e il pattern \textit{Object Adapter} per adattare le ThreadPool di Python e gli oggetti \textit{misurazione} ai \textit{writer}.
+
+Viene riportato solo il sensore di temperatura come implementazione concreta di \textit{simulator} in quanto le altre implementazioni sono analoghe.
