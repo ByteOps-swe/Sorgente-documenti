@@ -33,7 +33,7 @@ jobs:
           
       - name: Get changed files
         id: changed-files
-        uses: tj-actions/changed-files@v40
+        uses: tj-actions/changed-files@v43
 
 
       - name: Run Python script to modify LaTeX file
@@ -100,7 +100,7 @@ jobs:
               && [[ "$(basename "$path")" != "Verbale_Interno.tex" ]] \
               && [[ $path != */Sezioni/**.tex ]] \
               && [[ $path != */Sottosezioni/**.tex ]] \
-              && [[ $path != */Esterni/**.tex ]] \
+              && [[ $path != *Esterni/Verbali/**.tex ]] \
               && [[ $path != */Casi_uso/**.tex ]] \
               && [[ $path == *.tex ]]
             then
@@ -176,12 +176,15 @@ jobs:
 
           if find "Documents" -type f -name "*.pdf" -print -quit 2>/dev/null; then
             for path in Documents/**/*.pdf; do (
-              echo "$path"
               if [[ $path != "Documents/**/*.pdf" ]]; then
-                dirname=$(dirname "$path")
-                dirname=${dirname#Documents/}
-                new_dirname="Output/$dirname"
-                dirname_no_under="${new_dirname//_/ }"
+                if [[ "$(dirname "$path")" != "Documents" ]]; then
+                  dirname=$(dirname "$path")
+                  dirname=${dirname#Documents/}
+                  new_dirname="Output/$dirname"
+                  dirname_no_under="${new_dirname//_/ }"
+                else
+                  dirname_no_under="Output/"
+                fi
 
                 name_old=$(basename "$path")
                 name_no_ext="${name_old%.*}"
@@ -207,7 +210,6 @@ jobs:
                 else
                   echo "No changes to commit"
                 fi
-                
                 cd ..
               fi
             ) done

@@ -1,0 +1,89 @@
+\subsection{Kafka}
+\subsubsection{Kafka topic}
+I topic in \textit{Kafka}\textsubscript{\textit{G}} possono essere considerati come le tabelle di un \textit{database}\textsubscript{\textit{G}}, utili per separare logicamente diversi tipi di messaggi o eventi che vengono inseriti nel \textit{sistema}\textsubscript{\textit{G}}. Noi li utilizziamo per separare le diverse misurazioni dei sensori, quindi per ogni tipo di \textit{sensore}\textsubscript{\textit{G}} è presente un topic dedicato. Ciò ci consente di creare all'interno di \textit{ClickHouse}\textsubscript{\textit{G}} delle "tabelle consumatrici" che acquisiscono automaticamente i dati. Questo è possibile grazie alla separazione logica dei topic, che garantisce che tutti i messaggi all'interno di ciascun topic abbiano lo stesso formato.
+\subsubsection{Formato messaggi} \label{sec:formatoMessaggi}
+La struttura di un messaggio contenente le informazioni della misurazione è la seguente in formato Json e rispetta il contratto definito nello Schema Registry, vedi sez.\ref{sec:schema_registry}, in particolare \ref{sec:schema_registry_sez_schema}:
+\begin{lstlisting}[style=code]
+    {
+      "timestamp": "AAAA-MM-DD HH:MM:SS.sss", 
+      "value": "Valore della misurazione",  
+      "type": "Tipologia Simulatore",
+      "latitude": "Latitudine",
+      "longitude": "Longitudine",
+      "ID_sensore": "\textit{ID}\textsubscript{\textit{G}} \textit{sensore}\textsubscript{\textit{G}}",
+      "cella": "Partizione della citt\`{a} dove \`{e} presente il sensore" 
+     }
+\end{lstlisting}
+Mentre la struttura di un messaggio contenente le informazioni di una misurazione del punteggio di salute è la seguente in formato Json:
+\begin{lstlisting}[style=code]
+    {
+      "timestamp": "AAAA-MM-DD HH:MM:SS.sss", 
+      "value": "Valore della misurazione",  
+      "type": "Tipologia Simulatore",
+      "cella": "Cella relativa al punteggio di salute"
+    }
+\end{lstlisting}
+
+
+Sebbene le misurazioni vengano divise in topic diversi a seconda della tipoligia di \textit{sensore}\textsubscript{\textit{G}} che ha effettuato la misurazione si è comunque deciso di inviare e salvare il campo della tipoligia di misurazione per i seguenti motivi:
+\begin{itemize}
+    \item \textbf{Backup e ripristino dei dati:} Se per qualche motivo si dovesse perdere la struttura dei topic o occorre ripristinare i dati in un altro \textit{sistema}\textsubscript{\textit{G}}, il campo type può aiutare a identificare il tipo di \textit{sensore}\textsubscript{\textit{G}} che ha effettuato la misurazione, anche se i dati sono stati conservati insieme in un unico topic.
+    \item \textbf{Flessibilità futura:} 
+    \begin{itemize}
+        \item Potrebbero sorgere esigenze future che richiedono l'analisi dei dati provenienti da diversi tipi di sensori all'interno dello stesso topic. In questo caso, il campo type sarebbe utile per distinguere le misurazioni provenienti da sensori diversi;
+        \item includere il campo type potrebbe essere particolarmente utile se si prevede di supportare diverse unità di misura per una stessa tipologia di \textit{sensore}\textsubscript{\textit{G}} in futuro. Ad esempio, potrebbe essere necessario gestire misurazioni di temperatura in gradi Celsius, Fahrenheit o Kelvin. In tal caso, includendo il campo type, si può associare ad ogni misurazione l'unità di misura corretta.
+    \end{itemize}
+\end{itemize}
+    
+
+\subsubsection{Kafka patterns}
+\paragraph{Pattern di Pub/Sub}
+\begin{itemize}
+    \item \textbf{Descrizione:} Il \textit{pattern}\textsubscript{\textit{G}} Pub/Sub (Publish/Subscribe) permette ai producer di inviare messaggi a topic e ai consumer di ricevere messaggi da tali topic.
+    \item \textbf{Funzione in Kafka:} Decoupling tra producer e consumer, favorendo la scalabilità e l'asincronia.
+    \item \textbf{Esempio:} Un \textit{sensore}\textsubscript{\textit{G}} invia dati a \textit{Kafka}\textsubscript{\textit{G}} come producer. I dati vengono pubblicati su un topic specifico, e più consumer, come un'applicazione di analisi in tempo reale e un \textit{sistema}\textsubscript{\textit{G}} di archiviazione, si iscrivono al topic.
+\end{itemize}
+
+\paragraph{Partizionamento}
+\begin{itemize}
+    \item \textbf{Descrizione:} Distribuisce i messaggi su più partizioni all'interno di un topic per migliorare la scalabilità e le prestazioni.
+    \item \textbf{Funzione in Kafka:} Permette di distribuire il carico di lavoro su più \textit{broker}\textsubscript{\textit{G}} e di aumentare la resilienza ai guasti.
+    \item \textbf{Esempio:} I dati di un \textit{sensore}\textsubscript{\textit{G}} possono essere partizionati in base al tipo di \textit{sensore}\textsubscript{\textit{G}} o alla posizione geografica.
+\end{itemize}
+
+\paragraph{Replicazione}
+\begin{itemize}
+    \item \textbf{Descrizione:} Duplica i dati su più \textit{broker}\textsubscript{\textit{G}} per garantire la disponibilità e la tolleranza ai guasti.
+    \item \textbf{Funzione in Kafka:} I messaggi vengono replicati su un numero configurabile di \textit{broker}\textsubscript{\textit{G}} per massimizzare la ridondanza.
+    \item \textbf{Esempio:} Se un \textit{broker}\textsubscript{\textit{G}} fallisce, i dati sono ancora disponibili su altri \textit{broker}\textsubscript{\textit{G}}.
+\end{itemize}
+
+
+
+\paragraph{Leader Election}
+\begin{itemize}
+    \item \textbf{Descrizione:} Algoritmo per eleggere un leader per ogni partizione, responsabile dell'ordinamento e della replica dei messaggi.
+    \item \textbf{Funzione in Kafka:} Garantisce la coerenza dei dati e la gestione efficiente delle partizioni.
+    \item \textbf{Esempio:} Un leader viene eletto per ogni partizione del topic, garantendo che solo un \textit{broker}\textsubscript{\textit{G}} riceva e replichi i messaggi per quella partizione.
+\end{itemize}
+
+
+\paragraph{Log Compaction}
+\begin{itemize}
+    \item \textbf{Descrizione:} Rimuove i messaggi obsoleti da un topic per ottimizzare l'utilizzo dello \textit{storage}\textsubscript{\textit{G}}.
+    \item \textbf{Funzione in Kafka:} Le vecchie versioni dei messaggi vengono eliminate dopo un periodo di tempo configurabile.
+    \item \textbf{Esempio:} I messaggi di \textit{sensore}\textsubscript{\textit{G}} con valori vecchi possono essere compattati per risparmiare spazio di archiviazione.
+\end{itemize}
+
+\paragraph{Altri Pattern}
+Oltre a quelli sopra elencati, \textit{Kafka}\textsubscript{\textit{G}} implementa altri \textit{pattern}\textsubscript{\textit{G}} come:
+\begin{itemize}
+    \item \textbf{Consumer Group}: Raggruppamento di consumer che collaborano per ricevere messaggi da un topic.
+    \item \textbf{Coordinated Commit}: Meccanismo per garantire che tutti i consumer in un gruppo ricevano correttamente tutti i messaggi di una partizione.
+    \item \textbf{Rate Limiting}: Controllo del numero di messaggi che possono essere inviati o ricevuti da un topic in un determinato intervallo di tempo.
+    \item \textbf{Dead Letter Queue (DLQ)}: Coda speciale dove vengono inviati i messaggi che non possono essere elaborati correttamente.
+    \item \textbf{Monitoring \& Metrics}: Fornisce un'ampia gamma di metriche per monitorare le prestazioni e l'utilizzo del \textit{sistema}\textsubscript{\textit{G}}.
+\end{itemize}
+
+\paragraph{Conclusione}
+L'utilizzo di questi design \textit{pattern}\textsubscript{\textit{G}} rende \textit{Kafka}\textsubscript{\textit{G}} una \textit{piattaforma}\textsubscript{\textit{G}} di messaggistica robusta, scalabile e affidabile per una varietà di casi d'uso. L'implementazione di questi \textit{pattern}\textsubscript{\textit{G}} permette di ottenere un'\textit{architettura}\textsubscript{\textit{G}} efficiente e performante per l'elaborazione dati in streaming.

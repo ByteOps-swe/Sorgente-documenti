@@ -1,0 +1,166 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[absolute]{textpos}
+\usepackage[default]{raleway}
+\usepackage{titlesec, comment, tabularx, makecell, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, hyperref}
+\usepackage{colortbl}
+%\geometry{a4paper, left=2cm, right=2cm, top=2cm, bottom=2.5cm}
+\renewcommand{\headrulewidth}{0pt}
+
+% Definisci uno stile per i comandi git
+\definecolor{light-gray}{gray}{0.92}
+
+\lstdefinestyle{code}{
+    frame=single,
+    framesep=1mm,
+    rulecolor=\color{light-gray},
+    backgroundcolor=\color{light-gray},
+    basicstyle=\ttfamily,
+}
+
+% ----------------------------- Definizione tabella ---------------------------
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+%\setcellgapes{2ex} % Imposta l'altezza dell'header (2ex)
+
+
+% ------------------------------Metadati indice --------------------------------
+\title{\textbf{\fontsize{28}{6}\selectfont Indice}}
+\author{\fontsize{14}{6}\selectfont ByteOps}
+\date{Dicembre 21, 2023}
+
+
+% -----------------------------Creazione footer --------------------------------
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{
+    \parbox[c]{2cm}{\includegraphics[width=2cm]{../../Images/logo.png}}
+    \textcolor[RGB]{120, 120, 120}{$\cdot$ Verbale Esterno}
+}
+\rfoot{\thepage}
+
+% --------------------------Modifica formato hyperlinks ------------------------
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    pdftitle={Verbale Esterno 21/12/2023},  %inserisci data verbale
+    pdfpagemode=FullScreen,
+}
+
+% ------------------------------- Valore sotto-paragrafi indice --------------------------------------
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\titleformat{\section}
+{\normalfont\huge\bfseries}{\thesection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsection}
+{\normalfont\Large\bfseries}{\thesubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsubsection}
+{\normalfont\large\bfseries}{\thesubsubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+% ------------------------------- Front Page ---------------------------------------
+
+\begin{document}
+
+% --------------------------Aggiunta firma finale ------------------------
+\begin{textblock*}{\textwidth}(0.85\textwidth, 1.16\textheight)
+    Il responsabile: Lisien Skenderi
+\end{textblock*}
+% ------------------------------------------------------------------------
+
+\pagestyle{fancy}
+\begin{center}
+\includegraphics[width = 0.7\textwidth]{../../Images/logo.png} \\
+\vspace{0.2cm}
+\textcolor[RGB]{60, 60, 60}{\textit{ByteOps.swe@gmail.com}} \\
+\vspace{1cm}
+\fontsize{16}{6}\selectfont Verbale Esterno $\cdot$ Data: 21/12/2023 \\
+\vspace{0.5cm}
+\end{center}
+
+\section*{Informazioni documento}
+\def\arraystretch{1.2}
+\begin{tabular}{>{\raggedleft\arraybackslash}p{0.2\textwidth}|>{\raggedright\arraybackslash}p{0.6\textwidth}c}
+\hline
+\addlinespace
+\textbf{Luogo} & Google Meet \vspace{10pt} \\
+\textbf{Orario} & 16:30 - 17:30 \vspace{10pt} \\
+\textbf{Redattore} & A. Barutta \vspace{10pt} \\
+\textbf{Verificatore} & N.Preto \vspace{10pt} \\
+\textbf{Amministratore} & D. Diotto \vspace{10pt} \\
+\textbf{Destinatari} & T. Vardanega \\ & R. Cardin \vspace{10pt} \\
+\textbf{Partecipanti} & A. Barutta \\ & E. Hysa \\ & R. Smanio \\ & D. Diotto \\ & F. Pozza \\ & L. Skenderi \\ & N. Preto \\ & D. Zorzi \\ & A. Dorigo \vspace{10pt}
+\end{tabular}
+\pagebreak 
+
+% ------------------------- Changelog ----------------------------
+
+\section*{Registro delle modifiche}
+
+\begin{tabular}{|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|}
+    \hline
+    \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Dettaglio} \\
+    \hline \hline
+    0.1.0 & 21/12/2023 & A. Barutta & N. Preto & Redazione documento \\
+    \hline
+\end{tabular}
+\pagebreak
+
+% ------------------------- Generazione automatica indice ----------------------
+\setstretch{1.5}
+\maketitle
+\thispagestyle{fancy}
+\tableofcontents
+\setstretch{1.2}
+\pagebreak
+
+% ------------------------ INIZIO DOCUMENTO ----------------------
+\flushleft
+
+\section{Revisione del periodo precedente}
+Tutte le \textit{attività}\textsubscript{\textit{G}} pianificate per il corrente \textit{SAL}\textsubscript{\textit{G}} sono state completate con successo, generando un alto livello di soddisfazione sia all'interno del team che presso l'azienda \textit{proponente}\textsubscript{\textit{G}}. Quest'ultima si mostra entusiasta dello stato attuale del Proof of Concept (\textit{PoC}\textsubscript{\textit{G}}): le migliorie implementate nell'interfaccia utente hanno ricevuto apprezzamento e i problemi segnalati sono stati prontamente risolti.
+
+In risposta alla richiesta dell'azienda \textit{proponente}\textsubscript{\textit{G}} riguardante le principali difficoltà nell'approccio lavorativo, si è ponderato sulla questione e si è constatato che la rotazione ciclica dei ruoli costituisce la sfida principale. Affrontare \textit{attività}\textsubscript{\textit{G}} precedentemente avviate da altri membri del gruppo richiede un'attenta valutazione preliminare del lavoro svolto fino a quel momento per mantenere coerenza ed integrità e ciò può richiedere un notevole dispendio di tempo.
+
+Nonostante ciò, l'attuale approccio lavorativo è considerato valido e non si sono presentate circostanze che ne giustifichino la modifica.
+
+\section{Ordine del giorno}
+    \subsection{Inserimento vista misurazioni in forma tabellare}
+    Il \textit{proponente}\textsubscript{\textit{G}} ha consigliato l'\textit{integrazione}\textsubscript{\textit{G}} nella \textit{dashboard}\textsubscript{\textit{G}} di alcuni \textit{widget}\textsubscript{\textit{G}} per la visualizzazione delle misurazioni in formato tabellare, questo ci consentirà di arricchire il Proof of Concept, fornendo diverse rappresentazioni delle misurazioni provenienti da una specifica categoria di sensori.
+
+    \subsection{Spunti su alcuni test da effettuare in futuro}
+    Alcuni dei \textit{test}\textsubscript{\textit{G}} da effettuare comprendono:
+    \begin{itemize}
+        \item Prove di carico ovvero simulare come reagisce il \textit{sistema}\textsubscript{\textit{G}} in seguito all'elaborazione di una grande quantità di dati trasmessi dai sensori. Questo può tornare utile anche per inserire dei requisiti sulla performance;
+        \item Verifica che un dato sia visibile in ciascuno dei singoli componenti dell'\textit{architettura}\textsubscript{\textit{G}};
+        \item Verifica che, dato un set di dati, il \textit{sistema}\textsubscript{\textit{G}} calcoli correttamente una media o una qualche funzione di aggregazione dei dati.
+    \end{itemize}
+
+    \subsection{Revisione presentazione RTB}
+    È stata programmata una riunione con l'azienda \textit{proponente}\textsubscript{\textit{G}} il 12/01/2024 per esaminare la presentazione dedicata alla revisione \textit{RTB}\textsubscript{\textit{G}}. Durante l'incontro, avremo l'opportunità di chiarire eventuali dubbi e ottenere una valutazione diretta da parte del \textit{proponente}\textsubscript{\textit{G}}.
+
+% ------------------------ Firma Azienda ----------------------
+\begin{textblock*}{\textwidth}(0.35\textwidth, 1.08\textheight)
+    Padova, 21/12/2023
+\end{textblock*}
+
+\begin{textblock*}{\textwidth}(0.80\textwidth, 1.08\textheight)
+        Firma referente Sync Lab:
+\end{textblock*}
+% -------------------------------------------------------------
+\end{document}

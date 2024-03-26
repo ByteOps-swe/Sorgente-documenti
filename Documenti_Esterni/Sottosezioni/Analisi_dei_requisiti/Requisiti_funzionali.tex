@@ -1,0 +1,306 @@
+\subsection{Requisiti funzionali}
+
+\begin{longtable}{|C{1.5cm}|C{2cm}|L{5cm}|C{2cm}|C{1.5cm}|}
+    \hline
+    \textbf{Codice} & \textbf{Importanza} & \textbf{Descrizione} & \textbf{Fonte}  & \textbf{Casi d'uso} \\
+    
+    %RF1
+    \hline
+    RF\arabic{rowcounter} & Obbligatorio &
+    L'accesso al prodotto è vincolato da un \textit{sistema}\textsubscript{\textit{G}} di \textit{login}\textsubscript{\textit{G}}, tuttavia, non è necessario che gli utenti si registrino autonomamente. Le credenziali di accesso sono fornite da terze parti o dall'amministratore del \textit{sistema}\textsubscript{\textit{G}}.& Verbale Interno 01/03/2024 & \\
+    
+    %RF2
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & Il prodotto non deve avere una gestione di amministrazione.& Capitolato & \\
+    
+    %RF3
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & Il \textit{sistema}\textsubscript{\textit{G}} deve integrare simulatori di diverso tipo al fine di generare dati di misurazioni che siano coerenti con l'ambito del \textit{sensore}\textsubscript{\textit{G}} simulato.& Capitolato & \\
+    
+    %RF4
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & Ogni misurazione trasmessa dal simulatore del \textit{sensore}\textsubscript{\textit{G}} deve essere composta dall'id del \textit{sensore}\textsubscript{\textit{G}}, il timestamp e la misurazione.& Capitolato & \\
+    
+    %RF5
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio &  Il \textit{sistema}\textsubscript{\textit{G}} deve essere in grado di simulare almeno un \textit{sensore}\textsubscript{\textit{G}} che rilevi la temperatura espressa in gradi Celsius.& Capitolato &  \\
+    
+    %RF6
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio &  Il \textit{sistema}\textsubscript{\textit{G}} deve essere in grado di simulare almeno un \textit{sensore}\textsubscript{\textit{G}} che misuri l'umidità, espressa in percentuale di umidità nell'aria.& Capitolato &  \\
+    
+    %RF7
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio &  Il \textit{sistema}\textsubscript{\textit{G}} deve essere in grado di simulare almeno un \textit{sensore}\textsubscript{\textit{G}} per la rilevazione delle particelle di polveri sottili presenti nell'aria, espresse in microgrammi per metro cubo.& Capitolato & \\
+    
+    %RF8
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio &  Il \textit{sistema}\textsubscript{\textit{G}} deve includere la simulazione di almeno un \textit{sensore}\textsubscript{\textit{G}} per individuare guasti elettrici. Questi sensori segnalano interruzioni nella fornitura di energia elettrica tramite un \textit{bit}\textsubscript{\textit{G}} binario, con il valore 0 che indica l'assenza di energia elettrica.& Capitolato & \\
+    
+    %RF9
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio &  Il \textit{sistema}\textsubscript{\textit{G}} deve essere in grado di simulare almeno un \textit{sensore}\textsubscript{\textit{G}} per monitorare lo stato di riempimento dei diversi conferitori nelle isole ecologiche. L'indicazione fornita sarà una percentuale di riempimento dell'isola ecologica. & Capitolato & \\
+    
+    %RF10
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & Il \textit{sistema}\textsubscript{\textit{G}} deve includere la simulazione di almeno un \textit{sensore}\textsubscript{\textit{G}} per le colonnine di ricarica. Questi sensori indicheranno tramite un \textit{bit}\textsubscript{\textit{G}} binario se la colonnina è occupata (\textit{bit}\textsubscript{\textit{G}} 1) o libera (\textit{bit}\textsubscript{\textit{G}} 0).& Capitolato & \\
+    
+    %RF11
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & Il \textit{sistema}\textsubscript{\textit{G}} deve includere la simulazione di almeno un \textit{sensore}\textsubscript{\textit{G}} per il livello dell'acqua. Questi sensori indicheranno il livello dell'acqua.& Capitolato &  \\
+    
+    %RF12
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio &  Ogni dato generato dai simulatori dei sensori deve essere strettamente correlato al dato successivo, garantendo così una transizione realistica e plausibile tra le misurazioni.& Decisione interna & \\
+    
+    %RF13
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & Il \textit{sistema}\textsubscript{\textit{G}} deve essere in grado di memorizzare in modo sicuro e efficiente i dati generati dai sensori. Ciò include la registrazione accurata di ogni misurazione, assicurando l'integrità e la coerenza dei dati.& Capitolato & \\
+    
+    %RF14
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & La \textit{piattaforma}\textsubscript{\textit{G}} deve supportare la visualizzazione di dati provenienti da diversi tipi di sensori.& Capitolato & \\
+    
+    %RF15
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & L'utente deve poter visualizzare una \textit{dashboard}\textsubscript{\textit{G}} con una panoramica completa dello stato della città tramite l'utilizzo di \textit{widget}\textsubscript{\textit{G}} adibiti alla rappresentazione delle misurazioni dei sensori.& Capitolato & UC1 \\
+    
+    %RF16
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & L'utente deve avere la possibilità di visualizzare le misurazioni all'interno dei \textit{widget}\textsubscript{\textit{G}} adibiti alla rappresentazione delle rilevazioni dei sensori in formato grafico time series.& Capitolato & UC5\\
+    
+    %RF17
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & L'utente deve avere la possibilità di visualizzare le misurazioni all'interno dei \textit{widget}\textsubscript{\textit{G}} adibiti alla rappresentazione delle rilevazioni dei sensori in formato testuale time series.& Capitolato & UC4\\
+    
+    %RF18
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & La visualizzazione delle misurazioni in formato testuale time series deve presentare le informazioni nel formato: \texttt{IDSensore ,TIMESTAMP, Dato}.& Decisione interna & UC4 \\
+   
+    %RF19
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio &  L'utente deve essere in grado di visualizzare le ultime misurazioni all'interno dei \textit{widget}\textsubscript{\textit{G}} dedicati alla presentazione dei rilevamenti dei sensori che trasmettono dati binari (ex. Occupato/Libero) attraverso una mappa interattiva. La mappa, tramite etichette adeguate, deve rappresentare chiaramente il valore corrispondente all'ultima misurazione effettuata da ciascun \textit{sensore}\textsubscript{\textit{G}}.& Decisione interna & UC14 \\
+    
+    %RF20
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & La \textit{dashboard}\textsubscript{\textit{G}} richiede un aggiornamento quasi istantaneo per garantire che i dati provenienti dai sensori siano riflessi nel minor tempo possibile, entro un massimo di 10 secondi.& Decisione interna & UC1 \\
+    
+    %RF21
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & La \textit{dashboard}\textsubscript{\textit{G}} deve mostrare un \textit{widget}\textsubscript{\textit{G}} distinto per ciascun tipo di \textit{sensore}\textsubscript{\textit{G}} attivo che trasmette dati al \textit{sistema}\textsubscript{\textit{G}}, contenente le misurazioni in formato grafico, testuale o mappa interattiva.& Decisione interna & UC1.1 \\
+    
+    %RF22
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & Ogni \textit{widget}\textsubscript{\textit{G}} che visualizza le misurazioni deve includere, insieme ai dati stessi, informazioni sull'identificativo dei sensori che hanno contribuito a quelle misurazioni.& Decisione interna & UC1.1.1.1 \\
+    
+    %RF23
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & La \textit{dashboard}\textsubscript{\textit{G}} deve includere un \textit{widget}\textsubscript{\textit{G}} dedicato alle misurazioni dei sensori di temperatura.& Capitolato & UC6 \\
+    
+    %RF24
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio &Il \textit{widget}\textsubscript{\textit{G}} destinato alla rappresentazione delle misurazioni effettuate dai sensori di temperatura deve offrire all'utente di default la visualizzazione di tali dati in un formato grafico a linee, con una linea corrispondente a ciascun \textit{sensore}\textsubscript{\textit{G}} coinvolto.& Decisione interna & UC6, UC5\\
+    
+    %RF25
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & La \textit{dashboard}\textsubscript{\textit{G}} deve includere un \textit{widget}\textsubscript{\textit{G}} dedicato alle misurazioni dei sensori di umidità.& Capitolato & UC7 \\
+    
+    %RF26
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio &Il \textit{widget}\textsubscript{\textit{G}} destinato alla rappresentazione delle misurazioni effettuate dai sensori di umidità deve offrire all'utente di default la visualizzazione di tali dati in un formato grafico a linee, con una linea corrispondente a ciascun \textit{sensore}\textsubscript{\textit{G}} coinvolto.& Decisione interna & UC7, UC5 \\
+    
+    %RF27
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & La \textit{dashboard}\textsubscript{\textit{G}} deve includere un \textit{widget}\textsubscript{\textit{G}} dedicato alle misurazioni dei sensori delle polveri sottili.& Capitolato & UC8 \\
+    
+    %RF28
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio &Il \textit{widget}\textsubscript{\textit{G}} destinato alla rappresentazione temporale delle misurazioni effettuate dai sensori di polveri sottili deve offrire all'utente la possibilità di visualizzare tali dati in un formato grafico a linee, con una linea corrispondente a ciascun \textit{sensore}\textsubscript{\textit{G}} coinvolto.& Decisione interna & UC8, UC5\\
+    
+    %RF29
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & La \textit{dashboard}\textsubscript{\textit{G}} deve includere un \textit{widget}\textsubscript{\textit{G}} dedicato alle misurazioni dei sensori dei guasti elettrici.& Capitolato & UC9 \\
+    
+    %RF30
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio &Il \textit{widget}\textsubscript{\textit{G}} destinato alla rappresentazione delle misurazioni effettuate dai sensori dei guasti elettrici deve offrire all'utente di default la visualizzazione di tali dati con una mappa interattiva delle ultime misurazioni.  & Decisione interna & UC9, UC14 \\
+    
+    %RF31
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & La \textit{dashboard}\textsubscript{\textit{G}} deve includere un \textit{widget}\textsubscript{\textit{G}} dedicato alle misurazioni dei sensori di soglia delle isole ecologiche.& Capitolato & UC10 \\
+    
+    %RF32
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio &Il \textit{widget}\textsubscript{\textit{G}} destinato alla rappresentazione delle misurazioni effettuate dai sensori di soglia delle isole ecologiche deve offrire all'utente la visualizzazione di tali dati con una mappa interattiva delle ultime misurazioni.  & Decisione interna & UC10, UC14 \\
+    
+    %RF33
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & La \textit{dashboard}\textsubscript{\textit{G}} deve includere un \textit{widget}\textsubscript{\textit{G}} dedicato alle misurazioni dei sensori delle colonnine di ricarica. & Capitolato & UC11 \\
+    
+    %RF34
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio &Il \textit{widget}\textsubscript{\textit{G}} destinato alla rappresentazione delle misurazioni effettuate dai sensori delle colonnine di ricarica deve offrire all'utente la visualizzazione di tali dati con una mappa interattiva delle ultime misurazioni.  & Decisione interna & UC11, UC14 \\
+    
+    %RF35
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & La \textit{dashboard}\textsubscript{\textit{G}} deve includere un \textit{widget}\textsubscript{\textit{G}} dedicato alle misurazioni dei sensori del livello dell'acqua. & Capitolato & UC33 \\
+    
+    %RF36
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio &Il \textit{widget}\textsubscript{\textit{G}} destinato alla rappresentazione delle misurazioni effettuate dai sensori del livello dell'acqua deve offrire all'utente la visualizzazione di tali dati con una mappa interattiva delle ultime misurazioni. & Decisione interna & UC33 , UC14\\
+    
+    %RF37
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & La \textit{dashboard}\textsubscript{\textit{G}} della città deve includere una mappa interattiva che mostra la posizione dei diversi sensori nella città.& Capitolato & UC1.2 \\
+    
+    %RF38
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & I sensori nella mappa devono essere etichettati in modo da consentirne il riconoscimento della tipologia.& Decisione interna & UC1.2 \\
+    
+    %RF39
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio &  I sensori posizionati sulla mappa devono visualizzare l'ultimo valore registrato quando il puntatore del mouse è posizionato sopra di essi.& Decisione interna & UC1.2 \\
+    
+    %RF40
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Desiderabile & La \textit{dashboard}\textsubscript{\textit{G}} deve fornire un \textit{widget}\textsubscript{\textit{G}} con il punteggio di salute relativo alla città basato sui dati aggregati provenienti dai sensori.& Decisione interna & UC1.3 \\
+    
+    %RF41
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & L'utente deve avere la possibilità di selezionare una cella, ovvero un'area specifica della città, al fine di visualizzare una \textit{dashboard}\textsubscript{\textit{G}} dedicata contenente esclusivamente sensori, misurazioni e punteggio di salute correlati a essa.& Capitolato & UC2 \\
+    
+    %RF42
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & L'utente deve poter filtrare la visualizzazione delle misurazioni di una specifica tipologia di sensori inserendo uno specifico intervallo temporale.& Decisione interna & UC12.1 \\
+    
+    %RF43
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & Il \textit{sistema}\textsubscript{\textit{G}} deve verificare la validità dell'intervallo temporale inserito dall'utente.& Decisione interna & UC12.1 \\
+    
+    %RF44
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & In caso di intervallo temporale non valido, il \textit{sistema}\textsubscript{\textit{G}} deve generare una notifica di errore.& Decisione interna & UC30 \\
+    
+    %RF45
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & La notifica di errore relativa all'inserimento di un intervallo temporale non valido deve richiedere all'utente di reinserire date valide.& Decisione interna & UC30 \\
+    
+    %RF46
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & La notifica di errore relativa all'inserimento di un intervallo temporale non valido deve essere chiara e informativa, indicando il motivo specifico dell'invalidità dell'intervallo temporale (data fine precedente a data inizio, arco temporale precedente o antecedente all'inizio della trasmissione dati).& Decisione interna & UC30 \\
+    
+    %RF47
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & L'utente ha la possibilità di selezionare l'intervallo temporale desiderato (secondo, minuto, ora, giorno, mese, anno) per aggregare le misurazioni in base al relativo periodo di registrazione corrispondente.& Decisione interna & UC13 \\
+    
+    %RF48
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & Il \textit{sistema}\textsubscript{\textit{G}} deve essere in grado di adattare dinamicamente la rappresentazione delle misurazioni secondo un intervallo temporale di aggregazione selezionato dall'utente.& Decisione interna & UC13 \\
+    
+    %RF49
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio &  L'utente deve avere la possibilità di definire due valori (un minimo e un massimo) per filtrare le misurazioni dei sensori di una specifica tipologia, utilizzando questi limiti come criterio per visualizzare solo i dati compresi in quei range.& Decisione interna & UC12.2 \\
+    
+    %RF50
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & Il \textit{sistema}\textsubscript{\textit{G}} deve verificare la validità dell'intervallo di rilevamento inserito dall'utente.& Decisione interna & UC12.2 \\
+    
+    %RF51
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & In caso di intervallo di rilevamento non valido, il \textit{sistema}\textsubscript{\textit{G}} deve generare una notifica di errore.& Decisione interna & UC32 \\
+    
+    %RF52
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & La notifica di errore relativa all'inserimento di un intervallo di rilevamento non valido deve richiedere all'utente di reinserire valori validi.& Decisione interna & UC32 \\
+    
+    %RF53
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & La notifica di errore relativa all'inserimento di un intervallo di rilevamento non valido deve essere chiara e informativa, indicando il motivo specifico dell'invalidità dell'intervallo di rilevamento (data fine precedente a data inizio, arco temporale precedente o antecedente all'inizio della trasmissione dati).& Decisione interna & UC32 \\
+    
+    %RF54
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & L'utente deve avere la possibilità di filtrare le misurazioni selezionando uno o più sensori di una specifica categoria in modo tale da visualizzare esclusivamente le misurazioni corrispondenti ai sensori selezionati.& Decisione interna & UC12.4 \\
+    
+    %RF55
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & L'utente deve poter filtrare la visualizzazione delle misurazioni di una specifica tipologia di sensori selezionando una o più specifiche celle come criterio di filtro.& Decisione interna & UC12.3 \\
+    
+    %RF56
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & L'utente deve poter applicare più filtri simultaneamente per la visualizzazione delle misurazioni di una specifica tipologia di sensori.& Decisione interna & UC12 \\
+    
+    %RF57
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & L'utente deve poter rimuovere i filtri applicati e ripristinare la visualizzazione senza tali filtri.& Decisione interna & UC31 \\
+    
+    %RF58
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Opzionale & L'utente deve poter salvare in una lista di misurazioni rilevanti una misurazione trasmessa da un \textit{sensore}\textsubscript{\textit{G}}.& Decisione interna & UC19 \\
+    
+    %RF59
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Opzionale & Il \textit{sistema}\textsubscript{\textit{G}} deve effettuare una verifica prima di salvare la misurazione tra le misurazioni rilevanti, assicurandosi che il dato non sia già presente in tale lista.& Decisione interna & UC19  \\
+    
+    %RF60
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Opzionale & L'utente deve poter visualizzare la lista delle misurazioni rilevanti.& Decisione interna & UC20 \\
+    
+    %RF61
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Opzionale & Ogni misurazione nella lista dei rilevanti deve fornire l'identificativo del \textit{sensore}\textsubscript{\textit{G}} che ha effettuato la misurazione.& Decisione interna & UC20.1.1 \\
+
+    %RF62
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Opzionale & Ogni misurazione nella lista dei rilevanti deve fornire la tipologia del \textit{sensore}\textsubscript{\textit{G}} che ha effettuato la misurazione.& Decisione interna & UC20.1.2 \\
+
+    %RF63
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Opzionale & Ogni misurazione nella lista dei rilevanti deve fornire l'orario e la data di misurazione.& Decisione interna & UC20.1.3 \\
+
+    %RF64
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Opzionale & Ogni misurazione nella lista dei rilevanti deve fornire il valore misurato e la relativa unità di misura.& Decisione interna & UC20.1.4 \\
+
+    %RF65
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Opzionale & L'utente deve poter rimuovere una misurazione dalla lista delle misurazioni rilevanti.& Decisione interna & UC21 \\
+
+    %RF66
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & L'utente deve essere in grado di ricevere notifiche nel caso in cui i sensori superino determinate soglie di sicurezza.& Capitolato & UC22 \\
+
+    %RF67
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & L'utente deve essere in grado di visualizzare le informazioni dei sensori.& Decisione interna & UC18 \\
+
+    %RF68
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & L'utente deve essere in grado di visualizzare l'\textit{ID}\textsubscript{\textit{G}} dei sensori.& Decisione interna  & UC18.1 \\
+
+    %RF69
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & L'utente deve essere in grado di visualizzare il tipo dei sensori.& Decisione interna & UC18.2 \\
+
+    %RF70
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & L'utente deve essere in grado di visualizzare la posizione dei sensori in coordinate.& Decisione interna & UC18.3 \\
+
+    %RF71
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & L'utente deve essere in grado di visualizzare la cella in cui è installato il \textit{sensore}\textsubscript{\textit{G}}.& Decisione interna & UC18.4 \\
+
+    %RF72
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & L'utente deve essere in grado di visualizzare la data di installazione dei sensori.& Decisione interna & UC18.5 \\
+
+    %RF73
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & L'utente deve essere in grado di visualizzare l'unità di misura associata al \textit{sensore}\textsubscript{\textit{G}}.& Decisione interna & UC18.6 \\
+    
+    \hline
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & La \textit{piattaforma}\textsubscript{\textit{G}} deve poter ricevere più rilevazioni in parallelo. & Capitolato &  \\
+
+    \hline
+    
+\end{longtable}
+

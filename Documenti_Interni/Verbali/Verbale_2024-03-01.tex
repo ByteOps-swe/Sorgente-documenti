@@ -1,0 +1,184 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[absolute]{textpos}
+\usepackage[default]{raleway}
+\usepackage{titlesec, comment, tabularx, makecell, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, multirow, hyperref}
+\usepackage{colortbl}
+%\geometry{a4paper, left=2cm, right=2cm, top=2cm, bottom=2.5cm}
+\renewcommand{\headrulewidth}{0pt}
+
+% Definisci uno stile per i comandi git
+\definecolor{light-gray}{gray}{0.92}
+
+\lstdefinestyle{code}{
+    frame=single,
+    framesep=1mm,
+    rulecolor=\color{light-gray},
+    backgroundcolor=\color{light-gray},
+    basicstyle=\ttfamily,
+}
+
+% ----------------------------- Definizione tabella ---------------------------
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+%\setcellgapes{2ex} % Imposta l'altezza dell'header (2ex)
+
+
+% ------------------------------Metadati indice --------------------------------
+\title{\textbf{\fontsize{28}{6}\selectfont Indice}}
+\author{\fontsize{14}{6}\selectfont ByteOps}
+\date{Marzo 01, 2024}
+
+
+% -----------------------------Creazione footer --------------------------------
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{
+    \parbox[c]{2cm}{\includegraphics[width=2cm]{../../Images/logo.png}}
+    \textcolor[RGB]{120, 120, 120}{$\cdot$ Verbale Interno}
+}
+\rfoot{\thepage}
+
+% --------------------------Modifica formato hyperlinks ------------------------
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    pdftitle={Verbale Interno 01/03/2024},  %inserisci data verbale
+    pdfpagemode=FullScreen,
+}
+
+% ------------------------------- Valore sotto-paragrafi indice --------------------------------------
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\titleformat{\section}
+{\normalfont\huge\bfseries}{\thesection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsection}
+{\normalfont\Large\bfseries}{\thesubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsubsection}
+{\normalfont\large\bfseries}{\thesubsubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+% ------------------------------- Front Page ---------------------------------------
+
+\begin{document}
+
+% --------------------------Aggiunta firma finale ------------------------
+\begin{textblock*}{\textwidth}(0.85\textwidth, 1.16\textheight)
+    Il responsabile: R. Smanio
+\end{textblock*}
+% ------------------------------------------------------------------------
+
+\pagestyle{fancy}
+\begin{center}
+\includegraphics[width = 0.7\textwidth]{../../Images/logo.png} \\
+\vspace{0.2cm}
+\textcolor[RGB]{60, 60, 60}{\textit{ByteOps.swe@gmail.com}} \\
+\vspace{1cm}
+\fontsize{16}{6}\selectfont Verbale Interno $\cdot$ Data: 01/03/2024 \\
+\vspace{0.5cm}
+\end{center}
+
+\section*{Informazioni documento}
+\def\arraystretch{1.2}
+\begin{tabular}{>{\raggedleft\arraybackslash}p{0.3\textwidth}|>{\raggedright\arraybackslash}p{0.6\textwidth}c}
+\hline
+\addlinespace
+\textbf{Luogo} & Discord \vspace{10pt} \\
+\textbf{Orario} & 17:30 - 18:15 \vspace{10pt} \\
+\textbf{Redattore} & N. Preto \vspace{10pt} \\
+\textbf{Verificatore} & A. Barutta \vspace{10pt} \\
+\textbf{Amministratore} & E. Hysa \vspace{10pt} \\
+\textbf{Destinatari} & T. Vardanega \\ & R. Cardin \vspace{10pt} \\
+\multirow[t]{7}{*}{\textbf{Partecipanti}} & A. Barutta \\ & E. Hysa \\ & R. Smanio \\ & D. Diotto \\ & F. Pozza \\ & L. Skenderi \\ & N. Preto \vspace{10pt} \\
+\end{tabular}
+\pagebreak 
+
+% ------------------------- Changelog ----------------------------
+
+\section*{Registro delle modifiche}
+
+\begin{tabular}{|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|}
+    \hline
+    \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Dettaglio} \\
+    \hline \hline
+    0.0.2 & 02/03/2024 & N. Preto & A. Barutta & Aggiunta issue mancanti \\
+    \hline
+    0.0.1 & 01/03/2024 & N. Preto & A. Barutta & Redazione documento \\
+    \hline
+\end{tabular}
+\pagebreak
+
+% ------------------------- Generazione automatica indice ----------------------
+\setstretch{1.5}
+\maketitle
+\thispagestyle{fancy}
+\tableofcontents
+\setstretch{1.2}
+\pagebreak
+
+% ------------------------ INIZIO DOCUMENTO ----------------------
+\flushleft
+
+\section{Revisione del periodo precedente}
+Nella settimana successiva all'ultimo meeting interno, è stato integrato con successo Faust nel prodotto \textit{software}\textsubscript{\textit{G}}, rispondendo efficacemente alle criticità evidenziate dal Professor Cardin durante la revisione \textit{RTB}\textsubscript{\textit{G}} e garantendo l'aderenza ai principi di ingegneria del \textit{software}\textsubscript{\textit{G}}. \\
+Successivamente all'\textit{integrazione}\textsubscript{\textit{G}} di Faust, le principali \textit{attività}\textsubscript{\textit{G}} a cui si sono dedicati i membri del team riguardano lo sviluppo dei \textit{test}\textsubscript{\textit{G}} e la redazione del \textit{Manuale Utente}.
+Inoltre, l'Amministratore si è dedicato al miglioramento della struttura e dell'organizzazione del \textit{repository}\textsubscript{\textit{G}} GitHub, seguendo i suggerimenti ricevuti dal Professor Vardanega nella valutazione della revisione \textit{RTB}\textsubscript{\textit{G}}. \\
+In aggiunta, sono state apportate modifiche all'aspetto di alcuni pannelli della \textit{dashboard}\textsubscript{\textit{G}} \textit{Grafana}\textsubscript{\textit{G}}, aumentando così la qualità dell'interfaccia e dell'user experience.
+
+\section{Ordine del giorno}
+    \subsection{Discussione sulle difficoltà emerse nell'attività di testing}
+    All'inizio dell'incontro, è stata posta l'attenzione sui \textit{test}\textsubscript{\textit{G}} che sono attualmente in fase di sviluppo. \\
+    Nei giorni precedenti infatti, sono state riscontrate difficoltà nella realizzazione dei \textit{test}\textsubscript{\textit{G}} di \textit{integrazione}\textsubscript{\textit{G}} tra il producer e il server \textit{Kafka}\textsubscript{\textit{G}}, principalmente a causa della poca esperienza del team in tale ambito. \\
+    A seguito delle discussioni tenute durante il \textit{SAL}\textsubscript{\textit{G}} odierno, l'azienda \textit{proponente}\textsubscript{\textit{G}} ha proposto di fornirci supporto per la risoluzione dei problemi riscontrati. Inoltre, si è deciso di fare pratica con dei minimal working examples in modo tale da acquisire le competenze e l'esperienza necessaria per poter realizzare i \textit{test}\textsubscript{\textit{G}} di \textit{integrazione}\textsubscript{\textit{G}} nel modo corretto in un contesto più complesso come quello del progetto.
+
+    \subsection{Discussione sul livello di dettaglio del Manuale Utente}
+    Dopo un'attenta riflessione sul livello di dettaglio da mantenere riguardo alle istruzioni e alle procedure nel \textit{Manuale Utente}, si era inizialmente optato per una descrizione più semplice delle funzionalità offerte e delle relative modalità di utilizzo. Questa scelta mirava a rendere la lettura e la comprensione del manuale accessibili, evitando complicazioni. Tuttavia, una successiva riflessione più approfondita del team ha portato alla conclusione che fosse necessario ampliare ulteriormente le descrizioni delle funzionalità e fornire indicazioni più dettagliate sul loro scopo e sul modo migliore per utilizzarle. In quest'ottica, diventa fondamentale trovare un equilibrio tra precisione, dettaglio e approfondimento, mantenendo allo stesso tempo la semplicità di lettura e comprensione. \\
+    L'adozione di una maggior granularità delle informazioni mira a garantire una comprensione completa degli aspetti e dei dettagli meno evidenti del prodotto, riducendo al contempo il rischio di fraintendimenti e ambiguità. L'obiettivo finale è rendere il Manuale Utente più accessibile, preciso e utile per il lettore, fornendo informazioni dettagliate sulle modalità di utilizzo di tutte le funzionalità offerte, soprattutto su quelle che potrebbero non risultare immediate o intuitive.
+
+    \subsection{Discussione riguardante il sistema di autenticazione}
+    Si è evidenziato un ulteriore punto di interesse riguardante il mantenimento del \textit{sistema}\textsubscript{\textit{G}} di autenticazione fornito da \textit{Grafana}\textsubscript{\textit{G}} e, dopo aver analizzato attentamente le diverse opinioni espresse in merito, si è concluso che mantenere l'autenticazione è fondamentale poiché garantisce un livello di sicurezza superiore. \\
+    È da sottolineare che, come concordato con la \textit{proponente}\textsubscript{\textit{G}}, non saranno previsti \textit{account}\textsubscript{\textit{G}} con differenti livelli di privilegio all'interno del \textit{software}\textsubscript{\textit{G}}. Ciò è dovuto al fatto che gli utenti finali, ovvero i membri delle autorità locali, devono avere accesso completo a tutte le funzionalità del \textit{sistema}\textsubscript{\textit{G}}. \\
+    In conclusione, per accedere alla \textit{dashboard}\textsubscript{\textit{G}}, gli utenti facenti parte delle autorità locali non dovranno registrarsi in autonomia, ma verranno fornite loro delle credenziali di accesso (nome utente e password) tramite un canale affidabile.
+
+    \subsection{Controllo conformità ai requisiti}
+    È stato riconosciuto l'importante bisogno di condurre un'attenta revisione dei requisiti delineati nel documento "\textit{Analisi dei Requisiti}". Ciò si configura come un passaggio cruciale per garantire che le modifiche apportate alla \textit{dashboard}\textsubscript{\textit{G}} siano conformi ai requisiti stabiliti all'inizio del progetto. L'obiettivo principale è garantire che il gruppo non abbia introdotto elementi superflui o deviazioni dalle specifiche inizialmente definite.
+
+    \section{Attività da svolgere}
+    \begin{center}
+        \begin{tabular}{|C{7cm}|C{1,5cm}|C{3cm}|}
+            \hline
+            \textbf{Titolo} & \textbf{\# Issue} & \textbf{Verificatore} \\
+            \hline
+            \hline
+            Approfondimento paragrafi Manuale Utente & 96 & A. Barutta \\
+            \hline
+            Ricontrollo AdR dopo prima stesura MU & 97 & A. Barutta \\
+            \hline
+            Redazione verbale interno 01/03/2024 & 99 & N. Preto \\
+            \hline
+            Stesura periodo 10 - PdP & 100 & A. Barutta \\
+            \hline
+            Sviluppo \textit{test}\textsubscript{\textit{G}} di unità sensori & 101 & R. Smanio \\
+            \hline
+            Sviluppo \textit{test}\textsubscript{\textit{G}} di \textit{integrazione}\textsubscript{\textit{G}} \textit{kafka}\textsubscript{\textit{G}} - \textit{python}\textsubscript{\textit{G}} & 102 & R. Smanio \\
+            \hline
+            Sviluppo \textit{test}\textsubscript{\textit{G}} di \textit{integrazione}\textsubscript{\textit{G}} \textit{Kafka}\textsubscript{\textit{G}} - \textit{Python}\textsubscript{\textit{G}} - \textit{Clickhouse}\textsubscript{\textit{G}} & 103 & A. Barutta \\
+            \hline
+        \end{tabular}
+    \end{center}
+\end{document}
