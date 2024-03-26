@@ -431,7 +431,7 @@ Il preventivo a finire rimane invariato a \textbf{12425,00\euro} e non risulta n
 \paragraph{Considerazioni}
 Durante l'ultimo periodo, il team ha compiuto importanti progressi e ha raggiunto obiettivi significativi nell'avanzamento del progetto.
 Gli analisti hanno completato il documento "\textit{Analisi dei Requisiti v.2.0.0}", fornendo una base solida per la comprensione dei requisiti del progetto. \\
-Il Responsabile si è occupato della redazione del 11-esimo periodo del Piano di Progetto e nel coordinamento del team durante questo periodo. \\
+Il Responsabile si è occupato della redazione dell'undicesimo periodo del Piano di Progetto e del coordinamento del team durante questo periodo. \\
 I progettisti,  dopo aver definito dettagliatamente l'\textit{architettura}\textsubscript{\textit{G}} di implementazione e di deployment, si sono occupati della redazione delle rispettive sezioni nel documento “\textit{Specifica Tecnica}”. In aggiunta, hanno curato la stesura della sezione "Requisiti soddisfatti" e hanno realizzato dettagliati diagrammi \textit{UML}\textsubscript{\textit{G}} per tutte le classi. Questo lavoro ha fornito una guida chiara e dettagliata per la comprensione dell'\textit{architettura}\textsubscript{\textit{G}} del \textit{sistema}\textsubscript{\textit{G}}, fondamentale per un avanzamento coerente e ben orientato dello sviluppo del progetto. \\
 L'amministratore ha introdotto miglioramenti significative nella \textit{repository}\textsubscript{\textit{G}}, tra cui il completamento della pagina \textit{github}\textsubscript{\textit{G}}.io e l'inserimento di badge GitHub e della pipeline CI nel file README.md. 
 Queste azioni hanno notevolmente migliorato l'esposizione della \textit{repository}\textsubscript{\textit{G}}, rendendo la presentazione dei documenti e degli artefatti più accessibile e intuitiva per tutti i membri del team e per gli utenti esterni. L'inserimento dei badge relativi ai \textit{test}\textsubscript{\textit{G}} ha fornito una trasparenza aggiuntiva sullo stato del progetto, permettendo a tutti di valutare rapidamente l'affidabilità del codice e l'esito dei \textit{test}\textsubscript{\textit{G}} effettuati. Tale trasparenza non solo favorisce una migliore comprensione del lavoro svolto, ma anche una maggiore fiducia nella qualità complessiva del \textit{software}\textsubscript{\textit{G}} in sviluppo. \\
@@ -553,4 +553,135 @@ Il preventivo a finire rimane invariato a \textbf{12425,00\euro} e non risulta n
     \includegraphics[width=0.6\textwidth]{../Images/consuntivoDivisioneRuoli11Periodo.png}
     \caption{Istogramma consuntivo della ripartizione oraria dei ruoli - Undicesimo periodo}
     \label{fig:Consuntivo_ripartizione_oraria_11}
+\end{figure}
+
+%---------------------DODICESIMO PERIODO---------------------------------------
+
+\subsubsection{Dodicesimo periodo  15/03/2024 - 22/03/2024}
+
+\paragraph{Considerazioni}
+Relativamente al dodicesimo periodo, i principali obiettivi programmati consistono nell'avanzamento della redazione di \textit{Specifica Tecnica}, che si avvicina alla fase conclusiva, e nell'allocazione di risorse significative per migliorare la robustezza e l'affidabilità del \textit{sistema}\textsubscript{\textit{G}}.
+
+Il responsabile ha svolto un ruolo cruciale nel coordinare il team e nella redazione dettagliata dell'attuale periodo all'interno del documento "\textit{Piano di Progetto}".
+
+I progettisti si sono occupati della redazione del documento \textit{Specifica Tecnica}. Nello specifico sono state redatte le sezioni "Schema Registry", "Database Configuration", "Faust", "Architettura Simulatori", "\textit{Kafka}\textsubscript{\textit{G}}" e "\textit{Grafana}\textsubscript{\textit{G}}". Questo sottolinea il loro ruolo centrale nella definizione dell'\textit{architettura}\textsubscript{\textit{G}} e delle specifiche tecniche, fondamentali per la comprensione e per lo sviluppo del prodotto.
+
+L'amministratore ha configurato l'ambiente containerizzato per garantire l'operatività ottimale e l'\textit{integrazione}\textsubscript{\textit{G}} corretta dello Schema Registry e di Zookeeper, contribuendo così a garantire la robustezza e la resilienza del \textit{sistema}\textsubscript{\textit{G}}.
+
+I programmatori si sono dedicati all'implementazione dello Schema Registry e all'\textit{integrazione}\textsubscript{\textit{G}} di quest’ultimo con lo \textit{script}\textsubscript{\textit{G}} \textit{Python}\textsubscript{\textit{G}} utilizzato per scrivere nei topic \textit{Kafka}\textsubscript{\textit{G}}, al fine di validare il formato dei messaggi direttamente alla fonte. Questo approccio assicura che i messaggi siano validati prima di essere inviati al topic \textit{Kafka}\textsubscript{\textit{G}}, evitando così un sovraccarico di \textit{rete}\textsubscript{\textit{G}} inutile.
+
+Lo Schema Registry svolge un ruolo cruciale nel mantenere la coerenza e l'integrità dei dati, consentendo una gestione centralizzata degli schemi utilizzati all'interno dell'ecosistema dei dati. Questa implementazione e la relativa validazione sono fondamentali per garantire che i messaggi trasmessi siano conformi agli \textit{standard}\textsubscript{\textit{G}} definiti, prevenendo l'inserimento di dati errati o incompatibili nel \textit{sistema}\textsubscript{\textit{G}}, e aumentando l'affidabilità complessiva del \textit{sistema}\textsubscript{\textit{G}}.
+
+In conclusione, è importante sottolineare che ogni richiesta formulata dall’azienda \textit{proponente}\textsubscript{\textit{G}} è stata diligentemente affrontata e risolta nei tempi concordati, determinando così il raggiungimento del completamento dell'\textit{MVP}\textsubscript{\textit{G}}. Tale risultato non solo evidenzia l’impegno del team nel soddisfare le aspettative del cliente, ma anche la capacità di rispondere in modo tempestivo e efficace alle esigenze del progetto.
+
+
+\paragraph{Gestione dei rischi}
+
+\begin{itemize}
+    \item \textbf{Rischi attesi e verificati:}
+        \begin{itemize}
+            \item Nessuno.
+        \end{itemize}
+    \item \textbf{Rischi attesi ma non verificati:}
+        \begin{itemize}
+            \item \textbf{RP-2B-1} - Contrasti interni al gruppo~(\S\textit{\ref{subsubsec:contrastiInterni}}) \\
+            Era prevista la possibilità di contrasti interni al gruppo dovuti al notevole numero di sezioni da redigere. In particolare, si temeva che potessero sorgere divergenze riguardo la struttura delle varie sezioni e la modalità di presentazione delle informazioni. Tuttavia, questa eventualità non si è concretizzata poiché il team è stato in grado di collaborare in modo efficace e coeso, mantenendo un'armonia nell'approccio alla redazione delle sezioni, il che ha contribuito positivamente al progresso complessivo della redazione del documento.
+            \item \textbf{RT-1A-1} - Difficoltà nell’implementazione dello Schema Registry~(\S\textit{\ref{sec:rischioTec}}) \\
+            L'implementazione dello Schema Registry si presentava inizialmente complessa, essendo una funzionalità introdotta in extremis per rafforzare la robustezza del \textit{sistema}\textsubscript{\textit{G}}. Inoltre, la ristrettezza dei tempi a disposizione alimentava ragionevolmente dubbi sulla sua fattibilità. Tuttavia, non si sono verificati ostacoli significativi, e si è proceduto senza intoppi, raggiungendo gli obiettivi prefissati con successo.
+        \end{itemize}
+    \item \textbf{Rischi non attesi ma verificati:}
+        \begin{itemize}
+            \item \textbf{RO-1A-1} - Assenza di un componente del team per 3 giorni~(\S\textit{\ref{sec:ImpPersonali}})
+                \begin{itemize}
+                    \item \textbf{Esito mitigazione}: L'assenza di uno dei membri del team non si è rivelata problematica in quanto il resto del team è stato in grado di gestire efficacemente le responsabilità del membro assente durante il periodo di assenza. Grazie all'intervento tempestivo del responsabile, che ha riassegnato i compiti del membro assente in modo efficace, il team è riuscito a raggiungere gli obiettivi prefissati senza rallentamenti.
+                    \item \textbf{Impatto}: L'assenza temporanea del membro del team non ha avuto un impatto significativo sullo sviluppo del progetto, poiché le \textit{attività}\textsubscript{\textit{G}} sono proseguite senza interruzioni e gli obiettivi sono stati raggiunti nei tempi previsti.
+                \end{itemize}
+        \end{itemize}
+\end{itemize}
+
+\paragraph{Definizione ruoli}
+Per le \textit{attività}\textsubscript{\textit{G}} registrate nei costi, sono stati assegnati i seguenti ruoli: 
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|L{4cm}|L{2cm}|}
+        \hline
+        \textbf{Ruolo} & \textbf{Persona} \\
+        \hline
+        \hline
+        Responsabile (Re)   & A. Barutta \\
+        \hline
+        Amministratore (Am) & R. Smanio \\
+        \hline
+        Verificatore (Ve)   & D. Diotto \\
+                            & E. Hysa \\
+                            & A. Barutta \\
+                            & L. Skenderi \\ 
+        \hline
+        Programmatore (Pr)  & A. Barutta \\
+                            & F. Pozza \\
+        \hline
+        Progettista (Pt)    & N. Preto \\
+                            & E. Hysa \\
+        \hline
+    \end{tabular}
+    \caption{Tabella dei ruoli assegnati - Dodicesimo periodo}
+    \label{tab:Ruoli_persone_12}
+\end{table}
+
+\paragraph{Pianificazione attività divise per ruoli con consuntivo e preventivo orario e dei costi}
+
+\vspace{0.4cm}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=0.6\textwidth]{../Images/periodo12.jpeg}
+    \caption{Dodicesimo periodo}
+    \label{fig:Dodicesimo_periodo}
+\end{figure}
+
+Al termine del decimo periodo, l'ammontare totale del costo del progetto è di \textbf{12425 \euro} e sono state completate il \textbf{100\%} delle \textit{attività}\textsubscript{\textit{G}} attese.
+Il preventivo a finire rimane invariato a \textbf{12425,00\euro} e non risulta necessaria una ri-pianificazione delle \textit{attività}\textsubscript{\textit{G}} future.
+\href{https://github.com/orgs/ByteOps-swe/projects/3/views/1?sortedBy%5Bdirection%5D=asc&sortedBy%5BcolumnId%5D=64182560}{Vai al Diagramma di Gantt.}
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[b]{0.70\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{../Images/avanzamento12Periodo.png}
+        \caption{Avanzamento dei lavori RTB - Dodicesimo periodo}
+        \label{fig:Avanzamento_RTB_12}
+    \end{minipage}
+\end{figure}
+
+\paragraph{Preventivo orario}
+
+\begin{figure}[H] 
+    \centering
+    \includegraphics[width=0.9\textwidth]{../Images/preventivoOrario12Periodo.jpeg}
+    \caption{Preventivo orario per membro - Dodicesimo periodo}
+    \label{fig:Preventivo_orario_12}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{../Images/preventivoDivisioneRuoli12Periodo.png}
+    \caption{Istogramma preventivo della ripartizione oraria dei ruoli - Dodicesimo periodo}
+    \label{fig:Preventivo_ripartizione_oraria_12}
+\end{figure}
+
+\paragraph{Consuntivo orario}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../Images/consuntivoOrario12Periodo.jpeg}
+    \caption{Consuntivo orario per membro - Dodicesimo periodo}
+    \label{fig:Constuntivo_orario_12}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{../Images/consuntivoDivisioneRuoli12Periodo.png}
+    \caption{Istogramma consuntivo della ripartizione oraria dei ruoli - Dodicesimo periodo}
+    \label{fig:Consuntivo_ripartizione_oraria_12}
 \end{figure}
