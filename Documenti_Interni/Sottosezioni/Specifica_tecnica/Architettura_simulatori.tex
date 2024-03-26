@@ -123,10 +123,10 @@ Il pattern \textit{Factory} incapsula la creazione concreta dei sensori, consent
     \begin{itemize}
         \item \textbf{Attributi}: 
         \begin{itemize}
-            \item \textbf{ID\_sensor: string [private]} - Identificatore univoco del sensore.
-            \item \textbf{cella\_sensore: string [private]} - Identificatore della cella del sensore.
-            \item \textbf{coordinate: coordinate [private]} - Coordinate geografiche del sensore.
-            \item \textbf{misurazione: T [protected]} - Misurazione corrente del sensore.
+            \item \textbf{ID\_sensor: string [private]} - Identificatore univoco del sensore;
+            \item \textbf{cella\_sensore: string [private]} - Identificatore della cella del sensore;
+            \item \textbf{coordinate: coordinate [private]} - Coordinate geografiche del sensore;
+            \item \textbf{misurazione: T [protected]} - Misurazione corrente del sensore;
             \item \textbf{type: string [private]} - Tipo di sensore.
         \end{itemize}
         \item \textbf{Metodi}:
@@ -135,20 +135,20 @@ Il pattern \textit{Factory} incapsula la creazione concreta dei sensori, consent
             \item 
             Si basa sul design pattern Template Method:
             \begin{enumerate}
-                \item Chiama generate\_measure() per generare un valore di misurazione.
-                \item Chiama adapt() per effettuare adattamenti se necessari.
+                \item Chiama generate\_measure() per generare un valore di misurazione;
+                \item Chiama adapt() per effettuare adattamenti se necessari;
                 \item Restituisce un oggetto \textit{misurazione} con data e ora corrente, valore misurato, tipo di sensore, coordinate e identificativo del sensore.
             \end{enumerate}
-            \item \textbf{generate\_measure(): None [protected]} - Metodo astratto da implementare nelle classi concrete per generare un valore di misurazione semi-casuale coerente con la tipolgia di sensore da salvare nell'attributo \textit{misurazione}.
+            \item \textbf{generate\_measure(): None [protected]} - Metodo astratto da implementare nelle classi concrete per generare un valore di misurazione semi-casuale coerente con la tipolgia di sensore da salvare nell'attributo \textit{misurazione};
             \item \textbf{adapt(): void [protected]} - Fornisce un'implementazione di default che non modifica in alcun modo la misurazione generata. Può essere ridefinito per implementare la logica di adattamento della misurazione come conversioni di unità di misura.
         \end{itemize}
         \item \textbf{Note}:
         \begin{itemize}
-            \item La classe \textit{simulator} è astratta e definisce il comportamento generale della simulazione della misurazione, pattern \textit{Template method}.
-            \item Le classi concrete che ereditano da \textit{simulator} devono implementare il metodo astratto generate\_measure().
-            \item Il metodo adapt() può essere ridefinito nelle classi concrete per implementare conversioni o adattamenti necessari.
-            \item Il metodo \textit{simulate()} è final e non può essere ridefinito.
-            \item Spiegazioni esaustive sono state presentate in: \ref{sec:templateSIM}
+            \item La classe \textit{simulator} è astratta e definisce il comportamento generale della simulazione della misurazione, pattern \textit{Template method};
+            \item Le classi concrete che ereditano da \textit{simulator} devono implementare il metodo astratto generate\_measure();
+            \item Il metodo adapt() può essere ridefinito nelle classi concrete per implementare conversioni o adattamenti necessari;
+            \item Il metodo \textit{simulate()} è final e non può essere ridefinito;
+            \item Spiegazioni esaustive sono state presentate in: \ref{sec:templateSIM}.
         \end{itemize}
     \end{itemize}
         
@@ -156,12 +156,12 @@ Il pattern \textit{Factory} incapsula la creazione concreta dei sensori, consent
     \begin{itemize}
         \item \textbf{Costanti}: 
         \begin{itemize}
-            \item \textbf{TEMPERATURE: string [public]} - Rappresenta la nomenclatura dei sensore di temperatura.
-            \item \textbf{HUMIDITY: string [public]} - Rappresenta la nomenclatura dei sensore di umidità.
-            \item \textbf{DUST\_PM10: string [public]} - Rappresenta la nomenclatura dei sensore di "polvere PM10".
-            \item \textbf{CHARGING\_STATION: string [public]} - Rappresenta la nomenclatura dei sensore di stato delle colonnine di ricarica.
-            \item \textbf{ECOLOGICAL\_ISLAND: string [public]} - Rappresenta la nomenclatura dei sensore di stato riempimento isole ecologica.
-            \item \textbf{WATER\_PRESENCE: string [public]} - Rappresenta la nomenclatura dei sensore di presenza d'acqua.
+            \item \textbf{TEMPERATURE: string [public]} - Rappresenta la nomenclatura dei sensore di temperatura;
+            \item \textbf{HUMIDITY: string [public]} - Rappresenta la nomenclatura dei sensore di umidità;
+            \item \textbf{DUST\_PM10: string [public]} - Rappresenta la nomenclatura dei sensore di "polvere PM10";
+            \item \textbf{CHARGING\_STATION: string [public]} - Rappresenta la nomenclatura dei sensore di stato delle colonnine di ricarica;
+            \item \textbf{ECOLOGICAL\_ISLAND: string [public]} - Rappresenta la nomenclatura dei sensore di stato riempimento isole ecologica;
+            \item \textbf{WATER\_PRESENCE: string [public]} - Rappresenta la nomenclatura dei sensore di presenza d'acqua;
             \item \textbf{ELECTRICAL\_FAULT: string [public]} - Rappresenta la nomenclatura dei sensore di guasti elettrici.
         \end{itemize}
 
@@ -183,8 +183,8 @@ Il pattern \textit{Factory} incapsula la creazione concreta dei sensori, consent
         \end{itemize}
         \item\textbf{Note}:
         \begin{itemize}
-            \item La classe \textit{temperature\_simulator} è una classe concreta che eredita dalla classe astratta \textit{simulator}.
-            \item Il costruttore genera automaticamente un ID sensore univoco per ogni istanza.
+            \item La classe \textit{temperature\_simulator} è una classe concreta che eredita dalla classe astratta \textit{simulator};
+            \item Il costruttore genera automaticamente un ID sensore univoco per ogni istanza;
             \item Dichiara di generare misurazioni di temperatura con unità di default (Gradi Celsius), possibili classi derivate possono effettuare conversioni ad altre unità di misura (Kelvin,Fahrenheit) tramite il metodo \textit{adapt()}, senza dover modificare la logica di generazione.
         \end{itemize}
     \end{itemize}
@@ -201,8 +201,8 @@ Il pattern \textit{Factory} incapsula la creazione concreta dei sensori, consent
         \end{itemize}
         \item \textbf{Note}:
         \begin{itemize}
-        \item La classe \textit{humidity\_simulator} è una classe concreta che eredita dalla classe astratta \textit{simulator}.
-        \item Il costruttore genera automaticamente un ID sensore univoco per ogni istanza.
+        \item La classe \textit{humidity\_simulator} è una classe concreta che eredita dalla classe astratta \textit{simulator};
+        \item Il costruttore genera automaticamente un ID sensore univoco per ogni istanza;
         \item Dichiara di generare misurazioni di umidità con unità di default (Percentuale), possibili classi derivate possono effettuare conversioni ad altre unità di misura (g/m³) tramite il metodo \textit{adapt()}, senza dover modificare la logica di generazione.
         \end{itemize}
     \end{itemize}
@@ -219,8 +219,8 @@ Il pattern \textit{Factory} incapsula la creazione concreta dei sensori, consent
         \end{itemize}
         \item \textbf{Note}:
         \begin{itemize}
-            \item La classe \textit{charging\_station\_simulator} è una classe concreta che eredita dalla classe astratta \textit{simulator}.
-            \item Il costruttore genera automaticamente un ID sensore univoco per ogni istanza.
+            \item La classe \textit{charging\_station\_simulator} è una classe concreta che eredita dalla classe astratta \textit{simulator};
+            \item Il costruttore genera automaticamente un ID sensore univoco per ogni istanza;
             \item Implementa il metodo astratto \textit{generate\_measure()} per generare una misurazione basata sulla probabilità di transizione.
         \end{itemize}
     \end{itemize}
@@ -237,8 +237,8 @@ Il pattern \textit{Factory} incapsula la creazione concreta dei sensori, consent
         \end{itemize}
         \item \textbf{Note}:
         \begin{itemize}
-            \item La classe \textit{dust\_PM10\_simulator} è una classe concreta che eredita dalla classe astratta \textit{simulator}.
-            \item Il costruttore genera automaticamente un ID sensore univoco per ogni istanza.
+            \item La classe \textit{dust\_PM10\_simulator} è una classe concreta che eredita dalla classe astratta \textit{simulator};
+            \item Il costruttore genera automaticamente un ID sensore univoco per ogni istanza;
             \item Dichiara di generare misurazioni di polvere PM10 in con unità di default (µg/m³), possibili classi derivate possono effettuare conversioni ad altre unità di misura (mg/m³) tramite il metodo \textit{adapt()}, senza dover modificare la logica di generazione.
         \end{itemize}
     \end{itemize}
@@ -255,7 +255,7 @@ Il pattern \textit{Factory} incapsula la creazione concreta dei sensori, consent
         \end{itemize}
         \item \textbf{Note}:
         \begin{itemize}
-            \item La classe \textit{electrical\_fault\_simulator} è una classe concreta che eredita dalla classe astratta \textit{simulator}.
+            \item La classe \textit{electrical\_fault\_simulator} è una classe concreta che eredita dalla classe astratta \textit{simulator};
             \item Il costruttore genera automaticamente un ID sensore univoco per ogni istanza.
         \end{itemize}
     \end{itemize}
@@ -272,7 +272,7 @@ Il pattern \textit{Factory} incapsula la creazione concreta dei sensori, consent
         \end{itemize}
         \item \textbf{Note}:
         \begin{itemize}
-            \item La classe \textit{ecological\_island\_simulator} è una classe concreta che eredita dalla classe astratta \textit{simulator}.
+            \item La classe \textit{ecological\_island\_simulator} è una classe concreta che eredita dalla classe astratta \textit{simulator};
             \item Il costruttore genera automaticamente un ID sensore univoco per ogni istanza.
         \end{itemize}
     \end{itemize}
@@ -289,7 +289,7 @@ Il pattern \textit{Factory} incapsula la creazione concreta dei sensori, consent
         \end{itemize}
         \item \textbf{Note}:
         \begin{itemize}
-            \item La classe \textit{ecological\_island\_simulator} è una classe concreta che eredita dalla classe astratta \textit{simulator}.
+            \item La classe \textit{ecological\_island\_simulator} è una classe concreta che eredita dalla classe astratta \textit{simulator};
             \item Il costruttore genera automaticamente un ID sensore univoco per ogni istanza.
         \end{itemize}
     \end{itemize}
@@ -298,11 +298,11 @@ Il pattern \textit{Factory} incapsula la creazione concreta dei sensori, consent
     \begin{itemize}
         \item \textbf{Attributi}: 
         \begin{itemize}
-            \item \textbf{timestamp: datetime [private]} - Timestamp della misurazione.
-            \item \textbf{value: T [private]} - Valore della misurazione.
-            \item \textbf{type: string [private]} - Tipo della misurazione.
-            \item \textbf{coord: coordinate [private]} - Coordinate della misurazione.
-            \item \textbf{ID\_sensore: string [private]} - ID del sensore che ha effettuato la misurazione.
+            \item \textbf{timestamp: datetime [private]} - Timestamp della misurazione;
+            \item \textbf{value: T [private]} - Valore della misurazione;
+            \item \textbf{type: string [private]} - Tipo della misurazione;
+            \item \textbf{coord: coordinate [private]} - Coordinate della misurazione;
+            \item \textbf{ID\_sensore: string [private]} - ID del sensore che ha effettuato la misurazione;
             \item \textbf{cella: string [private]} - Cella in cui è stata effettuata la misurazione.
         \end{itemize}
         \item \textbf{Metodi}: 
@@ -315,7 +315,7 @@ Il pattern \textit{Factory} incapsula la creazione concreta dei sensori, consent
     \begin{itemize}
         \item \textbf{Attributi}: 
         \begin{itemize}
-            \item \textbf{latitude: float [private]} - Latitudine della coordinata.
+            \item \textbf{latitude: float [private]} - Latitudine della coordinata;
             \item \textbf{longitude: float [private]} - Longitudine della coordinata.
         \end{itemize}
         \item \textbf{Metodi}: 
@@ -328,17 +328,17 @@ Il pattern \textit{Factory} incapsula la creazione concreta dei sensori, consent
     \begin{itemize}
         \item \textbf{Metodi}: 
         \begin{itemize}
-            \item \textbf{create\_temperature\_sensor(latitude: float, longitude: float, cella: string, initial\_value: float): temperature\_simulator [public, static]} - Crea un simulatore di temperatura.
+            \item \textbf{create\_temperature\_sensor(latitude: float, longitude: float, cella: string, initial\_value: float): temperature\_simulator [public, static]} - Crea un simulatore di temperatura;
 
-            \item \textbf{create\_humidity\_sensor(latitude: float, longitude: float, cella: string, initial\_value: float): humidity\_simulator [public, static]} - Crea un simulatore di umidità.
+            \item \textbf{create\_humidity\_sensor(latitude: float, longitude: float, cella: string, initial\_value: float): humidity\_simulator [public, static]} - Crea un simulatore di umidità;
             
-            \item \textbf{create\_charging\_station\_sensor(latitude: float, longitude: float, cella: string, probabilita\_occupazione: float): charging\_station\_simulator [public, static]} - Crea un simulatore di stazione di ricarica.
+            \item \textbf{create\_charging\_station\_sensor(latitude: float, longitude: float, cella: string, probabilita\_occupazione: float): charging\_station\_simulator [public, static]} - Crea un simulatore di stazione di ricarica;
             
-            \item \textbf{create\_ecological\_island\_sensor(latitude: float, longitude: float, cella: string, initial\_value: float): ecological\_island\_simulator [public, static]} - Crea un simulatore di isola ecologica.
+            \item \textbf{create\_ecological\_island\_sensor(latitude: float, longitude: float, cella: string, initial\_value: float): ecological\_island\_simulator [public, static]} - Crea un simulatore di isola ecologica;
             
-            \item \textbf{create\_water\_presence\_sensor(latitude: float, longitude: float, cella: string, soglia\_rilevamento: float): water\_presence\_sensor [public, static]} - Crea un sensore di presenza d'acqua.
+            \item \textbf{create\_water\_presence\_sensor(latitude: float, longitude: float, cella: string, soglia\_rilevamento: float): water\_presence\_sensor [public, static]} - Crea un sensore di presenza d'acqua;
             
-            \item \textbf{create\_dust\_PM10\_sensor(latitude: float, longitude: float, cella: string, initial\_value: float): dust\_PM10\_simulator [public, static]} - Crea un simulatore di polvere PM10.
+            \item \textbf{create\_dust\_PM10\_sensor(latitude: float, longitude: float, cella: string, initial\_value: float): dust\_PM10\_simulator [public, static]} - Crea un simulatore di polvere PM10;
             
             \item \textbf{create\_eletrical\_fault\_sensor(latitude: float, longitude: float, cella: string, fault\_probability: float): electrical\_fault\_simulator [public, static]} - Crea un simulatore di guasto elettrico.
         \end{itemize}
@@ -375,11 +375,11 @@ L'utilizzo del design pattern Composite e Strategy in questo caso ha diverse mot
 \begin{enumerate}
     \item \textit{kafka\_writer}, atta a permettere al simulatore di inviare messaggi a Kafka;
     \item \textit{std\_out\_writer}, atta a permettere di stampare i \textit{writable} su terminale;
-    \item \textit{list\_writer} per il salvataggio su una lista degli oggetti di tipo \textit{writable}.
+    \item \textit{list\_writer}, per il salvataggio su una lista degli oggetti di tipo \textit{writable}.
 \end{enumerate}
 L'utilizzo dei design pattern Composite e Strategy in questo caso ha diverse motivazioni:
 \begin{itemize}
-    \item \textbf{Gestione uniforme dei servizi}: Il pattern Strategy consente di definire una famiglia di algoritmi, incapsularli e renderli intercambiabili. In questo caso, i servizi di scrittura sono trattati come algoritmi intercambiabili, consentendo di scrivere informazioni su diversi servizi senza dover conoscere i dettagli di implementazione di ciascuno.
+    \item \textbf{Gestione uniforme dei servizi}: Il pattern Strategy consente di definire una famiglia di algoritmi, incapsularli e renderli intercambiabili. In questo caso, i servizi di scrittura sono trattati come algoritmi intercambiabili, consentendo di scrivere informazioni su diversi servizi senza dover conoscere i dettagli di implementazione di ciascuno;
     \item \textbf{Gestione gerarchica dei servizi}: Il pattern Composite consente di trattare gli oggetti singoli e le loro composizioni (gruppi di oggetti) allo stesso modo. \\
     Nel contesto del modulo, potrebbe esserci la necessità di gestire non solo singoli servizi, ma anche gruppi di servizi. Ad esempio, potrebbe essere utile inviare informazioni al servizio Kafka e contemporaneamente stamparle nel terminale e memorizzarle in un'apposita lista per il testing. Il Composite consente di comporre questi servizi in modo gerarchico e trattarli uniformemente.
 \end{itemize}
@@ -404,7 +404,7 @@ Inoltre grazie all'interfaccia \textit{kafka\_target}, si è garantita la possib
     \end{itemize}
     \item{\textbf{Interfaccia: \textit{writer}}}
      \begin{itemize}
-        \item \textbf{Metodi:}
+        \item \textbf{Metodi}:
          \begin{itemize}
             \item \textbf{write(to\_write: writable): None [public, abstract]} - Metodo astratto che deve essere implementato nelle sottoclassi per scrivere un oggetto writable.
         \end{itemize}
@@ -420,13 +420,13 @@ Inoltre grazie all'interfaccia \textit{kafka\_target}, si è garantita la possib
         \begin{itemize}
         \item \textbf{writers: writer [private]} - Lista di oggetti \textit{writer}.
     \end{itemize}
-    \item \textbf{Metodi: }
+    \item \textbf{Metodi}:
     \begin{itemize}
-        \item \textbf{add\_writer(writer: writer ): composite\_writer [public]} - Aggiunge un oggetto che implementa \textit{writer} alla lista writers.
-        \item \textbf{add\_kafka\_confluent\_writer(topic: string, host: string, port: int, schema\_registry\_url: string): composite\_writer [public]} - Crea un \textit{kafka\_writer} con un \textit{kafka\_confluent\_adapter} e lo aggiunge alla lista writers. Ritorna se stesso per permettere operazione concatenate.
-        \item \textbf{add\_std\_out\_writer(): composite\_writer [public]} - Crea un \textit{std\_out\_writer} e lo aggiunge alla lista writers. Ritorna se stesso per permettere operazione concatenate.
-        \item \textbf{add\_list\_writer(writer\_list: list\_writer): composite\_writer [public]} - Aggiunge un \textit{list\_writer} alla lista writers. Ritorna se stesso per permettere operazione concatenate.
-        \item \textbf{remove\_writer(writer: writer): composite\_writer [public]} - Rimuove un \textit{writer} dalla lista writers.  Ritorna se stesso per permettere operazione concatenate.
+        \item \textbf{add\_writer(writer: writer ): composite\_writer [public]} - Aggiunge un oggetto che implementa \textit{writer} alla lista writers;
+        \item \textbf{add\_kafka\_confluent\_writer(topic: string, host: string, port: int, schema\_registry\_url: string): composite\_writer [public]} - Crea un \textit{kafka\_writer} con un \textit{kafka\_confluent\_adapter} e lo aggiunge alla lista writers. Ritorna se stesso per permettere operazione concatenate;
+        \item \textbf{add\_std\_out\_writer(): composite\_writer [public]} - Crea un \textit{std\_out\_writer} e lo aggiunge alla lista writers. Ritorna se stesso per permettere operazione concatenate;
+        \item \textbf{add\_list\_writer(writer\_list: list\_writer): composite\_writer [public]} - Aggiunge un \textit{list\_writer} alla lista writers. Ritorna se stesso per permettere operazione concatenate;
+        \item \textbf{remove\_writer(writer: writer): composite\_writer [public]} - Rimuove un \textit{writer} dalla lista writers.  Ritorna se stesso per permettere operazione concatenate;
         \item \textbf{write(to\_write: writable): \textit{composite\_writer} [public]} - Chiama il metodo write su ogni writer nella lista writers passando come attributo il \textit{writable} ricevuto.
     \end{itemize}
     \item\textbf{Note}:
@@ -441,7 +441,7 @@ Inoltre grazie all'interfaccia \textit{kafka\_target}, si è garantita la possib
         \begin{itemize}
         \item \textbf{lock:threading.Lock [private]} - Lock per garantire l'accesso esclusivo alla stampa ed un esecuzione Thread safe.
     \end{itemize}
-    \item \textbf{Metodi: }
+    \item \textbf{Metodi};
     \begin{itemize}
         \item \textbf{write(to\_write: writable): None [public]} - Stampa l'oggetto writable come stringa JSON nella console;
     \end{itemize}
@@ -454,12 +454,12 @@ Inoltre grazie all'interfaccia \textit{kafka\_target}, si è garantita la possib
     \begin{itemize}
     \item\textbf{Attributi}:
         \begin{itemize}
-        \item \textbf{data\_list:list [private]} - Lista per memorizzare gli oggetti writable.
+        \item \textbf{data\_list:list [private]} - Lista per memorizzare gli oggetti writable;
         \item \textbf{lock:threading.Lock [private]} - Lock per garantire l'accesso esclusivo alla lista ed un esecuzione Thread safe.
     \end{itemize}
-    \item \textbf{Metodi: }
+    \item \textbf{Metodi}:
     \begin{itemize}
-        \item \textbf{write(to\_write: writable): None [public]} - Aggiunge l'oggetto writable alla lista.
+        \item \textbf{write(to\_write: writable): None [public]} - Aggiunge l'oggetto writable alla lista;
         \item \textbf{get\_data\_list(): list [public]} - Restituisce la lista di oggetti writable.
     \end{itemize}
     \item\textbf{Note}:
@@ -471,28 +471,28 @@ Inoltre grazie all'interfaccia \textit{kafka\_target}, si è garantita la possib
     \begin{itemize}
     \item\textbf{Attributi}:
         \begin{itemize}
-        \item \textbf{lock:threading.Lock [private]} - Lock per garantire l'accesso esclusivo alla scrittura su Kafka ed un esecuzione Thread safe.
+        \item \textbf{lock:threading.Lock [private]} - Lock per garantire l'accesso esclusivo alla scrittura su Kafka ed un esecuzione Thread safe;
         \item \textbf{kafka\_target:kafka\_target [private]} - Riferimento ad un implementazione di kafka\_target per effettuare l'effettiva scrittura in Kafka tramite librerie.
     \end{itemize}
-    \item \textbf{Metodi: }
+    \item \textbf{Metodi}:
     \begin{itemize}
         \item \textbf{write(to\_write: writable): None [public]} - Scrive l'oggetto \textit{writable} come stringa JSON su Kafka.
     \end{itemize}
     \item\textbf{Note}:
         \begin{itemize}
-            \item La classe è una strategia di scrittura del pattern \textit{Strategy} ma anche la componente "Leaf" del pattern \textit{Composite}, ovvero l'elemento base che non ha sottoelementi.
+            \item La classe è una strategia di scrittura del pattern \textit{Strategy} ma anche la componente "Leaf" del pattern \textit{Composite}, ovvero l'elemento base che non ha sottoelementi;
             \item La costruzione dell'oggetto \textit{kafka\_writer} richiede un riferimento ad un oggetto che implementi l'interfaccia kafka\_target.
         \end{itemize}
     \end{itemize}
     \item{\textbf{Interfaccia: kafka\_target}}
     \begin{itemize}
-        \item \textbf{Metodi: }
+        \item \textbf{Metodi}:
         \begin{itemize}
             \item \textbf{write\_to\_kafka(data: string): None [public, abstract]} - Metodo astratto che deve essere implementato nelle sottoclassi per scrivere dati su Kafka.
         \end{itemize}
         \item\textbf{Note}:
         \begin{itemize}
-            \item La classe è una interfaccia che fornisce un contratto per le operazioni di scrittura/invio a topic Kafka.
+            \item La classe è una interfaccia che fornisce un contratto per le operazioni di scrittura/invio a topic Kafka;
             \item Rappresenta il componente Target del pattern \textit{Object Adapter}.
         \end{itemize}
     \end{itemize}
@@ -505,7 +505,7 @@ Inoltre grazie all'interfaccia \textit{kafka\_target}, si è garantita la possib
             \item \textbf{schema\_registry:CachedSchemaRegistryClient [private]} - Consente di interagire con Confluent Schema Registry in modo efficiente, memorizza in cache gli schemi recuperati da Schema Registry, riducendo le chiamate di rete e migliorando la velocità di accesso agli schemi.
         \end{itemize}
     \end{itemize}
-    \item \textbf{Metodi: }
+    \item \textbf{Metodi}:
     \begin{itemize}
         \item \textbf{write\_to\_kafka(data: string): None [public]} - Scrive i dati su Kafka dopo averli validati rispetto allo schema registrato per il topic di destinazione.
     \item\textbf{Note}:
