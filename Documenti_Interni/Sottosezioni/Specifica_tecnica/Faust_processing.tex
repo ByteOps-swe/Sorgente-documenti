@@ -22,12 +22,12 @@ Il punteggio di salute rappresenta un indicatore sintetico del benessere general
 
 Il calcolo del punteggio di salute avviene in due fasi:
 \begin{enumerate}
-    \item \textbf{Incrementi}: 
+    \item \textbf{Incrementi:} 
     \begin{itemize}
         \item A intervalli regolari, per ciascuna tipoligia di misurazione, viene calcolato un incremento basato sulle sole misurazioni acquisite all'interno dell'intervallo;
         \item Ciascuna tipologia di misurazione ha un suo algoritmo di calcolo dell'incremento, basato su soglie predefinite di benessere.
     \end{itemize}
-    \item \textbf{Punteggio Finale}:
+    \item \textbf{Punteggio Finale:}
     \begin{itemize}
         \item Il punteggio di salute finale si ottiene sommando gli incrementi calcolati per le tre tipologie di misurazioni;
         \item Punteggi più alti indicano un minore stato di benessere, con la necessità di interventi per migliorare la qualità della vita.
@@ -73,7 +73,7 @@ Il calcolo del punteggio di salute avviene in due fasi:
         Tramite il \textit{pattern}\textsubscript{\textit{G}} \textit{Object Adapter} e l'interfaccia \textit{processor} l'app Faust invia le misurazioni ottenute dai topic al modello per il calcolo del punteggio di salute che verrà adattato come \textit{processor}.
     \end{itemize}
 
-    \item \textbf{Agente di elaborazione}: 
+    \item \textbf{Agente di elaborazione:} 
     \begin{lstlisting}[style=code]
     @app.agent(<topic>)
     \end{lstlisting}  
@@ -83,7 +83,7 @@ Il calcolo del punteggio di salute avviene in due fasi:
         \item La funzione esegue l'elaborazione desiderata su ogni misurazione.
     \end{itemize}
 
-    \item \textbf{Interfaccia \textit{processor}}:
+    \item \textbf{Interfaccia \textit{processor}:}
     \begin{itemize}
         \item Viene utilizzata per definire un contratto di logiche di elaborazione;
         \item Viene utilizzata dagli agenti di elaborazione per inviare le misurazioni al modello per il calcolo del punteggio di salute.
@@ -164,7 +164,7 @@ In particolare, l'interfaccia \textit{incrementer} specifica il contratto che de
 
     \item\textbf{Classe astratta: \textit{health\_processor\_buffer}}
     \begin{itemize}
-    \item\textbf{Attributi}:
+    \item\textbf{Attributi:}
         \begin{itemize}
         \item \textbf{lista\_misurazioni: lista\_misurazioni [private]} - Una lista di oggetti \textit{misurazione};
         \item \textbf{lock: threading.Lock [private]} - Un oggetto lock per gestire l'accesso concorrente alla lista di misurazioni.
@@ -174,7 +174,7 @@ In particolare, l'interfaccia \textit{incrementer} specifica il contratto che de
         \item \textbf{add\_misurazione(timestamp, value, type\_, latitude, longitude, ID\_sensore, cella): None [public]} - Aggiunge una nuova misurazione alla lista di misurazioni;
         \item \textbf{clear\_list(): None [public]} - Svuota la lista di misurazioni.
     \end{itemize}
-    \item\textbf{Note}:
+    \item\textbf{Note:}
         \begin{itemize}
             \item La classe astratta definisce un buffer di misurazioni per effettuare processing su di esse;
             \item La logica di buffering e quella dell'algoritmo per il calcolo del punteggio di salute vengono separate in due astrazioni per rispettare il Single Responsibility Principle \textit{(SRP)}. Gli utilizzatori di questa classe, ovvero i Processor, sono interessati esclusivamente al metodo per l'invio del dato al buffer;
@@ -183,7 +183,7 @@ In particolare, l'interfaccia \textit{incrementer} specifica il contratto che de
     \end{itemize}
     \item{\textbf{Classe: \textit{health\_calculator}}}
     \begin{itemize}
-    \item\textbf{Attributi}:
+    \item\textbf{Attributi:}
         \begin{itemize}
         \item \textbf{tmpInc: temperature\_incrementer [private]} - Utilizzato per il calcolo dell'incremento di temperatura;
         \item \textbf{umdInc: humidity\_incrementer [private]}; - Utilizzato per il calcolo dell'incremento di umidità;
@@ -201,7 +201,7 @@ In particolare, l'interfaccia \textit{incrementer} specifica il contratto che de
         \item \textbf{calcola\_incremento\_umd(cella: str, lista\_misurazioni): int [private]} - Calcola e restituisce l'incremento dell'umidità;
         \item \textbf{calcola\_incremento\_dstPm10(cella: str, lista\_misurazioni): int [private]} - Calcola e restituisce l'incremento della polvere PM10.
     \end{itemize}
-    \item\textbf{Note}:
+    \item\textbf{Note:}
         \begin{itemize}
             \item La classe implementa l'interfaccia \textit{health\_algorithm} e la classe astratta \textit{health\_processor\_buffer} per calcolare il punteggio di salute tramite la strategia concreta definita in \textit{generate\_new\_health\_score()} che genera una nuova lista di punteggi di salute;
             \item Questa classe rappresenta il cervello del calcolo del punteggio di salute in quanto utilizzatore di tutti gli incrementatori e delle misurazioni bufferizzate per creare una strategia di calcolo.
@@ -210,7 +210,7 @@ In particolare, l'interfaccia \textit{incrementer} specifica il contratto che de
 
     \item\textbf{Classe: \textit{misurazione}}
     \begin{itemize}
-        \item \textbf{Attributi}: 
+        \item \textbf{Attributi:} 
     \begin{itemize}
         \item \textbf{timestamp: datetime [private]} - Timestamp della misurazione;
         \item \textbf{value: T [private]} - Valore della misurazione;
@@ -219,7 +219,7 @@ In particolare, l'interfaccia \textit{incrementer} specifica il contratto che de
         \item \textbf{ID\_sensore: str [private]} - \textit{ID}\textsubscript{\textit{G}} del \textit{sensore}\textsubscript{\textit{G}} che ha effettuato la misurazione;
         \item \textbf{cella: str [private]} - Cella in cui è stata effettuata la misurazione.
     \end{itemize}
-    \item \textbf{Metodi}: 
+    \item \textbf{Metodi:} 
     \begin{itemize}
         \item \textbf{\_\_eq\_\_(other: misurazione): bool [public]} - Ridefinizione dell'operatore di uguaglianza per confrontare due oggetti \textit{misurazione}.
     \end{itemize}
@@ -227,33 +227,33 @@ In particolare, l'interfaccia \textit{incrementer} specifica il contratto che de
 
     \item\textbf{Classe: \textit{coordinate}}
     \begin{itemize}
-        \item    \textbf{Attributi}: 
+        \item    \textbf{Attributi:} 
     \begin{itemize}
         \item \textbf{latitude:float [private]} - Latitudine della coordinata.
         \item \textbf{longitude:float [private]} - Longitudine della coordinata.
     \end{itemize}
-    \item     \textbf{Metodi}: 
+    \item     \textbf{Metodi:} 
     \begin{itemize}
         \item \textbf{\_\_eq\_\_(other:coordinate):bool [public]} - Ridefinizione dell'operatore di uguaglianza per confrontare due oggetti Coordinate.
     \end{itemize}
 \end{itemize}
 \item\textbf{Classe: \textit{misurazione\_salute}}
     \begin{itemize}
-    \item\textbf{Attributi}:
+    \item\textbf{Attributi:}
         \begin{itemize}
         \item \textbf{timestamp:datetime [private]} - Il timestamp della misurazione di salute.
         \item \textbf{value:float [private]} - Il valore della misurazione di salute.
         \item \textbf{type:string [private]} - Il tipo della misurazione.
         \item \textbf{cella:string [private]} - La cella della misurazione di salute.
     \end{itemize}
-    \item\textbf{Note}:
+    \item\textbf{Note:}
         \begin{itemize}
             \item La classe rappresenta una misurazione di salute. Contiene informazioni sul timestamp, il valore (ovvero il punteggio di salute calcolato), il tipo della misurazione e la cella relativa alla misurazione.
         \end{itemize}
     \end{itemize}
     \item\textbf{Classe: \textit{lista\_misurazioni}}
     \begin{itemize}
-    \item\textbf{Attributi}:
+    \item\textbf{Attributi:}
         \begin{itemize}
         \item \textbf{list:List[Misurazione] [private]} - Una lista di oggetti \textit{misurazione}.
     \end{itemize}
@@ -264,14 +264,14 @@ In particolare, l'interfaccia \textit{incrementer} specifica il contratto che de
         \item \textbf{get\_list\_by\_cella\_and\_type(cella: str, tipo\_dato: str): List[Misurazione] [public]} - Restituisce una lista di misurazioni che corrispondono alla cella e al tipo di misurazione specificati (temperatura,umidità,ecc.).
         \item \textbf{get\_unique\_celle(): List[str] [public]} - Restituisce la lista di celle presenti nelle misurazioni senza ripetzioni.
     \end{itemize}
-    \item\textbf{Note}:
+    \item\textbf{Note:}
         \begin{itemize}
             \item La classe rappresenta una lista di misurazioni. Fornisce metodi per aggiungere misurazioni, svuotare la lista, ottenere misurazioni per cella e tipo di misurazioni, e ottenere le celle di cui si hanno misurazioni.
         \end{itemize}
     \end{itemize}
     \item\textbf{Enumerazione: \textit{SensorTypes}}
         \begin{itemize}
-            \item \textbf{Costanti}: 
+            \item \textbf{Costanti:} 
             \begin{itemize}
                 \item \textbf{TEMPERATURE:str [public]} - Rappresenta la nomenclatura dei \textit{sensore}\textsubscript{\textit{G}} di temperatura.
                 \item \textbf{HUMIDITY:str [public]} - Rappresenta la nomenclatura dei \textit{sensore}\textsubscript{\textit{G}} di umidità.
@@ -282,7 +282,7 @@ In particolare, l'interfaccia \textit{incrementer} specifica il contratto che de
                 \item \textbf{ELECTRICAL\_FAULT:str [public]} - Rappresenta la nomenclatura dei \textit{sensore}\textsubscript{\textit{G}} di guasti elettrici.
             \end{itemize}
 
-            \item \textbf{Note}:
+            \item \textbf{Note:}
             \begin{itemize}
                 \item L'enumerazione viene utilizzata per centralizzare la gestione della nomenclatura dei tipi di sensori che verrà salvata nelle misurazioni.
             \end{itemize}
@@ -293,7 +293,7 @@ In particolare, l'interfaccia \textit{incrementer} specifica il contratto che de
     \begin{itemize}
         \item \textbf{get\_incrementation(misurazioni: List[Misurazione]): int [abstractmethod]} - Un metodo astratto che deve essere implementato nelle sottoclassi. Questo metodo calcola e restituire un incremento basato sulla lista di misurazioni fornita.
     \end{itemize}
-    \item\textbf{Note}:
+    \item\textbf{Note:}
         \begin{itemize}
             \item L'interfaccia definisce il contratto per un incrementatore. Le sottoclassi devono implementare il metodo \textit{get\_incrementation()}.
             \item Rappresenta la componente "Strategy" del \textit{pattern}\textsubscript{\textit{G}} omonimo.
@@ -301,7 +301,7 @@ In particolare, l'interfaccia \textit{incrementer} specifica il contratto che de
     \end{itemize}
     \item \textbf{Classe: \textit{temperature\_incrementer}}
     \begin{itemize}
-    \item \textbf{Attributi}:
+    \item \textbf{Attributi:}
         \begin{itemize}
         \item \textbf{upper\_health\_soglia:int [private]} - La soglia superiore di benessere per la temperatura;
         \item \textbf{under\_health\_soglia:int [private]} - La soglia inferiore di benessere per la temperatura.
@@ -310,7 +310,7 @@ In particolare, l'interfaccia \textit{incrementer} specifica il contratto che de
     \begin{itemize}
         \item \textbf{get\_incrementation(misurazioni: List[Misurazione]): int [public]} - Calcola e restituisce un incremento basato sulle sole misurazioni di temperatura della lista fornita.
     \end{itemize}
-    \item\textbf{Note}:
+    \item\textbf{Note:}
         \begin{itemize}
             \item La classe implementa l'interfaccia \textit{incrementer};
             \item I valori di default per le soglie vengono presi dall'enumerazione \textit{HealthConstant} altrimenti sono impostabili alla costruzione.
@@ -319,7 +319,7 @@ In particolare, l'interfaccia \textit{incrementer} specifica il contratto che de
     \end{itemize}
     \item{\textbf{Classe: \textit{humidity\_incrementer}}}
     \begin{itemize}
-    \item\textbf{Attributi}:
+    \item\textbf{Attributi:}
         \begin{itemize}
         \item \textbf{upper\_health\_soglia:int [private]} - La soglia superiore di benessere per l'umidità;
         \item \textbf{under\_health\_soglia:int [private]} - La soglia inferiore di benessere per l'umidità.
@@ -328,7 +328,7 @@ In particolare, l'interfaccia \textit{incrementer} specifica il contratto che de
     \begin{itemize}
         \item \textbf{get\_incrementation(misurazioni: List[Misurazione]): int [public]} - Calcola e restituisce un incremento basato sulle sole misurazioni di umidità della lista fornita.
     \end{itemize}
-    \item\textbf{Note}:
+    \item\textbf{Note:}
         \begin{itemize}
             \item La classe implementa l'interfaccia \textit{incrementer};
             \item I valori di default per le soglie vengono presi dall'enumerazione \textit{HealthConstant} altrimenti sono impostabili alla costruzione.
@@ -340,7 +340,7 @@ In particolare, l'interfaccia \textit{incrementer} specifica il contratto che de
     \begin{itemize}
         \item \textbf{get\_incrementation(misurazioni: List[Misurazione]): int [public]} - Calcola e restituisce un incremento basato sulle sole misurazioni di polveri sottili della lista fornita.
     \end{itemize}
-    \item\textbf{Note}:
+    \item\textbf{Note:}
         \begin{itemize}
             \item La classe implementa l'interfaccia \textit{incrementer};
             \item Rappresenta una strategia concreta del \textit{pattern}\textsubscript{\textit{G}} \textit{Strategy} per il calcolo dell'incremento di polveri sottili PM10.
@@ -387,7 +387,7 @@ In sostanza, seguendo il principio di Inversione delle Dipendenze, il modulo di 
 \begin{itemize}
     \item{\textbf{Classe: \textit{health\_calculator\_thread}}}
     \begin{itemize}
-    \item\textbf{Attributi}:
+    \item\textbf{Attributi:}
         \begin{itemize}
         \item \textbf{health\_calculator: health\_algorithm [private]} - Un implementatazione dell'interfaccia \textit{health\_algorithm}, ovvero una strategia per il calcolo del punteggio.
         \item \textbf{frequency: float [private]} - La frequenza con cui il thread genera nuovi punteggi di salute.
@@ -400,7 +400,7 @@ In sostanza, seguendo il principio di Inversione delle Dipendenze, il modulo di 
         \item \textbf{run(): None [public]} - Esegue il thread, generando nuovi punteggi di salute a una certa frequenza.
         \item \textbf{stop(): None [public]} - Ferma l'esecuzione del thread.
     \end{itemize}
-    \item\textbf{Note}:
+    \item\textbf{Note:}
         \begin{itemize}
             \item La classe estende la classe \textit{threading.Thread}.
             \item Se \textit{data\_to\_generate} è < 0 genera misurazioni di salute finchè il thread non viene interroto dall'esterno.
@@ -430,7 +430,7 @@ Questo \textit{pattern}\textsubscript{\textit{G}} consente di incapsulare le log
     \begin{itemize}
         \item \textbf{process(misurazione: FaustMeasurement): None [public, abstract]} - Un metodo astratto che deve essere implementato nelle sottoclassi. Questo metodo elabora una misurazione.
     \end{itemize}
-    \item\textbf{Note}:
+    \item\textbf{Note:}
         \begin{itemize}
             \item  Le sottoclassi devono implementare il metodo astratto \textit{process()} definendo la propria operazione da effettuare su ogni misurazione ricevuta dai topic di iscrizione.
             \item Rappresenta la componente "Target" del \textit{pattern}\textsubscript{\textit{G}} \textit{Object Adapter}.
@@ -441,7 +441,7 @@ Questo \textit{pattern}\textsubscript{\textit{G}} consente di incapsulare le log
     \end{itemize}
     \item{\textbf{Classe: \textit{FaustMeasurement}}}
     \begin{itemize}
-    \item\textbf{Attributi}:
+    \item\textbf{Attributi:}
         \begin{itemize}
         \item \textbf{timestamp: str} - Il timestamp della misurazione.
         \item \textbf{value: float} - Il valore della misurazione.
@@ -451,18 +451,18 @@ Questo \textit{pattern}\textsubscript{\textit{G}} consente di incapsulare le log
         \item \textbf{ID\_sensore: str} - L'\textit{ID}\textsubscript{\textit{G}} del \textit{sensore}\textsubscript{\textit{G}} che ha effettuato la misurazione.
         \item \textbf{cella: str} - La cella della misurazione.
     \end{itemize}
-    \item\textbf{Note}:
+    \item\textbf{Note:}
         \begin{itemize}
             \item La classe \textit{FaustMeasurement} definita utilizzando \textit{faust.Record} rappresenta un singolo record di misurazione proveniente da un \textit{sensore}\textsubscript{\textit{G}} in un'applicazione Faust basata su \textit{Python}\textsubscript{\textit{G}}
             \item Faust si occupa automaticamente della conversione dei dati in formato JSON in base agli attributi definiti, facilitando la trasmissione e la ricezione dei dati nei topic Kafka\textsubscript{\textit{G}}.
             \item È possibile definire la validazione dei dati in ingresso per garantire l'integrità e la coerenza delle misurazioni.
-            \item \textbf{In sintesi}:
+            \item \textbf{In sintesi:}
             Questa classe viene utilizzata in un'applicazione Faust per definire il tipo di dati atteso nei topic Kafka\textsubscript{\textit{G}}. I dati provenienti dai sensori, contenenti timestamp, valore, tipo, coordinate geografiche, identificativo del \textit{sensore}\textsubscript{\textit{G}} e eventuale cella di appartenenza, verranno convertiti in oggetti di tipo FaustMeasurement prima di essere elaborati dall'applicazione.
         \end{itemize}
     \end{itemize}
     \item{\textbf{Classe: \textit{HealthModelProcessorAdapter}}}
     \begin{itemize}
-    \item\textbf{Attributi}:
+    \item\textbf{Attributi:}
         \begin{itemize}
         \item \textbf{health\_calculator: health\_processor\_buffer} - Un implementazione di health\_processor\_buffer.
     \end{itemize}
@@ -470,7 +470,7 @@ Questo \textit{pattern}\textsubscript{\textit{G}} consente di incapsulare le log
     \begin{itemize}
         \item \textbf{process(misurazione: FaustMeasurement): None [public, async]} - Aggiunge la misurazione all'oggetto \textit{health\_processor\_buffer} adattando \textit{FaustMeasurement} alla porta di accesso fornita da \textit{health\_processor\_buffer} per l'elaborazione volta al calcolo del punteggio di salute.
     \end{itemize}
-    \item\textbf{Note}:
+    \item\textbf{Note:}
         \begin{itemize}
             \item La classe implementa l'interfaccia \textit{Processor}. Implementa il metodo astratto \textit{process()} per aggiungere/adattare la misurazione del tipo \textit{FaustMeasurement} ad un implementatazione di \textit{health\_processor\_buffer}.
             \item Rappresenta la componente "Adapter" del \textit{pattern}\textsubscript{\textit{G}} \textit{Object Adapter}.
