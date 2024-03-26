@@ -273,7 +273,7 @@ L'\textit{integrazione}\textsubscript{\textit{G}} continua (CI) è una pratica d
 
 \vspace{0.2cm}
 
-Il processo di CI, che nel nostro progetto è implementato per la repo di \textit{MVP}\textsubscript{\textit{G}}, è innescato dalla creazione di un Pull Request, quando uno dei programmatori vuole integrare le modifiche fatte con il ramo principale della repo. Tale Pull Request viene effettuata una volta che il programmatore ha finito di completare:
+Il processo di CI, che nel nostro progetto è stato implementato per la repository relativa al \textit{MVP}\textsubscript{\textit{G}}, è innescato dalla creazione di una Pull Request quando uno dei programmatori vuole integrare le modifiche, attuate in un branch dedicato, con il ramo principale della repository. Tale Pull Request viene effettuata una volta che il programmatore ha terminato una delle seguenti task:
 
 \begin{itemize}
     \item \textbf{Implementazione di Feature};
@@ -282,7 +282,7 @@ Il processo di CI, che nel nostro progetto è implementato per la repo di \texti
     \item \textbf{Risoluzione di Bug}.
 \end{itemize}
 
-Con la creazione di una Pull Request, avviene l'innesco di un applicazione di GitHub, chiamata Codacy, che esegue \textit{test}\textsubscript{\textit{G}} di tipo statico. Tale applicazione da esito positivo, nella pagina della Pull Request, se le modifiche fatte non hanno introdotto codice non conforme alle regole di analisi statica definite. Se l'applicazione da un esito di fallimento, il programmatore deve cambiare le modifiche finché il codice passa l'analisi statica.
+Con la creazione di una Pull Request, avviene l'innesco di un applicazione di GitHub, chiamata Codacy, che esegue \textit{test}\textsubscript{\textit{G}} di tipo statico. Tale applicazione da esito positivo, nella pagina della Pull Request, se le modifiche fatte non hanno introdotto codice non conforme alle regole di analisi statica definite. Se l'applicazione da un esito di fallimento, il programmatore deve revisionare le modifiche affinché il codice superi il test di analisi statica.
 
 \vspace{0.2cm}
 
@@ -294,12 +294,12 @@ viene effettuato il pull da DockerHub di tutte le immagini necessarie per costru
 
 \vspace{0.2cm}
 
-Una volta conclusa la costruzione dell prodotto con successo inizia la parte di testing statica e dinamica grazie al profilo di testing dell'ambiente \textit{Docker}\textsubscript{\textit{G}}. Prima di tutto, iniziano i \textit{test}\textsubscript{\textit{G}} statici usando Pylint. L'esito di tali \textit{test}\textsubscript{\textit{G}} viene esposto nel file \textit{README.md} usando un badge di GitHub che mostra un punteggio compreso tra 0 e 10 rappresentante la qualita del codice.
+Una volta conclusa con successo la costruzione del prodotto, si avvia la parte di testing statica e dinamica grazie al profilo di testing dell'ambiente \textit{Docker}\textsubscript{\textit{G}}. Prima di tutto, si avviano i \textit{test}\textsubscript{\textit{G}} statici utilizzando Pylint. L'esito di tali \textit{test}\textsubscript{\textit{G}} viene esposto nel file \textit{README.md} tramite un badge di GitHub che mostra un punteggio compreso tra 0 e 10 rappresentante la qualita del codice.
 
 
 \vspace{0.2cm}
 
-Una volta finiti i \textit{test}\textsubscript{\textit{G}} statici iniziano i \textit{test}\textsubscript{\textit{G}} dinamici che sono:
+Una volta terminati i \textit{test}\textsubscript{\textit{G}} statici si avviano i \textit{test}\textsubscript{\textit{G}} dinamici che sono:
 
 \begin{itemize}
     \item \textbf{Test di Unita};
@@ -307,7 +307,8 @@ Una volta finiti i \textit{test}\textsubscript{\textit{G}} statici iniziano i \t
     \item \textbf{Test di Sistema}.
 \end{itemize}
 
-Se almeno uno dei \textit{test}\textsubscript{\textit{G}} fallisce, allora il \textit{workflow}\textsubscript{\textit{G}} si ferma con stato di fallimento, manda una notifica all programmatore che ha creato la Pull Request e chiude la Pull Request. Se tutti i \textit{test}\textsubscript{\textit{G}} vengono eseguiti con successo, sarà possibile apportare le modifiche fatte nel ramo principale.
+Se almeno uno dei \textit{test}\textsubscript{\textit{G}} fallisce, allora il \textit{workflow}\textsubscript{\textit{G}} si ferma con stato di fallimento. Viene inviata una notifica al programmatore che ha creato la Pull Request e viene chiusa la Pull Request. \\
+Se tutti i \textit{test}\textsubscript{\textit{G}} vengono eseguiti con successo, sarà possibile apportare le modifiche effettuate nel ramo principale.
 
 \vspace{0.2cm}
 
@@ -316,11 +317,17 @@ Alla conclusione dei \textit{test}\textsubscript{\textit{G}} viene riportato il 
 \hypertarget{subsubsec:strumentiVerifica}{\subsubsection{Strumenti}}
 \begin{itemize}
     \item \textbf{Spell checker:} 
-        controllo ortografico integrato nell’ambiente di lavoro;
-    \item \textbf{Modulo "Pytest" Python:} libreria \textit{standard}\textsubscript{\textit{G}} che offre una serie di funzionalità per creare, organizzare e eseguire \textit{test}\textsubscript{\textit{G}} di unità in modo efficace e automatizzato;
-    \item \textbf{Modulo "Unittest" Python:} libreria \textit{standard}\textsubscript{\textit{G}} che offre una serie di funzionalità per creare, organizzare e eseguire \textit{test}\textsubscript{\textit{G}} di unità;
-    \item \textbf{Modulo "Pylint" Python:} libreria open source che analizza il codice sorgente \textit{Python}\textsubscript{\textit{G}} per identificare potenziali errori, bug e cattive abitudini di programmazione;
-    \item \textbf{Applicazione GitHub \href{https://github.com/marketplace/codacy}{Codacy}:} \textit{servizio}\textsubscript{\textit{G}} che verifica il codice tramite l'analisi statica;
-    \item \textbf{\href{https://github.com/marketplace/actions/coveralls-github-action}{Coverallas}:} \textit{servizio}\textsubscript{\textit{G}} che traccia e mostra il code coverage;
-    \item \textbf{\href{https://github.com/marketplace/actions/codecov}{Codecov}:} \textit{servizio}\textsubscript{\textit{G}} che traccia e mostra il code coverage;
+    controllo ortografico integrato nell’ambiente di lavoro;
+    \item \textbf{Modulo "Pytest" Python:} libreria \textit{standard}\textsubscript{\textit{G}} che offre una serie di funzionalità per creare, organizzare e eseguire \textit{test}\textsubscript{\textit{G}} di unità in modo efficace e automatizzato. \\
+    Riferimento: \url{https://docs.pytest.org/en/8.0.x/} (Consultato:~21/03/2024);
+    \item \textbf{Modulo "Unittest" Python:} libreria \textit{standard}\textsubscript{\textit{G}} che offre una serie di funzionalità per creare, organizzare e eseguire \textit{test}\textsubscript{\textit{G}} di unità. \\
+    Riferimento: \url{https://docs.python.org/3/library/unittest.html} (Consultato:~21/03/2024);
+    \item \textbf{Modulo "Pylint" Python:} libreria open source che analizza il codice sorgente \textit{Python}\textsubscript{\textit{G}} per identificare potenziali errori, bug e cattive abitudini di programmazione. \\
+    Riferimento: \url{https://pypi.org/project/pylint/} (Consultato:~21/03/2024);
+    \item \textbf{Applicazione GitHub Codacy:} \textit{servizio}\textsubscript{\textit{G}} che verifica il codice tramite l'analisi statica. \\
+    Riferimento: \url{https://github.com/marketplace/codacy} (Consultato:~21/03/2024);
+    \item \textbf{Coveralls:} \textit{servizio}\textsubscript{\textit{G}} che traccia e mostra il code coverage. \\
+    Riferimento: \url{https://github.com/marketplace/actions/coveralls-github-action} (Consultato:~21/03/2024);
+    \item \textbf{Codecov:} \textit{servizio}\textsubscript{\textit{G}} che traccia e mostra il code coverage. \\
+    Riferimento: \url{https://github.com/marketplace/actions/codecov} (Consultato:~21/03/2024).
 \end{itemize}
