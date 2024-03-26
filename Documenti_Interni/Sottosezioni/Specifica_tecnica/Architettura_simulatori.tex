@@ -123,10 +123,10 @@ Il pattern \textit{Factory} incapsula la creazione concreta dei sensori, consent
     \begin{itemize}
         \item \textbf{Attributi}: 
         \begin{itemize}
-            \item \textbf{ID\_sensor: string [private]} - Identificatore univoco del sensore.
-            \item \textbf{cella\_sensore: string [private]} - Identificatore della cella del sensore.
-            \item \textbf{coordinate: coordinate [private]} - Coordinate geografiche del sensore.
-            \item \textbf{misurazione: T [protected]} - Misurazione corrente del sensore.
+            \item \textbf{ID\_sensor: string [private]} - Identificatore univoco del sensore;
+            \item \textbf{cella\_sensore: string [private]} - Identificatore della cella del sensore;
+            \item \textbf{coordinate: coordinate [private]} - Coordinate geografiche del sensore;
+            \item \textbf{misurazione: T [protected]} - Misurazione corrente del sensore;
             \item \textbf{type: string [private]} - Tipo di sensore.
         \end{itemize}
         \item \textbf{Metodi}:
@@ -135,20 +135,20 @@ Il pattern \textit{Factory} incapsula la creazione concreta dei sensori, consent
             \item 
             Si basa sul design pattern Template Method:
             \begin{enumerate}
-                \item Chiama generate\_measure() per generare un valore di misurazione.
-                \item Chiama adapt() per effettuare adattamenti se necessari.
+                \item Chiama generate\_measure() per generare un valore di misurazione;
+                \item Chiama adapt() per effettuare adattamenti se necessari;
                 \item Restituisce un oggetto \textit{misurazione} con data e ora corrente, valore misurato, tipo di sensore, coordinate e identificativo del sensore.
             \end{enumerate}
-            \item \textbf{generate\_measure(): None [protected]} - Metodo astratto da implementare nelle classi concrete per generare un valore di misurazione semi-casuale coerente con la tipolgia di sensore da salvare nell'attributo \textit{misurazione}.
+            \item \textbf{generate\_measure(): None [protected]} - Metodo astratto da implementare nelle classi concrete per generare un valore di misurazione semi-casuale coerente con la tipolgia di sensore da salvare nell'attributo \textit{misurazione};
             \item \textbf{adapt(): void [protected]} - Fornisce un'implementazione di default che non modifica in alcun modo la misurazione generata. Può essere ridefinito per implementare la logica di adattamento della misurazione come conversioni di unità di misura.
         \end{itemize}
         \item \textbf{Note}:
         \begin{itemize}
-            \item La classe \textit{simulator} è astratta e definisce il comportamento generale della simulazione della misurazione, pattern \textit{Template method}.
-            \item Le classi concrete che ereditano da \textit{simulator} devono implementare il metodo astratto generate\_measure().
-            \item Il metodo adapt() può essere ridefinito nelle classi concrete per implementare conversioni o adattamenti necessari.
-            \item Il metodo \textit{simulate()} è final e non può essere ridefinito.
-            \item Spiegazioni esaustive sono state presentate in: \ref{sec:templateSIM}
+            \item La classe \textit{simulator} è astratta e definisce il comportamento generale della simulazione della misurazione, pattern \textit{Template method};
+            \item Le classi concrete che ereditano da \textit{simulator} devono implementare il metodo astratto generate\_measure();
+            \item Il metodo adapt() può essere ridefinito nelle classi concrete per implementare conversioni o adattamenti necessari;
+            \item Il metodo \textit{simulate()} è final e non può essere ridefinito;
+            \item Spiegazioni esaustive sono state presentate in: \ref{sec:templateSIM}.
         \end{itemize}
     \end{itemize}
         
@@ -156,12 +156,12 @@ Il pattern \textit{Factory} incapsula la creazione concreta dei sensori, consent
     \begin{itemize}
         \item \textbf{Costanti}: 
         \begin{itemize}
-            \item \textbf{TEMPERATURE: string [public]} - Rappresenta la nomenclatura dei sensore di temperatura.
-            \item \textbf{HUMIDITY: string [public]} - Rappresenta la nomenclatura dei sensore di umidità.
-            \item \textbf{DUST\_PM10: string [public]} - Rappresenta la nomenclatura dei sensore di "polvere PM10".
-            \item \textbf{CHARGING\_STATION: string [public]} - Rappresenta la nomenclatura dei sensore di stato delle colonnine di ricarica.
-            \item \textbf{ECOLOGICAL\_ISLAND: string [public]} - Rappresenta la nomenclatura dei sensore di stato riempimento isole ecologica.
-            \item \textbf{WATER\_PRESENCE: string [public]} - Rappresenta la nomenclatura dei sensore di presenza d'acqua.
+            \item \textbf{TEMPERATURE: string [public]} - Rappresenta la nomenclatura dei sensore di temperatura;
+            \item \textbf{HUMIDITY: string [public]} - Rappresenta la nomenclatura dei sensore di umidità;
+            \item \textbf{DUST\_PM10: string [public]} - Rappresenta la nomenclatura dei sensore di "polvere PM10";
+            \item \textbf{CHARGING\_STATION: string [public]} - Rappresenta la nomenclatura dei sensore di stato delle colonnine di ricarica;
+            \item \textbf{ECOLOGICAL\_ISLAND: string [public]} - Rappresenta la nomenclatura dei sensore di stato riempimento isole ecologica;
+            \item \textbf{WATER\_PRESENCE: string [public]} - Rappresenta la nomenclatura dei sensore di presenza d'acqua;
             \item \textbf{ELECTRICAL\_FAULT: string [public]} - Rappresenta la nomenclatura dei sensore di guasti elettrici.
         \end{itemize}
 
@@ -183,8 +183,8 @@ Il pattern \textit{Factory} incapsula la creazione concreta dei sensori, consent
         \end{itemize}
         \item\textbf{Note}:
         \begin{itemize}
-            \item La classe \textit{temperature\_simulator} è una classe concreta che eredita dalla classe astratta \textit{simulator}.
-            \item Il costruttore genera automaticamente un ID sensore univoco per ogni istanza.
+            \item La classe \textit{temperature\_simulator} è una classe concreta che eredita dalla classe astratta \textit{simulator};
+            \item Il costruttore genera automaticamente un ID sensore univoco per ogni istanza;
             \item Dichiara di generare misurazioni di temperatura con unità di default (Gradi Celsius), possibili classi derivate possono effettuare conversioni ad altre unità di misura (Kelvin,Fahrenheit) tramite il metodo \textit{adapt()}, senza dover modificare la logica di generazione.
         \end{itemize}
     \end{itemize}
@@ -201,8 +201,8 @@ Il pattern \textit{Factory} incapsula la creazione concreta dei sensori, consent
         \end{itemize}
         \item \textbf{Note}:
         \begin{itemize}
-        \item La classe \textit{humidity\_simulator} è una classe concreta che eredita dalla classe astratta \textit{simulator}.
-        \item Il costruttore genera automaticamente un ID sensore univoco per ogni istanza.
+        \item La classe \textit{humidity\_simulator} è una classe concreta che eredita dalla classe astratta \textit{simulator};
+        \item Il costruttore genera automaticamente un ID sensore univoco per ogni istanza;
         \item Dichiara di generare misurazioni di umidità con unità di default (Percentuale), possibili classi derivate possono effettuare conversioni ad altre unità di misura (g/m³) tramite il metodo \textit{adapt()}, senza dover modificare la logica di generazione.
         \end{itemize}
     \end{itemize}
@@ -219,8 +219,8 @@ Il pattern \textit{Factory} incapsula la creazione concreta dei sensori, consent
         \end{itemize}
         \item \textbf{Note}:
         \begin{itemize}
-            \item La classe \textit{charging\_station\_simulator} è una classe concreta che eredita dalla classe astratta \textit{simulator}.
-            \item Il costruttore genera automaticamente un ID sensore univoco per ogni istanza.
+            \item La classe \textit{charging\_station\_simulator} è una classe concreta che eredita dalla classe astratta \textit{simulator};
+            \item Il costruttore genera automaticamente un ID sensore univoco per ogni istanza;
             \item Implementa il metodo astratto \textit{generate\_measure()} per generare una misurazione basata sulla probabilità di transizione.
         \end{itemize}
     \end{itemize}
@@ -237,8 +237,8 @@ Il pattern \textit{Factory} incapsula la creazione concreta dei sensori, consent
         \end{itemize}
         \item \textbf{Note}:
         \begin{itemize}
-            \item La classe \textit{dust\_PM10\_simulator} è una classe concreta che eredita dalla classe astratta \textit{simulator}.
-            \item Il costruttore genera automaticamente un ID sensore univoco per ogni istanza.
+            \item La classe \textit{dust\_PM10\_simulator} è una classe concreta che eredita dalla classe astratta \textit{simulator};
+            \item Il costruttore genera automaticamente un ID sensore univoco per ogni istanza;
             \item Dichiara di generare misurazioni di polvere PM10 in con unità di default (µg/m³), possibili classi derivate possono effettuare conversioni ad altre unità di misura (mg/m³) tramite il metodo \textit{adapt()}, senza dover modificare la logica di generazione.
         \end{itemize}
     \end{itemize}
@@ -255,7 +255,7 @@ Il pattern \textit{Factory} incapsula la creazione concreta dei sensori, consent
         \end{itemize}
         \item \textbf{Note}:
         \begin{itemize}
-            \item La classe \textit{electrical\_fault\_simulator} è una classe concreta che eredita dalla classe astratta \textit{simulator}.
+            \item La classe \textit{electrical\_fault\_simulator} è una classe concreta che eredita dalla classe astratta \textit{simulator};
             \item Il costruttore genera automaticamente un ID sensore univoco per ogni istanza.
         \end{itemize}
     \end{itemize}
@@ -272,7 +272,7 @@ Il pattern \textit{Factory} incapsula la creazione concreta dei sensori, consent
         \end{itemize}
         \item \textbf{Note}:
         \begin{itemize}
-            \item La classe \textit{ecological\_island\_simulator} è una classe concreta che eredita dalla classe astratta \textit{simulator}.
+            \item La classe \textit{ecological\_island\_simulator} è una classe concreta che eredita dalla classe astratta \textit{simulator};
             \item Il costruttore genera automaticamente un ID sensore univoco per ogni istanza.
         \end{itemize}
     \end{itemize}
@@ -289,7 +289,7 @@ Il pattern \textit{Factory} incapsula la creazione concreta dei sensori, consent
         \end{itemize}
         \item \textbf{Note}:
         \begin{itemize}
-            \item La classe \textit{ecological\_island\_simulator} è una classe concreta che eredita dalla classe astratta \textit{simulator}.
+            \item La classe \textit{ecological\_island\_simulator} è una classe concreta che eredita dalla classe astratta \textit{simulator};
             \item Il costruttore genera automaticamente un ID sensore univoco per ogni istanza.
         \end{itemize}
     \end{itemize}
@@ -298,11 +298,11 @@ Il pattern \textit{Factory} incapsula la creazione concreta dei sensori, consent
     \begin{itemize}
         \item \textbf{Attributi}: 
         \begin{itemize}
-            \item \textbf{timestamp: datetime [private]} - Timestamp della misurazione.
-            \item \textbf{value: T [private]} - Valore della misurazione.
-            \item \textbf{type: string [private]} - Tipo della misurazione.
-            \item \textbf{coord: coordinate [private]} - Coordinate della misurazione.
-            \item \textbf{ID\_sensore: string [private]} - ID del sensore che ha effettuato la misurazione.
+            \item \textbf{timestamp: datetime [private]} - Timestamp della misurazione;
+            \item \textbf{value: T [private]} - Valore della misurazione;
+            \item \textbf{type: string [private]} - Tipo della misurazione;
+            \item \textbf{coord: coordinate [private]} - Coordinate della misurazione;
+            \item \textbf{ID\_sensore: string [private]} - ID del sensore che ha effettuato la misurazione;
             \item \textbf{cella: string [private]} - Cella in cui è stata effettuata la misurazione.
         \end{itemize}
         \item \textbf{Metodi}: 
@@ -315,7 +315,7 @@ Il pattern \textit{Factory} incapsula la creazione concreta dei sensori, consent
     \begin{itemize}
         \item \textbf{Attributi}: 
         \begin{itemize}
-            \item \textbf{latitude: float [private]} - Latitudine della coordinata.
+            \item \textbf{latitude: float [private]} - Latitudine della coordinata;
             \item \textbf{longitude: float [private]} - Longitudine della coordinata.
         \end{itemize}
         \item \textbf{Metodi}: 
@@ -328,17 +328,17 @@ Il pattern \textit{Factory} incapsula la creazione concreta dei sensori, consent
     \begin{itemize}
         \item \textbf{Metodi}: 
         \begin{itemize}
-            \item \textbf{create\_temperature\_sensor(latitude: float, longitude: float, cella: string, initial\_value: float): temperature\_simulator [public, static]} - Crea un simulatore di temperatura.
+            \item \textbf{create\_temperature\_sensor(latitude: float, longitude: float, cella: string, initial\_value: float): temperature\_simulator [public, static]} - Crea un simulatore di temperatura;
 
-            \item \textbf{create\_humidity\_sensor(latitude: float, longitude: float, cella: string, initial\_value: float): humidity\_simulator [public, static]} - Crea un simulatore di umidità.
+            \item \textbf{create\_humidity\_sensor(latitude: float, longitude: float, cella: string, initial\_value: float): humidity\_simulator [public, static]} - Crea un simulatore di umidità;
             
-            \item \textbf{create\_charging\_station\_sensor(latitude: float, longitude: float, cella: string, probabilita\_occupazione: float): charging\_station\_simulator [public, static]} - Crea un simulatore di stazione di ricarica.
+            \item \textbf{create\_charging\_station\_sensor(latitude: float, longitude: float, cella: string, probabilita\_occupazione: float): charging\_station\_simulator [public, static]} - Crea un simulatore di stazione di ricarica;
             
-            \item \textbf{create\_ecological\_island\_sensor(latitude: float, longitude: float, cella: string, initial\_value: float): ecological\_island\_simulator [public, static]} - Crea un simulatore di isola ecologica.
+            \item \textbf{create\_ecological\_island\_sensor(latitude: float, longitude: float, cella: string, initial\_value: float): ecological\_island\_simulator [public, static]} - Crea un simulatore di isola ecologica;
             
-            \item \textbf{create\_water\_presence\_sensor(latitude: float, longitude: float, cella: string, soglia\_rilevamento: float): water\_presence\_sensor [public, static]} - Crea un sensore di presenza d'acqua.
+            \item \textbf{create\_water\_presence\_sensor(latitude: float, longitude: float, cella: string, soglia\_rilevamento: float): water\_presence\_sensor [public, static]} - Crea un sensore di presenza d'acqua;
             
-            \item \textbf{create\_dust\_PM10\_sensor(latitude: float, longitude: float, cella: string, initial\_value: float): dust\_PM10\_simulator [public, static]} - Crea un simulatore di polvere PM10.
+            \item \textbf{create\_dust\_PM10\_sensor(latitude: float, longitude: float, cella: string, initial\_value: float): dust\_PM10\_simulator [public, static]} - Crea un simulatore di polvere PM10;
             
             \item \textbf{create\_eletrical\_fault\_sensor(latitude: float, longitude: float, cella: string, fault\_probability: float): electrical\_fault\_simulator [public, static]} - Crea un simulatore di guasto elettrico.
         \end{itemize}
