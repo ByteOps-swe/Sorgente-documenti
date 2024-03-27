@@ -408,12 +408,12 @@ In sintesi, il modulo:
     \begin{itemize}
         \item \textbf{Metodi: }
         \begin{itemize}
-            \item \textbf{adapter\_misurazione(misurazione\_salute: misurazione): None [public]} - ;
-            \item \textbf{to\_json(): string [public]} - .
+            \item \textbf{to\_json(): String [public]} - Ritorna una stringa JSON compatibile con lo schema richiesto nello Schema Registry per le misurazione di salute.
         \end{itemize}
         \item\textbf{Note:}
         \begin{itemize}
-            \item 
+            \item Rappresenta il componente adapter del pattern \textit{Object adapter};
+            \item L'adapter adatta le misurazioni di salute ottenute dall'algoritmo di calcolo del punteggio di salute all'interfaccia \textit{writable} per l'invio al topic Kafka\textsubscript{\textit{G}}.
         \end{itemize}
     \end{itemize}
 \end{itemize}
@@ -425,40 +425,41 @@ In sintesi, il modulo:
     \caption{Modulo Processing - InnovaCity}
     \label{fig: processHealth}
 \end{figure}
-Per garantire un'interfaccia uniforme per i metodi di elaborazione dei dati provenienti da Kafka\textsubscript{\textit{G}} tramite Faust e per stabilire un canale di comunicazione con il modello per il calcolo del punteggio di salute, viene sviluppato il modulo di Processing. Questo modulo offre l'interfaccia target denominata \textit{Processor}, e un adapter a \textit{Processor} per l'invio delle misurazioni al modello per il calcolo del punteggio di salute, denominato \textit{HealthModelProcessorAdapter}.
+Al fine garantire un'interfaccia uniforme delle operazioni di elaborazione dei dati provenienti da Kafka\textsubscript{\textit{G}} tramite Faust e per stabilire un canale di comunicazione con il modello per il calcolo del punteggio di salute, viene sviluppato il modulo di Processing. Il modulo offre l'interfaccia target denominata \textit{processor}, e un suo adapter denominato \textit{health\_model\_processor\_adapter} per l'invio delle misurazioni al modello per il calcolo del punteggio di salute.
 
 \paragraph*{Design Pattern Object Adapter}
-Nel contesto dell'applicazione Faust, all'interno del ruolo svolto dagli agenti, ogni volta che una misurazione viene ricevuta, viene invocato il metodo \textit{process\_measure()} dell'implementazione dell'interfaccia \textit{Processor}, denominata \textit{HealthModelProcessorAdapter}. In particolare, \textit{HealthModelProcessorAdapter} adatta la classe astratta \textit{HealthModelBuffer}, che rappresenta un buffer di misurazioni utilizzato per eseguire il calcolo periodico del punteggio di salute della città, all'interfaccia \textit{Processor}.
+Nel contesto dell'applicazione Faust, all'interno del ruolo svolto dagli agenti, ogni volta che una misurazione viene ricevuta, viene invocato il metodo \textit{process()} dell'implementazione dell'interfaccia \textit{processor} denominata \textit{health\_model\_processor\_adapter}.
 
-Questo \textit{pattern}\textsubscript{\textit{G}} consente di incapsulare le logiche di elaborazione e di rendere il modello indipendente dall'implementazione specifica dell'applicazione Faust. Allo stesso tempo, facilita la sostituzione dell'operazione di elaborazione eseguita su ogni misurazione dagli agenti grazie al contratto dell'interfaccia \textit{Processor}.
-\paragraph*{Classi: metodi e attributi}
+In particolare, \textit{health\_model\_processor\_adapter} adatta la classe astratta \textit{health\_processor\_buffer}, che rappresenta un buffer di misurazioni utilizzato per eseguire il calcolo periodico del punteggio di salute della città, all'interfaccia \textit{processor}.
+
+Questo \textit{pattern}\textsubscript{\textit{G}} consente di definire dei contratti per le logiche di elaborazione e di rendere il modello indipendente dall'implementazione specifica dell'applicazione Faust. Allo stesso tempo, facilita la sostituzione dell'operazione di elaborazione eseguita su ogni misurazione dagli agenti grazie al contratto definito nell'interfaccia \textit{processor}.
+\paragraph*{Classi, interfacce, metodi e attributi}
 \begin{itemize}
-    \item{\textbf{Interfaccia: \textit{Processor}}}
+    \item{\textbf{Interfaccia: \textit{processor}}}
     \begin{itemize}
     \item\textbf{Metodi: }
     \begin{itemize}
-        \item \textbf{process(misurazione: FaustMeasurement): None [public, abstract]} - Un metodo astratto che deve essere implementato nelle sottoclassi. Questo metodo elabora una misurazione.
+        \item \textbf{process(misurazione: FaustMeasurement): None [public, abstract]} - Metodo astratto che deve essere implementato nelle sottoclassi per effettuare elaborazioni di una misurazione.
     \end{itemize}
     \item\textbf{Note:}
         \begin{itemize}
-            \item  Le sottoclassi devono implementare il metodo astratto \textit{process()} definendo la propria operazione da effettuare su ogni misurazione ricevuta dai topic di iscrizione.
-            \item Rappresenta la componente "Target" del \textit{pattern}\textsubscript{\textit{G}} \textit{Object Adapter}.
-            \item L'interfaccia è stata progettata per garantire un'interfaccia uniforme per i metodi di elaborazione dei dati provenienti da Kafka\textsubscript{\textit{G}} tramite Faust.
-            \item Rappresenta un contratto per l'elaborazione di misurazioni.
-            \item Gli agenti in ascolto sul topic utilizzeranno un implementatazione di \textit{Processor} per effettuare l'elaborazione delle misurazioni ottenute.
+            \item  Le sottoclassi devono implementare il metodo astratto \textit{process()} definendo la propria operazione da effettuare su ogni misurazione ricevuta dai topic di iscrizione;
+            \item Rappresenta la componente "Target" del \textit{pattern}\textsubscript{\textit{G}} \textit{Object Adapter};
+            \item L'interfaccia è stata progettata per garantire e rappresentare un contratto uniforme per i metodi di elaborazione dei dati provenienti da Kafka\textsubscript{\textit{G}} tramite Faust;
+            \item Gli agenti in ascolto sul topic utilizzeranno un implementatazione di \textit{processor} per effettuare l'elaborazione delle misurazioni ottenute.
         \end{itemize}
     \end{itemize}
     \item{\textbf{Classe: \textit{FaustMeasurement}}}
     \begin{itemize}
     \item\textbf{Attributi:}
         \begin{itemize}
-        \item \textbf{timestamp: str} - Il timestamp della misurazione.
-        \item \textbf{value: float} - Il valore della misurazione.
-        \item \textbf{type: str} - Il tipo della misurazione.
-        \item \textbf{latitude: float} - La latitudine della misurazione.
-        \item \textbf{longitude: float} - La longitudine della misurazione.
-        \item \textbf{ID\_sensore: str} - L'\textit{ID}\textsubscript{\textit{G}} del \textit{sensore}\textsubscript{\textit{G}} che ha effettuato la misurazione.
-        \item \textbf{cella: str} - La cella della misurazione.
+        \item \textbf{timestamp: str} - Il timestamp della misurazione;
+        \item \textbf{value: float} - Il valore della misurazione;
+        \item \textbf{type: str} - Il tipo della misurazione;
+        \item \textbf{latitude: float} - La latitudine della misurazione;
+        \item \textbf{longitude: float} - La longitudine della misurazione;
+        \item \textbf{ID\_sensore: str} - L'\textit{ID}\textsubscript{\textit{G}} del \textit{sensore}\textsubscript{\textit{G}} che ha effettuato la misurazione;
+        \item \textbf{cella: str} - La cella in cui è stata effettuata la misurazione.
     \end{itemize}
     \item\textbf{Note:}
         \begin{itemize}
@@ -469,7 +470,7 @@ Questo \textit{pattern}\textsubscript{\textit{G}} consente di incapsulare le log
             Questa classe viene utilizzata in un'applicazione Faust per definire il tipo di dati atteso nei topic Kafka\textsubscript{\textit{G}}. I dati provenienti dai sensori, contenenti timestamp, valore, tipo, coordinate geografiche, identificativo del \textit{sensore}\textsubscript{\textit{G}} e eventuale cella di appartenenza, verranno convertiti in oggetti di tipo FaustMeasurement prima di essere elaborati dall'applicazione.
         \end{itemize}
     \end{itemize}
-    \item{\textbf{Classe: \textit{HealthModelProcessorAdapter}}}
+    \item{\textbf{Classe: \textit{health\_model\_processor\_adapter}}}
     \begin{itemize}
     \item\textbf{Attributi:}
         \begin{itemize}
@@ -481,7 +482,7 @@ Questo \textit{pattern}\textsubscript{\textit{G}} consente di incapsulare le log
     \end{itemize}
     \item\textbf{Note:}
         \begin{itemize}
-            \item La classe implementa l'interfaccia \textit{Processor}. Implementa il metodo astratto \textit{process()} per aggiungere/adattare la misurazione del tipo \textit{FaustMeasurement} ad un implementatazione di \textit{health\_processor\_buffer}.
+            \item La classe implementa l'interfaccia \textit{processor}. Implementa il metodo astratto \textit{process()} per aggiungere/adattare la misurazione del tipo \textit{FaustMeasurement} ad un implementatazione di \textit{health\_processor\_buffer}.
             \item Rappresenta la componente "Adapter" del \textit{pattern}\textsubscript{\textit{G}} \textit{Object Adapter}.
         \end{itemize}
     \end{itemize}
