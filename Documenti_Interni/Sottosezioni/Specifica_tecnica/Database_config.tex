@@ -1,206 +1,182 @@
-
 \subsection{Configurazione Database}
-Si è optato per l'utilizzo di ClickHouse per il salvataggio dei dati, le motivazioni sono descritte nella sezione \ref{sec:clickHouse}. In particolare, per ogni sensore dei quali si desidera memorizzare i dati, viene creata una tabella che acquisisce i dati dal relativo topic Kafka e una tabella della famiglia MergeTree che permette la loro persistenza.
-Le tipologie di sensori cui misurazioni si vogliono trattare nel progetto sono:
+Si è optato per l'utilizzo di ClickHouse per il salvataggio dei dati, le motivazioni sono descritte nella sezione \ref{sec:clickHouse}. In particolare, per ogni sensore di cui si desidera memorizzare le misurazioni, viene creata una tabella che le acquisisce dal relativo topic Kafka e una tabella della famiglia MergeTree che permette la loro persistenza.
+Le tipologie di sensori le quali misurazioni si vogliono trattare nel progetto sono:
 \begin{itemize}
     \item Sensori di temperatura;
     \item Sensori di umidità;
     \item Sensori di rilevamento polveri sottili; 
-    \item Sensori stato riempimento isole ecologiche;
-    \item Sensori di stato occupazione colonnine di ricarica;
+    \item Sensori di stato di riempimento delle isole ecologiche;
+    \item Sensori di occupazione delle colonnine di ricarica;
     \item Sensori di guasti elettrici;
     \item Sensori di presenza dell'acqua.
 \end{itemize}
-Oltre alla misurazioni dei sensori, si è deciso di memorizzare anche i punteggi di salute delle celle calcolati. Questi punteggi vengono calcolati in base alle misurazioni dei sensori e vengono memorizzati in una tabella apposita.
-La progettazione del database ClickHouse è cruciale, poiché un'adeguata ottimizzazione consente di garantire prestazioni ottimali per un sistema orientato al tempo reale e in grado di gestire analisi su enormi volumi di dati.
+Oltre alla misurazioni dei sensori, si è deciso di memorizzare in una tabella apposita anche i punteggi di salute calcolati per ogni cella sulla base delle relative misurazioni.
 
+La progettazione del database ClickHouse è cruciale, poiché un'adeguata ottimizzazione consente di garantire prestazioni ottimali per un sistema orientato al tempo reale e che richiede analisi su grandi volumi di dati.
 
 \subsubsection{Funzionalità Clickhouse utilizzate}
 \paragraph{Materialized Views}
-Link alla documentazione: \href{https://clickhouse.com/docs/en/guides/developer/cascading-materialized-views}{https://clickhouse.com/docs/en/guides/developer/cascading-materialized-views} (Consultato 25/03/2024).\newline
-Le Materialized Views in ClickHouse sono un meccanismo potente per migliorare le prestazioni delle query e semplificare l'accesso ai dati. Funzionano mantenendo una copia fisica dei risultati di una query di selezione, che viene quindi memorizzata su disco. Questa copia è aggiornata periodicamente in base ai dati sottostanti.
+\textbf{Documentazione:}
 
-\paragraph{Utilizzi Principali delle Materialized Views}
+\url{https://clickhouse.com/docs/en/guides/developer/cascading-materialized-views} (Consultato 25/03/2024).\newline
+Le Materialized Views in ClickHouse sono un meccanismo volto a migliorare le prestazioni delle query e semplificare l'accesso ai dati.
+
+Funzionano mantenendo una copia fisica dei risultati di una query di selezione, che viene quindi memorizzata su disco. Questa copia è aggiornata periodicamente in base ai dati sottostanti.
+
+\paragraph{Utilizzi principali delle Materialized Views}
 \begin{itemize}
-    \item \textbf{Calcolo aggregazioni e popolamento tabelle}:Spesso le delle materialized Views sono state utilizzate per calcolare aggregazioni su dati e quindi popolare altre tabelle con i risultati aggregati. Ad esempio, nel caso specifico in cui una Materialized View calcola la media delle temperature per ogni sensore ogni secondo, i risultati di questa vista possono essere utilizzati per popolare una tabella principale contenente i dati di temperatura aggregati, aggiornando i valori di temperatura medi per ogni sensore ogni secondo;
-    \item \textbf{Ottimizzazione delle Prestazioni}: memorizzando i risultati di una query complessa, le Materialized Views consentono di eseguire rapidamente le Query successive senza dover ricalcolare i dati ogni volta. Ciò è particolarmente utile in applicazioni che richiedono interrogazioni frequenti su grandi volumi di dati;
-    \item \textbf{Decomposizione delle \textit{Query} Complesse}: le Materialized Views consentono di decomporre query complesse in passaggi più semplici e riutilizzabili, migliorando la leggibilità del codice e semplificando lo sviluppo e la manutenzione delle query.
+    \item \textbf{Calcolo aggregazioni e popolamento tabelle:} Le materialized Views vengono utilizzate per calcolare aggregazioni su dati e quindi popolare altre tabelle con i risultati aggregati;
+    \item \textbf{Ottimizzazione delle prestazioni:} Memorizzando i risultati di una query complessa, le Materialized Views consentono di eseguire rapidamente le query successive senza dover ricalcolare i dati ogni volta. Ciò è particolarmente utile in applicazioni che richiedono interrogazioni frequenti su grandi volumi di dati;
+    \item \textbf{Decomposizione delle query complesse:} Le Materialized Views consentono di decomporre query complesse in passaggi più semplici e riutilizzabili, migliorando la leggibilità del codice e semplificando lo sviluppo e la manutenzione delle query.
 \end{itemize}
 
 Nel progetto le materialized view sono fondamentali per spostare automaticamente i dati dai topic Kafka alle tabelle di destinazione.
 \begin{figure}[H]
   \centering
   \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/enginePipeline.jpg}
-  \caption{Data pipeline - ClickHouse}
-  \label{fig:datapip}
+  \caption{Clickhouse data pipeline}
+  \label{fig:data_pipeline_clickhouse}
 \end{figure}
 
 \paragraph{MergeTree}\label{sec:MergeTree}
-Link alla documentazione: \href{https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree#mergetree}{ClickHouse - MergeTree} (Consultato 25/03/2024).\newline
-MergeTree è uno dei motori di archiviazione di base più utilizzati in ClickHouse. È progettato per gestire dati ordinati in append-only e offre un'ottima combinazione di prestazioni di lettura, scrittura, scalabilità e funzionalità per diversi casi d'uso.
+\textbf{Documentazione:}
+
+\url{https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree#mergetree} (Consultato 25/03/2024).\newline
+MergeTree è uno dei motori di archiviazione di base più utilizzati in ClickHouse. È progettato per gestire dati ordinati in \textit{append-only} e offre un'ottima combinazione di prestazioni di lettura, scrittura, scalabilità e funzionalità per diversi casi d'uso.
+
 Caratteristiche principali:
 \begin{itemize}
-  \item \textbf{Ordinato}: I dati sono archiviati in ordine crescente in base alla chiave di ordinamento specificata;
-  \item \textbf{Append-only}: I nuovi dati vengono sempre aggiunti alla fine della tabella;
-  \item \textbf{Scalabile}: Altamente scalabile orizzontalmente;
-  \item \textbf{Partizionamento}: Supporto per partizionare la tabella in base a una colonna specifica;
-  \item \textbf{TTL (Time to Live)}: Consente di definire un TTL per i dati, eliminandoli automaticamente dopo un periodo di tempo specificato;
-  \item \textbf{Compressione}: Supporta diverse tecniche di compressione per ridurre lo spazio di archiviazione utilizzato.
+	\item \textbf{Ordinato:} I dati sono archiviati in ordine crescente in base alla chiave di ordinamento specificata;
+	\item \textbf{Append-only:} I nuovi dati vengono sempre aggiunti alla fine della tabella;
+	\item \textbf{Scalabile:} Altamente scalabile orizzontalmente;
+	\item \textbf{Partizionamento:} Supporto per partizionare la tabella in base a una colonna specifica;
+	\item \textbf{TTL (Time to Live):} Consente di definire un TTL per i dati, eliminandoli automaticamente dopo un periodo di tempo specificato;
+	\item \textbf{Compressione:} Supporta diverse tecniche di compressione per ridurre lo spazio di archiviazione utilizzato.
 \end{itemize}
 
-Casi d'uso comuni:
+\textbf{Casi d'uso comuni:}
 \begin{itemize}
-  \item \textbf{Analisi di log};
-  \item \textbf{Dati sensoriali};
-  \item \textbf{Dati finanziari};
-  \item \textbf{Dati di monitoraggio};
-  \item \textbf{Time series data}.
+  \item Analisi di log;
+  \item Dati finanziari;
+  \item Dati di monitoraggio;
+  \item Time series data.
 \end{itemize}
 
-Vantaggi:
+\textbf{Vantaggi:}
 \begin{itemize}
-  \item \textbf{Prestazioni di lettura e scrittura elevate};
-  \item \textbf{Scalabilità};
-  \item \textbf{Funzionalità avanzate};
-  \item \textbf{Adatto a diversi casi d'uso}.
+  \item Prestazioni di lettura e scrittura elevate;
+  \item Scalabilità orizzontale;
+  \item Funzionalità avanzate;
+  \item Adatto a diversi casi d'uso.
 \end{itemize}
 
-\paragraph{Time To Live in ClickHouse} \label{sec:RollupTTL}
-Link alla documentazione: \href{https://clickhouse.com/docs/en/guides/developer/ttl#implementing-a-rollup}{https://clickhouse.com/docs/en/guides/developer/ttl\#implementing-a-rollup} \newline
+\paragraph{Time to live in ClickHouse} \label{sec:RollupTTL}
+\textbf{Documentazione:}
 
-TTL (time-to-live) si riferisce alla capacità di spostare, eliminare o eseguire il rollup di righe o colonne dopo che è trascorso un determinato intervallo di tempo. Sebbene l'espressione "time-to-live" sembri applicarsi solo all'eliminazione di vecchi dati, TTL ha diversi casi d'uso:
+\url{https://clickhouse.com/docs/en/guides/developer/ttl#implementing-a-rollup}\newline
+
+TTL \textit{(Time To Live)} si riferisce alla capacità di spostare, eliminare o eseguire il rollup di righe o colonne dopo che è trascorso un determinato intervallo di tempo. Sebbene l'espressione "time to live" sembri applicarsi solo all'eliminazione di vecchi dati, TTL ha diversi casi d'uso:
+
 \begin{itemize}
-  \item \textbf{Eliminazione dei vecchi dati}: rimuovere i dati dopo un certo periodo di tempo;
-  \item \textbf{Spostamento dei dati tra dischi}: spostare i dati tra volumi di archiviazione dopo un certo periodo di tempo;
-  \item \textbf{Rollup dei dati}: raggruppare i dati più vecchi in varie aggregazioni e calcoli utili .
+	\item \textbf{Eliminazione dei vecchi dati:} Rimuovere i dati dopo un certo periodo di tempo;
+	\item \textbf{Spostamento dei dati tra dischi:} Spostare i dati tra volumi di archiviazione dopo un certo periodo di tempo;
+	\item \textbf{Rollup dei dati:} Effettuare operazioni di aggregazione sui dati dopo un intervallo di tempo prestabilito.
 \end{itemize}
 
 Nel progetto è stato fatto utilizzo dove opportuno dell'operazione di Rollup di misurazioni dei sensori.
-Nello specifico dopo un certo intervallo di tempo non vengono piu conservate tutte le misurazioni di un sensore, ma solo una misurazione aggregata per ogni sensore e per ogni periodo di tempo specificato. Questo permette di ridurre il volume di dati da analizzare e di mantenere comunque un'informazione utile per l'analisi.
+Nello specifico dopo un certo intervallo di tempo non vengono piu conservate tutte le misurazioni di ogni sensore, ma solo la media delle loro misurazioni nel periodo di tempo specificato. Questo permette di ridurre il volume di dati da analizzare e di mantenere comunque un'informazione utile per l'analisi.
 
 \paragraph{Partition}\label{sec:Partition}
-Link alla documentazione: \href{https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree#partition-by}{ClickHouse - Partitioning} (Consultato 25/03/2024).\\
-Le partizioni sono una funzionalità fondamentale di ClickHouse che consente di organizzare in modo efficiente e gestire grandi volumi di dati. Questa funzionalità permette di suddividere i dati in gruppi logici in base a criteri specifici, come il valore di una colonna o un intervallo di tempo. Grazie a questa organizzazione ottimizzata, le query che richiedono l'accesso a dati specifici all'interno di una partizione possono essere eseguite rapidamente, garantendo prestazioni elevate anche su dataset di grandi dimensioni.\\
+\textbf{Documentazione:}
+
+\url{https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree#partition-by} (Consultato 25/03/2024).
+
+Le partizioni sono una funzionalità fondamentale di ClickHouse che consente di organizzare in modo efficiente la gestione di grandi volumi di dati. Questa funzionalità permette di suddividere i dati in gruppi logici in base a criteri specifici, come il valore di una colonna o un intervallo di tempo.
+
+Grazie a questa organizzazione ottimizzata, le query che richiedono l'accesso a dati specifici all'interno di una partizione possono essere eseguite rapidamente, garantendo prestazioni elevate anche su dataset di grandi dimensioni.
 
 Le partizioni rappresentano uno strumento particolarmente utile quando si lavora con dati di serie temporali. La decisione sull'utilizzo del partizionamento dovrebbe derivare da una serie di considerazioni chiave:
+
 \begin{itemize}
-  \item \textbf{Interrogazione singola:} È previsto che le query siano principalmente focalizzate su una singola partizione? Ad esempio, se le interrogazioni tendono a riguardare risultati entro un periodo specifico come un giorno o un mese, sarebbe vantaggioso partizionare i dati in base a tali periodi temporali.
-  \item \textbf{Scadenza dei dati (TTL):} Si desidera applicare una politica di Time-To-Live (TTL) ai dati, in modo che una volta che una partizione raggiunge una certa età, venga applicata un'azione specifica su di essa?
+	\item \textbf{Interrogazione singola:} È previsto che le query siano principalmente focalizzate su una singola partizione? Ad esempio, se le interrogazioni tendono a riguardare risultati entro un periodo specifico come un giorno o un mese, sarebbe vantaggioso partizionare i dati in base a tali periodi temporali.
+	\item \textbf{Scadenza dei dati (TTL):} Se si desidera applicare una politica di TTL ai dati, in modo che una volta che una partizione raggiunge una certa età, venga applicata un'azione specifica su di essa, allora può risultare opportuno l'utilizzo del partitioning in base a tali periodi temporali.
 \end{itemize}
 
-Spesso si consiglia di mantenere il numero di partizioni al di sotto di circa 100. Anche se è tecnicamente possibile utilizzare fino a 1000 partizioni, tale approccio potrebbe non essere ottimale e potrebbe influenzare le prestazioni del sistema, inclusi tempi di avvio, tempi di inserimento/query e l'utilizzo di memoria. Questo è dovuto all'impatto che un elevato numero di partizioni può avere sul file system e sulle dimensioni dell'indice, con conseguente aumento della complessità gestionale e dei carichi di lavoro.
+Spesso si consiglia di mantenere il numero di partizioni al di sotto di circa 100. Anche se è tecnicamente possibile utilizzare fino a 1000 partizioni, tale approccio potrebbe non essere ottimale e potrebbe influenzare le prestazioni del sistema, inclusi tempi di avvio, tempi di inserimento, query-time e l'utilizzo di memoria.
 
-Nel progetto viene fatto utilizzo del partizionamento temporale nelle tabelle in cui è ritenuto oppurtuno in base alle considerazioni sopra descritte.
-Infatti l'utilizzo delle partizioni nel nostro contesto viene giustificato anche dall'utilizzo di un TTL (Time To Live),oltre che dal fatto che le interrogazzioni riguardino principalmente una singola partizione. infatti l'utilizzo combinato di queste due funzionalità consente:
-\begin{itemize}
-    \item Una gestione efficace dei dati nel tempo;
-    \item Migliori prestazioni del sistema;
-\end{itemize}
+Questo è dovuto all'impatto che un elevato numero di partizioni può avere sul file system e sulle dimensioni dell'indice, con conseguente aumento della complessità gestionale e dei carichi di lavoro.
 
-Il partizionamento basato sul timestamp,come detto, è una pratica comune in ClickHouse, poiché consente di organizzare i dati in partizioni in base al periodo temporale, ad esempio mensilmente. Questo approccio ottimizza l'archiviazione e facilita l'analisi dei dati di serie temporali, come le temperature o i log di eventi. Grazie a questa struttura, le query che coinvolgono dati all'interno di specifici intervalli temporali diventano più efficienti, consentendo un accesso rapido e una migliore analisi dei dati.
+Nel nostro progetto viene fatto utilizzo del partizionamento temporale nelle tabelle in cui è ritenuto oppurtuno sulla base delle considerazioni sopra descritte. L'utilizzo viene giustificato infatti dall'impiego di TTL, oltre al fatto che le interrogazioni riguardino principalmente una singola partizione.
     
 \paragraph{Projection}\label{sec:projections}
-Link alla documentazione: \href{https://clickhouse.com/docs/en/sql-reference/statements/alter/projection}{https://clickhouse.com/docs/en/sql-reference/statements/alter/projection}\newline
-Altra fonte utile: \href{https://presentations.clickhouse.com/percona2021/projections.pdf}{https://presentations.clickhouse.com/percona2021/projections.pdf} (Consultato 25/03/2024). \newline
+\textbf{Documentazione:}
+
+\url{https://clickhouse.com/docs/en/sql-reference/statements/alter/projection} (Consultato 25/03/2024).
+
+\textbf{Approfondimento:} \url{https://presentations.clickhouse.com/percona2021/projections.pdf} (Consultato 25/03/2024).
 
 Le projection in ClickHouse sono una funzionalità di ottimizzazione per migliorare le prestazioni delle query su tabelle MergeTree. Esse creano delle viste pre-aggregate o pre-ordinate dei dati originali, consentendo a ClickHouse di accedere e analizzare i dati in modo più efficiente.
+
 Questa funzionalità è utile per:
 
 \begin{itemize}
-    \item Eseguire \textit{Query} basate su di una colonna che non fa parte della chiave primaria;
+    \item Eseguire query basate su di una colonna che non fa parte della chiave primaria;
     \item Pre-aggregare colonne, riducendo sia i calcoli che l'I/O.
 \end{itemize}
 
 Come funzionano le projection:
 \begin{itemize}
-  \item \textbf{Definizione}: Si definisce una projection su una tabella MergeTree esistente. La projection specifica una sottocategoria di colonne e, opzionalmente, un nuovo ordine di ordinamento per queste colonne;
-  \item \textbf{Creazione interna}: ClickHouse crea internamente una nuova tabella nascosta che contiene i dati della projection;
-  \item \textbf{Aggregazione o ordinamento}: I dati selezionati vengono aggregati (utilizzando funzioni come media, somma, ecc.) o ordinati in base alle colonne specificate nella definizione della projection;
-  \item \textbf{Selezione automatica}: Durante l'esecuzione di una query, ClickHouse analizza la projection e la tabella originale. Se la projection rientra nei criteri di selezione della query (colonne e ordine), ClickHouse può utilizzare la projection per rispondere alla query, evitando di accedere alla tabella originale completa.
+	\item \textbf{Definizione:} Si definisce una projection su una tabella MergeTree esistente. La projection specifica una sottocategoria di colonne e, opzionalmente, un nuovo ordine di ordinamento per queste colonne;
+	\item \textbf{Creazione interna:} ClickHouse crea internamente una nuova tabella nascosta che contiene i dati della projection;
+	\item \textbf{Aggregazione o ordinamento:} I dati selezionati vengono aggregati (utilizzando funzioni come media, somma, ecc.) o ordinati in base alle colonne specificate nella definizione della projection;
+	\item \textbf{Selezione automatica:} Durante l'esecuzione di una query, ClickHouse analizza la projection e la tabella originale. Se la projection rientra nei criteri di selezione della query (colonne e ordine), ClickHouse può utilizzare la projection per rispondere alla query, evitando di accedere alla tabella originale completa.
 \end{itemize}
 
 Vantaggi delle projection:
 \begin{itemize}
-  \item \textbf{Miglioramento delle prestazioni}: Accedendo ai dati pre-aggregati o pre-ordinati, le query possono essere eseguite più velocemente;
-  \item \textbf{Riduzione dell'utilizzo della CPU}: Le aggregazioni e gli ordinamenti vengono eseguiti durante la creazione della projection, riducendo il carico di lavoro della CPU durante le query;
-  \item \textbf{Più flessibilità di query}: Le projection possono supportare ordini diversi rispetto alla tabella originale, aumentando la flessibilità delle query.
-\end{itemize}
-Casi d'uso comuni delle projection:
-\begin{itemize}
-  \item \textbf{Analisi di dati aggregati}: Se le query spesso richiedono aggregazioni come medie, somme o conteggi su specifici sottoinsiemi di colonne, le projection pre-aggregate possono migliorare le prestazioni;
-  \item \textbf{Query con ordini specifici}: Se le query spesso filtrano e ordinano i dati in base a colonne specifiche, le projection pre-ordinate possono essere vantaggiose.
+	\item \textbf{Miglioramento delle prestazioni:} Accedendo ai dati pre-aggregati o pre-ordinati, le query possono essere eseguite più velocemente;
+	\item \textbf{Riduzione dell'utilizzo della CPU:} Le aggregazioni e gli ordinamenti vengono eseguiti durante la creazione della projection, riducendo il carico di lavoro della CPU durante le query;
+	\item \textbf{Più flessibilità di query:} Le projection possono supportare ordini diversi rispetto alla tabella originale, aumentando la flessibilità delle query.
 \end{itemize}
 
-Svantaggi delle projection:
-\begin{itemize}
-  \item \textbf{Complessità di gestione}: È necessario definire e gestire le projection, aggiungendo complessità all'amministrazione del database;
-  \item \textbf{Sovraccarico di scrittura}: La creazione e l'aggiornamento delle projection richiedono risorse di scrittura aggiuntive;
-  \item \textbf{Spazio di archiviazione aggiuntivo}: Le projection occupano spazio di archiviazione aggiuntivo rispetto alla tabella originale.
-\end{itemize}
+Nel contesto del progetto, le projection sono state impiegate strategicamente al fine di ottimizzare le prestazioni delle interrogazioni basate sulla colonna "\textit{cella}". Questa colonna, pur non facendo parte della chiave primaria, è oggetto di interrogazioni molto frequenti su vasti volumi di dati.
 
-Nel contesto del progetto, le proiezioni sono state impiegate strategicamente al fine di ottimizzare le prestazioni delle interrogazioni basate sulla colonna "\textit{cella}". Questa colonna, pur non facendo parte della chiave primaria, è oggetto di interrogazioni molto frequenti su vasti volumi di dati.
+L'utilizzo di tale strategia si rivela particolarmente vantaggiosa vista la previsione di interrogazioni ricorrenti e su dataset di grandi dimensioni basate su tale colonna, contribuendo così a garantire tempi di risposta ottimizzati e una migliore esperienza utente.
 
-L'adozione di proiezioni consente di migliorare l'efficienza delle interrogazioni, consentendo al sistema di recuperare rapidamente e gestire in modo ottimale i dati relativi alla colonna "\textit{cella}". Tale strategia si rivela particolarmente vantaggiosa vista la previsione di interrogazioni ricorrenti e su dataset di grandi dimensioni basate su tale colonna, contribuendo così a garantire tempi di risposta ottimizzati e una migliore esperienza utente.
+In generale l'introduzione delle projections produce risultati di notevole importanza, come illustrato di seguito.
 
+Consideriamo una query, che calcola la media globale di \textbf{170'000} misurazioni di temperatura tramite Grafana:
 
-In generale l'introduzione delle PROJECTIONS produce risultati di notevole importanza, come illustrato di seguito. Consideriamo una tipica query eseguita per l'analisi tramite Grafana:
-    
-    \begin{lstlisting}[caption={Query tipica - Grafana}, captionpos=b]
-      SELECT ID_sensore, avgMerge(value) AS value, timestamp
-      FROM innovacity.temperatures
-      WHERE (cella IN ('Arcella')) AND ((timestamp >= toDateTime64(1708338633507 / 1000, 3)) AND (timestamp <= toDateTime64(1708338933507 / 1000, 3) + INTERVAL 1 DAY))
-      GROUP BY timestamp, ID_sensore
-      HAVING (value >= -100) AND (value <= 100)
+\begin{lstlisting}[caption={Esempio query - Grafana}, captionpos=b]
+	SELECT avgMerge(value) count(*)
+	FROM innovacity.temperatures
+	WHERE cella = 'Arcella'
 
-      --Query id: 48635435-9b35-4727-b580-9e33a9db92d4
-    \end{lstlisting}
+	--Query id: 59811218-6f57-4753-b24a-a81c2a8380df
+\end{lstlisting}
 
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/ProjectionQuery.jpg}
-        \caption{Query tipica - Grafana}
-        \label{fig:ProjectionsQuery}
-      \end{figure}
-      Senza l'utilizzo delle PROJECTIONS, il risultato ottenuto è il seguente:
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.9\textwidth]{../Images/SpecificaTecnica/SenzaProectionResult.jpg}
-        \caption{Query tipica risultato senza projections}
-        \label{fig:ProjectionsQueryWthout}
-      \end{figure}
-      ovvero sono state processate per ottenere il risultato della query \textbf{16,38} migliaia di righe. Invece in seguito all’aggiunta delle PROJECTIONS:
+Senza l'utilizzo delle projections, il risultato ottenuto è il seguente:
 
-      \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.9\textwidth]{../Images/SpecificaTecnica/ConProjectionRisultato.jpg}
-        \caption{Query tipica risultato con projections}
-        \label{fig:ProjectionsQueryWith}
-      \end{figure}   
-  Sono state elaborate approssimativamente \textbf{8,19} migliaia di righe per ottenere il risultato della query, circa la metà rispetto al conteggio precedente, evidenziando un miglioramento significativo. Inoltre, mediante un'interrogazione specifica è possibile confermare che le PROJECTIONS sono state effettivamente impiegate per generare il risultato della query in questione.
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/ProjectionUsedByClickHouse.jpg}
-    \caption{Uso della Projection}
-    \label{fig:ProjectionsUsed}
-\end{figure}
-
-Considerando un'altra query eseguita dall'applicativo, che calcola la media globale di \textbf{170.000} misurazioni di temperatura, è possibile riconoscere i benefici derivanti dall'utilizzo delle PROJECTIONS. Alla conclusione dell'analisi, è evidente anche il loro effettivo impiego nel calcolo del risultato. Grazie all'adozione delle PROJECTIONS, si ottiene:
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/query2ProjectionsWith.jpg}
-    \caption{Query esempio Projection 2 - ClickHouse}
-    \label{fig:with2proj}
-  \end{figure}
-Ovvero il totale di righe processate per ottenere il risultato è di \textbf{49,95 migliaia} con \textbf{0,07 secondi} di tempo utilizzati.
-Si puo notare invece la differenza delle righe processate una volta rimossa la \textit{PROJECTIONS}:
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/query2ProjectionsWithout.jpg}
-    \caption{Query esempio senza Projection 2 - ClickHouse}
+    \caption{Query esempio senza projection - ClickHouse}
     \label{fig:without2proj}
   \end{figure}
 
- Il totale di righe processate per ottenere il risultato è ora di \textbf{170,09 migliaia}, ovvero la totalità delle righe presenti nella tabella, con \textbf{0,09 secondi} di tempo utilizzati.
+Il totale di righe processate per ottenere il risultato è  \textbf{170'090}, ovvero la totalità delle righe presenti nella tabella, con \textbf{9}ms di tempo utilizzati e un picco di memoria RAM impiegata di \textbf{4.32}MiB.
+
+Con l'impiego delle projections invece il risultato ottenuto è il seguente:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/query2ProjectionsWith.jpg}
+    \caption{Query esempio projection - ClickHouse}
+    \label{fig:with2proj}
+\end{figure}
+
+Il totale di righe processate per ottenere il risultato è di \textbf{49'950} con \textbf{7}ms di tempo utilizzati e un picco di memoria RAM impiegata di \textbf{159.36}KiB.
+
 
 \subsubsection{Integrazione Kafka tramite Kafka Engine in ClickHouse}\label{sec:kafka_engine}
 ClickHouse supporta l'integrazione con Kafka tramite Kafka Engine, permettendo la lettura dei dati da un topic Kafka e il loro salvataggio in una tabella ClickHouse adatta a grandi dataset. Tale funzionalità riveste un'importanza notevole per applicazioni che richiedono l'elaborazione in tempo reale di dati provenienti da fonti esterne, una necessità frequente nel contesto del monitoraggio urbano. L'integrazione con Kafka consente l'acquisizione e la memorizzazione efficiente dei dati, garantendo prestazioni elevate anche su grandi volumi di dati.\\
@@ -222,9 +198,9 @@ Una materialized view funge da ponte tra la fonte dei dati (Kafka Engine) e la d
 La materialized view esegue una query sulla tabella Kafka Engine per selezionare i dati più recenti. Una volta selezionati, questi dati vengono inseriti nella tabella di destinazione (ad esempio, una tabella MergeTree). Questo processo avviene in modo automatico e immediato, senza bisogno di intervento manuale.\\
 In pratica, la materialized view si assicura che la tabella di destinazione sia sempre aggiornata con i dati più recenti presenti nella tabella Kafka Engine. Questo offre numerosi vantaggi:
 \begin{itemize}
-  \item \textbf{Automatizzazione del processo}: Non è necessario eseguire manualmente operazioni di trasferimento dati da una tabella all'altra. La materialized view si occupa di tutto in modo automatico;
-  \item \textbf{Efficienza}: Il trasferimento dei dati avviene in tempo reale, garantendo che la tabella di destinazione sia sempre allineata con la fonte dei dati senza ritardi;
-  \item \textbf{Ottimizzazione delle risorse}: Il processo di trasferimento dei dati è gestito in modo efficiente, utilizzando al meglio le risorse disponibili e garantendo prestazioni elevate.
+  \item \textbf{Automatizzazione del processo:} Non è necessario eseguire manualmente operazioni di trasferimento dati da una tabella all'altra. La materialized view si occupa di tutto in modo automatico;
+  \item \textbf{Efficienza:} Il trasferimento dei dati avviene in tempo reale, garantendo che la tabella di destinazione sia sempre allineata con la fonte dei dati senza ritardi;
+  \item \textbf{Ottimizzazione delle risorse:} Il processo di trasferimento dei dati è gestito in modo efficiente, utilizzando al meglio le risorse disponibili e garantendo prestazioni elevate.
 \end{itemize}
 Nel contesto specifico, le materialized view sono responsabili di eseguire controlli sui dati, come ad esempio la verifica della loro correttezza ed affidabilità nel contesto di utilizzo, prima di inserirli nella tabella di destinazione. Questo processo assicura che i dati siano sempre affidabili e pronti per l'analisi, senza la necessità di ulteriori operazioni di pulizia o preparazione.\\
 Per esempio, nel caso dei dati di umidità raccolti da sensori in un'area urbana, la materialized view potrebbe eseguire controlli per assicurarsi che i valori rientrino all'interno di un intervallo plausibile e che non ci siano discrepanze improbabili. Ciò garantirebbe che i dati di umidità inseriti nella tabella di destinazione siano accurati e affidabili per l'analisi meteorologica o ambientale.
@@ -298,7 +274,7 @@ Nello specifico per ogni sensore si avrà la seguente tabella Clickhouse:
     La tabella 'temperatures\_kafka' come spiegato in precedenza funge da tramite tra il topic Kafka relativo alle misurazioni di temperatura e il sistema di gestione dei dati ClickHouse. Questa tabella agisce come un'interfaccia trasformando i flussi di dati provenienti dal topic Kafka in un formato comprensibile per ClickHouse. Successivamente, una Materialized View, in questo caso 'mv\_temperatures', opera su questa tabella per trasferire i dati ottenuti verso la tabella di destinazione 'temperatures' della famiglia MergeTree come spiegato in \ref{sec:materializedView}.
     
 \paragraph{Projections per misurazioni di temperatura} \label{sec:temp_projections}
-Durante la fase di progettazione, è stata dedicata particolare attenzione all'utilizzo delle tabelle precedentemente descritte e alle richieste che verranno formulate su di esse. È emerso che, considerando il requisito di suddividere la città in una serie di celle e specificare la cella di origine della misurazione, la filtrazione delle misurazioni per celle diventerà una richiesta frequente al database. Di conseguenza, si è optato per l'utilizzo delle PROJECTIONS per ottimizzare il filtering su tale campo, le quali sono dettagliatamente descritte nella sezione \ref{sec:projections}.
+Durante la fase di progettazione, è stata dedicata particolare attenzione all'utilizzo delle tabelle precedentemente descritte e alle richieste che verranno formulate su di esse. È emerso che, considerando il requisito di suddividere la città in una serie di celle e specificare la cella di origine della misurazione, la filtrazione delle misurazioni per celle diventerà una richiesta frequente al database. Di conseguenza, si è optato per l'utilizzo delle projections per ottimizzare il filtering su tale campo, le quali sono dettagliatamente descritte nella sezione \ref{sec:projections}.
 \vspace{0,3cm}
 \begin{lstlisting}[caption={implementazione PROJECTION tabella temperatures}, captionpos=b]
   --Projection per tabella temperatures
