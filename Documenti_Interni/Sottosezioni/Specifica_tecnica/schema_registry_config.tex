@@ -11,7 +11,7 @@ Lo Schema Registry rappresenta un elemento chiave per la governance dei dati, po
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{../Images/SpecificaTecnica/schemaRegistry.jpg}
-    \caption{Schema Registry Overview - Confluent Documentation}
+    \caption{Schema Registry overview - Confluent documentation}
     \label{fig:schemaReg}
 \end{figure}
 
@@ -99,4 +99,10 @@ I messaggi nel topic dedicato allo streaming delle misurazioni dei punteggi di s
           }
         ]
       }
-    \end{lstlisting}
+\end{lstlisting}
+
+\paragraph{Implementazione Schema Registry}
+
+Per registrare uno schema nel registro degli schemi di Kafka viene utilizzato il comando \textit{curl} insieme alla \textit{Rest} API fornita dallo schema registry.
+
+Il comando \textit{curl} viene utilizzato tramite un'immagine Docker dedicata.
