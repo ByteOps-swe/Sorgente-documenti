@@ -371,39 +371,36 @@ Tutte le informazioni sono già state esposte in: \ref*{sec:writersModule}.
     \label{fig: threadHealth}
 \end{figure}
 
-Questo modulo si occupa di integrare la logica di Scheduling e Threading per il calcolo periodico del punteggio di salute della città e quella di scrittura/invio di \textit{Writable}. In particolare, fornisce un'implementazione di un thread che, a intervalli regolari, richiama il calcolo del punteggio di salute della città. Successivamente, utilizzando il modulo "Writer", adatta le misurazioni di salute ottenute all'interfaccia per renderle un oggetto che implementa \textit{Writable}. Pertanto, questo modulo è utilizzatore del modello per il calcolo del punteggio di salute e del modulo di Writer.
+Questo modulo si occupa di integrare la logica di Scheduling e Threading per il calcolo periodico del punteggio di salute della città e quella di scrittura/invio di \textit{writable}. In particolare, fornisce un'implementazione di un thread che, a intervalli regolari, richiama il calcolo del punteggio di salute della città. Successivamente, utilizzando il modulo \textit{Writer}, adatta le misurazioni di salute ottenute all'interfaccia \textit{writable} per inviare i dati al topic Kafka e/o stamparli su terminale. Pertanto, questo modulo è utilizzatore del modello per il calcolo del punteggio di salute e del modulo di \textit{Writer}.
+Il modulo è stato progettato per rispettare il Dependecy Inversion Principle \textit{(DIP)}, di conseguenza sia i moduli di alto livello che quelli di basso livello dipendono da astrazioni (interfacce o classi astratte).
+
 In sintesi, il modulo:
     \begin{enumerate}
         \item Richiama l'algoritmo per calcolo del punteggio di salute della città a intervalli regolari;
         \item Scrive il risultato ottenuto sul topic Kafka\textsubscript{\textit{G}} dedicato.
     \end{enumerate}
 
-\paragraph*{Dependecy Inversion principle}
-Il modulo di scheduling e threading dipende dall'astrazione dell'interfaccia del modello per il calcolo del punteggio di salute e del modulo di Writer, invece di dipendere direttamente dalle implementazioni concrete di questi moduli. Ciò consente una maggiore flessibilità e facilità di manutenzione, poiché il modulo di scheduling e threading non è vincolato a implementazioni specifiche, ma può essere facilmente adattato per utilizzare diverse implementazioni che soddisfano lo stesso contratto.
-
-In sostanza, seguendo il principio di Inversione delle Dipendenze, il modulo di scheduling e threading si concentra sull'utilizzo di interfacce o astrazioni, piuttosto che sulle implementazioni concrete, rendendo il \textit{sistema}\textsubscript{\textit{G}} più modulare, scalabile e facilmente estendibile.
-
-\paragraph*{Classi: metodi e attributi}
+\paragraph*{Classi, interfacce, metodi e attributi}
 \begin{itemize}
     \item{\textbf{Classe: \textit{health\_calculator\_thread}}}
     \begin{itemize}
     \item\textbf{Attributi:}
         \begin{itemize}
-        \item \textbf{health\_calculator: health\_algorithm [private]} - Un implementatazione dell'interfaccia \textit{health\_algorithm}, ovvero una strategia per il calcolo del punteggio.
-        \item \textbf{frequency: float [private]} - La frequenza con cui il thread genera nuovi punteggi di salute.
-        \item \textbf{is\_running: bool [private]} - Un flag che indica se il thread è in esecuzione.
-        \item \textbf{data\_to\_generate: int [private]} - Il numero di misurazioni di salute da generare.
-        \item \textbf{writers: Writer [private]} - Un oggetto della classe Writer. (Singolo scrittore o albero, Composite \textit{pattern}\textsubscript{\textit{G}})
+        \item \textbf{health\_calculator: health\_algorithm [private]} - Un implementatazione dell'interfaccia \textit{health\_algorithm}, ovvero una strategia per il calcolo del punteggio di salute;
+        \item \textbf{frequency: float [private]} - La frequenza con cui il thread genera nuovi punteggi di salute;
+        \item \textbf{is\_running: bool [private]} - Un flag che indica se il thread è in esecuzione;
+        \item \textbf{data\_to\_generate: int [private]} - Il numero di misurazioni di salute da generare;
+        \item \textbf{writers: writer [private]} - Un oggetto che implementa la classe \textit{writer}. (Singolo scrittore o albero, Composite \textit{pattern}\textsubscript{\textit{G}})
     \end{itemize}
     \item \textbf{Metodi: }
     \begin{itemize}
-        \item \textbf{run(): None [public]} - Esegue il thread, generando nuovi punteggi di salute a una certa frequenza.
+        \item \textbf{run(): None [public]} - Esegue il thread, generando nuovi punteggi di salute ad una certa frequenza;
         \item \textbf{stop(): None [public]} - Ferma l'esecuzione del thread.
     \end{itemize}
     \item\textbf{Note:}
         \begin{itemize}
-            \item La classe estende la classe \textit{threading.Thread}.
-            \item Se \textit{data\_to\_generate} è < 0 genera misurazioni di salute finchè il thread non viene interroto dall'esterno.
+            \item La classe estende la classe \textit{threading.Thread};
+            \item Se \textit{data\_to\_generate} è minore di zero, genera misurazioni di salute finchè il thread non viene interroto dall'esterno;
             \item   Grazie al \textit{pattern}\textsubscript{\textit{G}} \textit{Strategy} è possibile cambiare agevolmente l'algoritmo volto al calcolo del punteggio di salute della città.
         \end{itemize}
     \end{itemize}
