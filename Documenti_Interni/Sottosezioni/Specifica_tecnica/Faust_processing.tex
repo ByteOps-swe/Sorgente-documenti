@@ -53,13 +53,13 @@ Il calcolo del punteggio di salute avviene in due fasi:
     \end{lstlisting}  
     \begin{itemize}
         \item \textbf{nome\_topic:} Nome del topic Kafka\textsubscript{\textit{G}} a cui iscrivere l'app Faust;
-        \item \textbf{tipo\_dato:} Classe che rappresenta il tipo di dato del topic (es. FaustMeasurement);
+        \item \textbf{tipo\_dato:} Classe che rappresenta il tipo di dato del topic (es. faust\_measurement);
         \item Nel caso si vogliano aggiungere altri topic da cui consumare dati basterà aggiungerli prima del parametro value\_type separati da virgole.
     \end{itemize}
 
     \item \textbf{Tipo di dato atteso:}
      \begin{lstlisting}[style=code]
-    class faust_measurement(faust.Record, serializer='json')
+    class faust\_measurement(faust.Record, serializer='json')
     \end{lstlisting}  
     \begin{itemize}
         \item È una classe che eredita da \textbf{faust.Record};
@@ -213,7 +213,7 @@ In particolare, l'interfaccia \textit{incrementer} specifica il contratto che de
         \item \textbf{Attributi:} 
     \begin{itemize}
         \item \textbf{timestamp: datetime [private]} - Timestamp della misurazione;
-        \item \textbf{value: T [private]} - Valore della misurazione;
+        \item \textbf{value [private]} - Valore della misurazione;
         \item \textbf{type: str [private]} - Tipo della misurazione;
         \item \textbf{coordinates: coordinate [private]} - Coordinate della misurazione;
         \item \textbf{ID\_sensore: str [private]} - \textit{ID}\textsubscript{\textit{G}} del \textit{sensore}\textsubscript{\textit{G}} che ha effettuato la misurazione;
@@ -308,7 +308,7 @@ In particolare, l'interfaccia \textit{incrementer} specifica il contratto che de
     \end{itemize}
     \item \textbf{Metodi: }
     \begin{itemize}
-        \item \textbf{get\_incrementation(misurazioni: List[Misurazione]): int [public]} - Calcola e restituisce un incremento basato sulle sole misurazioni di temperatura della lista fornita.
+        \item \textbf{get\_incrementation(misurazioni: List[Misurazione]): float [public]} - Calcola e restituisce un incremento basato sulle sole misurazioni di temperatura della lista fornita.
     \end{itemize}
     \item\textbf{Note:}
         \begin{itemize}
@@ -326,7 +326,7 @@ In particolare, l'interfaccia \textit{incrementer} specifica il contratto che de
     \end{itemize}
     \item \textbf{Metodi: }
     \begin{itemize}
-        \item \textbf{get\_incrementation(misurazioni: List[Misurazione]): int [public]} - Calcola e restituisce un incremento basato sulle sole misurazioni di umidità della lista fornita.
+        \item \textbf{get\_incrementation(misurazioni: List[Misurazione]): float [public]} - Calcola e restituisce un incremento basato sulle sole misurazioni di umidità della lista fornita.
     \end{itemize}
     \item\textbf{Note:}
         \begin{itemize}
@@ -338,7 +338,7 @@ In particolare, l'interfaccia \textit{incrementer} specifica il contratto che de
     \begin{itemize}
     \item \textbf{Metodi: } 
     \begin{itemize}
-        \item \textbf{get\_incrementation(misurazioni: List[Misurazione]): int [public]} - Calcola e restituisce un incremento basato sulle sole misurazioni di polveri sottili della lista fornita.
+        \item \textbf{get\_incrementation(misurazioni: List[Misurazione]): float [public]} - Calcola e restituisce un incremento basato sulle sole misurazioni di polveri sottili della lista fornita.
     \end{itemize}
     \item\textbf{Note:}
         \begin{itemize}
@@ -439,7 +439,7 @@ Questo \textit{pattern}\textsubscript{\textit{G}} consente di definire dei contr
     \begin{itemize}
     \item\textbf{Metodi: }
     \begin{itemize}
-        \item \textbf{process(misurazione: FaustMeasurement): None [public, abstract]} - Metodo astratto che deve essere implementato nelle sottoclassi per effettuare elaborazioni di una misurazione.
+        \item \textbf{process(misurazione: faust\_measurement): None [public, abstract]} - Metodo astratto che deve essere implementato nelle sottoclassi per effettuare elaborazioni di una misurazione.
     \end{itemize}
     \item\textbf{Note:}
         \begin{itemize}
@@ -449,7 +449,7 @@ Questo \textit{pattern}\textsubscript{\textit{G}} consente di definire dei contr
             \item Gli agenti in ascolto sul topic utilizzeranno un implementatazione di \textit{processor} per effettuare l'elaborazione delle misurazioni ottenute.
         \end{itemize}
     \end{itemize}
-    \item{\textbf{Classe: \textit{FaustMeasurement}}}
+    \item{\textbf{Classe: \textit{faust\_measurement}}}
     \begin{itemize}
     \item\textbf{Attributi:}
         \begin{itemize}
@@ -463,27 +463,27 @@ Questo \textit{pattern}\textsubscript{\textit{G}} consente di definire dei contr
     \end{itemize}
     \item\textbf{Note:}
         \begin{itemize}
-            \item La classe \textit{FaustMeasurement} definita utilizzando \textit{faust.Record} rappresenta un singolo record di misurazione proveniente da un \textit{sensore}\textsubscript{\textit{G}} in un'applicazione Faust basata su \textit{Python}\textsubscript{\textit{G}}
-            \item Faust si occupa automaticamente della conversione dei dati in formato JSON in base agli attributi definiti, facilitando la trasmissione e la ricezione dei dati nei topic Kafka\textsubscript{\textit{G}}.
-            \item È possibile definire la validazione dei dati in ingresso per garantire l'integrità e la coerenza delle misurazioni.
+            \item La classe \textit{faust\_measurement} definita eridatando da \textit{faust.Record} rappresenta un singolo record di misurazione proveniente da un \textit{sensore}\textsubscript{\textit{G}} consumata da un'applicazione Faust;
+            \item Faust si occupa automaticamente della conversione dei dati in formato JSON sulla base degli attributi definiti, facilitando la ricezione e la deserializzazione dei dati nei topic Kafka\textsubscript{\textit{G}};
             \item \textbf{In sintesi:}
-            Questa classe viene utilizzata in un'applicazione Faust per definire il tipo di dati atteso nei topic Kafka\textsubscript{\textit{G}}. I dati provenienti dai sensori, contenenti timestamp, valore, tipo, coordinate geografiche, identificativo del \textit{sensore}\textsubscript{\textit{G}} e eventuale cella di appartenenza, verranno convertiti in oggetti di tipo FaustMeasurement prima di essere elaborati dall'applicazione.
+            Questa classe viene utilizzata in un'applicazione Faust per definire il tipo dei dati attesi nei topic Kafka\textsubscript{\textit{G}} di interesse. I dati provenienti dai sensori, contenenti timestamp, valore, tipo, coordinate geografiche, identificativo del \textit{sensore}\textsubscript{\textit{G}} e eventuale cella di appartenenza, verranno convertiti in oggetti di tipo \textit{faust\_measurement} prima di essere elaborati dall'applicazione.
         \end{itemize}
     \end{itemize}
     \item{\textbf{Classe: \textit{health\_model\_processor\_adapter}}}
     \begin{itemize}
     \item\textbf{Attributi:}
         \begin{itemize}
-        \item \textbf{health\_calculator: health\_processor\_buffer} - Un implementazione di health\_processor\_buffer.
+        \item \textbf{health\_calculator: health\_processor\_buffer} - Un implementazione della classe astratta \textit{health\_processor\_buffer}.
     \end{itemize}
     \item \textbf{Metodi: }
     \begin{itemize}
-        \item \textbf{process(misurazione: FaustMeasurement): None [public, async]} - Aggiunge la misurazione all'oggetto \textit{health\_processor\_buffer} adattando \textit{FaustMeasurement} alla porta di accesso fornita da \textit{health\_processor\_buffer} per l'elaborazione volta al calcolo del punteggio di salute.
+        \item \textbf{process(misurazione: faust\_measurement): None [public, async]} - Aggiunge la misurazione ad un implementazione della classe astratta \textit{health\_processor\_buffer} adattando un oggetto di tipo \textit{faust\_measurement} alla porta di accesso fornita da \textit{health\_processor\_buffer} per l'elaborazione volta al calcolo del punteggio di salute.
     \end{itemize}
     \item\textbf{Note:}
         \begin{itemize}
-            \item La classe implementa l'interfaccia \textit{processor}. Implementa il metodo astratto \textit{process()} per aggiungere/adattare la misurazione del tipo \textit{FaustMeasurement} ad un implementatazione di \textit{health\_processor\_buffer}.
-            \item Rappresenta la componente "Adapter" del \textit{pattern}\textsubscript{\textit{G}} \textit{Object Adapter}.
+            \item La classe implementa l'interfaccia \textit{processor} ed implementa il metodo astratto \textit{process()} per aggiungere/adattare la misurazione del tipo \textit{faust\_measurement} ad un implementatazione di \textit{health\_processor\_buffer};
+            \item Rappresenta la componente "Adapter" del \textit{pattern}\textsubscript{\textit{G}} \textit{Object Adapter};
+            \item Il fine è adattare la classe astratta \textit{health\_processor\_buffer} o più in generale il modello per il calcolo del punteggio di salute, all'interfaccia \textit{processor} per l'elaborazione delle misurazioni provenienti dai topic Kafka\textsubscript{\textit{G}} e consumate dagli agenti Faust.
         \end{itemize}
     \end{itemize}
 \end{itemize}
