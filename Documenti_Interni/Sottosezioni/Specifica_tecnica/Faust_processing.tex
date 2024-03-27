@@ -227,123 +227,130 @@ In particolare, l'interfaccia \textit{incrementer} specifica il contratto che de
 
     \item\textbf{Classe: \textit{coordinate}}
     \begin{itemize}
-        \item    \textbf{Attributi:} 
+        \item \textbf{Attributi:} 
     \begin{itemize}
-        \item \textbf{latitude:float [private]} - Latitudine della coordinata.
-        \item \textbf{longitude:float [private]} - Longitudine della coordinata.
+        \item \textbf{latitude: float [private]} - Latitudine della coordinata;
+        \item \textbf{longitude: float [private]} - Longitudine della coordinata.
     \end{itemize}
     \item     \textbf{Metodi:} 
     \begin{itemize}
-        \item \textbf{\_\_eq\_\_(other:coordinate):bool [public]} - Ridefinizione dell'operatore di uguaglianza per confrontare due oggetti Coordinate.
+        \item \textbf{\_\_eq\_\_(other: coordinate): bool [public]} - Ridefinizione dell'operatore di uguaglianza per confrontare due oggetti coordinate.
     \end{itemize}
 \end{itemize}
+
 \item\textbf{Classe: \textit{misurazione\_salute}}
     \begin{itemize}
     \item\textbf{Attributi:}
         \begin{itemize}
-        \item \textbf{timestamp:datetime [private]} - Il timestamp della misurazione di salute.
-        \item \textbf{value:float [private]} - Il valore della misurazione di salute.
-        \item \textbf{type:string [private]} - Il tipo della misurazione.
-        \item \textbf{cella:string [private]} - La cella della misurazione di salute.
-    \end{itemize}
-    \item\textbf{Note:}
+            \item \textbf{timestamp: datetime [private]} - Il timestamp della misurazione di salute;
+            \item \textbf{value: float [private]} - Il valore della misurazione di salute;
+            \item \textbf{type: string [private]} - Il tipo della misurazione;
+            \item \textbf{cella: string [private]} - La cella della misurazione di salute.
+        \end{itemize}
+        \item\textbf{Note:}
         \begin{itemize}
             \item La classe rappresenta una misurazione di salute. Contiene informazioni sul timestamp, il valore (ovvero il punteggio di salute calcolato), il tipo della misurazione e la cella relativa alla misurazione.
         \end{itemize}
     \end{itemize}
+
     \item\textbf{Classe: \textit{lista\_misurazioni}}
     \begin{itemize}
-    \item\textbf{Attributi:}
+        \item\textbf{Attributi:}
         \begin{itemize}
-        \item \textbf{list:List[Misurazione] [private]} - Una lista di oggetti \textit{misurazione}.
-    \end{itemize}
-    \item \textbf{Metodi: }
-    \begin{itemize}
-        \item \textbf{add\_misurazione(timestamp, value, type\_, latitude, longitude, ID\_sensore, cella): None [public]} - Aggiunge una nuova misurazione alla lista.
-        \item \textbf{clear\_list(): None [public]} - Svuota la lista di misurazioni.
-        \item \textbf{get\_list\_by\_cella\_and\_type(cella: str, tipo\_dato: str): List[Misurazione] [public]} - Restituisce una lista di misurazioni che corrispondono alla cella e al tipo di misurazione specificati (temperatura,umidità,ecc.).
-        \item \textbf{get\_unique\_celle(): List[str] [public]} - Restituisce la lista di celle presenti nelle misurazioni senza ripetzioni.
-    \end{itemize}
-    \item\textbf{Note:}
+            \item \textbf{list:List[misurazione] [private]} - Una lista di oggetti \textit{misurazione}.
+        \end{itemize}
+        \item \textbf{Metodi: }
         \begin{itemize}
-            \item La classe rappresenta una lista di misurazioni. Fornisce metodi per aggiungere misurazioni, svuotare la lista, ottenere misurazioni per cella e tipo di misurazioni, e ottenere le celle di cui si hanno misurazioni.
+            \item \textbf{add\_misurazione(timestamp, value, type\_, latitude, longitude, ID\_sensore, cella): None [public]} - Aggiunge una nuova misurazione alla lista;
+            \item \textbf{clear\_list(): None [public]} - Svuota la lista di misurazioni;
+            \item \textbf{get\_list\_by\_cella\_and\_type(cella: \textit{str}, tipo\_dato: \textit{str}): List[misurazione] [public]} - Restituisce una lista di misurazioni che corrispondono alla cella e al tipo di misurazione specificati (temperatura, umidità, ecc..);
+            \item \textbf{get\_unique\_celle(): List[str] [public]} - Restituisce la lista di celle presenti nelle misurazioni senza ripetzioni.
+        \end{itemize}
+        \item\textbf{Note:}
+        \begin{itemize}
+            \item La classe rappresenta una lista di misurazioni. Fornisce metodi per aggiungere misurazioni, svuotare la lista, ottenere misurazioni filtrate per cella e tipo, e ottenere le celle di cui si hanno misurazioni.
         \end{itemize}
     \end{itemize}
-    \item\textbf{Enumerazione: \textit{SensorTypes}}
-        \begin{itemize}
-            \item \textbf{Costanti:} 
-            \begin{itemize}
-                \item \textbf{TEMPERATURE:str [public]} - Rappresenta la nomenclatura dei \textit{sensore}\textsubscript{\textit{G}} di temperatura.
-                \item \textbf{HUMIDITY:str [public]} - Rappresenta la nomenclatura dei \textit{sensore}\textsubscript{\textit{G}} di umidità.
-                \item \textbf{DUST\_PM10:str [public]} - Rappresenta la nomenclatura dei \textit{sensore}\textsubscript{\textit{G}} di "polvere PM10".
-                \item \textbf{CHARGING\_STATION:str [public]} - Rappresenta la nomenclatura dei \textit{sensore}\textsubscript{\textit{G}} di stato delle colonnine di ricarica.
-                \item \textbf{ECOLOGICAL\_ISLAND:str [public]} - Rappresenta la nomenclatura dei \textit{sensore}\textsubscript{\textit{G}} di stato riempimento isole ecologica.
-                \item \textbf{WATER\_PRESENCE:str [public]} - Rappresenta la nomenclatura dei \textit{sensore}\textsubscript{\textit{G}} di presenza d'acqua.
-                \item \textbf{ELECTRICAL\_FAULT:str [public]} - Rappresenta la nomenclatura dei \textit{sensore}\textsubscript{\textit{G}} di guasti elettrici.
-            \end{itemize}
 
-            \item \textbf{Note:}
-            \begin{itemize}
-                \item L'enumerazione viene utilizzata per centralizzare la gestione della nomenclatura dei tipi di sensori che verrà salvata nelle misurazioni.
-            \end{itemize}
-        \end{itemize}
-\item \textbf{Interfaccia: \textit{incrementer}}
+    \item\textbf{Enumerazione: \textit{sensor\_types}}
     \begin{itemize}
-    \item \textbf{Metodi: }
-    \begin{itemize}
-        \item \textbf{get\_incrementation(misurazioni: List[Misurazione]): int [abstractmethod]} - Un metodo astratto che deve essere implementato nelle sottoclassi. Questo metodo calcola e restituire un incremento basato sulla lista di misurazioni fornita.
-    \end{itemize}
-    \item\textbf{Note:}
+        \item \textbf{Costanti:} 
         \begin{itemize}
-            \item L'interfaccia definisce il contratto per un incrementatore. Le sottoclassi devono implementare il metodo \textit{get\_incrementation()}.
+            \item \textbf{TEMPERATURE: str [public]} - Rappresenta la nomenclatura dei \textit{sensore}\textsubscript{\textit{G}} di temperatura;
+            \item \textbf{HUMIDITY: str [public]} - Rappresenta la nomenclatura dei \textit{sensore}\textsubscript{\textit{G}} di umidità;
+            \item \textbf{DUST\_PM10: str [public]} - Rappresenta la nomenclatura dei \textit{sensore}\textsubscript{\textit{G}} di quantità di particelle PM10;
+            \item \textbf{CHARGING\_STATION: str [public]} - Rappresenta la nomenclatura dei \textit{sensore}\textsubscript{\textit{G}} di stato delle colonnine di ricarica;
+            \item \textbf{ECOLOGICAL\_ISLAND: str [public]} - Rappresenta la nomenclatura dei \textit{sensore}\textsubscript{\textit{G}} di stato riempimento isole ecologica;
+            \item \textbf{WATER\_PRESENCE: str [public]} - Rappresenta la nomenclatura dei \textit{sensore}\textsubscript{\textit{G}} di presenza d'acqua;
+            \item \textbf{ELECTRICAL\_FAULT: str [public]} - Rappresenta la nomenclatura dei \textit{sensore}\textsubscript{\textit{G}} di guasti elettrici.
+        \end{itemize}
+        \item \textbf{Note:}
+        \begin{itemize}
+            \item L'enumerazione viene utilizzata per centralizzare la gestione della nomenclatura dei tipi di sensori che verrà salvata nelle misurazioni.
+        \end{itemize}
+    \end{itemize}
+
+    \item \textbf{Interfaccia: \textit{incrementer}}
+    \begin{itemize}
+        \item \textbf{Metodi:}
+        \begin{itemize}
+            \item \textbf{get\_incrementation(misurazioni: List[misurazione]): int [abstractmethod]} - Questo metodo astratto, nelle sue implementazioni sulle sottoclassi, calcola e restituire un incremento basato sulla lista di misurazioni fornita.
+        \end{itemize}
+        \item\textbf{Note:}
+        \begin{itemize}
+            \item L'interfaccia definisce il contratto per un incrementatore. Le sottoclassi devono implementare il metodo \textit{get\_incrementation()};
             \item Rappresenta la componente "Strategy" del \textit{pattern}\textsubscript{\textit{G}} omonimo.
         \end{itemize}
     \end{itemize}
+
     \item \textbf{Classe: \textit{temperature\_incrementer}}
     \begin{itemize}
-    \item \textbf{Attributi:}
+        \item \textbf{Attributi:}
         \begin{itemize}
-        \item \textbf{upper\_health\_soglia:int [private]} - La soglia superiore di benessere per la temperatura;
-        \item \textbf{under\_health\_soglia:int [private]} - La soglia inferiore di benessere per la temperatura.
-    \end{itemize}
-    \item \textbf{Metodi: }
-    \begin{itemize}
-        \item \textbf{get\_incrementation(misurazioni: List[Misurazione]): int [public]} - Calcola e restituisce un incremento basato sulle sole misurazioni di temperatura della lista fornita.
-    \end{itemize}
-    \item\textbf{Note:}
-        \begin{itemize}
-            \item La classe implementa l'interfaccia \textit{incrementer};
-            \item I valori di default per le soglie vengono presi dall'enumerazione \textit{HealthConstant} altrimenti sono impostabili alla costruzione.
-            \item Rappresenta una strategia concreta del \textit{pattern}\textsubscript{\textit{G}} \textit{Strategy} per il calcolo dell'incremento di temperatura.
+            \item \textbf{upper\_health\_soglia: int [private]} - La soglia superiore di benessere per la temperatura;
+            \item \textbf{under\_health\_soglia: int [private]} - La soglia inferiore di benessere per la temperatura.
         \end{itemize}
-    \end{itemize}
-    \item{\textbf{Classe: \textit{humidity\_incrementer}}}
-    \begin{itemize}
-    \item\textbf{Attributi:}
+        \item \textbf{Metodi:}
         \begin{itemize}
-        \item \textbf{upper\_health\_soglia:int [private]} - La soglia superiore di benessere per l'umidità;
-        \item \textbf{under\_health\_soglia:int [private]} - La soglia inferiore di benessere per l'umidità.
-    \end{itemize}
-    \item \textbf{Metodi: }
-    \begin{itemize}
-        \item \textbf{get\_incrementation(misurazioni: List[Misurazione]): int [public]} - Calcola e restituisce un incremento basato sulle sole misurazioni di umidità della lista fornita.
-    \end{itemize}
-    \item\textbf{Note:}
+            \item \textbf{get\_incrementation(misurazioni: List[misurazione]): int [public]} - Calcola e restituisce un incremento basato sulle sole misurazioni di temperatura della lista fornita.
+        \end{itemize}
+        \item\textbf{Note:}
+            \begin{itemize}
+                \item La classe implementa l'interfaccia \textit{incrementer};
+                \item I valori di default per le soglie vengono presi dall'enumerazione \textit{health\_constant} altrimenti sono impostabili alla costruzione;
+                \item Rappresenta una strategia concreta del \textit{pattern}\textsubscript{\textit{G}} \textit{Strategy} per il calcolo dell'incremento di temperatura.
+            \end{itemize}
+        \end{itemize}
+
+    \item{\textbf{Classe: \textit{humidity\_incrementer}}}
+        \begin{itemize}
+            \item\textbf{Attributi:}
+            \begin{itemize}
+                \item \textbf{upper\_health\_soglia: int [private]} - La soglia superiore di benessere per l'umidità;
+                \item \textbf{under\_health\_soglia: int [private]} - La soglia inferiore di benessere per l'umidità.
+            \end{itemize}
+    \item \textbf{Metodi:}
+        \begin{itemize}
+            \item \textbf{get\_incrementation(misurazioni: List[misurazione]): int [public]} - Calcola e restituisce un incremento basato sulle sole misurazioni di umidità della lista fornita.
+        \end{itemize}
+    \item \textbf{Note:}
         \begin{itemize}
             \item La classe implementa l'interfaccia \textit{incrementer};
-            \item I valori di default per le soglie vengono presi dall'enumerazione \textit{HealthConstant} altrimenti sono impostabili alla costruzione.
+            \item I valori di default per le soglie vengono presi dall'enumerazione \textit{health\_constant} altrimenti sono impostabili alla costruzione;
             \item Rappresenta una strategia concreta del \textit{pattern}\textsubscript{\textit{G}} \textit{Strategy} per il calcolo dell'incremento di umidità.
         \end{itemize}
-    \end{itemize}\item{\textbf{Classe: \textit{dust\_PM10\_incrementer}}}
-    \begin{itemize}
-    \item \textbf{Metodi: } 
-    \begin{itemize}
-        \item \textbf{get\_incrementation(misurazioni: List[Misurazione]): int [public]} - Calcola e restituisce un incremento basato sulle sole misurazioni di polveri sottili della lista fornita.
     \end{itemize}
-    \item\textbf{Note:}
+    
+    \item{\textbf{Classe: \textit{dust\_PM10\_incrementer}}}
+    \begin{itemize}
+        \item \textbf{Metodi:} 
+        \begin{itemize}
+            \item \textbf{get\_incrementation(misurazioni: List[misurazione]): int [public]} - Calcola e restituisce un incremento basato sulle sole misurazioni di polveri sottili della lista fornita.
+        \end{itemize}
+        \item\textbf{Note:}
         \begin{itemize}
             \item La classe implementa l'interfaccia \textit{incrementer};
-            \item Rappresenta una strategia concreta del \textit{pattern}\textsubscript{\textit{G}} \textit{Strategy} per il calcolo dell'incremento di polveri sottili PM10.
+            \item Rappresenta una strategia concreta del \textit{pattern}\textsubscript{\textit{G}} \textit{Strategy} per il calcolo dell'incremento di polveri sottili PM10;
             \item A differenza degli altri \textit{Incrementer}, \textit{dust\_PM10\_incrementer} non definisce soglie di benessere in quanto è scontato che il valore ottimale di inquinamento è zero.
         \end{itemize}
     \end{itemize}
@@ -357,11 +364,11 @@ In particolare, l'interfaccia \textit{incrementer} specifica il contratto che de
     \caption{Modulo Writer - InnovaCity}
     \label{fig: healthModelloWriter}
 \end{figure}
-Il modulo Writer è il medesimo descritto in \ref*{sec:writersModule} e viene nella sua totalità riutilizzato per la scrittura dei punteggi di salute calcolati.
+Il modulo Writer è il medesimo descritto in \ref{sec:writersModule} e viene nella sua totalità riutilizzato per la scrittura dei punteggi di salute calcolati.
 Non viene riportata la strategia di scrittura su di una lista poichè non ne è stato ritenuto necessario l'utilizzo.
 
-\paragraph*{Classi: metodi e attributi}
-Tutte le informazioni sono già state esposte in: \ref*{sec:writersModule}.
+\paragraph*{Classi, interfacce metodi e attributi}
+Tutte le informazioni sono già state esposte in: \ref{sec:writersModule}.
 
 \subsubsection{Modulo Threading/Scheduling}
 \begin{figure}[H]

@@ -351,7 +351,7 @@ Il pattern \textit{Factory} incapsula la creazione concreta dei sensori, consent
     \end{itemize}
 \end{itemize}
 
-\subsubsection{Modulo Writers} \label{sec:writersModule}
+\subsubsection{Modulo Writers} \label{sec:writersModule} 
 
 \begin{figure}[H]
     \centering
@@ -545,7 +545,7 @@ Al fine di evitare modifiche dirette al codice di \textit{simulator\_thread\_poo
 Questo approccio consente di modificare la logica o la libreria utilizzata per la gestione dei thread senza richiedere modifiche al codice di \textit{simulator\_thread\_pool}, ma semplicemente aggiungendo una nuova classe adapter che implementi \textit{thread\_pool\_target}.
 
 Un'altra implementazione del pattern \textit{Object Adapter} viene impiegata per adattare gli oggetti \textit{misurazione} del modulo dei Simulatori all'interfaccia \textit{writable} del modulo Writers. La classe \textit{adapter\_misurazione}, implementando l'interfaccia \textit{writable}, fornisce un'implementazione del metodo \textit{to\_json()} che consente di convertire un oggetto \textit{misurazione} nel formato JSON, compatibile con il formato definito nello Schema Registry e riconosciuto da Kafka.
-\ref*{sec:formatoMessaggi}
+\ref{sec:formatoMessaggi}
 
 \paragraph{Classi, interfacce, metodi e attributi}
 
