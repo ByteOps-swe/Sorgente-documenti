@@ -384,24 +384,36 @@ In sintesi, il modulo:
 \begin{itemize}
     \item{\textbf{Classe: \textit{health\_calculator\_thread}}}
     \begin{itemize}
-    \item\textbf{Attributi:}
+        \item\textbf{Attributi:}
         \begin{itemize}
-        \item \textbf{health\_calculator: health\_algorithm [private]} - Un implementatazione dell'interfaccia \textit{health\_algorithm}, ovvero una strategia per il calcolo del punteggio di salute;
-        \item \textbf{frequency: float [private]} - La frequenza con cui il thread genera nuovi punteggi di salute;
-        \item \textbf{is\_running: bool [private]} - Un flag che indica se il thread è in esecuzione;
-        \item \textbf{data\_to\_generate: int [private]} - Il numero di misurazioni di salute da generare;
-        \item \textbf{writers: writer [private]} - Un oggetto che implementa la classe \textit{writer}. (Singolo scrittore o albero, Composite \textit{pattern}\textsubscript{\textit{G}})
-    \end{itemize}
-    \item \textbf{Metodi: }
-    \begin{itemize}
-        \item \textbf{run(): None [public]} - Esegue il thread, generando nuovi punteggi di salute ad una certa frequenza;
-        \item \textbf{stop(): None [public]} - Ferma l'esecuzione del thread.
-    \end{itemize}
-    \item\textbf{Note:}
+            \item \textbf{health\_calculator: health\_algorithm [private]} - Un implementatazione dell'interfaccia \textit{health\_algorithm}, ovvero una strategia per il calcolo del punteggio di salute;
+            \item \textbf{frequency: float [private]} - La frequenza con cui il thread genera nuovi punteggi di salute;
+            \item \textbf{is\_running: bool [private]} - Un flag che indica se il thread è in esecuzione;
+            \item \textbf{data\_to\_generate: int [private]} - Il numero di misurazioni di salute da generare;
+            \item \textbf{writers: writer [private]} - Un oggetto che implementa la classe \textit{writer}. (Singolo scrittore o albero, Composite \textit{pattern}\textsubscript{\textit{G}})
+        \end{itemize}
+        \item \textbf{Metodi: }
+        \begin{itemize}
+            \item \textbf{run(): None [public]} - Esegue il thread, generando nuovi punteggi di salute ad una certa frequenza;
+            \item \textbf{stop(): None [public]} - Ferma l'esecuzione del thread.
+        \end{itemize}
+        \item\textbf{Note:}
         \begin{itemize}
             \item La classe estende la classe \textit{threading.Thread};
             \item Se \textit{data\_to\_generate} è minore di zero, genera misurazioni di salute finchè il thread non viene interroto dall'esterno;
             \item   Grazie al \textit{pattern}\textsubscript{\textit{G}} \textit{Strategy} è possibile cambiare agevolmente l'algoritmo volto al calcolo del punteggio di salute della città.
+        \end{itemize}
+    \end{itemize}
+    \item{\textbf{Classe: \textit{adapter\_misurazione}}}
+    \begin{itemize}
+        \item \textbf{Metodi: }
+        \begin{itemize}
+            \item \textbf{adapter\_misurazione(misurazione\_salute: misurazione): None [public]} - ;
+            \item \textbf{to\_json(): string [public]} - .
+        \end{itemize}
+        \item\textbf{Note:}
+        \begin{itemize}
+            \item 
         \end{itemize}
     \end{itemize}
 \end{itemize}
