@@ -1,44 +1,44 @@
 \section{Tecnologie}
-In questa sezione sono definiti gli strumenti e le tecnologie impiegati per lo sviluppo e l'implementazione del software relativo al progetto InnovaCity.
+In questa sezione sono definiti gli strumenti e le tecnologie impiegati per lo sviluppo e l'implementazione del \textit{software}\textsubscript{\textit{G}} relativo al progetto InnovaCity.
 
-Si procederà quindi con la descrizione delle tecnologie e dei linguaggi di programmazione utilizzati, delle librerie e dei framework necessari, nonché delle infrastrutture richieste.
+Si procederà quindi con la descrizione delle tecnologie e dei linguaggi di programmazione utilizzati, delle \textit{librerie}\textsubscript{\textit{G}} e dei \textit{framework}\textsubscript{\textit{G}} necessari, nonché delle infrastrutture richieste.
 
-L'obiettivo principale è garantire che il software sia sviluppato utilizzando le tecnologie più appropriate in termini di efficienza, sicurezza e affidabilità.
+L'obiettivo principale è garantire che il \textit{software}\textsubscript{\textit{G}} sia sviluppato utilizzando le tecnologie più appropriate in termini di efficienza, sicurezza e affidabilità.
 
 \subsection{Docker}\label{sec:docker}
-Per lo sviluppo, il testing e il rilascio del prodotto sono stati utilizzati container Docker in modo tale da garantire ambienti consistenti e riproducibili.
+Per lo sviluppo, il testing e il rilascio del prodotto sono stati utilizzati \textit{container}\textsubscript{\textit{G}} \textit{Docker}\textsubscript{\textit{G}} in modo tale da garantire ambienti consistenti e riproducibili.
 
 \subsubsection{Ambienti}
 \begin{itemize}
   \item \textbf{Ambiente di sviluppo:}
     \begin{itemize}
-      \item È l'ambiente dove i software developer scrivono, testano e modificano il codice sorgente;
+      \item È l'ambiente dove i \textit{software}\textsubscript{\textit{G}} developer scrivono, testano e modificano il codice sorgente;
       \item Può includere strumenti di debug e monitoraggio per facilitare lo sviluppo e la correzione di errori;
       \item Non è accessibile agli utenti finali.
     \end{itemize}
     \item \textbf{Ambiente di test:}
     \begin{itemize}
       \item Simula l'ambiente di produzione;
-      \item Viene utilizzato per testare il software in modo completo e realistico prima del rilascio in produzione;
-      \item I test vengono eseguiti automaticamente tramite Github workflow oppure manualmente in locale tramite profilo di testing docker e includono test di unità, integrazione, sistema (sicurezza, carico e prestazioni).
+      \item Viene utilizzato per testare il \textit{software}\textsubscript{\textit{G}} in modo completo e realistico prima del rilascio in produzione;
+      \item I \textit{test}\textsubscript{\textit{G}} vengono eseguiti automaticamente tramite \textit{Github}\textsubscript{\textit{G}} \textit{workflow}\textsubscript{\textit{G}} oppure manualmente in locale tramite profilo di testing \textit{docker}\textsubscript{\textit{G}} e includono \textit{test di unità}\textsubscript{\textit{G}}, \textit{integrazione}\textsubscript{\textit{G}}, \textit{sistema}\textsubscript{\textit{G}} (sicurezza, carico e prestazioni).
     \end{itemize}
     \item \textbf{Ambiente di produzione:}
     \begin{itemize}
-      \item È l'ambiente dove il software viene rilasciato per poter essere utilizzato dagli utenti finali;
+      \item È l'ambiente dove il \textit{software}\textsubscript{\textit{G}} viene rilasciato per poter essere utilizzato dagli utenti finali;
       \item Deve essere stabile, sicuro e performante per garantire un'esperienza utente ottimale;
-      \item Le modifiche al software in produzione sono controllate rigorosamente per minimizzare i rischi di errori o downtime.
+      \item Le modifiche al \textit{software}\textsubscript{\textit{G}} in produzione sono controllate rigorosamente per minimizzare i rischi di errori o downtime.
     \end{itemize}
 \end{itemize}
 
 \subsubsection{Docker images}
 
-Di seguito sono elencate le immagini Docker utilizzate:
+Di seguito sono elencate le immagini \textit{Docker}\textsubscript{\textit{G}} utilizzate:
 
 \begin{itemize}
 
   \item \textbf{Simulators - Python} 
     \begin{itemize}
-      \item \textbf{Image:} Python: 3.9;
+      \item \textbf{Image:} \textit{Python}\textsubscript{\textit{G}}: 3.9;
       \item \textbf{Riferimento:} \url{https://hub.docker.com/layers/library/python/3.9/images/sha256-1023bd4c5e0e6b7f4f612b034627826d91ec78ae0439313450ec30c0ad60c908?context=explore}~(consultato: 19/03/2024);
       \item \textbf{Ambiente:}
         \begin{itemize}
@@ -49,7 +49,7 @@ Di seguito sono elencate le immagini Docker utilizzate:
 
   \item \textbf{Broker - Apache Kafka} 
     \begin{itemize}
-      \item \textbf{Image:} confluentinc/cp-kafka: 7.6.0;
+      \item \textbf{Image:} confluentinc/cp-\textit{kafka}\textsubscript{\textit{G}}: 7.6.0;
       \item \textbf{Riferimento:} \url{https://hub.docker.com/layers/confluentinc/cp-kafka/7.6.0/images/sha256-8fc15a671986983b83beecae14e013a91adcd3999f687de8b6b8153fd47e8f67?context=explore}~(consultato: 19/03/2024);
       \item \textbf{Ambiente:}
         \begin{itemize}
@@ -73,7 +73,7 @@ Di seguito sono elencate le immagini Docker utilizzate:
 
   \item \textbf{Apache Kafka UI} 
     \begin{itemize}
-      \item \textbf{Image:} provectuslabs/kafka-ui: 53a6553765a806eda9905c43bfcfe09da6812035;
+      \item \textbf{Image:} provectuslabs/\textit{kafka}\textsubscript{\textit{G}}-ui: 53a6553765a806eda9905c43bfcfe09da6812035;
       \item \textbf{Riferimento:} \url{https://hub.docker.com/layers/provectuslabs/kafka-ui/53a6553765a806eda9905c43bfcfe09da6812035/images/sha256-633606ca07677d1c4b9405c5df1b6f0087aa75b36528a17eed142d06f65d0881?context=explore}~(consultato: 19/03/2024);
       \item \textbf{Ambiente:}
         \begin{itemize}
@@ -105,7 +105,7 @@ Di seguito sono elencate le immagini Docker utilizzate:
 
   \item \textbf{Faust processing - Python} 
     \begin{itemize}
-      \item \textbf{Image:} Python: 3.9;
+      \item \textbf{Image:} \textit{Python}\textsubscript{\textit{G}}: 3.9;
       \item \textbf{Riferimento:} \url{https://hub.docker.com/layers/library/python/3.9/images/sha256-1023bd4c5e0e6b7f4f612b034627826d91ec78ae0439313450ec30c0ad60c908?context=explore}~(consultato: 19/03/2024);
       \item \textbf{Ambiente:}
         \begin{itemize}
@@ -117,7 +117,7 @@ Di seguito sono elencate le immagini Docker utilizzate:
 
   \item \textbf{ClickHouse} 
     \begin{itemize}
-      \item \textbf{Image:} clickhouse/clickhouse-server: 24.2.1.2248;
+      \item \textbf{Image:} \textit{clickhouse}\textsubscript{\textit{G}}/\textit{clickhouse}\textsubscript{\textit{G}}-server: 24.2.1.2248;
       \item \textbf{Riferimento:} \url{https://hub.docker.com/layers/clickhouse/clickhouse-server/24.2.1.2248/images/sha256-a5921f08bc3ab230e20db5970698b300279b29a353620e62729325fa8d1dc601?context=explore}~(consultato: 19/03/2024);
       \item \textbf{Ambiente:}
         \begin{itemize}

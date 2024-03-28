@@ -1,8 +1,8 @@
 \subsection{Apache Kafka}
 \subsubsection{Kafka topic}
-I topic in Kafka possono essere considerati come le tabelle di un database, utili per separare logicamente diversi tipi di messaggi o eventi che vengono inseriti nel sistema. Nel nostro caso vengono utilizzati per separare le diverse misurazioni dei sensori, quindi per ogni tipologia di sensore è presente un topic dedicato.
+I topic in \textit{Kafka}\textsubscript{\textit{G}} possono essere considerati come le tabelle di un \textit{database}\textsubscript{\textit{G}}, utili per separare logicamente diversi tipi di messaggi o eventi che vengono inseriti nel \textit{sistema}\textsubscript{\textit{G}}. Nel nostro caso vengono utilizzati per separare le diverse misurazioni dei sensori, quindi per ogni tipologia di \textit{sensore}\textsubscript{\textit{G}} è presente un topic dedicato.
 
-Ciò ci consente di creare all'interno di ClickHouse delle "tabelle consumatrici" che acquisiscono automaticamente i dati.
+Ciò ci consente di creare all'interno di \textit{ClickHouse}\textsubscript{\textit{G}} delle "tabelle consumatrici" che acquisiscono automaticamente i dati.
 
 \subsubsection{Formato messaggi} \label{sec:formatoMessaggi}
 I messaggi vengono trasmessi in formato JSON, la loro struttura contenente le informazioni della misurazione, rispetta il contratto definito nello Schema Registry (sez.\ref{sec:schema_registry}, in particolare \ref{sec:schema_registry_sez_schema}) ed è la seguente:
@@ -29,12 +29,12 @@ Mentre la struttura JSON di un messaggio contenente di una misurazione del punte
 \end{lstlisting}
 
 
-Sebbene le misurazioni vengano divise in topic diversi a seconda della tipoligia di sensore, si è comunque deciso di inviare e salvare il campo della tipoligia di misurazione per i seguenti motivi:
+Sebbene le misurazioni vengano divise in topic diversi a seconda della tipoligia di \textit{sensore}\textsubscript{\textit{G}}, si è comunque deciso di inviare e salvare il campo della tipoligia di misurazione per i seguenti motivi:
 \begin{itemize}
-    \item \textbf{Backup e ripristino dei dati:} Se si dovesse perdere la struttura dei topic o fosse necessario ripristinare i dati in un altro sistema, il campo \textit{type} aiutarebbe a identificare il tipo di sensore che ha effettuato la misurazione, anche se i dati sono stati conservati in un unico topic.
+    \item \textbf{Backup e ripristino dei dati:} Se si dovesse perdere la struttura dei topic o fosse necessario ripristinare i dati in un altro \textit{sistema}\textsubscript{\textit{G}}, il campo \textit{type} aiutarebbe a identificare il tipo di \textit{sensore}\textsubscript{\textit{G}} che ha effettuato la misurazione, anche se i dati sono stati conservati in un unico topic.
     \item \textbf{Flessibilità futura:} 
     \begin{itemize}
         \item Potrebbero sorgere esigenze future che richiedono l'analisi dei dati provenienti da diversi tipi di sensori all'interno dello stesso topic. In questo caso, il campo \textit{type} sarebbe utile per distinguere le misurazioni provenienti da sensori diversi;
-        \item Includere il campo \textit{type} potrebbe essere particolarmente utile se si prevede di supportare diverse unità di misura per una stessa tipologia di sensore in futuro. Ad esempio, potrebbe essere necessario gestire misurazioni di temperatura in gradi Celsius, Fahrenheit o Kelvin nello stesso topic. In tal caso, includendo il campo \textit{type}, si può associare ad ogni misurazione l'unità di misura corretta.
+        \item Includere il campo \textit{type} potrebbe essere particolarmente utile se si prevede di supportare diverse unità di misura per una stessa tipologia di \textit{sensore}\textsubscript{\textit{G}} in futuro. Ad esempio, potrebbe essere necessario gestire misurazioni di temperatura in gradi Celsius, Fahrenheit o Kelvin nello stesso topic. In tal caso, includendo il campo \textit{type}, si può associare ad ogni misurazione l'unità di misura corretta.
     \end{itemize}
 \end{itemize}
