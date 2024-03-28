@@ -250,15 +250,15 @@ Mentre i parametri esposti racchiusi da parentesi graffe variano per ogni tipolg
 	\item \textbf{tipologiaSensore:} Viene sostituito con la tipologia del sensore che effettua le misurazioni salvate nella tabella (ex. temperatures);
 	\item \textbf{TipologiaMisurazione:} Viene sostituito con il tipo del dato che rappresenta la misurazione;
 	\item \textbf{IndirizzoServerKafka:} Specifica l'indirizzo del server Kafka. Nel nostro caso il server è in esecuzione su un container \textit{Docker} raggiungibile tramite l'indirizzo: \textit{'kafka:9092'};
-	\item \textbf{topicTipologiaSensore:} Specifica il nome del topic Kafka da cui leggere i dati (ex.temperature). Accetta anche liste di topic Kafka separati da virgole.
+	\item \textbf{topicTipologiaSensore:} Specifica il nome del topic Kafka da cui leggere i dati (ex.temperature). Accetta anche liste di topic Kafka separati da virgole;
 	\item \textbf{ConsumerGroupKafka:} Specifica il nome del consumer group Kafka che verrà utilizzato per leggere i messaggi dal topic Kafka.
 	Un consumer group in Kafka è un gruppo di consumatori che lavorano insieme per consumare i messaggi da uno o più topic. Ogni messaggio inviato a un topic Kafka può essere consumato da uno dei consumatori nel gruppo.
 	
-	I consumer all'interno di uno stesso gruppo condividono l'elaborazione dei messaggi all'interno dei topic: ogni messaggio viene elaborato da uno e un solo consumatore all'interno del gruppo. Nel nostro caso sarà sempre '\textit{CG\_Clickhouse\_1}' per indicare il servizio di salvataggio \textit{Clickhouse}.
-	\item \textbf{FormatoDatiTopicKafka:} specifica il formato dei dati nel topic Kafka. Nel nostro caso, i dati sono nel formato JSONEachRow, che è un formato di serializzazione JSON di \textit{ClickHouse} che consente di scrivere o leggere record JSON separati da una riga.
-\end{itemize}
+	I consumer all'interno di uno stesso gruppo condividono l'elaborazione dei messaggi all'interno dei topic: ogni messaggio viene elaborato da uno e un solo consumatore all'interno del gruppo. Nel nostro caso sarà sempre '\textit{CG\_Clickhouse\_1}' per indicare il servizio di salvataggio \textit{Clickhouse};
+	\item \textbf{FormatoDatiTopicKafka:} specifica il formato dei dati nel topic Kafka. Nel nostro caso, i dati sono nel formato JSONEachRow, che è un formato di serializzazione JSON di \textit{ClickHouse} che consente di scrivere o leggere record JSON separati da una riga;
 
-\textbf{KafkaSkipBrokenMessages:}
+
+\item \textbf{KafkaSkipBrokenMessages:}
 \begin{itemize}
 	\item è un'opzione di configurazione utilizzata nell'Engine Kafka di ClickHouse. Determina il comportamento dell'Engine quando incontra messaggi Kafka considerati "corrotti" o non processabili.
 	Un messaggio Kafka può essere considerato corrotto per diversi motivi, tra cui:
@@ -267,12 +267,15 @@ Mentre i parametri esposti racchiusi da parentesi graffe variano per ogni tipolg
 		\item \textbf{Dati mancanti:} Il messaggio potrebbe contenere dati mancanti o incompleti, violando lo schema previsto;
 		\item \textbf{Errori di codifica:} Il messaggio potrebbe avere errori di codifica che impediscono la lettura dei dati.
 	\end{itemize}
-	\todo{ricontrollare valore skip broken messagges}
-	\item Per impostazione predefinita, \textit{kafka\_skip\_broken\_messages} è impostato su 0. Ciò significa che ClickHouse interrompe l'elaborazione del flusso di dati da Kafka e registra un errore quando incontra un messaggio corrotto.
-	\item Puoi configurare \textit{kafka\_skip\_broken\_messages} su un valore diverso da zero per modificare il comportamento. Il valore rappresenta il numero massimo di messaggi corrotti consecutivi per blocco, considerato nel contesto di  \textit{kafka\_max\_block\_size}, che ClickHouse ignorerà prima di interrompere l'elaborazione.
-	\item Bisogna anche ricordare che per come è stato progettato il sistema i messaggi corrotti vengono scartati "alla fonte" dallo Schema Registry di Kafka.
+	\item Per impostazione predefinita, \textit{kafka\_skip\_broken\_messages} è impostato su 0. Ciò significa che ClickHouse interrompe l'elaborazione del flusso di dati da Kafka e registra un errore quando incontra un messaggio corrotto;
+	\item Puoi configurare \textit{kafka\_skip\_broken\_messages} su un valore diverso da zero per modificare il comportamento. Il valore rappresenta il numero massimo di messaggi corrotti consecutivi per blocco, considerato nel contesto di  \textit{kafka\_max\_block\_size}, che ClickHouse ignorerà prima di interrompere l'elaborazione;
+	\item Bisogna anche ricordare che per come è stato progettato il sistema i messaggi corrotti vengono scartati "alla fonte" dallo Schema Registry di Kafka;
 	\item Nel nostro caso vogliamo che ogni messaggio malformato nel blocco venga ignorato.
 \end{itemize}
+\item \textbf{input\_format\_skip\_unknown\_fields}:  è un'impostazione utilizzata con alcuni formati di input di ClickHouse, compreso quello da noi utilizzato \textit{JSONEachRow} per specificare come gestire i dati in entrata che contengono colonne sconosciute alla tabella di destinazione. Impostando \textit{input\_format\_skip\_unknown\_fields} su 1, ClickHouse ignorerà le colonne sconosciute nei dati in entrata e importerà solo le colonne corrispondenti alla tabella di destinazione. Questo è utile quando si desidera importare solo una parte dei dati in entrata, ignorando le colonne non necessarie o non rilevanti.
+Nel nostro caso l'impostazione di default è quella richiesta.
+\end{itemize}
+
 
 \subsubsection{Misurazioni temperatura} \label{sec:misurazioni_temperatures}
 
