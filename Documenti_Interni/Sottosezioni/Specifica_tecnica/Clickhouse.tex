@@ -1,5 +1,5 @@
 \subsubsection{Clickhouse} \label{sec:clickHouse}
-Clickhouse è un sistema di gestione di database (DBMS) di tipo column-oriented, progettato principalmente per l'analisi di grandi volumi di dati in tempo reale. È un progetto open-source creato per rispondere alle esigenze di elaborazione analitica ad alte prestazioni.
+\textit{Clickhouse}\textsubscript{\textit{G}} è un \textit{sistema}\textsubscript{\textit{G}} di gestione di \textit{database}\textsubscript{\textit{G}} (DBMS) di tipo column-oriented, progettato principalmente per l'analisi di grandi volumi di dati in tempo reale. È un progetto \textit{open-source}\textsubscript{\textit{G}} creato per rispondere alle esigenze di elaborazione analitica ad alte prestazioni.
 
 \paragraph{Versione}
 Versione utilizzata: 24.2.1.2248
@@ -8,30 +8,30 @@ Versione utilizzata: 24.2.1.2248
 
 \paragraph{Funzionalità e Vantaggi di Clickhouse}
 \begin{itemize}
-    \item \textbf{Modello di dati column-oriented:} a differenza dei tradizionali DBMS che memorizzano i dati in modo row-oriented, dove le righe complete sono memorizzate in sequenza, clickhouse memorizza i dati in modo column-oriented. Questo significa che i dati di una stessa colonna vengono memorizzati contiguamente, permettendo una maggiore compressione e velocità di query per le analisi che coinvolgono molte colonne;
-    \item \textbf{Architettura distribuita e scalabilità:} Clickhouse è progettato per funzionare in un ambiente distribuito, consentendo la scalabilità orizzontale per gestire grandi carichi di lavoro;
+    \item \textbf{Modello di dati column-oriented:} a differenza dei tradizionali DBMS che memorizzano i dati in modo row-oriented, dove le righe complete sono memorizzate in sequenza, \textit{clickhouse}\textsubscript{\textit{G}} memorizza i dati in modo column-oriented. Questo significa che i dati di una stessa colonna vengono memorizzati contiguamente, permettendo una maggiore compressione e velocità di \textit{query}\textsubscript{\textit{G}} per le analisi che coinvolgono molte colonne;
+    \item \textbf{Architettura distribuita e scalabilità:} \textit{Clickhouse}\textsubscript{\textit{G}} è progettato per funzionare in un ambiente distribuito, consentendo la scalabilità orizzontale per gestire grandi carichi di lavoro;
     \item \textbf{Compressione dei dati:} utilizza algoritmi efficienti per ridurre lo spazio di archiviazione richiesto per i dati, riducendo i costi di archiviazione;
-    \item \textbf{Alte prestazioni:} Clickhouse è ottimizzato per eseguire query analitiche su grandi volumi di dati in tempo reale, garantendo tempi di risposta bassi anche con carichi di lavoro elevati.
-    \item \textbf{Supporto per SQL:} Clickhouse supporta un sottoinsieme del linguaggio SQL;
-    \item \textbf{Integrazione con Strumenti di Business Intelligence (BI):} può essere integrato con strumenti di BI popolari come Grafana per la visualizzazione e l'analisi dei dati.
+    \item \textbf{Alte prestazioni:} \textit{Clickhouse}\textsubscript{\textit{G}} è ottimizzato per eseguire \textit{query}\textsubscript{\textit{G}} analitiche su grandi volumi di dati in tempo reale, garantendo tempi di risposta bassi anche con carichi di lavoro elevati.
+    \item \textbf{Supporto per SQL:} \textit{Clickhouse}\textsubscript{\textit{G}} supporta un sottoinsieme del linguaggio SQL;
+    \item \textbf{Integrazione con Strumenti di Business Intelligence (BI):} può essere integrato con strumenti di BI popolari come \textit{Grafana}\textsubscript{\textit{G}} per la visualizzazione e l'analisi dei dati.
 \end{itemize}
 
 \paragraph{Casi d'uso di Clickhouse}
-Clickhouse è adatto per una vasta gamma di casi d'uso, tra cui:
+\textit{Clickhouse}\textsubscript{\textit{G}} è adatto per una vasta gamma di casi d'uso, tra cui:
 \begin{itemize}
-    \item \textbf{Analisi dei log:} Clickhouse può essere utilizzato per analizzare i log di grandi dimensioni generati da server, applicazioni web e dispositivi IoT;
-    \item \textbf{Analisi dei dati in tempo reale:} Clickhouse è ideale per l'analisi dei dati in tempo reale, consentendo agli utenti di eseguire query complesse su flussi di dati in continua evoluzione;
+    \item \textbf{Analisi dei log:} \textit{Clickhouse}\textsubscript{\textit{G}} può essere utilizzato per analizzare i \textit{log}\textsubscript{\textit{G}} di grandi dimensioni generati da server, applicazioni web e dispositivi IoT;
+    \item \textbf{Analisi dei dati in tempo reale:} \textit{Clickhouse}\textsubscript{\textit{G}} è ideale per l'analisi dei dati in tempo reale, consentendo agli utenti di eseguire \textit{query}\textsubscript{\textit{G}} complesse su flussi di dati in continua evoluzione;
 \end{itemize}
 
 \paragraph{Utilizzo nel progetto}
-Nel contesto del progetto, Clickhouse svolge una serie di ruoli cruciali per garantire l'efficacia e l'efficienza dell'analisi e delle persistenza dei dati provenienti dai sensori IoT:
+Nel contesto del progetto, \textit{Clickhouse}\textsubscript{\textit{G}} svolge una serie di ruoli cruciali per garantire l'efficacia e l'efficienza dell'analisi e delle persistenza dei dati provenienti dai sensori IoT:
 
 \begin{itemize}
-  \item \textbf{Integrazione con Kafka}: Clickhouse viene utilizzato per recuperare in tempo reale i dati dal server Kafka, consentendo una continua acquisizione dei dati dai sensori IoT. Questa integrazione permette di assicurare che le informazioni più recenti siano immediatamente disponibili per l'analisi.
+  \item \textbf{Integrazione con Kafka}: \textit{Clickhouse}\textsubscript{\textit{G}} viene utilizzato per recuperare in tempo reale i dati dal server \textit{Kafka}\textsubscript{\textit{G}}, consentendo una continua acquisizione dei dati dai sensori IoT. Questa \textit{integrazione}\textsubscript{\textit{G}} permette di assicurare che le informazioni più recenti siano immediatamente disponibili per l'analisi.
   
-  \item \textbf{Organizzazione efficiente dei dati:} Clickhouse è in grado di organizzare grandi volumi di dati in modo ottimale grazie alla sua architettura columnar che consente una compressione dei dati efficace e un accesso rapido alle informazioni, migliorando le prestazioni complessive del sistema.
+  \item \textbf{Organizzazione efficiente dei dati:} \textit{Clickhouse}\textsubscript{\textit{G}} è in grado di organizzare grandi volumi di dati in modo ottimale grazie alla sua \textit{architettura}\textsubscript{\textit{G}} columnar che consente una compressione dei dati efficace e un accesso rapido alle informazioni, migliorando le prestazioni complessive del \textit{sistema}\textsubscript{\textit{G}}.
   
-  \item \textbf{Aggregazione rapida dei dati:} Clickhouse offre potenti funzionalità per eseguire operazioni di aggregazione sui dati in modo rapido e incrementale. Ciò significa che è possibile ottenere risposte rapide alle query di aggregazione anche su enormi quantità di dati, consentendo analisi in \textit{quasi-real-time} delle misurazioni dei sensori IoT.
+  \item \textbf{Aggregazione rapida dei dati:} \textit{Clickhouse}\textsubscript{\textit{G}} offre potenti funzionalità per eseguire operazioni di aggregazione sui dati in modo rapido e incrementale. Ciò significa che è possibile ottenere risposte rapide alle \textit{query}\textsubscript{\textit{G}} di aggregazione anche su enormi quantità di dati, consentendo analisi in \textit{quasi-real-time} delle misurazioni dei sensori IoT.
   
-  \item \textbf{Integrazione con Grafana:} I dati elaborati e aggregati da Clickhouse sono resi disponibili per il reperimento tramite Grafana. Grafana consente di creare dashboard interattive e report visivi basati sui dati ricevuti offrendo agli utenti un'interfaccia intuitiva per l'analisi e la visualizzazione dei dati.
+  \item \textbf{Integrazione con Grafana:} I dati elaborati e aggregati da \textit{Clickhouse}\textsubscript{\textit{G}} sono resi disponibili per il reperimento tramite \textit{Grafana}\textsubscript{\textit{G}}. \textit{Grafana}\textsubscript{\textit{G}} consente di creare \textit{dashboard}\textsubscript{\textit{G}} interattive e \textit{report}\textsubscript{\textit{G}} visivi basati sui dati ricevuti offrendo agli utenti un'interfaccia intuitiva per l'analisi e la visualizzazione dei dati.
 \end{itemize}
