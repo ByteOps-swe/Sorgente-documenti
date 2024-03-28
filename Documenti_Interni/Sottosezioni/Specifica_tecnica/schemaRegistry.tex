@@ -1,0 +1,35 @@
+\subsubsection{Schema Registry}
+Schema Registry è un componente importante nell'ecosistema di Apache Kafka, progettato per la gestione e la convalida degli schemi dei dati utilizzati all'interno di un sistema di messaggistica distribuita.
+\paragraph{Versione}
+La versione utilizzata è: 
+\paragraph{Documentazione}
+\href{https://docs.confluent.io/platform/current/schema-registry/index.html}{https://docs.confluent.io/platform/current/schema-registry/index.html}
+
+\paragraph{Funzionalità e Vantaggi di Schema Registry}
+Le funzionalità principali di Schema Registry includono:
+\begin{itemize}
+    \item \textbf{Gestione centralizzata degli schemi}: Fornisce un repository centralizzato per la gestione degli schemi dei dati.
+    \item \textbf{Convalida degli schemi}: Assicura la validità e la compatibilità degli schemi dei dati.
+    \item \textbf{Serializzazione e deserializzazione}: Supporta la serializzazione e la deserializzazione dei dati basati sugli schemi su reti distribuite.
+    \item \textbf{Governance dei dati}: Contribuisce alla governance dei dati garantendo la qualità, la conformità agli standard e la tracciabilità dei dati.
+\end{itemize}
+
+\paragraph{Casi d'uso di Schema Registry}
+
+Schema Registry è utilizzato in una vasta gamma di casi d'uso, tra cui:
+
+\begin{itemize}
+\item \textbf{Garanzia della compatibilità dei dati:} Schema Registry garantisce la compatibilità dei dati tra produttori e consumatori, consentendo l'evoluzione degli schemi dei dati senza interruzioni nei flussi di lavoro.
+
+\item \textbf{Gestione della versione degli schemi:} Fornisce un sistema per gestire diverse versioni degli schemi dei dati, permettendo agli sviluppatori di aggiornare gli schemi in modo controllato e gestire la migrazione dei dati tra le versioni.
+
+\item \textbf{Conformità agli standard e governance dei dati:} Aiuta a garantire la conformità agli standard aziendali e normativi, fornendo strumenti per la convalida degli schemi e la tracciabilità delle modifiche nel tempo.
+
+\item \textbf{Collaborazione tra team e integrazione dei sistemi:} Funge da punto centrale per la collaborazione tra team di sviluppo, consentendo loro di condividere, discutere e approvare gli schemi dei dati per un'integrazione più efficace dei sistemi.
+
+\item \textbf{Controllo della qualità dei dati:} Schema Registry contribuisce a garantire la qualità dei dati, riducendo il rischio di errori dovuti a incompatibilità o a dati non validi all'interno del sistema.
+\end{itemize}
+
+
+\paragraph{Utilizzo nel progetto}
+Nell'ambito del progetto didattico Schema registry permette di validare i messaggi nell'ambito del topic kakfa di appartenenza definendo un contratto che i produttori, ovvero i sensori, dovranno rispettare nell'invio delle misurazioni.

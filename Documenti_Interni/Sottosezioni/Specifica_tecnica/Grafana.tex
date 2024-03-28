@@ -1,0 +1,47 @@
+\subsubsection{Grafana}
+Grafana è una piattaforma open-source per la visualizzazione e l'analisi dei dati, utilizzata per creare dashboard interattive e grafici da fonti di dati eterogenee. 
+
+\paragraph{Versione}
+Versione utilizzata: 10.4.0
+
+\paragraph{Documentazione}
+\url{https://grafana.com/docs/grafana/v10.4/}
+
+\paragraph{Funzionalità e Vantaggi di Grafana}
+\begin{itemize}
+    \item \textbf{Dashboard interattive:} Creazione di dashboard personalizzate e interattive per visualizzare dati provenienti da diverse fonti in un'unica interfaccia;
+        
+    \item \textbf{Ampia varietà di visualizzazioni:} Selezione di pannelli e visualizzazioni, tra cui grafici a linea, a barre, a torta, termometri, mappe geografiche e altro ancora, per adattarsi alle esigenze specifiche di visualizzazione dei dati;
+    
+    \item \textbf{Query e aggregazioni:} Esecuzione di query e aggregazione dei dati in modi personalizzati per ottenere insight approfonditi dai dati;
+    
+    \item \textbf{Notifiche e allarmi:} Impostazione di avvisi in base a criteri predefiniti, come soglie di performance, e ricezione di notifiche tramite diversi canali di comunicazione;
+    
+    \item \textbf{Gestione degli accessi e dei permessi:} Controllo degli accessi e dei permessi degli utenti in modo granulare, gestendo chi può visualizzare, modificare o creare dashboard e pannelli;
+    
+    \item \textbf{Integrazione con altre applicazioni e strumenti:} Integrazione con una vasta gamma di applicazioni e strumenti, tra cui sistemi di log management, strumenti di monitoraggio delle prestazioni, sistemi di allerta e altro ancora.
+  \end{itemize}
+  
+\paragraph{Casi d'uso di Grafana}
+\begin{itemize}
+    \item \textbf{Monitoraggio delle prestazioni:} Monitoraggio in tempo reale delle metriche di sistema come CPU, memoria e rete per identificare e risolvere rapidamente problemi di prestazioni;
+    
+    \item \textbf{Analisi dei log:} Analisi e visualizzazione dei log delle applicazioni e dell'infrastruttura per individuare pattern e risolvere problemi operativi;
+    
+    \item \textbf{DevOps e CI/CD:} Monitoraggio dei processi di sviluppo, test e distribuzione del software per migliorare la collaborazione e l'efficienza del team;
+    
+    \item \textbf{Monitoraggio di dispositivi IoT:} Monitoraggio dei dispositivi IoT per raccogliere e visualizzare dati di sensori e dispositivi connessi, consentendo una gestione efficiente degli ambienti IoT.
+\end{itemize}
+
+\paragraph{Utilizzo nel progetto}
+Nel contesto del nostro progetto che coinvolge la visualizzazione e l'analisi di grandi quantità di misurazioni, Grafana viene utilizzato principalmente per:
+
+\begin{itemize}
+  \item \textbf{Visualizzazione dei dati:} Grafana consente agli utenti di visualizzare tramite dashboard grafici interattivi che mostrano i dati provenienti dai sensori IoT in modo chiaro e comprensibile. Questi grafici consentendo agli utenti di monitorare facilmente le prestazioni dei sensori e rilevare eventuali pattern o anomalie nei dati.
+  
+  \item \textbf{Analisi dei dati:} Grafana offre agli utenti la possibilità di analizzare i dati visualizzati in modo approfondito fornendo opzioni di filtraggio spaziale e temporale e aggregazioni temporali.
+  
+  \item \textbf{Monitoraggio in tempo reale:} Grafana supporta il monitoraggio in tempo reale dei dati, consentendo agli utenti di visualizzare aggiornamenti istantanei sui valori dei sensori e le metriche correlate. Ciò è particolarmente utile per la rilevazione immediata di problemi o anomalie nei dati dei sensori.
+  
+  \item \textbf{Allerta e notifica:} Grafana permette agli utenti di ricevere avvisi basati su condizioni specifiche delle misurazioni. In particolare, nel nostro caso, invia una notifica tramite discord quando un determinato sensore supera una soglia prestabilita o quando si verifica un'anomalia nei dati.
+\end{itemize} 
