@@ -98,7 +98,7 @@ Grazie a questa organizzazione ottimizzata, le \textit{query}\textsubscript{\tex
 Le partizioni rappresentano uno strumento particolarmente utile quando si lavora con dati di serie temporali. La decisione sull'utilizzo del partizionamento dovrebbe derivare da una serie di considerazioni chiave:
 
 \begin{itemize}
-	\item \textbf{Interrogazione singola:} È previsto che le \textit{query}\textsubscript{\textit{G}} siano principalmente focalizzate su una singola partizione? Ad esempio, se le interrogazioni tendono a riguardare risultati entro un periodo specifico come un giorno o un mese, sarebbe vantaggioso partizionare i dati in base a tali periodi temporali.
+	\item \textbf{Interrogazione singola:} È previsto che le query siano principalmente focalizzate su una singola partizione? Ad esempio, se le interrogazioni tendono a riguardare risultati entro un periodo specifico come un giorno o un mese, sarebbe vantaggioso partizionare i dati in base a tali periodi temporali;
 	\item \textbf{Scadenza dei dati (TTL):} Se si desidera applicare una politica di TTL ai dati, in modo che una volta che una partizione raggiunge una certa età, venga applicata un'azione specifica su di essa, allora può risultare opportuno l'utilizzo del partitioning in base a tali periodi temporali.
 \end{itemize}
 
