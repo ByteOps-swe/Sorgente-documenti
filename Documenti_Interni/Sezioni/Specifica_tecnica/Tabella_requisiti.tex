@@ -1,32 +1,32 @@
-\section{Tabella dei requisiti soddisfatti}
+\section{Stato dei requisiti funzionali}
 
 Si riporta ciascun requisito mediante il corrispondente codice,
-rispetto alla stessa tabella ritrovabile nel documento Analisi dei Requisiti v2.0.0, qui è presente
-una colonna Stato indicante la soddisfazione di tale requisito.
+rispetto alla stessa tabella presente nel documento \textit{Analisi dei Requisiti v2.0.0 - Sez. Req. Funzionali}, qui è presente
+una colonna indicante la soddisfazione di tale requisito.
 
 \newcounter{rowcounter}
 \setcounter{rowcounter}{0}
 
-\begin{longtable}{|C{1.5cm}|C{2cm}|L{5cm}|C{2cm}|C{1.5cm}|}
+\begin{longtable}{|C{1.5cm}|C{2cm}|L{5cm}|C{2cm}|}
     \hline
     \textbf{Codice} & \textbf{Importanza} & \textbf{Descrizione} & \textbf{Stato} \\
     
     %RF1
     \hline
     RF\arabic{rowcounter} & Obbligatorio &
-    L'accesso al prodotto è vincolato da un \textit{sistema}\textsubscript{\textit{G}} di \textit{login}\textsubscript{\textit{G}}, tuttavia, non è necessario che gli utenti si registrino autonomamente. Le credenziali di accesso sono fornite da terze parti o dall'amministratore del \textit{sistema}\textsubscript{\textit{G}}.& Soddisfatto &\\
+    L'accesso al prodotto è vincolato da un \textit{sistema}\textsubscript{\textit{G}} di \textit{login}\textsubscript{\textit{G}}, tuttavia, non è necessario che gli utenti si registrino autonomamente. Le credenziali di accesso sono fornite da terze parti o dall'amministratore del \textit{sistema}\textsubscript{\textit{G}}.& Soddisfatto \\
     
     %RF2
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & Il prodotto non deve avere una gestione di amministrazione.& Soddisfatto \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & Il prodotto non deve avere una gestione di amministrazione. & Soddisfatto \\
     
     %RF3
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & Il \textit{sistema}\textsubscript{\textit{G}} deve integrare simulatori di diverso tipo al fine di generare dati di misurazioni che siano coerenti con l'ambito del \textit{sensore}\textsubscript{\textit{G}} simulato.& Soddisfatto \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & Il \textit{sistema}\textsubscript{\textit{G}} deve integrare simulatori di diverso tipo al fine di generare dati di misurazioni che siano coerenti con l'ambito del \textit{sensore}\textsubscript{\textit{G}} simulato. & Soddisfatto \\
     
     %RF4
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & Ogni misurazione trasmessa dal simulatore del \textit{sensore}\textsubscript{\textit{G}} deve essere composta dall'id del \textit{sensore}\textsubscript{\textit{G}}, il timestamp e la misurazione.& Soddisfatto\\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & Ogni misurazione trasmessa dal simulatore del \textit{sensore}\textsubscript{\textit{G}} deve essere composta dall'id del \textit{sensore}\textsubscript{\textit{G}}, il timestamp e la misurazione. & Soddisfatto\\
     
     %RF5
     \hline
@@ -34,15 +34,15 @@ una colonna Stato indicante la soddisfazione di tale requisito.
     
     %RF6
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio &  Il \textit{sistema}\textsubscript{\textit{G}} deve essere in grado di simulare almeno un \textit{sensore}\textsubscript{\textit{G}} che misuri l'umidità, espressa in percentuale di umidità nell'aria.& Soddisfatto \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio &  Il \textit{sistema}\textsubscript{\textit{G}} deve essere in grado di simulare almeno un \textit{sensore}\textsubscript{\textit{G}} che misuri l'umidità, espressa in percentuale di umidità nell'aria. & Soddisfatto \\
     
     %RF7
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio &  Il \textit{sistema}\textsubscript{\textit{G}} deve essere in grado di simulare almeno un \textit{sensore}\textsubscript{\textit{G}} per la rilevazione delle particelle di polveri sottili presenti nell'aria, espresse in microgrammi per metro cubo.& Soddisfatto \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio &  Il \textit{sistema}\textsubscript{\textit{G}} deve essere in grado di simulare almeno un \textit{sensore}\textsubscript{\textit{G}} per la rilevazione delle particelle di polveri sottili presenti nell'aria, espresse in microgrammi per metro cubo. & Soddisfatto \\
     
     %RF8
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio &  Il \textit{sistema}\textsubscript{\textit{G}} deve includere la simulazione di almeno un \textit{sensore}\textsubscript{\textit{G}} per individuare guasti elettrici. Questi sensori segnalano interruzioni nella fornitura di energia elettrica tramite un \textit{bit}\textsubscript{\textit{G}} binario, con il valore 0 che indica l'assenza di energia elettrica.& Soddisfatto \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio &  Il \textit{sistema}\textsubscript{\textit{G}} deve includere la simulazione di almeno un \textit{sensore}\textsubscript{\textit{G}} per individuare guasti elettrici. Questi sensori segnalano interruzioni nella fornitura di energia elettrica tramite un \textit{bit}\textsubscript{\textit{G}} binario, con il valore 0 che indica l'assenza di energia elettrica. & Soddisfatto \\
     
     %RF9
     \hline
@@ -50,7 +50,7 @@ una colonna Stato indicante la soddisfazione di tale requisito.
     
     %RF10
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & Il \textit{sistema}\textsubscript{\textit{G}} deve includere la simulazione di almeno un \textit{sensore}\textsubscript{\textit{G}} per le colonnine di ricarica. Questi sensori indicheranno tramite un \textit{bit}\textsubscript{\textit{G}} binario se la colonnina è occupata (\textit{bit}\textsubscript{\textit{G}} 1) o libera (\textit{bit}\textsubscript{\textit{G}} 0).& Soddisfatto \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio & Il \textit{sistema}\textsubscript{\textit{G}} deve includere la simulazione di almeno un \textit{sensore}\textsubscript{\textit{G}} per le colonnine di ricarica. Questi sensori indicheranno tramite un \textit{bit}\textsubscript{\textit{G}} binario se la colonnina è occupata (\textit{bit}\textsubscript{\textit{G}} 1) o libera (\textit{bit}\textsubscript{\textit{G}} 0). & Soddisfatto \\
     
     %RF11
     \hline
@@ -165,7 +165,7 @@ una colonna Stato indicante la soddisfazione di tale requisito.
     
     %RF39
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio &  I sensori posizionati sulla mappa devono visualizzare l'ultimo valore registrato quando il puntatore del mouse è posizionato sopra di essi.& Decisione interna & Soddisfatto \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Obbligatorio &  I sensori posizionati sulla mappa devono visualizzare l'ultimo valore registrato quando il puntatore del mouse è posizionato sopra di essi.& Soddisfatto \\
     
     %RF40
     \hline
@@ -241,35 +241,35 @@ una colonna Stato indicante la soddisfazione di tale requisito.
 
     %RF58
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Opzionale & L'utente deve poter salvare in una lista di misurazioni rilevanti una misurazione trasmessa da un \textit{sensore}\textsubscript{\textit{G}}.& Soddisfatto \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Opzionale & L'utente deve poter salvare in una lista di misurazioni rilevanti una misurazione trasmessa da un \textit{sensore}\textsubscript{\textit{G}}.& Non soddisfatto \\
     
     %RF59
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Opzionale & Il \textit{sistema}\textsubscript{\textit{G}} deve effettuare una verifica prima di salvare la misurazione tra le misurazioni rilevanti, assicurandosi che il dato non sia già presente in tale lista.& Soddisfatto \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Opzionale & Il \textit{sistema}\textsubscript{\textit{G}} deve effettuare una verifica prima di salvare la misurazione tra le misurazioni rilevanti, assicurandosi che il dato non sia già presente in tale lista.& Non soddisfatto \\
     
     %RF60
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Opzionale & L'utente deve poter visualizzare la lista delle misurazioni rilevanti.& Soddisfatto \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Opzionale & L'utente deve poter visualizzare la lista delle misurazioni rilevanti.& Non soddisfatto \\
     
     %RF61
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Opzionale & Ogni misurazione nella lista dei rilevanti deve fornire l'identificativo del \textit{sensore}\textsubscript{\textit{G}} che ha effettuato la misurazione.& Soddisfatto \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Opzionale & Ogni misurazione nella lista dei rilevanti deve fornire l'identificativo del \textit{sensore}\textsubscript{\textit{G}} che ha effettuato la misurazione.& Non soddisfatto \\
 
     %RF62
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Opzionale & Ogni misurazione nella lista dei rilevanti deve fornire la tipologia del \textit{sensore}\textsubscript{\textit{G}} che ha effettuato la misurazione.& Soddisfatto \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Opzionale & Ogni misurazione nella lista dei rilevanti deve fornire la tipologia del \textit{sensore}\textsubscript{\textit{G}} che ha effettuato la misurazione.& Non soddisfatto \\
 
     %RF63
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Opzionale & Ogni misurazione nella lista dei rilevanti deve fornire l'orario e la data di misurazione.& Soddisfatto \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Opzionale & Ogni misurazione nella lista dei rilevanti deve fornire l'orario e la data di misurazione.& Non soddisfatto \\
 
     %RF64
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Opzionale & Ogni misurazione nella lista dei rilevanti deve fornire il valore misurato e la relativa unità di misura.& Soddisfatto \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Opzionale & Ogni misurazione nella lista dei rilevanti deve fornire il valore misurato e la relativa unità di misura.& Non soddisfatto \\
 
     %RF65
     \hline
-    \stepcounter{rowcounter} RF\arabic{rowcounter} & Opzionale & L'utente deve poter rimuovere una misurazione dalla lista delle misurazioni rilevanti.& Soddisfatto \\
+    \stepcounter{rowcounter} RF\arabic{rowcounter} & Opzionale & L'utente deve poter rimuovere una misurazione dalla lista delle misurazioni rilevanti.& Non soddisfatto \\
 
     %RF66
     \hline
@@ -310,15 +310,18 @@ una colonna Stato indicante la soddisfazione di tale requisito.
     
 \end{longtable}
 
-\subsection{Grafici requisiti soddisfatti}
-\subsubsection{Requisiti funzionali}
-Riguardo alla soddisfazione dei vari requisiti funzionali, il gruppo ByteOps Engineering ha soddisfatto ....
+\subsection{Grafici riassuntivi requisiti soddisfatti}
 
-\subsubsection{Requisiti Obbligatori}
-Invece per quanto riguarda la copertura dei requisiti obbligatori, la copertura rilevata è del 100\%.
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/req_obbligatori.PNG}
-    \caption{Requisiti obbligatori soddisfatti}
+    \caption{Stato dei requisiti funzionali obbligatori}
     \label{fig: reqob}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{../Images/SpecificaTecnica/reqfunz.jpg}
+    \caption{Stato dei requisiti funzionali totali}
+    \label{fig: reqtot}
 \end{figure}

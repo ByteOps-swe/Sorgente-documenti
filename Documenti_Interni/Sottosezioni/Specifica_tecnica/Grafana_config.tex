@@ -1,47 +1,156 @@
 \subsection{Grafana}
-Grafana è un software open source per la visualizzazione e l'analisi dei dati. È progettato per funzionare con vari database di serie temporali, tra cui Clickhouse. Grafana offre un'interfaccia utente intuitiva e flessibile che consente di creare e condividere dashboard personalizzate per monitorare i dati in tempo reale. È ampiamente utilizzato per monitorare sistemi e applicazioni, nonché per analizzare e visualizzare dati in tempo reale.
+\textit{Grafana}\textsubscript{\textit{G}} è un \textit{software}\textsubscript{\textit{G}} open source per la visualizzazione e l'analisi dei dati progettato per interagire con vari data-source, tra cui \textit{Clickhouse}\textsubscript{\textit{G}}. \textit{Grafana}\textsubscript{\textit{G}} offre un'interfaccia utente intuitiva e flessibile che consente di creare e condividere \textit{dashboard}\textsubscript{\textit{G}} personalizzate per monitorare i dati di diversa natura in tempo reale.
 
-\subsection{Dashboards}
-Per soddisfare tutti i requisiti definiti in \textit{Analisi dei requisiti v2.0.0} sono state create due Dashboard:
+\subsubsection{Utenti}
+L'accesso a \textit{Grafana}\textsubscript{\textit{G}} è vincolato a due utenze e non permette uteriori registrazioni per l'accesso alla \textit{piattaforma}\textsubscript{\textit{G}} di monitoraggio.
 \begin{itemize}
-    \item \textbf{Dashboard Principale:} Questa dashboard fornisce una visualizzazione chiara e intuitiva delle misurazioni provenienti da tutti i sensori, di tutte le tipologie, distribuiti nell'area urbana. La dashboard include una mappa interattiva della città che mostra la posizione geografica di ciascun sensore e la relativa ultima misurazione. Inoltre, viene presentato il punteggio di salute della città o di celle specifiche.
-    \item \textbf{Dashboard dedicata:} Mostra le misurazioni di una specifica tipologia di sensore selezionata dall'utente in modo più dettagliato e permette di effettuare le attività di filtraggio e aggregazione definite in \textit{Analisi dei requisiti v2.0.0}.
+    \item \textbf{Amministratore:} 
+    \begin{itemize}
+        \item Accesso riservato all'amministratore di \textit{sistema}\textsubscript{\textit{G}} per permettere manutenzione e modifiche alle impostazioni sensibili della \textit{piattaforma}\textsubscript{\textit{G}};
+        \item Non accessibile in produzione;
+        \item Credenziali:
+        \begin{itemize}
+            \item \textbf{Username:} admin
+            \item \textbf{Password:} admin
+        \end{itemize} 
+    \end{itemize}
+    
+    \item \textbf{User:} 
+    \begin{itemize}
+        \item Accesso riservato alle autorità locali per la visualizzazione e il monitoraggio dei dati;
+        \item Credenziali:
+        \begin{itemize}
+            \item \textbf{Username:} user
+            \item \textbf{Password:} user
+        \end{itemize} 
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Dashboards}
+Per soddisfare tutti i requisiti definiti in \textit{Analisi dei requisiti v2.0.0 - Sez. Req. Funzionali} sono state create due \textit{dashboard}\textsubscript{\textit{G}}:
+\begin{itemize}
+    \item \textbf{Dashboard Principale:} Questa \textit{dashboard}\textsubscript{\textit{G}} fornisce una visualizzazione chiara e intuitiva delle misurazioni provenienti da tutti i sensori, di tutte le tipologie, distribuiti nell'area urbana. La \textit{dashboard}\textsubscript{\textit{G}} include una mappa interattiva della città che mostra la posizione geografica di ciascun \textit{sensore}\textsubscript{\textit{G}} e la relativa ultima misurazione. Inoltre, viene presentato il punteggio di salute della città o di celle specifiche;
+    \item \textbf{Dashboard dedicata:} Mostra le misurazioni di una specifica tipologia di \textit{sensore}\textsubscript{\textit{G}} selezionata dall'utente in modo più dettagliato e permette di effettuare le \textit{attività}\textsubscript{\textit{G}} di filtraggio e aggregazione definite in \textit{Analisi dei requisiti v2.0.0 - Sez. Req. Funzionali}.
 \end{itemize}
 
 
 
+\paragraph*{Dashboard Principale - Progettazione in dettaglio}
+La \textit{dashboard}\textsubscript{\textit{G}} principale è suddivisa in righe comprimibili. Di seguito, vengono elencate le informazioni da visualizzare per ciascuna riga, nell’ordine dato dall'enumerazione, \textbf{ l'intervallo di tempo scelto dall'utente tramite interfaccia di default \textit{Grafana}\textsubscript{\textit{G}} verrà chiamato \textit{UserInterval}.}
+\begin{enumerate}
+    \item Titolo riga: \textbf{City manager}
+    \begin{enumerate}
+        \item Pannello per la scelta delle celle della città di cui si intende visualizzare le misurazioni;
+        \item Mappa interattiva della città, presenta i sensori interni alle celle selezionate;
+        \item Pannello per la visualizzazione del punteggio di salute relativo alla celle selezionate;
+        \item Pannello per la visualizzazione dello stato degli alert relativi alle celle selezionate.
+    \end{enumerate}
+    \item Titolo riga: \textbf{Temperatura}
+    \begin{enumerate}
+        \item Pannello per la scelta dei sensori di temperatura da analizzare (vengono proposti per la scelta solo i sensori interni alle celle selezionate per l'analisi).\\
+        \textbf{Verrà chiamato \textit{tmps} l'insieme dei sensori di temperatura scelti nel pannello appena esposto e presenti nelle celle selezionate nel pannello apposito};
+        \item Pannello con vista time-series delle misurazioni di temperatura. Vengono presentate le misurazioni dei sensori \textit{tmps} in \textit{UserInterval};
+        \item Pannello con vista della media delle misurazioni dei sensori \textit{tmps} in \textit{UserInterval}.
+    \end{enumerate}
+    \item Titolo riga: \textbf{Umidità}
+    \begin{enumerate}
+        \item Pannello per la scelta dei sensori di umidità da analizzare (vengono proposti per la scelta solo i sensori interni alle celle selezionate per l'analisi).\\
+        \textbf{Verrà chiamato \textit{umds} l'insieme dei sensori di umidità scelti nel pannello appena esposto e presenti nelle celle selezionate nel pannello apposito};
+        \item Pannello con vista time-series delle misurazioni di umidità. Vengono presentate le misurazioni dei sensori \textit{umds} in \textit{UserInterval};
+        \item Pannello con vista della media delle misurazioni dei sensori \textit{umds} in \textit{UserInterval}.
+    \end{enumerate}
+    \item Titolo riga: \textbf{Polveri sottili}
+    \begin{enumerate}
+        \item Pannello per la scelta dei sensori di polveri sottili da analizzare (vengono proposti per la scelta solo i sensori interni alle celle selezionate per l'analisi).\\
+        \textbf{Verrà chiamato \textit{pm\_sensors} l'insieme dei sensori di polveri sottili scelti nel pannello appena esposto e presenti nelle celle selezionate nel pannello apposito};
+        \item Pannello con vista time-series delle misurazioni di polveri sottili. Vengono presentate le misurazioni dei sensori \textit{pm\_sensors} in \textit{UserInterval};
+        \item Pannello con vista della media delle misurazioni dei sensori \textit{pm\_sensors} in \textit{UserInterval}.
+    \end{enumerate}
+    \item Titolo riga: \textbf{Isole ecologiche}
+    \begin{enumerate}
+        \item Pannello per la scelta delle isole ecologiche da analizzare (vengono proposte per la scelta solo le isole ecologiche interne alle celle selezionate per l'analisi).\\
+        \textbf{Verrà chiamato \textit{islands} l'insieme delle isole ecologiche scelte nel pannello appena esposto};
+        \item Pannello con vista time-series delle misurazioni delle isole ecologiche. Vengono presentate le misurazioni delle isole ecologiche \textit{islands} in \textit{UserInterval};
+        \item Pannello con vista della media delle misurazioni delle isole ecologiche \textit{islands} in \textit{UserInterval}.
+    \end{enumerate}
+\item Titolo riga: \textbf{Colonnine di ricarica}
+\begin{enumerate}
+    \item Pannello per la scelta delle colonnine di ricarica da analizzare (vengono proposte per la scelta solo le  colonnine di ricarica interne alle celle selezionate per l'analisi).\\
+    \textbf{Verrà chiamato \textit{chsSt} l'insieme delle  colonnine di ricarica scelte nel pannello appena esposto};
+    \item Pannello con vista sul numero di colonnine di ricarica libere in \textit{chsSt} considerando l'ultima misurazione in
+    \textit{UserInterval};
+    \item Pannello con vista sul numero di colonnine di ricarica occupate in \textit{chsSt} considerando l'ultima misurazione in \textit{UserInterval};
+    \item Pannello con vista tabellare delle ultime misurazioni in \textit{UserInterval} delle colonnine di ricarica in \textit{chsSt}.
+\end{enumerate}
+\item Titolo riga: \textbf{Guasti elettrici}
+\begin{enumerate}
+    \item Pannello per la scelta dei sensori di guasti elettrici da analizzare (vengono proposti per la scelta solo i sensori di guasti elettrici interni alle celle selezionate per l'analisi).\\
+    \textbf{Verrà chiamato \textit{GstEl} l'insieme dei sensori di guasti elettrici scelti nel pannello appena esposto};
+    \item Pannello con vista sul numero di sensori che hanno rilevato anomalie in \textit{GstEl} considerando l'ultima misurazione in \textit{UserInterval};
+    \item Pannello con vista sul numero di sensori che non hanno rilevato anomalie in \textit{GstEl} considerando l'ultima misurazione in \textit{UserInterval};
+    \item Pannello con vista tabellare delle ultime misurazioni in \textit{UserInterval} dei sensori \textit{GstEl}.
+\end{enumerate}
+\item Titolo riga: \textbf{Sensori di presenza dell'acqua}
+\begin{enumerate}
+    \item Pannello per la selezione dei sensori di presenza dell'acqua da analizzare (vengono proposti solo i sensori di presenza dell'acqua interni alle celle selezionate per l'analisi).\\
+    \textbf{Verrà chiamato \textit{PresAcq} l'insieme dei sensori di presenza dell'acqua scelti nel pannello appena esposto};
+    \item Pannello con vista sul numero di sensori che hanno rilevato acqua in \textit{PresAcq} considerando l'ultima misurazione nell'intervallo temporale definito dall'utente (\textit{UserInterval});
+    \item Pannello con vista sul numero di sensori che non hanno rilevato acqua in \textit{PresAcq} considerando l'ultima misurazione nell'intervallo temporale definito dall'utente (\textit{UserInterval});
+    \item Pannello con vista tabellare delle ultime misurazioni nell'intervallo (\textit{UserInterval}) dei sensori \textit{PresAcq}.
+\end{enumerate}
+\end{enumerate}
+
+
+\paragraph*{Dashboard dedicata - Progettazione in dettaglio}
+La \textit{dashboard}\textsubscript{\textit{G}} dedicata è suddivisa in due sezioni: la prima, posta nella parte superiore della \textit{dashboard}\textsubscript{\textit{G}}, è dedicata ai pannelli per le variabili di input, mentre la seconda, posta nella parte inferiore della \textit{dashboard}\textsubscript{\textit{G}}, è dedicata alla visualizzazione delle misurazioni dei sensori secondo le impostazioni selezionate.\\
+Di seguito vengono esposti i dettagli relativi alla progettazione della selezione delle variabili di input:
+\begin{enumerate}
+    \item Pannello "\textbf{Selezione cella}": Permette di selezionare le celle della città da analizzare;
+    \item Pannello "\textbf{Tipologia misurazioni}": Permette di selezionare la tipologia di sensori da analizzare;
+    \item Pannello "\textbf{Selezione sensori}": Permette di selezionare i sensori da analizzare relativi alla tipologia e alla cella selezionata;
+    \item Pannello "\textbf{Aggregazione temporale}": Permette di selezionare l'intervallo temporale di aggregazione delle misurazioni:{Automatico, Secondo, Minuto, Ora, Giorno, Mese, Nessuno}. Maggiori dettagli in \ref{sec:var_dedicate};
+    \item Pannello "\textbf{Misurazine minima}": Permette di selezionare il valore minimo delle misurazioni da visualizzare;
+    \item Pannello "\textbf{Misurazione massima}": Permette di selezionare il valore massimo delle misurazioni da visualizzare.
+\end{enumerate}
+Di seguito vengono esposti i dettagli relativi alla progettazione della visualizzazione delle misurazioni secondo le variabili selezionate:
+\begin{enumerate}
+    \item Pannello "\textbf{Grafico a linee}": Visualizzazione delle misurazioni attraverso un grafico a linee time-series. Le misurazioni sono mostrate in base ai parametri specificati dall’utente. In particolare le misurazioni esposte rispettano i parametri scelti dall'utente nella sezione di selezione delle variabili di input sopra elencate;
+    \item Pannello "\textbf{Tabella misurazioni}": Visualizzazione delle misurazioni in forma tabellare. Come nel pannello precedente, le misurazioni sono mostrate in base ai parametri specificati dall'utente.
+\end{enumerate}
 
 \subsubsection{ClickHouse data source plugin} \label{sec:click_plugin}
-\paragraph{Documentazione:} \href{https://grafana.com/grafana/plugins/grafana-clickhouse-datasource/}{https://grafana.com/grafana/plugins/grafana-clickhouse-datasource/}
+\paragraph{Documentazione:}
+\href{https://grafana.com/grafana/plugins/grafana-clickhouse-datasource/}{https://grafana.com/grafana/plugins/grafana-clickhouse-datasource/}
 
-Questo plugin di grafana consente di connettersi a un'istanza di ClickHouse e di visualizzare i dati in tempo reale. È possibile eseguire query SQL personalizzate e visualizzare i risultati in forma di grafici, tabelle e pannelli personalizzati. Il plugin offre anche funzionalità di aggregazione e di calcolo dei dati, consentendo di analizzare e visualizzare i dati in modo flessibile e personalizzato.
+Questo plugin di grafana consente di connettersi a un'istanza di \textit{ClickHouse}\textsubscript{\textit{G}} e di visualizzarne i dati in tempo reale. È possibile eseguire \textit{query}\textsubscript{\textit{G}} SQL personalizzate e visualizzare i risultati in forma di grafici, tabelle e pannelli personalizzati. Il plugin offre anche funzionalità di aggregazione e di calcolo dei dati, consentendo di analizzare e visualizzare i dati in modo flessibile e personalizzato.
 
 \paragraph{Data sources configuration}
-La configurazione del data source avviene tramite file \textit{yaml} che deve essere presente in \textit{"grafana/provisioning/datasources"}.
-Il protocollo di trasporto utilizzato è TLS ma puo essere modificato nel file appena citato grazie al parametro di configurazione: "protocol".
+La configurazione del data source avviene tramite file \textit{yaml} che deve essere presente in \textit{"/provisioning/datasources"}.
+Il protocollo di trasporto utilizzato è \textit{TLS} e, se necessario, può essere modificato nel file appena citato grazie al parametro di configurazione \textit{protocol}.
 
 \paragraph{Macro utilizzate}\label{sec:macros}
-Per semplificare la sintassi e consentire operazioni dinamiche, come i filtri dell'intervallo di date, le queries al database Clickhouse possono contenere macro.
-Quelle utilizzate sono:
+Per semplificare la sintassi e consentire operazioni dinamiche, come filtri per intervalli temporali, le \textit{query}\textsubscript{\textit{G}} al \textit{database}\textsubscript{\textit{G}} \textit{Clickhouse}\textsubscript{\textit{G}} possono contenere macro.
+Le macro utilizzate sono:
 \begin{itemize}
-    \item \textbf{\$\_\_timeFilter(columnName)}: Permette di effettuare il filtro temporale alla query per ottenere le sole misurazioni all'interno dell'intervallo di tempo selezionato dall'utente.
+    \item \textbf{\$\_\_timeFilter(columnName)}: Permette di effettuare il filtro temporale alla \textit{query}\textsubscript{\textit{G}} per ottenere le sole misurazioni all'interno dell'intervallo di tempo selezionato dall'utente;
     \item  \textbf{\$\_\_timeInterval(columnName)}: Permette di modificare il raggruppamento temporale delle misurazioni in automatico sulla base dell'ampiezza dell'intervallo temporale selezionato dall'utente.
     In questo modo è possibile avere una visione ottimizzate delle misurazioni.
 \end{itemize}
 
 \subsubsection{Variabili Grafana}
-\paragraph*{Documentazione:} \href{https://grafana.com/docs/grafana/latest/dashboards/variables/}{https://grafana.com/docs/grafana/latest/dashboards/variables/}
+\textbf{Documentazione:}
+\url{https://grafana.com/docs/grafana/latest/dashboards/variables/} (Consultato:~25/03/2024)
 
 
- Le variabili in Grafana sono un potente strumento per rendere le dashboard dinamiche e interattive. Permettono di filtrare i dati visualizzati in base a valori scelti dall'utente, rendendo la dashboard più versatile e adattabile a differenti esigenze.
-\paragraph*{Utilizzo delle variabili nella dashboard principale:}
-Nella dashboard principale, le variabili sono:
+Le variabili in \textit{Grafana}\textsubscript{\textit{G}} sono un potente strumento per rendere le \textit{dashboard}\textsubscript{\textit{G}} dinamiche e interattive. Permettono di filtrare i dati visualizzati in base a valori scelti dall'utente, rendendo la \textit{dashboard}\textsubscript{\textit{G}} più versatile e adattabile a differenti esigenze.
+\paragraph*{Variabili nella dashboard principale:}
+Nella \textit{dashboard}\textsubscript{\textit{G}} principale, le variabili sono:
 \begin{itemize}
-    \item \textbf{variabile \$cella}: per mostrare solo le misurazioni provenienti da determinate celle della città, 
-    \item \textbf{variabili \$<TipoSensore>\_sensors\_id}: per mostrare le misurazioni di determinati sensori di un certo tipo.
+    \item \textbf{variabile (\$cella)}: Per mostrare solo le misurazioni provenienti da determinate celle della città;
+    \item \textbf{variabili (\$<TipoSensore>\_sensors\_id)}: Per mostrare le misurazioni di determinati sensori di un certo tipo.
 \end{itemize}
-Queste variabili all'interno delle query al database permettono il filtraggio delle misurazioni sulla base di quanto selezionato dall'utente.
-Un esempio di query per la visualizzazione delle misurazioni time-series di temperatura è:
+Queste variabili, all'interno delle \textit{query}\textsubscript{\textit{G}} al \textit{database}\textsubscript{\textit{G}}, permettono il filtraggio delle misurazioni sulla base di quanto selezionato dall'utente.
+Un esempio di \textit{query}\textsubscript{\textit{G}} per la visualizzazione delle misurazioni time-series di temperatura è:
 \begin{lstlisting}[style=code]
     SELECT    ID_sensore, avg(value) as value,
               $__timeInterval(timestamp) as timestamp
@@ -50,85 +159,103 @@ Un esempio di query per la visualizzazione delle misurazioni time-series di temp
     GROUP BY ID_sensore, timestamp;
 \end{lstlisting}
 
-La query esposta mostra anche l'utilizzo delle macro esposte in: \ref{sec:macros}
-\paragraph*{Utilizzo delle variabili nella dashboard dedicata:}
-Nella dashboard dedicata alla visualizzazione spefica delle misurazioni di una sola tipologia di sensori, le variabili sono:
+La \textit{query}\textsubscript{\textit{G}} mostra anche l'utilizzo delle macro esposte in: \ref{sec:macros}
+
+\paragraph*{Variabili nella dashboard dedicata:} \label{sec:var_dedicate}
+Nella \textit{dashboard}\textsubscript{\textit{G}} dedicata alla visualizzazione specifica delle misurazioni di una sola tipologia sono presenti le seguenti variabili:
 \begin{itemize}
-    \item \textbf{variabile \$cella}: per mostrare solo le misurazioni provenienti da determinate celle della città, 
-    \item \textbf{variabili \$<TipoSensore>\_sensors\_id}: per mostrare le misurazioni di determinati sensori di un certo tipo.
-    \item \textbf{variabili \$tabella}: per selezionare la tipoligia di sensore di cui si vuole visualizzare la dashboard dedicata e quindi la tabella del database da cui ricavare i dati.
-    \item \textbf{\$aggregazione}: variabile per selezionare l'intervallo temporale di aggregazione delle misurazioni
-    (Automatico, Secondo,Minuto,Ora,Giorno,Mese,Nessuno).
-    Nel caso della selezione della modalità "Automatico" si utilizzza l'intervallo temporale di aggregazione più opportuno sulla base dell'ampiezza dell'intervallo temporale selezionato dall'utente.
-    \item \textbf{\$Max\_value}: variabile ad input numerico per filtrare le misurazioni con valore al di sotto di quello indicato.
-    \item \textbf{\$Min\_value}: variabile ad input numerico per filtrare le misurazioni con valore al di sopra di quello indicato.
+    \item \textbf{variabile (\$cella)}: Per mostrare solo le misurazioni provenienti da determinate celle della città;
+    \item \textbf{variabili (\$<TipoSensore>\_sensors\_id)}: Per mostrare le misurazioni di determinati sensori di un certo tipo;
+    \item \textbf{variabili (\$tabella)}: Per selezionare la tipoligia di \textit{sensore}\textsubscript{\textit{G}} di cui si vuole visualizzare la \textit{dashboard}\textsubscript{\textit{G}} dedicata e quindi la tabella del \textit{database}\textsubscript{\textit{G}} da cui ricavare i dati;
+    \item \textbf{(\$aggregazione)}: Per selezionare l'intervallo temporale di aggregazione delle misurazioni
+    (Automatico, Secondo, Minuto, Ora, Giorno, Mese, Nessuno).
+    Nel caso della selezione della modalità "Automatico" si utilizza l'intervallo temporale di aggregazione più opportuno sulla base dell'ampiezza dell'intervallo temporale selezionato dall'utente;
+    \item \textbf{(\$Max\_value)}: Variabile ad input numerico per filtrare le misurazioni con valore al di sotto di quello indicato;
+    \item \textbf{(\$Min\_value)}: Variabile ad input numerico per filtrare le misurazioni con valore al di sopra di quello indicato.
 \end{itemize}
-\paragraph{Variable Panel plugin}
-\textbf{Documentazione:} \href{https://volkovlabs.io/plugins/volkovlabs-variable-panel/}{https://volkovlabs.io/plugins/volkovlabs-variable-panel/}
-Il plugin permette di creare dei pannelli grafana che possono essere posizionati ovunque nella Dashboard e che consentono di selezionare i valori delle variabili.
-Inoltre permette la visualizzazione ad albero delle variabili utile nel nostro caso dove i sensori sono contenuti all'interno di celle della città.
+
+
 
 \subsubsection{Grafana alerts}
-\textbf{Documentazione}\href{https://grafana.com/docs/grafana/latest/alerting/}{https://grafana.com/docs/grafana/latest/alerting/}
+\textbf{Documentazione:}
+\url{https://grafana.com/docs/grafana/latest/alerting/} (Consultato:~25/03/2024)
 
-
-Grafana offre un sistema di alerting completo per monitorare i dati e inviare notifiche quando si verificano determinate condizioni. Le notifiche possono essere inviate tramite diversi canali, tra cui email, Slack, Telegram e Discord.
+\textit{Grafana}\textsubscript{\textit{G}} offre un \textit{sistema}\textsubscript{\textit{G}} di alerting completo per monitorare i dati e inviare notifiche quando si verificano determinate condizioni. Le notifiche possono essere inviate tramite diversi canali, tra cui email, Slack, Telegram e \textit{Discord}\textsubscript{\textit{G}}.
 
 \paragraph{Alert Rule}
-Per poter configurare un alert è necessario creare una regola di alert. La regola di alert viene impostata tramite query al data source e fa scattare l'alert quando la query restituisce un risultato che soddisfa le condizioni impostate.
-Gli alert impostati sono per:
+Per poter configurare un alert è necessario creare una regola di alert. Tale regola viene impostata tramite \textit{query}\textsubscript{\textit{G}} al data source e fa scattare l'alert quando la \textit{query}\textsubscript{\textit{G}} restituisce un risultato che soddisfa le condizioni impostate.
+Gli alert sono configurati per i seguenti eventi:
 \begin{itemize}
-    \item Quando un sensore di temperatura registra una temperatura superiore ai 40°C;
-    \item Quando un sensore di polveri sottili supera i 50 microgrammi al metro cubo;
-    \item Quando un sensore di guasti elettrici rileva un guasto.
+    \item Quando un \textit{sensore}\textsubscript{\textit{G}} di temperatura registra una temperatura superiore ai 40°C o inferiore ai -10°C;
+    \item Quando un \textit{sensore}\textsubscript{\textit{G}} di polveri sottili supera i 50 microgrammi al metro cubo;
+    \item Quando un \textit{sensore}\textsubscript{\textit{G}} di guasti elettrici rileva un guasto.
 \end{itemize}
 
 Gli alert attraversano 3 stati:
 \begin{itemize}
-    \item \textbf{Pending:} indica che un alert è stato attivato, ma la sua valutazione non è ancora stata completata.
-                            Quando si è in questo stato è perchè il valore della query di alert è stato valutato e risulta essere vero ma la configurazione della regola di allerta ha impostato che l'allerta deve essere attiva per un certo periodo di tempo prima di essere considerata vera e quindi inviare la notifica.
-\item \textbf{Firing:}  indica che un alert è stato attivato e la sua valutazione ha confermato che la condizione di alert è soddisfatta per il periodo impostato nella regola e quindi viene inviata la notifica ai canali impostati.
-\item \textbf{OK:} indica che un alert è stato disattivato e la sua valutazione ha confermato che la condizione di alert non è più soddisfatta.
+    \item \textbf{Pending:} La condizione per l'attivazione dell'avviso è stata soddisfatta, ma il periodo di valutazione dell'avviso non è ancora trascorso;
+    \item \textbf{Firing:} Indica che un alert è stato attivato e la sua valutazione ha confermato che la condizione di alert è soddisfatta per il periodo impostato nella regola e quindi viene inviata la notifica ai canali impostati;
+    \item \textbf{OK:} Indica che un alert è stato disattivato e la sua valutazione ha confermato che la condizione di alert non è più soddisfatta.
 
-Le regole di allerta sono impostabili tramite l'interfaccia grafica di Grafana e vengono esportate in formato \textit{yaml} ed inserite in "/provisioning/alerting".
+Le regole di allerta sono configurabili tramite l'interfaccia grafica di \textit{Grafana}\textsubscript{\textit{G}} e vengono esportate in formato \textit{yaml} ed inserite in \textit{"/provisioning/alerting"}.
                             
 \end{itemize}
 
-\paragraph{Configurazione il canale di notifica}
-Per configurare i canali di notifica è necessario andare in "Alerting" e selezionare "Notification channels" dall'interfaccia grafica di Grafana.
+\paragraph{Configurazione canale di notifica}
+Per configurare i canali di notifica è necessario andare in \textit{Alerting} e selezionare \textit{Notification channels} dall'interfaccia grafica di \textit{Grafana}\textsubscript{\textit{G}}.
 
-Per il progetto è stato scelto Discord come unico canale di notifica.
-Per configurare il canale di notifica è necessario:
+Per il progetto è stato scelto \textit{Discord}\textsubscript{\textit{G}} come unico canale di notifica.
+
+Per configurare il canale di notifica è necessario seguire i seguenti passaggi:
 \begin{itemize}
-    \item Seleziona Discord come canale di notifica.
-    \item Inserisci il webhook URL del tuo canale Discord.
+    \item Seleziona \textit{Discord}\textsubscript{\textit{G}} come canale di notifica;
+    \item Configurazione Server \textit{Discord}\textsubscript{\textit{G}} "InnovaCity":
+    \begin{itemize}
+        \item Il server \textit{Discord}\textsubscript{\textit{G}} è stato creato ed è raggiungibile tramite l'indirizzo: \url{https://discord.gg/cCp9qxK7};
+        \item Per ottenere il webhook URL del canale \textit{Discord}\textsubscript{\textit{G}} andare in: \textit{Impostazioni server/Integrazioni} e seleziona \textit{visualizza webhook}.
+    \end{itemize}
+    \item Inserisci il webhook URL del tuo canale \textit{Discord}\textsubscript{\textit{G}};
     \item Personalizza il messaggio di notifica.
+    
 \end{itemize}
 
-Anche le impostazioni di configurazione del canale di notifica sono esportabili in formato \textit{yaml} e vengono inserite in "/provisioning/alerting".
+Anche le impostazioni di configurazione del canale di notifica sono esportabili in formato \textit{yaml} e vengono inserite in \textit{/provisioning/alerting}.
+
+
 
 \paragraph{Notification policies}
-Le norme di notifica negli Alert di Grafana sono un modo potente per gestire l'invio degli alert a diversi canali di notifica.
+Le norme di notifica negli alert di \textit{Grafana}\textsubscript{\textit{G}} sono un modo potente per gestire l'invio degli alert a diversi canali di notifica.
 
-Per una spiegazione dettagliata della configurazione si rimanda alla documentazione ufficiale di Grafana: \href{https://grafana.com/docs/grafana/latest/alerting/alerting-rules/create-notification-policy/}{https://grafana.com/docs/grafana/latest/alerting/alerting-rules/create-notification-policy/}
+Per una spiegazione dettagliata della configurazione si rimanda alla documentazione ufficiale di \textit{Grafana}\textsubscript{\textit{G}}: \url{https://grafana.com/docs/grafana/latest/alerting/alerting-rules/create-notification-policy/} (Consultato:~25/03/2024).
 
-Anche le impostazioni delle notification policies sono esportabili in formato \textit{yaml} e vengono inserite in "/provisioning/alerting".
+Anche le impostazioni delle notification policies sono esportabili in formato \textit{yaml} e vengono inserite in \textit{/provisioning/alerting}.
 
 \subsubsection{Altri plugin utilizzati}
 \paragraph{Orchestra Cities Map plugin}
-\textbf{Documentazione:} \href{https://grafana.com/grafana/plugins/orchestracities-map-panel/}{https://grafana.com/grafana/plugins/orchestracities-map-panel/}
+\textbf{Documentazione:}
 
-Il plugin Orchestra Cities Map per Grafana estende il pannello Geomap di Grafana con diverse funzionalità avanzate per la visualizzazione di dati geolocalizzati su mappe:
+\url{https://grafana.com/grafana/plugins/orchestracities-map-panel/} (Consultato:~25/03/2024)
+
+Il plugin Orchestra Cities Map per \textit{Grafana}\textsubscript{\textit{G}} estende il pannello Geomap con diverse funzionalità avanzate per la visualizzazione di dati geolocalizzati su mappe.
+Viene utilizzato al fine di consentire una rappresentazione differenziata delle icone corrispondenti ai vari tipi di sensori distribuiti in città, nonché la visualizzazione dell'ultima misurazione effettuata, ovvero lo stato attuale del \textit{sensore}\textsubscript{\textit{G}} stesso.
 
 Funzionalità principali:
 \begin{itemize}
-    \item \textbf{Supporto per GeoJSON}: Permette di visualizzare dati geoJSON su mappe, come shapefile di città, regioni o stati.
-    \item \textbf{Icone personalizzate}: Puoi utilizzare icone personalizzate per rappresentare diversi tipi di dati sui punti mappa.
-    \item \textbf{Popup informativi}: Mostra popup con informazioni dettagliate quando si clicca su un punto mappa.
-    \item \textbf{Strati multipli}: Permette di creare più strati sovrapposti per visualizzare diversi set di dati sulla stessa mappa.
-    \item \textbf{Filtraggio e ricerca}: Puoi filtrare i punti mappa in base a diversi criteri, come proprietà dei dati o valori delle metriche.
-    \item \textbf{Colorazione dei punti}: Puoi colorare i punti mappa in base a valori di metriche o ad altri criteri.
-    \item \textbf{Legende personalizzate}: Puoi creare legende personalizzate per spiegare il significato dei colori e delle icone utilizzati nella mappa.
+    \item \textbf{Supporto per GeoJSON}: Permette di visualizzare dati GeoJSON su mappe, come shapefile di città, regioni o stati;
+    \item \textbf{Icone personalizzate}: Permette di utilizzare icone personalizzate per rappresentare diversi tipi di dati sui punti mappa;
+    \item \textbf{Popup informativi}: Permette di visualizzare popup con informazioni dettagliate quando si clicca su un punto mappa;
+    \item \textbf{Strati multipli}: Permette di creare più strati sovrapposti per visualizzare diversi set di dati sulla stessa mappa;
+    \item \textbf{Filtraggio e ricerca}: Permette di filtrare i punti mappa in base a diversi criteri, come proprietà dei dati o valori delle metriche;
+    \item \textbf{Colorazione dei punti}: Permette di colorare i punti mappa in base a valori di metriche o ad altri criteri;
+    \item \textbf{Legende personalizzate}: Permette di creare legende personalizzate per spiegare il significato dei colori e delle icone utilizzati nella mappa.
 \end{itemize}
 
-Viene utilizzato per poter visualizzare in modo diverse le icone dei diversi tipi di sensori dislocati nella città oltre che l'ultima misurazione effettuata ovvero lo stato attuale del sensore.
+\paragraph{Variable Panel plugin}
+\textbf{Documentazione:}
+\url{https://volkovlabs.io/plugins/volkovlabs-variable-panel/} (Consultato:~25/03/2024)
+
+
+Il plugin permette di creare dei pannelli \textit{Grafana}\textsubscript{\textit{G}} che possono essere posizionati ovunque nella \textit{dashboard}\textsubscript{\textit{G}} e che consentono di selezionare i valori delle variabili.
+In aggiunta, il \textit{sistema}\textsubscript{\textit{G}} consente la rappresentazione a forma di albero delle variabili, la quale risulta vantaggiosa nel nostro contesto in cui i sensori sono localizzati all'interno delle celle della città.
+
+
