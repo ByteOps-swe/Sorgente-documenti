@@ -360,7 +360,7 @@ Il \textit{pattern}\textsubscript{\textit{G}} \textit{Factory} incapsula la crea
     \label{fig: writersModule}
 \end{figure}
 
-Questo modulo si occupa della scrittura e/o invio di informazioni a diverse tipologie di servizi e vuole essere completamentemente indipendendente e non influenzato dal modulo della simulazione dei sensori, così da poter consentire un suo riutilizzo.
+Questo modulo si occupa della scrittura e/o invio di informazioni a diverse tipologie di servizi e vuole essere completamente indipendente e non influenzato dal modulo della simulazione dei sensori, così da poter consentire un suo riutilizzo.
 Per quanto riguarda la scrittura in \textit{Kafka}\textsubscript{\textit{G}}, l'impiego della connessione allo Schema Registry (vedi sezione \S\ref{sec:schema_registry}) consente la convalida del formato del messaggio prima della sua scrittura nei topic \textit{Kafka}\textsubscript{\textit{G}}. Questa pratica permette di ridurre il carico di \textit{rete}\textsubscript{\textit{G}} nel caso di messaggi malformati, consentendo un filtraggio "alla fonte".
 
 Il modulo è stato progettato per rispettare il Dependecy Inversion Principle \textit{(DIP)}, di conseguenza sia i moduli di alto livello che quelli di basso livello dipendono da astrazioni (interfacce o classi astratte).
