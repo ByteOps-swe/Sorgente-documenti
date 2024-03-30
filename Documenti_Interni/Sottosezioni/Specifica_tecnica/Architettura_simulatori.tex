@@ -550,7 +550,7 @@ Un'altra implementazione del \textit{pattern}\textsubscript{\textit{G}} \textit{
 \paragraph{Classi, interfacce, metodi e attributi}
 
 \begin{itemize}
-    \item{\textbf{Interfaccia: \textit{component\_simulator\_thread}}}
+    \item{\textbf{Classe astratta: \textit{component\_simulator\_thread}}}
     \begin{itemize}
         \item \textbf{Metodi:}
         \begin{itemize}
@@ -561,7 +561,7 @@ Un'altra implementazione del \textit{pattern}\textsubscript{\textit{G}} \textit{
         \item\textbf{Note}:
         \begin{itemize}
             \item Eredita le proprietà e i metodi della classe \textit{Thread} della \textit{Standard Library};
-            \item \textit{component\_simulator\_thread} è un interfaccia di threading per la simulazione dei sensori, fornisce un contratto per le operazioni di avvio, esecuzione del compito e arresto;
+            \item \textit{component\_simulator\_thread} è una classe astratta di threading per la simulazione dei sensori, fornisce un contratto per le operazioni di avvio, esecuzione del compito e arresto;
             \item Rappresenta il componente "Component" del \textit{pattern}\textsubscript{\textit{G}} \textit{Composite}, descrive le operazioni comuni sia ai singoli Thread sia a composizioni di questi;
             \item L'utilizzatore dei simulatori può lavorare allo stesso modo con elementi semplici (singoli Thread) o complessi (insiemi di Thread in forma di albero).
         \end{itemize}
@@ -587,7 +587,7 @@ Un'altra implementazione del \textit{pattern}\textsubscript{\textit{G}} \textit{
         \end{itemize}
         \item\textbf{Note}:
         \begin{itemize}
-            \item La classe è un'implementazione concreta dell'interfaccia \textit{component\_simulator\_thread};
+            \item La classe è un'implementazione concreta della classe astratta \textit{component\_simulator\_thread};
             \item Utilizza un oggetto \textit{\textit{simulator}} per generare dati a una certa frequenza e un oggetto che implementa\textit{component\_writer} per scrivere i dati generati;
             \item Rappresenta il componente Leaf del \textit{pattern}\textsubscript{\textit{G}} \textit{Composite};
             \item Se \textit{data\_to\_generate} < 0, allora genera misurazioni finchè il thread non viene interroto dall'esterno;
@@ -632,7 +632,7 @@ Un'altra implementazione del \textit{pattern}\textsubscript{\textit{G}} \textit{
         \end{itemize}
         \item\textbf{Note}:
         \begin{itemize}
-            \item La classe è un'implementazione concreta dell'interfaccia \textit{component\_simulator\_thread}, utilizza un oggetto \textit{simulator\_thread\_pool} per gestire l'esecuzione di vari simulatori;
+            \item La classe è un'implementazione concreta della classe astratta \textit{component\_simulator\_thread}, utilizza un oggetto \textit{simulator\_thread\_pool} per gestire l'esecuzione di vari simulatori;
             \item Rappresenta il componente "Composite" del \textit{pattern}\textsubscript{\textit{G}} \textit{Composite}.
             \item Utilizzando il metodo \textit{run()} viene creato un nuovo thread che permette di eseguire la funzione \textit{task()} in modo sincrono.
             \item Utilizzando il metodo \textit{task()} direttamente non è possibile avere un'esecuzione asincrona. La funzione \textit{task()} viene eseguita sul thread chiamante, bloccando l'esecuzione del codice fino al termine della sua esecuzione. Questa funzione viene utilizzata dalle ThreadPool che creano dei thread per l'esecuzione asincrona delle task.
