@@ -38,7 +38,7 @@ Il calcolo del punteggio di salute avviene in due fasi:
 \begin{itemize}
     \item \textbf{Applicazione Faust:}
     \begin{lstlisting}[style=code]
-    faust.App(<nome_app>, broker=<broker_kafka>)
+    faust.App(<nome_app>, \textit{broker}\textsubscript{\textit{G}}=<broker_kafka>)
     \end{lstlisting} 
     \begin{itemize}
         \item Un'applicazione Faust è un \textit{programma}\textsubscript{\textit{G}} \textit{Python}\textsubscript{\textit{G}} che elabora flussi di dati in tempo reale da \textit{Kafka}\textsubscript{\textit{G}}\textsubscript{\textit{G}};
@@ -59,7 +59,7 @@ Il calcolo del punteggio di salute avviene in due fasi:
 
     \item \textbf{Tipo di dato atteso:}
      \begin{lstlisting}[style=code]
-    class faust_measurement(faust.Record, serializer='json')
+    class faust\_measurement(faust.Record, serializer='\textit{json}\textsubscript{\textit{G}}')
     \end{lstlisting}  
     \begin{itemize}
         \item È una classe che eredita da \textbf{faust.Record};

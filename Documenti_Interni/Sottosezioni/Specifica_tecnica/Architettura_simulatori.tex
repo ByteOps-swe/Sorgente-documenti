@@ -332,15 +332,15 @@ Il \textit{pattern}\textsubscript{\textit{G}} \textit{Factory} incapsula la crea
 
             \item \textbf{create\_humidity\_sensor(latitude: float, longitude: float, cella: string, initial\_value: float): humidity\_simulator [public, static]} - Crea un simulatore di umidità;
             
-            \item \textbf{create\_charging\_station\_sensor(latitude: float, longitude: float, cella: string, initial\_value: bool): charging\_station\_simulator [public, static]} - Crea un simulatore di stazione di ricarica;
+            \item \textbf{create\_charging\_station\_sensor(latitude: float, longitude: float, cella: string, probabilita\_occupazione: float): charging\_station\_simulator [public, static]} - Crea un simulatore di stazione di ricarica;
             
             \item \textbf{create\_ecological\_island\_sensor(latitude: float, longitude: float, cella: string, initial\_value: float): ecological\_island\_simulator [public, static]} - Crea un simulatore di isola ecologica;
             
-            \item \textbf{create\_water\_presence\_sensor(latitude: float, longitude: float, cella: string, initial\_value: bool): water\_presence\_sensor [public, static]} - Crea un \textit{sensore}\textsubscript{\textit{G}} di presenza d'acqua;
+            \item \textbf{create\_water\_presence\_sensor(latitude: float, longitude: float, cella: string, soglia\_rilevamento: float): water\_presence\_sensor [public, static]} - Crea un \textit{sensore}\textsubscript{\textit{G}} di presenza d'acqua;
             
             \item \textbf{create\_dust\_PM10\_sensor(latitude: float, longitude: float, cella: string, initial\_value: float): dust\_PM10\_simulator [public, static]} - Crea un simulatore di polvere PM10;
             
-            \item \textbf{create\_eletrical\_fault\_sensor(latitude: float, longitude: float, cella: string, initial\_value: bool): electrical\_fault\_simulator [public, static]} - Crea un simulatore di guasto elettrico.
+            \item \textbf{create\_eletrical\_fault\_sensor(latitude: float, longitude: float, cella: string, fault\_probability: float): electrical\_fault\_simulator [public, static]} - Crea un simulatore di guasto elettrico.
         \end{itemize}
     \textbf{Note}:
         \begin{itemize}
@@ -395,7 +395,7 @@ Inoltre grazie all'interfaccia \textit{kafka\_target}, si è garantita la possib
     \begin{itemize}
         \item\textbf{Metodi}: 
         \begin{itemize}
-            \item \textbf{to\_json(): string [public, abstract]} - Metodo astratto che deve essere implementato nelle sottoclassi per convertire l'oggetto in una stringa \textit{JSON}\textsubscript{\textit{G}}.
+            \item \textbf{to\_json(): string [public, abstract]} - Metodo astratto che deve essere implementato nelle sottoclassi per convertire l'oggetto in una stringa JSON.
         \end{itemize}
         \item\textbf{Note}:
         \begin{itemize}
@@ -443,7 +443,7 @@ Inoltre grazie all'interfaccia \textit{kafka\_target}, si è garantita la possib
     \end{itemize}
     \item \textbf{Metodi};
     \begin{itemize}
-        \item \textbf{write(to\_write: writable): None [public]} - Stampa l'oggetto writable come stringa \textit{JSON}\textsubscript{\textit{G}} nella console;
+        \item \textbf{write(to\_write: writable): None [public]} - Stampa l'oggetto writable come stringa JSON nella console;
     \end{itemize}
     \item\textbf{Note}:
         \begin{itemize}
@@ -476,7 +476,7 @@ Inoltre grazie all'interfaccia \textit{kafka\_target}, si è garantita la possib
     \end{itemize}
     \item \textbf{Metodi}:
     \begin{itemize}
-        \item \textbf{write(to\_write: writable): None [public]} - Scrive l'oggetto \textit{writable} come stringa \textit{JSON}\textsubscript{\textit{G}} su \textit{Kafka}\textsubscript{\textit{G}}.
+        \item \textbf{write(to\_write: writable): None [public]} - Scrive l'oggetto \textit{writable} come stringa JSON su \textit{Kafka}\textsubscript{\textit{G}}.
     \end{itemize}
     \item\textbf{Note}:
         \begin{itemize}
@@ -544,7 +544,7 @@ Al fine di evitare modifiche dirette al codice di \textit{simulator\_thread\_poo
 
 Questo approccio consente di modificare la logica o la libreria utilizzata per la gestione dei thread senza richiedere modifiche al codice di \textit{simulator\_thread\_pool}, ma semplicemente aggiungendo una nuova classe adapter che implementi \textit{thread\_pool\_target}.
 
-Un'altra implementazione del \textit{pattern}\textsubscript{\textit{G}} \textit{Object Adapter} viene impiegata per adattare gli oggetti \textit{misurazione} del modulo dei Simulatori all'interfaccia \textit{writable} del modulo Writers. La classe \textit{adapter\_misurazione}, implementando l'interfaccia \textit{writable}, fornisce un'implementazione del metodo \textit{to\_json()} che consente di convertire un oggetto \textit{misurazione} nel formato \textit{JSON}\textsubscript{\textit{G}}, compatibile con il formato definito nello Schema Registry e riconosciuto da \textit{Kafka}\textsubscript{\textit{G}}.
+Un'altra implementazione del \textit{pattern}\textsubscript{\textit{G}} \textit{Object Adapter} viene impiegata per adattare gli oggetti \textit{misurazione} del modulo dei Simulatori all'interfaccia \textit{writable} del modulo Writers. La classe \textit{adapter\_misurazione}, implementando l'interfaccia \textit{writable}, fornisce un'implementazione del metodo \textit{to\_json()} che consente di convertire un oggetto \textit{misurazione} nel formato JSON, compatibile con il formato definito nello Schema Registry e riconosciuto da \textit{Kafka}\textsubscript{\textit{G}}.
 \ref{sec:formatoMessaggi}
 
 \paragraph{Classi, interfacce, metodi e attributi}
@@ -606,12 +606,12 @@ Un'altra implementazione del \textit{pattern}\textsubscript{\textit{G}} \textit{
         \end{itemize}
         \item \textbf{Metodi: }
         \begin{itemize}
-            \item \textbf{to\_json(): string [public]} - Converte l'oggetto \textit{misurazione} in una stringa \textit{JSON}\textsubscript{\textit{G}} conforme a quanto definito in \ref{sec:formatoMessaggi};
-            \item \textbf{from\_json(json\_data: dict): misurazione [staticmethod, public]} - Crea un oggetto \textit{misurazione} da un dizionario \textit{JSON}\textsubscript{\textit{G}}.
+            \item \textbf{to\_json(): string [public]} - Converte l'oggetto \textit{misurazione} in una stringa JSON conforme a quanto definito in \ref{sec:formatoMessaggi};
+            \item \textbf{from\_json(json\_data: dict): misurazione [staticmethod, public]} - Crea un oggetto \textit{misurazione} da un dizionario JSON.
         \end{itemize}
         \item\textbf{Note}:
         \begin{itemize}
-            \item La classe è un'implementazione concreta dell'interfaccia \textit{writable}. Fornisce metodi per convertire un oggetto \textit{misurazione} in un formato \textit{JSON}\textsubscript{\textit{G}} e viceversa;
+            \item La classe è un'implementazione concreta dell'interfaccia \textit{writable}. Fornisce metodi per convertire un oggetto \textit{misurazione} in un formato JSON e viceversa;
             \item Rappresenta la componente "Adapter" del \textit{pattern}\textsubscript{\textit{G}} \textit{Object Adapter}.
         \end{itemize}
     \end{itemize}
