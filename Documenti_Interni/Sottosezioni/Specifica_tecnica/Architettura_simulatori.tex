@@ -332,15 +332,15 @@ Il \textit{pattern}\textsubscript{\textit{G}} \textit{Factory} incapsula la crea
 
             \item \textbf{create\_humidity\_sensor(latitude: float, longitude: float, cella: string, initial\_value: float): humidity\_simulator [public, static]} - Crea un simulatore di umidità;
             
-            \item \textbf{create\_charging\_station\_sensor(latitude: float, longitude: float, cella: string, probabilita\_occupazione: float): charging\_station\_simulator [public, static]} - Crea un simulatore di stazione di ricarica;
+            \item \textbf{create\_charging\_station\_sensor(latitude: float, longitude: float, cella: string, initial\_value: bool): charging\_station\_simulator [public, static]} - Crea un simulatore di stazione di ricarica;
             
             \item \textbf{create\_ecological\_island\_sensor(latitude: float, longitude: float, cella: string, initial\_value: float): ecological\_island\_simulator [public, static]} - Crea un simulatore di isola ecologica;
             
-            \item \textbf{create\_water\_presence\_sensor(latitude: float, longitude: float, cella: string, soglia\_rilevamento: float): water\_presence\_sensor [public, static]} - Crea un \textit{sensore}\textsubscript{\textit{G}} di presenza d'acqua;
+            \item \textbf{create\_water\_presence\_sensor(latitude: float, longitude: float, cella: string, initial\_value: bool): water\_presence\_sensor [public, static]} - Crea un \textit{sensore}\textsubscript{\textit{G}} di presenza d'acqua;
             
             \item \textbf{create\_dust\_PM10\_sensor(latitude: float, longitude: float, cella: string, initial\_value: float): dust\_PM10\_simulator [public, static]} - Crea un simulatore di polvere PM10;
             
-            \item \textbf{create\_eletrical\_fault\_sensor(latitude: float, longitude: float, cella: string, fault\_probability: float): electrical\_fault\_simulator [public, static]} - Crea un simulatore di guasto elettrico.
+            \item \textbf{create\_eletrical\_fault\_sensor(latitude: float, longitude: float, cella: string, initial\_value: bool): electrical\_fault\_simulator [public, static]} - Crea un simulatore di guasto elettrico.
         \end{itemize}
     \textbf{Note}:
         \begin{itemize}
