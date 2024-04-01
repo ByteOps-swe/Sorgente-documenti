@@ -1,0 +1,155 @@
+\section{Tecnologie}
+In questa sezione sono definiti gli strumenti e le tecnologie impiegati per lo sviluppo e l'implementazione del \textit{software}\textsubscript{\textit{G}} relativo al progetto InnovaCity.
+
+Si procederà quindi con la descrizione delle tecnologie e dei linguaggi di programmazione utilizzati, delle \textit{librerie}\textsubscript{\textit{G}} e dei \textit{framework}\textsubscript{\textit{G}} necessari, nonché delle infrastrutture richieste.
+
+L'obiettivo principale è garantire che il \textit{software}\textsubscript{\textit{G}} sia sviluppato utilizzando le tecnologie più appropriate in termini di efficienza, sicurezza e affidabilità.
+
+\subsection{Docker}\label{sec:docker}
+Per lo sviluppo, il testing e il rilascio del prodotto sono stati utilizzati \textit{container}\textsubscript{\textit{G}} \textit{Docker}\textsubscript{\textit{G}} in modo tale da garantire ambienti consistenti e riproducibili.
+
+\subsubsection{Ambienti}
+\begin{itemize}
+  \item \textbf{Ambiente di sviluppo:}
+    \begin{itemize}
+      \item È l'ambiente dove i \textit{software}\textsubscript{\textit{G}} developer scrivono, testano e modificano il codice sorgente;
+      \item Può includere strumenti di debug e monitoraggio per facilitare lo sviluppo e la correzione di errori;
+      \item Non è accessibile agli utenti finali.
+    \end{itemize}
+    \item \textbf{Ambiente di test:}
+    \begin{itemize}
+      \item Simula l'ambiente di produzione;
+      \item Viene utilizzato per testare il \textit{software}\textsubscript{\textit{G}} in modo completo e realistico prima del rilascio in produzione;
+      \item I \textit{test}\textsubscript{\textit{G}} vengono eseguiti automaticamente tramite \textit{Github}\textsubscript{\textit{G}} \textit{workflow}\textsubscript{\textit{G}} oppure manualmente in locale tramite profilo di testing \textit{docker}\textsubscript{\textit{G}} e includono \textit{test di unità}\textsubscript{\textit{G}}, \textit{integrazione}\textsubscript{\textit{G}}, \textit{sistema}\textsubscript{\textit{G}} (sicurezza, carico e prestazioni).
+    \end{itemize}
+    \item \textbf{Ambiente di produzione:}
+    \begin{itemize}
+      \item È l'ambiente dove il \textit{software}\textsubscript{\textit{G}} viene rilasciato per poter essere utilizzato dagli utenti finali;
+      \item Deve essere stabile, sicuro e performante per garantire un'esperienza utente ottimale;
+      \item Le modifiche al \textit{software}\textsubscript{\textit{G}} in produzione sono controllate rigorosamente per minimizzare i rischi di errori o downtime.
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Docker images}
+
+Di seguito sono elencate le immagini \textit{Docker}\textsubscript{\textit{G}} utilizzate:
+
+\begin{itemize}
+
+  \item \textbf{Simulators - Python} 
+    \begin{itemize}
+      \item \textbf{Image:} \textit{Python}\textsubscript{\textit{G}}: 3.9;
+      \item \textbf{Riferimento:} \url{https://hub.docker.com/layers/library/python/3.9/images/sha256-1023bd4c5e0e6b7f4f612b034627826d91ec78ae0439313450ec30c0ad60c908?context=explore}~(consultato: 19/03/2024);
+      \item \textbf{Ambiente:}
+        \begin{itemize}
+          \item Develop;
+          \item Production.
+        \end{itemize}
+    \end{itemize}
+
+  \item \textbf{Broker - Apache Kafka} 
+    \begin{itemize}
+      \item \textbf{Image:} confluentinc/cp-\textit{kafka}\textsubscript{\textit{G}}: 7.6.0;
+      \item \textbf{Riferimento:} \url{https://hub.docker.com/layers/confluentinc/cp-kafka/7.6.0/images/sha256-8fc15a671986983b83beecae14e013a91adcd3999f687de8b6b8153fd47e8f67?context=explore}~(consultato: 19/03/2024);
+      \item \textbf{Ambiente:}
+        \begin{itemize}
+          \item Develop;
+          \item Production;
+          \item Testing;
+        \end{itemize}
+    \end{itemize}
+
+  \item \textbf{Zookeeper} 
+    \begin{itemize}
+      \item \textbf{Image:} confluentinc/cp-zookeeper: 7.6.0;
+      \item \textbf{Riferimento:} \url{https://hub.docker.com/layers/confluentinc/cp-zookeeper/7.6.0/images/sha256-6a0822643ceb4725db4f24bf2d228eee39bb5ade88f586449d87263cbc81bc97?context=explore}~(consultato: 19/03/2024);
+      \item \textbf{Ambiente:}
+        \begin{itemize}
+          \item Develop;
+          \item Production;
+          \item Testing;
+        \end{itemize}
+    \end{itemize}
+
+  \item \textbf{Apache Kafka UI} 
+    \begin{itemize}
+      \item \textbf{Image:} provectuslabs/\textit{kafka}\textsubscript{\textit{G}}-ui: 53a6553765a806eda9905c43bfcfe09da6812035;
+      \item \textbf{Riferimento:} \url{https://hub.docker.com/layers/provectuslabs/kafka-ui/53a6553765a806eda9905c43bfcfe09da6812035/images/sha256-633606ca07677d1c4b9405c5df1b6f0087aa75b36528a17eed142d06f65d0881?context=explore}~(consultato: 19/03/2024);
+      \item \textbf{Ambiente:}
+        \begin{itemize}
+          \item Develop.
+        \end{itemize}
+    \end{itemize}
+
+  \item \textbf{Schema registry} 
+    \begin{itemize}
+      \item \textbf{Image:} confluentinc/cp-schema-registry: 7.6.0;
+      \item \textbf{Riferimento:} \url{https://hub.docker.com/layers/confluentinc/cp-schema-registry/7.6.0/images/sha256-7cea5369377b52823d3101dd22073a235a501256f6f140c66d2111224803af0b?context=explore}~(consultato: 19/03/2024);
+      \item \textbf{Ambiente:}
+        \begin{itemize}
+          \item Develop;
+          \item Production;
+          \item Testing;
+        \end{itemize}
+    \end{itemize}
+
+  \item \textbf{Schema registry UI} 
+    \begin{itemize}
+      \item \textbf{Image:} landoop/schema-registry-ui: latest;
+      \item \textbf{Riferimento:} \url{https://hub.docker.com/layers/landoop/schema-registry-ui/latest/images/sha256-c8b7baf7c53224eaa066937410adae388384e3f7c6f26296ba6a98cc5880f866?context=explore}~(consultato: 19/03/2024);
+      \item \textbf{Ambiente:}
+        \begin{itemize}
+          \item Develop.
+        \end{itemize}
+    \end{itemize}
+
+  \item \textbf{Faust processing - Python} 
+    \begin{itemize}
+      \item \textbf{Image:} \textit{Python}\textsubscript{\textit{G}}: 3.9;
+      \item \textbf{Riferimento:} \url{https://hub.docker.com/layers/library/python/3.9/images/sha256-1023bd4c5e0e6b7f4f612b034627826d91ec78ae0439313450ec30c0ad60c908?context=explore}~(consultato: 19/03/2024);
+      \item \textbf{Ambiente:}
+        \begin{itemize}
+          \item Develop;
+          \item Production;
+          \item Testing;
+        \end{itemize}
+    \end{itemize}
+
+  \item \textbf{ClickHouse} 
+    \begin{itemize}
+      \item \textbf{Image:} \textit{clickhouse}\textsubscript{\textit{G}}/\textit{clickhouse}\textsubscript{\textit{G}}-server: 24.2.1.2248;
+      \item \textbf{Riferimento:} \url{https://hub.docker.com/layers/clickhouse/clickhouse-server/24.2.1.2248/images/sha256-a5921f08bc3ab230e20db5970698b300279b29a353620e62729325fa8d1dc601?context=explore}~(consultato: 19/03/2024);
+      \item \textbf{Ambiente:}
+        \begin{itemize}
+          \item Develop;
+          \item Production;
+          \item Testing;
+        \end{itemize}
+    \end{itemize}
+
+  \item \textbf{Grafana} 
+    \begin{itemize}
+      \item \textbf{Image:} grafana/grafana-oss: 10.4.0;
+      \item \textbf{Riferimento:} \url{https://hub.docker.com/layers/grafana/grafana-oss/10.4.0/images/sha256-c7ae30e06ee76656f4faf37df1f0d0dfb6941a706b66800a7b289a304d31d771?context=explore}~(consultato: 19/03/2024);
+      \item \textbf{Ambiente:}
+        \begin{itemize}
+          \item Develop;
+          \item Production.
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+\subsection{Linguaggi e formato dati}
+\input{Sottosezioni/Specifica_tecnica/Python.tex}
+\input{Sottosezioni/Specifica_tecnica/SQL.tex}
+\input{Sottosezioni/Specifica_tecnica/Json.tex}
+\input{Sottosezioni/Specifica_tecnica/Yaml.tex}
+
+\subsection{Database e servizi}
+\input{Sottosezioni/Specifica_tecnica/Kafka.tex}
+\input{Sottosezioni/Specifica_tecnica/Schema_registry.tex}
+\input{Sottosezioni/Specifica_tecnica/Zookeper.tex}
+\input{Sottosezioni/Specifica_tecnica/ClickHouse.tex}
+\input{Sottosezioni/Specifica_tecnica/Grafana.tex}
+
+
