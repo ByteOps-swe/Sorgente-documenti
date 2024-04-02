@@ -1,0 +1,21 @@
+\subsubsection{UC35- VISUALIZZAZIONE ERRORE AUTENTICAZIONE}
+\begin{itemize}
+    \item \textbf{Attore principale:} Autorità locale;
+    \item \textbf{Precondizioni:}
+        \begin{itemize}
+            \item Il sistema è operativo, accessibile e l’utente ha ricevuto le credenziali di accesso dall'amministratore;
+            \item L'utente ha inserito una combinazione non valida di Username e Password durante il processo di autenticazione (UC34);
+            \item L'autenticazione di UC34 è fallita.
+        \end{itemize}
+    \item \textbf{Postcondizioni:}
+        \begin{itemize}
+            \item Viene visualizzato un messaggio di errore esplicativo.
+        \end{itemize}
+    \item \textbf{Scenario principale:}
+        \begin{enumerate}
+            \item Il sistema verifica le credenziali fornite;
+            \item Se le credenziali sono errate, viene visualizzato un messaggio di errore ("Login fallito. Username o password non validi").
+        \end{enumerate}
+    \item \textbf{User story associata:} \\
+    Come Autorità Locale voglio ricevere un messaggio di errore chiaro e informativo se l’autenticazione fallisce.
+\end{itemize}
