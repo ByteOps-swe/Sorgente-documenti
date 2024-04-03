@@ -1,42 +1,71 @@
 \subsection{Verso la Product Baseline}
 
-\subsubsection{Pianificazione}
-Periodo previsto: 16/01/2024-12/03/2024\\ 
-\vspace{0.2cm} 
-Periodo effettivo: (??)-(??)\\ 
-\vspace{0.2cm} 
-In questa sezione, pur avendo un'idea di ciò che ci attende, al momento abbiamo scelto di strutturare i nostri periodi di lavoro in fasi più lunghe anziché bisettimanali. Questa decisione deriva dalla nostra attuale valutazione delle competenze, poiché riteniamo prematuro definire l'intervallo che precede la seconda revisione con periodi di tempo molto definiti e stretti.
+\subsubsection{Pianificazione ad alto livello}
 
-Le fasi attuali, più lunghe e meno specifiche, saranno progressivamente convertite in periodi bisettimanali quando vi sarà una maggiore consapevolezza delle \textit{attività}\textsubscript{\textit{G}} future.
+\textbf{Periodo previsto:} 16/01/2024 - 12/03/2024 \\ 
+\vspace{0.2cm} 
+\textbf{Periodo effettivo:} 06/02/2024 - 25/03/2024 \\ 
+\vspace{0.2cm} 
+
+Nei prossimi paragrafi, verranno delineati tre macro-periodi di alto livello che sono stati identificati per suddividere il periodo antecedente alla revisione PB (Product Baseline). Questi macro-periodi rappresentano un quadro generale dell'evoluzione del progetto, offrendo una pianificazione ad alto livello degli obiettivi verso il conseguimento della Product Baseline. \\
+È da sottolineare l'importanza di integrare, ad una visione a basso livello e orientata al breve termine, una prospettiva ad alto livello che abbracci una visione più ampia, considerando quindi non solo il progresso immediato, ma anche l'allineamento agli obiettivi finali. Si ritiene cruciale includere una prospettiva a lungo termine che consenta di tracciare l'avanzamento complessivo del progetto e di anticipare eventuali rischi o sfide future.
+Si noti che tali macro-periodi non devono essere confusi con gli sprint regolarmente condotti dal team.
+
+\paragraph{Primo macro-periodo}
+
+\textbf{Intervallo temporale previsto}: 06/02/2024-01/03/2024 \\ 
 
 \vspace{0.2cm}
 
-\textbf{Obiettivo}: Nella fase successiva, il focus sarà sullo sviluppo dei Diagrammi delle Classi e sulla redazione di eventuali nuovi documenti. L'obiettivo primario sarà la realizzazione del prodotto effettivo partendo dal \textit{POC}\textsubscript{\textit{G}}, integrando le funzionalità non ancora implementate e migliorandolo nei punti più deboli della sua struttura.
+Nel primo macro-periodo, il focus principale è sulla progettazione architetturale. Dato il livello di esperienza limitato del team in questo ambito, sarà data priorità all'acquisizione delle competenze necessarie e alla creazione di una solida base di conoscenze attraverso la realizzazione di minimal working example (MWE). Tale approccio sarà fondamentale per agevolare lo sviluppo di una comprensione approfondita delle dinamiche di progettazione in un contesto più semplice, preparando così delle solide basi per affrontare tale attività nel contesto del progetto con maggiore consapevolezza e pratica.
+Successivamente, forte delle competenze acquisite e beneficiando della dettagliata definizione dei requisiti precedentemente delineati, il team si concentrerà sulla progettazione architetturale e sul design delle componenti nel contesto del progetto, avvalendosi di design pattern e best practice per la realizzazione di un modello architetturale robusto, scalabile e resiliente.
+Parallelamente all’attività di progettazione, verrà avviata la redazione del documento di Specifica Tecnica, che servirà come guida dettagliata delle scelte architetturali e delle decisioni di progettazione prese e fungerà da punto di riferimento cruciale per lo sviluppo software.
+Questo macro-periodo stabilirà le fondamenta necessarie per affrontare le sfide successive in modo strutturato e organizzato. In particolare, la definizione di un'architettura solida e la creazione di una cultura di apprendimento continuo getteranno le basi per un'implementazione efficiente e un risultato finale di alta qualità, fornendo una guida essenziale per l'implementazione pratica e lo sviluppo del codice.
 
-\paragraph{Prima fase}
-Intervallo temporale previsto: 16/01/2024-13/02/2024\\ 
-\vspace{0.2cm} 
-Durante la prima fase, l'attenzione sarà rivolta all'inizializzazione di possibili nuovi documenti per la \textit{PB}\textsubscript{\textit{G}}, in parallelo sarà affrontato lo studio dell'\textit{architettura}\textsubscript{\textit{G}} di \textit{sistema}\textsubscript{\textit{G}} e dei design \textit{pattern}\textsubscript{\textit{G}} più appropriati.
+\vspace{0.4cm}
+
+\textbf{Rischi preventivati}
+\begin{itemize}
+    \item \textbf{RT-1A-1} - Apprendimento ed utilizzo delle nuove tecnologie~(\S~\textit{\ref{sec:rischioTec}})
+    \item \textbf{RO-2A-3} - Inesperienza nell’attività di progettazione e conseguenti possibili rallentamenti~(\S~\textit{\ref{sec:inexpAttività}})
+\end{itemize}
+
+\paragraph{Secondo macro-periodo}
+
+\textbf{Intervallo temporale previsto}: 01/03/2024-15/03/2024 \\
 
 \vspace{0.2cm}
 
-I lavori continueranno sul \textit{Piano di Progetto}, sulla correzione dei documenti \textit{Analisi dei Requisiti}, \textit{Glossario} e \textit{Piano di Qualifica}. Si avvierà la realizzazione dei diagrammi di \textit{attività}\textsubscript{\textit{G}} e sequenze, dando anche inizio allo sviluppo della prima versione del prodotto basata sul \textit{PoC}\textsubscript{\textit{G}}.
+Nel secondo macro-periodo, una volta completata la progettazione architetturale e definito il design delle componenti, il focus si sposterà verso lo sviluppo del MVP (Minimum Viable Product), seguendo scrupolosamente le linee guida delineate nel documento Specifica Tecnica. Durante lo sviluppo del MVP, sarà fondamentale condurre test per garantire la correttezza del prodotto già in fase di realizzazione, quindi verranno sviluppati diversi test al fine di individuare e risolvere prontamente eventuali anomalie o difetti.
+Prima di avviare la realizzazione dei test, si prevede un periodo dedicato alla formazione e all'approfondimento delle tecnologie pertinenti al testing, inclusa la creazione di minimal working example (MWE) per acquisire esperienza e le competenze necessarie.
+Successivamente, si procederà con la realizzazione dei test di unità per valutare le singole funzionalità dei sensori, i test di integrazione per verificare l'interazione tra le diverse componenti dell'architettura, i test di sistema per assicurare il funzionamento complessivo del prodotto, e infine i test di carico e di performance per valutare le prestazioni e la robustezza del sistema.
+In conclusione, il secondo macro-periodo si configura come uno step cruciale in cui vengono messe in pratica le decisioni prese durante l’attività di progettazione, attraverso la realizzazione del Minimum Viable Product (MVP). Questo macro-periodo richiede un attento bilanciamento tra lo sviluppo di componenti e funzionalità e la garanzia della qualità attraverso una serie di test mirati. Grazie alla formazione preliminare e alla pianificazione accurata delle attività di verifica, il team si preparerà ad affrontare le sfide emergenti con determinazione e competenza, assicurando un solido fondamento per le attività successive e garantendo che l'MVP sia solido, affidabile e privo di difetti.
 
-\paragraph{Seconda fase}
-Intervallo temporale previsto: 13/02/2024-12/03/2024
-\\ 
-\vspace{0.2cm} 
-Durante la seconda fase del progetto, l'attenzione sarà rivolta all’avanzamento di possibili nuovi documenti per la \textit{PB}\textsubscript{\textit{G}}, insieme alla continuazione dei documenti inizialmente avviati. In parallelo, saranno eseguite ottimizzazioni del \textit{sistema}\textsubscript{\textit{G}}, attraverso \textit{test}\textsubscript{\textit{G}} specifici per valutare la sua scalabilità e l'implementazione di allarmi per individuare eventuali anomalie o superamento di soglie critiche.
+\vspace{0.4cm}
 
-Si proseguirà con il perfezionamento del codice stesso, garantendo un costante miglioramento delle funzionalità e delle prestazioni del prodotto in fase di sviluppo.
+\textbf{Rischi preventivati}
+\begin{itemize}
+    \item \textbf{RO-2A-3} - Inesperienza nell’attività di testing~(\S~\ref{sec:inexpAttività});
+    \item \textbf{RT-1M-4} - Basse prestazioni hardware per i test di performance~(\S~\ref{sec:lowPrestazioniHW});
+    \item \textbf{RO-2M-5} - Divergenze nella redazione del documento Specifica Tecnica~(\S~\ref{subsubsec:contrastiInterni}).
+\end{itemize}
 
-\paragraph{Terza fase}
-Intervallo temporale previsto: 12/03/2024-25/03/2024\\ 
-\vspace{0.2cm} 
-Durante la terza fase del nostro progetto, l'attenzione sarà rivolta all'ultimazione delle nuove versioni del \textit{Piano di Qualifica}, delle \textit{Norme di Progetto}, del \textit{Glossario} e del \textit{Piano di Qualifica}, completando contemporaneamente i documenti specifici della revisione \textit{PB}\textsubscript{\textit{G}}.
+\paragraph{Terzo macro-periodo}
 
-Sarà inoltre intensivamente testato il prodotto attraverso i \textit{test}\textsubscript{\textit{G}} e le metriche descritte all'interno del documento \textit{Piano di Qualifica} ed infine verrà creata la presentazione per la \textit{PB}\textsubscript{\textit{G}}.
+\textbf{Intervallo temporale previsto}: 15/03/2024-25/03/2024 \\ 
 
+\vspace{0.2cm}
+
+Nel terzo macro-periodo, dopo aver completato lo sviluppo del MVP (Minimum Viable Product) e condotto i test necessari, ci si concentrerà sulla redazione del Manuale Utente. Questo documento rivestirà un'importanza fondamentale per gli utenti finali, poiché fornirà istruzioni dettagliate su come sfruttare appieno le varie funzionalità offerte dal prodotto.
+Contestualmente, si procederà con un’ulteriore verifica accurata dei documenti già redatti per garantire l’omogeneità tra le diverse sezioni e per assicurare che ogni parte sia integrata in modo coerente. \\
+Inoltre, verranno preparate le presentazioni destinate alla revisione PB. La prima presentazione, rivolta al professor Cardin, sarà incentrata sull'aspetto architetturale del prodotto, mentre la seconda, destinata al professor Vardanega, si concentrerà maggiormente sugli aspetti metodologici.
+
+\vspace{0.4cm}
+
+\textbf{Rischi preventivati}
+\begin{itemize}
+    \item \textbf{RO-2M-5} - Divergenze nella redazione del documento Manuale Utente~(\S~\ref{subsubsec:contrastiInterni}).
+\end{itemize}
 
 %---------------------OTTAVO PERIODO---------------------------------------
 
@@ -55,26 +84,26 @@ Durante il \textit{SAL}\textsubscript{\textit{G}} datato 23/02/2024, come riport
 \paragraph{Gestione dei rischi} 
 
 \begin{itemize}
-    \item \textbf{Rischi attesi e verificati:}
+    \item \textbf{Rischi attesi e occorsi:}
 \begin{itemize}
-    \item \textbf{RO-2A-4} - Inesperienza nell'\textit{attività}\textsubscript{\textit{G}} di progettazione (\textit{\ref{sec:inexpAttività}})
+    \item \textbf{RO-2A-3} - Inesperienza nell'\textit{attività}\textsubscript{\textit{G}} di progettazione~(\S~\textit{\ref{sec:inexpAttività}})
         \begin{itemize}
             \item \textbf{Esito mitigazione}: 
             la mitigazione dell'inesperienza nell'\textit{attività}\textsubscript{\textit{G}} di progettazione è avvenuta attraverso \textit{attività}\textsubscript{\textit{G}} di studio individuale e pratica con \textit{minimal working example}\textsubscript{\textit{G}}. Ciò ha consentito ai progettisti di familiarizzare con l'\textit{attività}\textsubscript{\textit{G}} di progettazione e di sperimentare soluzioni senza la complessità del prodotto completo;
             \item \textbf{Impatto}: Nonostante un iniziale rallentamento dovuto allo studio preliminare, le task assegnate ai progettisti sono state gestite senza conseguenze significative, grazie ad una pianificazione consapevole del Responsabile, che ha considerato l'inesperienza del team in tali \textit{attività}\textsubscript{\textit{G}}.
         \end{itemize}
-    \item \textbf{RO-2A-4} - Inesperienza nell'\textit{attività}\textsubscript{\textit{G}} di testing (\textit{\ref{sec:inexpAttività}})
+    \item \textbf{RO-2A-3} - Inesperienza nell'\textit{attività}\textsubscript{\textit{G}} di testing~(\S~\textit{\ref{sec:inexpAttività}})
         \begin{itemize}
             \item \textbf{Esito della mitigazione}: Per ridurre il rischio derivante dall'inesperienza nell'\textit{attività}\textsubscript{\textit{G}} di testing e nell'automatizzazione dei \textit{test}\textsubscript{\textit{G}}, è stato implementato un approccio basato su \textit{test}\textsubscript{\textit{G}} incrementali. Prima della realizzazione dei primi \textit{test}\textsubscript{\textit{G}}, sono stati condotti \textit{test}\textsubscript{\textit{G}} preliminari utilizzando set di dati limitati, consentendo al team di acquisire gradualmente familiarità con le procedure di testing e di migliorare le competenze. Progressivamente, con l'aumentare della competenza, si è proceduto ad incrementata la complessità dei \textit{test}\textsubscript{\textit{G}}, in modo tale da garantire una copertura esaustiva su tutte le funzionalità del prodotto. Questo approccio ha consentito di superare le sfide iniziali dovute all'inesperienza, ottenendo risultati soddisfacenti e mantenendo gli \textit{standard}\textsubscript{\textit{G}} di qualità definiti.
             \item \textbf{Impatto}: Come nel caso precedente, relativo all'inesperienza nell'\textit{attività}\textsubscript{\textit{G}} di progettazione, si è manifestato un iniziale rallentamento dovuto allo studio preliminare e alla creazione di \textit{minimal working example}\textsubscript{\textit{G}}. Tuttavia, grazie a una pianificazione attenta del responsabile, che ha tenuto conto dell'inesperienza del team nella conduzione dei \textit{test}\textsubscript{\textit{G}} e nell'utilizzo di \textit{librerie}\textsubscript{\textit{G}} e strumenti correlati, non si sono riscontrate conseguenze significative.
         \end{itemize}
 \end{itemize}
-\item \textbf{Rischi attesi ma non verificati:}
+\item \textbf{Rischi attesi ma non occorsi:}
  \begin{itemize}
-    \item \textbf{RO-2M-3} - Ritardo nel completamento delle \textit{attività}\textsubscript{\textit{G}} rispetto ai tempi previsti~(\ref{sec:ritAttivita});
-    \item \textbf{RP-2B-1} - Contrasti interni al gruppo~(\textit{\ref{subsubsec:contrastiInterni}}).
+    \item \textbf{RO-2A-2} - Ritardo nel completamento delle \textit{attività}\textsubscript{\textit{G}} rispetto ai tempi previsti~(\S~\textit{\ref{sec:ritAttivita}});
+    \item \textbf{RO-2M-5} - Contrasti interni al gruppo~(\S~\textit{\ref{subsubsec:contrastiInterni}}).
 \end{itemize}
-\item \textbf{Rischi non attesi ma verificati:}
+\item \textbf{Rischi non attesi ma occorsi:}
 \begin{itemize}
     \item Nessuno.
 \end{itemize}
@@ -130,8 +159,8 @@ Il preventivo a finire rimane invariato a \textbf{12425,00\euro} e non risulta n
     \begin{minipage}[b]{0.70\textwidth}
         \centering
         \includegraphics[width=0.7\textwidth]{../Images/torta8.png}
-        \caption{Avanzamento dei lavori RTB - Ottavo periodo}
-        \label{fig:Avanzamento_RTB_8}
+        \caption{Avanzamento dei lavori PB - Ottavo periodo}
+        \label{fig:Avanzamento_PB_8}
     \end{minipage}
 \end{figure}
 
@@ -183,22 +212,22 @@ Parallelamente allo sviluppo delle componenti principali del \textit{sistema}\te
 \paragraph{Gestione dei rischi}
 
 \begin{itemize}
-    \item \textbf{Rischi attesi e verificati:}
+    \item \textbf{Rischi attesi e occorsi:}
     \begin{itemize}
-        \item \textbf{RO-2A-4} - Inesperienza nell'\textit{attività}\textsubscript{\textit{G}} di testing (\textit{\ref{sec:inexpAttività}})
+        \item \textbf{RO-2A-3} - Inesperienza nell'\textit{attività}\textsubscript{\textit{G}} di testing~(\S~\textit{\ref{sec:inexpAttività}})
         \begin{itemize}
             \item \textbf{Esito della mitigazione}: Grazie all'implementazione di sessioni di formazione mirate e all'orientamento fornito dal professore durante il diario di bordo e dall'azienda \textit{proponente}\textsubscript{\textit{G}} durante gli ultimi \textit{SAL}\textsubscript{\textit{G}}, il nostro team ha gradualmente superato le difficoltà iniziali legate all'inesperienza nel testing. \\
             Attraverso la pratica con la realizzazione di minimal working examples sia nel periodo precedente, che in quello attuale, le competenze del team nell'ambito del testing sono notevolmente cresciute. Inoltre, sono state effettuate sessioni di peer-review per favorire lo scambio di conoscenze e migliorare le competenze del team, con particolare attenzione all'\textit{integrazione}\textsubscript{\textit{G}} tra \textit{Python}\textsubscript{\textit{G}} e \textit{Kafka}\textsubscript{\textit{G}}.
             \item \textbf{Impatto}: Nonostante le iniziali difficoltà, l'attuazione delle strategie di mitigazione ha portato a un significativo miglioramento delle competenze del team nella realizzazione dei \textit{test}\textsubscript{\textit{G}}. Questo ha aumentato notevolmente l'efficienza e l'efficacia nell'esecuzione dei \textit{test}\textsubscript{\textit{G}} di \textit{integrazione}\textsubscript{\textit{G}} e ha ridotto il rischio di errori durante lo sviluppo e il rilascio del \textit{software}\textsubscript{\textit{G}}. Inoltre, il processo formativo, seppur dispendioso, ha avuto un impatto positivo sull'intero team, aumentando la consapevolezza e la capacità di affrontare sfide simili in futuro con maggiore sicurezza, velocità e competenza.
         \end{itemize}
     \end{itemize}
-\item \textbf{Rischi attesi ma non verificati:}
+\item \textbf{Rischi attesi ma non occorsi:}
     \begin{itemize}
-        \item \textbf{RO-2A-4} - Inesperienza nell'\textit{attività}\textsubscript{\textit{G}} di progettazione (\textit{\ref{sec:inexpAttività}}) \\
+        \item \textbf{RO-2A-3} - Inesperienza nell'\textit{attività}\textsubscript{\textit{G}} di progettazione~(\S~\textit{\ref{sec:inexpAttività}}) \\
         Il rischio previsto di rallentamenti a causa dell'inesperienza nell'\textit{attività}\textsubscript{\textit{G}} di progettazione non si è verificato. \\
         Le competenze acquisite attraverso la pratica effettuata nel periodo precedente grazie alla realizzazione di minimal working examples hanno agevolato la progettazione del \textit{database}\textsubscript{\textit{G}} e del \textit{sistema}\textsubscript{\textit{G}} di calcolo del punteggio di salute senza il riscontro di particolari difficoltà. Questo risultato evidenzia l'efficacia dell'approccio di formazione e pratica adottato dal team, sottolineando l'importanza dell'investimento continuo nello sviluppo delle competenze del team.
     \end{itemize} 
-\item \textbf{Rischi non attesi ma verificati:}
+\item \textbf{Rischi non attesi ma occorsi:}
     \begin{itemize}
         \item Nessuno
     \end{itemize}
@@ -224,7 +253,7 @@ Per le \textit{attività}\textsubscript{\textit{G}} registrate nei costi, sono s
         Verificatore (Ve)   & E. Hysa \\
                             & N. Preto \\
                             & A. Barutta \\
-                            & L.Skenderi \\   
+                            & L. Skenderi \\   
         \hline
         Programmatori (Pr)  & R. Smanio \\
                             & D. Diotto \\
@@ -257,8 +286,8 @@ Il preventivo a finire rimane invariato a \textbf{12425,00\euro} e non risulta n
     \begin{minipage}[b]{0.70\textwidth}
         \centering
         \includegraphics[width=0.7\textwidth]{../Images/torta9.png}
-        \caption{Avanzamento dei lavori RTB - Nono periodo}
-        \label{fig:Avanzamento_RTB_9}
+        \caption{Avanzamento dei lavori PB - Nono periodo}
+        \label{fig:Avanzamento_PB_9}
     \end{minipage}
 \end{figure}
 
@@ -310,26 +339,26 @@ Infine, il Responsabile ha coordinato le \textit{attività}\textsubscript{\texti
 \paragraph{Gestione dei rischi}
 
 \begin{itemize}
-    \item \textbf{Rischi attesi e verificati:}
+    \item \textbf{Rischi attesi e occorsi:}
         \begin{itemize}
-            \item \textbf{RT-1M-4} - Basse prestazioni hardware per i \textit{test}\textsubscript{\textit{G}} di performance (\textit{\ref{sec:lowPrestazioniHW}});
+            \item \textbf{RT-1M-4} - Basse prestazioni hardware per i \textit{test}\textsubscript{\textit{G}} di performance (\S~\textit{\ref{sec:lowPrestazioniHW}});
             \begin{itemize}
                 \item \textbf{Esito mitigazione}: Data l'assenza di risorse per l'implementazione di un ambiente distribuito e le limitazioni delle macchine disponibili per eseguire \textit{test}\textsubscript{\textit{G}} di carico e performance, non è stato possibile attuare alcuna forma di mitigazione. È stato necessario fare affidamento esclusivamente sulle risorse attualmente disponibili, sebbene sia stato riconosciuto che queste potrebbero non essere sufficienti per condurre \textit{test}\textsubscript{\textit{G}} esaustivi.
                 \item \textbf{Impatto}: L'impossibilità di mitigare il rischio ha impattato direttamente sulla capacità del team di valutare accuratamente le prestazioni dell'applicativo attualmente in fase di \textit{test}\textsubscript{\textit{G}}. I \textit{test}\textsubscript{\textit{G}} condotti potrebbero non offrire una rappresentazione completa delle reali condizioni di utilizzo e potrebbero non identificare in modo completo i problemi di prestazioni più critici. È essenziale mantenere consapevolezza di questa limitazione durante il proseguimento del progetto e valutare continuamente alternative per compensare la mancanza di risorse, come l'ottimizzazione del codice o l'adozione di strumenti di simulazione più leggeri.
             \end{itemize}
-            \item \textbf{RP-3M-2} - Assenza per ferie del membro dell'azienda \textit{proponente}\textsubscript{\textit{G}} specializzato nelle tecnologie~(\textit{\ref{subsubsec:contattiProponente}})
+            \item \textbf{RO-3M-6} - Assenza per ferie del membro dell'azienda \textit{proponente}\textsubscript{\textit{G}} specializzato nelle tecnologie~(\S~\textit{\ref{subsubsec:contattiProponente}})
                 \begin{itemize}
                     \item \textbf{Esito mitigazione}: Nonostante l'assenza del membro più esperto dell'azienda \textit{proponente}\textsubscript{\textit{G}} nelle tecnologie utilizzate, il progresso del progetto nel suo complesso non ha subito compromessi significativi. Il team era stato avvisato di questa eventualità in anticipo e si era preparato adeguatamente. Durante i periodi precedenti, erano stati dedicati sforzi considerevoli per risolvere la maggior parte delle questioni e dei dubbi rimanenti.
                     \item \textbf{Impatto}: 
                     Sebbene il membro più esperto dell'azienda \textit{proponente}\textsubscript{\textit{G}}, specializzato nelle tecnologie utilizzate, fosse assente, il lavoro è continuato senza intoppi significativi. Non si sono verificati rallentamenti nel processo decisionale né emergenze di dubbi che richiedessero una risoluzione immediata. Il team ha dimostrato una notevole capacità di adattamento e gestione delle risorse interne per affrontare efficacemente questa situazione.
                 \end{itemize}
         \end{itemize}
-    \item \textbf{Rischi attesi ma non verificati:} 
+    \item \textbf{Rischi attesi ma non occorsi:} 
         \begin{itemize}
-            \item \textbf{RO-2A-4} - Inesperienza nell'\textit{attività}\textsubscript{\textit{G}} di testing (\textit{\ref{sec:inexpAttività}}) \\
+            \item \textbf{RO-2A-3} - Inesperienza nell'\textit{attività}\textsubscript{\textit{G}} di testing~(\S~\textit{\ref{sec:inexpAttività}}) \\
             Durante la pianificazione delle \textit{attività}\textsubscript{\textit{G}} di testing, è stato considerato il rischio di rallentamenti dovuti all'inesperienza del team in questo specifico ambito. Tuttavia, questo rischio non si è concretizzato in quanto la formazione e l'esperienza accumulata durante i periodi precedenti si sono rivelate sufficienti per affrontare con successo le sfide legate alle \textit{attività}\textsubscript{\textit{G}} testing pianificate per il periodo attuale.
         \end{itemize}
-    \item \textbf{Rischi non attesi ma verificati:}
+    \item \textbf{Rischi non attesi ma occorsi:}
         \begin{itemize}
             \item Nessuno
         \end{itemize}
@@ -387,8 +416,8 @@ Il preventivo a finire rimane invariato a \textbf{12425,00\euro} e non risulta n
     \begin{minipage}[b]{0.70\textwidth}
         \centering
         \includegraphics[width=0.7\textwidth]{../Images/torta10.png}
-        \caption{Avanzamento dei lavori RTB - Decimo periodo}
-        \label{fig:Avanzamento_RTB_10}
+        \caption{Avanzamento dei lavori PB - Decimo periodo}
+        \label{fig:Avanzamento_PB_10}
     \end{minipage}
 \end{figure}
 
@@ -443,25 +472,25 @@ In conclusione, il team ha dimostrato un impegno costante, una collaborazione ef
 \paragraph{Gestione dei rischi}
 
 \begin{itemize}
-    \item \textbf{Rischi attesi e verificati:}
+    \item \textbf{Rischi attesi e occorsi:}
         \begin{itemize}
-            \item \textbf{RP-2B-1} - Divergenze nella redazione del documento \textit{Specifica Tecnica}~(\textit{\ref{subsubsec:contrastiInterni}}).
+            \item \textbf{RO-2M-5} - Divergenze nella redazione del documento \textit{Specifica Tecnica}~(\S~\textit{\ref{subsubsec:contrastiInterni}}).
             \begin{itemize}
                 \item \textbf{Esito mitigazione}: durante la redazione del documento \textit{Specifica Tecnica}, il team ha riscontrato divergenze riguardanti la struttura e i contenuti di alcune sezioni. Per affrontare questa situazione, il Responsabile ha organizzato una votazione per concordare su una struttura comune e risolvere le divergenze.
                 \item \textbf{Impatto}: grazie alla votazione guidata dal Responsabile, le divergenze sono state risolte in modo efficace, garantendo coerenza e coesione nel documento. Ciò ha permesso al team di proseguire senza ritardi nella redazione e ha assicurato la qualità complessiva della \textit{Specifica Tecnica}.
             \end{itemize}
             
         \end{itemize}
-    \item \textbf{Rischi attesi ma non verificati:}
+    \item \textbf{Rischi attesi ma non occorsi:}
         \begin{itemize}
-            \item \textbf{RP-3M-2} - Assenza per ferie del membro dell'azienda \textit{proponente}\textsubscript{\textit{G}} specializzato nelle tecnologie~(\textit{\ref{subsubsec:contattiProponente}})
+            \item \textbf{RO-3M-6} - Assenza per ferie del membro dell'azienda \textit{proponente}\textsubscript{\textit{G}} specializzato nelle tecnologie~(\S~\textit{\ref{subsubsec:contattiProponente}})
                 \begin{itemize}
                     \item \textbf{Esito mitigazione}: come evidenziato nella precedente fase, l'impatto di questo rischio è stato attenuato grazie alle adeguate precauzioni adottate. In particolare, non si sono manifestati dubbi o domande riguardanti potenziali problemi con le tecnologie utilizzate.
                     \item \textbf{Impatto}: 
                     le misure preventive adottate hanno limitato l'impatto del rischio sul progetto.
                 \end{itemize}
         \end{itemize}
-    \item \textbf{Rischi non attesi ma verificati:}
+    \item \textbf{Rischi non attesi ma occorsi:}
         \begin{itemize}
             \item Nessuno
         \end{itemize}
@@ -519,8 +548,8 @@ Il preventivo a finire rimane invariato a \textbf{12425,00\euro} e non risulta n
     \begin{minipage}[b]{0.70\textwidth}
         \centering
         \includegraphics[width=0.7\textwidth]{../Images/torta11.png}
-        \caption{Avanzamento dei lavori RTB - Undicesimo periodo}
-        \label{fig:Avanzamento_RTB_11}
+        \caption{Avanzamento dei lavori PB - Undicesimo periodo}
+        \label{fig:Avanzamento_PB_11}
     \end{minipage}
 \end{figure}
 
@@ -567,7 +596,7 @@ Il responsabile ha svolto un ruolo cruciale nel coordinare il team e nella redaz
 
 I progettisti si sono occupati della redazione del documento \textit{Specifica Tecnica}. Nello specifico sono state redatte le sezioni "Schema Registry", "Database Configuration", "Faust", "Architettura Simulatori", "\textit{Kafka}\textsubscript{\textit{G}}" e "\textit{Grafana}\textsubscript{\textit{G}}". Questo sottolinea il loro ruolo centrale nella definizione dell'\textit{architettura}\textsubscript{\textit{G}} e delle specifiche tecniche, fondamentali per la comprensione e per lo sviluppo del prodotto.
 
-L'amministratore ha configurato l'ambiente containerizzato per garantire l'operatività ottimale e l'\textit{integrazione}\textsubscript{\textit{G}} corretta dello Schema Registry e di Zookeeper, contribuendo così a garantire la robustezza e la resilienza del \textit{sistema}\textsubscript{\textit{G}}.
+L'amministratore ha configurato l'ambiente containerizzato per garantire l'operatività ottimale e l'\textit{integrazione}\textsubscript{\textit{G}} corretta dello Schema Registry e di Zookeeper, contribuendo così a garantire la robustezza e la resilienza del \textit{sistema}\textsubscript{\textit{G}}. Inoltre, si è occupato della sezione relativa alla Continuos Integration (CI) in \textit{Norme di Progetto}.
 
 I programmatori si sono dedicati all'implementazione dello Schema Registry e all'\textit{integrazione}\textsubscript{\textit{G}} di quest’ultimo con lo \textit{script}\textsubscript{\textit{G}} \textit{Python}\textsubscript{\textit{G}} utilizzato per scrivere nei topic \textit{Kafka}\textsubscript{\textit{G}}, al fine di validare il formato dei messaggi direttamente alla fonte. Questo approccio assicura che i messaggi siano validati prima di essere inviati al topic \textit{Kafka}\textsubscript{\textit{G}}, evitando così un sovraccarico di \textit{rete}\textsubscript{\textit{G}} inutile.
 
@@ -579,20 +608,20 @@ In conclusione, è importante sottolineare che ogni richiesta formulata dall’a
 \paragraph{Gestione dei rischi}
 
 \begin{itemize}
-    \item \textbf{Rischi attesi e verificati:}
+    \item \textbf{Rischi attesi e occorsi:}
         \begin{itemize}
             \item Nessuno.
         \end{itemize}
-    \item \textbf{Rischi attesi ma non verificati:}
+    \item \textbf{Rischi attesi ma non occorsi:}
         \begin{itemize}
-            \item \textbf{RP-2B-1} - Contrasti interni al gruppo~(\S\textit{\ref{subsubsec:contrastiInterni}}) \\
+            \item \textbf{RO-2M-5} - Contrasti interni al gruppo~(\S~\textit{\ref{subsubsec:contrastiInterni}}) \\
             Era prevista la possibilità di contrasti interni al gruppo dovuti al notevole numero di sezioni da redigere. In particolare, si temeva che potessero sorgere divergenze riguardo la struttura delle varie sezioni e la modalità di presentazione delle informazioni. Tuttavia, questa eventualità non si è concretizzata poiché il team è stato in grado di collaborare in modo efficace e coeso, mantenendo un'armonia nell'approccio alla redazione delle sezioni, il che ha contribuito positivamente al progresso complessivo della redazione del documento.
-            \item \textbf{RT-1A-1} - Difficoltà nell’implementazione dello Schema Registry~(\S\textit{\ref{sec:rischioTec}}) \\
+            \item \textbf{RT-1A-1} - Difficoltà nell’implementazione dello Schema Registry~(\S~\textit{\ref{sec:rischioTec}}) \\
             L'implementazione dello Schema Registry si presentava inizialmente complessa, essendo una funzionalità introdotta in extremis per rafforzare la robustezza del \textit{sistema}\textsubscript{\textit{G}}. Inoltre, la ristrettezza dei tempi a disposizione alimentava ragionevolmente dubbi sulla sua fattibilità. Tuttavia, non si sono verificati ostacoli significativi, e si è proceduto senza intoppi, raggiungendo gli obiettivi prefissati con successo.
         \end{itemize}
-    \item \textbf{Rischi non attesi ma verificati:}
+    \item \textbf{Rischi non attesi ma occorsi:}
         \begin{itemize}
-            \item \textbf{RO-1A-1} - Assenza di un componente del team per 3 giorni~(\S\textit{\ref{sec:ImpPersonali}})
+            \item \textbf{RP-1A-1} - Assenza di un componente del team per 3 giorni~(\S~\textit{\ref{sec:ImpPersonali}})
                 \begin{itemize}
                     \item \textbf{Esito mitigazione}: L'assenza di uno dei membri del team non si è rivelata problematica in quanto il resto del team è stato in grado di gestire efficacemente le responsabilità del membro assente durante il periodo di assenza. Grazie all'intervento tempestivo del responsabile, che ha riassegnato i compiti del membro assente in modo efficace, il team è riuscito a raggiungere gli obiettivi prefissati senza rallentamenti.
                     \item \textbf{Impatto}: L'assenza temporanea del membro del team non ha avuto un impatto significativo sullo sviluppo del progetto, poiché le \textit{attività}\textsubscript{\textit{G}} sono proseguite senza interruzioni e gli obiettivi sono stati raggiunti nei tempi previsti.
@@ -650,8 +679,8 @@ Il preventivo a finire rimane invariato a \textbf{12425,00\euro} e non risulta n
     \begin{minipage}[b]{0.70\textwidth}
         \centering
         \includegraphics[width=0.9\textwidth]{../Images/torta12.png}
-        \caption{Avanzamento dei lavori RTB - Dodicesimo periodo}
-        \label{fig:Avanzamento_RTB_12}
+        \caption{Avanzamento dei lavori PB - Dodicesimo periodo}
+        \label{fig:Avanzamento_PB_12}
     \end{minipage}
 \end{figure}
 
@@ -686,3 +715,39 @@ Il preventivo a finire rimane invariato a \textbf{12425,00\euro} e non risulta n
     \caption{Istogramma consuntivo della ripartizione oraria dei ruoli - Dodicesimo periodo}
     \label{fig:Consuntivo_ripartizione_oraria_12}
 \end{figure}
+
+
+%---------------------TREDICESIMO PERIODO---------------------------------------
+
+
+\subsubsection{Tredicesimo periodo  22/03/2024 - 29/03/2024}
+\paragraph{Pianificazione}
+Poiché il team nello scorso periodo ha concluso lo sviluppo dell'MVP e ha finalizzato la redazione di tutti i documenti, le attività previste per l'attuale periodo si concentreranno esclusivamente sulla preparazione e lo studio delle presentazioni per la revisione PB.
+
+Pertanto, sarà necessario realizzare una presentazione per la prima fase della revisione PB con il Professore Cardin, che si concentrerà sul design del prodotto e sulle decisioni progettuali. Successivamente, verrà preparata una seconda presentazione per la seconda fase della revisione PB con il Professore Vardanega, focalizzata principalmente sugli aspetti metodologici.
+
+L'obiettivo è di richiedere la prima revisione, con il Professore Cardin, nei giorni conclusivi di questo periodo.
+
+\paragraph{Considerazioni}
+Come previsto, il team ha dedicato tempo alla preparazione e all'analisi delle presentazioni in vista della revisione PB, la cui richiesta era inizialmente programmata per essere inviata entro la conclusione dello sprint. Tuttavia, a causa dell'imprevista assenza di un membro del team dovuta a motivi di salute, si prevede di posticipare la richiesta della prima fase della revisione PB alla prossima settimana.
+
+\paragraph{Gestione dei rischi} 
+\begin{itemize}
+    \item \textbf{Rischi attesi e occorsi:}
+\begin{itemize}
+    \item Nessuno.
+\end{itemize}
+\item \textbf{Rischi attesi ma non occorsi:}
+    \begin{itemize}
+        \item Nessuno.
+    \end{itemize}
+    \item \textbf{Rischi non attesi ma occorsi:}
+    \begin{itemize}
+        \item \textbf{RO-3A-4} - Assenza di un membro del gruppo per motivi di salute.~(\S~\textit{\ref{subsubsec:assenzaMembri}}) \\
+        L'indisponibilità di un membro del team per motivi di salute ha provocato un ritardo nella richiesta della prima fase della revisione PB. Tuttavia, tale imprevisto non ha inciso sui costi preventivati né sull'avanzamento delle attività, poiché esse erano già state completate, tenendo conto anche della preparazione delle dispense necessarie alla presentazione per la prima revisione PB.
+    \end{itemize}
+\end{itemize}
+\newpage
+\paragraph{Pianificazione attività, preventivo e consuntivo}
+Non è previsto e pianificato avanzamento effettivo all’interno di questo periodo, se non per ciò che riguarda le presentazioni relative alla revisione \textit{PB}\textsubscript{\textit{G}}.
+Di conseguenza non vengono riportati preventivi e consuntivi di periodo.
