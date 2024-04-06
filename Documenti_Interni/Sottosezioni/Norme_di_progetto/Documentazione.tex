@@ -14,7 +14,7 @@ L'obiettivo della sezione è:
     \item  Definire delle procedure ripetibili che permettano di uniformare la documentazione prodotta dal gruppo ed il metodo di lavoro;
     \item  Raccogliere ed organizzare le norme che i membri del team devono seguire così da semplificare l'operazione di scrittura dei documenti.
 \end{itemize}
-Tali norme dovranno essere applicate da tutti i membri del team, ed i sorgenti \LaTeX\ che contengono tale documentazione verranno inseriti nel \textit{repository}\textsubscript{\textit{G}} \href{https://github.com/ByteOps-swe/Sorgente-documenti}{Sorgente-documenti}.
+Tali norme dovranno essere applicate da tutti i membri del team, ed i sorgenti \LaTeX\ che contengono tale documentazione verranno inseriti nel \textit{repository}\textsubscript{\textit{G}} "Sorgente-documenti".
 
 \begin{comment} \paragraph*{Primi approcci alla redazione di documenti e problematiche riscontrate}
 Per la composizione iniziale dei documenti richiesti per la candidatura, è stato sperimentato un'approccio che impiegava gli strumenti di Google Drive. Tale metodologia consentiva ai redattori di redigere agevolmente i documenti senza la necessità di padroneggiare la sintassi LaTeX, con l'intenzione di trasporre successivamente il contenuto in LaTeX una volta che fosse stato validato dai verificatori. Tuttavia, questo approccio ha suscitato problematiche, tra cui:
@@ -64,7 +64,7 @@ Il ciclo di vita dei documenti è una sequenza di stati e \textit{attività}\tex
     \item \textbf{Stato: Verifica}
           \begin{enumerate}
               \item Quando la redazione del documento è conclusa, questo viene revisionato dai verificatori;
-              \item Il documento viene compilato e il PDF generato viene inserito nella \href{https://github.com/ByteOps-swe/Documents}{repository}.
+              \item Il documento viene compilato e il PDF generato viene inserito nella repository.
           \end{enumerate}
     \item \textbf{Stato: Manutenzione}
           \begin{enumerate}
@@ -73,13 +73,13 @@ Il ciclo di vita dei documenti è una sequenza di stati e \textit{attività}\tex
           \end{enumerate}
 \end{enumerate}
 
-\subsubsection{Procedure correlate alla redazione di documenti}
+\subsubsection{Procedure correlate alla redazione di documenti} \label{subsubsec:ProcedureRedazioneDocumenti}
 
-\paragraph{I redattori}
-Il redattore responsabile della redazione di un documento o di una sua sezione deve seguire lo stesso approccio richiesto per la codifica del \textit{software}\textsubscript{\textit{G}}, adottando il \textit{workflow}\textsubscript{\textit{G}} noto come \href{https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow}{"Feature Branch"}.
+\hypertarget{par:Redattori}{\paragraph{I redattori}}
+Il redattore responsabile della redazione di un documento o di una sua sezione deve seguire lo stesso approccio richiesto per la codifica del \textit{software}\textsubscript{\textit{G}}, adottando il \textit{workflow}\textsubscript{\textit{G}} noto come "Feature Branch" (\url{https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow} Consultato:~27/02/2024).
 
 \paragraph*{\textbf{Caso redazione nuovo documento/sezione o modifica documento/sezione già verificato/a}}
-Dalla \textit{repository}\textsubscript{\textit{G}} \href{https://github.com/ByteOps-swe/Sorgente-documenti}{Sorgente-documenti} contenente i sorgenti \LaTeX, il redattore dovrà creare un nuovo \textit{branch}\textsubscript{\textit{G}} Git in locale e spostarsi su di esso mediante l'utilizzo del comando:
+Dalla \textit{repository}\textsubscript{\textit{G}} "Sorgente-documenti" contenente i sorgenti \LaTeX, il redattore dovrà creare un nuovo \textit{branch}\textsubscript{\textit{G}} Git in locale e spostarsi su di esso mediante l'utilizzo del comando:
 
 \vspace{0.1cm}
 
@@ -88,7 +88,7 @@ Dalla \textit{repository}\textsubscript{\textit{G}} \href{https://github.com/Byt
     git checkout -b identificativoBranch
 \end{lstlisting}
 
-Il nome del \textit{branch}\textsubscript{\textit{G}} destinato alla redazione o modifica del documento o di una sua sezione deve essere descrittivo al fine di consentire un'identificazione immediata e precisa del documento o della sezione su cui si sta lavorando. Pertanto, relativamente alla redazione dei documenti, devonono essere adottatate le specifiche \hyperlink{par:convezioninomenclaturabranchdocumenti}{\textit{\textbf{convenzioni per la nomenclatura dei branch}}}.
+Il nome del \textit{branch}\textsubscript{\textit{G}} destinato alla redazione o modifica del documento o di una sua sezione deve essere descrittivo al fine di consentire un'identificazione immediata e precisa del documento o della sezione su cui si sta lavorando. Pertanto, relativamente alla redazione dei documenti, devonono essere adottatate le specifiche \textit{\textbf{convenzioni per la nomenclatura dei branch}} esposte nella sezione \S~\hyperlink{par:convezioninomenclaturabranchdocumenti}{3.4.4.1} .
 
 A questo punto, dopo aver creato/modificato il documento o la sezione assegnata e avviato la stesura, affinché gli altri redattori possano continuare il lavoro, è necessario rendere il \textit{branch}\textsubscript{\textit{G}} accessibile anche nella \textit{repository}\textsubscript{\textit{G}} remota, seguendo i seguenti passaggi:
 
@@ -130,13 +130,13 @@ Alla fine di una sessione di modifiche di un file, nel caso si desideri rendere 
 \paragraph*{\textbf{Completamento attività di redazione}}
 Una volta terminata la redazione di un documento o di una sezione, ogni redattore deve:
 \begin{enumerate}
-    \item Segnalare il completamento dell'\textit{attività}\textsubscript{\textit{G}} a loro assegnata (essa sia la stesura completa di un documento o di una sua parte) posizionando l'\textit{issue}\textsubscript{\textit{G}} relativa nella colonna "Da revisionare" della \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione}.
-    \item Attuare una \hyperlink{par:creazionePR}{\textit{\textbf{Pull Request:}}}
+    \item Segnalare il completamento dell'\textit{attività}\textsubscript{\textit{G}} a loro assegnata (essa sia la stesura completa di un documento o di una sua parte) posizionando l'\textit{issue}\textsubscript{\textit{G}} relativa nella colonna "Da revisionare" della DashBoard documentazione (\url{https://github.com/orgs/ByteOps-swe/projects/1/views/1} Consultato:~27/02/2024).
+    \item Attuare una \textit{\textbf{Pull Request}} (la procedura si può trovare nella sezione \S~\hyperlink{par:creazionePR}{3.4.4.3.1}):
           \begin{enumerate}
               \item Aggiornare il registro delle modifiche inserendo i dati richiesti in una nuova riga e incrementando la versione (il verificatore è definito all'assegnazione della task, presente nella descrizione della Issue del'ITS).
-              È importante sottolineare che l'incremento della versione deve avvenire seguendo la convenzione specificata nella \textit{sezione~\ref{subsubsec:versionamento}} e tramite il comando "\verb|{\label{Git_Action_Version}X.Y.Z}|", come specificato nel paragrafo \hyperlink{par:infoUtiliRegistroMod}{"\textit{Informazioni utili}"} relativo alla sezione dedicata al registro delle modifiche;
-              \item Eseguire i passaggi dettagliati nel caso "\hyperlink{par:salvataggioecondivisioneprogressitasknoncompletate}{\textit{\textbf{Salvataggio e condivisione progressi di task non completate}}}";
-              \item Accedere al \href{https://github.com/ByteOps-swe/Sorgente-documenti.git}{repository} GitHub >> Apri la sezione "Pull requests" >> Clicca "New Pull Request";
+              È importante sottolineare che l'incremento della versione deve avvenire seguendo la convenzione specificata nella \textit{sezione \S~\ref{subsubsec:versionamento}} e tramite il comando "\verb|{\label{Git_Action_Version}X.Y.Z}|", come specificato nel paragrafo "\textit{Informazioni utili}" all'interno della sezione \S~\hyperlink{par:infoUtiliRegistroMod}{3.1.6.1};
+              \item Eseguire i passaggi dettagliati nel caso "\textit{\textbf{Salvataggio e condivisione progressi di task non completate}}" all'interno della sezione \S~\hyperlink{par:Redattori}{3.1.5.1};
+              \item Accedere al repository GitHub >> Apri la sezione "Pull requests" >> Clicca "New Pull Request";
               \item Selezionare come \textit{branch}\textsubscript{\textit{G}} di destinazione "main" e come \textit{branch}\textsubscript{\textit{G}} sorgente il ramo utilizzato per la redazione del documento (o sezione) da validare;
               \item Cliccare "Create Pull Request";
               \item Inserire un titolo significativo e una breve descrizione alla Pull Request >> Seleziona i verificatori su "Reviewers" >> Clicca "Create Pull Request".
@@ -146,7 +146,7 @@ Una volta terminata la redazione di un documento o di una sezione, ogni redattor
 Se i verificatori non convalidano il documento (o la sezione), i redattori riceveranno dei feedback allegati alla Pull Request relativi ai problemi identificati.
 
 \paragraph{I Verificatori}
-I compiti e le procedure dei verificatori sono dettagliate al \textit{paragrafo~\ref{sec:verificatori}}.
+I compiti e le procedure dei verificatori sono dettagliate nella \textit{sezione \S~\ref{sec:verificatori}}.
 
 \paragraph{Il responsabile}
 Nel processo di redazione dei documenti, il compito del responsabile consiste nel:
@@ -184,7 +184,7 @@ La tabella deve essere inserita nella sezione registro delle modifiche subito pr
 
 \hypertarget{par:infoUtiliRegistroMod}{\paragraph*{Informazioni utili:}}
 \begin{itemize}
-    \item La convezione per il versionamento è presente alla \textit{sezione~\ref{subsubsec:versionamento}};
+    \item La convezione per il versionamento è presente alla \textit{sezione \S~\ref{subsubsec:versionamento}};
     \item La prima riga del registro delle modifiche identifica la versione attuale del documento;
     \item Durante la compilazione del file sorgente \LaTeX, viene eseguito un processo automatizzato che integra la versione corretta nel nome del documento, basandosi sulla prima riga del registro delle modifiche. Affinché ciò avvenga correttamente, è necessario specificare l'ultima versione all'interno del registro delle modifiche del documento utilizzando il comando \verb|{\label{Git_Action_Version}X.Y.Z}|.
 \end{itemize}
@@ -253,11 +253,11 @@ La struttura dei verbali è la seguente:
         Nel caso di verbale esterno, in ultima pagina, deve essere presente la firma delle terze parti coinvolte, il luogo e la data.
 \end{itemize}
 
-Il template per i verbali è raggiungibile tramite il seguente link: https://github.com/ByteOps-swe/Sorgente-documenti/tree/main/Documents/Verbali/Templates (Consultato:~26/02/2024)
+Il template per i verbali è raggiungibile tramite il seguente link: \url{https://github.com/ByteOps-swe/Sorgente-documenti/tree/main/Templates} (Consultato:~26/02/2024)
 
 \subsubsection{Regole tipografiche}
 \paragraph*{Documenti del progetto e nome dei file}\label{sec:NomeFile}
-Il nome dei documenti generati deve essere omogeneo, con la prima lettera maiuscola ed il resto minuscolo e, ad eccezione dei verbali, deve contenere un riferimento alla versione del documento (vedi notazione per il versionamento nella \textit{sezione~\ref{subsubsec:versionamento}}). \\
+Il nome dei documenti generati deve essere omogeneo, con la prima lettera maiuscola ed il resto minuscolo e, ad eccezione dei verbali, deve contenere un riferimento alla versione del documento (vedi notazione per il versionamento nella \textit{sezione \S~\ref{subsubsec:versionamento}}). \\
 Nello specifico devono seguire la seguente convenzione:
 \begin{itemize}
     \item \textbf{Verbali:} Verbale\_AAAA-MM-DD ;

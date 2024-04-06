@@ -140,8 +140,10 @@ In particolare il verificatore si occupa di:
 GitHub è adottato come \textit{sistema}\textsubscript{\textit{G}} di tracciamento delle \textit{issue}\textsubscript{\textit{G}} (ITS), garantendo così una gestione agevole e trasparente delle \textit{attività}\textsubscript{\textit{G}} da svolgere. \\
 L'amministratore ha la facoltà di creare e assegnare specifiche \textit{issue}\textsubscript{\textit{G}} sulla base delle \textit{attività}\textsubscript{\textit{G}} identificate dal responsabile, assicurando chiarezza sulle responsabilità di ciascun membro del team e stabilendo tempi definiti entro cui ciascuna \textit{attività}\textsubscript{\textit{G}} deve essere completata. Inoltre, ogni membro del gruppo può monitorare i progressi compiuti nel periodo corrente, consultando lo stato di avanzamento delle varie \textit{issue}\textsubscript{\textit{G}} attraverso le Dashboard:
 \begin{itemize}
-		\item \href{https://github.com/orgs/ByteOps-swe/projects/1}{DashBoard}: per una panoramica dettagliata sullo stato delle \textit{issue}\textsubscript{\textit{G}};
-		\item \href{https://github.com/orgs/ByteOps-swe/projects/3}{RoadMap}: per una panoramica temporale dettagliata delle \textit{issue}\textsubscript{\textit{G}}.
+		\item \textbf{DashBoard}: per una panoramica dettagliata sullo stato delle \textit{issue}\textsubscript{\textit{G}}. \\
+		Riferimento: \url{https://github.com/orgs/ByteOps-swe/projects/1} (Consultato:~19/03/2024);
+		\item \textbf{RoadMap}: per una panoramica temporale dettagliata delle \textit{issue}\textsubscript{\textit{G}}. \\
+		Riferimento: \url{https://github.com/orgs/ByteOps-swe/projects/3} (Consultato:~19/03/2024).
 \end{itemize}
 
 \hypertarget{par:proceduraCreazioneIssue}{\paragraph*{Procedura per la creazione delle issue}}
@@ -175,13 +177,13 @@ Le \textit{issue}\textsubscript{\textit{G}} vengono create dall'amministratore e
 \paragraph*{Ciclo di vita di una issue}
 Il ciclo di vita di una \textit{issue}\textsubscript{\textit{G}} è il seguente:
 \begin{enumerate}
-		\item L'amministratore accede alla \textit{repository}\textsubscript{\textit{G}} GitHub, crea la \textit{issue}\textsubscript{\textit{G}} e la assegna ad un assegnatario, seguendo la convenzione descritta nel \hyperlink{par:proceduraCreazioneIssue}{\textit{paragrafo} precedente};
+		\item L'amministratore accede alla \textit{repository}\textsubscript{\textit{G}} GitHub, crea la \textit{issue}\textsubscript{\textit{G}} e la assegna ad un assegnatario, seguendo la convenzione descritta nel paragrafo precedente;
 		\item L'amministratore accede alla \textit{dashboard}\textsubscript{\textit{G}} di progetto e sposta la \textit{issue}\textsubscript{\textit{G}} dalla colonna "No Status" alla colonna "To Do";
-		\item L'assegnatario apre un \textit{branch}\textsubscript{\textit{G}} su GitHub seguendo la denominazione suggerita in \hyperlink{subsubsec:sincronizzazione&branching}{"\textit{Sincronizzazione e Branching}"};
+		\item L'assegnatario apre un \textit{branch}\textsubscript{\textit{G}} su GitHub seguendo la denominazione suggerita nella sezione \S~\hyperlink{subsubsec:sincronizzazione&branching}{3.4.4};
 		\item Quando la \textit{issue}\textsubscript{\textit{G}} viene presa in carico dall'assegnatario, questo accede alla DashBoard e sposta la \textit{issue}\textsubscript{\textit{G}} dalla colonna "To Do" alla colonna "In Progress";
-		\item Una volta che la \textit{issue}\textsubscript{\textit{G}} è considerata terminata, l'assegnatario apre una Pull Request su GitHub seguendo la convenzione descitta in dettaglio nella sezione \hyperlink{par:creazionePR}{"\textit{Procedura per la creazione di Pull Request}"}.
+		\item Una volta che la \textit{issue}\textsubscript{\textit{G}} è considerata terminata, l'assegnatario apre una Pull Request su GitHub seguendo la convenzione descitta in dettaglio nella sezione \S~\hyperlink{par:creazionePR}{3.4.4.3.1}.
 		\item All'interno della Dashboard GitHub la \textit{issue}\textsubscript{\textit{G}} deve essere spostata dalla colonna "In Progress" alla colonna "Da revisionare";
-		\item Il verificatore o i verificatori designati seguono le procedure esposte nella \textit{sezione~\ref{subsec:verifica}} per verificare le modifiche apportate al progetto;
+		\item Il verificatore o i verificatori designati seguono le procedure esposte nella \textit{sezione \S~\ref{subsec:verifica}} per verificare le modifiche apportate al progetto;
 		\item Se la verifica ha esito positivo, la \textit{issue}\textsubscript{\textit{G}} viene trasferita dalla colonna "Da revisionare" alla colonna "Done" della Dashboard di GitHub. \\
 		Nel caso in cui la \textit{issue}\textsubscript{\textit{G}} sia associata ad una Pull Request, una volta che quest'ultima viene accettata dal verificatore, la \textit{issue}\textsubscript{\textit{G}} viene automaticamente chiusa e spostata nella colonna "Done" della Dashboard di progetto. 
 \end{enumerate}
@@ -269,7 +271,7 @@ Relativamente ai meeting interni, sarà compito del responsabile:
 \hypertarget{par:verbaliInterni}{\paragraph*{Verbali interni}}
 Lo svolgimento di una riunione interna ha come obiettivo la retrospettiva del periodo precedente, la discussione dei punti stilati nell'ordine del giorno e la pianificazione delle nuove \textit{attività}\textsubscript{\textit{G}}.
 
-Alla conclusione di ciascuna riunione, l'amministratore \hyperlink{par:ticketing}{apre un'issue nell'ITS di GitHub} e assegna l'incarico di redigere il verbale interno al segretario della riunione. È compito quindi del segretario redigere il verbale, includendo tutte le informazioni rilevanti emerse durante la riunione. Le indicazioni dettagliate per la compilazione dei verbali interni sono disponibili nella \textit{sezione~\ref{sec:Verbali}}.
+Alla conclusione di ciascuna riunione, l'amministratore apre un'issue nell'ITS di GitHub (seguendo la procedura esposta nella sezione \S~\hyperlink{par:ticketing}{4.1.2.10}) e assegna l'incarico di redigere il verbale interno al segretario della riunione. È compito quindi del segretario redigere il verbale, includendo tutte le informazioni rilevanti emerse durante la riunione. Le indicazioni dettagliate per la compilazione dei verbali interni sono disponibili nella \textit{sezione \S~\ref{sec:Verbali}}.
 
 \paragraph{Riunioni esterne}
 Durante lo svolgimento del progetto, è essenziale organizzare vari incontri con i \textit{Committenti} e/o il \textit{Proponente} al fine di valutare lo stato di avanzamento del prodotto e chiarire eventuali dubbi o questioni.
@@ -294,8 +296,8 @@ Durante tali incontri, si affrontano diversi aspetti, tra cui:
 \end{itemize}
 
 \paragraph*{Verbali esterni}
-Come nel caso delle riunioni interne, anche per le riunioni esterne verrà redatto un verbale con le stesse modalità descritte nella sezione relativa ai \hyperlink{par:verbaliInterni}{\textit{Verbali Interni}}. \\
-Le linee guida per la redazione dei verbali esterni sono reperibili alla \textit{sezione~\ref{sec:Verbali}}.
+Come nel caso delle riunioni interne, anche per le riunioni esterne verrà redatto un verbale con le stesse modalità descritte in "Verbali interni" all'interno della sezione \S~\hyperlink{par:verbaliInterni}{4.1.3.5}. \\
+Le linee guida per la redazione dei verbali esterni sono reperibili alla \textit{sezione \S~\ref{sec:Verbali}}.
 
 \paragraph{Strumenti}
 \begin{itemize}
@@ -307,7 +309,7 @@ Le linee guida per la redazione dei verbali esterni sono reperibili alla \textit
 \end{itemize}
 \vspace{0.1cm}
 
-\paragraph{Metriche}
+\paragraph{Metriche} \todo{sistema metriche}
 \begin{table}[H]
 	\centering
 	\begin{tabular}{|C{3cm}|C{4cm}|C{3cm}|}
