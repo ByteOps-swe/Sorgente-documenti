@@ -1,12 +1,12 @@
 \subsection{Sviluppo}
 
 \subsubsection{Introduzione}
-L'\href{https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf}{ISO/IEC 12207:1995} stabilisce le linee guida per il processo di sviluppo, il quale include \textit{attività}\textsubscript{\textit{G}} cruciali come analisi, progettazione, codifica, \textit{integrazione}\textsubscript{\textit{G}}, testing, installazione e accettazione. È fondamentale svolgere queste \textit{attività}\textsubscript{\textit{G}} in stretta aderenza alle linee guida e ai requisiti definiti nel contratto con il cliente, garantendo così un'implementazione accurata e conforme alle specifiche richieste.
+L'ISO/IEC 12207:1995 stabilisce le linee guida per il processo di sviluppo, il quale include \textit{attività}\textsubscript{\textit{G}} cruciali come analisi, progettazione, codifica, \textit{integrazione}\textsubscript{\textit{G}}, testing, installazione e accettazione. È fondamentale svolgere queste \textit{attività}\textsubscript{\textit{G}} in stretta aderenza alle linee guida e ai requisiti definiti nel contratto con il cliente, garantendo così un'implementazione accurata e conforme alle specifiche richieste.
 
 \subsubsection{Analisi dei requisiti}
 \paragraph{Descrizione}
 L'\textit{analisi dei requisiti}\textsubscript{\textit{G}} è un' \textit{attività}\textsubscript{\textit{G}} critica nell'ambito dello sviluppo \textit{software}\textsubscript{\textit{G}} poiché stabilisce le basi per il design, l'implementazione e i \textit{test}\textsubscript{\textit{G}} del \textit{sistema}\textsubscript{\textit{G}}. \\
-Secondo lo \textit{standard}\textsubscript{\textit{G}} \href{https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf}{ISO/IEC 12207:1995}, lo scopo dell'\textit{analisi dei requisiti}\textsubscript{\textit{G}} è di comprendere e definire in modo esaustivo le esigenze del cliente e del \textit{sistema}\textsubscript{\textit{G}}.
+Secondo lo \textit{standard}\textsubscript{\textit{G}} ISO/IEC 12207:1995, lo scopo dell'\textit{analisi dei requisiti}\textsubscript{\textit{G}} è di comprendere e definire in modo esaustivo le esigenze del cliente e del \textit{sistema}\textsubscript{\textit{G}}.
 
 \vspace{0.2cm}
 
@@ -278,13 +278,13 @@ Le metriche nell'\textit{analisi dei requisiti}\textsubscript{\textit{G}} sono s
 
 \begin{table}[H]
     \centering
-    \begin{tabular}{|C{3cm}|L{4cm}|C{3cm}|}
+    \begin{tabular}{|C{3cm}|L{6cm}|}
     \hline
-    \textbf{Metrica} & \centering{\textbf{Nome}} & \textbf{Riferimento} \\
+    \textbf{Metrica} & \multicolumn{1}{C{6cm}|}{\textbf{Nome}} \\
     \hline \hline
-    M18PROS & Percentuale di Requisiti Obbligatori Soddisfatti & \hyperlink{item:M18PROS}{M18PROS} \\
-    M19PRDS & Percentuale di Requisiti Desiderabili Soddisfatti & \hyperlink{item:M19PRDS}{M19PRDS} \\
-    M20PRPS & Percentuale di Requisiti Opzionali & \hyperlink{item:M20PRPS}{M20PRPS} \\
+    \hyperlink{item:M18PROS}{M18PROS} & Percentuale di Requisiti Obbligatori Soddisfatti \\
+    \hyperlink{item:M19PRDS}{M19PRDS} & Percentuale di Requisiti Desiderabili Soddisfatti \\
+    \hyperlink{item:M20PRPS}{M20PRPS} & Percentuale di Requisiti Opzionali \\
     \hline
     \end{tabular}
     \caption{Metriche relative all'attività di analisi dei requisiti}
@@ -543,16 +543,16 @@ I progettisti avranno il completo controllo di questa \textit{attività}\textsub
 \paragraph{Metriche}
 \begin{table}[H]
     \centering
-    \begin{tabular}{|C{3cm}|C{4cm}|C{3cm}|}
+    \begin{tabular}{|C{3cm}|L{6cm}|}
     \hline
-    \textbf{Metrica} & \centering{\textbf{Nome}} & \textbf{Riferimento} \\
+    \textbf{Metrica} & \multicolumn{1}{C{6cm}|}{\textbf{Nome}} \\
     \hline \hline
-    M25ATC & Accoppiamento tra classi (ATC) & \hyperlink{item:M25ATC}{M25ATC}\\
-    M30PG & Profondità delle Gerarchie (PG) &  \hyperlink{item:M30PG}{M30PG}\\
-    M31TMR & Tempo Medio di Risposta (TMR) & \hyperlink{item:M31TMR}{M31TMR}\\
-    M32FU & Facilità di Utilizzo (FU) & \hyperlink{item:M32FU}{M32FU}\\
-    M33TA & Tempo di Apprendimento (TA) & \hyperlink{item:M33TA}{M33TA}\\
-    M34VBS & Versioni dei Browser Supportate (VBS) & \hyperlink{item:M34VBS}{M34VBS}\\
+    \hyperlink{item:M25ATC}{M25ATC} & Accoppiamento tra classi (ATC) \\
+    \hyperlink{item:M30PG}{M30PG} & Profondità delle Gerarchie (PG) \\
+    \hyperlink{item:M31TMR}{M31TMR} & Tempo Medio di Risposta (TMR) \\
+    \hyperlink{item:M32FU}{M32FU} & Facilità di Utilizzo (FU) \\
+    \hyperlink{item:M33TA}{M33TA} & Tempo di Apprendimento (TA) \\
+    \hyperlink{item:M34VBS}{M34VBS} & Versioni dei Browser Supportate (VBS) \\
     \hline
     \end{tabular}
     \caption{Metriche relative all'attività di progettazione}
@@ -604,17 +604,17 @@ Le seguenti norme sono state formalizzate prendendo spunto dal libro "Clean Code
 \paragraph{Metriche}
 \begin{table}[H]
     \centering
-    \begin{tabular}{|C{3cm}|C{4cm}|C{3cm}|}
+    \begin{tabular}{|C{3cm}|C{6cm}|}
     \hline
-    \textbf{Metrica} & \centering{\textbf{Nome}} & \textbf{Riferimento} \\
+    \textbf{Metrica} & \multicolumn{1}{C{6cm}|}{\textbf{Nome}} \\
     \hline \hline
-    M15SC & Statement Coverage (\textit{MSC}\textsubscript{\textit{G}}) &  \hyperlink{item:M15SC}{M15SC} \\
-    M16BC & Branch Coverage (MBC) &  \hyperlink{item:M16BC}{M16BC} \\
-    M17CNC & CoNdition Coverage (CNC) &  \hyperlink{item:M17CNC}{M17CNC} \\
-    M26MCCM & Complessità Ciclomatica per Metodo (\textit{MCCM}\textsubscript{\textit{G}}) &  \hyperlink{item:M26MCCM}{M26MCCM} \\
-    M27PM & Parametri per metodo (PM) & \hyperlink{item:M27PM}{M27PM} \\
-    M28APC & Attributi per classe (APC) & \hyperlink{item:M28APC}{M28APC} \\
-    M29LCM & Linee di codice per metodo (LCM) & \hyperlink{item:M29LCM}{M29LCM} \\ 
+    \hyperlink{item:M15SC}{M15SC} & Statement Coverage (\textit{MSC}\textsubscript{\textit{G}}) \\
+    \hyperlink{item:M16BC}{M16BC} & Branch Coverage (MBC) \\
+    \hyperlink{item:M17CNC}{M17CNC} & CoNdition Coverage (CNC) \\
+    \hyperlink{item:M26MCCM}{M26MCCM} & Complessità Ciclomatica per Metodo (\textit{MCCM}\textsubscript{\textit{G}}) \\
+    \hyperlink{item:M27PM}{M27PM} & Parametri per metodo (PM) \\
+    \hyperlink{item:M28APC}{M28APC} & Attributi per classe (APC) \\
+    \hyperlink{item:M29LCM}{M29LCM} & Linee di codice per metodo (LCM) \\ 
     \hline
     \end{tabular}
     \caption{Metriche relative all'attività di codifica}
