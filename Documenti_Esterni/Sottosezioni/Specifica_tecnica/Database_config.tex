@@ -18,7 +18,8 @@ La progettazione del \textit{database}\textsubscript{\textit{G}} \textit{ClickHo
 \paragraph{Materialized Views}
 \textbf{Documentazione:}
 
-\url{https://clickhouse.com/docs/en/guides/developer/cascading-materialized-views} (Consultato 25/03/2024).\newline
+\url{https://clickhouse.com/docs/en/guides/developer/cascading-materialized-views} (Consultato: 25/03/2024).
+
 Le Materialized Views in \textit{ClickHouse}\textsubscript{\textit{G}} sono un meccanismo volto a migliorare le prestazioni delle \textit{query}\textsubscript{\textit{G}} e semplificare l'accesso ai dati.
 
 Funzionano mantenendo una copia fisica dei risultati di una \textit{query}\textsubscript{\textit{G}} di selezione, che viene quindi memorizzata su disco. Questa copia è aggiornata periodicamente in base ai dati sottostanti.
@@ -41,7 +42,8 @@ Nel progetto le materialized view sono fondamentali per spostare automaticamente
 \paragraph{MergeTree}\label{sec:MergeTree}
 \textbf{Documentazione:}
 
-\url{https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree#mergetree} (Consultato 25/03/2024).\newline
+\url{https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree#mergetree} (Consultato: 25/03/2024).
+
 MergeTree è uno dei motori di archiviazione di base più utilizzati in \textit{ClickHouse}\textsubscript{\textit{G}}. È progettato per gestire dati ordinati in \textit{append-only} e offre un'ottima combinazione di prestazioni di lettura, scrittura, scalabilità e funzionalità per diversi casi d'uso.
 
 Caratteristiche principali:
@@ -73,7 +75,7 @@ Caratteristiche principali:
 \paragraph{Time to Live in ClickHouse} \label{sec:RollupTTL}
 \textbf{Documentazione:}
 
-\url{https://clickhouse.com/docs/en/guides/developer/ttl#implementing-a-rollup}\newline
+\url{https://clickhouse.com/docs/en/guides/developer/ttl#implementing-a-rollup} (Consultato: 25/03/2024).
 
 TTL \textit{(Time To Live)} si riferisce alla capacità di spostare, eliminare o eseguire il rollup di righe o colonne dopo che è trascorso un determinato intervallo di tempo. Sebbene l'espressione "time to live" sembri applicarsi solo all'eliminazione di vecchi dati, TTL ha diversi casi d'uso:
 
@@ -89,7 +91,7 @@ Nello specifico dopo un certo intervallo di tempo non vengono piu conservate tut
 \paragraph{Partition}\label{sec:Partition}
 \textbf{Documentazione:}
 
-\url{https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree#partition-by} (Consultato 25/03/2024).
+\url{https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree#partition-by} (Consultato: 25/03/2024).
 
 Le partizioni sono una funzionalità fondamentale di \textit{ClickHouse}\textsubscript{\textit{G}} che consente di organizzare in modo efficiente la gestione di grandi volumi di dati. Questa funzionalità permette di suddividere i dati in gruppi logici in base a criteri specifici, come il valore di una colonna o un intervallo di tempo.
 
@@ -111,9 +113,9 @@ Nel nostro progetto viene fatto utilizzo del partizionamento temporale nelle tab
 \paragraph{Projection}\label{sec:projections}
 \textbf{Documentazione:}
 
-\url{https://clickhouse.com/docs/en/sql-reference/statements/alter/projection} (Consultato 25/03/2024).
+\url{https://clickhouse.com/docs/en/sql-reference/statements/alter/projection} (Consultato: 25/03/2024).
 
-\textbf{Approfondimento:} \url{https://presentations.clickhouse.com/percona2021/projections.pdf} (Consultato 25/03/2024).
+\textbf{Approfondimento:} \url{https://presentations.clickhouse.com/percona2021/projections.pdf} (Consultato: 25/03/2024).
 
 Le projection in \textit{ClickHouse}\textsubscript{\textit{G}} sono una funzionalità di ottimizzazione per migliorare le prestazioni delle \textit{query}\textsubscript{\textit{G}} su tabelle MergeTree. Esse creano delle viste pre-aggregate o pre-ordinate dei dati originali, consentendo a \textit{ClickHouse}\textsubscript{\textit{G}} di accedere e analizzare i dati in modo più efficiente.
 
