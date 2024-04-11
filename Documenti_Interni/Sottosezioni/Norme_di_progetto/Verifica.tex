@@ -26,7 +26,7 @@ Le \textit{attività}\textsubscript{\textit{G}} di verifica sono assegnate a ver
 
 Il ruolo del verificatore nei documenti è cruciale per garantire la qualità e l'accuratezza del contenuto. 
 
-Quando il verificatore individua un'Issue nella colonna "Da revisionare" della \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione}, sarà tenuto a convalidare il file corrispondente presente nella \textit{repository}\textsubscript{\textit{G}} \href{https://github.com/ByteOps-swe/Sorgente-documenti}{Sorgente documenti}.
+Quando il verificatore individua un'Issue nella colonna "Da revisionare" della  DashBoard documentazione (\url{https://github.com/orgs/ByteOps-swe/projects/1/views/1} Consultato:~26/02/2024), sarà tenuto a convalidare il file corrispondente presente nella \textit{repository}\textsubscript{\textit{G}} "Sorgente documenti".
 
 In aggiunta, il revisore riceverà una notifica via email quando il redattore completa la propria \textit{attività}\textsubscript{\textit{G}}, comunicandogli la presenza della Pull Request assegnatagli.
 
@@ -54,13 +54,13 @@ Dopo aver accertato il rispetto dei criteri sopra citati, qualora fossero soddis
 
 \begin{enumerate}
     \item \textbf{Accetta la Pull Request:} 
-        accedere alla pagina della Pull Request in cui si agirà con il ruolo di revisore nel \textit{repository}\textsubscript{\textit{G}} \href{https://github.com/ByteOps-swe/Sorgente-documenti}{Sorgente-documenti} su GitHub >> Risolvere eventuali conflitti >> Merge Pull Request;
+        accedere alla pagina della Pull Request in cui si agirà con il ruolo di revisore nel \textit{repository}\textsubscript{\textit{G}} "Sorgente-documenti" su GitHub >> Risolvere eventuali conflitti >> Merge Pull Request;
     \item \textbf{Elimina il branch:} 
         eliminare il \textit{branch}\textsubscript{\textit{G}} creato per la redazione del documento (o sezione);
     \item \textbf{Sposta la issue in Done:} 
-        nella \href{https://github.com/orgs/ByteOps-swe/projects/1/views/1}{DashBoard documentazione} spostare la \textit{issue}\textsubscript{\textit{G}} relativa al documento validato dalla sezione "Da revisionare" a "Done";
+        nella DashBoard documentazione (\url{https://github.com/orgs/ByteOps-swe/projects/1/views/1} Consultato:~26/02/2024) spostare la \textit{issue}\textsubscript{\textit{G}} relativa al documento validato dalla sezione "Da revisionare" a "Done";
     \item \textbf{Controllo generazione PDF:} 
-        un'automazione tramite GitHub Actions compilerà il file \LaTeX\ e genererà automaticamente il PDF nel \textit{branch}\textsubscript{\textit{G}} main della \textit{repository}\textsubscript{\textit{G}} \href{https://github.com/ByteOps-swe/Documents}{Documents} con la data di redazione nel caso il documento sia un verbale, oppure la versione aggiornata per tutte le altre tipologie di file. \\
+        un'automazione tramite GitHub Actions compilerà il file \LaTeX\ e genererà automaticamente il PDF nel \textit{branch}\textsubscript{\textit{G}} main della \textit{repository}\textsubscript{\textit{G}} "Documents" con la data di redazione nel caso il documento sia un verbale, oppure la versione aggiornata per tutte le altre tipologie di file. \\
         Se la procedura di compilazione dovesse fallire, il verificatore riceverà automaticamente una notifica via mail e dovrà accedere alla sezione "Actions" di GitHub per esaminare l'origine dell'errore e intraprendere le azioni necessarie per correggerlo.
 \end{enumerate}
 
@@ -268,9 +268,66 @@ Ogni \textit{test}\textsubscript{\textit{G}} potrà assumere uno dei seguenti st
         il \textit{test}\textsubscript{\textit{G}} ha riportato esito negativo (Non Superato).
 \end{itemize}
 
+\paragraph{Continuous Integration}
+L'\textit{integrazione}\textsubscript{\textit{G}} continua (CI) è una pratica di sviluppo \textit{software}\textsubscript{\textit{G}} che automatizza l'\textit{integrazione}\textsubscript{\textit{G}} frequente del codice sorgente da parte degli sviluppatori. Invece di attendere il completamento di grandi porzioni di lavoro o addirittura il rilascio finale, gli sviluppatori integrano il loro codice in un ramo principale condiviso più volte al giorno, solitamente dopo aver completato piccole modifiche.
+
+\vspace{0.2cm}
+
+Il processo di CI, che nel nostro progetto è stato implementato per la repository relativa al \textit{MVP}\textsubscript{\textit{G}}, è innescato dalla creazione di una Pull Request quando uno dei programmatori vuole integrare le modifiche, attuate in un branch dedicato, con il ramo principale della repository. Tale Pull Request viene effettuata una volta che il programmatore ha terminato una delle seguenti task:
+
+\begin{itemize}
+    \item \textbf{Implementazione di Feature};
+    \item \textbf{Creazione di Test};
+    \item \textbf{Refactoring};
+    \item \textbf{Risoluzione di Bug}.
+\end{itemize}
+
+Con la creazione di una Pull Request, avviene l'innesco di un applicazione di GitHub, chiamata Codacy, che esegue \textit{test}\textsubscript{\textit{G}} di tipo statico. Tale applicazione da esito positivo, nella pagina della Pull Request, se le modifiche fatte non hanno introdotto codice non conforme alle regole di analisi statica definite. Se l'applicazione da un esito di fallimento, il programmatore deve revisionare le modifiche affinché il codice superi il test di analisi statica.
+
+\vspace{0.2cm}
+
+Alla conclusione della Codacy, tramite i \textit{workflow}\textsubscript{\textit{G}} di GitHub, il codice del prodotto viene ottenuto e inizia la parte di build del prodotto. Tramite il comando:
+\begin{lstlisting}[style=code]
+    docker compose up
+\end{lstlisting}
+viene effettuato il pull da DockerHub di tutte le immagini necessarie per costruire tutti in componenti del prodotto necessari al testing.
+
+\vspace{0.2cm}
+
+Una volta conclusa con successo la costruzione del prodotto, si avvia la parte di testing statica e dinamica grazie al profilo di testing dell'ambiente \textit{Docker}\textsubscript{\textit{G}}. Prima di tutto, si avviano i \textit{test}\textsubscript{\textit{G}} statici utilizzando Pylint. L'esito di tali \textit{test}\textsubscript{\textit{G}} viene esposto nel file \textit{README.md} tramite un badge di GitHub che mostra un punteggio compreso tra 0 e 10 rappresentante la qualita del codice.
+
+
+\vspace{0.2cm}
+
+Una volta terminati i \textit{test}\textsubscript{\textit{G}} statici si avviano i \textit{test}\textsubscript{\textit{G}} dinamici che sono:
+
+\begin{itemize}
+    \item \textbf{Test di Unita};
+    \item \textbf{Test di Integrazione};
+    \item \textbf{Test di Sistema}.
+\end{itemize}
+
+Se almeno uno dei \textit{test}\textsubscript{\textit{G}} fallisce, allora il \textit{workflow}\textsubscript{\textit{G}} si ferma con stato di fallimento. Viene inviata una notifica al programmatore che ha creato la Pull Request e viene chiusa la Pull Request. \\
+Se tutti i \textit{test}\textsubscript{\textit{G}} vengono eseguiti con successo, sarà possibile apportare le modifiche effettuate nel ramo principale.
+
+\vspace{0.2cm}
+
+Alla conclusione dei \textit{test}\textsubscript{\textit{G}} viene riportato il code coverage in un file chiamato coverage.xml. Questo file grazie a GitHub action viene elaborato e i risultati vengono trasformati in badge di GitHub esposti nel file \textit{README.md} della \textit{repository}\textsubscript{\textit{G}}.
+
 \hypertarget{subsubsec:strumentiVerifica}{\subsubsection{Strumenti}}
 \begin{itemize}
-    \item \textbf{Spell checker:} 
-        controllo ortografico integrato nell’ambiente di lavoro;
-    \item \textbf{Modulo "unittest" Python:} libreria \textit{standard}\textsubscript{\textit{G}} che offre una serie di funzionalità per creare, organizzare e eseguire \textit{test}\textsubscript{\textit{G}} di unità in modo efficace e automatizzato.
+    \item \textbf{Spell checker:} controllo ortografico integrato nell’ambiente di lavoro. \\
+    Riferimento: \url{https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker} (Consultato:~21/03/2024);
+    \item \textbf{Modulo "Pytest" Python:} libreria \textit{standard}\textsubscript{\textit{G}} che offre una serie di funzionalità per creare, organizzare e eseguire \textit{test}\textsubscript{\textit{G}} di unità in modo efficace e automatizzato. \\
+    Riferimento: \url{https://docs.pytest.org/en/8.0.x/} (Consultato:~21/03/2024);
+    \item \textbf{Modulo "Unittest" Python:} libreria \textit{standard}\textsubscript{\textit{G}} che offre una serie di funzionalità per creare, organizzare e eseguire \textit{test}\textsubscript{\textit{G}} di unità. \\
+    Riferimento: \url{https://docs.python.org/3/library/unittest.html} (Consultato:~21/03/2024);
+    \item \textbf{Modulo "Pylint" Python:} libreria open source che analizza il codice sorgente \textit{Python}\textsubscript{\textit{G}} per identificare potenziali errori, bug e cattive abitudini di programmazione. \\
+    Riferimento: \url{https://pypi.org/project/pylint/} (Consultato:~21/03/2024);
+    \item \textbf{Applicazione GitHub Codacy:} \textit{servizio}\textsubscript{\textit{G}} che verifica il codice tramite l'analisi statica. \\
+    Riferimento: \url{https://github.com/marketplace/codacy} (Consultato:~21/03/2024);
+    \item \textbf{Coveralls:} \textit{servizio}\textsubscript{\textit{G}} che traccia e mostra il code coverage. \\
+    Riferimento: \url{https://github.com/marketplace/actions/coveralls-github-action} (Consultato:~21/03/2024);
+    \item \textbf{Codecov:} \textit{servizio}\textsubscript{\textit{G}} che traccia e mostra il code coverage. \\
+    Riferimento: \url{https://github.com/marketplace/actions/codecov} (Consultato:~21/03/2024).
 \end{itemize}

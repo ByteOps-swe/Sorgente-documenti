@@ -1,0 +1,1638 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[default]{raleway}
+\usepackage{titlesec, comment, tabularx, makecell, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, hyperref}
+\usepackage[hypcap=false]{caption}
+\usepackage{todonotes}
+%\geometry{a4paper, left=2cm, right=2cm, top=2cm, bottom=2.5cm}
+\renewcommand{\headrulewidth}{0pt}
+
+% Definisci uno stile per i comandi git
+\definecolor{light-gray}{gray}{0.92}
+\definecolor{darkgreen}{rgb}{0.0, 0.5, 0.0}
+\definecolor{navyblue}{rgb}{0.0, 0.0, 0.8}
+
+\lstdefinestyle{code}{
+    frame=single,
+    framesep=1mm,
+    rulecolor=\color{light-gray},
+    backgroundcolor=\color{light-gray},
+    basicstyle=\ttfamily,
+}
+% ----------------------------- Definizione tabella ---------------------------
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+%\setcellgapes{2ex} % Imposta l'altezza dell'header (2ex)
+
+
+% ------------------------------Metadati indice --------------------------------
+\title{\textbf{\fontsize{28}{6}\selectfont Indice}}
+\author{\fontsize{14}{6}\selectfont ByteOps}
+\date{}
+
+% -----------------------------Creazione footer --------------------------------
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\footrulewidth}{0.4pt} 
+\lfoot{
+    \parbox[c]{2cm}{\includegraphics[width=2cm]{../Images/logo.png}}
+    \textcolor[RGB]{120, 120, 120}{$\cdot$ Glossario}
+}
+\rfoot{\thepage}
+
+% --------------------------Modifica formato hyperlinks ------------------------
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=darkgreen,
+    urlcolor=navyblue,
+    filecolor=black,      
+    pdftitle={Glossario},
+    pdfpagemode=FullScreen,
+}
+
+% ------------------------------- Valore sotto-paragrafi indice --------------------------------------
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\titleformat{\section}
+{\normalfont\huge\bfseries}{\thesection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsection}
+{\normalfont\Large\bfseries}{\thesubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsubsection}
+{\normalfont\large\bfseries}{\thesubsubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+%----------Per indice --------------------------------
+\usepackage{titletoc} % Pacchetto per la gestione dell'indice
+
+\titlecontents{section}[0em]{\bfseries} % Formattazione per le sezioni nell'indice
+{\thecontentslabel.\enspace}{} % Aggiunge il numero della sezione e spazio dopo i puntini
+{\titlerule*[1pc]{.}\contentspage} % Regola e numero di pagina
+
+% ------------------------------- Front Page ---------------------------------------
+
+\begin{document}
+\pagestyle{fancy}
+\begin{center}
+    \includegraphics[width = 0.7\textwidth]{../Images/logo.png} \\
+    \vspace{0.2cm}
+    \textcolor[RGB]{60, 60, 60}{\textit{ByteOps.swe@gmail.com}} \\
+    \vspace{2cm}
+    \fontsize{16}{6}\selectfont Glossario \\
+    \vspace{0.5cm}
+\end{center}
+
+\section*{Informazioni documento}
+\def\arraystretch{1.2}
+\begin{tabular}{>{\raggedleft\arraybackslash}p{0.2\textwidth}|>{\raggedright\arraybackslash}p{0.6\textwidth}c}
+    \hline
+    \addlinespace 
+    \textbf{Redattori}    & A. Barutta\\ & R.Smanio\\ & E.Hysa\\ & L. Skenderi\\ & F.Pozza \vspace{10pt} \\
+    \textbf{Verificatori} & E. Hysa\\ & A.Barutta\\ & N.Preto\\ & D.Diotto\\ & L.Skenderi \vspace{10pt} \\
+    \textbf{Destinatari}  & ByteOps\\ & T. Vardanega \\ & R. Cardin \vspace{10pt} \\
+\end{tabular}
+
+\pagebreak 
+
+% ------------------------- Changelog ----------------------------
+\section*{Registro delle modifiche}
+\begin{tabular}{|C{2cm}|C{2.1cm}|C{2.4cm}|C{2.4cm}|C{4cm}|}
+    \hline
+    \textbf{Versione} & \textbf{Data}   & \textbf{Autore} & \textbf{Verificatore} & \textbf{Dettaglio} \\
+    \hline \hline
+
+    \label{Git_Action_Version} 
+    2.0.0
+    & 22/03/2024 & \makecell{A. Barutta} & D. Diotto & \makecell{Aggiunta termini presenti \\ in Specifica Tecnica} \\
+    \hline
+    1.1.0
+    & 02/12/2023 & \makecell{D. Diotto} & A. Barutta & \makecell{Aggiunta termini presenti \\ in Manuale Utente} \\
+    \hline
+    1.0.0
+    & 27/12/2023 & \makecell{E. Hysa} & L. Skenderi & \makecell{Aggiunta termini per \\ presentazione RTB} \\
+    \hline
+
+    0.0.4 & 08/12/2023 & \makecell{D. Diotto} & R. Smanio & \makecell{Aggiunta termini \\ metriche} \\
+    \hline
+
+    0.0.3 & 28/11/2023 & \makecell{L. Skenderi} & D. Diotto & \makecell{Aggiunti i termini\\riguardanti le tecnologie\\ utilizzate} \\
+    \hline
+
+    0.0.2 & 22/11/2023 & \makecell{A. Barutta} & E. Hysa & \makecell{Aggiunti i termini\\riguardanti Github} \\
+    \hline
+    
+    0.0.1 & 20/11/2023 & \makecell{A. Barutta} & E. Hysa & \makecell{Aggiunti i termini\\del capitolato} \\
+    \hline
+\end{tabular}
+
+\pagebreak
+
+% ------------------------- Generazione automatica indice ----------------------
+\maketitle
+\thispagestyle{fancy}
+{
+    \hypersetup{linkcolor=black}
+    \tableofcontents
+}
+\flushleft
+\pagebreak
+
+
+%--------------------------Inizio Glossario--------------------------
+\section*{Introduzione}
+Il presente documento fornisce descrizioni dettagliate ai termini tecnici e/o ambigui presenti nella documentazione.
+La sua utilità primaria risiede nella chiarezza e nella standardizzazione del linguaggio adoperato all'interno di documenti, testi o comunicazioni. Un glossario consente di facilitare la comprensione e la comunicazione tra diversi partecipanti o \textit{stakeholder}\textsubscript{\textit{G}} coinvolti nel medesimo progetto.
+
+% Definizione delle voci nell'indice con descrizioni
+\section*{A}
+\index{A}
+\phantomsection
+\addcontentsline{toc}{section}{A}
+
+\vspace{0.4cm}
+
+\textbf{Account}
+
+\vspace{0.1cm}
+
+Un \textit{Account}\textsubscript{\textit{G}} è un'entità associata a un \textit{sistema}\textsubscript{\textit{G}} informatico che identifica e rappresenta un utente, un dispositivo o un'entità autorizzata a accedere e utilizzare determinate risorse, servizi o funzionalità all'interno del \textit{sistema}\textsubscript{\textit{G}}. L'\textit{Account}\textsubscript{\textit{G}} è caratterizzato da un insieme di credenziali uniche, come un nome utente e una password, che vengono utilizzate per l'autenticazione dell'entità associata e per garantire l'accesso autorizzato alle risorse del \textit{sistema}\textsubscript{\textit{G}}.
+
+\vspace{0.4cm}
+
+\textbf{Actual cost}
+
+\vspace{0.1cm}
+
+(Descrizione più approfondita rispetto a quella presente in \textit{Norme di Progetto} nella sezione Metriche di qualità). Una metrica che valuta i costi reali sostenuti sin dall'inizio del progetto fino al presente.
+
+\vspace{0.4cm}
+
+\textbf{Analisi dei requisiti}
+
+\vspace{0.1cm}
+
+L'\textit{analisi dei requisiti}\textsubscript{\textit{G}} è una fase fondamentale nello sviluppo del \textit{software}\textsubscript{\textit{G}} che coinvolge la raccolta, l'analisi, la documentazione e la comprensione approfondita delle esigenze e delle specifiche di un \textit{sistema}\textsubscript{\textit{G}} o di un'applicazione \textit{software}\textsubscript{\textit{G}} che si intende sviluppare (oltre ad essere un documento all’interno del nostro progetto).
+
+\vspace{0.4cm}
+
+\textbf{Apache kafka}
+
+\vspace{0.1cm}
+
+\textit{Apache Kafka}\textsubscript{\textit{G}} è una \textit{piattaforma}\textsubscript{\textit{G}} di streaming distribuito \textit{open-source}\textsubscript{\textit{G}} utilizzata per la gestione e l'elaborazione di feed di dati in tempo reale. Progettato per affrontare problemi di ingestione, archiviazione e trasmissione di grandi volumi di dati in modo scalabile, \textit{Apache Kafka}\textsubscript{\textit{G}} è ampiamente utilizzato nell'ambito del \textit{data streaming}\textsubscript{\textit{G}} e dell'elaborazione degli eventi.
+
+\vspace{0.4cm}
+
+\textbf{API}
+
+\vspace{0.1cm}
+
+Un'\textit{API}\textsubscript{\textit{G}}, acronimo di Application Programming Interface, è un insieme di regole, protocolli e strumenti che consente a diverse applicazioni \textit{software}\textsubscript{\textit{G}} di comunicare tra loro. In sostanza, fornisce un modo standardizzato per diverse parti del \textit{software}\textsubscript{\textit{G}} di interagire e scambiare informazioni.
+
+\vspace{0.4cm}
+
+\textbf{Architettura}
+
+\vspace{0.1cm}
+
+L'\textit{architettura}\textsubscript{\textit{G}} rappresenta il tessuto connettivo, le relazioni e le restrizioni che coordinano e organizzano i diversi componenti di un prodotto \textit{software}\textsubscript{\textit{G}}. Essenzialmente, definisce la struttura generale, il modo in cui i vari elementi interagiscono tra loro e le modalità di comunicazione all'interno del \textit{sistema}\textsubscript{\textit{G}}.
+
+\textbf{Arg}
+
+\vspace{0.1cm}
+
+L’istruzione ARG viene utilizzata per definire variabili di build che possono essere utilizzate nel \textit{Dockerfile}\textsubscript{\textit{G}} durante la creazione dell'immagine. 
+
+\vspace{0.4cm}
+
+\textbf{Artefatto}
+
+\vspace{0.1cm}
+
+Gli Artefatti sono elementi generati o prodotti durante il processo di sviluppo del \textit{software}\textsubscript{\textit{G}}. Gli Artefatti rappresentano risultati intermedi o finali di un processo, che possono essere file, documenti, codice compilato, \textit{librerie}\textsubscript{\textit{G}}, o qualsiasi altro elemento creato durante lo sviluppo o il processo di build di un'applicazione \textit{software}\textsubscript{\textit{G}}.
+
+\vspace{0.4cm}
+
+\textbf{Attività}
+
+\vspace{0.1cm}
+
+Un'Attività rappresenta un'unità di lavoro specifica che contribuisce al raggiungimento di un obiettivo nel ciclo di vita del \textit{software}\textsubscript{\textit{G}}. Le Attività sono azioni o compiti distinti che devono essere eseguiti per portare avanti il \textit{processo}\textsubscript{\textit{G}} di sviluppo.
+
+\pagebreak
+\section*{B}
+\index{B}
+\phantomsection
+
+\vspace{0.4cm}
+\addcontentsline{toc}{section}{B}
+\textbf{Best practice}
+
+\vspace{0.1cm}
+
+Il termine Best Practice si riferisce a un metodo o a un \textit{processo}\textsubscript{\textit{G}} riconosciuto come una delle migliori e più efficaci modalità di esecuzione di un'\textit{attività}\textsubscript{\textit{G}} o di un'operazione in un determinato contesto. Le Best Practice rappresentano un insieme di tecniche, metodi o procedure che sono state identificate come le più efficienti, efficaci o appropriate per raggiungere un obiettivo specifico o ottenere risultati di alta qualità.
+
+\vspace{0.4cm}
+
+\textbf{Big Data}
+
+\vspace{0.1cm}
+
+Il termine Big Data si riferisce a enormi insiemi di dati caratterizzati da volume massivo, velocità elevata di generazione e varietà di tipi e formati. Questi dati richiedono tecniche avanzate per l'elaborazione e l'analisi. L'obiettivo è estrarre informazioni significative per prendere decisioni informate e identificare modelli.
+
+\vspace{0.4cm}
+
+\textbf{Bit}
+
+\vspace{0.1cm}
+
+Bit è l'unità fondamentale di informazione in informatica, può assumere i valori 0 o 1. 
+
+\vspace{0.4cm}
+
+\textbf{Branch}
+
+\vspace{0.1cm}
+
+Un Branch, anche chiamato ramo, costituisce un percorso separato di sviluppo. È una rappresentazione isolata utilizzata per modificare e registrare le modifiche di una specifica funzionalità, sviluppata in modo autonomo ma derivante dalla radice da cui è stato creato il Branch.
+
+\vspace{0.4cm}
+
+\textbf{Broker}
+
+\vspace{0.1cm}
+
+Un Broker agisce come un intermediario tra componenti \textit{software}\textsubscript{\textit{G}}, \textit{sistemi}\textsubscript{\textit{G}} o \textit{servizi}\textsubscript{\textit{G}}, facilitando la loro interazione e comunicazione. Ci sono diverse tipologie di Broker, e il loro ruolo specifico può variare a seconda del contesto.
+
+\vspace{0.4cm}
+
+\textbf{Browser}
+
+\vspace{0.1cm}
+
+Un \textit{Browser}\textsubscript{\textit{G}} è un'applicazione \textit{software}\textsubscript{\textit{G}} utilizzata per accedere e visualizzare le risorse su Internet. Funge da intermediario tra l'utente e i contenuti web, consentendo la navigazione attraverso i diversi siti web utilizzando un'interfaccia grafica intuitiva. 
+
+\vspace{0.4cm}
+
+\textbf{Budget at Completion (BAC)}
+
+\vspace{0.1cm}
+
+Budget preventivato ad inizio progetto.
+
+\vspace{0.4cm}
+
+\textbf{Budget variance (BV)}
+
+\vspace{0.1cm}
+
+(Descrizione più approfondita rispetto a quella presente in \textit{Norme di Progetto} nella sezione Metriche di qualità).
+La Budget Variance (BV) è una misura utilizzata nel project management per valutare la differenza tra la spesa effettiva e la spesa prevista o pianificata in un determinato periodo di tempo o per un'\textit{attività}\textsubscript{\textit{G}} specifica all'interno di un progetto.
+
+\vspace{0.4cm}
+
+\vspace{0.4cm}
+
+\textbf{Bug Tracking System}
+
+\vspace{0.1cm}
+
+Un \textit{Bug Tracking System}\textsubscript{\textit{G}} è un \textit{sistema}\textsubscript{\textit{G}} \textit{software}\textsubscript{\textit{G}} progettato per monitorare, registrare e gestire le segnalazioni di bug o difetti all'interno di un \textit{software}\textsubscript{\textit{G}} o di un \textit{sistema}\textsubscript{\textit{G}} informatico. Questo \textit{sistema}\textsubscript{\textit{G}} fornisce un'interfaccia centralizzata per gli sviluppatori, i tester e gli utenti finali per segnalare i problemi riscontrati durante lo sviluppo, il testing o l'utilizzo del \textit{software}\textsubscript{\textit{G}}. Ogni segnalazione di bug viene documentata in modo dettagliato, includendo informazioni come la descrizione del problema, il suo contesto, la gravità, lo stato di avanzamento della risoluzione e le eventuali soluzioni proposte. Questo consente agli sviluppatori di tracciare e risolvere efficacemente i difetti, migliorando la qualità complessiva del \textit{software}\textsubscript{\textit{G}} e garantendo una migliore esperienza utente.
+
+\vspace{0.4cm}
+
+\textbf{Bullet Point}
+
+\vspace{0.1cm}
+
+I punti elenco, noti anche come \textit{Bullet Points}\textsubscript{\textit{G}}, sono una forma di presentazione di informazioni sintetiche e strutturate utilizzata per evidenziare concetti principali o punti chiave in modo chiaro e conciso.
+
+\pagebreak
+\section*{C}
+\index{C}
+\phantomsection
+\addcontentsline{toc}{section}{C}
+
+\vspace{0.4cm}
+
+\textbf{CA}
+
+\vspace{0.1cm}
+
+Customer Acceptance (CA) è un acronimo che identifica una revisione facoltativa nel corso dello sviluppo di un progetto didattico. Durante questa fase, il prodotto \textit{software}\textsubscript{\textit{G}}, considerato completo, viene presentato al \textit{committente}\textsubscript{\textit{G}} in una sessione pubblica per ottenere la sua accettazione finale.
+
+\vspace{0.4cm}
+
+\textbf{Calendario}
+
+\vspace{0.1cm}
+
+Il Calendario rappresenta l’insieme del quantitativo di ore disponibili di lavoro utile di ogni membro del gruppo.
+
+\vspace{0.4cm}
+
+\textbf{Change Management}
+
+\vspace{0.1cm}
+
+Il Change Management è il \textit{processo}\textsubscript{\textit{G}} di gestione e controllo dei cambiamenti apportati all'ambiente \textit{IT}\textsubscript{\textit{G}}, inclusi \textit{software}\textsubscript{\textit{G}}, infrastrutture, \textit{processi}\textsubscript{\textit{G}} o procedure. Questo processo è progettato per gestire in modo controllato e documentato le modifiche proposte, garantendo che siano valutate, autorizzate, pianificate, implementate e monitorate in modo coerente e sicuro. L'obiettivo è minimizzare il rischio di interruzioni indesiderate o impatti negativi sul \textit{sistema}\textsubscript{\textit{G}} a causa di modifiche non pianificate o non gestite correttamente.
+
+\vspace{0.4cm}
+
+\textbf{Checklist}
+
+\vspace{0.1cm}
+
+Una \textit{Checklist}\textsubscript{\textit{G}} è un elenco dettagliato e strutturato di compiti, elementi o procedure da seguire o completare in un determinato contesto o ambito specifico. Solitamente utilizzata come strumento di supporto alla gestione e all'organizzazione, una \textit{Checklist}\textsubscript{\textit{G}} presenta un formato ordinato che consente di controllare e verificare progressivamente l'avanzamento delle \textit{attività}\textsubscript{\textit{G}}, assicurando che nulla venga trascurato o dimenticato.
+
+\vspace{0.4cm}
+
+\textbf{Chrome}
+
+\vspace{0.1cm}
+
+\textit{Chrome}\textsubscript{\textit{G}} è un Web \textit{browser}\textsubscript{\textit{G}} sviluppato da Google che offre funzionalità di navigazione web avanzate, sicurezza integrata e supporto per le moderne tecnologie web.
+
+\vspace{0.4cm}
+
+\textbf{Clickhouse}
+
+\vspace{0.1cm}
+
+\textit{ClickHouse}\textsubscript{\textit{G}} è un \textit{database}\textsubscript{\textit{G}} \textit{open-source}\textsubscript{\textit{G}} di analisi e archiviazione progettato per l'elaborazione rapida di grandi quantità di dati in modo scalabile ed efficiente. Questo \textit{sistema}\textsubscript{\textit{G}} di gestione dei dati utilizza un modello di \textit{architettura}\textsubscript{\textit{G}} di tipo column-oriented, in cui i dati vengono organizzati e memorizzati per colonne anziché per righe. Tale struttura ottimizza le prestazioni delle \textit{query}\textsubscript{\textit{G}} analitiche e l'efficienza della compressione dei dati, consentendo operazioni di lettura ad alta velocità su grandi volumi di informazioni. 
+
+\vspace{0.4cm}
+
+\textbf{Clock Rate}
+
+\vspace{0.1cm}
+
+Il \textit{Clock Rate}\textsubscript{\textit{G}}, anche conosciuto come frequenza di Clock, rappresenta la velocità alla quale avviene il ciclo di Clock in un dispositivo digitale, espressa in cicli per secondo (Hz) o Megahertz (MHz), Gigahertz (GHz) nel caso di velocità elevate. Indica la frequenza alla quale un dispositivo, come un processore o un circuito integrato, esegue le operazioni di base, come l'elaborazione delle istruzioni o il trasferimento dei dati. 
+
+\vspace{0.4cm}
+
+\textbf{Committente}
+
+\vspace{0.1cm}
+
+Un Committente è una parte esterna responsabile di assegnare l'esecuzione di un progetto a un esecutore, che stabilisce i termini contrattuali relativi all'esecuzione stessa.
+
+\vspace{0.4cm}
+
+\textbf{Complessità ciclomatica per metodo (MCCM)}
+
+\vspace{0.1cm}
+
+(Descrizione più approfondita rispetto a quella presente in \textit{Norme di Progetto} nella sezione Metriche di qualità). La Complessità Ciclomatica per Metodo (\textit{MCCM}\textsubscript{\textit{G}}) è una metrica \textit{software}\textsubscript{\textit{G}} utilizzata per misurare la complessità di un singolo metodo o funzione all'interno di un \textit{programma}\textsubscript{\textit{G}}. È derivata dalla complessità ciclomatica di McCabe, che valuta la complessità di un intero \textit{programma}\textsubscript{\textit{G}} attraverso la quantità di flussi di controllo.
+La Complessità Ciclomatica per Metodo concentra l'attenzione sulla complessità all'interno delle singole funzioni o metodi, valutando la quantità di cammini di esecuzione indipendenti all'interno di una specifica funzione. Questo aiuta a determinare la complessità delle logiche condizionali e dei percorsi di esecuzione all'interno del metodo stesso.
+
+\vspace{0.4cm}
+
+\textbf{Configuration item (CI)}
+
+\vspace{0.1cm}
+
+Un Configuration Item (CI) è un elemento che viene identificato, controllato e gestito all'interno di un \textit{sistema}\textsubscript{\textit{G}} o di un progetto. Rappresenta un'entità gestita e tracciabile all'interno di un ambiente di sviluppo o di produzione.
+
+\vspace{0.4cm}
+
+\textbf{Configuration management}
+
+\vspace{0.1cm}
+
+Configuration Management si riferisce al processo di gestione e controllo delle configurazioni \textit{software}\textsubscript{\textit{G}} e hardware all'interno di un \textit{sistema}\textsubscript{\textit{G}} o di un ambiente \textit{IT}\textsubscript{\textit{G}}. Questo include il monitoraggio, la gestione e la registrazione dettagliata di tutte le componenti, le versioni e le modifiche apportate a \textit{software}\textsubscript{\textit{G}}, hardware, documentazione e altri elementi del \textit{sistema}\textsubscript{\textit{G}}. L'obiettivo è garantire la coerenza, la tracciabilità e la disponibilità delle configurazioni in modo che gli elementi possano essere facilmente riprodotti o ripristinati in un determinato stato, evitando confusione o errori dovuti a versioni obsolete o non autorizzate.
+
+\vspace{0.4cm}
+
+\textbf{Container}
+
+\vspace{0.1cm}
+
+Un Container, contestualizzato all’utilizzo di \textit{Docker}\textsubscript{\textit{G}}, è un'unità di \textit{software}\textsubscript{\textit{G}} che contiene un'applicazione e tutte le sue dipendenze, compresi i file di \textit{sistema}\textsubscript{\textit{G}}, le \textit{librerie}\textsubscript{\textit{G}} e le configurazioni necessarie per eseguire l'applicazione in un ambiente isolato e autonomo.
+
+\vspace{0.4cm}
+
+\textbf{Continous Integration}
+
+\vspace{0.1cm}
+
+La Continuous Integration (CI) è una pratica di sviluppo \textit{software}\textsubscript{\textit{G}} che coinvolge l'\textit{integrazione}\textsubscript{\textit{G}} frequente e automatica del codice sorgente in un \textit{repository}\textsubscript{\textit{G}} condiviso. In termini formali, può essere definita come un processo in cui i cambiamenti al codice sono integrati nel \textit{repository}\textsubscript{\textit{G}} principale in modo continuo e automatico, solitamente accompagnati da \textit{test}\textsubscript{\textit{G}} automatici per garantire l'integrità del \textit{software}\textsubscript{\textit{G}}. Questa pratica mira a individuare e risolvere i conflitti di \textit{integrazione}\textsubscript{\textit{G}} il prima possibile, riducendo così il rischio di difetti nel prodotto finale e migliorando l'efficienza complessiva dello sviluppo \textit{software}\textsubscript{\textit{G}}. La Continuous Integration favorisce anche una maggiore collaborazione tra i membri del team di sviluppo, facilitando la condivisione delle modifiche e la risoluzione tempestiva di problemi.
+
+\vspace{0.4cm}
+
+\textbf{Cost performance index (CPI)}
+
+\vspace{0.1cm}
+
+(Descrizione più approfondita rispetto a quella presente in \textit{Norme di Progetto} nella sezione Metriche di qualità). Il Cost Performance Index (\textit{CPI}\textsubscript{\textit{G}}) è un'importante misura utilizzata nel project management per valutare l'efficienza dei costi in un progetto. È un indicatore di prestazione finanziaria che confronta il valore del lavoro effettuato (Earned Value, EV) con i costi effettivi (Actual Cost, AC) sostenuti fino a un certo punto nel tempo. In termini più semplici, il \textit{CPI}\textsubscript{\textit{G}} mostra quanto valore del lavoro pianificato è stato effettivamente ottenuto per ogni unità di costo spesa.
+
+\pagebreak
+\section*{D}
+\index{D}
+\phantomsection
+\addcontentsline{toc}{section}{D}
+
+\vspace{0.4cm}
+
+\textbf{Dashboard}
+
+\vspace{0.1cm}
+
+Una Dashboard è un'interfaccia utente grafica che fornisce una panoramica visiva delle informazioni più importanti, dei dati o delle metriche pertinenti a un utente o a un processo specifico. Le Dashboard sono progettate per semplificare la visualizzazione dei dati complessi e offrire una rapida panoramica delle prestazioni, delle tendenze o delle metriche chiave. Le Dashboard possono essere personalizzate per soddisfare le esigenze specifiche di un utente o di un'organizzazione e spesso includono grafici, tabelle, grafici e altri elementi visivi che rappresentano i dati in modo chiaro e comprensibile.
+
+\vspace{0.4cm}
+
+\textbf{Database}
+
+\vspace{0.1cm}
+
+Un Database è un \textit{sistema}\textsubscript{\textit{G}} organizzato per raccogliere, memorizzare e gestire dati in modo strutturato, al fine di consentire l'accesso, la gestione e l'aggiornamento efficiente di quei dati.
+
+\vspace{0.4cm}
+
+\textbf{Database noSQL}
+
+\vspace{0.1cm}
+
+Un Database NoSQL, o "non relazionale", è un tipo di \textit{sistema}\textsubscript{\textit{G}} di gestione del \textit{database}\textsubscript{\textit{G}} (DBMS) che si discosta dai tradizionali \textit{database}\textsubscript{\textit{G}} relazionali. Questi \textit{database}\textsubscript{\textit{G}} sono progettati per gestire volumi elev
+
+\vspace{0.4cm}
+
+\textbf{Database SQL}
+
+\vspace{0.1cm}
+
+Un Database SQL (Structured \textit{Query}\textsubscript{\textit{G}} Language) è un tipo di \textit{sistema}\textsubscript{\textit{G}} di gestione del \textit{database}\textsubscript{\textit{G}} (DBMS) basato su un modello relazionale, in cui i dati sono organizzati in tabelle con righe e colonne. Il linguaggio \textit{SQL}\textsubscript{\textit{G}} è utilizzato per definire, manipolare e interrogare i dati all'interno di questo tipo di \textit{database}\textsubscript{\textit{G}}.
+
+\vspace{0.4cm}
+
+\textbf{Data Gathering}
+
+\vspace{0.1cm}
+
+Data gathering si riferisce alla raccolta di dati da diverse fonti. Può coinvolgere l'acquisizione, l'archiviazione e l'organizzazione di informazioni per un'analisi successiva.
+
+\vspace{0.4cm}
+
+\textbf{Data Streaming Processing}
+
+\vspace{0.1cm}
+
+Il Data Streaming Processing si riferisce al trattamento e all'analisi di dati in tempo reale mentre vengono trasmessi o generati. A differenza del modello di batch processing, in cui i dati vengono raccolti, salvati e successivamente processati, il \textit{data streaming processing}\textsubscript{\textit{G}} opera su flussi continui di dati in tempo reale.
+
+\vspace{0.4cm}
+
+\textbf{Data visualization}
+
+\vspace{0.1cm}
+
+Il termine Data Visualization si riferisce al processo di rappresentare visivamente dati complessi e astratti in modo chiaro e comprensibile. L'obiettivo principale della Data Visualization è trasformare informazioni numeriche o qualitative in grafici, diagrammi, mappe e altre rappresentazioni visive che facilitino la comprensione, l'analisi e la comunicazione dei dati. 
+
+\vspace{0.4cm}
+
+\textbf{Deep dive}
+
+\vspace{0.1cm}
+
+Il termine Deep dive è un'espressione inglese che viene spesso utilizzata per indicare un'indagine, un'analisi approfondita o un'immersione dettagliata in un argomento specifico.
+
+\vspace{0.4cm}
+
+\textbf{Demo}
+
+\vspace{0.1cm}
+
+Una Demo di prodotto o \textit{servizio}\textsubscript{\textit{G}} è una presentazione pratica che mira a mostrare le funzionalità, le caratteristiche e i vantaggi di un determinato prodotto o \textit{servizio}\textsubscript{\textit{G}}. Può coinvolgere l'uso diretto del prodotto o una spiegazione dettagliata delle sue capacità.
+
+\vspace{0.4cm}
+
+\textbf{DevOps}
+
+\vspace{0.1cm}
+
+DevOps, una combinazione di sviluppo (Dev) e operazioni (Ops), è l'unione di persone, \textit{processi}\textsubscript{\textit{G}} e tecnologia per offrire continuamente valore ai clienti. DevOps permette a ruoli in precedenza isolati, tra cui sviluppo, operazioni \textit{IT}\textsubscript{\textit{G}}, controllo della qualità e sicurezza, di coordinarsi e collaborare per fornire prodotti migliori e più affidabili.
+
+\vspace{0.4cm}
+
+\textbf{Disaccoppiare}
+
+\vspace{0.1cm}
+
+Il termine Disaccoppiare significa separare o isolare componenti o \textit{processi}\textsubscript{\textit{G}} in modo che non siano fortemente dipendenti l'uno dall'altro.
+
+\vspace{0.4cm}
+
+\textbf{Discord}
+
+\vspace{0.1cm}
+
+\textit{Discord}\textsubscript{\textit{G}} fornisce canali di chat testuale e vocali, consentendo agli utenti di comunicare tramite messaggi di testo o chiamate vocali, sia uno a uno che in gruppo.
+
+\vspace{0.4cm}
+
+\textbf{Dispositivi iOT}
+
+\vspace{0.1cm}
+
+I Dispositivi iOT sono dispositivi fisici che incorporano tecnologia, \textit{sensori}\textsubscript{\textit{G}}, \textit{software}\textsubscript{\textit{G}} e connettività di \textit{rete}\textsubscript{\textit{G}} per consentire la raccolta, la condivisione e l'elaborazione di dati. Questi \textit{dispositivi}\textsubscript{\textit{G}} sono progettati per interagire con l'ambiente circostante e/o con altri \textit{dispositivi}\textsubscript{\textit{G}}, attraverso la connessione a Internet o attraverso reti locali.
+
+\vspace{0.4cm}
+
+\textbf{Docker}
+
+\vspace{0.1cm}
+
+\textit{Docker}\textsubscript{\textit{G}} è una \textit{piattaforma}\textsubscript{\textit{G}} che facilita la creazione, la distribuzione e l'esecuzione di applicazioni all'interno di contenitori \textit{software}\textsubscript{\textit{G}}. I contenitori sono ambienti isolati e leggeri che includono l'applicazione e tutte le sue dipendenze (\textit{librerie}\textsubscript{\textit{G}}, strumenti, codice, configurazioni), consentendo alle applicazioni di essere eseguite in modo coerente e affidabile su diversi ambienti, come lo sviluppo locale, i \textit{test}\textsubscript{\textit{G}} e i server di produzione.
+
+\vspace{0.4cm}
+
+\textbf{Dockerfile}
+
+\vspace{0.1cm}
+
+Un \textit{Dockerfile}\textsubscript{\textit{G}} è un file di testo che contiene una serie di istruzioni e comandi che definiscono i passaggi necessari per creare un'immagine \textit{Docker}\textsubscript{\textit{G}}.
+
+\vspace{0.4cm}
+
+\textbf{Dual-Core CPU}
+
+\vspace{0.1cm}
+
+Una CPU Dual-Core è un tipo di processore che incorpora due unità di elaborazione centrali (CPU) all'interno di un singolo chip. Ogni Core funziona indipendentemente dall'altro, consentendo al processore di eseguire più operazioni contemporaneamente. Questo aumenta la capacità di elaborazione complessiva del processore, consentendo di gestire carichi di lavoro più pesanti e migliorando le prestazioni dei sistemi informatici.
+
+\pagebreak
+\section*{E}
+\index{E}
+\phantomsection
+\addcontentsline{toc}{section}{E}
+
+\vspace{0.4cm}
+
+\textbf{Earned Value (EV)}
+
+\vspace{0.1cm}
+
+(Descrizione più approfondita rispetto a quella presente in \textit{Norme di Progetto} nella sezione Metriche di qualità). L'Earned Value (EV) è un concetto chiave nel project management che rappresenta il valore del lavoro effettivamente completato in un dato momento nel corso di un progetto. È utilizzato per valutare le prestazioni del progetto in base al valore del lavoro svolto rispetto alla pianificazione.
+
+\vspace{0.4cm}
+
+\textbf{Edge (Microsoft Edge)}
+
+\vspace{0.1cm}
+
+Microsoft \textit{Edge}\textsubscript{\textit{G}} è un Web \textit{browser}\textsubscript{\textit{G}} sviluppato da Microsoft Corporation, progettato per navigare su Internet e accedere ai contenuti Web.
+
+\vspace{0.4cm}
+
+\textbf{Element}
+
+\vspace{0.1cm}
+
+Element è un client di messaggistica istantanea libero e \textit{open-source}\textsubscript{\textit{G}} basato sul protocollo Matrix e distribuito con licenza Apache 2.0.
+
+\vspace{0.4cm}
+
+\textbf{Estimated at completion (EAC)}
+
+\vspace{0.1cm}
+
+(Descrizione più approfondita rispetto a quella presente in \textit{Norme di Progetto} nella sezione Metriche di qualità). Estimated at Completion (\textit{EAC}\textsubscript{\textit{G}}) è un termine utilizzato nella gestione dei progetti e dell'analisi dei costi. Rappresenta la stima del costo totale che sarà richiesto per completare un progetto quando è a un certo punto di avanzamento. In sostanza, è una previsione dei costi totali previsti per portare a termine un progetto sulla base delle prestazioni passate e attuali del progetto stesso.
+
+\vspace{0.4cm}
+
+\textbf{Estimated to complete (ETC)}
+
+\vspace{0.1cm}
+
+(Descrizione più approfondita rispetto a quella presente in \textit{Norme di Progetto} nella sezione Metriche di qualità). L'Estimate to Complete (\textit{ETC}\textsubscript{\textit{G}}) è una previsione dei costi aggiuntivi necessari per portare a termine un progetto o una specifica \textit{attività}\textsubscript{\textit{G}} entro il suo budget assegnato.
+
+\pagebreak
+\section*{F}
+\index{F}
+\phantomsection
+\addcontentsline{toc}{section}{F}
+
+\vspace{0.4cm}
+
+\textbf{Faker}
+
+\vspace{0.1cm}
+
+\textit{Faker}\textsubscript{\textit{G}} è una libreria di \textit{Python}\textsubscript{\textit{G}} progettata per generare dati falsi in modo casuale. Gli sviluppatori possono utilizzare questa libreria per creare insiemi di dati che rispecchiano la struttura e la variabilità dei dati reali, senza dover utilizzare informazioni sensibili o reali durante lo sviluppo o i \textit{test}\textsubscript{\textit{G}} del \textit{software}\textsubscript{\textit{G}}.
+
+\vspace{0.4cm}
+
+\textbf{Feature brach}
+
+\vspace{0.1cm}
+
+Il \textit{Feature branch}\textsubscript{\textit{G}} è un approccio nel controllo delle versioni del \textit{software}\textsubscript{\textit{G}} che coinvolge la creazione di rami separati (\textit{branch}\textsubscript{\textit{G}}) nel \textit{sistema}\textsubscript{\textit{G}} di gestione delle versioni, come Git, per sviluppare nuove funzionalità o modifiche senza influenzare il ramo principale del codice.
+
+\vspace{0.4cm}
+
+\textbf{Firefox}
+
+\vspace{0.1cm}
+
+\textit{Firefox}\textsubscript{\textit{G}} è un \textit{browser}\textsubscript{\textit{G}} Web Open-Source sviluppato dalla Mozilla Foundation. È progettato per essere veloce, sicuro e personalizzabile. \textit{Firefox}\textsubscript{\textit{G}} supporta molte funzionalità moderne dei \textit{browser}\textsubscript{\textit{G}}, inclusi i motori di rendering Gecko e Quantum per interpretare e visualizzare pagine Web, nonché l'utilizzo di estensioni e temi per personalizzare l'esperienza dell'utente. 
+
+\vspace{0.4cm}
+
+\textbf{Fixture}
+
+\vspace{0.1cm}
+
+Una \textit{fixture}\textsubscript{\textit{G}} è un insieme di dati predefiniti e/o condizioni di stato in cui un \textit{sistema}\textsubscript{\textit{G}} \textit{software}\textsubscript{\textit{G}} è configurato per eseguire una serie specifica di \textit{test}\textsubscript{\textit{G}}. Questi dati e condizioni sono stabiliti prima dell'esecuzione dei \textit{test}\textsubscript{\textit{G}} stessi e sono utilizzati per garantire la ripetibilità e l'affidabilità degli stessi \textit{test}\textsubscript{\textit{G}}. Le \textit{fixture}\textsubscript{\textit{G}} possono includere la preparazione dell'ambiente di \textit{test}\textsubscript{\textit{G}}, l'inizializzazione dei dati di input, l'impostazione dello stato del \textit{sistema}\textsubscript{\textit{G}} e la pulizia dell'ambiente dopo l'esecuzione dei \textit{test}\textsubscript{\textit{G}}. L'uso di \textit{fixture}\textsubscript{\textit{G}} consente di isolare i \textit{test}\textsubscript{\textit{G}} dall'ambiente circostante e di garantire che ogni \textit{test}\textsubscript{\textit{G}} sia eseguito in condizioni controllate e prevedibili, facilitando così la verifica del comportamento del \textit{software}\textsubscript{\textit{G}} in diverse situazioni.
+
+\vspace{0.4cm}
+
+\textbf{Fornitore}
+
+\vspace{0.1cm}
+
+Un Fornitore è un'entità o un'organizzazione che offre beni o \textit{servizi}\textsubscript{\textit{G}} relativi al \textit{software}\textsubscript{\textit{G}}.
+
+\vspace{0.4cm}
+
+\textbf{Framework}
+
+\vspace{0.1cm}
+
+Un \textit{Framework}\textsubscript{\textit{G}} nel contesto dell'informatica e dello sviluppo del \textit{software}\textsubscript{\textit{G}}, si riferisce a un insieme di strumenti, \textit{librerie}\textsubscript{\textit{G}}, linee guida e convenzioni di codifica predefinite che forniscono una struttura comune per lo sviluppo di \textit{software}\textsubscript{\textit{G}}. In altre parole, un \textit{Framework}\textsubscript{\textit{G}} è un'infrastruttura \textit{software}\textsubscript{\textit{G}} che facilita lo sviluppo di applicazioni fornendo un ambiente predefinito e organizzato in cui i programmatori possono lavorare.
+
+\vspace{0.4cm}
+
+\textbf{Front-end}
+
+\vspace{0.1cm}
+
+Il termine Front-end si riferisce alla parte di un'applicazione o di un \textit{sistema}\textsubscript{\textit{G}} che interagisce direttamente con gli utenti finali. È la parte visibile e interattiva di un'applicazione, responsabile della presentazione dell'interfaccia utente e dell'interazione con gli input dell'utente.
+
+\pagebreak
+\section*{G}
+\index{G}
+\phantomsection
+\addcontentsline{toc}{section}{G}
+
+\vspace{0.4cm}
+
+\textbf{Gmail}
+
+\vspace{0.1cm}
+
+Servizio di posta elettronica fornito da Google.
+
+\vspace{0.4cm}
+
+\textbf{Git}
+
+\vspace{0.1cm}
+
+Git è un \textit{sistema}\textsubscript{\textit{G}} di controllo delle versioni distribuito (DVCS - Distributed Version Control System) progettato per gestire il tracciamento delle modifiche nel codice sorgente durante lo sviluppo del \textit{software}\textsubscript{\textit{G}}. È uno strumento ampiamente utilizzato dai team di sviluppo \textit{software}\textsubscript{\textit{G}} per tenere traccia delle revisioni del codice, facilitare la collaborazione e gestire le modifiche apportate al progetto.
+
+\vspace{0.4cm}
+
+\textbf{Github}
+
+\vspace{0.1cm}
+
+GitHub è una \textit{piattaforma}\textsubscript{\textit{G}} di hosting per il controllo delle versioni basato su \textit{Git}\textsubscript{\textit{G}}, utilizzato principalmente per la gestione dei \textit{repository}\textsubscript{\textit{G}} di codice sorgente. Fornisce strumenti per lo sviluppo collaborativo del \textit{software}\textsubscript{\textit{G}}, facilitando la gestione, l'hosting e la collaborazione su progetti \textit{software}\textsubscript{\textit{G}}.
+
+\vspace{0.4cm}
+
+\textbf{Github Actions}
+
+\vspace{0.1cm}
+
+GitHub Actions è un \textit{servizio}\textsubscript{\textit{G}} di automazione fornito da \textit{Github}\textsubscript{\textit{G}} che consente di automatizzare diversi flussi di lavoro all'interno di un \textit{repository}\textsubscript{\textit{G}} \textit{Github}\textsubscript{\textit{G}}. Consente agli sviluppatori di creare, personalizzare e condividere \textit{workflow}\textsubscript{\textit{G}} personalizzati che vengono attivati da specifici eventi all'interno del \textit{repository}\textsubscript{\textit{G}}.
+
+\vspace{0.4cm}
+
+\textbf{Google Meet}
+
+\vspace{0.1cm}
+
+Google Meet è un \textit{servizio}\textsubscript{\textit{G}} di videoconferenza sviluppato da Google. Consente agli utenti di organizzare e partecipare a riunioni online, conferenze video e chiamate virtuali. È stato progettato per scopi aziendali, educativi e personali e offre diverse funzionalità per facilitare la collaborazione a distanza. 
+
+\vspace{0.4cm}
+
+\textbf{Grafana}
+
+\vspace{0.1cm}
+
+\textit{Grafana}\textsubscript{\textit{G}} è una \textit{piattaforma}\textsubscript{\textit{G}} \textit{open-source}\textsubscript{\textit{G}} per la visualizzazione e l'analisi di dati metrici e \textit{log}\textsubscript{\textit{G}}. Essa fornisce strumenti potenti per la creazione di \textit{dashboard}\textsubscript{\textit{G}} interattive, che consentono agli utenti di monitorare e esplorare dati provenienti da una varietà di fonti. \textit{Grafana}\textsubscript{\textit{G}} è ampiamente utilizzato nel monitoraggio di sistemi, nell'analisi dei dati e nella creazione di \textit{dashboard}\textsubscript{\textit{G}} per presentare informazioni in modo chiaro e comprensibile.
+
+\pagebreak
+\section*{I}
+\index{I}
+\phantomsection
+\addcontentsline{toc}{section}{I}
+
+\vspace{0.4cm}
+
+\textbf{ID}
+
+\vspace{0.1cm}
+
+\textit{ID}\textsubscript{\textit{G}} è l'abbreviazione di "identificatore" o "identificativo". Un \textit{ID}\textsubscript{\textit{G}} è un numero o un codice univoco assegnato a un oggetto, un record o un'entità per identificarlo in modo univoco in un \textit{sistema}\textsubscript{\textit{G}} o contesto specifico. Gli \textit{ID}\textsubscript{\textit{G}} vengono spesso utilizzati per riferirsi a dati o risorse in modo univoco e per garantire che ciascun elemento all'interno di un \textit{sistema}\textsubscript{\textit{G}} possa essere distintamente identificato.
+
+\vspace{0.4cm}
+
+\vspace{0.4cm}
+
+\textbf{IDE}
+
+\vspace{0.1cm}
+
+Un Integrated Development Environment (\textit{IDE}\textsubscript{\textit{G}}) è un ambiente \textit{software}\textsubscript{\textit{G}} completo progettato per agevolare lo sviluppo, la compilazione, il debug e la gestione del codice di programmazione. Esso include una serie di strumenti integrati come un editor di testo, un compilatore, un debugger, un gestore di versioni e altre utilità, offrendo un'interfaccia unificata per gli sviluppatori. L'\textit{IDE}\textsubscript{\textit{G}} fornisce un ambiente centralizzato per scrivere, modificare e organizzare il codice, facilitando la produttività e riducendo la complessità dello sviluppo \textit{software}\textsubscript{\textit{G}} attraverso funzionalità come il completamento automatico del codice, il controllo sintattico, la gestione dei progetti e la visualizzazione dei risultati.
+
+\vspace{0.4cm}
+
+\textbf{IEEE}
+
+\vspace{0.1cm}
+
+L'\textit{IEEE}\textsubscript{\textit{G}} (Institute of Electrical and Electronics Engineers) è un'organizzazione internazionale che riunisce professionisti provenienti da una vasta gamma di discipline nell'ambito dell'ingegneria elettrica, dell'informatica, dell'elettronica e delle scienze informatiche. L'\textit{IEEE}\textsubscript{\textit{G}} svolge un ruolo cruciale nello sviluppo e nella promozione degli \textit{standard}\textsubscript{\textit{G}} tecnici in vari settori, pubblica una vasta gamma di contenuti tecnici, organizza eventi e gestisce numerose società.
+
+\vspace{0.4cm}
+
+\textbf{Integrazione}
+
+\vspace{0.1cm}
+
+In informatica, l'Integrazione si riferisce al processo di connessione e coordinamento di \textit{sistemi}\textsubscript{\textit{G}}, applicazioni e dati diversi per farli lavorare insieme in modo efficace e sinergico. L'obiettivo principale dell'\textit{integrazione}\textsubscript{\textit{G}} è facilitare lo scambio di informazioni tra sistemi eterogenei per migliorare l'efficienza, l'automazione dei \textit{processi}\textsubscript{\textit{G}} e la coerenza dei dati.
+
+\vspace{0.4cm}
+
+\textbf{IP}
+
+\vspace{0.1cm}
+
+Indirizzo \textit{IP}\textsubscript{\textit{G}} (Indirizzo Protocollo Internet) è una sequenza numerica univoca assegnata a ciascun dispositivo collegato a una \textit{rete}\textsubscript{\textit{G}} che utilizza il protocollo Internet Protocol (\textit{IP}\textsubscript{\textit{G}}) per la comunicazione dati. Questo indirizzo è utilizzato per identificare e localizzare un dispositivo all'interno della \textit{rete}\textsubscript{\textit{G}}, consentendo la trasmissione e la ricezione di dati tra i dispositivi collegati attraverso la \textit{rete}\textsubscript{\textit{G}}. Gli indirizzi \textit{IP}\textsubscript{\textit{G}} possono essere di tipo IPv4 (versione 4) o IPv6 (versione 6) e sono espressi come una serie di numeri separati da punti (per IPv4) o da due punti (per IPv6).
+
+\vspace{0.4cm}
+
+\textbf{Issue}
+
+\vspace{0.1cm}
+
+Issue si riferisce a un problema, a una richiesta di funzionalità, a un bug o a un compito specifico che richiede attenzione all'interno di un \textit{sistema}\textsubscript{\textit{G}} di tracciamento dei problemi (\textit{ITS}\textsubscript{\textit{G}}).
+
+\vspace{0.4cm}
+
+\textbf{Issue Tracking System (ITS)}
+
+\vspace{0.1cm}
+
+Un ITS, acronimo di "Issue Tracking System", è un \textit{software}\textsubscript{\textit{G}} utilizzato per gestire e tenere traccia di problemi, bug, richieste di funzionalità e altre \textit{attività}\textsubscript{\textit{G}} correlate nello sviluppo del \textit{software}\textsubscript{\textit{G}} o in altri contesti lavorativi. Questi sistemi forniscono un'infrastruttura organizzativa per il \textit{processo}\textsubscript{\textit{G}} di gestione delle problematiche, consentendo agli sviluppatori, ai team di supporto o agli \textit{stakeholder}\textsubscript{\textit{G}} di registrare, monitorare, assegnare priorità e risolvere le problematiche che possono emergere durante lo sviluppo del \textit{software}\textsubscript{\textit{G}} o in altri progetti.
+
+\pagebreak
+\section*{J}
+\index{J}
+\phantomsection
+\addcontentsline{toc}{section}{J}
+
+\vspace{0.4cm}
+
+\textbf{Jira}
+
+\vspace{0.1cm}
+
+Jira è una \textit{piattaform}\textsubscript{\textit{G}} \textit{software}\textsubscript{\textit{G}} di gestione dei progetti sviluppata da Atlassian. È ampiamente utilizzata per la gestione delle \textit{attività}\textsubscript{\textit{G}}, la tracciabilità dei progetti e la collaborazione tra team, in particolare nel contesto dello sviluppo \textit{software}\textsubscript{\textit{G}} e della gestione dei progetti agili.
+
+\vspace{0.4cm}
+
+\textbf{JSON}
+
+\vspace{0.1cm}
+
+JSON (JavaScript Object Notation) è un formato di scrittura per lo scambio di dati. È basato su un sottoinsieme del linguaggio JavaScript, ma è un formato di testo indipendente dal linguaggio di programmazione, ampiamente utilizzato per la trasmissione di dati strutturati tra un server e un client web o tra diverse componenti \textit{software}\textsubscript{\textit{G}}.
+
+\pagebreak
+\section*{L}
+\index{L}
+\phantomsection
+\addcontentsline{toc}{section}{L}
+
+\vspace{0.4cm}
+
+\textbf{\LaTeX}
+
+\vspace{0.1cm}
+
+\LaTeX\ è un linguaggio di markup e un \textit{sistema}\textsubscript{\textit{G}} di composizione tipografica utilizzato principalmente per la produzione di documenti scientifici, accademici e tecnici di alta qualità.
+
+\vspace{0.4cm}
+
+\textbf{Label}
+
+\vspace{0.1cm}
+
+Una \textit{label}\textsubscript{\textit{G}} in un ITS (Issue Tracking System) è un'etichetta o un'annotazione che viene associata a un'\textit{attività}\textsubscript{\textit{G}}, un problema o una richiesta all'interno del \textit{sistema}\textsubscript{\textit{G}} di tracciamento delle problematiche. Questa etichetta fornisce un'indicazione rapida e categorica sull'argomento, sulla tipologia o sulla priorità dell'elemento in questione.
+
+\vspace{0.4cm}
+
+\textbf{Librerie}
+
+\vspace{0.1cm}
+
+Il termine Libreria si riferisce a una raccolta di codice pre-sviluppato che fornisce funzionalità comuni e specifiche per facilitare lo sviluppo del \textit{software}\textsubscript{\textit{G}}. Le Librerie sono composte da moduli o \textit{routine di codice}\textsubscript{\textit{G}} che possono essere utilizzati da un \textit{programma}\textsubscript{\textit{G}} per eseguire operazioni specifiche, senza dover scrivere tutto il codice da zero.
+
+\vspace{0.4cm}
+
+\textbf{Link}
+
+\vspace{0.1cm}
+
+Un \textit{Link}\textsubscript{\textit{G}} è un elemento ipertestuale che consente di stabilire un collegamento tra due risorse all'interno di un \textit{sistema}\textsubscript{\textit{G}} informatico o su Internet. È costituito da un indirizzo, noto come URL (Uniform Resource Locator), che identifica la risorsa di destinazione, e può essere visualizzato come testo, immagine o altro elemento cliccabile. 
+
+
+\vspace{0.4cm}
+
+\textbf{Linux}
+
+\vspace{0.1cm}
+
+\textit{Linux}\textsubscript{\textit{G}} è un \textit{sistema}\textsubscript{\textit{G}} operativo basato su kernel, originariamente sviluppato da Linus Torvalds nel 1991 e distribuito sotto i termini della GNU General Public License (GPL). Il kernel \textit{Linux}\textsubscript{\textit{G}} è il componente centrale del \textit{sistema}\textsubscript{\textit{G}} operativo, gestisce le risorse hardware del computer e fornisce un'interfaccia per le applicazioni \textit{software}\textsubscript{\textit{G}}. \textit{Linux}\textsubscript{\textit{G}} è noto per la sua stabilità, flessibilità e sicurezza ed è ampiamente utilizzato in una vasta gamma di dispositivi, inclusi server, computer desktop, dispositivi embedded e supercomputer. 
+
+\vspace{0.4cm}
+
+\textbf{Log}
+
+\vspace{0.1cm}
+
+Il termine Log si riferisce a un file o a un registro che registra eventi, \textit{attività}\textsubscript{\textit{G}} o messaggi relativi al funzionamento di un \textit{sistema}\textsubscript{\textit{G}}, di un'applicazione o di un componente \textit{software}\textsubscript{\textit{G}}. I Log sono spesso utilizzati per monitorare il comportamento di un \textit{sistema}\textsubscript{\textit{G}}, per diagnosticare problemi, e per tracciare le \textit{attività}\textsubscript{\textit{G}} al fine di analizzarle in seguito.
+
+\vspace{0.4cm}
+
+\textbf{Login}
+
+\vspace{0.1cm}
+
+Il \textit{Login}\textsubscript{\textit{G}} è un processo di autenticazione in un \textit{sistema}\textsubscript{\textit{G}} informatico mediante il quale un utente fornisce le proprie credenziali identificative, come il nome utente e la password, al fine di accedere a risorse protette o funzionalità specifiche del \textit{sistema}\textsubscript{\textit{G}}. Durante il processo di \textit{Login}\textsubscript{\textit{G}}, il \textit{sistema}\textsubscript{\textit{G}} verifica le credenziali fornite dall'utente confrontandole con quelle memorizzate nel \textit{sistema}\textsubscript{\textit{G}}. Se le credenziali fornite sono valide e corrispondono a un \textit{account}\textsubscript{\textit{G}} registrato nel \textit{sistema}\textsubscript{\textit{G}}, l'utente ottiene l'accesso autorizzato alle risorse o funzionalità desiderate. In caso contrario, se le credenziali sono errate o non corrispondono a un \textit{account}\textsubscript{\textit{G}} valido, il \textit{sistema}\textsubscript{\textit{G}} nega l'accesso e può fornire un messaggio di errore all'utente.
+
+\vspace{0.4cm}
+
+\textbf{Logout}
+
+\vspace{0.1cm}
+
+Il \textit{Logout}\textsubscript{\textit{G}} è un'operazione informatica che rappresenta il processo attraverso il quale un utente termina la sua sessione di accesso a un \textit{sistema}\textsubscript{\textit{G}} o a un'applicazione. Durante il \textit{logout}\textsubscript{\textit{G}}, il \textit{sistema}\textsubscript{\textit{G}} revoca l'accesso dell'utente alle risorse e alle funzionalità del \textit{sistema}\textsubscript{\textit{G}} o dell'applicazione, chiudendo la sessione attiva dell'utente e invalidando eventuali token di autenticazione o credenziali di accesso. L'utente viene quindi reindirizzato alla pagina di accesso o a una pagina di conferma di \textit{Logout}\textsubscript{\textit{G}}.
+
+\pagebreak
+\section*{M}
+\index{M}
+\phantomsection
+\addcontentsline{toc}{section}{M}
+
+\vspace{0.4cm}
+
+\textbf{MacOS}
+
+\vspace{0.1cm}
+
+\textit{MacOS}\textsubscript{\textit{G}} è un \textit{sistema}\textsubscript{\textit{G}} operativo proprietario sviluppato da Apple Inc. per i computer Macintosh. Caratterizzato da un'interfaccia utente intuitiva e basata su grafica, \textit{MacOS}\textsubscript{\textit{G}} offre una vasta gamma di funzionalità, tra cui la gestione dei file, la connettività di \textit{rete}\textsubscript{\textit{G}}, la sicurezza informatica e il supporto per un'ampia varietà di applicazioni \textit{software}\textsubscript{\textit{G}}.
+
+
+\vspace{0.4cm}
+
+\textbf{Maschera}
+
+\vspace{0.1cm}
+
+Il termine Maschera si riferisce generalmente a un'interfaccia grafica o a un elemento visuale che consente agli utenti di interagire con un'applicazione o un \textit{sistema}\textsubscript{\textit{G}}. Le Maschere sono utilizzate per raccogliere o visualizzare informazioni, spesso in forma di moduli, finestre o schermate.
+
+\vspace{0.4cm}
+
+\textbf{Minimal Working Example}
+
+\vspace{0.1cm}
+
+Un \textit{Minimal Working Example}\textsubscript{\textit{G}} (MWE) è una porzione di codice o di testo progettata per dimostrare un concetto, risolvere un problema o illustrare un comportamento specifico in un ambiente o contesto determinato. Un MWE deve essere il più conciso possibile mentre ancora esibisce il problema o la funzionalità desiderata, escludendo qualsiasi codice superfluo o contesto non essenziale. È progettato per essere facilmente comprensibile e riproducibile da altri, consentendo loro di comprendere rapidamente il problema o l'idea presentata e di fornire assistenza o suggerimenti pertinenti.
+
+\vspace{0.4cm}
+
+\textbf{Milestone}
+
+\vspace{0.1cm}
+
+Le Milestone sono punti specifici o traguardi significativi nel ciclo di sviluppo di un'applicazione o di un progetto. Questi sono eventi cruciali che segnalano il completamento di una fase importante o di un insieme di \textit{attività}\textsubscript{\textit{G}} rilevanti verso il raggiungimento di un obiettivo.
+
+\vspace{0.4cm}
+
+\textbf{Mock}
+
+\vspace{0.1cm}
+
+Il termine \textit{Mock}\textsubscript{\textit{G}} si riferisce a un oggetto simulato che replica il comportamento di un oggetto reale in modo controllato e predefinito durante i \textit{test}\textsubscript{\textit{G}} \textit{software}\textsubscript{\textit{G}}. Questi oggetti sono utilizzati principalmente nel contesto del testing unitario per sostituire componenti dipendenti non ancora disponibili o non facilmente replicabili nell'ambiente di \textit{test}\textsubscript{\textit{G}}.
+
+\vspace{0.4cm}
+
+\textbf{Modello a V}
+
+\vspace{0.1cm}
+
+Il \textit{Modello a V}\textsubscript{\textit{G}} è un \textit{framework}\textsubscript{\textit{G}} di sviluppo del \textit{software}\textsubscript{\textit{G}} che organizza il processo di sviluppo in fasi chiaramente definite, in cui ogni fase di implementazione è associata a una fase di verifica o validazione corrispondente. Il modello deriva il suo nome dalla sua rappresentazione a forma di "V", che indica la connessione tra le fasi di sviluppo e le fasi di verifica. 
+
+\vspace{0.4cm}
+
+\textbf{Multi-stage builds}
+
+\vspace{0.1cm}
+
+Le Multi-stage Builds in \textit{Docker}\textsubscript{\textit{G}} sono un'approccio che consente di creare immagini \textit{Docker}\textsubscript{\textit{G}} utilizzando più fasi o fasi di build separate all'interno di un singolo \textit{Dockerfile}\textsubscript{\textit{G}}. Questa funzionalità è utile per ottimizzare le dimensioni delle immagini finali e per semplificare il \textit{processo}\textsubscript{\textit{G}} di creazione delle immagini, eliminando la necessità di layer non necessari o file temporanei.
+
+\vspace{0.4cm}
+
+\textbf{MVP}
+
+\vspace{0.1cm}
+
+Acronimo di Minimun Viable Product. Rappresenta una versione preliminare del prodotto \textit{software}\textsubscript{\textit{G}} da realizzare, il cui scopo è raccogliere quante più informazioni possibili riguardo i needs del cliente con il minimo impiego di risorse.
+
+\pagebreak
+\section*{N}
+\index{N}
+\phantomsection
+\addcontentsline{toc}{section}{N}
+
+\vspace{0.4cm}
+
+\textbf{Normalizzazione}
+
+\vspace{0.1cm}
+
+La Normalizzazione dei dati è un \textit{processo}\textsubscript{\textit{G}} utilizzato nell'ambito dell'analisi dei dati e del machine learning per standardizzare o regolarizzare le caratteristiche di un dataset. L'obiettivo della \textit{normalizzazione}\textsubscript{\textit{G}} è rendere i dati confrontabili, eliminando eventuali differenze nelle unità di misura, nelle scale o nelle distribuzioni dei dati originali.
+
+\pagebreak
+\section*{O}
+\index{O}
+\phantomsection
+\addcontentsline{toc}{section}{O}
+
+\vspace{0.4cm}
+
+\textbf{OLAP}
+
+\vspace{0.1cm}
+
+OLAP è l'acronimo di "Online Analytical Processing", una tecnologia informatica che consente l'analisi interattiva e in tempo reale di grandi quantità di dati da varie prospettive. Questa metodologia organizza i dati in modo multidimensionale, facilita l'esplorazione interattiva, e supporta l'aggregazione dei dati a diversi livelli.
+
+\vspace{0.4cm}
+
+\textbf{Olistico}
+
+\vspace{0.1cm}
+
+Olistico deriva da "olismo", un concetto che si riferisce alla considerazione dell'insieme come maggiore della somma delle sue parti. Può indicare un approccio completo che considera tutte le componenti coinvolte in un \textit{sistema}\textsubscript{\textit{G}} o un'idea, anziché focalizzarsi solo su alcuni aspetti isolati. 
+
+\vspace{0.4cm}
+
+\textbf{Open-source}
+
+\vspace{0.1cm}
+
+Il termine Open-source si riferisce a un tipo di licenza \textit{software}\textsubscript{\textit{G}} che permette agli utenti di accedere, modificare e distribuire liberamente il codice sorgente di un'applicazione. La filosofia principale dell'approccio Open-source promuove la trasparenza, la collaborazione e la condivisione nella creazione e nell'uso del \textit{software}\textsubscript{\textit{G}}.
+
+\vspace{0.4cm}
+
+\textbf{Overleaf}
+
+\vspace{0.1cm}
+
+\textit{Overleaf}\textsubscript{\textit{G}} è una \textit{piattaforma}\textsubscript{\textit{G}} online per la scrittura collaborativa di documenti in \textit{LaTeX}\textsubscript{\textit{G}}. Questa \textit{piattaforma}\textsubscript{\textit{G}} offre un ambiente di scrittura \textit{LaTeX}\textsubscript{\textit{G}} basato sul web, consentendo a più utenti di lavorare contemporaneamente sugli stessi documenti, facilitando la collaborazione e la revisione.
+
+\pagebreak
+\section*{P}
+\index{P}
+\phantomsection
+\addcontentsline{toc}{section}{P}
+
+\vspace{0.4cm}
+
+\textbf{Paradigma}
+
+\vspace{0.1cm}
+
+Il termine Paradigma si riferisce a un modello o a un approccio di programmazione fondamentale che guida la progettazione e l'implementazione del \textit{software}\textsubscript{\textit{G}}. Ogni Paradigma ha principi di base che definiscono come vengono organizzati i programmi, come i dati sono manipolati e come il controllo del flusso è gestito.
+
+\vspace{0.4cm}
+
+\textbf{Patch}
+
+\vspace{0.1cm}
+
+Una \textit{Patch}\textsubscript{\textit{G}}, nell'ambito dell'informatica e dello sviluppo \textit{software}\textsubscript{\textit{G}}, si riferisce a una serie di modifiche apportate a un \textit{programma}\textsubscript{\textit{G}} o a un \textit{sistema}\textsubscript{\textit{G}} per correggere errori, migliorare le prestazioni, aggiungere nuove funzionalità o apportare altre modifiche. Formalmente, una \textit{Patch}\textsubscript{\textit{G}} può essere definita come un insieme di dati o istruzioni che vengono applicati a un file esistente per alterarne il comportamento o risolvere determinati problemi.
+
+\vspace{0.4cm}
+
+\textbf{Pattern}
+
+\vspace{0.1cm}
+
+I Pattern forniscono un metodo riconosciuto e testato per affrontare e risolvere determinate sfide di progettazione e sviluppo, consentendo agli sviluppatori di condividere conoscenze e approcci comuni.
+
+\vspace{0.4cm}
+
+\textbf{PDF}
+
+\vspace{0.1cm}
+
+PDF è l'acronimo di Portable Document Format. Si tratta di un formato di file sviluppato da Adobe che consente di rappresentare documenti in modo indipendente dal \textit{software}\textsubscript{\textit{G}}, dall'hardware e dal \textit{sistema}\textsubscript{\textit{G}} operativo.
+
+\vspace{0.4cm}
+
+\textbf{Peer-to-Peer}
+
+\vspace{0.1cm}
+
+Il \textit{Peer-to-Peer}\textsubscript{\textit{G}} (P2P) è un modello di \textit{rete}\textsubscript{\textit{G}} distribuita in cui i nodi partecipanti agiscono sia come client che come server, consentendo la condivisione diretta di risorse, informazioni o servizi tra di essi, senza la necessità di un'infrastruttura centrale.
+
+\vspace{0.4cm}
+
+\textbf{Piattaforma}
+
+\vspace{0.1cm}
+
+Il termine Piattaforma si riferisce a un ambiente hardware e/o \textit{software}\textsubscript{\textit{G}} che fornisce le risorse e i servizi necessari per lo sviluppo, l'esecuzione e la gestione di applicazioni \textit{software}\textsubscript{\textit{G}}.
+
+\vspace{0.4cm}
+
+\textbf{PB}
+
+\vspace{0.1cm}
+
+Product Baseline (\textit{PB}\textsubscript{\textit{G}}) è un acronimo che identifica una tappa fondamentale nello sviluppo di un progetto didattico. Durante questa revisione, viene dimostrata la solidità dell'\textit{architettura}\textsubscript{\textit{G}} definita nella fase precedente (\textit{RTB}\textsubscript{\textit{G}}) e il progresso nell'evoluzione del prodotto in sviluppo.
+
+\vspace{0.4cm}
+
+\textbf{Planned value (PV)}
+
+\vspace{0.1cm}
+
+(Descrizione più approfondita rispetto a quella presente in \textit{Norme di Progetto} nella sezione Metriche di qualità). 
+Il Planned Value (\textit{PV}\textsubscript{\textit{G}}) è il valore monetario del lavoro pianificato da completare fino a una determinata data all'interno di un progetto. Il \textit{PV}\textsubscript{\textit{G}} è calcolato in base al budget assegnato per svolgere specifiche \textit{attività}\textsubscript{\textit{G}} o raggiungere determinati \textit{milestone}\textsubscript{\textit{G}} entro un periodo prestabilito. Rappresenta il valore totale pianificato che dovrebbe essere raggiunto in termini di costi o tempo alla data specificata.
+
+\vspace{0.4cm}
+
+\textbf{POC}
+
+\vspace{0.1cm}
+
+L'acronimo \textit{POC}\textsubscript{\textit{G}} sta per "Proof of Concept”. Un \textit{POC}\textsubscript{\textit{G}} è un'implementazione pratica di un'idea o di un concetto, realizzata con l'obiettivo di dimostrare la fattibilità tecnica o la validità di un approccio particolare prima di impegnarsi in uno sviluppo a pieno regime.
+
+\vspace{0.4cm}
+
+\textbf{Processi}
+
+\vspace{0.1cm}
+
+Raggruppano e codificano le \textit{attività}\textsubscript{\textit{G}} da svolgere per effettuare corrette transizioni di stato nel ciclo di vita di un prodotto \textit{software}\textsubscript{\textit{G}}.
+
+\vspace{0.4cm}
+
+\textbf{Programma}
+
+\vspace{0.1cm}
+
+Un Programma è una sequenza di istruzioni scritte in un linguaggio di programmazione che definisce una serie di operazioni da eseguire da parte di un computer.
+
+\vspace{0.4cm}
+
+\textbf{Proponente}
+
+\vspace{0.1cm}
+
+In ambito di sviluppo \textit{software}\textsubscript{\textit{G}}, il termine Proponente si riferisce generalmente a chi propone o suggerisce un progetto, un'idea o una soluzione.
+
+\vspace{0.4cm}
+
+\textbf{Python}
+
+\vspace{0.1cm}
+
+\textit{Python}\textsubscript{\textit{G}} è un linguaggio di programmazione ad alto livello, versatile e orientato agli oggetti, utilizzato per lo sviluppo di \textit{software}\textsubscript{\textit{G}}, scripting, automazione e altre applicazioni.
+
+\vspace{0.4cm}
+
+\textbf{Pull request}
+
+\vspace{0.1cm}
+
+Una \textit{Pull}\textsubscript{\textit{G}} Request (PR) è una richiesta effettuata da un collaboratore di un \textit{repository}\textsubscript{\textit{G}} \textit{Git}\textsubscript{\textit{G}} o di una \textit{piattaforma}\textsubscript{\textit{G}} di hosting come \textit{Github}\textsubscript{\textit{G}} per incorporare le modifiche effettuate in un \textit{branch}\textsubscript{\textit{G}} del \textit{repository}\textsubscript{\textit{G}} principale.
+
+\vspace{0.4cm}
+
+\textbf{Pull}
+
+\vspace{0.1cm}
+
+In ambito informatico e tecnologico, \textit{Pull}\textsubscript{\textit{G}} è un termine utilizzato per descrivere l'azione di recuperare dati o risorse da una fonte remota o esterna, solitamente attraverso una richiesta esplicita o un'azione specifica. Nel contesto dello sviluppo \textit{software}\textsubscript{\textit{G}} e del controllo delle versioni, il \textit{Pull}\textsubscript{\textit{G}} si riferisce all'operazione di ottenere le ultime modifiche o aggiornamenti da un \textit{repository}\textsubscript{\textit{G}} remoto, come ad esempio in sistemi di controllo di versione distribuiti come Git. Questo processo coinvolge la richiesta esplicita di sincronizzazione del proprio ambiente di lavoro locale con le modifiche apportate da altri collaboratori o sviluppatori al \textit{repository}\textsubscript{\textit{G}} centrale, garantendo così l'allineamento e la coerenza tra i vari ambienti di sviluppo.
+
+\vspace{0.4cm}
+
+\pagebreak
+\section*{Q}
+\index{Q}
+\phantomsection
+\addcontentsline{toc}{section}{Q}
+
+\vspace{0.4cm}
+
+\textbf{Query}
+
+\vspace{0.1cm}
+
+Una \textit{Query}\textsubscript{\textit{G}} è un'istruzione o una richiesta formale utilizzata in sistemi di gestione dei \textit{database}\textsubscript{\textit{G}} o in altri contesti informatici per recuperare, modificare o manipolare i dati. Essa è espressa in un linguaggio specifico come SQL (Structured \textit{Query}\textsubscript{\textit{G}} Language) nei \textit{database}\textsubscript{\textit{G}} relazionali. Una \textit{Query}\textsubscript{\textit{G}} specifica le condizioni e i criteri che devono essere soddisfatti affinché venga restituito un insieme di dati o venga eseguita un'operazione specifica sui dati. Una \textit{Query}\textsubscript{\textit{G}} può essere utilizzata per selezionare dati da una tabella, aggiornare o eliminare dati esistenti, o per eseguire operazioni di aggregazione e analisi dei dati.
+
+\pagebreak
+\section*{R}
+\index{R}
+\phantomsection
+\addcontentsline{toc}{section}{R}
+
+\vspace{0.4cm}
+
+\textbf{Raw}
+
+\vspace{0.1cm}
+
+Raw si riferisce ai dati grezzi o non elaborati provenienti direttamente dai \textit{sensori}\textsubscript{\textit{G}}, senza ulteriori manipolazioni o trasformazioni.
+
+\vspace{0.4cm}
+
+\textbf{Report}
+
+\vspace{0.1cm}
+
+Il termine Report si riferisce a un documento scritto o a una presentazione che fornisce informazioni dettagliate su un determinato argomento, situazione o \textit{attività}\textsubscript{\textit{G}}.
+
+\vspace{0.4cm}
+
+\textbf{Repository}
+
+\vspace{0.1cm}
+
+Un \textit{repository}\textsubscript{\textit{G}} è uno spazio di archiviazione o deposito digitale in cui vengono conservati e gestiti file, dati, codice sorgente o altre informazioni pertinenti a un progetto, a un'applicazione o a un insieme di dati.
+
+\vspace{0.4cm}
+
+\textbf{Requisiti contrattuali}
+
+\vspace{0.1cm}
+
+Rappresentano l’accordo tra la parte \textit{proponente}\textsubscript{\textit{G}} e il \textit{fornitore}\textsubscript{\textit{G}} su quale deve essere l’oggetto e la forma del prodotto \textit{software}\textsubscript{\textit{G}} da realizzare.
+
+\vspace{0.4cm}
+
+\textbf{Requisiti funzionali}
+
+\vspace{0.1cm}
+
+I Requisiti Funzionali sono specifiche dichiarazioni di comportamenti di un \textit{sistema}\textsubscript{\textit{G}} \textit{software}\textsubscript{\textit{G}}, delineando le funzioni e le operazioni che il \textit{sistema}\textsubscript{\textit{G}} deve eseguire. Queste dichiarazioni sono formalmente definite per descrivere in modo accurato e completo le azioni che il \textit{sistema}\textsubscript{\textit{G}} deve essere in grado di svolgere, inclusi i suoi input, output e comportamenti desiderati in risposta a determinate situazioni. I \textit{requisiti funzionali}\textsubscript{\textit{G}} sono essenziali per guidare lo sviluppo del \textit{software}\textsubscript{\textit{G}}, garantendo che il prodotto finale soddisfi le esigenze e le aspettative degli utenti.
+
+\vspace{0.4cm}
+
+\textbf{Requisiti soluzione}
+
+\vspace{0.1cm}
+
+Requisiti che rispecchiano le funzionalità del prodotto, atti a soddisfare i \textit{requisiti utente}\textsubscript{\textit{G}}.
+
+\vspace{0.4cm}
+
+\textbf{Requisiti utente}
+
+\vspace{0.1cm}
+
+Requisiti che rispecchiano il lato utente, vengono espressi sotto forma di bisogni.
+
+\vspace{0.4cm}
+
+\textbf{Rete}
+
+\vspace{0.1cm}
+
+Il termine Rete si riferisce a un insieme di dispositivi e \textit{sistemi}\textsubscript{\textit{G}} interconnessi che comunicano tra loro per condividere risorse, dati e informazioni.
+
+\vspace{0.4cm}
+
+\textbf{Roadmap}
+
+\vspace{0.1cm}
+
+Una Roadmap è un piano strategico che visualizza le tappe chiave, le \textit{attività}\textsubscript{\textit{G}} e le direzioni principali necessarie per raggiungere un obiettivo specifico nel tempo.
+
+\vspace{0.4cm}
+
+\textbf{Rollback}
+
+\vspace{0.1cm}
+
+Il Rollback nello sviluppo \textit{software}\textsubscript{\textit{G}} si riferisce al \textit{processo}\textsubscript{\textit{G}} di ripristino di una versione precedente, funzionante e stabile di un'applicazione o di un \textit{sistema}\textsubscript{\textit{G}}.
+
+\vspace{0.4cm}
+
+\textbf{Routine di codice}
+
+\vspace{0.1cm}
+
+Il termine si riferisce a una sequenza di istruzioni o operazioni di programmazione che eseguono una specifica funzione o compito all'interno di un \textit{programma}\textsubscript{\textit{G}} \textit{software}\textsubscript{\textit{G}}.
+
+\vspace{0.4cm}
+
+\textbf{RTB}
+
+\vspace{0.1cm}
+
+Requirements and Technology Baseline (\textit{RTB}\textsubscript{\textit{G}}) è un acronimo che identifica la revisione essenziale nel percorso di sviluppo di un progetto didattico.
+
+\pagebreak
+\section*{S}
+\index{S}
+\phantomsection
+\addcontentsline{toc}{section}{S}
+
+\vspace{0.4cm}
+
+\textbf{Safari}
+
+\vspace{0.1cm}
+
+\textit{Safari}\textsubscript{\textit{G}} è un \textit{browser}\textsubscript{\textit{G}} Web sviluppato da Apple Inc., disponibile su dispositivi Apple come Mac, iPhone e iPad. Caratterizzato da un'interfaccia intuitiva e integrato all'ecosistema Apple, \textit{Safari}\textsubscript{\textit{G}} offre funzionalità di navigazione avanzate, inclusa la sincronizzazione tra dispositivi, la gestione dei segnalibri e la protezione della privacy attraverso funzionalità come Intelligent Tracking Prevention. 
+
+\vspace{0.4cm}
+
+\textbf{Schedule Variance}
+
+\vspace{0.1cm}
+
+(Descrizione più approfondita rispetto a quella presente in \textit{Norme di Progetto} nella sezione Metriche di qualità). Lo Schedule Variance (SV) è un indicatore utilizzato nel project management per misurare il ritardo o l'avanzamento rispetto alla pianificazione temporale prevista per il lavoro o le \textit{attività}\textsubscript{\textit{G}} in un progetto.
+
+\vspace{0.4cm}
+
+\textbf{Scouting tecnologico}
+
+\vspace{0.1cm}
+
+Lo \textit{scouting tecnologico}\textsubscript{\textit{G}} è un \textit{processo}\textsubscript{\textit{G}} strategico volto a identificare, valutare e monitorare le nuove tecnologie emergenti e le innovazioni nel settore tecnologico.
+
+\vspace{0.4cm}
+
+\textbf{Script}
+
+\vspace{0.1cm}
+
+Uno Script è un file contenente una serie di istruzioni o comandi scritti in un linguaggio di scripting, come \textit{Python}\textsubscript{\textit{G}}, Bash, o JavaScript.
+
+\vspace{0.4cm}
+
+\textbf{Sensore}
+
+\vspace{0.1cm}
+
+In informatica e nell'ambito dell'Internet delle cose (IoT), un Sensore è un dispositivo in grado di rilevare o misurare un input fisico o ambientale e convertirlo in un segnale o dati.
+
+\vspace{0.4cm}
+
+\textbf{Servizio}
+
+\vspace{0.1cm}
+
+Un Servizio si riferisce a una funzionalità o a un'opzione offerta da un \textit{sistema}\textsubscript{\textit{G}}.
+
+\vspace{0.4cm}
+
+\textbf{Single Responsibility Principle (SRP)}
+
+\vspace{0.1cm}
+
+Il Single Responsibility Principle è uno dei cinque principi del \textit{SOLID}\textsubscript{\textit{G}}, un insieme di linee guida e \textit{best practice}\textsubscript{\textit{G}} per la progettazione del \textit{software}\textsubscript{\textit{G}}.
+
+\vspace{0.4cm}
+
+\textbf{Sistema}
+
+\vspace{0.1cm}
+
+Il termine Sistema si riferisce a un insieme di componenti interconnessi che lavorano insieme per raggiungere uno scopo comune.
+
+\vspace{0.4cm}
+
+\textbf{Smart city}
+
+\vspace{0.1cm}
+
+Una \textit{Smart City}\textsubscript{\textit{G}} (città intelligente) è una città che utilizza la tecnologia e l'innovazione digitale per migliorare la qualità della vita dei suoi cittadini e ottimizzare l'efficienza delle operazioni urbane.
+
+\vspace{0.4cm}
+
+\textbf{Snapshot}
+
+\vspace{0.1cm}
+
+Una \textit{Snapshot}\textsubscript{\textit{G}} è una copia istantanea dello stato o dei dati di un \textit{sistema}\textsubscript{\textit{G}} o di una risorsa in un determinato momento nel tempo. 
+
+\vspace{0.4cm}
+
+\textbf{Software}
+
+\vspace{0.1cm}
+
+Un \textit{Software}\textsubscript{\textit{G}} è una collezione di istruzioni, programmi, dati e documentazione che permette al computer di eseguire determinate funzioni o compiti.
+
+\vspace{0.4cm}
+
+\textbf{SOLID}
+
+\vspace{0.1cm}
+
+\textit{SOLID}\textsubscript{\textit{G}} è un acronimo che rappresenta cinque principi di progettazione del \textit{software}\textsubscript{\textit{G}} che mirano a creare codice più manutenibile, flessibile e facile da comprendere.
+
+\vspace{0.4cm}
+
+\textbf{SQL}
+
+\vspace{0.1cm}
+
+SQL (Structured \textit{Query}\textsubscript{\textit{G}} Language) è un linguaggio di programmazione specializzato utilizzato per gestire e manipolare i dati all'interno di un \textit{sistema}\textsubscript{\textit{G}} di gestione del \textit{database}\textsubscript{\textit{G}} relazionale (RDBMS).
+
+\vspace{0.4cm}
+
+\textbf{Stack tecnologico}
+
+\vspace{0.1cm}
+
+Lo Stack Tecnologico si riferisce a un insieme di tecnologie \textit{software}\textsubscript{\textit{G}}, strumenti e \textit{framework}\textsubscript{\textit{G}} utilizzati per sviluppare e gestire un'applicazione o un \textit{sistema}\textsubscript{\textit{G}} \textit{software}\textsubscript{\textit{G}}.
+
+\vspace{0.4cm}
+
+\textbf{Stakeholder}
+
+\vspace{0.1cm}
+
+Lo Stakeholder è un termine utilizzato per identificare qualsiasi individuo, gruppo o entità che ha un interesse diretto o può essere influenzato dalle azioni.
+
+\vspace{0.4cm}
+
+\textbf{Standard}
+
+\vspace{0.1cm}
+
+Standard è un termine utilizzato per indicare un modello, una regola o una specifica che è comunemente accettata come riferimento.
+
+\vspace{0.4cm}
+
+\textbf{Stand-up meeting}
+
+\vspace{0.1cm}
+
+Gli Stand-up Meeting sono incontri brevi e regolari utilizzati comunemente in contesti di sviluppo \textit{software}\textsubscript{\textit{G}} e in ambito lavorativo per favorire la comunicazione.
+
+\vspace{0.4cm}
+
+\textbf{Statement coverage (MSC)}
+
+\vspace{0.1cm}
+
+(Descrizione più approfondita rispetto a quella presente in \textit{Norme di Progetto} nella sezione Metriche di qualità). Lo Statement Coverage (\textit{MSC}\textsubscript{\textit{G}}) è una metrica utilizzata nel testing del \textit{software}\textsubscript{\textit{G}} per valutare quanto del codice sorgente viene eseguito durante l'esecuzione dei \textit{test}\textsubscript{\textit{G}}.
+Questa metrica indica la percentuale di istruzioni nel codice sorgente che sono state eseguite almeno una volta durante l'esecuzione dei \textit{test}\textsubscript{\textit{G}} rispetto al totale delle istruzioni presenti nel \textit{programma}\textsubscript{\textit{G}}. 
+
+\vspace{0.4cm}
+
+\textbf{Stato avanzamento lavori (SAL)}
+
+\vspace{0.1cm}
+
+Lo Stato di Avanzamento Lavori (\textit{SAL}\textsubscript{\textit{G}}) è una misurazione o un resoconto che indica quanto un progetto o un lavoro è progredito rispetto alle \textit{attività}\textsubscript{\textit{G}} pianificate o alle fasi di sviluppo.
+
+\vspace{0.4cm}
+
+\textbf{Storage}
+
+\vspace{0.1cm}
+
+Il termine Storage si riferisce alla memorizzazione permanente e alla gestione dei dati su dispositivi di archiviazione.
+
+\vspace{0.4cm}
+
+\textbf{Stream}
+
+\vspace{0.1cm}
+
+Il termine Stream in informatica si riferisce a un flusso di dati in movimento continuo da una sorgente a una destinazione.
+
+\vspace{0.4cm}
+
+\textbf{Stream processing}
+
+\vspace{0.1cm}
+
+Lo Stream Processing è un \textit{paradigma}\textsubscript{\textit{G}} di elaborazione dei dati in cui le informazioni vengono analizzate e elaborate in tempo reale man mano che vengono generate o ricevute.
+
+\vspace{0.4cm}
+
+\textbf{Structural Coverage}
+
+\vspace{0.1cm}
+
+La copertura strutturale, in ambito del \textit{software}\textsubscript{\textit{G}} testing, si riferisce alla valutazione della percentuale di componenti strutturali di un \textit{programma}\textsubscript{\textit{G}} che sono stati eseguiti durante il processo di testing. Questo tipo di copertura misura il grado in cui le istruzioni, i rami condizionali, i cicli e altri elementi del codice sorgente sono stati attraversati durante l'esecuzione dei casi di \textit{test}\textsubscript{\textit{G}}. 
+
+\vspace{0.4cm}
+
+\textbf{Stub}
+
+\vspace{0.1cm}
+
+Uno \textit{Stub}\textsubscript{\textit{G}} è un componente o un modulo sostitutivo che emula il comportamento di parti del \textit{sistema}\textsubscript{\textit{G}} di \textit{software}\textsubscript{\textit{G}} reale, al fine di consentire lo sviluppo parallelo o il testing di componenti dipendenti. Un \textit{stub}\textsubscript{\textit{G}} fornisce interfacce simili a quelle dei componenti reali, ma implementa solo le funzionalità essenziali necessarie per soddisfare le dipendenze o per interagire con il componente in fase di sviluppo o di \textit{test}\textsubscript{\textit{G}}. 
+
+\pagebreak
+\section*{T}
+\index{T}
+\phantomsection
+\addcontentsline{toc}{section}{T}
+
+\vspace{0.4cm}
+
+\textbf{Technology baseline}
+
+\vspace{0.1cm}
+
+Il termine Technology Baseline (Baseline Tecnologica) si riferisce a una linea di base o ad una configurazione di tecnologie, strumenti e risorse necessarie per lo sviluppo e la realizzazione di un progetto o di un \textit{sistema}\textsubscript{\textit{G}} specifico. Questa linea di base comprende una serie di elementi essenziali, come hardware, \textit{software}\textsubscript{\textit{G}}, \textit{framework}\textsubscript{\textit{G}}, strumenti di sviluppo, metodologie, \textit{standard}\textsubscript{\textit{G}} e altre risorse tecnologiche fondamentali necessarie per supportare e facilitare il processo di sviluppo e la realizzazione di un \textit{sistema}\textsubscript{\textit{G}}, prodotto o \textit{servizio}\textsubscript{\textit{G}}. La Technology Baseline viene stabilita durante le fasi iniziali di pianificazione di un progetto, definendo gli strumenti e le tecnologie che verranno utilizzati come punto di partenza per lo sviluppo.
+
+\vspace{0.4cm}
+
+\textbf{Telegram}
+
+\vspace{0.1cm}
+
+Applicazione di messaggistica istantanea.
+
+\vspace{0.4cm}
+
+\textbf{Test}
+
+\vspace{0.1cm}
+
+Il termine Test si riferisce a un \textit{processo}\textsubscript{\textit{G}} o a un'\textit{attività}\textsubscript{\textit{G}} che mira a verificare il funzionamento di un \textit{software}\textsubscript{\textit{G}} o di un \textit{sistema}\textsubscript{\textit{G}} informatico al fine di identificare eventuali difetti o problemi.
+
+\vspace{0.4cm}
+
+\textbf{Test di accettazione}
+
+\vspace{0.1cm}
+
+La definizione accurata di \textit{test}\textsubscript{\textit{G}} di accettazione viene data nel paragrafo §3.2.3.8 del documento \textit{Norme di Progetto}.
+
+\vspace{0.4cm}
+
+\textbf{Test di integrazione}
+
+\vspace{0.1cm}
+
+La definizione accurata di \textit{test}\textsubscript{\textit{G}} di \textit{integrazione}\textsubscript{\textit{G}} viene data nel paragrafo §3.2.3.5 del documento \textit{Norme di Progetto}.
+
+\vspace{0.4cm}
+
+\textbf{Test di regressione}
+
+\vspace{0.1cm}
+
+La definizione accurata di \textit{test}\textsubscript{\textit{G}} di regerssione viene data nel paragrafo §3.2.3.7 del documento \textit{Norme di Progetto}.
+
+\vspace{0.4cm}
+
+\textbf{Test di sistema} 
+
+\vspace{0.1cm}
+
+La definizione accurata di \textit{test}\textsubscript{\textit{G}} di \textit{sistema}\textsubscript{\textit{G}} viene data nel paragrafo §3.2.3.6 del documento \textit{Norme di Progetto}.
+
+\vspace{0.4cm}
+
+\textbf{Test di unità}
+
+\vspace{0.1cm}
+
+La definizione accurata di \textit{test}\textsubscript{\textit{G}} di unità viene data nel paragrafo §3.2.3.4 del documento \textit{Norme di Progetto}.
+
+\vspace{0.4cm}
+
+\textbf{Test End-to-End}
+
+\vspace{0.1cm}
+
+Il \textit{Test End-to-End}\textsubscript{\textit{G}} è un processo di verifica dell'integrità e del funzionamento di un \textit{sistema}\textsubscript{\textit{G}} o di un'applicazione informatica dall'inizio alla fine del flusso operativo, simulando il suo utilizzo in condizioni reali. Questo tipo di \textit{test}\textsubscript{\textit{G}} coinvolge tutte le componenti del \textit{sistema}\textsubscript{\textit{G}} e mira a valutare la sua capacità di gestire correttamente tutte le interazioni e le transizioni tra di esse. Attraverso scenari di prova completi e rappresentativi degli utilizzi effettivi, il \textit{Test End-to-End}\textsubscript{\textit{G}} verifica la corretta comunicazione tra i vari moduli, identificando eventuali errori o inefficienze che potrebbero compromettere il funzionamento complessivo del \textit{sistema}\textsubscript{\textit{G}}.
+
+\vspace{0.4cm}
+
+\textbf{Tool}
+
+\vspace{0.1cm}
+
+La parola Tool (strumento) si riferisce a un \textit{software}\textsubscript{\textit{G}} o a un'applicazione che fornisce funzionalità specifiche o servizi per facilitare un compito o un'\textit{attività}\textsubscript{\textit{G}}. Un Tool può essere progettato per svolgere una vasta gamma di compiti.
+
+\pagebreak
+\section*{U}
+\index{U}
+\phantomsection
+\addcontentsline{toc}{section}{U}
+
+\vspace{0.4cm}
+
+\textbf{Use case}
+
+\vspace{0.1cm}
+
+Nel contesto \textit{UML}\textsubscript{\textit{G}} rappresenta una lista di azioni compiute da un attore sul \textit{sistema}\textsubscript{\textit{G}} \textit{software}\textsubscript{\textit{G}} al fine di raggiungere un determinato fine.
+
+\vspace{0.4cm}
+
+\textbf{UML}
+
+\vspace{0.1cm}
+
+\textit{UML}\textsubscript{\textit{G}} (Unified Modeling Language) è un linguaggio di modellazione visuale utilizzato principalmente nell'ingegneria del \textit{software}\textsubscript{\textit{G}} per descrivere, progettare e documentare \textit{sistemi}\textsubscript{\textit{G}} \textit{software}\textsubscript{\textit{G}} complessi.
+
+\vspace{0.4cm}
+
+\textbf{Unità architetturale}
+
+\vspace{0.1cm}
+
+Un'Unità Architetturale si riferisce a un modulo, a una componente o a un'entità di base che costituisce una parte significativa di un \textit{sistema}\textsubscript{\textit{G}} \textit{software}\textsubscript{\textit{G}} o hardware. 
+
+\vspace{0.4cm}
+
+\textbf{User Story}
+
+\vspace{0.1cm}
+
+Una \textit{User Story}\textsubscript{\textit{G}} è una breve descrizione di una caratteristica del \textit{sistema}\textsubscript{\textit{G}} dal punto di vista dell'utente finale, scritta in linguaggio naturale e spesso seguendo il formato "Come [utente], voglio [azione/descrizione] per [beneficio]". Le User Stories sono utilizzate per comunicare in modo chiaro e conciso i \textit{requisiti funzionali}\textsubscript{\textit{G}} del \textit{sistema}\textsubscript{\textit{G}}, focalizzandosi sul valore per l'utente e consentendo un dialogo continuo tra gli \textit{stakeholder}\textsubscript{\textit{G}} e il team di sviluppo per affinare i dettagli e garantire la consegna incrementale di valore.
+
+
+\pagebreak
+\section*{V}
+\index{V}
+\phantomsection
+\addcontentsline{toc}{section}{V}
+
+\vspace{0.4cm}
+
+\textbf{VSCode}
+
+\vspace{0.1cm}
+
+Visual Studio Code (VSCode) è un editor di codice sorgente leggero, estensibile e \textit{open-source}\textsubscript{\textit{G}} sviluppato da Microsoft. È ampiamente utilizzato dagli sviluppatori \textit{software}\textsubscript{\textit{G}} per scrivere, modificare e debuggare codice in diversi linguaggi di programmazione.
+
+\pagebreak
+\section*{W}
+\index{W}
+\phantomsection
+\addcontentsline{toc}{section}{W}
+
+\vspace{0.4cm}
+
+\textbf{Way of working}
+
+\vspace{0.1cm}
+
+Insieme delle metodologie, dei \textit{pattern}\textsubscript{\textit{G}} e degli strumenti utilizzati in maniera sistematica e disciplinata durante lo sviluppo di un progetto \textit{software}\textsubscript{\textit{G}}.
+
+\vspace{0.4cm}
+
+\textbf{Widget}
+
+\vspace{0.1cm}
+
+Un Widget è un componente grafico o un oggetto interattivo che può essere incorporato in un'interfaccia utente di un'applicazione \textit{software}\textsubscript{\textit{G}} o di una pagina web. I Widget sono progettati per fornire funzionalità specifiche e interazioni dirette con gli utenti, migliorando l'esperienza utente complessiva.
+
+\vspace{0.4cm}
+
+\textbf{Windows}
+
+\vspace{0.1cm}
+
+\textit{Windows}\textsubscript{\textit{G}} è un \textit{sistema}\textsubscript{\textit{G}} operativo sviluppato da Microsoft Corporation che fornisce un ambiente \textit{software}\textsubscript{\textit{G}} per l'esecuzione di applicazioni su dispositivi informatici. Caratterizzato da un'interfaccia grafica user-friendly, \textit{Windows}\textsubscript{\textit{G}} offre un'ampia gamma di funzionalità, tra cui la gestione dei file, la connettività di \textit{rete}\textsubscript{\textit{G}}, la sicurezza informatica e la compatibilità con una vasta gamma di hardware e \textit{software}\textsubscript{\textit{G}}.
+
+\vspace{0.4cm}
+
+\textbf{Workflow}
+
+\vspace{0.1cm}
+
+Un Workflow rappresenta il flusso o la sequenza di \textit{attività}\textsubscript{\textit{G}}, \textit{processi}\textsubscript{\textit{G}} o azioni che vengono eseguite in un particolare ordine per completare un compito o raggiungere un obiettivo specifico. È una rappresentazione visuale o concettuale di come le \textit{attività}\textsubscript{\textit{G}} sono strutturate e connesse tra loro all'interno di un processo più ampio.
+
+\end{document}

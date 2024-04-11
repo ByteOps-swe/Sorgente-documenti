@@ -1,0 +1,28 @@
+\subsubsection{Zookeper}
+Apache Zookeeper è un \textit{servizio}\textsubscript{\textit{G}} di coordinamento \textit{open-source}\textsubscript{\textit{G}} sviluppato dalla Apache \textit{Software}\textsubscript{\textit{G}} Foundation. È progettato per fornire funzionalità di coordinazione affidabili e scalabili per applicazioni distribuite.
+
+\paragraph{Versione:}
+Versione utilizzata: 7.6.0
+
+\paragraph{Documentazione:}
+\url{https://zookeeper.apache.org/documentation.html} (Consultato: 19/03/2024).
+
+\paragraph{Funzionalità e vantaggi di Apache Zookeeper:}
+Le principali funzionalità e vantaggi di Apache Zookeeper includono:
+\begin{itemize}
+    \item \textbf{Servizio di coordinazione centralizzato:} Zookeeper fornisce un \textit{servizio}\textsubscript{\textit{G}} centralizzato per la gestione delle configurazioni, l'elezione del leader, la sincronizzazione dei dati e la notifica di eventi;
+    \item \textbf{Affidabilità e scalabilità:} Zookeeper è progettato per essere affidabile e scalabile, in grado di gestire grandi cluster di applicazioni distribuite;
+    \item \textbf{Integrazione con altri software:} Zookeeper è integrato con molti altri \textit{software}\textsubscript{\textit{G}} \textit{open-source}\textsubscript{\textit{G}}, tra cui \textit{Apache Kafka}\textsubscript{\textit{G}}.
+\end{itemize}
+
+\paragraph{Utilizzo nel progetto:}
+Zookeeper è utilizzato principalmente:
+\begin{itemize}
+    \item \textbf{Sincronizzazione dei nodi Kafka:} Memorizza la configurazione del cluster \textit{Kafka}\textsubscript{\textit{G}}, inclusa la lista dei \textit{broker}\textsubscript{\textit{G}} attivi.
+    Quando un nuovo \textit{broker}\textsubscript{\textit{G}} viene aggiunto, Zookeeper aggiorna la configurazione e notifica gli altri \textit{broker}\textsubscript{\textit{G}}.
+    Questo garantisce che tutti i \textit{broker}\textsubscript{\textit{G}} abbiano una visione coerente del cluster e possano comunicare correttamente;
+    \item \textbf{Coordinamento dello schema registry:} Memorizza lo schema per tutti i topic \textit{Kafka}\textsubscript{\textit{G}} utilizzati nel progetto.
+    Quando un client tenta di produrre un messaggio su un topic, lo schema registry verifica lo schema con Zookeeper.
+    Se lo schema è compatibile, il messaggio viene accettato,in caso contrario, il messaggio viene rifiutato.
+    Questo garantisce che solo messaggi con schemi validi vengano pubblicati sui topic.
+\end{itemize}

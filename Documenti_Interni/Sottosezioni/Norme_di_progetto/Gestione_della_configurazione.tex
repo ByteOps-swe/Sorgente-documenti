@@ -3,8 +3,8 @@
 La gestione della configurazione del progetto è un processo che norma il tracciamento e il controllo delle modifiche a documenti e prodotti del \textit{software}\textsubscript{\textit{G}} detti Configuration Item (CI).
 
 La gestione della configurazione viene applicata a qualunque categoria di “artefatti” coinvolti nel ciclo di vita del \textit{software}\textsubscript{\textit{G}}. \\
-Secondo lo \textit{standard}\textsubscript{\textit{G}} \href{https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf}{ISO/IEC 12207:1995}, la gestione della configurazione del \textit{software}\textsubscript{\textit{G}} è un processo di identificazione, organizzazione e controllo delle modifiche apportate ai prodotti \textit{software}\textsubscript{\textit{G}} durante il loro ciclo di vita. \\
-Lo \textit{standard}\textsubscript{\textit{G}} \href{https://standards.ieee.org/ieee/828/5367/}{IEEE 828-2012} definisce la gestione della configurazione del \textit{software}\textsubscript{\textit{G}} come “un processo disciplinato per gestire l’evoluzione del \textit{software}\textsubscript{\textit{G}}”.
+Secondo lo \textit{standard}\textsubscript{\textit{G}} ISO/IEC 12207:1995, la gestione della configurazione del \textit{software}\textsubscript{\textit{G}} è un processo di identificazione, organizzazione e controllo delle modifiche apportate ai prodotti \textit{software}\textsubscript{\textit{G}} durante il loro ciclo di vita. \\
+Lo \textit{standard}\textsubscript{\textit{G}} IEEE 828-2012 definisce la gestione della configurazione del \textit{software}\textsubscript{\textit{G}} come “un processo disciplinato per gestire l’evoluzione del \textit{software}\textsubscript{\textit{G}}”.
 
 \subsubsection{Numeri di versionamento}\label{subsubsec:versionamento}
 La convenzione per identificare la versione di un documento è nel formato X.Y.Z con:
@@ -20,37 +20,47 @@ Ogni variazione di versione deve essere presente nel registro delle modifiche.
 \subsubsection{Repository}
 Di seguito sono elencate le \textit{repository}\textsubscript{\textit{G}} del team ByteOps con i relativi riferimenti:
 \begin{itemize}
-    \item \href{https://github.com/ByteOps-swe/Sorgente-documenti}{Sorgente-documenti:} \textit{repository}\textsubscript{\textit{G}} per il versionamento, la gestione e lo sviluppo dei file sorgente relativi alla documentazione;
-    \item \href{https://github.com/ByteOps-swe/Documents}{Documents:} \textit{repository}\textsubscript{\textit{G}} destinata ai committenti/proponenti, dove vengono esclusivamente condivisi i file in formato PDF relativi alla documentazione, ottenuti dalla compilazione dei file sorgente presenti nella cartella "Sorgente-documenti";
-    \item \href{https://github.com/ByteOps-swe/proof-of-concept}{proof-of-concept:} \textit{repository}\textsubscript{\textit{G}} destinata al \textit{POC}\textsubscript{\textit{G}}.
+    \item \textbf{Sorgente-documenti:} \textit{repository}\textsubscript{\textit{G}} per il versionamento, la gestione e lo sviluppo dei file sorgente relativi alla documentazione. \\
+    Riferimento: \url{https://github.com/ByteOps-swe/Sorgente-documenti} (Consultato:~16/03/2024);
+    \item \textbf{Documents:} \textit{repository}\textsubscript{\textit{G}} destinata ai committenti/proponenti, dove vengono esclusivamente condivisi i file in formato PDF relativi alla documentazione, ottenuti dalla compilazione dei file sorgente presenti nella cartella "Sorgente-documenti". \\
+    Riferimento: \url{https://github.com/ByteOps-swe/Documents} (Consultato:~16/03/2024);
+    \item \textbf{proof-of-concept:} \textit{repository}\textsubscript{\textit{G}} destinata al \textit{POC}\textsubscript{\textit{G}}. \\
+    Riferimento: \url{https://github.com/ByteOps-swe/proof-of-concept} (Consultato:~16/03/2024);
+    \item \textbf{MVP:} contiene il codice sorgente relativo al Minimum Viable Product. \\
+    Riferimento: \url{https://github.com/ByteOps-swe/MVP} (Consultato:~16/03/2024);
+    \item \textbf{ByteOps-swe.github.io:} contiene il codice sorgente relativo alla pagina web dedicata all'esposizione dei repository sopracitati. \\
+    Riferimento: \url{https://github.com/ByteOps-swe/ByteOps-swe.github.io} (Consultato:~16/03/2024).
 \end{itemize}
 \paragraph{Struttura repository}
-I \textit{repository}\textsubscript{\textit{G}} destinati alla documentazione sono organizzati come segue:
-\begin{itemize}
-    \item \textbf{Candidatura:} contenente i documenti richiesti per la candidatura;
-          \begin{itemize}
-              \item \textbf{Verbali:} contiene tutti i verbali redatti nel corso del periodo di candidatura, distinti tra verbali esterni e interni;
-              \item \textbf{Lettera di presentazione};
-              \item \textbf{Valutazione dei costi e assunzione impegni};
-              \item \textbf{Valutazione dei capitolati}.
-          \end{itemize}
-    \item \textbf{RTB:} contenente i documenti richiesti per la revisione omonima;
-          \begin{itemize}
-              \item \textbf{Verbali:} contiene tutti i verbali redatti nel corso del periodo della \textit{RTB}\textsubscript{\textit{G}}, distinti tra verbali esterni e interni;
-              \item \textbf{Piano di Qualifica};
-              \item \textbf{Piano di Progetto};
-              \item \textbf{Analisi dei Requisiti};
-              \item \textbf{Glossario};
-              \item \textbf{Norme di Progetto}.
-          \end{itemize}
-    \item \textbf{PB}.
-\end{itemize}
+Di seguito è riportata la struttura dei \textit{repository}\textsubscript{\textit{G}} destinati alla documentazione. Si sottolinea che i nomi in grassetto nell'elenco seguente identificano directory.
 
+\begin{itemize}
+    \item \textbf{Documentazione esterna:}
+        \begin{itemize}
+            \item \textbf{Verbali}
+            \item Analisi dei requisiti;
+            \item Manuale utente;
+            \item Piano di progetto;
+            \item Piano di qualifica;
+            \item Preventivo costi e assunzione impegni;
+            \item Specifica tecnica.
+        \end{itemize}
+    \item \textbf{Documentazione interna:}
+        \begin{itemize}
+            \item \textbf{Verbali};
+            \item Glossario;
+            \item Norme di progetto;
+            \item Valutazione Capitolati;
+        \end{itemize}
+    \item Lettera di presentazione Candidatura;
+    \item Lettera di presentazione RTB;
+    \item Lettera di presentazione PB.
+\end{itemize}
 
 \hypertarget{subsubsec:sincronizzazione&branching}{\subsubsection{Sincronizzazione e Branching}}
 \paragraph{Documentazione}
-Il processo operativo utilizzato per la redazione della documentazione, noto come "\href{https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow}{Feature Branch workflow}", implica la creazione di un ramo dedicato per ciascun documento o sezione da elaborare.
-Tale metodologia permette una parallelizzazione agile dei lavori evitando sovrascritture indesiderate di altri lavori e permette l'adozione dei principi "Documentation as code" definiti nella \textit{sezione~\ref{sec:DocumentationAscode}}. \\ 
+Il processo operativo utilizzato per la redazione della documentazione, noto come "Feature Branch workflow" (\url{https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow} Consultato:~19/03/2024), implica la creazione di un ramo dedicato per ciascun documento o sezione da elaborare.
+Tale metodologia permette una parallelizzazione agile dei lavori evitando sovrascritture indesiderate di altri lavori e permette l'adozione dei principi "Documentation as code" definiti nella \textit{sezione \S~\ref{sec:DocumentationAscode}}. \\ 
 
 \paragraph*{\hypertarget{par:convezioninomenclaturabranchdocumenti}{\textbf{Convenzioni per la nomenclatura dei branch relativi alle attività di redazione o modifica di documenti}}}
 
@@ -86,7 +96,8 @@ Tale metodologia permette una parallelizzazione agile dei lavori evitando sovras
 \end{itemize}
 
 \paragraph{Sviluppo}
-\href{https://www.atlassian.com/it/git/tutorials/comparing-workflows/gitflow-workflow}{Gitflow} è lo stile di flusso di lavoro Git che utilizza il team ByteOps per lo sviluppo.
+Gitflow è il workflow Git che utilizza il team ByteOps per lo sviluppo.\\
+Riferimento: \url{https://www.atlassian.com/it/git/tutorials/comparing-workflows/gitflow-workflow} (Consultato:~19/03/2024).
 
 \paragraph*{Flusso generale di Gitflow}
 
@@ -154,9 +165,9 @@ Tale metodologia permette una parallelizzazione agile dei lavori evitando sovras
 \end{itemize}
 
 \paragraph{Pull Request}
-Dopo aver portato a termine le \textit{attività}\textsubscript{\textit{G}} nel proprio \textit{branch}\textsubscript{\textit{G}}, il responsabile del suo sviluppo è tenuto ad avviare una Pull Request per incorporare le modifiche effettuate nel ramo principale (main). La Pull Request viene approvata solo dopo che le modifiche sono state verificate sulla base di quanto descritto nella \textit{sezione~\ref{subsec:verifica}}.
+Dopo aver portato a termine le \textit{attività}\textsubscript{\textit{G}} nel proprio \textit{branch}\textsubscript{\textit{G}}, il responsabile del suo sviluppo è tenuto ad avviare una Pull Request per incorporare le modifiche effettuate nel ramo principale (main). La Pull Request viene approvata solo dopo che le modifiche sono state verificate sulla base di quanto descritto nella \textit{sezione \S~\ref{subsec:verifica}}.
 
-\hypertarget{par:creazionePR}{\paragraph*{Procedura per la creazione di Pull Request}}
+\hypertarget{par:creazionePR}{\subparagraph{Procedura per la creazione di Pull Request}}
 Per creare una Pull Request eseguire i seguenti passaggi:
 \begin{enumerate}
     \item Accedere al \textit{repository}\textsubscript{\textit{G}} GitHub e cliccare sulla scheda "Pull requests";
@@ -176,7 +187,7 @@ Per creare una Pull Request eseguire i seguenti passaggi:
 
 \subsubsection{Controllo di configurazione}
 \paragraph{Change request (Richiesta di modifica)}
-Seguendo lo \textit{standard}\textsubscript{\textit{G}} \href{https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf}{ISO/IEC 12207:1995} per affrontare questo processo in modo strutturato le \textit{attività}\textsubscript{\textit{G}} sono:
+Seguendo lo \textit{standard}\textsubscript{\textit{G}} ISO/IEC 12207:1995 per affrontare questo processo in modo strutturato le \textit{attività}\textsubscript{\textit{G}} sono:
 \begin{enumerate}
     \item \textbf{Identificazione e registrazione} \\
     Le change request vengono identificate, registrate e documentate accuratamente. Questo include informazioni come la natura della modifica richiesta, l'urgenza e l'impatto sul \textit{sistema}\textsubscript{\textit{G}} esistente. \\
@@ -210,27 +221,27 @@ Questo processo è cruciale per mantenere la trasparenza e la tracciabilità nel
     \item \textbf{Stato e cambiamenti}: tenere traccia dello stato attuale di ciascun elemento di configurazione e di tutti i cambiamenti che avvengono nel corso del tempo. \\
     Ciò include le versioni attuali, le revisioni, le modifiche e le baseline;
         \begin{itemize}
-            \item \textbf{Registro delle modifiche:} per monitorare lo stato di ciascun Configuration Item si utilizza il registro delle modifiche incorporato in ognuno di essi, come specificato in \hyperlink{item:registrazioneconfigurazioni}{"\textit{registrazione delle configurazioni}"};
+            \item \textbf{Registro delle modifiche:} per monitorare lo stato di ciascun Configuration Item si utilizza il registro delle modifiche incorporato in ognuno di essi;
             \item \textbf{Branching \& DashBoard:} per verificare se vi sono \textit{attività}\textsubscript{\textit{G}} in corso su un Configuration Item, è sufficiente controllare se ci sono \textit{branch}\textsubscript{\textit{G}} attivi correlati e, dato che ogni \textit{issue}\textsubscript{\textit{G}} è associata a un CI tramite \textit{label}\textsubscript{\textit{G}}, verificare le eventuali \textit{issue}\textsubscript{\textit{G}} contrassegnate come "In Progress" nella colonna corrispondente della Dashboard del progetto.
         \end{itemize}
     \item \textbf{Supporto per la gestione delle change request}: registra e documenta le modifiche apportate agli elementi di configurazione in risposta alle richieste di modifica. \\
     Per gestire le richieste di modifica, si utilizza l'Issue Tracking System (ITS) di GitHub, creando una \textit{issue}\textsubscript{\textit{G}} contrassegnata con l'etichetta "Change request".
 \end{itemize}
 
-Per approfondimenti su come creare issues e associare labels a una \textit{issue}\textsubscript{\textit{G}}, consultare la sezione relativa al \hyperlink{par:ticketing}{\textit{Ticketing}}.
+Per approfondimenti su come creare issues e associare labels a una \textit{issue}\textsubscript{\textit{G}}, consultare la sezione \S~\hyperlink{par:ticketing}{4.1.2.10}.
 
 \subsubsection{Release management and delivery}
-Nello \textit{standard}\textsubscript{\textit{G}} \href{https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf}{ISO/IEC 12207:1995}, il processo "Release management and delivery" è definito come un processo che si occupa della pianificazione, del coordinamento e del controllo delle \textit{attività}\textsubscript{\textit{G}} necessarie per preparare e distribuire una versione di un prodotto \textit{software}\textsubscript{\textit{G}} per l'uso operativo.
+Nello \textit{standard}\textsubscript{\textit{G}} ISO/IEC 12207:1995, il processo "Release management and delivery" è definito come un processo che si occupa della pianificazione, del coordinamento e del controllo delle \textit{attività}\textsubscript{\textit{G}} necessarie per preparare e distribuire una versione di un prodotto \textit{software}\textsubscript{\textit{G}} per l'uso operativo.
 
 Questo processo comprende la gestione delle release, la distribuzione del \textit{software}\textsubscript{\textit{G}}, la preparazione della documentazione correlata e altre \textit{attività}\textsubscript{\textit{G}} correlate al rilascio e alla consegna del prodotto \textit{software}\textsubscript{\textit{G}}.
 
 \vspace{0.2cm}
 
-Il team ByteOps ha stabilito che la creazione di una release deve avvenire in relazione alle baseline stabilite per il progetto didattico, ovvero \textit{RTB}\textsubscript{\textit{G}} (Requirements and Technology Baseline), \textit{PB}\textsubscript{\textit{G}} (Product Baseline) ed eventualmente CA (Customer Acceptance). Questo processo inoltre deve essere attuato solo dopo una completa verifica e validazione del prodotto seguendo le procedure dettagliate nelle \textit{sezioni Verifica(~\ref{subsec:verifica})} e \textit{Validazione(~\ref{subsec:validazione})}.
+Il team ByteOps ha stabilito che la creazione di una release deve avvenire in relazione alle baseline stabilite per il progetto didattico, ovvero \textit{RTB}\textsubscript{\textit{G}} (Requirements and Technology Baseline), \textit{PB}\textsubscript{\textit{G}} (Product Baseline) ed eventualmente CA (Customer Acceptance). Questo processo inoltre deve essere attuato solo dopo una completa verifica e validazione del prodotto seguendo le procedure dettagliate nelle \textit{sezioni Verifica (~\S~\ref{subsec:verifica})} e \textit{Validazione (~\S~\ref{subsec:validazione})}.
 
 \vspace{0.2cm}
 
-In conformità con quanto definito nella \textit{sezione~\ref{subsubsec:versionamento}}, relativa al versionamento dei numeri, ogni nuova release comporta un incremento di 1 nell'elemento numerico X del formato X.Y.Z.
+In conformità con quanto definito nella \textit{sezione~\S~\ref{subsubsec:versionamento}}, relativa al versionamento dei numeri, ogni nuova release comporta un incremento di 1 nell'elemento numerico X del formato X.Y.Z.
 
 \paragraph{Procedura per la creazione di una release}
 Per la creazione di una release eseguire la seguente procedura:
@@ -238,7 +249,7 @@ Per la creazione di una release eseguire la seguente procedura:
     \item Accedi alla \textit{repository}\textsubscript{\textit{G}} GitHub;
     \item Accedi alla sezione "Releases";
     \item Clicca sul pulsante "Create a new release";
-    \item Clicca sul pulsante "Choose a tag" e selezionare il tag che identifica la versione della release. Nel caso il tag desiderato non fosse presente nella lista, è possibile crearne uno nuovo scrivendo la versione desiderata e cliccando sul pulsante "Create new tag". Per la corretta definizione della versione vedi la \textit{sezione~\ref{subsubsec:versionamento}} relativa ai numeri di versionamento;
+    \item Clicca sul pulsante "Choose a tag" e selezionare il tag che identifica la versione della release. Nel caso il tag desiderato non fosse presente nella lista, è possibile crearne uno nuovo scrivendo la versione desiderata e cliccando sul pulsante "Create new tag". Per la corretta definizione della versione vedi la \textit{sezione~\S~\ref{subsubsec:versionamento}} relativa ai numeri di versionamento;
     \item Seleziona il \textit{branch}\textsubscript{\textit{G}} main come \textit{branch}\textsubscript{\textit{G}} target di cui si vuole creare una release;
     \item Scegliere un titolo per la release. La convenzione adottata è quella di inserire come titolo il nome della baseline per la quale si vuole creare la release.
     \item Scrivi una breve descrizione per la release;
@@ -251,6 +262,6 @@ Dopo aver seguito la procedura, nella sezione "Releases" di GitHub sarà visibil
 Le tecnologie adottate per la gestione dei Configuration Item sono:
 \begin{itemize}
     \item \textbf{Git}: Version Control System distribuito utilizzato per il versionamento dei Configuration Item;
-    \item \textbf{GitHub}: \textit{piattaforma}\textsubscript{\textit{G}} web per il controllo di versione (tramite Git) dei Configuration Item e per il \hyperlink{par:ticketing}{\textit{Ticketing}}. È impiegata per gestire le richieste di modifica tramite \textit{issue}\textsubscript{\textit{G}} e \textit{label}\textsubscript{\textit{G}}, oltre che per la contabilità dello stato di configurazione.
+    \item \textbf{GitHub}: \textit{piattaforma}\textsubscript{\textit{G}} web per il controllo di versione (tramite Git) dei Configuration Item e per il Ticketing (\hyperlink{par:ticketing}{\S 4.1.2.10}). È impiegata per gestire le richieste di modifica tramite \textit{issue}\textsubscript{\textit{G}} e \textit{label}\textsubscript{\textit{G}}, oltre che per la contabilità dello stato di configurazione.
 \end{itemize}
 
