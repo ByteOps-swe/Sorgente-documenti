@@ -1,0 +1,228 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[absolute]{textpos}
+\usepackage[default]{raleway}
+\usepackage{pgf-pie, multirow, longtable, tikz, titlesec, comment, tabularx, makecell, float, listings, array, setspace, geometry, graphicx, xcolor, xparse, fancyvrb, relsize, fancyhdr, booktabs, hyperref, eurosym, fancybox, cleveref, todonotes}
+\usepackage{colortbl}
+\renewcommand{\headrulewidth}{0pt}
+
+% Definisci uno stile per i comandi git
+\definecolor{light-gray}{gray}{0.92}
+\definecolor{darkgreen}{rgb}{0.0, 0.5, 0.0}
+\definecolor{navyblue}{rgb}{0.0, 0.0, 0.8}
+
+\lstdefinestyle{code}{
+    frame=single,
+    framesep=1mm,
+    rulecolor=\color{light-gray},
+    backgroundcolor=\color{light-gray},
+    basicstyle=\ttfamily,
+}
+ 
+% ----------------------------- Definizione tabella ---------------------------
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+% ------------------------------Metadati indice --------------------------------
+\title{\textbf{\fontsize{28}{6}\selectfont Indice}}
+\author{\fontsize{14}{6}\selectfont ByteOps}
+\date{Marzo 08, 2024}
+ 
+
+% -----------------------------Creazione footer --------------------------------
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{
+    \parbox[c]{2cm}{\includegraphics[width=2cm]{Images/logo.png}}
+    \textcolor[RGB]{120, 120, 120}{$\cdot$ Candidatura PB}
+}
+\rfoot{\thepage}
+
+% --------------------------Modifica formato hyperlinks ------------------------
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=darkgreen,
+    urlcolor=navyblue,
+    filecolor=black,      
+    pdftitle={Candidatura PB},  %inserisci data verbale
+    pdfpagemode=FullScreen,
+}
+
+% ------------------------------- Valore sotto-paragrafi indice --------------------------------------
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\titleformat{\section}
+{\normalfont\huge\bfseries}{\thesection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsection}
+{\normalfont\Large\bfseries}{\thesubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\subsubsection}
+{\normalfont\large\bfseries}{\thesubsubsection}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{0.2cm}{}
+\titlespacing*{\paragraph}{0pt}{0.5cm}{0.1cm}
+
+% ------------------------------- Front Page ---------------------------------------
+
+\begin{document}
+
+% --------------------------Aggiunta firma finale ------------------------
+\begin{textblock*}{\textwidth}(0.85\textwidth, 1.16\textheight)
+    Il responsabile: F. Pozza
+\end{textblock*}
+% ------------------------------------------------------------------------
+
+\pagestyle{fancy}
+\begin{center}
+\includegraphics[width = 0.7\textwidth]{Images/logo.png} \\
+\vspace{0.2cm}
+\textcolor[RGB]{60, 60, 60}{\textit{ByteOps.swe@gmail.com}} \\
+\vspace{1cm}
+\fontsize{16}{6}\selectfont Candidatura PB \\
+\vspace{0.5cm}
+\end{center}
+
+\section*{Informazioni documento}
+\def\arraystretch{1.2}
+\begin{tabular}{>{\raggedleft\arraybackslash}p{0.2\textwidth}|>{\raggedright\arraybackslash}p{0.6\textwidth}c}
+\hline
+\addlinespace
+\textbf{Data} & 08/03/2024 \vspace{10pt} \\
+\textbf{Redattore} & N. Preto \vspace{10pt} \\
+\textbf{Verificatore} & R. Smanio \vspace{10pt} \\
+\textbf{Amministratore} & D. Diotto \vspace{10pt} \\
+\textbf{Destinatari} & T. Vardanega \\ & R. Cardin \vspace{10pt} \\
+\end{tabular}
+\pagebreak 
+
+% ------------------------- Generazione automatica indice ----------------------
+\setstretch{1.5}
+\maketitle
+\thispagestyle{fancy}
+{
+    \hypersetup{linkcolor=black}
+    \tableofcontents
+}
+\setstretch{1.2}
+\pagebreak
+
+% ------------------------ INIZIO DOCUMENTO ----------------------
+\flushleft
+
+\section{Introduzione}
+Con la presente lettera di candidatura il gruppo \textit{ByteOps} comunica ufficialmente la volontà di richiedere un colloquio per la revisione \textit{PB}\textsubscript{\textit{G}} \textit{(Product Baseline)} riguardante il progetto \textit{InnovaCity: A smart city monitoring platform} proposto dall'azienda \textit{Sync Lab}.
+
+\section{Documenti}
+Tutta la documentazione è reperibile nella \textit{repository}\textsubscript{\textit{G}} pubblica del team \textit{ByteOps} accedendo al sito attraverso il seguente link:
+
+\begin{center}
+    \href{https://byteops-swe.github.io}{https://byteops-swe.github.io}
+\end{center}
+
+Nello specifico è presente una release 2.0 \textit{PB}\textsubscript{\textit{G}} nella quale saranno disponibili:
+\vspace{0.2cm}
+
+\textbf{Documenti esterni:}
+\begin{itemize}
+    \item Analisi dei requisiti \textit{v2.0.0};
+    \item Piano di progetto \textit{v2.0.0};
+    \item Piano di qualifica \textit{v2.0.0};
+    \item Manuale utente \textit{v1.0.0};
+    \item Specifica tecnica \textit{v1.0.0};
+    \item Preventivo costi e assunzione impegni;
+    \item Verbali.
+\end{itemize}
+\vspace{0.2cm}
+
+\textbf{Documenti interni:}
+\begin{itemize}
+    \item Norme di progetto \textit{v2.0.0};
+    \item Glossario \textit{v2.0.0};
+    \item Valutazione capitolati;
+    \item Verbali.
+\end{itemize}
+
+\section{Validazione MVP}
+
+La certificazione di validità del Minimum Viable Product (MVP) è stata rilasciata dall'azienda \textit{Sync Lab} in data 22/03/2024 e si può trovare nel relativo verbale esterno.
+
+\section{Aggiornamento preventivo}
+Rispetto al preventivo di €12.425, il team \textit{ByteOps} è stato in grado di rispettare i costi preventivati, mantenendo il budget iniziale invariato. \\
+Per quanto concerne le ore di attività, ciascun membro del gruppo ha rispettato le ore preventivate, totalizzando 91 ore produttive per componente e un totale complessivo di 637 ore.\\
+Di seguito è riportata una tabella riassuntiva in merito alle ore di lavoro impiegate da ciascun membro del team:
+\begin{center}
+    \begin{tabular}{|C{4cm}|C{2cm}|}
+    \hline
+        \textbf{Nominativo} & \textbf{Matricola} \\
+        \hline\hline
+        Andrea Barutta  & 91 \\
+        \hline
+        Davide Diotto   & 91 \\ 
+        \hline
+        Endi Hysa       & 91 \\ 
+        \hline
+        Francesco Pozza & 91 \\ 
+        \hline
+        Nicola Preto    & 91 \\ 
+        \hline
+        Lisien Skenderi & 91 \\ 
+        \hline
+        Riccardo Smanio & 91 \\ 
+        \hline\hline
+        \textbf{Totale} & \textbf{637} \\ 
+        \hline
+        \textbf{Ore rimanenti} & \textbf{0} \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\section{Aggiornamento impegni}
+In seguito alla riunione interna tenutasi in data 22/03/2024, il gruppo \textit{ByteOps} ha deliberato di considerare concluso il progetto una volta completata la fase di Product Baseline, rinunciando pertanto alla possibilità di partecipare alla revisione Customer Acceptance.
+
+
+
+\section{Il Team}
+Di seguito vengono elencati i membri del gruppo ByteOps:
+\vspace{1cm}
+
+\begin{center}
+    \begin{tabular}{|C{4cm}|C{2cm}|}
+    \hline
+        \textbf{Nominativo} & \textbf{Matricola} \\
+        \hline\hline
+        Andrea Barutta  & 2042355 \\
+        \hline
+        Davide Diotto   & 2042334 \\ 
+        \hline
+        Endi Hysa       & 2046424 \\ 
+        \hline
+        Francesco Pozza & 1174610 \\ 
+        \hline
+        Nicola Preto    & 2042371 \\ 
+        \hline
+        Lisien Skenderi & 2023461 \\ 
+        \hline
+        Riccardo Smanio & 1126491 \\ 
+        \hline
+    \end{tabular}
+\end{center}
+
+
+\vspace{1cm}
+Nell'attesa di una sua risposta le rivolgiamo cordiali saluti,
+
+\vspace{0.3cm}
+
+\textit{ByteOps}.
+
+\end{document}
